@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class securityOptions extends Model
 {
     /**
+     * @example TDX
+     *
      * @var string
      */
     public $confidentialComputingMode;
@@ -16,12 +18,9 @@ class securityOptions extends Model
         'confidentialComputingMode' => 'ConfidentialComputingMode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->confidentialComputingMode) {
@@ -31,11 +30,11 @@ class securityOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return securityOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

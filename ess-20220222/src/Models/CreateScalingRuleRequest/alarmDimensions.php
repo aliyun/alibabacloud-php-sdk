@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingRuleRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class alarmDimensions extends Model
 {
     /**
+     * @description The dimension key of the metric.
+     *
+     * @example rulePool
+     *
      * @var string
      */
     public $dimensionKey;
+
     /**
+     * @description The dimension value of the metric.
+     *
+     * @example sgp-l1cbirz451yxuxxx
+     *
      * @var string
      */
     public $dimensionValue;
     protected $_name = [
-        'dimensionKey'   => 'DimensionKey',
+        'dimensionKey' => 'DimensionKey',
         'dimensionValue' => 'DimensionValue',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dimensionKey) {
             $res['DimensionKey'] = $this->dimensionKey;
         }
-
         if (null !== $this->dimensionValue) {
             $res['DimensionValue'] = $this->dimensionValue;
         }
@@ -40,18 +45,17 @@ class alarmDimensions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return alarmDimensions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DimensionKey'])) {
             $model->dimensionKey = $map['DimensionKey'];
         }
-
         if (isset($map['DimensionValue'])) {
             $model->dimensionValue = $map['DimensionValue'];
         }

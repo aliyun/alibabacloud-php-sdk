@@ -4,44 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailResponseBody\scalingConfiguration;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class hostAliases extends Model
 {
     /**
+     * @description The added hostnames.
+     *
      * @var string[]
      */
     public $hostnames;
+
     /**
+     * @description The added IP address.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $ip;
     protected $_name = [
         'hostnames' => 'Hostnames',
-        'ip'        => 'Ip',
+        'ip' => 'Ip',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->hostnames)) {
-            Model::validateArray($this->hostnames);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->hostnames) {
-            if (\is_array($this->hostnames)) {
-                $res['Hostnames'] = [];
-                $n1               = 0;
-                foreach ($this->hostnames as $item1) {
-                    $res['Hostnames'][$n1++] = $item1;
-                }
-            }
+            $res['Hostnames'] = $this->hostnames;
         }
-
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
@@ -49,24 +43,19 @@ class hostAliases extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return hostAliases
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Hostnames'])) {
             if (!empty($map['Hostnames'])) {
-                $model->hostnames = [];
-                $n1               = 0;
-                foreach ($map['Hostnames'] as $item1) {
-                    $model->hostnames[$n1++] = $item1;
-                }
+                $model->hostnames = $map['Hostnames'];
             }
         }
-
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }

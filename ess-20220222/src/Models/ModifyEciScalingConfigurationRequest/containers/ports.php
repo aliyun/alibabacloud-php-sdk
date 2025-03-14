@@ -4,35 +4,43 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\containers;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ports extends Model
 {
     /**
+     * @description The port number. Valid values: 1 to 65535.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $port;
+
     /**
+     * @description The protocol type. Valid values:
+     *
+     *   TCP
+     *   UDP
+     *
+     * @example TCP
+     *
      * @var string
      */
     public $protocol;
     protected $_name = [
-        'port'     => 'Port',
+        'port' => 'Port',
         'protocol' => 'Protocol',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -40,18 +48,17 @@ class ports extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ports
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

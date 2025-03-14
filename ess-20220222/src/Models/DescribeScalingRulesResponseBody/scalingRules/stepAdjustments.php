@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingRulesResponseBody\scalingRules;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class stepAdjustments extends Model
 {
     /**
+     * @description The lower limit of a step adjustment. Valid values: -9.999999E18 to 9.999999E18.
+     *
+     * @example 1.0
+     *
      * @var float
      */
     public $metricIntervalLowerBound;
+
     /**
+     * @description The upper limit of a step adjustment. Valid values: -9.999999E18 to 9.999999E18.
+     *
+     * @example 5.0
+     *
      * @var float
      */
     public $metricIntervalUpperBound;
+
     /**
+     * @description The number of ECS instances that are scaled in a step adjustment.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $scalingAdjustment;
     protected $_name = [
         'metricIntervalLowerBound' => 'MetricIntervalLowerBound',
         'metricIntervalUpperBound' => 'MetricIntervalUpperBound',
-        'scalingAdjustment'        => 'ScalingAdjustment',
+        'scalingAdjustment' => 'ScalingAdjustment',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->metricIntervalLowerBound) {
             $res['MetricIntervalLowerBound'] = $this->metricIntervalLowerBound;
         }
-
         if (null !== $this->metricIntervalUpperBound) {
             $res['MetricIntervalUpperBound'] = $this->metricIntervalUpperBound;
         }
-
         if (null !== $this->scalingAdjustment) {
             $res['ScalingAdjustment'] = $this->scalingAdjustment;
         }
@@ -49,22 +58,20 @@ class stepAdjustments extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return stepAdjustments
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetricIntervalLowerBound'])) {
             $model->metricIntervalLowerBound = $map['MetricIntervalLowerBound'];
         }
-
         if (isset($map['MetricIntervalUpperBound'])) {
             $model->metricIntervalUpperBound = $map['MetricIntervalUpperBound'];
         }
-
         if (isset($map['ScalingAdjustment'])) {
             $model->scalingAdjustment = $map['ScalingAdjustment'];
         }

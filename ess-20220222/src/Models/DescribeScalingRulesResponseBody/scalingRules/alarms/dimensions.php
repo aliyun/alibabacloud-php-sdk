@@ -4,35 +4,43 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingRulesResponseBody\scalingRules\alarms;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dimensions extends Model
 {
     /**
+     * @description The key of the dimension that is associated with the metric. Valid values:
+     *
+     *   ScalingGroupId: the ID of the scaling group.
+     *   userId: the ID of the user account.
+     *
+     * @example scaling_group
+     *
      * @var string
      */
     public $dimensionKey;
+
     /**
+     * @description The value of the dimension that is associated with the metric.
+     *
+     * @example asg-bp18p2yfxow2dloq****
+     *
      * @var string
      */
     public $dimensionValue;
     protected $_name = [
-        'dimensionKey'   => 'DimensionKey',
+        'dimensionKey' => 'DimensionKey',
         'dimensionValue' => 'DimensionValue',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dimensionKey) {
             $res['DimensionKey'] = $this->dimensionKey;
         }
-
         if (null !== $this->dimensionValue) {
             $res['DimensionValue'] = $this->dimensionValue;
         }
@@ -40,18 +48,17 @@ class dimensions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dimensions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DimensionKey'])) {
             $model->dimensionKey = $map['DimensionKey'];
         }
-
         if (isset($map['DimensionValue'])) {
             $model->dimensionValue = $map['DimensionValue'];
         }

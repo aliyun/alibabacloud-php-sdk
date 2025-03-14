@@ -4,53 +4,55 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DBInstances extends Model
 {
     /**
+     * @description The ID of the database.
+     *
+     * @example rm-m5eqju85s45mu0***
+     *
      * @var string
      */
     public $DBInstanceId;
+
     /**
+     * @description The IDs of the security groups that are added to the security group whitelist of the attached database.
+     *
      * @var string[]
      */
     public $securityGroupIds;
+
     /**
+     * @description The type of the database. Valid values:
+     *
+     *   RDS.
+     *   Redis.
+     *   MongoDB.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'securityGroupIds' => 'SecurityGroupIds',
-        'type'             => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->securityGroupIds)) {
-            Model::validateArray($this->securityGroupIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->securityGroupIds) {
-            if (\is_array($this->securityGroupIds)) {
-                $res['SecurityGroupIds'] = [];
-                $n1                      = 0;
-                foreach ($this->securityGroupIds as $item1) {
-                    $res['SecurityGroupIds'][$n1++] = $item1;
-                }
-            }
+            $res['SecurityGroupIds'] = $this->securityGroupIds;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -58,28 +60,22 @@ class DBInstances extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DBInstances
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
-                $model->securityGroupIds = [];
-                $n1                      = 0;
-                foreach ($map['SecurityGroupIds'] as $item1) {
-                    $model->securityGroupIds[$n1++] = $item1;
-                }
+                $model->securityGroupIds = $map['SecurityGroupIds'];
             }
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

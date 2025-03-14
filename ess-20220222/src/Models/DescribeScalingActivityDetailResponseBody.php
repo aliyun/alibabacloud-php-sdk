@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeScalingActivityDetailResponseBody extends Model
 {
     /**
+     * @description The details of the scaling activity. The result of a scaling activity is either successful or failed. If the scaling activity is rejected, no scaling activity details are returned.
+     *
+     * @example new ECS instances \\"i-bp16t2cgmiiymeqv****\\" are created.
+     *
      * @var string
      */
     public $detail;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example B13527BF-1FBD-4334-A512-20F5E9D3FB4D
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The ID of the scaling activity.
+     *
+     * @example asa-bp1c9djwrgxjyk31****
+     *
      * @var string
      */
     public $scalingActivityId;
     protected $_name = [
-        'detail'            => 'Detail',
-        'requestId'         => 'RequestId',
+        'detail' => 'Detail',
+        'requestId' => 'RequestId',
         'scalingActivityId' => 'ScalingActivityId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->scalingActivityId) {
             $res['ScalingActivityId'] = $this->scalingActivityId;
         }
@@ -49,22 +58,20 @@ class DescribeScalingActivityDetailResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeScalingActivityDetailResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ScalingActivityId'])) {
             $model->scalingActivityId = $map['ScalingActivityId'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RollbackInstanceRefreshResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example B13527BF-1FBD-4334-A512-20F5E9D3****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class RollbackInstanceRefreshResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class RollbackInstanceRefreshResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RollbackInstanceRefreshResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

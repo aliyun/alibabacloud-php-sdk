@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ApplyEciScalingConfigurationRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ApplyEciScalingConfigurationResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ApplyScalingGroupRequest;
@@ -198,10 +199,11 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\VerifyAuthenticationRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\VerifyAuthenticationResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\VerifyUserRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\VerifyUserResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Ess extends OpenApiClient
 {
@@ -209,51 +211,51 @@ class Ess extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-qingdao'                  => 'ess.aliyuncs.com',
-            'cn-beijing'                  => 'ess.aliyuncs.com',
-            'cn-hangzhou'                 => 'ess.aliyuncs.com',
-            'cn-shanghai'                 => 'ess.aliyuncs.com',
-            'cn-shenzhen'                 => 'ess.aliyuncs.com',
-            'cn-hongkong'                 => 'ess.aliyuncs.com',
-            'ap-southeast-1'              => 'ess.aliyuncs.com',
-            'us-east-1'                   => 'ess.aliyuncs.com',
-            'us-west-1'                   => 'ess.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'ess.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'ess.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'ess.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'ess.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'ess.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'ess.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'ess.aliyuncs.com',
-            'cn-edge-1'                   => 'ess.aliyuncs.com',
-            'cn-fujian'                   => 'ess.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'ess.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'ess.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'ess.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-qingdao' => 'ess.aliyuncs.com',
+            'cn-beijing' => 'ess.aliyuncs.com',
+            'cn-hangzhou' => 'ess.aliyuncs.com',
+            'cn-shanghai' => 'ess.aliyuncs.com',
+            'cn-shenzhen' => 'ess.aliyuncs.com',
+            'cn-hongkong' => 'ess.aliyuncs.com',
+            'ap-southeast-1' => 'ess.aliyuncs.com',
+            'us-east-1' => 'ess.aliyuncs.com',
+            'us-west-1' => 'ess.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'ess.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'ess.aliyuncs.com',
+            'cn-north-2-gov-1' => 'ess.aliyuncs.com',
+            'ap-northeast-2-pop' => 'ess.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'ess.aliyuncs.com',
+            'cn-beijing-gov-1' => 'ess.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'ess.aliyuncs.com',
+            'cn-edge-1' => 'ess.aliyuncs.com',
+            'cn-fujian' => 'ess.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'ess.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'ess.aliyuncs.com',
+            'cn-hangzhou-finance' => 'ess.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'ess.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'ess.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'ess.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'ess.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'ess.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'ess.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'ess.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'ess.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'ess.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'ess.aliyuncs.com',
-            'cn-shanghai-inner'           => 'ess.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'ess.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'ess.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'ess.aliyuncs.com',
+            'cn-qingdao-nebula' => 'ess.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'ess.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'ess.aliyuncs.com',
+            'cn-shanghai-inner' => 'ess.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'ess.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'ess.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'ess.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'ess.aliyuncs.com',
-            'cn-wuhan'                    => 'ess.aliyuncs.com',
-            'cn-yushanfang'               => 'ess.aliyuncs.com',
-            'cn-zhangbei'                 => 'ess.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'ess.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'ess.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'ess.aliyuncs.com',
-            'eu-west-1-oxs'               => 'ess.aliyuncs.com',
-            'rus-west-1-pop'              => 'ess.aliyuncs.com',
+            'cn-shenzhen-inner' => 'ess.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'ess.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'ess.aliyuncs.com',
+            'cn-wuhan' => 'ess.aliyuncs.com',
+            'cn-yushanfang' => 'ess.aliyuncs.com',
+            'cn-zhangbei' => 'ess.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'ess.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'ess.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'ess.aliyuncs.com',
+            'eu-west-1-oxs' => 'ess.aliyuncs.com',
+            'rus-west-1-pop' => 'ess.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ess', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -272,73 +274,62 @@ class Ess extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Applies a scaling configuration of the Elastic Container Instance type. If you want to create and manage scaling configurations of the Elastic Container Instance type by using a configuration file, you can call the ApplyEciScalingConfiguration operation.
-     *
-     * @remarks
-     * Before you use a YAML configuration file to manage scaling configurations of the Elastic Container Instance type, you must take note of the following items:
+     * @summary Applies a scaling configuration of the Elastic Container Instance type. If you want to create and manage scaling configurations of the Elastic Container Instance type by using a configuration file, you can call the ApplyEciScalingConfiguration operation.
+     *  *
+     * @description Before you use a YAML configuration file to manage scaling configurations of the Elastic Container Instance type, you must take note of the following items:
      * *   If you include a scaling configuration ID within your request, the system updates the scaling configuration based on the YAML configuration file.
      * *   If you do not include a scaling configuration ID within your request, the system creates a scaling configuration of the Elastic Container Instance type based on the YAML configuration file.
+     *  *
+     * @param ApplyEciScalingConfigurationRequest $request ApplyEciScalingConfigurationRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ApplyEciScalingConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ApplyEciScalingConfigurationResponse
-     *
-     * @param ApplyEciScalingConfigurationRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ApplyEciScalingConfigurationResponse
+     * @return ApplyEciScalingConfigurationResponse ApplyEciScalingConfigurationResponse
      */
     public function applyEciScalingConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->content) {
-            @$query['Content'] = $request->content;
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
         }
-
-        if (null !== $request->format) {
-            @$query['Format'] = $request->format;
+        if (!Utils::isUnset($request->format)) {
+            $query['Format'] = $request->format;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->scalingConfigurationId) {
-            @$query['ScalingConfigurationId'] = $request->scalingConfigurationId;
+        if (!Utils::isUnset($request->scalingConfigurationId)) {
+            $query['ScalingConfigurationId'] = $request->scalingConfigurationId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApplyEciScalingConfiguration',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApplyEciScalingConfiguration',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ApplyEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -346,19 +337,15 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Applies a scaling configuration of the Elastic Container Instance type. If you want to create and manage scaling configurations of the Elastic Container Instance type by using a configuration file, you can call the ApplyEciScalingConfiguration operation.
-     *
-     * @remarks
-     * Before you use a YAML configuration file to manage scaling configurations of the Elastic Container Instance type, you must take note of the following items:
+     * @summary Applies a scaling configuration of the Elastic Container Instance type. If you want to create and manage scaling configurations of the Elastic Container Instance type by using a configuration file, you can call the ApplyEciScalingConfiguration operation.
+     *  *
+     * @description Before you use a YAML configuration file to manage scaling configurations of the Elastic Container Instance type, you must take note of the following items:
      * *   If you include a scaling configuration ID within your request, the system updates the scaling configuration based on the YAML configuration file.
      * *   If you do not include a scaling configuration ID within your request, the system creates a scaling configuration of the Elastic Container Instance type based on the YAML configuration file.
+     *  *
+     * @param ApplyEciScalingConfigurationRequest $request ApplyEciScalingConfigurationRequest
      *
-     * @param request - ApplyEciScalingConfigurationRequest
-     * @returns ApplyEciScalingConfigurationResponse
-     *
-     * @param ApplyEciScalingConfigurationRequest $request
-     *
-     * @return ApplyEciScalingConfigurationResponse
+     * @return ApplyEciScalingConfigurationResponse ApplyEciScalingConfigurationResponse
      */
     public function applyEciScalingConfiguration($request)
     {
@@ -368,10 +355,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates and manages scaling groups by using configuration files. You can call the ApplyScalingGroup operation to create and manage scaling groups by using configuration files with efficiency.
-     *
-     * @remarks
-     * You can call the ApplyScalingGroup operation to create scaling groups of the Elastic Container Instance type with ease. The resources of the scaling groups are defined in Kubernetes Deployment YAML files. You can also call this operation to extend annotations for elastic container instances in Kubernetes Deployment YAML files. For more information, see "Supported annotations" in this topic.
+     * @summary Creates and manages scaling groups by using configuration files. You can call the ApplyScalingGroup operation to create and manage scaling groups by using configuration files with efficiency.
+     *  *
+     * @description You can call the ApplyScalingGroup operation to create scaling groups of the Elastic Container Instance type with ease. The resources of the scaling groups are defined in Kubernetes Deployment YAML files. You can also call this operation to extend annotations for elastic container instances in Kubernetes Deployment YAML files. For more information, see "Supported annotations" in this topic.
      * Mapping between YAML files and scaling groups: You can map the triplet of namespace, kind, and name in a YAML file to a scaling group name. A YAML file and a scaling group have a one-to-one mapping relationship in a region. For example, if you use the Kubernetes Deployment YAML file whose name is NGINX in the default namespace to create a scaling group in a region, the unique name of the mapped scaling group is k8s_default_Deployment_nginx.
      * You can use a Kubernetes Deployment YAML file to manage a scaling group based on the following logic:
      * * If an existing scaling group has a mapping relationship with your Kubernetes Deployment YAML file, you can update the scaling group by using the YAML file.
@@ -403,47 +389,40 @@ class Ess extends OpenApiClient
      * |k8s.aliyun.com/eci-data-cache-burstingEnabled|"true"|Specifies whether the Burst feature is enabled for the ESSD AutoPL disk. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * If you configure this annotation, the cloud disk that is created based on data caches is of the ESSD AutoPL type.|
      * |k8s.aliyun.com/eci-custom-tags|"env:test,name:alice"|The tags that you want to add to each elastic container instance. You can add up to three tags for each elastic container instance. Separate a tag key and a tag value with a colon (:). Separate multiple tags with commas (,).|
+     *  *
+     * @param ApplyScalingGroupRequest $request ApplyScalingGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ApplyScalingGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ApplyScalingGroupResponse
-     *
-     * @param ApplyScalingGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ApplyScalingGroupResponse
+     * @return ApplyScalingGroupResponse ApplyScalingGroupResponse
      */
     public function applyScalingGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->content) {
-            @$query['Content'] = $request->content;
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
         }
-
-        if (null !== $request->format) {
-            @$query['Format'] = $request->format;
+        if (!Utils::isUnset($request->format)) {
+            $query['Format'] = $request->format;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApplyScalingGroup',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApplyScalingGroup',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ApplyScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -451,10 +430,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates and manages scaling groups by using configuration files. You can call the ApplyScalingGroup operation to create and manage scaling groups by using configuration files with efficiency.
-     *
-     * @remarks
-     * You can call the ApplyScalingGroup operation to create scaling groups of the Elastic Container Instance type with ease. The resources of the scaling groups are defined in Kubernetes Deployment YAML files. You can also call this operation to extend annotations for elastic container instances in Kubernetes Deployment YAML files. For more information, see "Supported annotations" in this topic.
+     * @summary Creates and manages scaling groups by using configuration files. You can call the ApplyScalingGroup operation to create and manage scaling groups by using configuration files with efficiency.
+     *  *
+     * @description You can call the ApplyScalingGroup operation to create scaling groups of the Elastic Container Instance type with ease. The resources of the scaling groups are defined in Kubernetes Deployment YAML files. You can also call this operation to extend annotations for elastic container instances in Kubernetes Deployment YAML files. For more information, see "Supported annotations" in this topic.
      * Mapping between YAML files and scaling groups: You can map the triplet of namespace, kind, and name in a YAML file to a scaling group name. A YAML file and a scaling group have a one-to-one mapping relationship in a region. For example, if you use the Kubernetes Deployment YAML file whose name is NGINX in the default namespace to create a scaling group in a region, the unique name of the mapped scaling group is k8s_default_Deployment_nginx.
      * You can use a Kubernetes Deployment YAML file to manage a scaling group based on the following logic:
      * * If an existing scaling group has a mapping relationship with your Kubernetes Deployment YAML file, you can update the scaling group by using the YAML file.
@@ -486,13 +464,10 @@ class Ess extends OpenApiClient
      * |k8s.aliyun.com/eci-data-cache-burstingEnabled|"true"|Specifies whether the Burst feature is enabled for the ESSD AutoPL disk. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * If you configure this annotation, the cloud disk that is created based on data caches is of the ESSD AutoPL type.|
      * |k8s.aliyun.com/eci-custom-tags|"env:test,name:alice"|The tags that you want to add to each elastic container instance. You can add up to three tags for each elastic container instance. Separate a tag key and a tag value with a colon (:). Separate multiple tags with commas (,).|
+     *  *
+     * @param ApplyScalingGroupRequest $request ApplyScalingGroupRequest
      *
-     * @param request - ApplyScalingGroupRequest
-     * @returns ApplyScalingGroupResponse
-     *
-     * @param ApplyScalingGroupRequest $request
-     *
-     * @return ApplyScalingGroupResponse
+     * @return ApplyScalingGroupResponse ApplyScalingGroupResponse
      */
     public function applyScalingGroup($request)
     {
@@ -502,69 +477,57 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Attaches Application Load Balancer (ALB) server groups to a scaling group. To seamlessly adjust the number of instances in response to changes in your business workload or to maintain the uninterrupted accessibility of your application, you can call the AttachAlbServerGroups operation. By attaching ALB server groups to your scaling group, this operation enables Auto Scaling to automatically tailor your computing capacity to your business needs. Furthermore, it optimizes traffic routing by dynamically allocating incoming requests based on current workload patterns, which significantly improves the stability and performance of your application.
-     *
-     * @remarks
-     * Before you call the operation to attach an ALB server group to your scaling group, make sure that the following requirements are met:
+     * @summary Attaches Application Load Balancer (ALB) server groups to a scaling group. To seamlessly adjust the number of instances in response to changes in your business workload or to maintain the uninterrupted accessibility of your application, you can call the AttachAlbServerGroups operation. By attaching ALB server groups to your scaling group, this operation enables Auto Scaling to automatically tailor your computing capacity to your business needs. Furthermore, it optimizes traffic routing by dynamically allocating incoming requests based on current workload patterns, which significantly improves the stability and performance of your application.
+     *  *
+     * @description Before you call the operation to attach an ALB server group to your scaling group, make sure that the following requirements are met:
      * *   The scaling group and the ALB server group share the same virtual private cloud (VPC).
      * *   The ALB server group is in the Available state.
+     *  *
+     * @param AttachAlbServerGroupsRequest $request AttachAlbServerGroupsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AttachAlbServerGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AttachAlbServerGroupsResponse
-     *
-     * @param AttachAlbServerGroupsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return AttachAlbServerGroupsResponse
+     * @return AttachAlbServerGroupsResponse AttachAlbServerGroupsResponse
      */
     public function attachAlbServerGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->albServerGroups) {
-            @$query['AlbServerGroups'] = $request->albServerGroups;
+        if (!Utils::isUnset($request->albServerGroups)) {
+            $query['AlbServerGroups'] = $request->albServerGroups;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->forceAttach) {
-            @$query['ForceAttach'] = $request->forceAttach;
+        if (!Utils::isUnset($request->forceAttach)) {
+            $query['ForceAttach'] = $request->forceAttach;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachAlbServerGroups',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachAlbServerGroups',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AttachAlbServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -572,19 +535,15 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Attaches Application Load Balancer (ALB) server groups to a scaling group. To seamlessly adjust the number of instances in response to changes in your business workload or to maintain the uninterrupted accessibility of your application, you can call the AttachAlbServerGroups operation. By attaching ALB server groups to your scaling group, this operation enables Auto Scaling to automatically tailor your computing capacity to your business needs. Furthermore, it optimizes traffic routing by dynamically allocating incoming requests based on current workload patterns, which significantly improves the stability and performance of your application.
-     *
-     * @remarks
-     * Before you call the operation to attach an ALB server group to your scaling group, make sure that the following requirements are met:
+     * @summary Attaches Application Load Balancer (ALB) server groups to a scaling group. To seamlessly adjust the number of instances in response to changes in your business workload or to maintain the uninterrupted accessibility of your application, you can call the AttachAlbServerGroups operation. By attaching ALB server groups to your scaling group, this operation enables Auto Scaling to automatically tailor your computing capacity to your business needs. Furthermore, it optimizes traffic routing by dynamically allocating incoming requests based on current workload patterns, which significantly improves the stability and performance of your application.
+     *  *
+     * @description Before you call the operation to attach an ALB server group to your scaling group, make sure that the following requirements are met:
      * *   The scaling group and the ALB server group share the same virtual private cloud (VPC).
      * *   The ALB server group is in the Available state.
+     *  *
+     * @param AttachAlbServerGroupsRequest $request AttachAlbServerGroupsRequest
      *
-     * @param request - AttachAlbServerGroupsRequest
-     * @returns AttachAlbServerGroupsResponse
-     *
-     * @param AttachAlbServerGroupsRequest $request
-     *
-     * @return AttachAlbServerGroupsResponse
+     * @return AttachAlbServerGroupsResponse AttachAlbServerGroupsResponse
      */
     public function attachAlbServerGroups($request)
     {
@@ -594,81 +553,67 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Associates one or more ApsaraDB RDS instances with a scaling group.
-     *
-     * @remarks
-     * Before you attach an ApsaraDB RDS instance to a scaling group, make sure that the ApsaraDB RDS instance meets the following requirements:
+     * @summary Associates one or more ApsaraDB RDS instances with a scaling group.
+     *  *
+     * @description Before you attach an ApsaraDB RDS instance to a scaling group, make sure that the ApsaraDB RDS instance meets the following requirements:
      * *   The ApsaraDB RDS instance and the scaling group belong to the same Alibaba Cloud account.
      * *   The ApsaraDB RDS instance is unlocked. For information about the lock policy, see [ApsaraDB RDS usage notes](https://help.aliyun.com/document_detail/41872.html).
      * *   The ApsaraDB RDS instance is in the Running state.
      * *   The ApsaraDB RDS instance exists in the Alibaba Cloud account.
      * *   If you reattach an ApsaraDB RDS instance to a scaling group, the total number of attached ApsaraDB RDS instances of the scaling group remains unchanged. But Auto Scaling adds the private IP addresses of all Elastic Compute Service (ECS) instances in the scaling group to the IP address whitelist of the ApsaraDB RDS instance.
      * >  After you attach an ApsaraDB RDS instance to a scaling group, make sure that the number of IP addresses in the default whitelist of the ApsaraDB RDS instance is limited to 1,000. For information about IP address whitelists, see [Configure an IP address whitelist](https://help.aliyun.com/document_detail/96118.html).
+     *  *
+     * @param AttachDBInstancesRequest $request AttachDBInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AttachDBInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AttachDBInstancesResponse
-     *
-     * @param AttachDBInstancesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return AttachDBInstancesResponse
+     * @return AttachDBInstancesResponse AttachDBInstancesResponse
      */
     public function attachDBInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->attachMode) {
-            @$query['AttachMode'] = $request->attachMode;
+        if (!Utils::isUnset($request->attachMode)) {
+            $query['AttachMode'] = $request->attachMode;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBInstances) {
-            @$query['DBInstances'] = $request->DBInstances;
+        if (!Utils::isUnset($request->DBInstances)) {
+            $query['DBInstances'] = $request->DBInstances;
         }
-
-        if (null !== $request->forceAttach) {
-            @$query['ForceAttach'] = $request->forceAttach;
+        if (!Utils::isUnset($request->forceAttach)) {
+            $query['ForceAttach'] = $request->forceAttach;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachDBInstances',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachDBInstances',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AttachDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -676,23 +621,19 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Associates one or more ApsaraDB RDS instances with a scaling group.
-     *
-     * @remarks
-     * Before you attach an ApsaraDB RDS instance to a scaling group, make sure that the ApsaraDB RDS instance meets the following requirements:
+     * @summary Associates one or more ApsaraDB RDS instances with a scaling group.
+     *  *
+     * @description Before you attach an ApsaraDB RDS instance to a scaling group, make sure that the ApsaraDB RDS instance meets the following requirements:
      * *   The ApsaraDB RDS instance and the scaling group belong to the same Alibaba Cloud account.
      * *   The ApsaraDB RDS instance is unlocked. For information about the lock policy, see [ApsaraDB RDS usage notes](https://help.aliyun.com/document_detail/41872.html).
      * *   The ApsaraDB RDS instance is in the Running state.
      * *   The ApsaraDB RDS instance exists in the Alibaba Cloud account.
      * *   If you reattach an ApsaraDB RDS instance to a scaling group, the total number of attached ApsaraDB RDS instances of the scaling group remains unchanged. But Auto Scaling adds the private IP addresses of all Elastic Compute Service (ECS) instances in the scaling group to the IP address whitelist of the ApsaraDB RDS instance.
      * >  After you attach an ApsaraDB RDS instance to a scaling group, make sure that the number of IP addresses in the default whitelist of the ApsaraDB RDS instance is limited to 1,000. For information about IP address whitelists, see [Configure an IP address whitelist](https://help.aliyun.com/document_detail/96118.html).
+     *  *
+     * @param AttachDBInstancesRequest $request AttachDBInstancesRequest
      *
-     * @param request - AttachDBInstancesRequest
-     * @returns AttachDBInstancesResponse
-     *
-     * @param AttachDBInstancesRequest $request
-     *
-     * @return AttachDBInstancesResponse
+     * @return AttachDBInstancesResponse AttachDBInstancesResponse
      */
     public function attachDBInstances($request)
     {
@@ -702,10 +643,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Adds instances to a scaling group to provide services or restarts Elastic Compute Service (ECS) instances stopped in Economical Mode to provide services. You can call the AttachInstances operation to add ECS instances, elastic container instances, or third-party instances managed by Alibaba Cloud to your scaling group to provide services. You can also call this operation to restart ECS instances stopped in Economical Mode in your scaling group to provide services.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Adds instances to a scaling group to provide services or restarts Elastic Compute Service (ECS) instances stopped in Economical Mode to provide services. You can call the AttachInstances operation to add ECS instances, elastic container instances, or third-party instances managed by Alibaba Cloud to your scaling group to provide services. You can also call this operation to restart ECS instances stopped in Economical Mode in your scaling group to provide services.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   The scaling group is in the Active state.
      * *   No scaling activities in the scaling group are in progress.
      * The ECS instances or the elastic container instances that you want to add to a scaling group must meet the following requirements:
@@ -719,83 +659,67 @@ class Ess extends OpenApiClient
      * A successful call indicates that Auto Scaling accepts the request. However, the scaling activity may still fail. You can obtain the status of a scaling activity by using the value of the ScalingActivityId parameter in the response.
      * If the sum of the number of instances that you want to add and the number of existing instances in the scaling group is greater than the value of the MaxSize parameter, the call fails.
      * Instances that are manually added by calling the AttachInstances operation are not associated with the active scaling configuration of the scaling group.
+     *  *
+     * @param AttachInstancesRequest $request AttachInstancesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AttachInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AttachInstancesResponse
-     *
-     * @param AttachInstancesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return AttachInstancesResponse
+     * @return AttachInstancesResponse AttachInstancesResponse
      */
     public function attachInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->entrusted) {
-            @$query['Entrusted'] = $request->entrusted;
+        if (!Utils::isUnset($request->entrusted)) {
+            $query['Entrusted'] = $request->entrusted;
         }
-
-        if (null !== $request->ignoreInvalidInstance) {
-            @$query['IgnoreInvalidInstance'] = $request->ignoreInvalidInstance;
+        if (!Utils::isUnset($request->ignoreInvalidInstance)) {
+            $query['IgnoreInvalidInstance'] = $request->ignoreInvalidInstance;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->lifecycleHook) {
-            @$query['LifecycleHook'] = $request->lifecycleHook;
+        if (!Utils::isUnset($request->lifecycleHook)) {
+            $query['LifecycleHook'] = $request->lifecycleHook;
         }
-
-        if (null !== $request->loadBalancerWeights) {
-            @$query['LoadBalancerWeights'] = $request->loadBalancerWeights;
+        if (!Utils::isUnset($request->loadBalancerWeights)) {
+            $query['LoadBalancerWeights'] = $request->loadBalancerWeights;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachInstances',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachInstances',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AttachInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -803,10 +727,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Adds instances to a scaling group to provide services or restarts Elastic Compute Service (ECS) instances stopped in Economical Mode to provide services. You can call the AttachInstances operation to add ECS instances, elastic container instances, or third-party instances managed by Alibaba Cloud to your scaling group to provide services. You can also call this operation to restart ECS instances stopped in Economical Mode in your scaling group to provide services.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Adds instances to a scaling group to provide services or restarts Elastic Compute Service (ECS) instances stopped in Economical Mode to provide services. You can call the AttachInstances operation to add ECS instances, elastic container instances, or third-party instances managed by Alibaba Cloud to your scaling group to provide services. You can also call this operation to restart ECS instances stopped in Economical Mode in your scaling group to provide services.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   The scaling group is in the Active state.
      * *   No scaling activities in the scaling group are in progress.
      * The ECS instances or the elastic container instances that you want to add to a scaling group must meet the following requirements:
@@ -820,13 +743,10 @@ class Ess extends OpenApiClient
      * A successful call indicates that Auto Scaling accepts the request. However, the scaling activity may still fail. You can obtain the status of a scaling activity by using the value of the ScalingActivityId parameter in the response.
      * If the sum of the number of instances that you want to add and the number of existing instances in the scaling group is greater than the value of the MaxSize parameter, the call fails.
      * Instances that are manually added by calling the AttachInstances operation are not associated with the active scaling configuration of the scaling group.
+     *  *
+     * @param AttachInstancesRequest $request AttachInstancesRequest
      *
-     * @param request - AttachInstancesRequest
-     * @returns AttachInstancesResponse
-     *
-     * @param AttachInstancesRequest $request
-     *
-     * @return AttachInstancesResponse
+     * @return AttachInstancesResponse AttachInstancesResponse
      */
     public function attachInstances($request)
     {
@@ -836,77 +756,64 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Attaches load balancers to a scaling group. Auto Scaling supports the attachment of load balancers to scaling groups. Load balancers help distribute the access traffic to the instances in scaling groups, which effectively improves the service performance of the scaling groups. You can call the AttachLoadBalancers operation to attach one or more load balancers to your scaling group.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the following requirements are met:
+     * @summary Attaches load balancers to a scaling group. Auto Scaling supports the attachment of load balancers to scaling groups. Load balancers help distribute the access traffic to the instances in scaling groups, which effectively improves the service performance of the scaling groups. You can call the AttachLoadBalancers operation to attach one or more load balancers to your scaling group.
+     *  *
+     * @description Before you call this operation, make sure that the following requirements are met:
      * *   The load balancer and the scaling group belong to the same Alibaba Cloud account and region.
      * *   The load balancer is in the `Running` state.
      * *   At least one listener is configured for the load balancer, and the health check feature is enabled for the load balancer.
      * *   If the network type of the load balancer and the scaling group is virtual private cloud (VPC), they use the same VPC.
      * *   If the network type of the scaling group is VPC, and that of the load balancer is classic network and a backend server of the load balancer uses a VPC, the scaling group and the backend server use the same VPC.
      * *   The attachment of load balancers ensures that the cumulative number of load balancers attached to the scaling group stays within the predefined maximum limit. For information about the load balancer quota, see [Limits](https://help.aliyun.com/document_detail/25863.html).
+     *  *
+     * @param AttachLoadBalancersRequest $request AttachLoadBalancersRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AttachLoadBalancersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AttachLoadBalancersResponse
-     *
-     * @param AttachLoadBalancersRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return AttachLoadBalancersResponse
+     * @return AttachLoadBalancersResponse AttachLoadBalancersResponse
      */
     public function attachLoadBalancersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->async) {
-            @$query['Async'] = $request->async;
+        if (!Utils::isUnset($request->async)) {
+            $query['Async'] = $request->async;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->forceAttach) {
-            @$query['ForceAttach'] = $request->forceAttach;
+        if (!Utils::isUnset($request->forceAttach)) {
+            $query['ForceAttach'] = $request->forceAttach;
         }
-
-        if (null !== $request->loadBalancerConfigs) {
-            @$query['LoadBalancerConfigs'] = $request->loadBalancerConfigs;
+        if (!Utils::isUnset($request->loadBalancerConfigs)) {
+            $query['LoadBalancerConfigs'] = $request->loadBalancerConfigs;
         }
-
-        if (null !== $request->loadBalancers) {
-            @$query['LoadBalancers'] = $request->loadBalancers;
+        if (!Utils::isUnset($request->loadBalancers)) {
+            $query['LoadBalancers'] = $request->loadBalancers;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachLoadBalancers',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachLoadBalancers',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AttachLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -914,23 +821,19 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Attaches load balancers to a scaling group. Auto Scaling supports the attachment of load balancers to scaling groups. Load balancers help distribute the access traffic to the instances in scaling groups, which effectively improves the service performance of the scaling groups. You can call the AttachLoadBalancers operation to attach one or more load balancers to your scaling group.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the following requirements are met:
+     * @summary Attaches load balancers to a scaling group. Auto Scaling supports the attachment of load balancers to scaling groups. Load balancers help distribute the access traffic to the instances in scaling groups, which effectively improves the service performance of the scaling groups. You can call the AttachLoadBalancers operation to attach one or more load balancers to your scaling group.
+     *  *
+     * @description Before you call this operation, make sure that the following requirements are met:
      * *   The load balancer and the scaling group belong to the same Alibaba Cloud account and region.
      * *   The load balancer is in the `Running` state.
      * *   At least one listener is configured for the load balancer, and the health check feature is enabled for the load balancer.
      * *   If the network type of the load balancer and the scaling group is virtual private cloud (VPC), they use the same VPC.
      * *   If the network type of the scaling group is VPC, and that of the load balancer is classic network and a backend server of the load balancer uses a VPC, the scaling group and the backend server use the same VPC.
      * *   The attachment of load balancers ensures that the cumulative number of load balancers attached to the scaling group stays within the predefined maximum limit. For information about the load balancer quota, see [Limits](https://help.aliyun.com/document_detail/25863.html).
+     *  *
+     * @param AttachLoadBalancersRequest $request AttachLoadBalancersRequest
      *
-     * @param request - AttachLoadBalancersRequest
-     * @returns AttachLoadBalancersResponse
-     *
-     * @param AttachLoadBalancersRequest $request
-     *
-     * @return AttachLoadBalancersResponse
+     * @return AttachLoadBalancersResponse AttachLoadBalancersResponse
      */
     public function attachLoadBalancers($request)
     {
@@ -940,64 +843,53 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Attaches server groups to a scaling group. To seamlessly adjust the number of instances in response to changes in your business workload or to maintain the uninterrupted accessibility of your application, you can call the AttachServerGroups operation. By attaching Application Load Balancer (ALB) or Network Load Balancer (NLB) server groups to your scaling group, this operation enables Auto Scaling to automatically tailor your computing capacity to your business needs. Furthermore, it optimizes traffic routing by dynamically allocating incoming requests based on current workload patterns, which significantly improves the stability and performance of your application.
+     * @summary Attaches server groups to a scaling group. To seamlessly adjust the number of instances in response to changes in your business workload or to maintain the uninterrupted accessibility of your application, you can call the AttachServerGroups operation. By attaching Application Load Balancer (ALB) or Network Load Balancer (NLB) server groups to your scaling group, this operation enables Auto Scaling to automatically tailor your computing capacity to your business needs. Furthermore, it optimizes traffic routing by dynamically allocating incoming requests based on current workload patterns, which significantly improves the stability and performance of your application.
+     *  *
+     * @param AttachServerGroupsRequest $request AttachServerGroupsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AttachServerGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AttachServerGroupsResponse
-     *
-     * @param AttachServerGroupsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return AttachServerGroupsResponse
+     * @return AttachServerGroupsResponse AttachServerGroupsResponse
      */
     public function attachServerGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->forceAttach) {
-            @$query['ForceAttach'] = $request->forceAttach;
+        if (!Utils::isUnset($request->forceAttach)) {
+            $query['ForceAttach'] = $request->forceAttach;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->serverGroups) {
-            @$query['ServerGroups'] = $request->serverGroups;
+        if (!Utils::isUnset($request->serverGroups)) {
+            $query['ServerGroups'] = $request->serverGroups;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachServerGroups',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachServerGroups',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AttachServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1005,14 +897,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Attaches server groups to a scaling group. To seamlessly adjust the number of instances in response to changes in your business workload or to maintain the uninterrupted accessibility of your application, you can call the AttachServerGroups operation. By attaching Application Load Balancer (ALB) or Network Load Balancer (NLB) server groups to your scaling group, this operation enables Auto Scaling to automatically tailor your computing capacity to your business needs. Furthermore, it optimizes traffic routing by dynamically allocating incoming requests based on current workload patterns, which significantly improves the stability and performance of your application.
+     * @summary Attaches server groups to a scaling group. To seamlessly adjust the number of instances in response to changes in your business workload or to maintain the uninterrupted accessibility of your application, you can call the AttachServerGroups operation. By attaching Application Load Balancer (ALB) or Network Load Balancer (NLB) server groups to your scaling group, this operation enables Auto Scaling to automatically tailor your computing capacity to your business needs. Furthermore, it optimizes traffic routing by dynamically allocating incoming requests based on current workload patterns, which significantly improves the stability and performance of your application.
+     *  *
+     * @param AttachServerGroupsRequest $request AttachServerGroupsRequest
      *
-     * @param request - AttachServerGroupsRequest
-     * @returns AttachServerGroupsResponse
-     *
-     * @param AttachServerGroupsRequest $request
-     *
-     * @return AttachServerGroupsResponse
+     * @return AttachServerGroupsResponse AttachServerGroupsResponse
      */
     public function attachServerGroups($request)
     {
@@ -1022,10 +911,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Attaches vServer groups to a scaling group. After a Classic Load Balancer (CLB) instance is attached to your scaling group, the instances in the scaling group are automatically added as backend servers of the CLB instance. These servers then handle requests forwarded by the CLB instance, streamlining the processing of incoming traffic. To direct varying access requests to separate backend servers or to distribute requests based on domain names or URLs, you can call the AttachVServerGroups operation. This operation enables the addition of multiple vServer groups, allowing for efficient management of various backend server configurations tailored to your routing preferences.
-     *
-     * @remarks
-     *   Before you call this operation, make sure that the following requirements are met:
+     * @summary Attaches vServer groups to a scaling group. After a Classic Load Balancer (CLB) instance is attached to your scaling group, the instances in the scaling group are automatically added as backend servers of the CLB instance. These servers then handle requests forwarded by the CLB instance, streamlining the processing of incoming traffic. To direct varying access requests to separate backend servers or to distribute requests based on domain names or URLs, you can call the AttachVServerGroups operation. This operation enables the addition of multiple vServer groups, allowing for efficient management of various backend server configurations tailored to your routing preferences.
+     *  *
+     * @description *   Before you call this operation, make sure that the following requirements are met:
      *     *   The CLB instance and the scaling group belong to the same Alibaba Cloud account.
      *     *   The CLB instance and the scaling group reside in the same region.
      *     *   The CLB instance is in the Running state.
@@ -1040,63 +928,52 @@ class Ess extends OpenApiClient
      *     *   Port: the port number of the vServer group
      *     **
      *     **Note** If you attempt to attach the same vServer group to a scaling group multiple times over the identical port, the system regards each attempt as a separate vServer group attachment to the scaling group. In your request, if you include the same vServer group ID coupled with the same port number multiple times, only the first configuration of the vServer group and port number pairing is considered valid. Subsequent vServer group and port number parings are disregarded.
+     *  *
+     * @param AttachVServerGroupsRequest $request AttachVServerGroupsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AttachVServerGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AttachVServerGroupsResponse
-     *
-     * @param AttachVServerGroupsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return AttachVServerGroupsResponse
+     * @return AttachVServerGroupsResponse AttachVServerGroupsResponse
      */
     public function attachVServerGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->forceAttach) {
-            @$query['ForceAttach'] = $request->forceAttach;
+        if (!Utils::isUnset($request->forceAttach)) {
+            $query['ForceAttach'] = $request->forceAttach;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->VServerGroups) {
-            @$query['VServerGroups'] = $request->VServerGroups;
+        if (!Utils::isUnset($request->VServerGroups)) {
+            $query['VServerGroups'] = $request->VServerGroups;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachVServerGroups',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachVServerGroups',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AttachVServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1104,10 +981,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Attaches vServer groups to a scaling group. After a Classic Load Balancer (CLB) instance is attached to your scaling group, the instances in the scaling group are automatically added as backend servers of the CLB instance. These servers then handle requests forwarded by the CLB instance, streamlining the processing of incoming traffic. To direct varying access requests to separate backend servers or to distribute requests based on domain names or URLs, you can call the AttachVServerGroups operation. This operation enables the addition of multiple vServer groups, allowing for efficient management of various backend server configurations tailored to your routing preferences.
-     *
-     * @remarks
-     *   Before you call this operation, make sure that the following requirements are met:
+     * @summary Attaches vServer groups to a scaling group. After a Classic Load Balancer (CLB) instance is attached to your scaling group, the instances in the scaling group are automatically added as backend servers of the CLB instance. These servers then handle requests forwarded by the CLB instance, streamlining the processing of incoming traffic. To direct varying access requests to separate backend servers or to distribute requests based on domain names or URLs, you can call the AttachVServerGroups operation. This operation enables the addition of multiple vServer groups, allowing for efficient management of various backend server configurations tailored to your routing preferences.
+     *  *
+     * @description *   Before you call this operation, make sure that the following requirements are met:
      *     *   The CLB instance and the scaling group belong to the same Alibaba Cloud account.
      *     *   The CLB instance and the scaling group reside in the same region.
      *     *   The CLB instance is in the Running state.
@@ -1122,13 +998,10 @@ class Ess extends OpenApiClient
      *     *   Port: the port number of the vServer group
      *     **
      *     **Note** If you attempt to attach the same vServer group to a scaling group multiple times over the identical port, the system regards each attempt as a separate vServer group attachment to the scaling group. In your request, if you include the same vServer group ID coupled with the same port number multiple times, only the first configuration of the vServer group and port number pairing is considered valid. Subsequent vServer group and port number parings are disregarded.
+     *  *
+     * @param AttachVServerGroupsRequest $request AttachVServerGroupsRequest
      *
-     * @param request - AttachVServerGroupsRequest
-     * @returns AttachVServerGroupsResponse
-     *
-     * @param AttachVServerGroupsRequest $request
-     *
-     * @return AttachVServerGroupsResponse
+     * @return AttachVServerGroupsResponse AttachVServerGroupsResponse
      */
     public function attachVServerGroups($request)
     {
@@ -1138,59 +1011,49 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Cancels an instance refresh task. Take note that instances whose configurations were already updated by running an instance refresh task remain intact even after you cancel the task.
+     * @summary Cancels an instance refresh task. Take note that instances whose configurations were already updated by running an instance refresh task remain intact even after you cancel the task.
+     *  *
+     * @description *   You cannot call this operation to cancel instance refresh tasks that are being rolled back.
+     *  *
+     * @param CancelInstanceRefreshRequest $request CancelInstanceRefreshRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   You cannot call this operation to cancel instance refresh tasks that are being rolled back.
-     *
-     * @param request - CancelInstanceRefreshRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CancelInstanceRefreshResponse
-     *
-     * @param CancelInstanceRefreshRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CancelInstanceRefreshResponse
+     * @return CancelInstanceRefreshResponse CancelInstanceRefreshResponse
      */
     public function cancelInstanceRefreshWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceRefreshTaskId) {
-            @$query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
+        if (!Utils::isUnset($request->instanceRefreshTaskId)) {
+            $query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelInstanceRefresh',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelInstanceRefresh',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1198,17 +1061,13 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Cancels an instance refresh task. Take note that instances whose configurations were already updated by running an instance refresh task remain intact even after you cancel the task.
+     * @summary Cancels an instance refresh task. Take note that instances whose configurations were already updated by running an instance refresh task remain intact even after you cancel the task.
+     *  *
+     * @description *   You cannot call this operation to cancel instance refresh tasks that are being rolled back.
+     *  *
+     * @param CancelInstanceRefreshRequest $request CancelInstanceRefreshRequest
      *
-     * @remarks
-     *   You cannot call this operation to cancel instance refresh tasks that are being rolled back.
-     *
-     * @param request - CancelInstanceRefreshRequest
-     * @returns CancelInstanceRefreshResponse
-     *
-     * @param CancelInstanceRefreshRequest $request
-     *
-     * @return CancelInstanceRefreshResponse
+     * @return CancelInstanceRefreshResponse CancelInstanceRefreshResponse
      */
     public function cancelInstanceRefresh($request)
     {
@@ -1218,64 +1077,53 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Changes a resource group. Resource groups are a means to categorize and manage cloud resources, such as scaling groups, based on specific objectives, permissions, or ownership. In large, multifaceted organizations that manage numerous projects and users, this feature adopts a tiered management approach, simplifying management tasks and improving the effectiveness and oversight of resource allocation. You can call the ChangeResourceGroup operation to move your scaling groups from one resource group to another resource group, which facilitates streamlined monitoring and management within the context of the new group. This operation eliminates the need for repetitive and time-consuming cross-service resource queries, thereby enhancing operational efficiency.
-     *
-     * @remarks
-     *   A resource is an entity of cloud services that you create on Alibaba Cloud. For example, a scaling group is a resource.
+     * @summary Changes a resource group. Resource groups are a means to categorize and manage cloud resources, such as scaling groups, based on specific objectives, permissions, or ownership. In large, multifaceted organizations that manage numerous projects and users, this feature adopts a tiered management approach, simplifying management tasks and improving the effectiveness and oversight of resource allocation. You can call the ChangeResourceGroup operation to move your scaling groups from one resource group to another resource group, which facilitates streamlined monitoring and management within the context of the new group. This operation eliminates the need for repetitive and time-consuming cross-service resource queries, thereby enhancing operational efficiency.
+     *  *
+     * @description *   A resource is an entity of cloud services that you create on Alibaba Cloud. For example, a scaling group is a resource.
      * *   A resource group serves as a powerful organizational tool within your Alibaba Cloud account, enabling you to manage and monitor multiple resources collectively. It effectively addresses complexities surrounding resource categorization and permission control under a single Alibaba Cloud account, thereby enhancing management efficiency and control. For more information, see [What is resource management?](https://help.aliyun.com/document_detail/94475.html)
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ChangeResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ChangeResourceGroupResponse
-     *
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->newResourceGroupId) {
-            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1283,18 +1131,14 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Changes a resource group. Resource groups are a means to categorize and manage cloud resources, such as scaling groups, based on specific objectives, permissions, or ownership. In large, multifaceted organizations that manage numerous projects and users, this feature adopts a tiered management approach, simplifying management tasks and improving the effectiveness and oversight of resource allocation. You can call the ChangeResourceGroup operation to move your scaling groups from one resource group to another resource group, which facilitates streamlined monitoring and management within the context of the new group. This operation eliminates the need for repetitive and time-consuming cross-service resource queries, thereby enhancing operational efficiency.
-     *
-     * @remarks
-     *   A resource is an entity of cloud services that you create on Alibaba Cloud. For example, a scaling group is a resource.
+     * @summary Changes a resource group. Resource groups are a means to categorize and manage cloud resources, such as scaling groups, based on specific objectives, permissions, or ownership. In large, multifaceted organizations that manage numerous projects and users, this feature adopts a tiered management approach, simplifying management tasks and improving the effectiveness and oversight of resource allocation. You can call the ChangeResourceGroup operation to move your scaling groups from one resource group to another resource group, which facilitates streamlined monitoring and management within the context of the new group. This operation eliminates the need for repetitive and time-consuming cross-service resource queries, thereby enhancing operational efficiency.
+     *  *
+     * @description *   A resource is an entity of cloud services that you create on Alibaba Cloud. For example, a scaling group is a resource.
      * *   A resource group serves as a powerful organizational tool within your Alibaba Cloud account, enabling you to manage and monitor multiple resources collectively. It effectively addresses complexities surrounding resource categorization and permission control under a single Alibaba Cloud account, thereby enhancing management efficiency and control. For more information, see [What is resource management?](https://help.aliyun.com/document_detail/94475.html)
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @param request - ChangeResourceGroupRequest
-     * @returns ChangeResourceGroupResponse
-     *
-     * @param ChangeResourceGroupRequest $request
-     *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -1304,71 +1148,58 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Ends the timeout period of a lifecycle hook ahead of schedule. If you have created a lifecycle hook for your scaling group, you can call the CompleteLifecycleAction operation to end the timeout period of the lifecycle hook ahead of schedule based on your business requirements.
+     * @summary Ends the timeout period of a lifecycle hook ahead of schedule. If you have created a lifecycle hook for your scaling group, you can call the CompleteLifecycleAction operation to end the timeout period of the lifecycle hook ahead of schedule based on your business requirements.
+     *  *
+     * @description When you manually cut short the timeout period of a lifecycle hook, Auto Scaling proceeds with one of the following actions based on the predefined settings: responding to the scaling request, aborting the scaling request, and initiating a rollback process.
+     *  *
+     * @param CompleteLifecycleActionRequest $request CompleteLifecycleActionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * When you manually cut short the timeout period of a lifecycle hook, Auto Scaling proceeds with one of the following actions based on the predefined settings: responding to the scaling request, aborting the scaling request, and initiating a rollback process.
-     *
-     * @param request - CompleteLifecycleActionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CompleteLifecycleActionResponse
-     *
-     * @param CompleteLifecycleActionRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CompleteLifecycleActionResponse
+     * @return CompleteLifecycleActionResponse CompleteLifecycleActionResponse
      */
     public function completeLifecycleActionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->lifecycleActionResult) {
-            @$query['LifecycleActionResult'] = $request->lifecycleActionResult;
+        if (!Utils::isUnset($request->lifecycleActionResult)) {
+            $query['LifecycleActionResult'] = $request->lifecycleActionResult;
         }
-
-        if (null !== $request->lifecycleActionToken) {
-            @$query['LifecycleActionToken'] = $request->lifecycleActionToken;
+        if (!Utils::isUnset($request->lifecycleActionToken)) {
+            $query['LifecycleActionToken'] = $request->lifecycleActionToken;
         }
-
-        if (null !== $request->lifecycleHookId) {
-            @$query['LifecycleHookId'] = $request->lifecycleHookId;
+        if (!Utils::isUnset($request->lifecycleHookId)) {
+            $query['LifecycleHookId'] = $request->lifecycleHookId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CompleteLifecycleAction',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CompleteLifecycleAction',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CompleteLifecycleActionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1376,17 +1207,13 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Ends the timeout period of a lifecycle hook ahead of schedule. If you have created a lifecycle hook for your scaling group, you can call the CompleteLifecycleAction operation to end the timeout period of the lifecycle hook ahead of schedule based on your business requirements.
+     * @summary Ends the timeout period of a lifecycle hook ahead of schedule. If you have created a lifecycle hook for your scaling group, you can call the CompleteLifecycleAction operation to end the timeout period of the lifecycle hook ahead of schedule based on your business requirements.
+     *  *
+     * @description When you manually cut short the timeout period of a lifecycle hook, Auto Scaling proceeds with one of the following actions based on the predefined settings: responding to the scaling request, aborting the scaling request, and initiating a rollback process.
+     *  *
+     * @param CompleteLifecycleActionRequest $request CompleteLifecycleActionRequest
      *
-     * @remarks
-     * When you manually cut short the timeout period of a lifecycle hook, Auto Scaling proceeds with one of the following actions based on the predefined settings: responding to the scaling request, aborting the scaling request, and initiating a rollback process.
-     *
-     * @param request - CompleteLifecycleActionRequest
-     * @returns CompleteLifecycleActionResponse
-     *
-     * @param CompleteLifecycleActionRequest $request
-     *
-     * @return CompleteLifecycleActionResponse
+     * @return CompleteLifecycleActionResponse CompleteLifecycleActionResponse
      */
     public function completeLifecycleAction($request)
     {
@@ -1396,119 +1223,95 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates event-triggered tasks. If your business encounters unexpected traffic surges or has no specific patterns, you can call the CreateAlarm operation to create an event-triggered task and associate a CloudMonitor metric with the task. This allows you to dynamically adjust the number of Elastic Compute Service (ECS) instances or elastic container instances in your scaling group and keep updated on the real-time metric data, which facilitates cloud resource management and maintenance.
-     *
-     * @remarks
-     *   If you set MetricType to custom, you must report your custom metrics to CloudMonitor before you can create event-triggered tasks by using the custom metrics. For more information, see [Event-triggered tasks of the custom monitoring type](https://help.aliyun.com/document_detail/74861.html).
+     * @summary Creates event-triggered tasks. If your business encounters unexpected traffic surges or has no specific patterns, you can call the CreateAlarm operation to create an event-triggered task and associate a CloudMonitor metric with the task. This allows you to dynamically adjust the number of Elastic Compute Service (ECS) instances or elastic container instances in your scaling group and keep updated on the real-time metric data, which facilitates cloud resource management and maintenance.
+     *  *
+     * @description *   If you set MetricType to custom, you must report your custom metrics to CloudMonitor before you can create event-triggered tasks by using the custom metrics. For more information, see [Event-triggered tasks of the custom monitoring type](https://help.aliyun.com/document_detail/74861.html).
      * *   When you create an event-triggered task, you must specify MetricName, Dimensions.DimensionKey, and Dimensions.DimensionValue to determine the range of statistics that you want to aggregate for the metrics of the scaling group. For example, you can specify user_id and scaling_group for an event-triggered task to aggregate monitoring data of all ECS instances or elastic container instances in a scaling group within an Alibaba Cloud account.
      *     *   If you create an event-triggered task of the custom monitoring type, you can specify only custom metrics in the task.
      *     *   If you create an event-triggered task of the system monitoring type, you can specify the system metrics described in [Event-triggered tasks of the system monitoring type](https://help.aliyun.com/document_detail/74854.html) in the task.
      * >  user_id and scaling_group are automatically populated. You need to only specify device and state. For more information, see `Dimensions.DimensionKey` and `Dimensions.DimensionValue` in the "Request parameters" section of this topic.
+     *  *
+     * @param CreateAlarmRequest $request CreateAlarmRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAlarmRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateAlarmResponse
-     *
-     * @param CreateAlarmRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return CreateAlarmResponse
+     * @return CreateAlarmResponse CreateAlarmResponse
      */
     public function createAlarmWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->alarmActions) {
-            @$query['AlarmActions'] = $request->alarmActions;
+        if (!Utils::isUnset($request->alarmActions)) {
+            $query['AlarmActions'] = $request->alarmActions;
         }
-
-        if (null !== $request->comparisonOperator) {
-            @$query['ComparisonOperator'] = $request->comparisonOperator;
+        if (!Utils::isUnset($request->comparisonOperator)) {
+            $query['ComparisonOperator'] = $request->comparisonOperator;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->dimensions) {
-            @$query['Dimensions'] = $request->dimensions;
+        if (!Utils::isUnset($request->dimensions)) {
+            $query['Dimensions'] = $request->dimensions;
         }
-
-        if (null !== $request->effective) {
-            @$query['Effective'] = $request->effective;
+        if (!Utils::isUnset($request->effective)) {
+            $query['Effective'] = $request->effective;
         }
-
-        if (null !== $request->evaluationCount) {
-            @$query['EvaluationCount'] = $request->evaluationCount;
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
         }
-
-        if (null !== $request->expressions) {
-            @$query['Expressions'] = $request->expressions;
+        if (!Utils::isUnset($request->expressions)) {
+            $query['Expressions'] = $request->expressions;
         }
-
-        if (null !== $request->expressionsLogicOperator) {
-            @$query['ExpressionsLogicOperator'] = $request->expressionsLogicOperator;
+        if (!Utils::isUnset($request->expressionsLogicOperator)) {
+            $query['ExpressionsLogicOperator'] = $request->expressionsLogicOperator;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->metricName) {
-            @$query['MetricName'] = $request->metricName;
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
         }
-
-        if (null !== $request->metricType) {
-            @$query['MetricType'] = $request->metricType;
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->statistics) {
-            @$query['Statistics'] = $request->statistics;
+        if (!Utils::isUnset($request->statistics)) {
+            $query['Statistics'] = $request->statistics;
         }
-
-        if (null !== $request->threshold) {
-            @$query['Threshold'] = $request->threshold;
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAlarm',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAlarm',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1516,21 +1319,17 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates event-triggered tasks. If your business encounters unexpected traffic surges or has no specific patterns, you can call the CreateAlarm operation to create an event-triggered task and associate a CloudMonitor metric with the task. This allows you to dynamically adjust the number of Elastic Compute Service (ECS) instances or elastic container instances in your scaling group and keep updated on the real-time metric data, which facilitates cloud resource management and maintenance.
-     *
-     * @remarks
-     *   If you set MetricType to custom, you must report your custom metrics to CloudMonitor before you can create event-triggered tasks by using the custom metrics. For more information, see [Event-triggered tasks of the custom monitoring type](https://help.aliyun.com/document_detail/74861.html).
+     * @summary Creates event-triggered tasks. If your business encounters unexpected traffic surges or has no specific patterns, you can call the CreateAlarm operation to create an event-triggered task and associate a CloudMonitor metric with the task. This allows you to dynamically adjust the number of Elastic Compute Service (ECS) instances or elastic container instances in your scaling group and keep updated on the real-time metric data, which facilitates cloud resource management and maintenance.
+     *  *
+     * @description *   If you set MetricType to custom, you must report your custom metrics to CloudMonitor before you can create event-triggered tasks by using the custom metrics. For more information, see [Event-triggered tasks of the custom monitoring type](https://help.aliyun.com/document_detail/74861.html).
      * *   When you create an event-triggered task, you must specify MetricName, Dimensions.DimensionKey, and Dimensions.DimensionValue to determine the range of statistics that you want to aggregate for the metrics of the scaling group. For example, you can specify user_id and scaling_group for an event-triggered task to aggregate monitoring data of all ECS instances or elastic container instances in a scaling group within an Alibaba Cloud account.
      *     *   If you create an event-triggered task of the custom monitoring type, you can specify only custom metrics in the task.
      *     *   If you create an event-triggered task of the system monitoring type, you can specify the system metrics described in [Event-triggered tasks of the system monitoring type](https://help.aliyun.com/document_detail/74854.html) in the task.
      * >  user_id and scaling_group are automatically populated. You need to only specify device and state. For more information, see `Dimensions.DimensionKey` and `Dimensions.DimensionValue` in the "Request parameters" section of this topic.
+     *  *
+     * @param CreateAlarmRequest $request CreateAlarmRequest
      *
-     * @param request - CreateAlarmRequest
-     * @returns CreateAlarmResponse
-     *
-     * @param CreateAlarmRequest $request
-     *
-     * @return CreateAlarmResponse
+     * @return CreateAlarmResponse CreateAlarmResponse
      */
     public function createAlarm($request)
     {
@@ -1540,36 +1339,32 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates a diagnostic report.
+     * @summary Creates a diagnostic report.
+     *  *
+     * @param CreateDiagnoseReportRequest $request CreateDiagnoseReportRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDiagnoseReportRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateDiagnoseReportResponse
-     *
-     * @param CreateDiagnoseReportRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateDiagnoseReportResponse
+     * @return CreateDiagnoseReportResponse CreateDiagnoseReportResponse
      */
     public function createDiagnoseReportWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
-            'query' => Utils::query($query),
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDiagnoseReport',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDiagnoseReport',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDiagnoseReportResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1577,14 +1372,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates a diagnostic report.
+     * @summary Creates a diagnostic report.
+     *  *
+     * @param CreateDiagnoseReportRequest $request CreateDiagnoseReportRequest
      *
-     * @param request - CreateDiagnoseReportRequest
-     * @returns CreateDiagnoseReportResponse
-     *
-     * @param CreateDiagnoseReportRequest $request
-     *
-     * @return CreateDiagnoseReportResponse
+     * @return CreateDiagnoseReportResponse CreateDiagnoseReportResponse
      */
     public function createDiagnoseReport($request)
     {
@@ -1594,240 +1386,185 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates a scaling configuration of the Elastic Container Instance type. Auto Scaling uses the scaling configuration as a template to create elastic container instances to meet your business requirements during scale-out events.
-     *
-     * @remarks
-     * A scaling configuration is a template that is used to create elastic container instances during scale-out events.
+     * @summary Creates a scaling configuration of the Elastic Container Instance type. Auto Scaling uses the scaling configuration as a template to create elastic container instances to meet your business requirements during scale-out events.
+     *  *
+     * @description A scaling configuration is a template that is used to create elastic container instances during scale-out events.
      * You can specify CPU and Memory to determine the range of instance types. Then, Auto Scaling determines the available instance types based on factors such as I/O optimization requirements and zones. Auto Scaling preferentially creates elastic container instances by using the lowest-priced instance type. This method applies only if you set Scaling Policy to Cost Optimization Policy and no instance type is specified in the scaling configuration.
+     *  *
+     * @param CreateEciScalingConfigurationRequest $request CreateEciScalingConfigurationRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateEciScalingConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateEciScalingConfigurationResponse
-     *
-     * @param CreateEciScalingConfigurationRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return CreateEciScalingConfigurationResponse
+     * @return CreateEciScalingConfigurationResponse CreateEciScalingConfigurationResponse
      */
     public function createEciScalingConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acrRegistryInfos) {
-            @$query['AcrRegistryInfos'] = $request->acrRegistryInfos;
+        if (!Utils::isUnset($request->acrRegistryInfos)) {
+            $query['AcrRegistryInfos'] = $request->acrRegistryInfos;
         }
-
-        if (null !== $request->activeDeadlineSeconds) {
-            @$query['ActiveDeadlineSeconds'] = $request->activeDeadlineSeconds;
+        if (!Utils::isUnset($request->activeDeadlineSeconds)) {
+            $query['ActiveDeadlineSeconds'] = $request->activeDeadlineSeconds;
         }
-
-        if (null !== $request->autoCreateEip) {
-            @$query['AutoCreateEip'] = $request->autoCreateEip;
+        if (!Utils::isUnset($request->autoCreateEip)) {
+            $query['AutoCreateEip'] = $request->autoCreateEip;
         }
-
-        if (null !== $request->autoMatchImageCache) {
-            @$query['AutoMatchImageCache'] = $request->autoMatchImageCache;
+        if (!Utils::isUnset($request->autoMatchImageCache)) {
+            $query['AutoMatchImageCache'] = $request->autoMatchImageCache;
         }
-
-        if (null !== $request->containerGroupName) {
-            @$query['ContainerGroupName'] = $request->containerGroupName;
+        if (!Utils::isUnset($request->containerGroupName)) {
+            $query['ContainerGroupName'] = $request->containerGroupName;
         }
-
-        if (null !== $request->containers) {
-            @$query['Containers'] = $request->containers;
+        if (!Utils::isUnset($request->containers)) {
+            $query['Containers'] = $request->containers;
         }
-
-        if (null !== $request->costOptimization) {
-            @$query['CostOptimization'] = $request->costOptimization;
+        if (!Utils::isUnset($request->costOptimization)) {
+            $query['CostOptimization'] = $request->costOptimization;
         }
-
-        if (null !== $request->cpu) {
-            @$query['Cpu'] = $request->cpu;
+        if (!Utils::isUnset($request->cpu)) {
+            $query['Cpu'] = $request->cpu;
         }
-
-        if (null !== $request->cpuOptionsCore) {
-            @$query['CpuOptionsCore'] = $request->cpuOptionsCore;
+        if (!Utils::isUnset($request->cpuOptionsCore)) {
+            $query['CpuOptionsCore'] = $request->cpuOptionsCore;
         }
-
-        if (null !== $request->cpuOptionsThreadsPerCore) {
-            @$query['CpuOptionsThreadsPerCore'] = $request->cpuOptionsThreadsPerCore;
+        if (!Utils::isUnset($request->cpuOptionsThreadsPerCore)) {
+            $query['CpuOptionsThreadsPerCore'] = $request->cpuOptionsThreadsPerCore;
         }
-
-        if (null !== $request->dataCacheBucket) {
-            @$query['DataCacheBucket'] = $request->dataCacheBucket;
+        if (!Utils::isUnset($request->dataCacheBucket)) {
+            $query['DataCacheBucket'] = $request->dataCacheBucket;
         }
-
-        if (null !== $request->dataCacheBurstingEnabled) {
-            @$query['DataCacheBurstingEnabled'] = $request->dataCacheBurstingEnabled;
+        if (!Utils::isUnset($request->dataCacheBurstingEnabled)) {
+            $query['DataCacheBurstingEnabled'] = $request->dataCacheBurstingEnabled;
         }
-
-        if (null !== $request->dataCachePL) {
-            @$query['DataCachePL'] = $request->dataCachePL;
+        if (!Utils::isUnset($request->dataCachePL)) {
+            $query['DataCachePL'] = $request->dataCachePL;
         }
-
-        if (null !== $request->dataCacheProvisionedIops) {
-            @$query['DataCacheProvisionedIops'] = $request->dataCacheProvisionedIops;
+        if (!Utils::isUnset($request->dataCacheProvisionedIops)) {
+            $query['DataCacheProvisionedIops'] = $request->dataCacheProvisionedIops;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->dnsConfigNameServers) {
-            @$query['DnsConfigNameServers'] = $request->dnsConfigNameServers;
+        if (!Utils::isUnset($request->dnsConfigNameServers)) {
+            $query['DnsConfigNameServers'] = $request->dnsConfigNameServers;
         }
-
-        if (null !== $request->dnsConfigOptions) {
-            @$query['DnsConfigOptions'] = $request->dnsConfigOptions;
+        if (!Utils::isUnset($request->dnsConfigOptions)) {
+            $query['DnsConfigOptions'] = $request->dnsConfigOptions;
         }
-
-        if (null !== $request->dnsConfigSearchs) {
-            @$query['DnsConfigSearchs'] = $request->dnsConfigSearchs;
+        if (!Utils::isUnset($request->dnsConfigSearchs)) {
+            $query['DnsConfigSearchs'] = $request->dnsConfigSearchs;
         }
-
-        if (null !== $request->dnsPolicy) {
-            @$query['DnsPolicy'] = $request->dnsPolicy;
+        if (!Utils::isUnset($request->dnsPolicy)) {
+            $query['DnsPolicy'] = $request->dnsPolicy;
         }
-
-        if (null !== $request->egressBandwidth) {
-            @$query['EgressBandwidth'] = $request->egressBandwidth;
+        if (!Utils::isUnset($request->egressBandwidth)) {
+            $query['EgressBandwidth'] = $request->egressBandwidth;
         }
-
-        if (null !== $request->eipBandwidth) {
-            @$query['EipBandwidth'] = $request->eipBandwidth;
+        if (!Utils::isUnset($request->eipBandwidth)) {
+            $query['EipBandwidth'] = $request->eipBandwidth;
         }
-
-        if (null !== $request->enableSls) {
-            @$query['EnableSls'] = $request->enableSls;
+        if (!Utils::isUnset($request->enableSls)) {
+            $query['EnableSls'] = $request->enableSls;
         }
-
-        if (null !== $request->ephemeralStorage) {
-            @$query['EphemeralStorage'] = $request->ephemeralStorage;
+        if (!Utils::isUnset($request->ephemeralStorage)) {
+            $query['EphemeralStorage'] = $request->ephemeralStorage;
         }
-
-        if (null !== $request->gpuDriverVersion) {
-            @$query['GpuDriverVersion'] = $request->gpuDriverVersion;
+        if (!Utils::isUnset($request->gpuDriverVersion)) {
+            $query['GpuDriverVersion'] = $request->gpuDriverVersion;
         }
-
-        if (null !== $request->hostAliases) {
-            @$query['HostAliases'] = $request->hostAliases;
+        if (!Utils::isUnset($request->hostAliases)) {
+            $query['HostAliases'] = $request->hostAliases;
         }
-
-        if (null !== $request->hostName) {
-            @$query['HostName'] = $request->hostName;
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
         }
-
-        if (null !== $request->imageRegistryCredentials) {
-            @$query['ImageRegistryCredentials'] = $request->imageRegistryCredentials;
+        if (!Utils::isUnset($request->imageRegistryCredentials)) {
+            $query['ImageRegistryCredentials'] = $request->imageRegistryCredentials;
         }
-
-        if (null !== $request->imageSnapshotId) {
-            @$query['ImageSnapshotId'] = $request->imageSnapshotId;
+        if (!Utils::isUnset($request->imageSnapshotId)) {
+            $query['ImageSnapshotId'] = $request->imageSnapshotId;
         }
-
-        if (null !== $request->ingressBandwidth) {
-            @$query['IngressBandwidth'] = $request->ingressBandwidth;
+        if (!Utils::isUnset($request->ingressBandwidth)) {
+            $query['IngressBandwidth'] = $request->ingressBandwidth;
         }
-
-        if (null !== $request->initContainers) {
-            @$query['InitContainers'] = $request->initContainers;
+        if (!Utils::isUnset($request->initContainers)) {
+            $query['InitContainers'] = $request->initContainers;
         }
-
-        if (null !== $request->instanceFamilyLevel) {
-            @$query['InstanceFamilyLevel'] = $request->instanceFamilyLevel;
+        if (!Utils::isUnset($request->instanceFamilyLevel)) {
+            $query['InstanceFamilyLevel'] = $request->instanceFamilyLevel;
         }
-
-        if (null !== $request->instanceTypes) {
-            @$query['InstanceTypes'] = $request->instanceTypes;
+        if (!Utils::isUnset($request->instanceTypes)) {
+            $query['InstanceTypes'] = $request->instanceTypes;
         }
-
-        if (null !== $request->ipv6AddressCount) {
-            @$query['Ipv6AddressCount'] = $request->ipv6AddressCount;
+        if (!Utils::isUnset($request->ipv6AddressCount)) {
+            $query['Ipv6AddressCount'] = $request->ipv6AddressCount;
         }
-
-        if (null !== $request->loadBalancerWeight) {
-            @$query['LoadBalancerWeight'] = $request->loadBalancerWeight;
+        if (!Utils::isUnset($request->loadBalancerWeight)) {
+            $query['LoadBalancerWeight'] = $request->loadBalancerWeight;
         }
-
-        if (null !== $request->memory) {
-            @$query['Memory'] = $request->memory;
+        if (!Utils::isUnset($request->memory)) {
+            $query['Memory'] = $request->memory;
         }
-
-        if (null !== $request->ntpServers) {
-            @$query['NtpServers'] = $request->ntpServers;
+        if (!Utils::isUnset($request->ntpServers)) {
+            $query['NtpServers'] = $request->ntpServers;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->ramRoleName) {
-            @$query['RamRoleName'] = $request->ramRoleName;
+        if (!Utils::isUnset($request->ramRoleName)) {
+            $query['RamRoleName'] = $request->ramRoleName;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->restartPolicy) {
-            @$query['RestartPolicy'] = $request->restartPolicy;
+        if (!Utils::isUnset($request->restartPolicy)) {
+            $query['RestartPolicy'] = $request->restartPolicy;
         }
-
-        if (null !== $request->scalingConfigurationName) {
-            @$query['ScalingConfigurationName'] = $request->scalingConfigurationName;
+        if (!Utils::isUnset($request->scalingConfigurationName)) {
+            $query['ScalingConfigurationName'] = $request->scalingConfigurationName;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->securityContextSysctls) {
-            @$query['SecurityContextSysctls'] = $request->securityContextSysctls;
+        if (!Utils::isUnset($request->securityContextSysctls)) {
+            $query['SecurityContextSysctls'] = $request->securityContextSysctls;
         }
-
-        if (null !== $request->securityGroupId) {
-            @$query['SecurityGroupId'] = $request->securityGroupId;
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
         }
-
-        if (null !== $request->spotPriceLimit) {
-            @$query['SpotPriceLimit'] = $request->spotPriceLimit;
+        if (!Utils::isUnset($request->spotPriceLimit)) {
+            $query['SpotPriceLimit'] = $request->spotPriceLimit;
         }
-
-        if (null !== $request->spotStrategy) {
-            @$query['SpotStrategy'] = $request->spotStrategy;
+        if (!Utils::isUnset($request->spotStrategy)) {
+            $query['SpotStrategy'] = $request->spotStrategy;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
-        if (null !== $request->terminationGracePeriodSeconds) {
-            @$query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
+        if (!Utils::isUnset($request->terminationGracePeriodSeconds)) {
+            $query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
         }
-
-        if (null !== $request->volumes) {
-            @$query['Volumes'] = $request->volumes;
+        if (!Utils::isUnset($request->volumes)) {
+            $query['Volumes'] = $request->volumes;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateEciScalingConfiguration',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateEciScalingConfiguration',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1835,18 +1572,14 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates a scaling configuration of the Elastic Container Instance type. Auto Scaling uses the scaling configuration as a template to create elastic container instances to meet your business requirements during scale-out events.
-     *
-     * @remarks
-     * A scaling configuration is a template that is used to create elastic container instances during scale-out events.
+     * @summary Creates a scaling configuration of the Elastic Container Instance type. Auto Scaling uses the scaling configuration as a template to create elastic container instances to meet your business requirements during scale-out events.
+     *  *
+     * @description A scaling configuration is a template that is used to create elastic container instances during scale-out events.
      * You can specify CPU and Memory to determine the range of instance types. Then, Auto Scaling determines the available instance types based on factors such as I/O optimization requirements and zones. Auto Scaling preferentially creates elastic container instances by using the lowest-priced instance type. This method applies only if you set Scaling Policy to Cost Optimization Policy and no instance type is specified in the scaling configuration.
+     *  *
+     * @param CreateEciScalingConfigurationRequest $request CreateEciScalingConfigurationRequest
      *
-     * @param request - CreateEciScalingConfigurationRequest
-     * @returns CreateEciScalingConfigurationResponse
-     *
-     * @param CreateEciScalingConfigurationRequest $request
-     *
-     * @return CreateEciScalingConfigurationResponse
+     * @return CreateEciScalingConfigurationResponse CreateEciScalingConfigurationResponse
      */
     public function createEciScalingConfiguration($request)
     {
@@ -1856,82 +1589,67 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates one or more lifecycle hooks in a scaling group. A lifecycle hook allows you to execute custom actions like sending notifications or automating script execution at critical stages (such as instance startup and termination) in the lifecycle of an instance. Implementing the lifecycle hook feature allows for finer control and management of instances. For example, you can verify configurations, set up custom tasks, or back up data on your instances when lifecycle hooks take effect, thus enhancing the flexibility and reliability of application deployment.
-     *
-     * @remarks
-     * You can create up to six lifecycle hooks for each scaling group. After a lifecycle hook is created for a scaling group, Elastic Compute Service (ECS) instances in the scaling group waits to be added to or removed from the scaling group during scaling activities. You can use the HeartbeatTimeout parameter to specify the timeout period of the lifecycle hook. During the timeout period of a lifecycle hook, you can perform custom operations such as initialize ECS instance configurations and download ECS instance data on the ECS instances for which the lifecycle hook is applied.
+     * @summary Creates one or more lifecycle hooks in a scaling group. A lifecycle hook allows you to execute custom actions like sending notifications or automating script execution at critical stages (such as instance startup and termination) in the lifecycle of an instance. Implementing the lifecycle hook feature allows for finer control and management of instances. For example, you can verify configurations, set up custom tasks, or back up data on your instances when lifecycle hooks take effect, thus enhancing the flexibility and reliability of application deployment.
+     *  *
+     * @description You can create up to six lifecycle hooks for each scaling group. After a lifecycle hook is created for a scaling group, Elastic Compute Service (ECS) instances in the scaling group waits to be added to or removed from the scaling group during scaling activities. You can use the HeartbeatTimeout parameter to specify the timeout period of the lifecycle hook. During the timeout period of a lifecycle hook, you can perform custom operations such as initialize ECS instance configurations and download ECS instance data on the ECS instances for which the lifecycle hook is applied.
      * During a scale-out activity and the timeout period of a lifecycle hook, the private IP addresses of ECS instances wait to be added to the associated whitelist that manages access to the ApsaraDB RDS instance. The ECS instances also wait to be added to the backend server group of the associated Classic Load Balancer (CLB) instance. After the lifecycle hook times out, the private IP addresses of the ECS instances are added to the whitelist that manages access to the associated ApsaraDB RDS instance. The ECS instances are also added to the backend server group of the associated CLB instance. During a scale-in activity and the timeout period of a lifecycle hook, the private IP addresses of ECS instances wait to be removed from the whitelist that manages access to the associated ApsaraDB RDS instance. The ECS instances also wait to be removed from the backend server group of the associated CLB instance. After the lifecycle hook times out, the private IP addresses of the ECS instances are removed from the whitelist that manages access to the associated ApsaraDB RDS instance. The ECS instances are also removed from the backend server group of the associated CLB instance.
      * You can configure a notification method for a lifecycle hook. When the lifecycle hook is triggered, a notification can be sent to the specified Message Service (MNS) topic or queue, or an operation can be performed based on the specified Operation Orchestration Service (OOS) template. If you want to configure an OOS template, you must create a Resource Access Management (RAM) role for OOS. For more information, see [Grant RAM permissions to OOS](https://help.aliyun.com/document_detail/120810.html).
      * > If your scaling group has existing ECS instances and you configured an OOS template that is used to add the private IP addresses of ECS instances to or remove the private IP addresses of ECS instances from the whitelists that manage access to cloud databases that are not ApsaraDB RDS databases, you must manually add the private IP addresses of the ECS instances to or remove the private IP addresses of the ECS instances from the whitelists that manage access to the cloud databases.
+     *  *
+     * @param CreateLifecycleHookRequest $request CreateLifecycleHookRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateLifecycleHookRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateLifecycleHookResponse
-     *
-     * @param CreateLifecycleHookRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateLifecycleHookResponse
+     * @return CreateLifecycleHookResponse CreateLifecycleHookResponse
      */
     public function createLifecycleHookWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->defaultResult) {
-            @$query['DefaultResult'] = $request->defaultResult;
+        if (!Utils::isUnset($request->defaultResult)) {
+            $query['DefaultResult'] = $request->defaultResult;
         }
-
-        if (null !== $request->heartbeatTimeout) {
-            @$query['HeartbeatTimeout'] = $request->heartbeatTimeout;
+        if (!Utils::isUnset($request->heartbeatTimeout)) {
+            $query['HeartbeatTimeout'] = $request->heartbeatTimeout;
         }
-
-        if (null !== $request->lifecycleHookName) {
-            @$query['LifecycleHookName'] = $request->lifecycleHookName;
+        if (!Utils::isUnset($request->lifecycleHookName)) {
+            $query['LifecycleHookName'] = $request->lifecycleHookName;
         }
-
-        if (null !== $request->lifecycleTransition) {
-            @$query['LifecycleTransition'] = $request->lifecycleTransition;
+        if (!Utils::isUnset($request->lifecycleTransition)) {
+            $query['LifecycleTransition'] = $request->lifecycleTransition;
         }
-
-        if (null !== $request->notificationArn) {
-            @$query['NotificationArn'] = $request->notificationArn;
+        if (!Utils::isUnset($request->notificationArn)) {
+            $query['NotificationArn'] = $request->notificationArn;
         }
-
-        if (null !== $request->notificationMetadata) {
-            @$query['NotificationMetadata'] = $request->notificationMetadata;
+        if (!Utils::isUnset($request->notificationMetadata)) {
+            $query['NotificationMetadata'] = $request->notificationMetadata;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateLifecycleHook',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateLifecycleHook',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1939,20 +1657,16 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates one or more lifecycle hooks in a scaling group. A lifecycle hook allows you to execute custom actions like sending notifications or automating script execution at critical stages (such as instance startup and termination) in the lifecycle of an instance. Implementing the lifecycle hook feature allows for finer control and management of instances. For example, you can verify configurations, set up custom tasks, or back up data on your instances when lifecycle hooks take effect, thus enhancing the flexibility and reliability of application deployment.
-     *
-     * @remarks
-     * You can create up to six lifecycle hooks for each scaling group. After a lifecycle hook is created for a scaling group, Elastic Compute Service (ECS) instances in the scaling group waits to be added to or removed from the scaling group during scaling activities. You can use the HeartbeatTimeout parameter to specify the timeout period of the lifecycle hook. During the timeout period of a lifecycle hook, you can perform custom operations such as initialize ECS instance configurations and download ECS instance data on the ECS instances for which the lifecycle hook is applied.
+     * @summary Creates one or more lifecycle hooks in a scaling group. A lifecycle hook allows you to execute custom actions like sending notifications or automating script execution at critical stages (such as instance startup and termination) in the lifecycle of an instance. Implementing the lifecycle hook feature allows for finer control and management of instances. For example, you can verify configurations, set up custom tasks, or back up data on your instances when lifecycle hooks take effect, thus enhancing the flexibility and reliability of application deployment.
+     *  *
+     * @description You can create up to six lifecycle hooks for each scaling group. After a lifecycle hook is created for a scaling group, Elastic Compute Service (ECS) instances in the scaling group waits to be added to or removed from the scaling group during scaling activities. You can use the HeartbeatTimeout parameter to specify the timeout period of the lifecycle hook. During the timeout period of a lifecycle hook, you can perform custom operations such as initialize ECS instance configurations and download ECS instance data on the ECS instances for which the lifecycle hook is applied.
      * During a scale-out activity and the timeout period of a lifecycle hook, the private IP addresses of ECS instances wait to be added to the associated whitelist that manages access to the ApsaraDB RDS instance. The ECS instances also wait to be added to the backend server group of the associated Classic Load Balancer (CLB) instance. After the lifecycle hook times out, the private IP addresses of the ECS instances are added to the whitelist that manages access to the associated ApsaraDB RDS instance. The ECS instances are also added to the backend server group of the associated CLB instance. During a scale-in activity and the timeout period of a lifecycle hook, the private IP addresses of ECS instances wait to be removed from the whitelist that manages access to the associated ApsaraDB RDS instance. The ECS instances also wait to be removed from the backend server group of the associated CLB instance. After the lifecycle hook times out, the private IP addresses of the ECS instances are removed from the whitelist that manages access to the associated ApsaraDB RDS instance. The ECS instances are also removed from the backend server group of the associated CLB instance.
      * You can configure a notification method for a lifecycle hook. When the lifecycle hook is triggered, a notification can be sent to the specified Message Service (MNS) topic or queue, or an operation can be performed based on the specified Operation Orchestration Service (OOS) template. If you want to configure an OOS template, you must create a Resource Access Management (RAM) role for OOS. For more information, see [Grant RAM permissions to OOS](https://help.aliyun.com/document_detail/120810.html).
      * > If your scaling group has existing ECS instances and you configured an OOS template that is used to add the private IP addresses of ECS instances to or remove the private IP addresses of ECS instances from the whitelists that manage access to cloud databases that are not ApsaraDB RDS databases, you must manually add the private IP addresses of the ECS instances to or remove the private IP addresses of the ECS instances from the whitelists that manage access to the cloud databases.
+     *  *
+     * @param CreateLifecycleHookRequest $request CreateLifecycleHookRequest
      *
-     * @param request - CreateLifecycleHookRequest
-     * @returns CreateLifecycleHookResponse
-     *
-     * @param CreateLifecycleHookRequest $request
-     *
-     * @return CreateLifecycleHookResponse
+     * @return CreateLifecycleHookResponse CreateLifecycleHookResponse
      */
     public function createLifecycleHook($request)
     {
@@ -1962,69 +1676,57 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates a notification rule. You can call the CreateNotificationConfiguration operation to create a notification rule to stay informed about scaling events or resource changes. This helps you learn about the dynamic status of your scaling group in real time and further automates the management of scaling events.
-     *
-     * @remarks
-     *   You can specify CloudMonitor system events, Simple Message Queue (SMQ, formerly MNS) topics, or SMQ queues as notification recipients. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or SMQ.
+     * @summary Creates a notification rule. You can call the CreateNotificationConfiguration operation to create a notification rule to stay informed about scaling events or resource changes. This helps you learn about the dynamic status of your scaling group in real time and further automates the management of scaling events.
+     *  *
+     * @description *   You can specify CloudMonitor system events, Simple Message Queue (SMQ, formerly MNS) topics, or SMQ queues as notification recipients. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or SMQ.
      * *   You cannot specify the same recipient for notifications of different event types in a scaling group.
      *     For example, you cannot enable the same CloudMonitor system event, SMQ topic, or SMQ queue to receive notifications of different event types in a scaling group.
+     *  *
+     * @param CreateNotificationConfigurationRequest $request CreateNotificationConfigurationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateNotificationConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateNotificationConfigurationResponse
-     *
-     * @param CreateNotificationConfigurationRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return CreateNotificationConfigurationResponse
+     * @return CreateNotificationConfigurationResponse CreateNotificationConfigurationResponse
      */
     public function createNotificationConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->notificationArn) {
-            @$query['NotificationArn'] = $request->notificationArn;
+        if (!Utils::isUnset($request->notificationArn)) {
+            $query['NotificationArn'] = $request->notificationArn;
         }
-
-        if (null !== $request->notificationTypes) {
-            @$query['NotificationTypes'] = $request->notificationTypes;
+        if (!Utils::isUnset($request->notificationTypes)) {
+            $query['NotificationTypes'] = $request->notificationTypes;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->timeZone) {
-            @$query['TimeZone'] = $request->timeZone;
+        if (!Utils::isUnset($request->timeZone)) {
+            $query['TimeZone'] = $request->timeZone;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNotificationConfiguration',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNotificationConfiguration',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2032,19 +1734,15 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates a notification rule. You can call the CreateNotificationConfiguration operation to create a notification rule to stay informed about scaling events or resource changes. This helps you learn about the dynamic status of your scaling group in real time and further automates the management of scaling events.
-     *
-     * @remarks
-     *   You can specify CloudMonitor system events, Simple Message Queue (SMQ, formerly MNS) topics, or SMQ queues as notification recipients. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or SMQ.
+     * @summary Creates a notification rule. You can call the CreateNotificationConfiguration operation to create a notification rule to stay informed about scaling events or resource changes. This helps you learn about the dynamic status of your scaling group in real time and further automates the management of scaling events.
+     *  *
+     * @description *   You can specify CloudMonitor system events, Simple Message Queue (SMQ, formerly MNS) topics, or SMQ queues as notification recipients. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or SMQ.
      * *   You cannot specify the same recipient for notifications of different event types in a scaling group.
      *     For example, you cannot enable the same CloudMonitor system event, SMQ topic, or SMQ queue to receive notifications of different event types in a scaling group.
+     *  *
+     * @param CreateNotificationConfigurationRequest $request CreateNotificationConfigurationRequest
      *
-     * @param request - CreateNotificationConfigurationRequest
-     * @returns CreateNotificationConfigurationResponse
-     *
-     * @param CreateNotificationConfigurationRequest $request
-     *
-     * @return CreateNotificationConfigurationResponse
+     * @return CreateNotificationConfigurationResponse CreateNotificationConfigurationResponse
      */
     public function createNotificationConfiguration($request)
     {
@@ -2054,291 +1752,225 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates scaling configurations. When you call the CreateScalingConfiguration operation, you can specify the scaling group ID, instance type, and image to create a scaling configuration of the Elastic Compute Service (ECS) type.
-     *
-     * @remarks
-     * Auto Scaling automatically creates Elastic Compute Service (ECS) instances based on the specified scaling configuration. ECS instances can be created in the following modes:
+     * @summary Creates scaling configurations. When you call the CreateScalingConfiguration operation, you can specify the scaling group ID, instance type, and image to create a scaling configuration of the Elastic Compute Service (ECS) type.
+     *  *
+     * @description Auto Scaling automatically creates Elastic Compute Service (ECS) instances based on the specified scaling configuration. ECS instances can be created in the following modes:
      * *   InstancePatternInfos: intelligent configuration mode. In this mode, you need to only specify the number of vCPUs, memory size, instance family, and maximum price. Auto Scaling selects the instance type that has the lowest price based on the configurations to create ECS instances. This mode is available only for scaling groups that reside in virtual private clouds (VPCs). This mode reduces scale-out failures caused by insufficient inventory of instance types.
      * *   InstanceType: In this mode, you must specify one instance type.
      * *   InstanceTypes: In this mode, you can specify more than one instance type.
      * *   InstanceTypeOverrides: In this mode, you can specify multiple instance types and weights for the instance types.
      * *   Cpu and Memory: In this mode, you must specify the number of vCPUs and the memory size. Auto Scaling determines the range of available instance types based on factors such as I/O optimization requirements and zones. Then, Auto Scaling creates ECS instances by using the lowest-priced instance type. This mode is available only if Scaling Policy is set to Cost Optimization Policy and no instance type is specified in the scaling configuration.
      * > You cannot specify InstanceType, InstanceTypes, InstanceTypeOverrides, and Cpu and Memory at the same time. You can specify InstanceType and InstancePatternInfos or specify InstanceTypes and InstancePatternInfo at the same time. If you specify InstanceType and InstancePatternInfos or specify InstanceTypes and InstancePatternInfos at the same time, Auto Scaling preferentially uses the instance types that are specified by InstanceType or InstanceTypes for scale-outs. If the instance types that are specified by InstanceType or InstanceTypes do not have sufficient inventory, Auto Scaling uses the instance types that are specified by InstancePatternInfos for scale-outs.
+     *  *
+     * @param CreateScalingConfigurationRequest $tmpReq  CreateScalingConfigurationRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateScalingConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateScalingConfigurationResponse
-     *
-     * @param CreateScalingConfigurationRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreateScalingConfigurationResponse
+     * @return CreateScalingConfigurationResponse CreateScalingConfigurationResponse
      */
     public function createScalingConfigurationWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateScalingConfigurationShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->schedulerOptions) {
-            $request->schedulerOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->schedulerOptions, 'SchedulerOptions', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->schedulerOptions)) {
+            $request->schedulerOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedulerOptions, 'SchedulerOptions', 'json');
         }
-
         $query = [];
-        if (null !== $request->affinity) {
-            @$query['Affinity'] = $request->affinity;
+        if (!Utils::isUnset($request->affinity)) {
+            $query['Affinity'] = $request->affinity;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->cpu) {
-            @$query['Cpu'] = $request->cpu;
+        if (!Utils::isUnset($request->cpu)) {
+            $query['Cpu'] = $request->cpu;
         }
-
-        if (null !== $request->creditSpecification) {
-            @$query['CreditSpecification'] = $request->creditSpecification;
+        if (!Utils::isUnset($request->creditSpecification)) {
+            $query['CreditSpecification'] = $request->creditSpecification;
         }
-
-        if (null !== $request->customPriorities) {
-            @$query['CustomPriorities'] = $request->customPriorities;
+        if (!Utils::isUnset($request->customPriorities)) {
+            $query['CustomPriorities'] = $request->customPriorities;
         }
-
-        if (null !== $request->dataDisks) {
-            @$query['DataDisks'] = $request->dataDisks;
+        if (!Utils::isUnset($request->dataDisks)) {
+            $query['DataDisks'] = $request->dataDisks;
         }
-
-        if (null !== $request->dedicatedHostClusterId) {
-            @$query['DedicatedHostClusterId'] = $request->dedicatedHostClusterId;
+        if (!Utils::isUnset($request->dedicatedHostClusterId)) {
+            $query['DedicatedHostClusterId'] = $request->dedicatedHostClusterId;
         }
-
-        if (null !== $request->dedicatedHostId) {
-            @$query['DedicatedHostId'] = $request->dedicatedHostId;
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-
-        if (null !== $request->deletionProtection) {
-            @$query['DeletionProtection'] = $request->deletionProtection;
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $query['DeletionProtection'] = $request->deletionProtection;
         }
-
-        if (null !== $request->deploymentSetId) {
-            @$query['DeploymentSetId'] = $request->deploymentSetId;
+        if (!Utils::isUnset($request->deploymentSetId)) {
+            $query['DeploymentSetId'] = $request->deploymentSetId;
         }
-
-        if (null !== $request->hostName) {
-            @$query['HostName'] = $request->hostName;
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
         }
-
-        if (null !== $request->hpcClusterId) {
-            @$query['HpcClusterId'] = $request->hpcClusterId;
+        if (!Utils::isUnset($request->hpcClusterId)) {
+            $query['HpcClusterId'] = $request->hpcClusterId;
         }
-
-        if (null !== $request->httpEndpoint) {
-            @$query['HttpEndpoint'] = $request->httpEndpoint;
+        if (!Utils::isUnset($request->httpEndpoint)) {
+            $query['HttpEndpoint'] = $request->httpEndpoint;
         }
-
-        if (null !== $request->httpTokens) {
-            @$query['HttpTokens'] = $request->httpTokens;
+        if (!Utils::isUnset($request->httpTokens)) {
+            $query['HttpTokens'] = $request->httpTokens;
         }
-
-        if (null !== $request->imageFamily) {
-            @$query['ImageFamily'] = $request->imageFamily;
+        if (!Utils::isUnset($request->imageFamily)) {
+            $query['ImageFamily'] = $request->imageFamily;
         }
-
-        if (null !== $request->imageId) {
-            @$query['ImageId'] = $request->imageId;
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
         }
-
-        if (null !== $request->imageName) {
-            @$query['ImageName'] = $request->imageName;
+        if (!Utils::isUnset($request->imageName)) {
+            $query['ImageName'] = $request->imageName;
         }
-
-        if (null !== $request->instanceDescription) {
-            @$query['InstanceDescription'] = $request->instanceDescription;
+        if (!Utils::isUnset($request->instanceDescription)) {
+            $query['InstanceDescription'] = $request->instanceDescription;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->instancePatternInfos) {
-            @$query['InstancePatternInfos'] = $request->instancePatternInfos;
+        if (!Utils::isUnset($request->instancePatternInfos)) {
+            $query['InstancePatternInfos'] = $request->instancePatternInfos;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->instanceTypeOverrides) {
-            @$query['InstanceTypeOverrides'] = $request->instanceTypeOverrides;
+        if (!Utils::isUnset($request->instanceTypeOverrides)) {
+            $query['InstanceTypeOverrides'] = $request->instanceTypeOverrides;
         }
-
-        if (null !== $request->instanceTypes) {
-            @$query['InstanceTypes'] = $request->instanceTypes;
+        if (!Utils::isUnset($request->instanceTypes)) {
+            $query['InstanceTypes'] = $request->instanceTypes;
         }
-
-        if (null !== $request->internetChargeType) {
-            @$query['InternetChargeType'] = $request->internetChargeType;
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
         }
-
-        if (null !== $request->internetMaxBandwidthIn) {
-            @$query['InternetMaxBandwidthIn'] = $request->internetMaxBandwidthIn;
+        if (!Utils::isUnset($request->internetMaxBandwidthIn)) {
+            $query['InternetMaxBandwidthIn'] = $request->internetMaxBandwidthIn;
         }
-
-        if (null !== $request->internetMaxBandwidthOut) {
-            @$query['InternetMaxBandwidthOut'] = $request->internetMaxBandwidthOut;
+        if (!Utils::isUnset($request->internetMaxBandwidthOut)) {
+            $query['InternetMaxBandwidthOut'] = $request->internetMaxBandwidthOut;
         }
-
-        if (null !== $request->ioOptimized) {
-            @$query['IoOptimized'] = $request->ioOptimized;
+        if (!Utils::isUnset($request->ioOptimized)) {
+            $query['IoOptimized'] = $request->ioOptimized;
         }
-
-        if (null !== $request->ipv6AddressCount) {
-            @$query['Ipv6AddressCount'] = $request->ipv6AddressCount;
+        if (!Utils::isUnset($request->ipv6AddressCount)) {
+            $query['Ipv6AddressCount'] = $request->ipv6AddressCount;
         }
-
-        if (null !== $request->keyPairName) {
-            @$query['KeyPairName'] = $request->keyPairName;
+        if (!Utils::isUnset($request->keyPairName)) {
+            $query['KeyPairName'] = $request->keyPairName;
         }
-
-        if (null !== $request->loadBalancerWeight) {
-            @$query['LoadBalancerWeight'] = $request->loadBalancerWeight;
+        if (!Utils::isUnset($request->loadBalancerWeight)) {
+            $query['LoadBalancerWeight'] = $request->loadBalancerWeight;
         }
-
-        if (null !== $request->memory) {
-            @$query['Memory'] = $request->memory;
+        if (!Utils::isUnset($request->memory)) {
+            $query['Memory'] = $request->memory;
         }
-
-        if (null !== $request->networkInterfaces) {
-            @$query['NetworkInterfaces'] = $request->networkInterfaces;
+        if (!Utils::isUnset($request->networkInterfaces)) {
+            $query['NetworkInterfaces'] = $request->networkInterfaces;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->passwordInherit) {
-            @$query['PasswordInherit'] = $request->passwordInherit;
+        if (!Utils::isUnset($request->passwordInherit)) {
+            $query['PasswordInherit'] = $request->passwordInherit;
         }
-
-        if (null !== $request->ramRoleName) {
-            @$query['RamRoleName'] = $request->ramRoleName;
+        if (!Utils::isUnset($request->ramRoleName)) {
+            $query['RamRoleName'] = $request->ramRoleName;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingConfigurationName) {
-            @$query['ScalingConfigurationName'] = $request->scalingConfigurationName;
+        if (!Utils::isUnset($request->scalingConfigurationName)) {
+            $query['ScalingConfigurationName'] = $request->scalingConfigurationName;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->schedulerOptionsShrink) {
-            @$query['SchedulerOptions'] = $request->schedulerOptionsShrink;
+        if (!Utils::isUnset($request->schedulerOptionsShrink)) {
+            $query['SchedulerOptions'] = $request->schedulerOptionsShrink;
         }
-
-        if (null !== $request->securityEnhancementStrategy) {
-            @$query['SecurityEnhancementStrategy'] = $request->securityEnhancementStrategy;
+        if (!Utils::isUnset($request->securityEnhancementStrategy)) {
+            $query['SecurityEnhancementStrategy'] = $request->securityEnhancementStrategy;
         }
-
-        if (null !== $request->securityGroupId) {
-            @$query['SecurityGroupId'] = $request->securityGroupId;
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
         }
-
-        if (null !== $request->securityGroupIds) {
-            @$query['SecurityGroupIds'] = $request->securityGroupIds;
+        if (!Utils::isUnset($request->securityGroupIds)) {
+            $query['SecurityGroupIds'] = $request->securityGroupIds;
         }
-
-        if (null !== $request->securityOptions) {
-            @$query['SecurityOptions'] = $request->securityOptions;
+        if (!Utils::isUnset($request->securityOptions)) {
+            $query['SecurityOptions'] = $request->securityOptions;
         }
-
-        if (null !== $request->spotDuration) {
-            @$query['SpotDuration'] = $request->spotDuration;
+        if (!Utils::isUnset($request->spotDuration)) {
+            $query['SpotDuration'] = $request->spotDuration;
         }
-
-        if (null !== $request->spotInterruptionBehavior) {
-            @$query['SpotInterruptionBehavior'] = $request->spotInterruptionBehavior;
+        if (!Utils::isUnset($request->spotInterruptionBehavior)) {
+            $query['SpotInterruptionBehavior'] = $request->spotInterruptionBehavior;
         }
-
-        if (null !== $request->spotPriceLimits) {
-            @$query['SpotPriceLimits'] = $request->spotPriceLimits;
+        if (!Utils::isUnset($request->spotPriceLimits)) {
+            $query['SpotPriceLimits'] = $request->spotPriceLimits;
         }
-
-        if (null !== $request->spotStrategy) {
-            @$query['SpotStrategy'] = $request->spotStrategy;
+        if (!Utils::isUnset($request->spotStrategy)) {
+            $query['SpotStrategy'] = $request->spotStrategy;
         }
-
-        if (null !== $request->storageSetId) {
-            @$query['StorageSetId'] = $request->storageSetId;
+        if (!Utils::isUnset($request->storageSetId)) {
+            $query['StorageSetId'] = $request->storageSetId;
         }
-
-        if (null !== $request->storageSetPartitionNumber) {
-            @$query['StorageSetPartitionNumber'] = $request->storageSetPartitionNumber;
+        if (!Utils::isUnset($request->storageSetPartitionNumber)) {
+            $query['StorageSetPartitionNumber'] = $request->storageSetPartitionNumber;
         }
-
-        if (null !== $request->systemDiskCategories) {
-            @$query['SystemDiskCategories'] = $request->systemDiskCategories;
+        if (!Utils::isUnset($request->systemDiskCategories)) {
+            $query['SystemDiskCategories'] = $request->systemDiskCategories;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
-        if (null !== $request->tenancy) {
-            @$query['Tenancy'] = $request->tenancy;
+        if (!Utils::isUnset($request->tenancy)) {
+            $query['Tenancy'] = $request->tenancy;
         }
-
-        if (null !== $request->userData) {
-            @$query['UserData'] = $request->userData;
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
-        if (null !== $request->imageOptions) {
-            @$query['ImageOptions'] = $request->imageOptions;
+        if (!Utils::isUnset($request->imageOptions)) {
+            $query['ImageOptions'] = $request->imageOptions;
         }
-
-        if (null !== $request->privatePoolOptions) {
-            @$query['PrivatePoolOptions'] = $request->privatePoolOptions;
+        if (!Utils::isUnset($request->privatePoolOptions)) {
+            $query['PrivatePoolOptions'] = $request->privatePoolOptions;
         }
-
-        if (null !== $request->systemDisk) {
-            @$query['SystemDisk'] = $request->systemDisk;
+        if (!Utils::isUnset($request->systemDisk)) {
+            $query['SystemDisk'] = $request->systemDisk;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateScalingConfiguration',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateScalingConfiguration',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2346,23 +1978,19 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates scaling configurations. When you call the CreateScalingConfiguration operation, you can specify the scaling group ID, instance type, and image to create a scaling configuration of the Elastic Compute Service (ECS) type.
-     *
-     * @remarks
-     * Auto Scaling automatically creates Elastic Compute Service (ECS) instances based on the specified scaling configuration. ECS instances can be created in the following modes:
+     * @summary Creates scaling configurations. When you call the CreateScalingConfiguration operation, you can specify the scaling group ID, instance type, and image to create a scaling configuration of the Elastic Compute Service (ECS) type.
+     *  *
+     * @description Auto Scaling automatically creates Elastic Compute Service (ECS) instances based on the specified scaling configuration. ECS instances can be created in the following modes:
      * *   InstancePatternInfos: intelligent configuration mode. In this mode, you need to only specify the number of vCPUs, memory size, instance family, and maximum price. Auto Scaling selects the instance type that has the lowest price based on the configurations to create ECS instances. This mode is available only for scaling groups that reside in virtual private clouds (VPCs). This mode reduces scale-out failures caused by insufficient inventory of instance types.
      * *   InstanceType: In this mode, you must specify one instance type.
      * *   InstanceTypes: In this mode, you can specify more than one instance type.
      * *   InstanceTypeOverrides: In this mode, you can specify multiple instance types and weights for the instance types.
      * *   Cpu and Memory: In this mode, you must specify the number of vCPUs and the memory size. Auto Scaling determines the range of available instance types based on factors such as I/O optimization requirements and zones. Then, Auto Scaling creates ECS instances by using the lowest-priced instance type. This mode is available only if Scaling Policy is set to Cost Optimization Policy and no instance type is specified in the scaling configuration.
      * > You cannot specify InstanceType, InstanceTypes, InstanceTypeOverrides, and Cpu and Memory at the same time. You can specify InstanceType and InstancePatternInfos or specify InstanceTypes and InstancePatternInfo at the same time. If you specify InstanceType and InstancePatternInfos or specify InstanceTypes and InstancePatternInfos at the same time, Auto Scaling preferentially uses the instance types that are specified by InstanceType or InstanceTypes for scale-outs. If the instance types that are specified by InstanceType or InstanceTypes do not have sufficient inventory, Auto Scaling uses the instance types that are specified by InstancePatternInfos for scale-outs.
+     *  *
+     * @param CreateScalingConfigurationRequest $request CreateScalingConfigurationRequest
      *
-     * @param request - CreateScalingConfigurationRequest
-     * @returns CreateScalingConfigurationResponse
-     *
-     * @param CreateScalingConfigurationRequest $request
-     *
-     * @return CreateScalingConfigurationResponse
+     * @return CreateScalingConfigurationResponse CreateScalingConfigurationResponse
      */
     public function createScalingConfiguration($request)
     {
@@ -2372,10 +2000,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates a scaling group. You can call the CreateScalingGroup operation to automate the adjustment of computing power of a specific type based on your business requirements and scaling polices.
-     *
-     * @remarks
-     * A scaling group is a group of Elastic Compute Service (ECS) instances that can be used for similar purposes.
+     * @summary Creates a scaling group. You can call the CreateScalingGroup operation to automate the adjustment of computing power of a specific type based on your business requirements and scaling polices.
+     *  *
+     * @description A scaling group is a group of Elastic Compute Service (ECS) instances that can be used for similar purposes.
      * You can create only a limited number of scaling groups in a region. To check the quota of the scaling groups, go to Quota Center.
      * A scaling group does not immediately take effect after you create the scaling group. You can call the [EnableScalingGroup](https://help.aliyun.com/document_detail/25939.html) operation to enable a scaling group. You can trigger scaling events and execute scaling rules only in scaling groups that are in the Enabled state.
      * If you want to attach a Classic Load Balancer (CLB, formerly known as SLB) instance and an ApsaraDB RDS instance to the scaling group that you want to create, the scaling group, the CLB instance, and the ApsaraDB RDS instance must reside in the same region. For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
@@ -2397,223 +2024,172 @@ class Ess extends OpenApiClient
      * *   Tags that you add to the scaling group cannot be propagated to existing instances in the scaling group. Tags that you add to the scaling group are propagated to only new instances.
      * *   If you specify instance tags in the scaling configuration that is used to create instances and propagate the tags that you add to the scaling group to the instances, all tags exist at the same time.
      * *   If the tag key that you specify in a scaling configuration and the tag key that you add to the scaling group of the scaling configuration are the same, the tag value that you specify in the scaling configuration is preferentially used.
+     *  *
+     * @param CreateScalingGroupRequest $request CreateScalingGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateScalingGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateScalingGroupResponse
-     *
-     * @param CreateScalingGroupRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateScalingGroupResponse
+     * @return CreateScalingGroupResponse CreateScalingGroupResponse
      */
     public function createScalingGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->albServerGroups) {
-            @$query['AlbServerGroups'] = $request->albServerGroups;
+        if (!Utils::isUnset($request->albServerGroups)) {
+            $query['AlbServerGroups'] = $request->albServerGroups;
         }
-
-        if (null !== $request->allocationStrategy) {
-            @$query['AllocationStrategy'] = $request->allocationStrategy;
+        if (!Utils::isUnset($request->allocationStrategy)) {
+            $query['AllocationStrategy'] = $request->allocationStrategy;
         }
-
-        if (null !== $request->azBalance) {
-            @$query['AzBalance'] = $request->azBalance;
+        if (!Utils::isUnset($request->azBalance)) {
+            $query['AzBalance'] = $request->azBalance;
         }
-
-        if (null !== $request->capacityOptions) {
-            @$query['CapacityOptions'] = $request->capacityOptions;
+        if (!Utils::isUnset($request->capacityOptions)) {
+            $query['CapacityOptions'] = $request->capacityOptions;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->compensateWithOnDemand) {
-            @$query['CompensateWithOnDemand'] = $request->compensateWithOnDemand;
+        if (!Utils::isUnset($request->compensateWithOnDemand)) {
+            $query['CompensateWithOnDemand'] = $request->compensateWithOnDemand;
         }
-
-        if (null !== $request->containerGroupId) {
-            @$query['ContainerGroupId'] = $request->containerGroupId;
+        if (!Utils::isUnset($request->containerGroupId)) {
+            $query['ContainerGroupId'] = $request->containerGroupId;
         }
-
-        if (null !== $request->customPolicyARN) {
-            @$query['CustomPolicyARN'] = $request->customPolicyARN;
+        if (!Utils::isUnset($request->customPolicyARN)) {
+            $query['CustomPolicyARN'] = $request->customPolicyARN;
         }
-
-        if (null !== $request->DBInstanceIds) {
-            @$query['DBInstanceIds'] = $request->DBInstanceIds;
+        if (!Utils::isUnset($request->DBInstanceIds)) {
+            $query['DBInstanceIds'] = $request->DBInstanceIds;
         }
-
-        if (null !== $request->DBInstances) {
-            @$query['DBInstances'] = $request->DBInstances;
+        if (!Utils::isUnset($request->DBInstances)) {
+            $query['DBInstances'] = $request->DBInstances;
         }
-
-        if (null !== $request->defaultCooldown) {
-            @$query['DefaultCooldown'] = $request->defaultCooldown;
+        if (!Utils::isUnset($request->defaultCooldown)) {
+            $query['DefaultCooldown'] = $request->defaultCooldown;
         }
-
-        if (null !== $request->desiredCapacity) {
-            @$query['DesiredCapacity'] = $request->desiredCapacity;
+        if (!Utils::isUnset($request->desiredCapacity)) {
+            $query['DesiredCapacity'] = $request->desiredCapacity;
         }
-
-        if (null !== $request->groupDeletionProtection) {
-            @$query['GroupDeletionProtection'] = $request->groupDeletionProtection;
+        if (!Utils::isUnset($request->groupDeletionProtection)) {
+            $query['GroupDeletionProtection'] = $request->groupDeletionProtection;
         }
-
-        if (null !== $request->groupType) {
-            @$query['GroupType'] = $request->groupType;
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
         }
-
-        if (null !== $request->healthCheckType) {
-            @$query['HealthCheckType'] = $request->healthCheckType;
+        if (!Utils::isUnset($request->healthCheckType)) {
+            $query['HealthCheckType'] = $request->healthCheckType;
         }
-
-        if (null !== $request->healthCheckTypes) {
-            @$query['HealthCheckTypes'] = $request->healthCheckTypes;
+        if (!Utils::isUnset($request->healthCheckTypes)) {
+            $query['HealthCheckTypes'] = $request->healthCheckTypes;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->launchTemplateId) {
-            @$query['LaunchTemplateId'] = $request->launchTemplateId;
+        if (!Utils::isUnset($request->launchTemplateId)) {
+            $query['LaunchTemplateId'] = $request->launchTemplateId;
         }
-
-        if (null !== $request->launchTemplateOverrides) {
-            @$query['LaunchTemplateOverrides'] = $request->launchTemplateOverrides;
+        if (!Utils::isUnset($request->launchTemplateOverrides)) {
+            $query['LaunchTemplateOverrides'] = $request->launchTemplateOverrides;
         }
-
-        if (null !== $request->launchTemplateVersion) {
-            @$query['LaunchTemplateVersion'] = $request->launchTemplateVersion;
+        if (!Utils::isUnset($request->launchTemplateVersion)) {
+            $query['LaunchTemplateVersion'] = $request->launchTemplateVersion;
         }
-
-        if (null !== $request->lifecycleHooks) {
-            @$query['LifecycleHooks'] = $request->lifecycleHooks;
+        if (!Utils::isUnset($request->lifecycleHooks)) {
+            $query['LifecycleHooks'] = $request->lifecycleHooks;
         }
-
-        if (null !== $request->loadBalancerConfigs) {
-            @$query['LoadBalancerConfigs'] = $request->loadBalancerConfigs;
+        if (!Utils::isUnset($request->loadBalancerConfigs)) {
+            $query['LoadBalancerConfigs'] = $request->loadBalancerConfigs;
         }
-
-        if (null !== $request->loadBalancerIds) {
-            @$query['LoadBalancerIds'] = $request->loadBalancerIds;
+        if (!Utils::isUnset($request->loadBalancerIds)) {
+            $query['LoadBalancerIds'] = $request->loadBalancerIds;
         }
-
-        if (null !== $request->maxInstanceLifetime) {
-            @$query['MaxInstanceLifetime'] = $request->maxInstanceLifetime;
+        if (!Utils::isUnset($request->maxInstanceLifetime)) {
+            $query['MaxInstanceLifetime'] = $request->maxInstanceLifetime;
         }
-
-        if (null !== $request->maxSize) {
-            @$query['MaxSize'] = $request->maxSize;
+        if (!Utils::isUnset($request->maxSize)) {
+            $query['MaxSize'] = $request->maxSize;
         }
-
-        if (null !== $request->minSize) {
-            @$query['MinSize'] = $request->minSize;
+        if (!Utils::isUnset($request->minSize)) {
+            $query['MinSize'] = $request->minSize;
         }
-
-        if (null !== $request->multiAZPolicy) {
-            @$query['MultiAZPolicy'] = $request->multiAZPolicy;
+        if (!Utils::isUnset($request->multiAZPolicy)) {
+            $query['MultiAZPolicy'] = $request->multiAZPolicy;
         }
-
-        if (null !== $request->onDemandBaseCapacity) {
-            @$query['OnDemandBaseCapacity'] = $request->onDemandBaseCapacity;
+        if (!Utils::isUnset($request->onDemandBaseCapacity)) {
+            $query['OnDemandBaseCapacity'] = $request->onDemandBaseCapacity;
         }
-
-        if (null !== $request->onDemandPercentageAboveBaseCapacity) {
-            @$query['OnDemandPercentageAboveBaseCapacity'] = $request->onDemandPercentageAboveBaseCapacity;
+        if (!Utils::isUnset($request->onDemandPercentageAboveBaseCapacity)) {
+            $query['OnDemandPercentageAboveBaseCapacity'] = $request->onDemandPercentageAboveBaseCapacity;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->removalPolicies) {
-            @$query['RemovalPolicies'] = $request->removalPolicies;
+        if (!Utils::isUnset($request->removalPolicies)) {
+            $query['RemovalPolicies'] = $request->removalPolicies;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupName) {
-            @$query['ScalingGroupName'] = $request->scalingGroupName;
+        if (!Utils::isUnset($request->scalingGroupName)) {
+            $query['ScalingGroupName'] = $request->scalingGroupName;
         }
-
-        if (null !== $request->scalingPolicy) {
-            @$query['ScalingPolicy'] = $request->scalingPolicy;
+        if (!Utils::isUnset($request->scalingPolicy)) {
+            $query['ScalingPolicy'] = $request->scalingPolicy;
         }
-
-        if (null !== $request->serverGroups) {
-            @$query['ServerGroups'] = $request->serverGroups;
+        if (!Utils::isUnset($request->serverGroups)) {
+            $query['ServerGroups'] = $request->serverGroups;
         }
-
-        if (null !== $request->spotAllocationStrategy) {
-            @$query['SpotAllocationStrategy'] = $request->spotAllocationStrategy;
+        if (!Utils::isUnset($request->spotAllocationStrategy)) {
+            $query['SpotAllocationStrategy'] = $request->spotAllocationStrategy;
         }
-
-        if (null !== $request->spotInstancePools) {
-            @$query['SpotInstancePools'] = $request->spotInstancePools;
+        if (!Utils::isUnset($request->spotInstancePools)) {
+            $query['SpotInstancePools'] = $request->spotInstancePools;
         }
-
-        if (null !== $request->spotInstanceRemedy) {
-            @$query['SpotInstanceRemedy'] = $request->spotInstanceRemedy;
+        if (!Utils::isUnset($request->spotInstanceRemedy)) {
+            $query['SpotInstanceRemedy'] = $request->spotInstanceRemedy;
         }
-
-        if (null !== $request->stopInstanceTimeout) {
-            @$query['StopInstanceTimeout'] = $request->stopInstanceTimeout;
+        if (!Utils::isUnset($request->stopInstanceTimeout)) {
+            $query['StopInstanceTimeout'] = $request->stopInstanceTimeout;
         }
-
-        if (null !== $request->syncAlarmRuleToCms) {
-            @$query['SyncAlarmRuleToCms'] = $request->syncAlarmRuleToCms;
+        if (!Utils::isUnset($request->syncAlarmRuleToCms)) {
+            $query['SyncAlarmRuleToCms'] = $request->syncAlarmRuleToCms;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
-        if (null !== $request->VServerGroups) {
-            @$query['VServerGroups'] = $request->VServerGroups;
+        if (!Utils::isUnset($request->VServerGroups)) {
+            $query['VServerGroups'] = $request->VServerGroups;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vSwitchIds) {
-            @$query['VSwitchIds'] = $request->vSwitchIds;
+        if (!Utils::isUnset($request->vSwitchIds)) {
+            $query['VSwitchIds'] = $request->vSwitchIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateScalingGroup',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateScalingGroup',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2621,10 +2197,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates a scaling group. You can call the CreateScalingGroup operation to automate the adjustment of computing power of a specific type based on your business requirements and scaling polices.
-     *
-     * @remarks
-     * A scaling group is a group of Elastic Compute Service (ECS) instances that can be used for similar purposes.
+     * @summary Creates a scaling group. You can call the CreateScalingGroup operation to automate the adjustment of computing power of a specific type based on your business requirements and scaling polices.
+     *  *
+     * @description A scaling group is a group of Elastic Compute Service (ECS) instances that can be used for similar purposes.
      * You can create only a limited number of scaling groups in a region. To check the quota of the scaling groups, go to Quota Center.
      * A scaling group does not immediately take effect after you create the scaling group. You can call the [EnableScalingGroup](https://help.aliyun.com/document_detail/25939.html) operation to enable a scaling group. You can trigger scaling events and execute scaling rules only in scaling groups that are in the Enabled state.
      * If you want to attach a Classic Load Balancer (CLB, formerly known as SLB) instance and an ApsaraDB RDS instance to the scaling group that you want to create, the scaling group, the CLB instance, and the ApsaraDB RDS instance must reside in the same region. For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
@@ -2646,13 +2221,10 @@ class Ess extends OpenApiClient
      * *   Tags that you add to the scaling group cannot be propagated to existing instances in the scaling group. Tags that you add to the scaling group are propagated to only new instances.
      * *   If you specify instance tags in the scaling configuration that is used to create instances and propagate the tags that you add to the scaling group to the instances, all tags exist at the same time.
      * *   If the tag key that you specify in a scaling configuration and the tag key that you add to the scaling group of the scaling configuration are the same, the tag value that you specify in the scaling configuration is preferentially used.
+     *  *
+     * @param CreateScalingGroupRequest $request CreateScalingGroupRequest
      *
-     * @param request - CreateScalingGroupRequest
-     * @returns CreateScalingGroupResponse
-     *
-     * @param CreateScalingGroupRequest $request
-     *
-     * @return CreateScalingGroupResponse
+     * @return CreateScalingGroupResponse CreateScalingGroupResponse
      */
     public function createScalingGroup($request)
     {
@@ -2662,10 +2234,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates a scaling rule. The purpose of a scaling rule varies based on its type. You can use a scaling rule to trigger a scaling activity or adjust the boundary values for a scaling group. You can call the CreateScalingRule operation to create different types of scaling rules based on your business requirements. For example, if your business requires only automatic adjustment of the boundary values for your scaling group, you can call this operation to create a predictive scaling rule.
-     *
-     * @remarks
-     * A scaling rule defines the specific scaling action. For example, you can use a scaling rule to define N instances to add or remove. If the execution of a scaling rule causes the total number of Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to drop below the value of MinSize or to exceed the value of MaxSize, Auto Scaling adjusts the number of instances to add or remove, which ensures that the total number of instances stays within the valid range. Take note that Auto Scaling does not adjust the number of instances that you defined in the scaling rule. Examples:
+     * @summary Creates a scaling rule. The purpose of a scaling rule varies based on its type. You can use a scaling rule to trigger a scaling activity or adjust the boundary values for a scaling group. You can call the CreateScalingRule operation to create different types of scaling rules based on your business requirements. For example, if your business requires only automatic adjustment of the boundary values for your scaling group, you can call this operation to create a predictive scaling rule.
+     *  *
+     * @description A scaling rule defines the specific scaling action. For example, you can use a scaling rule to define N instances to add or remove. If the execution of a scaling rule causes the total number of Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to drop below the value of MinSize or to exceed the value of MaxSize, Auto Scaling adjusts the number of instances to add or remove, which ensures that the total number of instances stays within the valid range. Take note that Auto Scaling does not adjust the number of instances that you defined in the scaling rule. Examples:
      * *   The maximum number of instances (MaxSize) that can be contained in a scaling group is 3 and the current number of instances (Total Capacity) in the scaling group is 2. In this example, the Add3 scaling rule is created to add three ECS instances to the scaling group. However, after you execute Add3, Auto Scaling adds only one ECS instance to the scaling group. In addition, the number of ECS instances to add in the Add3 scaling rule remains unchanged.
      * *   The minimum number of instances (MinSize) that must be contained in a scaling group is 2 and the current number of instances (Total Capacity) is 3. In this example, the Remove5 scaling rule is created to remove five ECS instances from the scaling group. However, after you execute Remove5, Auto Scaling only removes one ECS instance from the scaling group. In addition, the number of ECS instances to remove in the Remove5 scaling rule remains unchanged.
      * Before you call this operation, take note of the following items:
@@ -2677,143 +2248,112 @@ class Ess extends OpenApiClient
      * *   The following API operations may use the unique identifier of a scaling rule (ScalingRuleAri) that is returned after you call the CreateScalingRule operation:
      *     *   ExecuteScalingRule: You can call this operation to manually execute a scaling rule. In this operation, you can set ScalingRuleAri to the unique identifier of the scaling rule that you want to execute.
      *     *   CreateScheduledTask: You can call this operation to create a scheduled task for a scaling rule. In this operation, you can set ScalingRuleAri to the unique identifier of the scaling rule for which you want to create a scheduled task.
+     *  *
+     * @param CreateScalingRuleRequest $request CreateScalingRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateScalingRuleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateScalingRuleResponse
-     *
-     * @param CreateScalingRuleRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateScalingRuleResponse
+     * @return CreateScalingRuleResponse CreateScalingRuleResponse
      */
     public function createScalingRuleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->adjustmentType) {
-            @$query['AdjustmentType'] = $request->adjustmentType;
+        if (!Utils::isUnset($request->adjustmentType)) {
+            $query['AdjustmentType'] = $request->adjustmentType;
         }
-
-        if (null !== $request->adjustmentValue) {
-            @$query['AdjustmentValue'] = $request->adjustmentValue;
+        if (!Utils::isUnset($request->adjustmentValue)) {
+            $query['AdjustmentValue'] = $request->adjustmentValue;
         }
-
-        if (null !== $request->alarmDimensions) {
-            @$query['AlarmDimensions'] = $request->alarmDimensions;
+        if (!Utils::isUnset($request->alarmDimensions)) {
+            $query['AlarmDimensions'] = $request->alarmDimensions;
         }
-
-        if (null !== $request->cooldown) {
-            @$query['Cooldown'] = $request->cooldown;
+        if (!Utils::isUnset($request->cooldown)) {
+            $query['Cooldown'] = $request->cooldown;
         }
-
-        if (null !== $request->disableScaleIn) {
-            @$query['DisableScaleIn'] = $request->disableScaleIn;
+        if (!Utils::isUnset($request->disableScaleIn)) {
+            $query['DisableScaleIn'] = $request->disableScaleIn;
         }
-
-        if (null !== $request->estimatedInstanceWarmup) {
-            @$query['EstimatedInstanceWarmup'] = $request->estimatedInstanceWarmup;
+        if (!Utils::isUnset($request->estimatedInstanceWarmup)) {
+            $query['EstimatedInstanceWarmup'] = $request->estimatedInstanceWarmup;
         }
-
-        if (null !== $request->hybridMetrics) {
-            @$query['HybridMetrics'] = $request->hybridMetrics;
+        if (!Utils::isUnset($request->hybridMetrics)) {
+            $query['HybridMetrics'] = $request->hybridMetrics;
         }
-
-        if (null !== $request->hybridMonitorNamespace) {
-            @$query['HybridMonitorNamespace'] = $request->hybridMonitorNamespace;
+        if (!Utils::isUnset($request->hybridMonitorNamespace)) {
+            $query['HybridMonitorNamespace'] = $request->hybridMonitorNamespace;
         }
-
-        if (null !== $request->initialMaxSize) {
-            @$query['InitialMaxSize'] = $request->initialMaxSize;
+        if (!Utils::isUnset($request->initialMaxSize)) {
+            $query['InitialMaxSize'] = $request->initialMaxSize;
         }
-
-        if (null !== $request->metricName) {
-            @$query['MetricName'] = $request->metricName;
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
         }
-
-        if (null !== $request->metricType) {
-            @$query['MetricType'] = $request->metricType;
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
         }
-
-        if (null !== $request->minAdjustmentMagnitude) {
-            @$query['MinAdjustmentMagnitude'] = $request->minAdjustmentMagnitude;
+        if (!Utils::isUnset($request->minAdjustmentMagnitude)) {
+            $query['MinAdjustmentMagnitude'] = $request->minAdjustmentMagnitude;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->predictiveScalingMode) {
-            @$query['PredictiveScalingMode'] = $request->predictiveScalingMode;
+        if (!Utils::isUnset($request->predictiveScalingMode)) {
+            $query['PredictiveScalingMode'] = $request->predictiveScalingMode;
         }
-
-        if (null !== $request->predictiveTaskBufferTime) {
-            @$query['PredictiveTaskBufferTime'] = $request->predictiveTaskBufferTime;
+        if (!Utils::isUnset($request->predictiveTaskBufferTime)) {
+            $query['PredictiveTaskBufferTime'] = $request->predictiveTaskBufferTime;
         }
-
-        if (null !== $request->predictiveValueBehavior) {
-            @$query['PredictiveValueBehavior'] = $request->predictiveValueBehavior;
+        if (!Utils::isUnset($request->predictiveValueBehavior)) {
+            $query['PredictiveValueBehavior'] = $request->predictiveValueBehavior;
         }
-
-        if (null !== $request->predictiveValueBuffer) {
-            @$query['PredictiveValueBuffer'] = $request->predictiveValueBuffer;
+        if (!Utils::isUnset($request->predictiveValueBuffer)) {
+            $query['PredictiveValueBuffer'] = $request->predictiveValueBuffer;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scaleInEvaluationCount) {
-            @$query['ScaleInEvaluationCount'] = $request->scaleInEvaluationCount;
+        if (!Utils::isUnset($request->scaleInEvaluationCount)) {
+            $query['ScaleInEvaluationCount'] = $request->scaleInEvaluationCount;
         }
-
-        if (null !== $request->scaleOutEvaluationCount) {
-            @$query['ScaleOutEvaluationCount'] = $request->scaleOutEvaluationCount;
+        if (!Utils::isUnset($request->scaleOutEvaluationCount)) {
+            $query['ScaleOutEvaluationCount'] = $request->scaleOutEvaluationCount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->scalingRuleName) {
-            @$query['ScalingRuleName'] = $request->scalingRuleName;
+        if (!Utils::isUnset($request->scalingRuleName)) {
+            $query['ScalingRuleName'] = $request->scalingRuleName;
         }
-
-        if (null !== $request->scalingRuleType) {
-            @$query['ScalingRuleType'] = $request->scalingRuleType;
+        if (!Utils::isUnset($request->scalingRuleType)) {
+            $query['ScalingRuleType'] = $request->scalingRuleType;
         }
-
-        if (null !== $request->stepAdjustments) {
-            @$query['StepAdjustments'] = $request->stepAdjustments;
+        if (!Utils::isUnset($request->stepAdjustments)) {
+            $query['StepAdjustments'] = $request->stepAdjustments;
         }
-
-        if (null !== $request->targetValue) {
-            @$query['TargetValue'] = $request->targetValue;
+        if (!Utils::isUnset($request->targetValue)) {
+            $query['TargetValue'] = $request->targetValue;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateScalingRule',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateScalingRule',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2821,10 +2361,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates a scaling rule. The purpose of a scaling rule varies based on its type. You can use a scaling rule to trigger a scaling activity or adjust the boundary values for a scaling group. You can call the CreateScalingRule operation to create different types of scaling rules based on your business requirements. For example, if your business requires only automatic adjustment of the boundary values for your scaling group, you can call this operation to create a predictive scaling rule.
-     *
-     * @remarks
-     * A scaling rule defines the specific scaling action. For example, you can use a scaling rule to define N instances to add or remove. If the execution of a scaling rule causes the total number of Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to drop below the value of MinSize or to exceed the value of MaxSize, Auto Scaling adjusts the number of instances to add or remove, which ensures that the total number of instances stays within the valid range. Take note that Auto Scaling does not adjust the number of instances that you defined in the scaling rule. Examples:
+     * @summary Creates a scaling rule. The purpose of a scaling rule varies based on its type. You can use a scaling rule to trigger a scaling activity or adjust the boundary values for a scaling group. You can call the CreateScalingRule operation to create different types of scaling rules based on your business requirements. For example, if your business requires only automatic adjustment of the boundary values for your scaling group, you can call this operation to create a predictive scaling rule.
+     *  *
+     * @description A scaling rule defines the specific scaling action. For example, you can use a scaling rule to define N instances to add or remove. If the execution of a scaling rule causes the total number of Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to drop below the value of MinSize or to exceed the value of MaxSize, Auto Scaling adjusts the number of instances to add or remove, which ensures that the total number of instances stays within the valid range. Take note that Auto Scaling does not adjust the number of instances that you defined in the scaling rule. Examples:
      * *   The maximum number of instances (MaxSize) that can be contained in a scaling group is 3 and the current number of instances (Total Capacity) in the scaling group is 2. In this example, the Add3 scaling rule is created to add three ECS instances to the scaling group. However, after you execute Add3, Auto Scaling adds only one ECS instance to the scaling group. In addition, the number of ECS instances to add in the Add3 scaling rule remains unchanged.
      * *   The minimum number of instances (MinSize) that must be contained in a scaling group is 2 and the current number of instances (Total Capacity) is 3. In this example, the Remove5 scaling rule is created to remove five ECS instances from the scaling group. However, after you execute Remove5, Auto Scaling only removes one ECS instance from the scaling group. In addition, the number of ECS instances to remove in the Remove5 scaling rule remains unchanged.
      * Before you call this operation, take note of the following items:
@@ -2836,13 +2375,10 @@ class Ess extends OpenApiClient
      * *   The following API operations may use the unique identifier of a scaling rule (ScalingRuleAri) that is returned after you call the CreateScalingRule operation:
      *     *   ExecuteScalingRule: You can call this operation to manually execute a scaling rule. In this operation, you can set ScalingRuleAri to the unique identifier of the scaling rule that you want to execute.
      *     *   CreateScheduledTask: You can call this operation to create a scheduled task for a scaling rule. In this operation, you can set ScalingRuleAri to the unique identifier of the scaling rule for which you want to create a scheduled task.
+     *  *
+     * @param CreateScalingRuleRequest $request CreateScalingRuleRequest
      *
-     * @param request - CreateScalingRuleRequest
-     * @returns CreateScalingRuleResponse
-     *
-     * @param CreateScalingRuleRequest $request
-     *
-     * @return CreateScalingRuleResponse
+     * @return CreateScalingRuleResponse CreateScalingRuleResponse
      */
     public function createScalingRule($request)
     {
@@ -2852,10 +2388,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates a scheduled task. A scheduled task is a type of scaling task that enables automatic execution of a specific scaling rule at a specified point in time. You can call the CreateScheduledTask operation to create a scheduled task to implement automatic scaling of computing resources. This ensures your business continuity and minimizes resource costs.
-     *
-     * @remarks
-     *   If the scaling rule of a scheduled task fails to be executed due to an ongoing scaling activity in the scaling group or because the scaling group is disabled, the scheduled task is automatically retried during the time window specified by `LaunchExpirationTime`. If the scheduled task still fails after the specified time window ends, the task is automatically skipped.
+     * @summary Creates a scheduled task. A scheduled task is a type of scaling task that enables automatic execution of a specific scaling rule at a specified point in time. You can call the CreateScheduledTask operation to create a scheduled task to implement automatic scaling of computing resources. This ensures your business continuity and minimizes resource costs.
+     *  *
+     * @description *   If the scaling rule of a scheduled task fails to be executed due to an ongoing scaling activity in the scaling group or because the scaling group is disabled, the scheduled task is automatically retried during the time window specified by `LaunchExpirationTime`. If the scheduled task still fails after the specified time window ends, the task is automatically skipped.
      * *   If several scheduled tasks concurrently attempt to execute the same scaling rule within a scaling group, the following rules apply:
      *     *   Scaling groups with **Expected Number of Instances** configured: The scaling activities incurred by the scheduled tasks are parallel scaling activities. In a proximate time window, Auto Scaling can trigger several scheduled tasks and then execute multiple parallel scaling activities at the same time.
      *     *   Scaling groups with **Expected Number of Instances** not configured: The scaling activity incurred by the earliest scheduled task is executed. Considering that a scaling group allows for no more than one ongoing scaling activity simultaneously, other scheduled tasks will spontaneously invoke retries within the time window specified by `LaunchExpirationTime`. Upon completion of the first scheduled task, any retries invoked by other tasks within the time window specified by `LaunchExpirationTime` lead to continuous enforcement of the scaling rule, with each iteration generating a distinct scaling activity.
@@ -2864,103 +2399,82 @@ class Ess extends OpenApiClient
      *     *   ScalingGroupId: Specify the minimum number, maximum number, or expected number of instances for the scaling group for which you create the scheduled task.
      *     **
      *     **Note** You cannot specify ScheduledAction and ScalingGroupId at the same time.
+     *  *
+     * @param CreateScheduledTaskRequest $request CreateScheduledTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateScheduledTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateScheduledTaskResponse
-     *
-     * @param CreateScheduledTaskRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateScheduledTaskResponse
+     * @return CreateScheduledTaskResponse CreateScheduledTaskResponse
      */
     public function createScheduledTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->desiredCapacity) {
-            @$query['DesiredCapacity'] = $request->desiredCapacity;
+        if (!Utils::isUnset($request->desiredCapacity)) {
+            $query['DesiredCapacity'] = $request->desiredCapacity;
         }
-
-        if (null !== $request->launchExpirationTime) {
-            @$query['LaunchExpirationTime'] = $request->launchExpirationTime;
+        if (!Utils::isUnset($request->launchExpirationTime)) {
+            $query['LaunchExpirationTime'] = $request->launchExpirationTime;
         }
-
-        if (null !== $request->launchTime) {
-            @$query['LaunchTime'] = $request->launchTime;
+        if (!Utils::isUnset($request->launchTime)) {
+            $query['LaunchTime'] = $request->launchTime;
         }
-
-        if (null !== $request->maxValue) {
-            @$query['MaxValue'] = $request->maxValue;
+        if (!Utils::isUnset($request->maxValue)) {
+            $query['MaxValue'] = $request->maxValue;
         }
-
-        if (null !== $request->minValue) {
-            @$query['MinValue'] = $request->minValue;
+        if (!Utils::isUnset($request->minValue)) {
+            $query['MinValue'] = $request->minValue;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->recurrenceEndTime) {
-            @$query['RecurrenceEndTime'] = $request->recurrenceEndTime;
+        if (!Utils::isUnset($request->recurrenceEndTime)) {
+            $query['RecurrenceEndTime'] = $request->recurrenceEndTime;
         }
-
-        if (null !== $request->recurrenceType) {
-            @$query['RecurrenceType'] = $request->recurrenceType;
+        if (!Utils::isUnset($request->recurrenceType)) {
+            $query['RecurrenceType'] = $request->recurrenceType;
         }
-
-        if (null !== $request->recurrenceValue) {
-            @$query['RecurrenceValue'] = $request->recurrenceValue;
+        if (!Utils::isUnset($request->recurrenceValue)) {
+            $query['RecurrenceValue'] = $request->recurrenceValue;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->scheduledAction) {
-            @$query['ScheduledAction'] = $request->scheduledAction;
+        if (!Utils::isUnset($request->scheduledAction)) {
+            $query['ScheduledAction'] = $request->scheduledAction;
         }
-
-        if (null !== $request->scheduledTaskName) {
-            @$query['ScheduledTaskName'] = $request->scheduledTaskName;
+        if (!Utils::isUnset($request->scheduledTaskName)) {
+            $query['ScheduledTaskName'] = $request->scheduledTaskName;
         }
-
-        if (null !== $request->taskEnabled) {
-            @$query['TaskEnabled'] = $request->taskEnabled;
+        if (!Utils::isUnset($request->taskEnabled)) {
+            $query['TaskEnabled'] = $request->taskEnabled;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateScheduledTask',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateScheduledTask',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2968,10 +2482,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates a scheduled task. A scheduled task is a type of scaling task that enables automatic execution of a specific scaling rule at a specified point in time. You can call the CreateScheduledTask operation to create a scheduled task to implement automatic scaling of computing resources. This ensures your business continuity and minimizes resource costs.
-     *
-     * @remarks
-     *   If the scaling rule of a scheduled task fails to be executed due to an ongoing scaling activity in the scaling group or because the scaling group is disabled, the scheduled task is automatically retried during the time window specified by `LaunchExpirationTime`. If the scheduled task still fails after the specified time window ends, the task is automatically skipped.
+     * @summary Creates a scheduled task. A scheduled task is a type of scaling task that enables automatic execution of a specific scaling rule at a specified point in time. You can call the CreateScheduledTask operation to create a scheduled task to implement automatic scaling of computing resources. This ensures your business continuity and minimizes resource costs.
+     *  *
+     * @description *   If the scaling rule of a scheduled task fails to be executed due to an ongoing scaling activity in the scaling group or because the scaling group is disabled, the scheduled task is automatically retried during the time window specified by `LaunchExpirationTime`. If the scheduled task still fails after the specified time window ends, the task is automatically skipped.
      * *   If several scheduled tasks concurrently attempt to execute the same scaling rule within a scaling group, the following rules apply:
      *     *   Scaling groups with **Expected Number of Instances** configured: The scaling activities incurred by the scheduled tasks are parallel scaling activities. In a proximate time window, Auto Scaling can trigger several scheduled tasks and then execute multiple parallel scaling activities at the same time.
      *     *   Scaling groups with **Expected Number of Instances** not configured: The scaling activity incurred by the earliest scheduled task is executed. Considering that a scaling group allows for no more than one ongoing scaling activity simultaneously, other scheduled tasks will spontaneously invoke retries within the time window specified by `LaunchExpirationTime`. Upon completion of the first scheduled task, any retries invoked by other tasks within the time window specified by `LaunchExpirationTime` lead to continuous enforcement of the scaling rule, with each iteration generating a distinct scaling activity.
@@ -2980,13 +2493,10 @@ class Ess extends OpenApiClient
      *     *   ScalingGroupId: Specify the minimum number, maximum number, or expected number of instances for the scaling group for which you create the scheduled task.
      *     **
      *     **Note** You cannot specify ScheduledAction and ScalingGroupId at the same time.
+     *  *
+     * @param CreateScheduledTaskRequest $request CreateScheduledTaskRequest
      *
-     * @param request - CreateScheduledTaskRequest
-     * @returns CreateScheduledTaskResponse
-     *
-     * @param CreateScheduledTaskRequest $request
-     *
-     * @return CreateScheduledTaskResponse
+     * @return CreateScheduledTaskResponse CreateScheduledTaskResponse
      */
     public function createScheduledTask($request)
     {
@@ -2996,55 +2506,46 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deactivates a scaling configuration.
+     * @summary Deactivates a scaling configuration.
+     *  *
+     * @description *   You can call this operation to deactivate a scaling configuration only in a disabled scaling group.
+     *  *
+     * @param DeactivateScalingConfigurationRequest $request DeactivateScalingConfigurationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   You can call this operation to deactivate a scaling configuration only in a disabled scaling group.
-     *
-     * @param request - DeactivateScalingConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeactivateScalingConfigurationResponse
-     *
-     * @param DeactivateScalingConfigurationRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DeactivateScalingConfigurationResponse
+     * @return DeactivateScalingConfigurationResponse DeactivateScalingConfigurationResponse
      */
     public function deactivateScalingConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingConfigurationId) {
-            @$query['ScalingConfigurationId'] = $request->scalingConfigurationId;
+        if (!Utils::isUnset($request->scalingConfigurationId)) {
+            $query['ScalingConfigurationId'] = $request->scalingConfigurationId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeactivateScalingConfiguration',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeactivateScalingConfiguration',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeactivateScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3052,17 +2553,13 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deactivates a scaling configuration.
+     * @summary Deactivates a scaling configuration.
+     *  *
+     * @description *   You can call this operation to deactivate a scaling configuration only in a disabled scaling group.
+     *  *
+     * @param DeactivateScalingConfigurationRequest $request DeactivateScalingConfigurationRequest
      *
-     * @remarks
-     *   You can call this operation to deactivate a scaling configuration only in a disabled scaling group.
-     *
-     * @param request - DeactivateScalingConfigurationRequest
-     * @returns DeactivateScalingConfigurationResponse
-     *
-     * @param DeactivateScalingConfigurationRequest $request
-     *
-     * @return DeactivateScalingConfigurationResponse
+     * @return DeactivateScalingConfigurationResponse DeactivateScalingConfigurationResponse
      */
     public function deactivateScalingConfiguration($request)
     {
@@ -3072,52 +2569,44 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes an event-triggered task. If your business pattern is unpredictable or prone to unforeseen traffic spikes, you can create event-triggered tasks by associating CloudMonitor metrics to effectively monitor fluctuations in your business workload. Upon detecting that the criteria for alerts, as specified in event-triggered tasks, are fulfilled, Auto Scaling promptly issues alerts and executes the scaling rules predefined within those tasks. This process occurs within the predefined effective time windows of the tasks, thereby facilitating the automatic increase or decrease of Elastic Compute Service (ECS) instances or elastic container instances within your scaling groups. Ultimately, this mechanism ensures the dynamic optimization of resources based on real-time workload demands. If you no longer need an event-triggered task, you can call the DeleteAlarm operation to delete it.
+     * @summary Deletes an event-triggered task. If your business pattern is unpredictable or prone to unforeseen traffic spikes, you can create event-triggered tasks by associating CloudMonitor metrics to effectively monitor fluctuations in your business workload. Upon detecting that the criteria for alerts, as specified in event-triggered tasks, are fulfilled, Auto Scaling promptly issues alerts and executes the scaling rules predefined within those tasks. This process occurs within the predefined effective time windows of the tasks, thereby facilitating the automatic increase or decrease of Elastic Compute Service (ECS) instances or elastic container instances within your scaling groups. Ultimately, this mechanism ensures the dynamic optimization of resources based on real-time workload demands. If you no longer need an event-triggered task, you can call the DeleteAlarm operation to delete it.
+     *  *
+     * @param DeleteAlarmRequest $request DeleteAlarmRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAlarmRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteAlarmResponse
-     *
-     * @param DeleteAlarmRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return DeleteAlarmResponse
+     * @return DeleteAlarmResponse DeleteAlarmResponse
      */
     public function deleteAlarmWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->alarmTaskId) {
-            @$query['AlarmTaskId'] = $request->alarmTaskId;
+        if (!Utils::isUnset($request->alarmTaskId)) {
+            $query['AlarmTaskId'] = $request->alarmTaskId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAlarm',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAlarm',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3125,14 +2614,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes an event-triggered task. If your business pattern is unpredictable or prone to unforeseen traffic spikes, you can create event-triggered tasks by associating CloudMonitor metrics to effectively monitor fluctuations in your business workload. Upon detecting that the criteria for alerts, as specified in event-triggered tasks, are fulfilled, Auto Scaling promptly issues alerts and executes the scaling rules predefined within those tasks. This process occurs within the predefined effective time windows of the tasks, thereby facilitating the automatic increase or decrease of Elastic Compute Service (ECS) instances or elastic container instances within your scaling groups. Ultimately, this mechanism ensures the dynamic optimization of resources based on real-time workload demands. If you no longer need an event-triggered task, you can call the DeleteAlarm operation to delete it.
+     * @summary Deletes an event-triggered task. If your business pattern is unpredictable or prone to unforeseen traffic spikes, you can create event-triggered tasks by associating CloudMonitor metrics to effectively monitor fluctuations in your business workload. Upon detecting that the criteria for alerts, as specified in event-triggered tasks, are fulfilled, Auto Scaling promptly issues alerts and executes the scaling rules predefined within those tasks. This process occurs within the predefined effective time windows of the tasks, thereby facilitating the automatic increase or decrease of Elastic Compute Service (ECS) instances or elastic container instances within your scaling groups. Ultimately, this mechanism ensures the dynamic optimization of resources based on real-time workload demands. If you no longer need an event-triggered task, you can call the DeleteAlarm operation to delete it.
+     *  *
+     * @param DeleteAlarmRequest $request DeleteAlarmRequest
      *
-     * @param request - DeleteAlarmRequest
-     * @returns DeleteAlarmResponse
-     *
-     * @param DeleteAlarmRequest $request
-     *
-     * @return DeleteAlarmResponse
+     * @return DeleteAlarmResponse DeleteAlarmResponse
      */
     public function deleteAlarm($request)
     {
@@ -3142,61 +2628,51 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes a scaling configuration of the Elastic Container Instance type. If the scaling configuration of a scaling group is in the Inactive state and the scaling group contains no elastic container instances created from the scaling configuration, you can call the DeleteEciScalingConfiguration operation to delete the scaling configuration to free up the scaling configuration quota.
-     *
-     * @remarks
-     * You cannot call this operation to delete a scaling configuration in the following scenarios:
+     * @summary Deletes a scaling configuration of the Elastic Container Instance type. If the scaling configuration of a scaling group is in the Inactive state and the scaling group contains no elastic container instances created from the scaling configuration, you can call the DeleteEciScalingConfiguration operation to delete the scaling configuration to free up the scaling configuration quota.
+     *  *
+     * @description You cannot call this operation to delete a scaling configuration in the following scenarios:
      * *   The scaling configuration is in the Active state.
      * *   The scaling group contains elastic container instances created from the scaling configuration.
+     *  *
+     * @param DeleteEciScalingConfigurationRequest $request DeleteEciScalingConfigurationRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteEciScalingConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteEciScalingConfigurationResponse
-     *
-     * @param DeleteEciScalingConfigurationRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DeleteEciScalingConfigurationResponse
+     * @return DeleteEciScalingConfigurationResponse DeleteEciScalingConfigurationResponse
      */
     public function deleteEciScalingConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingConfigurationId) {
-            @$query['ScalingConfigurationId'] = $request->scalingConfigurationId;
+        if (!Utils::isUnset($request->scalingConfigurationId)) {
+            $query['ScalingConfigurationId'] = $request->scalingConfigurationId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteEciScalingConfiguration',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteEciScalingConfiguration',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3204,19 +2680,15 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes a scaling configuration of the Elastic Container Instance type. If the scaling configuration of a scaling group is in the Inactive state and the scaling group contains no elastic container instances created from the scaling configuration, you can call the DeleteEciScalingConfiguration operation to delete the scaling configuration to free up the scaling configuration quota.
-     *
-     * @remarks
-     * You cannot call this operation to delete a scaling configuration in the following scenarios:
+     * @summary Deletes a scaling configuration of the Elastic Container Instance type. If the scaling configuration of a scaling group is in the Inactive state and the scaling group contains no elastic container instances created from the scaling configuration, you can call the DeleteEciScalingConfiguration operation to delete the scaling configuration to free up the scaling configuration quota.
+     *  *
+     * @description You cannot call this operation to delete a scaling configuration in the following scenarios:
      * *   The scaling configuration is in the Active state.
      * *   The scaling group contains elastic container instances created from the scaling configuration.
+     *  *
+     * @param DeleteEciScalingConfigurationRequest $request DeleteEciScalingConfigurationRequest
      *
-     * @param request - DeleteEciScalingConfigurationRequest
-     * @returns DeleteEciScalingConfigurationResponse
-     *
-     * @param DeleteEciScalingConfigurationRequest $request
-     *
-     * @return DeleteEciScalingConfigurationResponse
+     * @return DeleteEciScalingConfigurationResponse DeleteEciScalingConfigurationResponse
      */
     public function deleteEciScalingConfiguration($request)
     {
@@ -3226,69 +2698,57 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes a lifecycle hook. If you no longer require a lifecycle hook, you can call the DeleteLifecycleHook operation to delete it, which frees up the lifecycle hook quota.
-     *
-     * @remarks
-     * If you delete an effective lifecycle hook before its timeout period ends, the instances on which the lifecycle hook takes effect exits the Pending state ahead of schedule. You can use the following methods to delete a lifecycle hook:
+     * @summary Deletes a lifecycle hook. If you no longer require a lifecycle hook, you can call the DeleteLifecycleHook operation to delete it, which frees up the lifecycle hook quota.
+     *  *
+     * @description If you delete an effective lifecycle hook before its timeout period ends, the instances on which the lifecycle hook takes effect exits the Pending state ahead of schedule. You can use the following methods to delete a lifecycle hook:
      * *   Include `LifecycleHookId` within your request to specify the lifecycle hook that you want to delete. In this case, `ScalingGroupId` and `LifecycleHookName` are ignored.
      * *   Include `ScalingGroupId` and `LifecycleHookName` within your request to specify the lifecycle hook that you want to delete.
+     *  *
+     * @param DeleteLifecycleHookRequest $request DeleteLifecycleHookRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteLifecycleHookRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteLifecycleHookResponse
-     *
-     * @param DeleteLifecycleHookRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeleteLifecycleHookResponse
+     * @return DeleteLifecycleHookResponse DeleteLifecycleHookResponse
      */
     public function deleteLifecycleHookWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lifecycleHookId) {
-            @$query['LifecycleHookId'] = $request->lifecycleHookId;
+        if (!Utils::isUnset($request->lifecycleHookId)) {
+            $query['LifecycleHookId'] = $request->lifecycleHookId;
         }
-
-        if (null !== $request->lifecycleHookName) {
-            @$query['LifecycleHookName'] = $request->lifecycleHookName;
+        if (!Utils::isUnset($request->lifecycleHookName)) {
+            $query['LifecycleHookName'] = $request->lifecycleHookName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLifecycleHook',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteLifecycleHook',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3296,19 +2756,15 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes a lifecycle hook. If you no longer require a lifecycle hook, you can call the DeleteLifecycleHook operation to delete it, which frees up the lifecycle hook quota.
-     *
-     * @remarks
-     * If you delete an effective lifecycle hook before its timeout period ends, the instances on which the lifecycle hook takes effect exits the Pending state ahead of schedule. You can use the following methods to delete a lifecycle hook:
+     * @summary Deletes a lifecycle hook. If you no longer require a lifecycle hook, you can call the DeleteLifecycleHook operation to delete it, which frees up the lifecycle hook quota.
+     *  *
+     * @description If you delete an effective lifecycle hook before its timeout period ends, the instances on which the lifecycle hook takes effect exits the Pending state ahead of schedule. You can use the following methods to delete a lifecycle hook:
      * *   Include `LifecycleHookId` within your request to specify the lifecycle hook that you want to delete. In this case, `ScalingGroupId` and `LifecycleHookName` are ignored.
      * *   Include `ScalingGroupId` and `LifecycleHookName` within your request to specify the lifecycle hook that you want to delete.
+     *  *
+     * @param DeleteLifecycleHookRequest $request DeleteLifecycleHookRequest
      *
-     * @param request - DeleteLifecycleHookRequest
-     * @returns DeleteLifecycleHookResponse
-     *
-     * @param DeleteLifecycleHookRequest $request
-     *
-     * @return DeleteLifecycleHookResponse
+     * @return DeleteLifecycleHookResponse DeleteLifecycleHookResponse
      */
     public function deleteLifecycleHook($request)
     {
@@ -3318,56 +2774,47 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes event notification rules. The event notification feature facilitates efficient issue identification and event management by automatically forwarding notifications from Auto Scaling to designated endpoints such as CloudMonitor or Message Service (MNS) topics and queues. If you no longer require an event notification rule, you can call the DeleteNotificationConfiguration operation to delete it.
+     * @summary Deletes event notification rules. The event notification feature facilitates efficient issue identification and event management by automatically forwarding notifications from Auto Scaling to designated endpoints such as CloudMonitor or Message Service (MNS) topics and queues. If you no longer require an event notification rule, you can call the DeleteNotificationConfiguration operation to delete it.
+     *  *
+     * @param DeleteNotificationConfigurationRequest $request DeleteNotificationConfigurationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteNotificationConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteNotificationConfigurationResponse
-     *
-     * @param DeleteNotificationConfigurationRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DeleteNotificationConfigurationResponse
+     * @return DeleteNotificationConfigurationResponse DeleteNotificationConfigurationResponse
      */
     public function deleteNotificationConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->notificationArn) {
-            @$query['NotificationArn'] = $request->notificationArn;
+        if (!Utils::isUnset($request->notificationArn)) {
+            $query['NotificationArn'] = $request->notificationArn;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNotificationConfiguration',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNotificationConfiguration',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3375,14 +2822,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes event notification rules. The event notification feature facilitates efficient issue identification and event management by automatically forwarding notifications from Auto Scaling to designated endpoints such as CloudMonitor or Message Service (MNS) topics and queues. If you no longer require an event notification rule, you can call the DeleteNotificationConfiguration operation to delete it.
+     * @summary Deletes event notification rules. The event notification feature facilitates efficient issue identification and event management by automatically forwarding notifications from Auto Scaling to designated endpoints such as CloudMonitor or Message Service (MNS) topics and queues. If you no longer require an event notification rule, you can call the DeleteNotificationConfiguration operation to delete it.
+     *  *
+     * @param DeleteNotificationConfigurationRequest $request DeleteNotificationConfigurationRequest
      *
-     * @param request - DeleteNotificationConfigurationRequest
-     * @returns DeleteNotificationConfigurationResponse
-     *
-     * @param DeleteNotificationConfigurationRequest $request
-     *
-     * @return DeleteNotificationConfigurationResponse
+     * @return DeleteNotificationConfigurationResponse DeleteNotificationConfigurationResponse
      */
     public function deleteNotificationConfiguration($request)
     {
@@ -3392,57 +2836,48 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes a scaling configuration that is used to create Elastic Compute Service (ECS) instances.
-     *
-     * @remarks
-     * You cannot delete a scaling configuration in one of the following scenarios:
+     * @summary Deletes a scaling configuration that is used to create Elastic Compute Service (ECS) instances.
+     *  *
+     * @description You cannot delete a scaling configuration in one of the following scenarios:
      * *   The scaling configuration in your scaling group is in the Active state.
      * *   The scaling group contains ECS instances that were created based on the scaling configuration.
+     *  *
+     * @param DeleteScalingConfigurationRequest $request DeleteScalingConfigurationRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteScalingConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteScalingConfigurationResponse
-     *
-     * @param DeleteScalingConfigurationRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DeleteScalingConfigurationResponse
+     * @return DeleteScalingConfigurationResponse DeleteScalingConfigurationResponse
      */
     public function deleteScalingConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingConfigurationId) {
-            @$query['ScalingConfigurationId'] = $request->scalingConfigurationId;
+        if (!Utils::isUnset($request->scalingConfigurationId)) {
+            $query['ScalingConfigurationId'] = $request->scalingConfigurationId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteScalingConfiguration',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteScalingConfiguration',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3450,19 +2885,15 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes a scaling configuration that is used to create Elastic Compute Service (ECS) instances.
-     *
-     * @remarks
-     * You cannot delete a scaling configuration in one of the following scenarios:
+     * @summary Deletes a scaling configuration that is used to create Elastic Compute Service (ECS) instances.
+     *  *
+     * @description You cannot delete a scaling configuration in one of the following scenarios:
      * *   The scaling configuration in your scaling group is in the Active state.
      * *   The scaling group contains ECS instances that were created based on the scaling configuration.
+     *  *
+     * @param DeleteScalingConfigurationRequest $request DeleteScalingConfigurationRequest
      *
-     * @param request - DeleteScalingConfigurationRequest
-     * @returns DeleteScalingConfigurationResponse
-     *
-     * @param DeleteScalingConfigurationRequest $request
-     *
-     * @return DeleteScalingConfigurationResponse
+     * @return DeleteScalingConfigurationResponse DeleteScalingConfigurationResponse
      */
     public function deleteScalingConfiguration($request)
     {
@@ -3472,10 +2903,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes a scaling group. If you want to enable policy-based automatic addition or removal of instances of a specific type to meet evolving business requirements, you can create scaling groups to manage your computing power with ease. The computing power refers to the instances that provide the computing capability. If you no longer require a scaling group, you can call the DeleteScalingGroup operation to delete it to free up the scaling group quota.
-     *
-     * @remarks
-     * Before you call the DeleteScalingGroup operation, take note of the following items:
+     * @summary Deletes a scaling group. If you want to enable policy-based automatic addition or removal of instances of a specific type to meet evolving business requirements, you can create scaling groups to manage your computing power with ease. The computing power refers to the instances that provide the computing capability. If you no longer require a scaling group, you can call the DeleteScalingGroup operation to delete it to free up the scaling group quota.
+     *  *
+     * @description Before you call the DeleteScalingGroup operation, take note of the following items:
      * *   If you delete a scaling group, the scaling configurations, scaling rules, scaling activities, and scaling requests related to the scaling group are also deleted.
      * *   If you delete a scaling group, the scheduled tasks and event-triggered tasks of the scaling group are not deleted. The Server Load Balancer (SLB) instances and ApsaraDB RDS instances that are attached to the scaling group are also not deleted.
      * *   If the scaling group that you want to delete contains ECS instances or elastic container instances that are in the In Service state, Auto Scaling stops the instances and then removes all manually added instances from the scaling group or releases all automatically created instances in the scaling group before the scaling group is deleted.
@@ -3485,59 +2915,49 @@ class Ess extends OpenApiClient
      * *   Prior to deleting a scaling group, make sure that your ECS instances within the scaling group are safeguarded against unintended release. Even if you have already enabled the Release Protection feature for the ECS instances, you must manually put these ECS instances into the Protected state. Doing so guarantees that the ECS instances will not be forcibly released during the deletion process of the scaling group, providing an extra layer of security.
      *     **
      *     **Note** Before you delete a scaling group, we recommend that you enable the Deletion Protection feature for ECS instances that you want to retain. This action guarantees that the ECS instances are not forcibly released after you delete the scaling group. For more information, see [SetInstancesProtection](https://help.aliyun.com/document_detail/459342.html).
+     *  *
+     * @param DeleteScalingGroupRequest $request DeleteScalingGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteScalingGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteScalingGroupResponse
-     *
-     * @param DeleteScalingGroupRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteScalingGroupResponse
+     * @return DeleteScalingGroupResponse DeleteScalingGroupResponse
      */
     public function deleteScalingGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->forceDelete) {
-            @$query['ForceDelete'] = $request->forceDelete;
+        if (!Utils::isUnset($request->forceDelete)) {
+            $query['ForceDelete'] = $request->forceDelete;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteScalingGroup',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteScalingGroup',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3545,10 +2965,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes a scaling group. If you want to enable policy-based automatic addition or removal of instances of a specific type to meet evolving business requirements, you can create scaling groups to manage your computing power with ease. The computing power refers to the instances that provide the computing capability. If you no longer require a scaling group, you can call the DeleteScalingGroup operation to delete it to free up the scaling group quota.
-     *
-     * @remarks
-     * Before you call the DeleteScalingGroup operation, take note of the following items:
+     * @summary Deletes a scaling group. If you want to enable policy-based automatic addition or removal of instances of a specific type to meet evolving business requirements, you can create scaling groups to manage your computing power with ease. The computing power refers to the instances that provide the computing capability. If you no longer require a scaling group, you can call the DeleteScalingGroup operation to delete it to free up the scaling group quota.
+     *  *
+     * @description Before you call the DeleteScalingGroup operation, take note of the following items:
      * *   If you delete a scaling group, the scaling configurations, scaling rules, scaling activities, and scaling requests related to the scaling group are also deleted.
      * *   If you delete a scaling group, the scheduled tasks and event-triggered tasks of the scaling group are not deleted. The Server Load Balancer (SLB) instances and ApsaraDB RDS instances that are attached to the scaling group are also not deleted.
      * *   If the scaling group that you want to delete contains ECS instances or elastic container instances that are in the In Service state, Auto Scaling stops the instances and then removes all manually added instances from the scaling group or releases all automatically created instances in the scaling group before the scaling group is deleted.
@@ -3558,13 +2977,10 @@ class Ess extends OpenApiClient
      * *   Prior to deleting a scaling group, make sure that your ECS instances within the scaling group are safeguarded against unintended release. Even if you have already enabled the Release Protection feature for the ECS instances, you must manually put these ECS instances into the Protected state. Doing so guarantees that the ECS instances will not be forcibly released during the deletion process of the scaling group, providing an extra layer of security.
      *     **
      *     **Note** Before you delete a scaling group, we recommend that you enable the Deletion Protection feature for ECS instances that you want to retain. This action guarantees that the ECS instances are not forcibly released after you delete the scaling group. For more information, see [SetInstancesProtection](https://help.aliyun.com/document_detail/459342.html).
+     *  *
+     * @param DeleteScalingGroupRequest $request DeleteScalingGroupRequest
      *
-     * @param request - DeleteScalingGroupRequest
-     * @returns DeleteScalingGroupResponse
-     *
-     * @param DeleteScalingGroupRequest $request
-     *
-     * @return DeleteScalingGroupResponse
+     * @return DeleteScalingGroupResponse DeleteScalingGroupResponse
      */
     public function deleteScalingGroup($request)
     {
@@ -3574,56 +2990,47 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes a scaling rule.
+     * @summary Deletes a scaling rule.
+     *  *
+     * @param DeleteScalingRuleRequest $request DeleteScalingRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteScalingRuleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteScalingRuleResponse
-     *
-     * @param DeleteScalingRuleRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteScalingRuleResponse
+     * @return DeleteScalingRuleResponse DeleteScalingRuleResponse
      */
     public function deleteScalingRuleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingRuleId) {
-            @$query['ScalingRuleId'] = $request->scalingRuleId;
+        if (!Utils::isUnset($request->scalingRuleId)) {
+            $query['ScalingRuleId'] = $request->scalingRuleId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteScalingRule',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteScalingRule',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3631,14 +3038,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes a scaling rule.
+     * @summary Deletes a scaling rule.
+     *  *
+     * @param DeleteScalingRuleRequest $request DeleteScalingRuleRequest
      *
-     * @param request - DeleteScalingRuleRequest
-     * @returns DeleteScalingRuleResponse
-     *
-     * @param DeleteScalingRuleRequest $request
-     *
-     * @return DeleteScalingRuleResponse
+     * @return DeleteScalingRuleResponse DeleteScalingRuleResponse
      */
     public function deleteScalingRule($request)
     {
@@ -3648,56 +3052,47 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes scheduled tasks. For workloads with predictable patterns, you can create scheduled tasks to align with your business requirements and optimize resource utilization for cost savings. These tasks automatically ensure that sufficient computing resources are provisioned in anticipation of peak hours and efficiently release unused resources during off-peak hours, thereby streamlining operational efficiency and reducing expenses. If you no longer require a scheduled task, you can call the DeleteScheduledTask operation to delete it.
+     * @summary Deletes scheduled tasks. For workloads with predictable patterns, you can create scheduled tasks to align with your business requirements and optimize resource utilization for cost savings. These tasks automatically ensure that sufficient computing resources are provisioned in anticipation of peak hours and efficiently release unused resources during off-peak hours, thereby streamlining operational efficiency and reducing expenses. If you no longer require a scheduled task, you can call the DeleteScheduledTask operation to delete it.
+     *  *
+     * @param DeleteScheduledTaskRequest $request DeleteScheduledTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteScheduledTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteScheduledTaskResponse
-     *
-     * @param DeleteScheduledTaskRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeleteScheduledTaskResponse
+     * @return DeleteScheduledTaskResponse DeleteScheduledTaskResponse
      */
     public function deleteScheduledTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scheduledTaskId) {
-            @$query['ScheduledTaskId'] = $request->scheduledTaskId;
+        if (!Utils::isUnset($request->scheduledTaskId)) {
+            $query['ScheduledTaskId'] = $request->scheduledTaskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteScheduledTask',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteScheduledTask',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3705,14 +3100,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes scheduled tasks. For workloads with predictable patterns, you can create scheduled tasks to align with your business requirements and optimize resource utilization for cost savings. These tasks automatically ensure that sufficient computing resources are provisioned in anticipation of peak hours and efficiently release unused resources during off-peak hours, thereby streamlining operational efficiency and reducing expenses. If you no longer require a scheduled task, you can call the DeleteScheduledTask operation to delete it.
+     * @summary Deletes scheduled tasks. For workloads with predictable patterns, you can create scheduled tasks to align with your business requirements and optimize resource utilization for cost savings. These tasks automatically ensure that sufficient computing resources are provisioned in anticipation of peak hours and efficiently release unused resources during off-peak hours, thereby streamlining operational efficiency and reducing expenses. If you no longer require a scheduled task, you can call the DeleteScheduledTask operation to delete it.
+     *  *
+     * @param DeleteScheduledTaskRequest $request DeleteScheduledTaskRequest
      *
-     * @param request - DeleteScheduledTaskRequest
-     * @returns DeleteScheduledTaskResponse
-     *
-     * @param DeleteScheduledTaskRequest $request
-     *
-     * @return DeleteScheduledTaskResponse
+     * @return DeleteScheduledTaskResponse DeleteScheduledTaskResponse
      */
     public function deleteScheduledTask($request)
     {
@@ -3722,80 +3114,65 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries event-triggered tasks. You can call the DescribeAlarms operation to learn about the configurations of event-triggered tasks and keep updated on monitoring data changes. This helps you troubleshoot system resource issues at the earliest opportunity and ensures system stability and reliability.
+     * @summary Queries event-triggered tasks. You can call the DescribeAlarms operation to learn about the configurations of event-triggered tasks and keep updated on monitoring data changes. This helps you troubleshoot system resource issues at the earliest opportunity and ensures system stability and reliability.
+     *  *
+     * @param DescribeAlarmsRequest $request DescribeAlarmsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAlarmsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAlarmsResponse
-     *
-     * @param DescribeAlarmsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DescribeAlarmsResponse
+     * @return DescribeAlarmsResponse DescribeAlarmsResponse
      */
     public function describeAlarmsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->alarmTaskId) {
-            @$query['AlarmTaskId'] = $request->alarmTaskId;
+        if (!Utils::isUnset($request->alarmTaskId)) {
+            $query['AlarmTaskId'] = $request->alarmTaskId;
         }
-
-        if (null !== $request->isEnable) {
-            @$query['IsEnable'] = $request->isEnable;
+        if (!Utils::isUnset($request->isEnable)) {
+            $query['IsEnable'] = $request->isEnable;
         }
-
-        if (null !== $request->metricName) {
-            @$query['MetricName'] = $request->metricName;
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
         }
-
-        if (null !== $request->metricType) {
-            @$query['MetricType'] = $request->metricType;
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->state) {
-            @$query['State'] = $request->state;
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlarms',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlarms',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAlarmsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3803,14 +3180,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries event-triggered tasks. You can call the DescribeAlarms operation to learn about the configurations of event-triggered tasks and keep updated on monitoring data changes. This helps you troubleshoot system resource issues at the earliest opportunity and ensures system stability and reliability.
+     * @summary Queries event-triggered tasks. You can call the DescribeAlarms operation to learn about the configurations of event-triggered tasks and keep updated on monitoring data changes. This helps you troubleshoot system resource issues at the earliest opportunity and ensures system stability and reliability.
+     *  *
+     * @param DescribeAlarmsRequest $request DescribeAlarmsRequest
      *
-     * @param request - DescribeAlarmsRequest
-     * @returns DescribeAlarmsResponse
-     *
-     * @param DescribeAlarmsRequest $request
-     *
-     * @return DescribeAlarmsResponse
+     * @return DescribeAlarmsResponse DescribeAlarmsResponse
      */
     public function describeAlarms($request)
     {
@@ -3820,52 +3194,44 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the status of scaling activities that trigger text message, internal message, or email-based notifications. When you call the DescribeAlertConfiguration operation, you must specify the scaling group ID and region ID to query the status of the desired scaling activities. A scaling activity can be in one of the following states: Successful, Failed, and Rejected.
+     * @summary Queries the status of scaling activities that trigger text message, internal message, or email-based notifications. When you call the DescribeAlertConfiguration operation, you must specify the scaling group ID and region ID to query the status of the desired scaling activities. A scaling activity can be in one of the following states: Successful, Failed, and Rejected.
+     *  *
+     * @param DescribeAlertConfigurationRequest $request DescribeAlertConfigurationRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAlertConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAlertConfigurationResponse
-     *
-     * @param DescribeAlertConfigurationRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeAlertConfigurationResponse
+     * @return DescribeAlertConfigurationResponse DescribeAlertConfigurationResponse
      */
     public function describeAlertConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertConfiguration',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertConfiguration',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAlertConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3873,14 +3239,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the status of scaling activities that trigger text message, internal message, or email-based notifications. When you call the DescribeAlertConfiguration operation, you must specify the scaling group ID and region ID to query the status of the desired scaling activities. A scaling activity can be in one of the following states: Successful, Failed, and Rejected.
+     * @summary Queries the status of scaling activities that trigger text message, internal message, or email-based notifications. When you call the DescribeAlertConfiguration operation, you must specify the scaling group ID and region ID to query the status of the desired scaling activities. A scaling activity can be in one of the following states: Successful, Failed, and Rejected.
+     *  *
+     * @param DescribeAlertConfigurationRequest $request DescribeAlertConfigurationRequest
      *
-     * @param request - DescribeAlertConfigurationRequest
-     * @returns DescribeAlertConfigurationResponse
-     *
-     * @param DescribeAlertConfigurationRequest $request
-     *
-     * @return DescribeAlertConfigurationResponse
+     * @return DescribeAlertConfigurationResponse DescribeAlertConfigurationResponse
      */
     public function describeAlertConfiguration($request)
     {
@@ -3890,36 +3253,32 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the diagnostic reports.
+     * @summary Queries the diagnostic reports.
+     *  *
+     * @param DescribeDiagnoseReportsRequest $request DescribeDiagnoseReportsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDiagnoseReportsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeDiagnoseReportsResponse
-     *
-     * @param DescribeDiagnoseReportsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDiagnoseReportsResponse
+     * @return DescribeDiagnoseReportsResponse DescribeDiagnoseReportsResponse
      */
     public function describeDiagnoseReportsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
-            'query' => Utils::query($query),
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiagnoseReports',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiagnoseReports',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDiagnoseReportsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3927,14 +3286,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the diagnostic reports.
+     * @summary Queries the diagnostic reports.
+     *  *
+     * @param DescribeDiagnoseReportsRequest $request DescribeDiagnoseReportsRequest
      *
-     * @param request - DescribeDiagnoseReportsRequest
-     * @returns DescribeDiagnoseReportsResponse
-     *
-     * @param DescribeDiagnoseReportsRequest $request
-     *
-     * @return DescribeDiagnoseReportsResponse
+     * @return DescribeDiagnoseReportsResponse DescribeDiagnoseReportsResponse
      */
     public function describeDiagnoseReports($request)
     {
@@ -3944,52 +3300,44 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the details of a scaling configuration. You can query a scaling configuration by its ID to learn about its details such as the temporary storage size, number of IPv6 addresses, and bandwidth of the elastic IP address (EIP). The scaling configuration details can be obtained as a YAML file.
+     * @summary Queries the details of a scaling configuration. You can query a scaling configuration by its ID to learn about its details such as the temporary storage size, number of IPv6 addresses, and bandwidth of the elastic IP address (EIP). The scaling configuration details can be obtained as a YAML file.
+     *  *
+     * @param DescribeEciScalingConfigurationDetailRequest $request DescribeEciScalingConfigurationDetailRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeEciScalingConfigurationDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeEciScalingConfigurationDetailResponse
-     *
-     * @param DescribeEciScalingConfigurationDetailRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DescribeEciScalingConfigurationDetailResponse
+     * @return DescribeEciScalingConfigurationDetailResponse DescribeEciScalingConfigurationDetailResponse
      */
     public function describeEciScalingConfigurationDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->outputFormat) {
-            @$query['OutputFormat'] = $request->outputFormat;
+        if (!Utils::isUnset($request->outputFormat)) {
+            $query['OutputFormat'] = $request->outputFormat;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->scalingConfigurationId) {
-            @$query['ScalingConfigurationId'] = $request->scalingConfigurationId;
+        if (!Utils::isUnset($request->scalingConfigurationId)) {
+            $query['ScalingConfigurationId'] = $request->scalingConfigurationId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEciScalingConfigurationDetail',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEciScalingConfigurationDetail',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeEciScalingConfigurationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3997,14 +3345,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the details of a scaling configuration. You can query a scaling configuration by its ID to learn about its details such as the temporary storage size, number of IPv6 addresses, and bandwidth of the elastic IP address (EIP). The scaling configuration details can be obtained as a YAML file.
+     * @summary Queries the details of a scaling configuration. You can query a scaling configuration by its ID to learn about its details such as the temporary storage size, number of IPv6 addresses, and bandwidth of the elastic IP address (EIP). The scaling configuration details can be obtained as a YAML file.
+     *  *
+     * @param DescribeEciScalingConfigurationDetailRequest $request DescribeEciScalingConfigurationDetailRequest
      *
-     * @param request - DescribeEciScalingConfigurationDetailRequest
-     * @returns DescribeEciScalingConfigurationDetailResponse
-     *
-     * @param DescribeEciScalingConfigurationDetailRequest $request
-     *
-     * @return DescribeEciScalingConfigurationDetailResponse
+     * @return DescribeEciScalingConfigurationDetailResponse DescribeEciScalingConfigurationDetailResponse
      */
     public function describeEciScalingConfigurationDetail($request)
     {
@@ -4014,76 +3359,62 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries scaling configurations of the Elastic Container Instance type. When you call the DescribeEciScalingConfigurations operation, you can specify ScalingGroupId, ScalingConfigurationIds, or ScalingConfigurationNames to query details about the desired scaling configurations, such as the instance bidding policy, instance type, image pulling policy, and load balancing weight of each elastic container instance. This can help you select a suitable template for creating elastic container instances or reference existing scaling configurations before you modify the automatic scaling policy for elastic container instances.
+     * @summary Queries scaling configurations of the Elastic Container Instance type. When you call the DescribeEciScalingConfigurations operation, you can specify ScalingGroupId, ScalingConfigurationIds, or ScalingConfigurationNames to query details about the desired scaling configurations, such as the instance bidding policy, instance type, image pulling policy, and load balancing weight of each elastic container instance. This can help you select a suitable template for creating elastic container instances or reference existing scaling configurations before you modify the automatic scaling policy for elastic container instances.
+     *  *
+     * @param DescribeEciScalingConfigurationsRequest $request DescribeEciScalingConfigurationsRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeEciScalingConfigurationsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeEciScalingConfigurationsResponse
-     *
-     * @param DescribeEciScalingConfigurationsRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeEciScalingConfigurationsResponse
+     * @return DescribeEciScalingConfigurationsResponse DescribeEciScalingConfigurationsResponse
      */
     public function describeEciScalingConfigurationsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingConfigurationIds) {
-            @$query['ScalingConfigurationIds'] = $request->scalingConfigurationIds;
+        if (!Utils::isUnset($request->scalingConfigurationIds)) {
+            $query['ScalingConfigurationIds'] = $request->scalingConfigurationIds;
         }
-
-        if (null !== $request->scalingConfigurationNames) {
-            @$query['ScalingConfigurationNames'] = $request->scalingConfigurationNames;
+        if (!Utils::isUnset($request->scalingConfigurationNames)) {
+            $query['ScalingConfigurationNames'] = $request->scalingConfigurationNames;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEciScalingConfigurations',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEciScalingConfigurations',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeEciScalingConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4091,14 +3422,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries scaling configurations of the Elastic Container Instance type. When you call the DescribeEciScalingConfigurations operation, you can specify ScalingGroupId, ScalingConfigurationIds, or ScalingConfigurationNames to query details about the desired scaling configurations, such as the instance bidding policy, instance type, image pulling policy, and load balancing weight of each elastic container instance. This can help you select a suitable template for creating elastic container instances or reference existing scaling configurations before you modify the automatic scaling policy for elastic container instances.
+     * @summary Queries scaling configurations of the Elastic Container Instance type. When you call the DescribeEciScalingConfigurations operation, you can specify ScalingGroupId, ScalingConfigurationIds, or ScalingConfigurationNames to query details about the desired scaling configurations, such as the instance bidding policy, instance type, image pulling policy, and load balancing weight of each elastic container instance. This can help you select a suitable template for creating elastic container instances or reference existing scaling configurations before you modify the automatic scaling policy for elastic container instances.
+     *  *
+     * @param DescribeEciScalingConfigurationsRequest $request DescribeEciScalingConfigurationsRequest
      *
-     * @param request - DescribeEciScalingConfigurationsRequest
-     * @returns DescribeEciScalingConfigurationsResponse
-     *
-     * @param DescribeEciScalingConfigurationsRequest $request
-     *
-     * @return DescribeEciScalingConfigurationsResponse
+     * @return DescribeEciScalingConfigurationsResponse DescribeEciScalingConfigurationsResponse
      */
     public function describeEciScalingConfigurations($request)
     {
@@ -4108,36 +3436,32 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the scaling strength of a scaling configuration. The success rate of scale-out events depends on the scaling strength of the scaling configuration that you want to use. By checking the scaling strength of a scaling configuration, you can enable Auto Scaling to measure its performance and improve specific configurations.
+     * @summary Queries the scaling strength of a scaling configuration. The success rate of scale-out events depends on the scaling strength of the scaling configuration that you want to use. By checking the scaling strength of a scaling configuration, you can enable Auto Scaling to measure its performance and improve specific configurations.
+     *  *
+     * @param DescribeElasticStrengthRequest $request DescribeElasticStrengthRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeElasticStrengthRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeElasticStrengthResponse
-     *
-     * @param DescribeElasticStrengthRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeElasticStrengthResponse
+     * @return DescribeElasticStrengthResponse DescribeElasticStrengthResponse
      */
     public function describeElasticStrengthWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
-            'query' => Utils::query($query),
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeElasticStrength',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeElasticStrength',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeElasticStrengthResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4145,14 +3469,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the scaling strength of a scaling configuration. The success rate of scale-out events depends on the scaling strength of the scaling configuration that you want to use. By checking the scaling strength of a scaling configuration, you can enable Auto Scaling to measure its performance and improve specific configurations.
+     * @summary Queries the scaling strength of a scaling configuration. The success rate of scale-out events depends on the scaling strength of the scaling configuration that you want to use. By checking the scaling strength of a scaling configuration, you can enable Auto Scaling to measure its performance and improve specific configurations.
+     *  *
+     * @param DescribeElasticStrengthRequest $request DescribeElasticStrengthRequest
      *
-     * @param request - DescribeElasticStrengthRequest
-     * @returns DescribeElasticStrengthResponse
-     *
-     * @param DescribeElasticStrengthRequest $request
-     *
-     * @return DescribeElasticStrengthResponse
+     * @return DescribeElasticStrengthResponse DescribeElasticStrengthResponse
      */
     public function describeElasticStrength($request)
     {
@@ -4162,72 +3483,59 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries instance refresh tasks. If you want to view the basic information and execution progress of an instance refresh task, you can call the DescribeInstanceRefreshes operation.
+     * @summary Queries instance refresh tasks. If you want to view the basic information and execution progress of an instance refresh task, you can call the DescribeInstanceRefreshes operation.
+     *  *
+     * @param DescribeInstanceRefreshesRequest $request DescribeInstanceRefreshesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceRefreshesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstanceRefreshesResponse
-     *
-     * @param DescribeInstanceRefreshesRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeInstanceRefreshesResponse
+     * @return DescribeInstanceRefreshesResponse DescribeInstanceRefreshesResponse
      */
     public function describeInstanceRefreshesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceRefreshTaskIds) {
-            @$query['InstanceRefreshTaskIds'] = $request->instanceRefreshTaskIds;
+        if (!Utils::isUnset($request->instanceRefreshTaskIds)) {
+            $query['InstanceRefreshTaskIds'] = $request->instanceRefreshTaskIds;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceRefreshes',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceRefreshes',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstanceRefreshesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4235,14 +3543,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries instance refresh tasks. If you want to view the basic information and execution progress of an instance refresh task, you can call the DescribeInstanceRefreshes operation.
+     * @summary Queries instance refresh tasks. If you want to view the basic information and execution progress of an instance refresh task, you can call the DescribeInstanceRefreshes operation.
+     *  *
+     * @param DescribeInstanceRefreshesRequest $request DescribeInstanceRefreshesRequest
      *
-     * @param request - DescribeInstanceRefreshesRequest
-     * @returns DescribeInstanceRefreshesResponse
-     *
-     * @param DescribeInstanceRefreshesRequest $request
-     *
-     * @return DescribeInstanceRefreshesResponse
+     * @return DescribeInstanceRefreshesResponse DescribeInstanceRefreshesResponse
      */
     public function describeInstanceRefreshes($request)
     {
@@ -4252,71 +3557,59 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries lifecycle hook actions. When you call the DescribeLifecycleActions operation, you can specify parameters such as ScalingActivityId, NextToken, and MaxResults to query the details such as the action status and ID of a lifecycle hook. You can also call this operation to query the IDs of Elastic Compute Service (ECS) instances on which the lifecycle hook takes effect.
-     *
-     * @remarks
-     * If a scaling activity is executed and a lifecycle hook is created for the scaling activity, the lifecycle hook triggers a lifecycle action. A lifecycle action can be in one of the following states:
+     * @summary Queries lifecycle hook actions. When you call the DescribeLifecycleActions operation, you can specify parameters such as ScalingActivityId, NextToken, and MaxResults to query the details such as the action status and ID of a lifecycle hook. You can also call this operation to query the IDs of Elastic Compute Service (ECS) instances on which the lifecycle hook takes effect.
+     *  *
+     * @description If a scaling activity is executed and a lifecycle hook is created for the scaling activity, the lifecycle hook triggers a lifecycle action. A lifecycle action can be in one of the following states:
      * *   If a lifecycle action is in the Pending state, Elastic Compute Service (ECS) instances are waiting to be added to a scaling group or waiting to be removed from a scaling group.
      * *   If a lifecycle action is in the Timeout state, the lifecycle hook that triggers the lifecycle action expires and ECS instances are added to or removed from a scaling group.
      * *   If a lifecycle action is in the Completed state, you manually end the lifecycle hook that triggers the lifecycle action ahead of schedule.
      * If you do not specify the action to perform, such as execute a specific OOS template, after a lifecycle hook ends, you can call this operation to obtain the token of the lifecycle action that corresponds to the lifecycle hook. Then, you can specify a custom action to perform after the lifecycle hook ends.
+     *  *
+     * @param DescribeLifecycleActionsRequest $request DescribeLifecycleActionsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeLifecycleActionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeLifecycleActionsResponse
-     *
-     * @param DescribeLifecycleActionsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeLifecycleActionsResponse
+     * @return DescribeLifecycleActionsResponse DescribeLifecycleActionsResponse
      */
     public function describeLifecycleActionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lifecycleActionStatus) {
-            @$query['LifecycleActionStatus'] = $request->lifecycleActionStatus;
+        if (!Utils::isUnset($request->lifecycleActionStatus)) {
+            $query['LifecycleActionStatus'] = $request->lifecycleActionStatus;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingActivityId) {
-            @$query['ScalingActivityId'] = $request->scalingActivityId;
+        if (!Utils::isUnset($request->scalingActivityId)) {
+            $query['ScalingActivityId'] = $request->scalingActivityId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLifecycleActions',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLifecycleActions',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeLifecycleActionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4324,21 +3617,17 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries lifecycle hook actions. When you call the DescribeLifecycleActions operation, you can specify parameters such as ScalingActivityId, NextToken, and MaxResults to query the details such as the action status and ID of a lifecycle hook. You can also call this operation to query the IDs of Elastic Compute Service (ECS) instances on which the lifecycle hook takes effect.
-     *
-     * @remarks
-     * If a scaling activity is executed and a lifecycle hook is created for the scaling activity, the lifecycle hook triggers a lifecycle action. A lifecycle action can be in one of the following states:
+     * @summary Queries lifecycle hook actions. When you call the DescribeLifecycleActions operation, you can specify parameters such as ScalingActivityId, NextToken, and MaxResults to query the details such as the action status and ID of a lifecycle hook. You can also call this operation to query the IDs of Elastic Compute Service (ECS) instances on which the lifecycle hook takes effect.
+     *  *
+     * @description If a scaling activity is executed and a lifecycle hook is created for the scaling activity, the lifecycle hook triggers a lifecycle action. A lifecycle action can be in one of the following states:
      * *   If a lifecycle action is in the Pending state, Elastic Compute Service (ECS) instances are waiting to be added to a scaling group or waiting to be removed from a scaling group.
      * *   If a lifecycle action is in the Timeout state, the lifecycle hook that triggers the lifecycle action expires and ECS instances are added to or removed from a scaling group.
      * *   If a lifecycle action is in the Completed state, you manually end the lifecycle hook that triggers the lifecycle action ahead of schedule.
      * If you do not specify the action to perform, such as execute a specific OOS template, after a lifecycle hook ends, you can call this operation to obtain the token of the lifecycle action that corresponds to the lifecycle hook. Then, you can specify a custom action to perform after the lifecycle hook ends.
+     *  *
+     * @param DescribeLifecycleActionsRequest $request DescribeLifecycleActionsRequest
      *
-     * @param request - DescribeLifecycleActionsRequest
-     * @returns DescribeLifecycleActionsResponse
-     *
-     * @param DescribeLifecycleActionsRequest $request
-     *
-     * @return DescribeLifecycleActionsResponse
+     * @return DescribeLifecycleActionsResponse DescribeLifecycleActionsResponse
      */
     public function describeLifecycleActions($request)
     {
@@ -4348,78 +3637,64 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries lifecycle hooks. When you call this operation, you can specify the lifecycle hook ID or scaling group ID to query the details of the desired lifecycle hook, such as the default action after the lifecycle hook times out, scaling activity that corresponds to the lifecycle hook, Alibaba Cloud Resource Name (ARN) of the notification recipient, and effective period of the lifecycle hook.
-     *
-     * @remarks
-     * You can use one of the following methods to query lifecycle hooks:
+     * @summary Queries lifecycle hooks. When you call this operation, you can specify the lifecycle hook ID or scaling group ID to query the details of the desired lifecycle hook, such as the default action after the lifecycle hook times out, scaling activity that corresponds to the lifecycle hook, Alibaba Cloud Resource Name (ARN) of the notification recipient, and effective period of the lifecycle hook.
+     *  *
+     * @description You can use one of the following methods to query lifecycle hooks:
      * *   Specify a list of lifecycle hook IDs by using the LifecycleHookIds parameter. In this case, you do not need to specify the ScalingGroupId and LifecycleHookName parameters.
      * *   Specify the scaling group ID by using the ScalingGroupId parameter.
      * *   Specify the scaling group ID by using the ScalingGroupId parameter and the lifecycle hook name by using the LifecycleHookName parameter at the same time.
+     *  *
+     * @param DescribeLifecycleHooksRequest $request DescribeLifecycleHooksRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeLifecycleHooksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeLifecycleHooksResponse
-     *
-     * @param DescribeLifecycleHooksRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeLifecycleHooksResponse
+     * @return DescribeLifecycleHooksResponse DescribeLifecycleHooksResponse
      */
     public function describeLifecycleHooksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lifecycleHookIds) {
-            @$query['LifecycleHookIds'] = $request->lifecycleHookIds;
+        if (!Utils::isUnset($request->lifecycleHookIds)) {
+            $query['LifecycleHookIds'] = $request->lifecycleHookIds;
         }
-
-        if (null !== $request->lifecycleHookName) {
-            @$query['LifecycleHookName'] = $request->lifecycleHookName;
+        if (!Utils::isUnset($request->lifecycleHookName)) {
+            $query['LifecycleHookName'] = $request->lifecycleHookName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLifecycleHooks',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLifecycleHooks',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeLifecycleHooksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4427,20 +3702,16 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries lifecycle hooks. When you call this operation, you can specify the lifecycle hook ID or scaling group ID to query the details of the desired lifecycle hook, such as the default action after the lifecycle hook times out, scaling activity that corresponds to the lifecycle hook, Alibaba Cloud Resource Name (ARN) of the notification recipient, and effective period of the lifecycle hook.
-     *
-     * @remarks
-     * You can use one of the following methods to query lifecycle hooks:
+     * @summary Queries lifecycle hooks. When you call this operation, you can specify the lifecycle hook ID or scaling group ID to query the details of the desired lifecycle hook, such as the default action after the lifecycle hook times out, scaling activity that corresponds to the lifecycle hook, Alibaba Cloud Resource Name (ARN) of the notification recipient, and effective period of the lifecycle hook.
+     *  *
+     * @description You can use one of the following methods to query lifecycle hooks:
      * *   Specify a list of lifecycle hook IDs by using the LifecycleHookIds parameter. In this case, you do not need to specify the ScalingGroupId and LifecycleHookName parameters.
      * *   Specify the scaling group ID by using the ScalingGroupId parameter.
      * *   Specify the scaling group ID by using the ScalingGroupId parameter and the lifecycle hook name by using the LifecycleHookName parameter at the same time.
+     *  *
+     * @param DescribeLifecycleHooksRequest $request DescribeLifecycleHooksRequest
      *
-     * @param request - DescribeLifecycleHooksRequest
-     * @returns DescribeLifecycleHooksResponse
-     *
-     * @param DescribeLifecycleHooksRequest $request
-     *
-     * @return DescribeLifecycleHooksResponse
+     * @return DescribeLifecycleHooksResponse DescribeLifecycleHooksResponse
      */
     public function describeLifecycleHooks($request)
     {
@@ -4450,44 +3721,38 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries resource quotas. For example, you can call the DescribeLimitation operation to query the maximum numbers of scheduled tasks that you can create in a scaling group, load balancers that you can attach to a scaling group, instances that you can add to a scaling group, and scaling configurations that you can create in a scaling group.
+     * @summary Queries resource quotas. For example, you can call the DescribeLimitation operation to query the maximum numbers of scheduled tasks that you can create in a scaling group, load balancers that you can attach to a scaling group, instances that you can add to a scaling group, and scaling configurations that you can create in a scaling group.
+     *  *
+     * @param DescribeLimitationRequest $request DescribeLimitationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeLimitationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeLimitationResponse
-     *
-     * @param DescribeLimitationRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeLimitationResponse
+     * @return DescribeLimitationResponse DescribeLimitationResponse
      */
     public function describeLimitationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLimitation',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLimitation',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeLimitationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4495,14 +3760,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries resource quotas. For example, you can call the DescribeLimitation operation to query the maximum numbers of scheduled tasks that you can create in a scaling group, load balancers that you can attach to a scaling group, instances that you can add to a scaling group, and scaling configurations that you can create in a scaling group.
+     * @summary Queries resource quotas. For example, you can call the DescribeLimitation operation to query the maximum numbers of scheduled tasks that you can create in a scaling group, load balancers that you can attach to a scaling group, instances that you can add to a scaling group, and scaling configurations that you can create in a scaling group.
+     *  *
+     * @param DescribeLimitationRequest $request DescribeLimitationRequest
      *
-     * @param request - DescribeLimitationRequest
-     * @returns DescribeLimitationResponse
-     *
-     * @param DescribeLimitationRequest $request
-     *
-     * @return DescribeLimitationResponse
+     * @return DescribeLimitationResponse DescribeLimitationResponse
      */
     public function describeLimitation($request)
     {
@@ -4512,52 +3774,44 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries notification settings. You can call the DescribeNotificationConfiguration operation to query notification settings of scaling events or resource changes, including the notification types and methods.
+     * @summary Queries notification settings. You can call the DescribeNotificationConfiguration operation to query notification settings of scaling events or resource changes, including the notification types and methods.
+     *  *
+     * @param DescribeNotificationConfigurationsRequest $request DescribeNotificationConfigurationsRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeNotificationConfigurationsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeNotificationConfigurationsResponse
-     *
-     * @param DescribeNotificationConfigurationsRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeNotificationConfigurationsResponse
+     * @return DescribeNotificationConfigurationsResponse DescribeNotificationConfigurationsResponse
      */
     public function describeNotificationConfigurationsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNotificationConfigurations',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNotificationConfigurations',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeNotificationConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4565,14 +3819,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries notification settings. You can call the DescribeNotificationConfiguration operation to query notification settings of scaling events or resource changes, including the notification types and methods.
+     * @summary Queries notification settings. You can call the DescribeNotificationConfiguration operation to query notification settings of scaling events or resource changes, including the notification types and methods.
+     *  *
+     * @param DescribeNotificationConfigurationsRequest $request DescribeNotificationConfigurationsRequest
      *
-     * @param request - DescribeNotificationConfigurationsRequest
-     * @returns DescribeNotificationConfigurationsResponse
-     *
-     * @param DescribeNotificationConfigurationsRequest $request
-     *
-     * @return DescribeNotificationConfigurationsResponse
+     * @return DescribeNotificationConfigurationsResponse DescribeNotificationConfigurationsResponse
      */
     public function describeNotificationConfigurations($request)
     {
@@ -4582,44 +3833,38 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries notification types. You can call the DescribeNotificationTypes operation to query the types of notifications on scaling events or resource changes occurred in your scaling groups. Notifications are triggered in scenarios such as successful scale-out events, successful scale-in events, expiration of scheduled tasks, and partially successful scale-out events.
+     * @summary Queries notification types. You can call the DescribeNotificationTypes operation to query the types of notifications on scaling events or resource changes occurred in your scaling groups. Notifications are triggered in scenarios such as successful scale-out events, successful scale-in events, expiration of scheduled tasks, and partially successful scale-out events.
+     *  *
+     * @param DescribeNotificationTypesRequest $request DescribeNotificationTypesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeNotificationTypesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeNotificationTypesResponse
-     *
-     * @param DescribeNotificationTypesRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeNotificationTypesResponse
+     * @return DescribeNotificationTypesResponse DescribeNotificationTypesResponse
      */
     public function describeNotificationTypesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNotificationTypes',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNotificationTypes',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeNotificationTypesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4627,14 +3872,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries notification types. You can call the DescribeNotificationTypes operation to query the types of notifications on scaling events or resource changes occurred in your scaling groups. Notifications are triggered in scenarios such as successful scale-out events, successful scale-in events, expiration of scheduled tasks, and partially successful scale-out events.
+     * @summary Queries notification types. You can call the DescribeNotificationTypes operation to query the types of notifications on scaling events or resource changes occurred in your scaling groups. Notifications are triggered in scenarios such as successful scale-out events, successful scale-in events, expiration of scheduled tasks, and partially successful scale-out events.
+     *  *
+     * @param DescribeNotificationTypesRequest $request DescribeNotificationTypesRequest
      *
-     * @param request - DescribeNotificationTypesRequest
-     * @returns DescribeNotificationTypesResponse
-     *
-     * @param DescribeNotificationTypesRequest $request
-     *
-     * @return DescribeNotificationTypesResponse
+     * @return DescribeNotificationTypesResponse DescribeNotificationTypesResponse
      */
     public function describeNotificationTypes($request)
     {
@@ -4644,36 +3886,32 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries instance types. When you call the DescribePatternTypes operation, you can specify attributes such as the vSwitch ID, number of vCPUs, memory size, instance family, and maximum acceptable price to filer instance types that meet your business requirements.
+     * @summary Queries instance types. When you call the DescribePatternTypes operation, you can specify attributes such as the vSwitch ID, number of vCPUs, memory size, instance family, and maximum acceptable price to filer instance types that meet your business requirements.
+     *  *
+     * @param DescribePatternTypesRequest $request DescribePatternTypesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePatternTypesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribePatternTypesResponse
-     *
-     * @param DescribePatternTypesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribePatternTypesResponse
+     * @return DescribePatternTypesResponse DescribePatternTypesResponse
      */
     public function describePatternTypesWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
-            'query' => Utils::query($query),
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePatternTypes',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePatternTypes',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribePatternTypesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4681,14 +3919,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries instance types. When you call the DescribePatternTypes operation, you can specify attributes such as the vSwitch ID, number of vCPUs, memory size, instance family, and maximum acceptable price to filer instance types that meet your business requirements.
+     * @summary Queries instance types. When you call the DescribePatternTypes operation, you can specify attributes such as the vSwitch ID, number of vCPUs, memory size, instance family, and maximum acceptable price to filer instance types that meet your business requirements.
+     *  *
+     * @param DescribePatternTypesRequest $request DescribePatternTypesRequest
      *
-     * @param request - DescribePatternTypesRequest
-     * @returns DescribePatternTypesResponse
-     *
-     * @param DescribePatternTypesRequest $request
-     *
-     * @return DescribePatternTypesResponse
+     * @return DescribePatternTypesResponse DescribePatternTypesResponse
      */
     public function describePatternTypes($request)
     {
@@ -4698,52 +3933,44 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries regions. Before you activate Auto Scaling, you can call the DescribeRegions operation to query the regions where Auto Scaling is officially launched. This preliminary step facilitates the strategic selection of both the optimal region and availability zones for activating Auto Scaling, thereby guaranteeing the finest access speeds and operational efficiency within your chosen geographical area.
+     * @summary Queries regions. Before you activate Auto Scaling, you can call the DescribeRegions operation to query the regions where Auto Scaling is officially launched. This preliminary step facilitates the strategic selection of both the optimal region and availability zones for activating Auto Scaling, thereby guaranteeing the finest access speeds and operational efficiency within your chosen geographical area.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRegionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4751,14 +3978,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries regions. Before you activate Auto Scaling, you can call the DescribeRegions operation to query the regions where Auto Scaling is officially launched. This preliminary step facilitates the strategic selection of both the optimal region and availability zones for activating Auto Scaling, thereby guaranteeing the finest access speeds and operational efficiency within your chosen geographical area.
+     * @summary Queries regions. Before you activate Auto Scaling, you can call the DescribeRegions operation to query the regions where Auto Scaling is officially launched. This preliminary step facilitates the strategic selection of both the optimal region and availability zones for activating Auto Scaling, thereby guaranteeing the finest access speeds and operational efficiency within your chosen geographical area.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @param request - DescribeRegionsRequest
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -4768,85 +3992,69 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries scaling activities. You can call the DescribeScalingActivities operation to query the results of scaling activities triggered by scheduled tasks, event-triggered tasks, or manual execution of scaling rules. For example, you can query the status and cause of a scaling activity. You can also query the total number of instances after a scaling activity is complete.
-     *
-     * @remarks
-     *   You can query all scaling activities in a scaling group by specifying ScalingGroupId.
+     * @summary Queries scaling activities. You can call the DescribeScalingActivities operation to query the results of scaling activities triggered by scheduled tasks, event-triggered tasks, or manual execution of scaling rules. For example, you can query the status and cause of a scaling activity. You can also query the total number of instances after a scaling activity is complete.
+     *  *
+     * @description *   You can query all scaling activities in a scaling group by specifying ScalingGroupId.
      * *   You can filter query results based on the status of scaling activities.
      * *   You can query scaling activities within the last 30 days.
+     *  *
+     * @param DescribeScalingActivitiesRequest $request DescribeScalingActivitiesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeScalingActivitiesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeScalingActivitiesResponse
-     *
-     * @param DescribeScalingActivitiesRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeScalingActivitiesResponse
+     * @return DescribeScalingActivitiesResponse DescribeScalingActivitiesResponse
      */
     public function describeScalingActivitiesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceRefreshTaskId) {
-            @$query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
+        if (!Utils::isUnset($request->instanceRefreshTaskId)) {
+            $query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingActivityIds) {
-            @$query['ScalingActivityIds'] = $request->scalingActivityIds;
+        if (!Utils::isUnset($request->scalingActivityIds)) {
+            $query['ScalingActivityIds'] = $request->scalingActivityIds;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->statusCode) {
-            @$query['StatusCode'] = $request->statusCode;
+        if (!Utils::isUnset($request->statusCode)) {
+            $query['StatusCode'] = $request->statusCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScalingActivities',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScalingActivities',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeScalingActivitiesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4854,19 +4062,15 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries scaling activities. You can call the DescribeScalingActivities operation to query the results of scaling activities triggered by scheduled tasks, event-triggered tasks, or manual execution of scaling rules. For example, you can query the status and cause of a scaling activity. You can also query the total number of instances after a scaling activity is complete.
-     *
-     * @remarks
-     *   You can query all scaling activities in a scaling group by specifying ScalingGroupId.
+     * @summary Queries scaling activities. You can call the DescribeScalingActivities operation to query the results of scaling activities triggered by scheduled tasks, event-triggered tasks, or manual execution of scaling rules. For example, you can query the status and cause of a scaling activity. You can also query the total number of instances after a scaling activity is complete.
+     *  *
+     * @description *   You can query all scaling activities in a scaling group by specifying ScalingGroupId.
      * *   You can filter query results based on the status of scaling activities.
      * *   You can query scaling activities within the last 30 days.
+     *  *
+     * @param DescribeScalingActivitiesRequest $request DescribeScalingActivitiesRequest
      *
-     * @param request - DescribeScalingActivitiesRequest
-     * @returns DescribeScalingActivitiesResponse
-     *
-     * @param DescribeScalingActivitiesRequest $request
-     *
-     * @return DescribeScalingActivitiesResponse
+     * @return DescribeScalingActivitiesResponse DescribeScalingActivitiesResponse
      */
     public function describeScalingActivities($request)
     {
@@ -4876,52 +4080,44 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the details of a scaling activity. You can query a scaling activity by its ID. The scaling activity details include the scaling activity status, error code, and error message. You can efficiently troubleshoot issues and analyze service performance based on the error message.
+     * @summary Queries the details of a scaling activity. You can query a scaling activity by its ID. The scaling activity details include the scaling activity status, error code, and error message. You can efficiently troubleshoot issues and analyze service performance based on the error message.
+     *  *
+     * @param DescribeScalingActivityDetailRequest $request DescribeScalingActivityDetailRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeScalingActivityDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeScalingActivityDetailResponse
-     *
-     * @param DescribeScalingActivityDetailRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeScalingActivityDetailResponse
+     * @return DescribeScalingActivityDetailResponse DescribeScalingActivityDetailResponse
      */
     public function describeScalingActivityDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingActivityId) {
-            @$query['ScalingActivityId'] = $request->scalingActivityId;
+        if (!Utils::isUnset($request->scalingActivityId)) {
+            $query['ScalingActivityId'] = $request->scalingActivityId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScalingActivityDetail',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScalingActivityDetail',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeScalingActivityDetailResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4929,14 +4125,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the details of a scaling activity. You can query a scaling activity by its ID. The scaling activity details include the scaling activity status, error code, and error message. You can efficiently troubleshoot issues and analyze service performance based on the error message.
+     * @summary Queries the details of a scaling activity. You can query a scaling activity by its ID. The scaling activity details include the scaling activity status, error code, and error message. You can efficiently troubleshoot issues and analyze service performance based on the error message.
+     *  *
+     * @param DescribeScalingActivityDetailRequest $request DescribeScalingActivityDetailRequest
      *
-     * @param request - DescribeScalingActivityDetailRequest
-     * @returns DescribeScalingActivityDetailResponse
-     *
-     * @param DescribeScalingActivityDetailRequest $request
-     *
-     * @return DescribeScalingActivityDetailResponse
+     * @return DescribeScalingActivityDetailResponse DescribeScalingActivityDetailResponse
      */
     public function describeScalingActivityDetail($request)
     {
@@ -4946,76 +4139,62 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries scaling configurations.
+     * @summary Queries scaling configurations.
+     *  *
+     * @param DescribeScalingConfigurationsRequest $request DescribeScalingConfigurationsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeScalingConfigurationsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeScalingConfigurationsResponse
-     *
-     * @param DescribeScalingConfigurationsRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeScalingConfigurationsResponse
+     * @return DescribeScalingConfigurationsResponse DescribeScalingConfigurationsResponse
      */
     public function describeScalingConfigurationsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingConfigurationIds) {
-            @$query['ScalingConfigurationIds'] = $request->scalingConfigurationIds;
+        if (!Utils::isUnset($request->scalingConfigurationIds)) {
+            $query['ScalingConfigurationIds'] = $request->scalingConfigurationIds;
         }
-
-        if (null !== $request->scalingConfigurationNames) {
-            @$query['ScalingConfigurationNames'] = $request->scalingConfigurationNames;
+        if (!Utils::isUnset($request->scalingConfigurationNames)) {
+            $query['ScalingConfigurationNames'] = $request->scalingConfigurationNames;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScalingConfigurations',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScalingConfigurations',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeScalingConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5023,14 +4202,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries scaling configurations.
+     * @summary Queries scaling configurations.
+     *  *
+     * @param DescribeScalingConfigurationsRequest $request DescribeScalingConfigurationsRequest
      *
-     * @param request - DescribeScalingConfigurationsRequest
-     * @returns DescribeScalingConfigurationsResponse
-     *
-     * @param DescribeScalingConfigurationsRequest $request
-     *
-     * @return DescribeScalingConfigurationsResponse
+     * @return DescribeScalingConfigurationsResponse DescribeScalingConfigurationsResponse
      */
     public function describeScalingConfigurations($request)
     {
@@ -5040,52 +4216,44 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries a scaling group. You can call the DescribeScalingGroupDetail operation to query the basic information, instances, and scaling configurations of a scaling group. If you set OutputFormat to YAML for a scaling group of the Elastic Container Instance type, the output is a Kubernetes Deployment file in the YAML format.
+     * @summary Queries a scaling group. You can call the DescribeScalingGroupDetail operation to query the basic information, instances, and scaling configurations of a scaling group. If you set OutputFormat to YAML for a scaling group of the Elastic Container Instance type, the output is a Kubernetes Deployment file in the YAML format.
+     *  *
+     * @param DescribeScalingGroupDetailRequest $request DescribeScalingGroupDetailRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeScalingGroupDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeScalingGroupDetailResponse
-     *
-     * @param DescribeScalingGroupDetailRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeScalingGroupDetailResponse
+     * @return DescribeScalingGroupDetailResponse DescribeScalingGroupDetailResponse
      */
     public function describeScalingGroupDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->outputFormat) {
-            @$query['OutputFormat'] = $request->outputFormat;
+        if (!Utils::isUnset($request->outputFormat)) {
+            $query['OutputFormat'] = $request->outputFormat;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScalingGroupDetail',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScalingGroupDetail',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeScalingGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5093,14 +4261,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries a scaling group. You can call the DescribeScalingGroupDetail operation to query the basic information, instances, and scaling configurations of a scaling group. If you set OutputFormat to YAML for a scaling group of the Elastic Container Instance type, the output is a Kubernetes Deployment file in the YAML format.
+     * @summary Queries a scaling group. You can call the DescribeScalingGroupDetail operation to query the basic information, instances, and scaling configurations of a scaling group. If you set OutputFormat to YAML for a scaling group of the Elastic Container Instance type, the output is a Kubernetes Deployment file in the YAML format.
+     *  *
+     * @param DescribeScalingGroupDetailRequest $request DescribeScalingGroupDetailRequest
      *
-     * @param request - DescribeScalingGroupDetailRequest
-     * @returns DescribeScalingGroupDetailResponse
-     *
-     * @param DescribeScalingGroupDetailRequest $request
-     *
-     * @return DescribeScalingGroupDetailResponse
+     * @return DescribeScalingGroupDetailResponse DescribeScalingGroupDetailResponse
      */
     public function describeScalingGroupDetail($request)
     {
@@ -5110,36 +4275,32 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the latest diagnosis details for a scaling group. Diagnosis details are only returned in the presence of exceptions.
+     * @summary Queries the latest diagnosis details for a scaling group. Diagnosis details are only returned in the presence of exceptions.
+     *  *
+     * @param DescribeScalingGroupDiagnoseDetailsRequest $request DescribeScalingGroupDiagnoseDetailsRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeScalingGroupDiagnoseDetailsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeScalingGroupDiagnoseDetailsResponse
-     *
-     * @param DescribeScalingGroupDiagnoseDetailsRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeScalingGroupDiagnoseDetailsResponse
+     * @return DescribeScalingGroupDiagnoseDetailsResponse DescribeScalingGroupDiagnoseDetailsResponse
      */
     public function describeScalingGroupDiagnoseDetailsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
-            'query' => Utils::query($query),
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScalingGroupDiagnoseDetails',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScalingGroupDiagnoseDetails',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeScalingGroupDiagnoseDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5147,14 +4308,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the latest diagnosis details for a scaling group. Diagnosis details are only returned in the presence of exceptions.
+     * @summary Queries the latest diagnosis details for a scaling group. Diagnosis details are only returned in the presence of exceptions.
+     *  *
+     * @param DescribeScalingGroupDiagnoseDetailsRequest $request DescribeScalingGroupDiagnoseDetailsRequest
      *
-     * @param request - DescribeScalingGroupDiagnoseDetailsRequest
-     * @returns DescribeScalingGroupDiagnoseDetailsResponse
-     *
-     * @param DescribeScalingGroupDiagnoseDetailsRequest $request
-     *
-     * @return DescribeScalingGroupDiagnoseDetailsResponse
+     * @return DescribeScalingGroupDiagnoseDetailsResponse DescribeScalingGroupDiagnoseDetailsResponse
      */
     public function describeScalingGroupDiagnoseDetails($request)
     {
@@ -5164,88 +4322,71 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries information about scaling groups, such as the basic information, instances, and scaling configurations.
+     * @summary Queries information about scaling groups, such as the basic information, instances, and scaling configurations.
+     *  *
+     * @param DescribeScalingGroupsRequest $request DescribeScalingGroupsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeScalingGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeScalingGroupsResponse
-     *
-     * @param DescribeScalingGroupsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeScalingGroupsResponse
+     * @return DescribeScalingGroupsResponse DescribeScalingGroupsResponse
      */
     public function describeScalingGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupType) {
-            @$query['GroupType'] = $request->groupType;
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingGroupIds) {
-            @$query['ScalingGroupIds'] = $request->scalingGroupIds;
+        if (!Utils::isUnset($request->scalingGroupIds)) {
+            $query['ScalingGroupIds'] = $request->scalingGroupIds;
         }
-
-        if (null !== $request->scalingGroupName) {
-            @$query['ScalingGroupName'] = $request->scalingGroupName;
+        if (!Utils::isUnset($request->scalingGroupName)) {
+            $query['ScalingGroupName'] = $request->scalingGroupName;
         }
-
-        if (null !== $request->scalingGroupNames) {
-            @$query['ScalingGroupNames'] = $request->scalingGroupNames;
+        if (!Utils::isUnset($request->scalingGroupNames)) {
+            $query['ScalingGroupNames'] = $request->scalingGroupNames;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScalingGroups',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScalingGroups',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeScalingGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5253,14 +4394,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries information about scaling groups, such as the basic information, instances, and scaling configurations.
+     * @summary Queries information about scaling groups, such as the basic information, instances, and scaling configurations.
+     *  *
+     * @param DescribeScalingGroupsRequest $request DescribeScalingGroupsRequest
      *
-     * @param request - DescribeScalingGroupsRequest
-     * @returns DescribeScalingGroupsResponse
-     *
-     * @param DescribeScalingGroupsRequest $request
-     *
-     * @return DescribeScalingGroupsResponse
+     * @return DescribeScalingGroupsResponse DescribeScalingGroupsResponse
      */
     public function describeScalingGroups($request)
     {
@@ -5270,100 +4408,80 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries instances in a scaling group. You can call the DescribeScalingInstances operation to query instance details, such as the number of preemptible instances in the Running state, the number of Elastic Compute Service (ECS) instances, the warm-up status of ECS instances, and the lifecycle status of ECS instances in a scaling group. You can specify the scaling group whose instances you want to query by scaling group ID. If you want to filter instances based on conditions, such as the instance health status, lifecycle status, or creation method, you can also call this operation.
+     * @summary Queries instances in a scaling group. You can call the DescribeScalingInstances operation to query instance details, such as the number of preemptible instances in the Running state, the number of Elastic Compute Service (ECS) instances, the warm-up status of ECS instances, and the lifecycle status of ECS instances in a scaling group. You can specify the scaling group whose instances you want to query by scaling group ID. If you want to filter instances based on conditions, such as the instance health status, lifecycle status, or creation method, you can also call this operation.
+     *  *
+     * @param DescribeScalingInstancesRequest $request DescribeScalingInstancesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeScalingInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeScalingInstancesResponse
-     *
-     * @param DescribeScalingInstancesRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeScalingInstancesResponse
+     * @return DescribeScalingInstancesResponse DescribeScalingInstancesResponse
      */
     public function describeScalingInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->creationType) {
-            @$query['CreationType'] = $request->creationType;
+        if (!Utils::isUnset($request->creationType)) {
+            $query['CreationType'] = $request->creationType;
         }
-
-        if (null !== $request->creationTypes) {
-            @$query['CreationTypes'] = $request->creationTypes;
+        if (!Utils::isUnset($request->creationTypes)) {
+            $query['CreationTypes'] = $request->creationTypes;
         }
-
-        if (null !== $request->healthStatus) {
-            @$query['HealthStatus'] = $request->healthStatus;
+        if (!Utils::isUnset($request->healthStatus)) {
+            $query['HealthStatus'] = $request->healthStatus;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->lifecycleState) {
-            @$query['LifecycleState'] = $request->lifecycleState;
+        if (!Utils::isUnset($request->lifecycleState)) {
+            $query['LifecycleState'] = $request->lifecycleState;
         }
-
-        if (null !== $request->lifecycleStates) {
-            @$query['LifecycleStates'] = $request->lifecycleStates;
+        if (!Utils::isUnset($request->lifecycleStates)) {
+            $query['LifecycleStates'] = $request->lifecycleStates;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingActivityId) {
-            @$query['ScalingActivityId'] = $request->scalingActivityId;
+        if (!Utils::isUnset($request->scalingActivityId)) {
+            $query['ScalingActivityId'] = $request->scalingActivityId;
         }
-
-        if (null !== $request->scalingConfigurationId) {
-            @$query['ScalingConfigurationId'] = $request->scalingConfigurationId;
+        if (!Utils::isUnset($request->scalingConfigurationId)) {
+            $query['ScalingConfigurationId'] = $request->scalingConfigurationId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScalingInstances',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScalingInstances',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeScalingInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5371,14 +4489,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries instances in a scaling group. You can call the DescribeScalingInstances operation to query instance details, such as the number of preemptible instances in the Running state, the number of Elastic Compute Service (ECS) instances, the warm-up status of ECS instances, and the lifecycle status of ECS instances in a scaling group. You can specify the scaling group whose instances you want to query by scaling group ID. If you want to filter instances based on conditions, such as the instance health status, lifecycle status, or creation method, you can also call this operation.
+     * @summary Queries instances in a scaling group. You can call the DescribeScalingInstances operation to query instance details, such as the number of preemptible instances in the Running state, the number of Elastic Compute Service (ECS) instances, the warm-up status of ECS instances, and the lifecycle status of ECS instances in a scaling group. You can specify the scaling group whose instances you want to query by scaling group ID. If you want to filter instances based on conditions, such as the instance health status, lifecycle status, or creation method, you can also call this operation.
+     *  *
+     * @param DescribeScalingInstancesRequest $request DescribeScalingInstancesRequest
      *
-     * @param request - DescribeScalingInstancesRequest
-     * @returns DescribeScalingInstancesResponse
-     *
-     * @param DescribeScalingInstancesRequest $request
-     *
-     * @return DescribeScalingInstancesResponse
+     * @return DescribeScalingInstancesResponse DescribeScalingInstancesResponse
      */
     public function describeScalingInstances($request)
     {
@@ -5388,91 +4503,73 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries scaling rules. When you call this operation, you can specify the ID, name, or Alibaba Cloud Resource Name (ARN) of a scaling rule to query the details of the scaling rule. For example, you can query the adjustment method, instance warm-up period, and associated event-triggered tasks of the desired scaling rule.
+     * @summary Queries scaling rules. When you call this operation, you can specify the ID, name, or Alibaba Cloud Resource Name (ARN) of a scaling rule to query the details of the scaling rule. For example, you can query the adjustment method, instance warm-up period, and associated event-triggered tasks of the desired scaling rule.
+     *  *
+     * @description You can specify a scaling group ID to query all scaling rules in the scaling group. You can also specify the scaling rule ID, name, unique identifier, and type in the request parameters as filter conditions.
+     *  *
+     * @param DescribeScalingRulesRequest $request DescribeScalingRulesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can specify a scaling group ID to query all scaling rules in the scaling group. You can also specify the scaling rule ID, name, unique identifier, and type in the request parameters as filter conditions.
-     *
-     * @param request - DescribeScalingRulesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeScalingRulesResponse
-     *
-     * @param DescribeScalingRulesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeScalingRulesResponse
+     * @return DescribeScalingRulesResponse DescribeScalingRulesResponse
      */
     public function describeScalingRulesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->scalingRuleAris) {
-            @$query['ScalingRuleAris'] = $request->scalingRuleAris;
+        if (!Utils::isUnset($request->scalingRuleAris)) {
+            $query['ScalingRuleAris'] = $request->scalingRuleAris;
         }
-
-        if (null !== $request->scalingRuleIds) {
-            @$query['ScalingRuleIds'] = $request->scalingRuleIds;
+        if (!Utils::isUnset($request->scalingRuleIds)) {
+            $query['ScalingRuleIds'] = $request->scalingRuleIds;
         }
-
-        if (null !== $request->scalingRuleNames) {
-            @$query['ScalingRuleNames'] = $request->scalingRuleNames;
+        if (!Utils::isUnset($request->scalingRuleNames)) {
+            $query['ScalingRuleNames'] = $request->scalingRuleNames;
         }
-
-        if (null !== $request->scalingRuleType) {
-            @$query['ScalingRuleType'] = $request->scalingRuleType;
+        if (!Utils::isUnset($request->scalingRuleType)) {
+            $query['ScalingRuleType'] = $request->scalingRuleType;
         }
-
-        if (null !== $request->showAlarmRules) {
-            @$query['ShowAlarmRules'] = $request->showAlarmRules;
+        if (!Utils::isUnset($request->showAlarmRules)) {
+            $query['ShowAlarmRules'] = $request->showAlarmRules;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScalingRules',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScalingRules',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeScalingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5480,17 +4577,13 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries scaling rules. When you call this operation, you can specify the ID, name, or Alibaba Cloud Resource Name (ARN) of a scaling rule to query the details of the scaling rule. For example, you can query the adjustment method, instance warm-up period, and associated event-triggered tasks of the desired scaling rule.
+     * @summary Queries scaling rules. When you call this operation, you can specify the ID, name, or Alibaba Cloud Resource Name (ARN) of a scaling rule to query the details of the scaling rule. For example, you can query the adjustment method, instance warm-up period, and associated event-triggered tasks of the desired scaling rule.
+     *  *
+     * @description You can specify a scaling group ID to query all scaling rules in the scaling group. You can also specify the scaling rule ID, name, unique identifier, and type in the request parameters as filter conditions.
+     *  *
+     * @param DescribeScalingRulesRequest $request DescribeScalingRulesRequest
      *
-     * @remarks
-     * You can specify a scaling group ID to query all scaling rules in the scaling group. You can also specify the scaling rule ID, name, unique identifier, and type in the request parameters as filter conditions.
-     *
-     * @param request - DescribeScalingRulesRequest
-     * @returns DescribeScalingRulesResponse
-     *
-     * @param DescribeScalingRulesRequest $request
-     *
-     * @return DescribeScalingRulesResponse
+     * @return DescribeScalingRulesResponse DescribeScalingRulesResponse
      */
     public function describeScalingRules($request)
     {
@@ -5500,99 +4593,79 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries scheduled tasks. A scheduled task is a predefined task that triggers the automatic execution of a scaling rule at the specified point in time. It ensures an automatic scaling of computing resources to fulfill your business demands at a minimum cost. After you create a scheduled task, you can call the DescribeScheduledTasks operation to query the details of the task, such as the execution time point and the scaling group ID. You can also call this operation to query the total number of existing scheduled tasks.
+     * @summary Queries scheduled tasks. A scheduled task is a predefined task that triggers the automatic execution of a scaling rule at the specified point in time. It ensures an automatic scaling of computing resources to fulfill your business demands at a minimum cost. After you create a scheduled task, you can call the DescribeScheduledTasks operation to query the details of the task, such as the execution time point and the scaling group ID. You can also call this operation to query the total number of existing scheduled tasks.
+     *  *
+     * @description You can query scheduled tasks by scaling rule, task ID, or task name.
+     *  *
+     * @param DescribeScheduledTasksRequest $request DescribeScheduledTasksRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can query scheduled tasks by scaling rule, task ID, or task name.
-     *
-     * @param request - DescribeScheduledTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeScheduledTasksResponse
-     *
-     * @param DescribeScheduledTasksRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeScheduledTasksResponse
+     * @return DescribeScheduledTasksResponse DescribeScheduledTasksResponse
      */
     public function describeScheduledTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->recurrenceType) {
-            @$query['RecurrenceType'] = $request->recurrenceType;
+        if (!Utils::isUnset($request->recurrenceType)) {
+            $query['RecurrenceType'] = $request->recurrenceType;
         }
-
-        if (null !== $request->recurrenceValue) {
-            @$query['RecurrenceValue'] = $request->recurrenceValue;
+        if (!Utils::isUnset($request->recurrenceValue)) {
+            $query['RecurrenceValue'] = $request->recurrenceValue;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->scheduledActions) {
-            @$query['ScheduledActions'] = $request->scheduledActions;
+        if (!Utils::isUnset($request->scheduledActions)) {
+            $query['ScheduledActions'] = $request->scheduledActions;
         }
-
-        if (null !== $request->scheduledTaskIds) {
-            @$query['ScheduledTaskIds'] = $request->scheduledTaskIds;
+        if (!Utils::isUnset($request->scheduledTaskIds)) {
+            $query['ScheduledTaskIds'] = $request->scheduledTaskIds;
         }
-
-        if (null !== $request->scheduledTaskNames) {
-            @$query['ScheduledTaskNames'] = $request->scheduledTaskNames;
+        if (!Utils::isUnset($request->scheduledTaskNames)) {
+            $query['ScheduledTaskNames'] = $request->scheduledTaskNames;
         }
-
-        if (null !== $request->taskEnabled) {
-            @$query['TaskEnabled'] = $request->taskEnabled;
+        if (!Utils::isUnset($request->taskEnabled)) {
+            $query['TaskEnabled'] = $request->taskEnabled;
         }
-
-        if (null !== $request->taskName) {
-            @$query['TaskName'] = $request->taskName;
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScheduledTasks',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScheduledTasks',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeScheduledTasksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5600,17 +4673,13 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries scheduled tasks. A scheduled task is a predefined task that triggers the automatic execution of a scaling rule at the specified point in time. It ensures an automatic scaling of computing resources to fulfill your business demands at a minimum cost. After you create a scheduled task, you can call the DescribeScheduledTasks operation to query the details of the task, such as the execution time point and the scaling group ID. You can also call this operation to query the total number of existing scheduled tasks.
+     * @summary Queries scheduled tasks. A scheduled task is a predefined task that triggers the automatic execution of a scaling rule at the specified point in time. It ensures an automatic scaling of computing resources to fulfill your business demands at a minimum cost. After you create a scheduled task, you can call the DescribeScheduledTasks operation to query the details of the task, such as the execution time point and the scaling group ID. You can also call this operation to query the total number of existing scheduled tasks.
+     *  *
+     * @description You can query scheduled tasks by scaling rule, task ID, or task name.
+     *  *
+     * @param DescribeScheduledTasksRequest $request DescribeScheduledTasksRequest
      *
-     * @remarks
-     * You can query scheduled tasks by scaling rule, task ID, or task name.
-     *
-     * @param request - DescribeScheduledTasksRequest
-     * @returns DescribeScheduledTasksResponse
-     *
-     * @param DescribeScheduledTasksRequest $request
-     *
-     * @return DescribeScheduledTasksResponse
+     * @return DescribeScheduledTasksResponse DescribeScheduledTasksResponse
      */
     public function describeScheduledTasks($request)
     {
@@ -5620,64 +4689,53 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Detaches Application Load Balancer (ALB) server groups from a scaling group. When you call the DetachAlbServerGroups operation, you can specify the scaling group ID, ALB server group ID, and port used by Elastic Compute Service (ECS) instances in the desired ALB server group to detach one or more ALB server groups from your scaling group.
+     * @summary Detaches Application Load Balancer (ALB) server groups from a scaling group. When you call the DetachAlbServerGroups operation, you can specify the scaling group ID, ALB server group ID, and port used by Elastic Compute Service (ECS) instances in the desired ALB server group to detach one or more ALB server groups from your scaling group.
+     *  *
+     * @param DetachAlbServerGroupsRequest $request DetachAlbServerGroupsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DetachAlbServerGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DetachAlbServerGroupsResponse
-     *
-     * @param DetachAlbServerGroupsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DetachAlbServerGroupsResponse
+     * @return DetachAlbServerGroupsResponse DetachAlbServerGroupsResponse
      */
     public function detachAlbServerGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->albServerGroups) {
-            @$query['AlbServerGroups'] = $request->albServerGroups;
+        if (!Utils::isUnset($request->albServerGroups)) {
+            $query['AlbServerGroups'] = $request->albServerGroups;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->forceDetach) {
-            @$query['ForceDetach'] = $request->forceDetach;
+        if (!Utils::isUnset($request->forceDetach)) {
+            $query['ForceDetach'] = $request->forceDetach;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachAlbServerGroups',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachAlbServerGroups',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DetachAlbServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5685,14 +4743,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Detaches Application Load Balancer (ALB) server groups from a scaling group. When you call the DetachAlbServerGroups operation, you can specify the scaling group ID, ALB server group ID, and port used by Elastic Compute Service (ECS) instances in the desired ALB server group to detach one or more ALB server groups from your scaling group.
+     * @summary Detaches Application Load Balancer (ALB) server groups from a scaling group. When you call the DetachAlbServerGroups operation, you can specify the scaling group ID, ALB server group ID, and port used by Elastic Compute Service (ECS) instances in the desired ALB server group to detach one or more ALB server groups from your scaling group.
+     *  *
+     * @param DetachAlbServerGroupsRequest $request DetachAlbServerGroupsRequest
      *
-     * @param request - DetachAlbServerGroupsRequest
-     * @returns DetachAlbServerGroupsResponse
-     *
-     * @param DetachAlbServerGroupsRequest $request
-     *
-     * @return DetachAlbServerGroupsResponse
+     * @return DetachAlbServerGroupsResponse DetachAlbServerGroupsResponse
      */
     public function detachAlbServerGroups($request)
     {
@@ -5702,68 +4757,56 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Detaches one or more ApsaraDB RDS instances from a scaling group. If you want to decrease the number of ApsaraDB RDS instances attached to your scaling group, you can call the DetachDBInstance operation. This operation liberates ApsaraDB RDS instances from your scaling group, thereby significantly boosting the agility and efficiency in managing and allocating your resources.
+     * @summary Detaches one or more ApsaraDB RDS instances from a scaling group. If you want to decrease the number of ApsaraDB RDS instances attached to your scaling group, you can call the DetachDBInstance operation. This operation liberates ApsaraDB RDS instances from your scaling group, thereby significantly boosting the agility and efficiency in managing and allocating your resources.
+     *  *
+     * @param DetachDBInstancesRequest $request DetachDBInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DetachDBInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DetachDBInstancesResponse
-     *
-     * @param DetachDBInstancesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DetachDBInstancesResponse
+     * @return DetachDBInstancesResponse DetachDBInstancesResponse
      */
     public function detachDBInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBInstances) {
-            @$query['DBInstances'] = $request->DBInstances;
+        if (!Utils::isUnset($request->DBInstances)) {
+            $query['DBInstances'] = $request->DBInstances;
         }
-
-        if (null !== $request->forceDetach) {
-            @$query['ForceDetach'] = $request->forceDetach;
+        if (!Utils::isUnset($request->forceDetach)) {
+            $query['ForceDetach'] = $request->forceDetach;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->removeSecurityGroup) {
-            @$query['RemoveSecurityGroup'] = $request->removeSecurityGroup;
+        if (!Utils::isUnset($request->removeSecurityGroup)) {
+            $query['RemoveSecurityGroup'] = $request->removeSecurityGroup;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachDBInstances',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachDBInstances',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DetachDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5771,14 +4814,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Detaches one or more ApsaraDB RDS instances from a scaling group. If you want to decrease the number of ApsaraDB RDS instances attached to your scaling group, you can call the DetachDBInstance operation. This operation liberates ApsaraDB RDS instances from your scaling group, thereby significantly boosting the agility and efficiency in managing and allocating your resources.
+     * @summary Detaches one or more ApsaraDB RDS instances from a scaling group. If you want to decrease the number of ApsaraDB RDS instances attached to your scaling group, you can call the DetachDBInstance operation. This operation liberates ApsaraDB RDS instances from your scaling group, thereby significantly boosting the agility and efficiency in managing and allocating your resources.
+     *  *
+     * @param DetachDBInstancesRequest $request DetachDBInstancesRequest
      *
-     * @param request - DetachDBInstancesRequest
-     * @returns DetachDBInstancesResponse
-     *
-     * @param DetachDBInstancesRequest $request
-     *
-     * @return DetachDBInstancesResponse
+     * @return DetachDBInstancesResponse DetachDBInstancesResponse
      */
     public function detachDBInstances($request)
     {
@@ -5788,10 +4828,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Removes instances from a scaling group. If an enabled scaling group has no ongoing scaling activities, you can call the DetachInstances operation to remove one or more Elastic Compute Service (ECS) instances, elastic container instances, or Alibaba Cloud-hosted third-party instances from the scaling group.
-     *
-     * @remarks
-     *   Before you call the DetachInstances operation, make sure that the following conditions are met:
+     * @summary Removes instances from a scaling group. If an enabled scaling group has no ongoing scaling activities, you can call the DetachInstances operation to remove one or more Elastic Compute Service (ECS) instances, elastic container instances, or Alibaba Cloud-hosted third-party instances from the scaling group.
+     *  *
+     * @description *   Before you call the DetachInstances operation, make sure that the following conditions are met:
      *     *   The specified scaling group is enabled.
      *     *   The specified scaling group does not have any ongoing scaling activities.
      *     **
@@ -5801,79 +4840,64 @@ class Ess extends OpenApiClient
      *     *   The ECS instances, elastic container instances, or Alibaba Cloud-hosted third-party instances that are removed from a scaling group by using this operation are not stopped or released.
      *     *   A successful call only means that Auto Scaling accepts your request. Scaling activities can be triggered as expected, but their successful execution is not guaranteed. You can query the status of a scaling activity based on the ScalingActivityId response parameter.
      *     *   The removal of ECS instances, elastic container instances, or Alibaba Cloud-hosted third-party instances must not result in the overall number of instances within the specified scaling group falling below the minimum capacity threshold (MinSize); otherwise, an error will be reported.
+     *  *
+     * @param DetachInstancesRequest $request DetachInstancesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DetachInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DetachInstancesResponse
-     *
-     * @param DetachInstancesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DetachInstancesResponse
+     * @return DetachInstancesResponse DetachInstancesResponse
      */
     public function detachInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->decreaseDesiredCapacity) {
-            @$query['DecreaseDesiredCapacity'] = $request->decreaseDesiredCapacity;
+        if (!Utils::isUnset($request->decreaseDesiredCapacity)) {
+            $query['DecreaseDesiredCapacity'] = $request->decreaseDesiredCapacity;
         }
-
-        if (null !== $request->detachOption) {
-            @$query['DetachOption'] = $request->detachOption;
+        if (!Utils::isUnset($request->detachOption)) {
+            $query['DetachOption'] = $request->detachOption;
         }
-
-        if (null !== $request->ignoreInvalidInstance) {
-            @$query['IgnoreInvalidInstance'] = $request->ignoreInvalidInstance;
+        if (!Utils::isUnset($request->ignoreInvalidInstance)) {
+            $query['IgnoreInvalidInstance'] = $request->ignoreInvalidInstance;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->lifecycleHook) {
-            @$query['LifecycleHook'] = $request->lifecycleHook;
+        if (!Utils::isUnset($request->lifecycleHook)) {
+            $query['LifecycleHook'] = $request->lifecycleHook;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachInstances',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachInstances',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DetachInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5881,10 +4905,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Removes instances from a scaling group. If an enabled scaling group has no ongoing scaling activities, you can call the DetachInstances operation to remove one or more Elastic Compute Service (ECS) instances, elastic container instances, or Alibaba Cloud-hosted third-party instances from the scaling group.
-     *
-     * @remarks
-     *   Before you call the DetachInstances operation, make sure that the following conditions are met:
+     * @summary Removes instances from a scaling group. If an enabled scaling group has no ongoing scaling activities, you can call the DetachInstances operation to remove one or more Elastic Compute Service (ECS) instances, elastic container instances, or Alibaba Cloud-hosted third-party instances from the scaling group.
+     *  *
+     * @description *   Before you call the DetachInstances operation, make sure that the following conditions are met:
      *     *   The specified scaling group is enabled.
      *     *   The specified scaling group does not have any ongoing scaling activities.
      *     **
@@ -5894,13 +4917,10 @@ class Ess extends OpenApiClient
      *     *   The ECS instances, elastic container instances, or Alibaba Cloud-hosted third-party instances that are removed from a scaling group by using this operation are not stopped or released.
      *     *   A successful call only means that Auto Scaling accepts your request. Scaling activities can be triggered as expected, but their successful execution is not guaranteed. You can query the status of a scaling activity based on the ScalingActivityId response parameter.
      *     *   The removal of ECS instances, elastic container instances, or Alibaba Cloud-hosted third-party instances must not result in the overall number of instances within the specified scaling group falling below the minimum capacity threshold (MinSize); otherwise, an error will be reported.
+     *  *
+     * @param DetachInstancesRequest $request DetachInstancesRequest
      *
-     * @param request - DetachInstancesRequest
-     * @returns DetachInstancesResponse
-     *
-     * @param DetachInstancesRequest $request
-     *
-     * @return DetachInstancesResponse
+     * @return DetachInstancesResponse DetachInstancesResponse
      */
     public function detachInstances($request)
     {
@@ -5910,68 +4930,56 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Detaches Classic Load Balancer (CLB, formerly known as Server Load Balancer or SLB) instances from a scaling group. If the current CLB instance no longer meets your business requirements, you can call the DetachLoadBalancers operation to detach it from your scaling group. When you call this operation, you can use ScalingGroupId, LoadBalancer.N, and ForceDetach to specify one or more CLB instances to detach. You can also determine whether to call this operation asynchronously and whether to remove the Elastic Compute Service (ECS) instances acting as backend servers from the backend server groups of the CLB instance. You can call this operation to detach only CLB instances from a scaling group.
+     * @summary Detaches Classic Load Balancer (CLB, formerly known as Server Load Balancer or SLB) instances from a scaling group. If the current CLB instance no longer meets your business requirements, you can call the DetachLoadBalancers operation to detach it from your scaling group. When you call this operation, you can use ScalingGroupId, LoadBalancer.N, and ForceDetach to specify one or more CLB instances to detach. You can also determine whether to call this operation asynchronously and whether to remove the Elastic Compute Service (ECS) instances acting as backend servers from the backend server groups of the CLB instance. You can call this operation to detach only CLB instances from a scaling group.
+     *  *
+     * @param DetachLoadBalancersRequest $request DetachLoadBalancersRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DetachLoadBalancersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DetachLoadBalancersResponse
-     *
-     * @param DetachLoadBalancersRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DetachLoadBalancersResponse
+     * @return DetachLoadBalancersResponse DetachLoadBalancersResponse
      */
     public function detachLoadBalancersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->async) {
-            @$query['Async'] = $request->async;
+        if (!Utils::isUnset($request->async)) {
+            $query['Async'] = $request->async;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->forceDetach) {
-            @$query['ForceDetach'] = $request->forceDetach;
+        if (!Utils::isUnset($request->forceDetach)) {
+            $query['ForceDetach'] = $request->forceDetach;
         }
-
-        if (null !== $request->loadBalancers) {
-            @$query['LoadBalancers'] = $request->loadBalancers;
+        if (!Utils::isUnset($request->loadBalancers)) {
+            $query['LoadBalancers'] = $request->loadBalancers;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachLoadBalancers',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachLoadBalancers',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DetachLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -5979,14 +4987,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Detaches Classic Load Balancer (CLB, formerly known as Server Load Balancer or SLB) instances from a scaling group. If the current CLB instance no longer meets your business requirements, you can call the DetachLoadBalancers operation to detach it from your scaling group. When you call this operation, you can use ScalingGroupId, LoadBalancer.N, and ForceDetach to specify one or more CLB instances to detach. You can also determine whether to call this operation asynchronously and whether to remove the Elastic Compute Service (ECS) instances acting as backend servers from the backend server groups of the CLB instance. You can call this operation to detach only CLB instances from a scaling group.
+     * @summary Detaches Classic Load Balancer (CLB, formerly known as Server Load Balancer or SLB) instances from a scaling group. If the current CLB instance no longer meets your business requirements, you can call the DetachLoadBalancers operation to detach it from your scaling group. When you call this operation, you can use ScalingGroupId, LoadBalancer.N, and ForceDetach to specify one or more CLB instances to detach. You can also determine whether to call this operation asynchronously and whether to remove the Elastic Compute Service (ECS) instances acting as backend servers from the backend server groups of the CLB instance. You can call this operation to detach only CLB instances from a scaling group.
+     *  *
+     * @param DetachLoadBalancersRequest $request DetachLoadBalancersRequest
      *
-     * @param request - DetachLoadBalancersRequest
-     * @returns DetachLoadBalancersResponse
-     *
-     * @param DetachLoadBalancersRequest $request
-     *
-     * @return DetachLoadBalancersResponse
+     * @return DetachLoadBalancersResponse DetachLoadBalancersResponse
      */
     public function detachLoadBalancers($request)
     {
@@ -5996,64 +5001,53 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Detach server groups from a scaling group. To seamlessly adjust the number of instances in response to changes in your business workload or to maintain the uninterrupted accessibility of your application, you can call the DetachServerGroups operation. By detaching Application Load Balancer (ALB) or Network Load Balancer (NLB) server groups from your scaling group, this operation enables Auto Scaling to automatically tailor your computing capacity to your business needs. Furthermore, it optimizes traffic routing by dynamically allocating incoming requests based on current workload patterns, which significantly improves the stability and performance of your application.
+     * @summary Detach server groups from a scaling group. To seamlessly adjust the number of instances in response to changes in your business workload or to maintain the uninterrupted accessibility of your application, you can call the DetachServerGroups operation. By detaching Application Load Balancer (ALB) or Network Load Balancer (NLB) server groups from your scaling group, this operation enables Auto Scaling to automatically tailor your computing capacity to your business needs. Furthermore, it optimizes traffic routing by dynamically allocating incoming requests based on current workload patterns, which significantly improves the stability and performance of your application.
+     *  *
+     * @param DetachServerGroupsRequest $request DetachServerGroupsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DetachServerGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DetachServerGroupsResponse
-     *
-     * @param DetachServerGroupsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DetachServerGroupsResponse
+     * @return DetachServerGroupsResponse DetachServerGroupsResponse
      */
     public function detachServerGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->forceDetach) {
-            @$query['ForceDetach'] = $request->forceDetach;
+        if (!Utils::isUnset($request->forceDetach)) {
+            $query['ForceDetach'] = $request->forceDetach;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->serverGroups) {
-            @$query['ServerGroups'] = $request->serverGroups;
+        if (!Utils::isUnset($request->serverGroups)) {
+            $query['ServerGroups'] = $request->serverGroups;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachServerGroups',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachServerGroups',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DetachServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6061,14 +5055,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Detach server groups from a scaling group. To seamlessly adjust the number of instances in response to changes in your business workload or to maintain the uninterrupted accessibility of your application, you can call the DetachServerGroups operation. By detaching Application Load Balancer (ALB) or Network Load Balancer (NLB) server groups from your scaling group, this operation enables Auto Scaling to automatically tailor your computing capacity to your business needs. Furthermore, it optimizes traffic routing by dynamically allocating incoming requests based on current workload patterns, which significantly improves the stability and performance of your application.
+     * @summary Detach server groups from a scaling group. To seamlessly adjust the number of instances in response to changes in your business workload or to maintain the uninterrupted accessibility of your application, you can call the DetachServerGroups operation. By detaching Application Load Balancer (ALB) or Network Load Balancer (NLB) server groups from your scaling group, this operation enables Auto Scaling to automatically tailor your computing capacity to your business needs. Furthermore, it optimizes traffic routing by dynamically allocating incoming requests based on current workload patterns, which significantly improves the stability and performance of your application.
+     *  *
+     * @param DetachServerGroupsRequest $request DetachServerGroupsRequest
      *
-     * @param request - DetachServerGroupsRequest
-     * @returns DetachServerGroupsResponse
-     *
-     * @param DetachServerGroupsRequest $request
-     *
-     * @return DetachServerGroupsResponse
+     * @return DetachServerGroupsResponse DetachServerGroupsResponse
      */
     public function detachServerGroups($request)
     {
@@ -6078,72 +5069,60 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Detaches vServer groups from a scaling group. Auto Scaling supports the attachment of load balancers to scaling groups to improve service performance. If the load balancer currently attached to your scaling group is no longer needed to distribute the access traffic to the instances in your scaling group, you can call the DetachVServerGroups operation to detach one or more vServer groups of this load balancer from the scaling group.
-     *
-     * @remarks
-     *   When you call the DetachVServerGroups operation, you must use the following parameters to specify the vServer groups that you want to detach from your scaling group:
+     * @summary Detaches vServer groups from a scaling group. Auto Scaling supports the attachment of load balancers to scaling groups to improve service performance. If the load balancer currently attached to your scaling group is no longer needed to distribute the access traffic to the instances in your scaling group, you can call the DetachVServerGroups operation to detach one or more vServer groups of this load balancer from the scaling group.
+     *  *
+     * @description *   When you call the DetachVServerGroups operation, you must use the following parameters to specify the vServer groups that you want to detach from your scaling group:
      *     *   LoadBalancerId: the ID of the load balancer
      *     *   VServerGroupId: the ID of the vServer group
      *     *   Port: the port number of the vServer group
      * *   When the vServer group specified by the request parameters matches that attached to your scaling group, this operation yields a favorable result. Otherwise, the request is ignored and no error is reported.
      * *   Before you call this operation, you must make sure that the load balancer has ceased routing the access traffic to the instances in the scaling group. Failure to do so may lead to service requests being dropped or lost during the detachment process.
+     *  *
+     * @param DetachVServerGroupsRequest $request DetachVServerGroupsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DetachVServerGroupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DetachVServerGroupsResponse
-     *
-     * @param DetachVServerGroupsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DetachVServerGroupsResponse
+     * @return DetachVServerGroupsResponse DetachVServerGroupsResponse
      */
     public function detachVServerGroupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->forceDetach) {
-            @$query['ForceDetach'] = $request->forceDetach;
+        if (!Utils::isUnset($request->forceDetach)) {
+            $query['ForceDetach'] = $request->forceDetach;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->VServerGroups) {
-            @$query['VServerGroups'] = $request->VServerGroups;
+        if (!Utils::isUnset($request->VServerGroups)) {
+            $query['VServerGroups'] = $request->VServerGroups;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachVServerGroups',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachVServerGroups',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DetachVServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6151,22 +5130,18 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Detaches vServer groups from a scaling group. Auto Scaling supports the attachment of load balancers to scaling groups to improve service performance. If the load balancer currently attached to your scaling group is no longer needed to distribute the access traffic to the instances in your scaling group, you can call the DetachVServerGroups operation to detach one or more vServer groups of this load balancer from the scaling group.
-     *
-     * @remarks
-     *   When you call the DetachVServerGroups operation, you must use the following parameters to specify the vServer groups that you want to detach from your scaling group:
+     * @summary Detaches vServer groups from a scaling group. Auto Scaling supports the attachment of load balancers to scaling groups to improve service performance. If the load balancer currently attached to your scaling group is no longer needed to distribute the access traffic to the instances in your scaling group, you can call the DetachVServerGroups operation to detach one or more vServer groups of this load balancer from the scaling group.
+     *  *
+     * @description *   When you call the DetachVServerGroups operation, you must use the following parameters to specify the vServer groups that you want to detach from your scaling group:
      *     *   LoadBalancerId: the ID of the load balancer
      *     *   VServerGroupId: the ID of the vServer group
      *     *   Port: the port number of the vServer group
      * *   When the vServer group specified by the request parameters matches that attached to your scaling group, this operation yields a favorable result. Otherwise, the request is ignored and no error is reported.
      * *   Before you call this operation, you must make sure that the load balancer has ceased routing the access traffic to the instances in the scaling group. Failure to do so may lead to service requests being dropped or lost during the detachment process.
+     *  *
+     * @param DetachVServerGroupsRequest $request DetachVServerGroupsRequest
      *
-     * @param request - DetachVServerGroupsRequest
-     * @returns DetachVServerGroupsResponse
-     *
-     * @param DetachVServerGroupsRequest $request
-     *
-     * @return DetachVServerGroupsResponse
+     * @return DetachVServerGroupsResponse DetachVServerGroupsResponse
      */
     public function detachVServerGroups($request)
     {
@@ -6176,55 +5151,46 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Disables an event-triggered task. If your business pattern is unpredictable or prone to unforeseen traffic spikes, you can create event-triggered tasks by associating CloudMonitor metrics to effectively monitor fluctuations in your business workload. Upon detecting that the criteria for alerts, as specified in event-triggered tasks, are fulfilled, Auto Scaling promptly issues alerts and executes the scaling rules predefined within those tasks. This process occurs within the predefined effective time windows of the tasks, thereby facilitating the automatic increase or decrease of Elastic Compute Service (ECS) instances or elastic container instances within your scaling groups. Ultimately, this mechanism ensures the dynamic optimization of resources based on real-time workload demands. If you currently do not need an event-triggered task, you can call the DisableAlarm operation to disable it.
+     * @summary Disables an event-triggered task. If your business pattern is unpredictable or prone to unforeseen traffic spikes, you can create event-triggered tasks by associating CloudMonitor metrics to effectively monitor fluctuations in your business workload. Upon detecting that the criteria for alerts, as specified in event-triggered tasks, are fulfilled, Auto Scaling promptly issues alerts and executes the scaling rules predefined within those tasks. This process occurs within the predefined effective time windows of the tasks, thereby facilitating the automatic increase or decrease of Elastic Compute Service (ECS) instances or elastic container instances within your scaling groups. Ultimately, this mechanism ensures the dynamic optimization of resources based on real-time workload demands. If you currently do not need an event-triggered task, you can call the DisableAlarm operation to disable it.
+     *  *
+     * @description Before you disable an event-triggered task, make sure that the task is in the `Normal`, `Alert`, or `Insufficient Data` state.
+     *  *
+     * @param DisableAlarmRequest $request DisableAlarmRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you disable an event-triggered task, make sure that the task is in the `Normal`, `Alert`, or `Insufficient Data` state.
-     *
-     * @param request - DisableAlarmRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DisableAlarmResponse
-     *
-     * @param DisableAlarmRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DisableAlarmResponse
+     * @return DisableAlarmResponse DisableAlarmResponse
      */
     public function disableAlarmWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->alarmTaskId) {
-            @$query['AlarmTaskId'] = $request->alarmTaskId;
+        if (!Utils::isUnset($request->alarmTaskId)) {
+            $query['AlarmTaskId'] = $request->alarmTaskId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableAlarm',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableAlarm',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DisableAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6232,17 +5198,13 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Disables an event-triggered task. If your business pattern is unpredictable or prone to unforeseen traffic spikes, you can create event-triggered tasks by associating CloudMonitor metrics to effectively monitor fluctuations in your business workload. Upon detecting that the criteria for alerts, as specified in event-triggered tasks, are fulfilled, Auto Scaling promptly issues alerts and executes the scaling rules predefined within those tasks. This process occurs within the predefined effective time windows of the tasks, thereby facilitating the automatic increase or decrease of Elastic Compute Service (ECS) instances or elastic container instances within your scaling groups. Ultimately, this mechanism ensures the dynamic optimization of resources based on real-time workload demands. If you currently do not need an event-triggered task, you can call the DisableAlarm operation to disable it.
+     * @summary Disables an event-triggered task. If your business pattern is unpredictable or prone to unforeseen traffic spikes, you can create event-triggered tasks by associating CloudMonitor metrics to effectively monitor fluctuations in your business workload. Upon detecting that the criteria for alerts, as specified in event-triggered tasks, are fulfilled, Auto Scaling promptly issues alerts and executes the scaling rules predefined within those tasks. This process occurs within the predefined effective time windows of the tasks, thereby facilitating the automatic increase or decrease of Elastic Compute Service (ECS) instances or elastic container instances within your scaling groups. Ultimately, this mechanism ensures the dynamic optimization of resources based on real-time workload demands. If you currently do not need an event-triggered task, you can call the DisableAlarm operation to disable it.
+     *  *
+     * @description Before you disable an event-triggered task, make sure that the task is in the `Normal`, `Alert`, or `Insufficient Data` state.
+     *  *
+     * @param DisableAlarmRequest $request DisableAlarmRequest
      *
-     * @remarks
-     * Before you disable an event-triggered task, make sure that the task is in the `Normal`, `Alert`, or `Insufficient Data` state.
-     *
-     * @param request - DisableAlarmRequest
-     * @returns DisableAlarmResponse
-     *
-     * @param DisableAlarmRequest $request
-     *
-     * @return DisableAlarmResponse
+     * @return DisableAlarmResponse DisableAlarmResponse
      */
     public function disableAlarm($request)
     {
@@ -6252,61 +5214,51 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Disables a scaling group. If you temporarily do not require a scaling group that is in the Enabled state, you can call the DisableScalingGroup operation to disable it.
-     *
-     * @remarks
-     * Before you call this operation to disable a scaling group, take note of the following items:
+     * @summary Disables a scaling group. If you temporarily do not require a scaling group that is in the Enabled state, you can call the DisableScalingGroup operation to disable it.
+     *  *
+     * @description Before you call this operation to disable a scaling group, take note of the following items:
      * *   If scaling activities are being executed in the specified scaling group when you call this operation, these activities will continue until they are complete. However, scaling activities that are triggered after this operation is called will be rejected.
      * *   This operation can be called only when the scaling group is in the Active state.
+     *  *
+     * @param DisableScalingGroupRequest $request DisableScalingGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisableScalingGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DisableScalingGroupResponse
-     *
-     * @param DisableScalingGroupRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DisableScalingGroupResponse
+     * @return DisableScalingGroupResponse DisableScalingGroupResponse
      */
     public function disableScalingGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableScalingGroup',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableScalingGroup',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DisableScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6314,19 +5266,15 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Disables a scaling group. If you temporarily do not require a scaling group that is in the Enabled state, you can call the DisableScalingGroup operation to disable it.
-     *
-     * @remarks
-     * Before you call this operation to disable a scaling group, take note of the following items:
+     * @summary Disables a scaling group. If you temporarily do not require a scaling group that is in the Enabled state, you can call the DisableScalingGroup operation to disable it.
+     *  *
+     * @description Before you call this operation to disable a scaling group, take note of the following items:
      * *   If scaling activities are being executed in the specified scaling group when you call this operation, these activities will continue until they are complete. However, scaling activities that are triggered after this operation is called will be rejected.
      * *   This operation can be called only when the scaling group is in the Active state.
+     *  *
+     * @param DisableScalingGroupRequest $request DisableScalingGroupRequest
      *
-     * @param request - DisableScalingGroupRequest
-     * @returns DisableScalingGroupResponse
-     *
-     * @param DisableScalingGroupRequest $request
-     *
-     * @return DisableScalingGroupResponse
+     * @return DisableScalingGroupResponse DisableScalingGroupResponse
      */
     public function disableScalingGroup($request)
     {
@@ -6336,52 +5284,44 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Enables an event-triggered task. If your business pattern is unpredictable or prone to unforeseen traffic spikes, you can create event-triggered tasks by associating CloudMonitor metrics to effectively monitor fluctuations in your business workload. Upon detecting that the criteria for alerts, as specified in event-triggered tasks, are fulfilled, Auto Scaling promptly issues alerts and executes the scaling rules predefined within those tasks. This process occurs within the predefined effective time windows of the tasks, thereby facilitating the automatic increase or decrease of Elastic Compute Service (ECS) instances or elastic container instances within your scaling groups. Ultimately, this mechanism ensures the dynamic optimization of resources based on real-time workload demands. If you want to reuse an event-triggered task that is in the Disabled state, you can call the EnableAlarm operation to enable it.
+     * @summary Enables an event-triggered task. If your business pattern is unpredictable or prone to unforeseen traffic spikes, you can create event-triggered tasks by associating CloudMonitor metrics to effectively monitor fluctuations in your business workload. Upon detecting that the criteria for alerts, as specified in event-triggered tasks, are fulfilled, Auto Scaling promptly issues alerts and executes the scaling rules predefined within those tasks. This process occurs within the predefined effective time windows of the tasks, thereby facilitating the automatic increase or decrease of Elastic Compute Service (ECS) instances or elastic container instances within your scaling groups. Ultimately, this mechanism ensures the dynamic optimization of resources based on real-time workload demands. If you want to reuse an event-triggered task that is in the Disabled state, you can call the EnableAlarm operation to enable it.
+     *  *
+     * @param EnableAlarmRequest $request EnableAlarmRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EnableAlarmRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns EnableAlarmResponse
-     *
-     * @param EnableAlarmRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return EnableAlarmResponse
+     * @return EnableAlarmResponse EnableAlarmResponse
      */
     public function enableAlarmWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->alarmTaskId) {
-            @$query['AlarmTaskId'] = $request->alarmTaskId;
+        if (!Utils::isUnset($request->alarmTaskId)) {
+            $query['AlarmTaskId'] = $request->alarmTaskId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableAlarm',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableAlarm',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return EnableAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6389,14 +5329,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Enables an event-triggered task. If your business pattern is unpredictable or prone to unforeseen traffic spikes, you can create event-triggered tasks by associating CloudMonitor metrics to effectively monitor fluctuations in your business workload. Upon detecting that the criteria for alerts, as specified in event-triggered tasks, are fulfilled, Auto Scaling promptly issues alerts and executes the scaling rules predefined within those tasks. This process occurs within the predefined effective time windows of the tasks, thereby facilitating the automatic increase or decrease of Elastic Compute Service (ECS) instances or elastic container instances within your scaling groups. Ultimately, this mechanism ensures the dynamic optimization of resources based on real-time workload demands. If you want to reuse an event-triggered task that is in the Disabled state, you can call the EnableAlarm operation to enable it.
+     * @summary Enables an event-triggered task. If your business pattern is unpredictable or prone to unforeseen traffic spikes, you can create event-triggered tasks by associating CloudMonitor metrics to effectively monitor fluctuations in your business workload. Upon detecting that the criteria for alerts, as specified in event-triggered tasks, are fulfilled, Auto Scaling promptly issues alerts and executes the scaling rules predefined within those tasks. This process occurs within the predefined effective time windows of the tasks, thereby facilitating the automatic increase or decrease of Elastic Compute Service (ECS) instances or elastic container instances within your scaling groups. Ultimately, this mechanism ensures the dynamic optimization of resources based on real-time workload demands. If you want to reuse an event-triggered task that is in the Disabled state, you can call the EnableAlarm operation to enable it.
+     *  *
+     * @param EnableAlarmRequest $request EnableAlarmRequest
      *
-     * @param request - EnableAlarmRequest
-     * @returns EnableAlarmResponse
-     *
-     * @param EnableAlarmRequest $request
-     *
-     * @return EnableAlarmResponse
+     * @return EnableAlarmResponse EnableAlarmResponse
      */
     public function enableAlarm($request)
     {
@@ -6406,92 +5343,75 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Enables a scaling group. If a scaling group is in the Disabled state and contains an instance configuration source such as a launch template or a scaling configuration, you can call the EnableScalingGroup operation to enable the scaling group. This operation permits Auto Scaling to dynamically adjust the computing power (also known as the number of instances) in the scaling group based on your business requirements.
-     *
-     * @remarks
-     *   You can call this operation to enable a scaling group only if the scaling group is in the Inactive state and contains an instance configuration source such as a launch temple or a scaling configuration. The instance configuration source can also be the Elastic Compute Service (ECS) instance that you specified when you created the scaling group. If the preceding requirements are not met, the operation will fail.
+     * @summary Enables a scaling group. If a scaling group is in the Disabled state and contains an instance configuration source such as a launch template or a scaling configuration, you can call the EnableScalingGroup operation to enable the scaling group. This operation permits Auto Scaling to dynamically adjust the computing power (also known as the number of instances) in the scaling group based on your business requirements.
+     *  *
+     * @description *   You can call this operation to enable a scaling group only if the scaling group is in the Inactive state and contains an instance configuration source such as a launch temple or a scaling configuration. The instance configuration source can also be the Elastic Compute Service (ECS) instance that you specified when you created the scaling group. If the preceding requirements are not met, the operation will fail.
      *     **
      *     **Note** A scaling group can have only one active instance configuration source at a time. When you call this operation to enable a scaling group, you can specify a scaling configuration or a launch template for the scaling group. If the scaling group already have an instance configuration source defined prior to your calling, the scaling configuration or launch template specified within your request will supersede the existing scaling configuration or launch template.
      * *   If you specify InstanceId.N to add to the scaling group within your request, Auto Scaling will check whether the addition of InstanceId.N will cause the total number of ECS instances in the scaling group to fall outside the boundaries specified by MinSize and MaxSize after you call this operation.
      *     *   If the call results in the total number of ECS instances dropping below the value of MinSize, Auto Scaling proactively creates pay-as-you-go ECS instances to ensure that the total number reaches the minimum threshold. For example, if you set MinSize to 5 when you created a scaling group and include InstanceId.N within your request to add two ECS instances when you attempt to enable the scaling group, Auto Scaling creates three more ECS instances in the scaling group after the two ECS instances are added.
      *     *   If the call results in the total number of ECS instances exceeding the value of MaxSize, the operation fails.
+     *  *
+     * @param EnableScalingGroupRequest $request EnableScalingGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EnableScalingGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns EnableScalingGroupResponse
-     *
-     * @param EnableScalingGroupRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return EnableScalingGroupResponse
+     * @return EnableScalingGroupResponse EnableScalingGroupResponse
      */
     public function enableScalingGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->activeScalingConfigurationId) {
-            @$query['ActiveScalingConfigurationId'] = $request->activeScalingConfigurationId;
+        if (!Utils::isUnset($request->activeScalingConfigurationId)) {
+            $query['ActiveScalingConfigurationId'] = $request->activeScalingConfigurationId;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->launchTemplateId) {
-            @$query['LaunchTemplateId'] = $request->launchTemplateId;
+        if (!Utils::isUnset($request->launchTemplateId)) {
+            $query['LaunchTemplateId'] = $request->launchTemplateId;
         }
-
-        if (null !== $request->launchTemplateOverrides) {
-            @$query['LaunchTemplateOverrides'] = $request->launchTemplateOverrides;
+        if (!Utils::isUnset($request->launchTemplateOverrides)) {
+            $query['LaunchTemplateOverrides'] = $request->launchTemplateOverrides;
         }
-
-        if (null !== $request->launchTemplateVersion) {
-            @$query['LaunchTemplateVersion'] = $request->launchTemplateVersion;
+        if (!Utils::isUnset($request->launchTemplateVersion)) {
+            $query['LaunchTemplateVersion'] = $request->launchTemplateVersion;
         }
-
-        if (null !== $request->loadBalancerWeights) {
-            @$query['LoadBalancerWeights'] = $request->loadBalancerWeights;
+        if (!Utils::isUnset($request->loadBalancerWeights)) {
+            $query['LoadBalancerWeights'] = $request->loadBalancerWeights;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableScalingGroup',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableScalingGroup',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return EnableScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6499,22 +5419,18 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Enables a scaling group. If a scaling group is in the Disabled state and contains an instance configuration source such as a launch template or a scaling configuration, you can call the EnableScalingGroup operation to enable the scaling group. This operation permits Auto Scaling to dynamically adjust the computing power (also known as the number of instances) in the scaling group based on your business requirements.
-     *
-     * @remarks
-     *   You can call this operation to enable a scaling group only if the scaling group is in the Inactive state and contains an instance configuration source such as a launch temple or a scaling configuration. The instance configuration source can also be the Elastic Compute Service (ECS) instance that you specified when you created the scaling group. If the preceding requirements are not met, the operation will fail.
+     * @summary Enables a scaling group. If a scaling group is in the Disabled state and contains an instance configuration source such as a launch template or a scaling configuration, you can call the EnableScalingGroup operation to enable the scaling group. This operation permits Auto Scaling to dynamically adjust the computing power (also known as the number of instances) in the scaling group based on your business requirements.
+     *  *
+     * @description *   You can call this operation to enable a scaling group only if the scaling group is in the Inactive state and contains an instance configuration source such as a launch temple or a scaling configuration. The instance configuration source can also be the Elastic Compute Service (ECS) instance that you specified when you created the scaling group. If the preceding requirements are not met, the operation will fail.
      *     **
      *     **Note** A scaling group can have only one active instance configuration source at a time. When you call this operation to enable a scaling group, you can specify a scaling configuration or a launch template for the scaling group. If the scaling group already have an instance configuration source defined prior to your calling, the scaling configuration or launch template specified within your request will supersede the existing scaling configuration or launch template.
      * *   If you specify InstanceId.N to add to the scaling group within your request, Auto Scaling will check whether the addition of InstanceId.N will cause the total number of ECS instances in the scaling group to fall outside the boundaries specified by MinSize and MaxSize after you call this operation.
      *     *   If the call results in the total number of ECS instances dropping below the value of MinSize, Auto Scaling proactively creates pay-as-you-go ECS instances to ensure that the total number reaches the minimum threshold. For example, if you set MinSize to 5 when you created a scaling group and include InstanceId.N within your request to add two ECS instances when you attempt to enable the scaling group, Auto Scaling creates three more ECS instances in the scaling group after the two ECS instances are added.
      *     *   If the call results in the total number of ECS instances exceeding the value of MaxSize, the operation fails.
+     *  *
+     * @param EnableScalingGroupRequest $request EnableScalingGroupRequest
      *
-     * @param request - EnableScalingGroupRequest
-     * @returns EnableScalingGroupResponse
-     *
-     * @param EnableScalingGroupRequest $request
-     *
-     * @return EnableScalingGroupResponse
+     * @return EnableScalingGroupResponse EnableScalingGroupResponse
      */
     public function enableScalingGroup($request)
     {
@@ -6524,67 +5440,56 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Puts an Elastic Compute Service (ECS) instance into the Standby state.
-     *
-     * @remarks
-     * ## Description
+     * @summary Puts an Elastic Compute Service (ECS) instance into the Standby state.
+     *  *
+     * @description ## Description
      * *   If you call the operation to put an ECS instance in a scaling group that is associated with a Classic Load Balancer (CLB) instance into the Standby state, the weight of the ECS instance as a backend server of the CLB instance is set to 0.
      * *   You can remove an instance that is in the Standby state from a scaling group, and then release the instance.
      * *   ECS instances that are in the Standby state are not removed from the scaling group during scale-in activities triggered by event-triggered tasks.
      * *   If Auto Scaling considers an ECS instance that is in the Standby state unhealthy, for example, the ECS instance is being stopped or being restarted, Auto Scaling does not update the health status of the ECS instance or trigger scale-in activities to remove the ECS instance from the scaling group. Auto Scaling updates the health status of the ECS instance only when the ECS instance is no longer in the Standby state.
+     *  *
+     * @param EnterStandbyRequest $request EnterStandbyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EnterStandbyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns EnterStandbyResponse
-     *
-     * @param EnterStandbyRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return EnterStandbyResponse
+     * @return EnterStandbyResponse EnterStandbyResponse
      */
     public function enterStandbyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->async) {
-            @$query['Async'] = $request->async;
+        if (!Utils::isUnset($request->async)) {
+            $query['Async'] = $request->async;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnterStandby',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnterStandby',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return EnterStandbyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6592,21 +5497,17 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Puts an Elastic Compute Service (ECS) instance into the Standby state.
-     *
-     * @remarks
-     * ## Description
+     * @summary Puts an Elastic Compute Service (ECS) instance into the Standby state.
+     *  *
+     * @description ## Description
      * *   If you call the operation to put an ECS instance in a scaling group that is associated with a Classic Load Balancer (CLB) instance into the Standby state, the weight of the ECS instance as a backend server of the CLB instance is set to 0.
      * *   You can remove an instance that is in the Standby state from a scaling group, and then release the instance.
      * *   ECS instances that are in the Standby state are not removed from the scaling group during scale-in activities triggered by event-triggered tasks.
      * *   If Auto Scaling considers an ECS instance that is in the Standby state unhealthy, for example, the ECS instance is being stopped or being restarted, Auto Scaling does not update the health status of the ECS instance or trigger scale-in activities to remove the ECS instance from the scaling group. Auto Scaling updates the health status of the ECS instance only when the ECS instance is no longer in the Standby state.
+     *  *
+     * @param EnterStandbyRequest $request EnterStandbyRequest
      *
-     * @param request - EnterStandbyRequest
-     * @returns EnterStandbyResponse
-     *
-     * @param EnterStandbyRequest $request
-     *
-     * @return EnterStandbyResponse
+     * @return EnterStandbyResponse EnterStandbyResponse
      */
     public function enterStandby($request)
     {
@@ -6616,10 +5517,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Executes a scaling rule. To adjust the number of Elastic Compute Service (ECS) instances or elastic container instances, you can manually execute a scaling rule or enable Auto Scaling to execute a scaling rule. You can call the ExecuteScalingRule operation to execute simple scaling rules or step scaling rules. Auto Scaling automatically executes target tracking scaling rules and predictive scaling rules on your behalf without requiring explicit execution calls.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Executes a scaling rule. To adjust the number of Elastic Compute Service (ECS) instances or elastic container instances, you can manually execute a scaling rule or enable Auto Scaling to execute a scaling rule. You can call the ExecuteScalingRule operation to execute simple scaling rules or step scaling rules. Auto Scaling automatically executes target tracking scaling rules and predictive scaling rules on your behalf without requiring explicit execution calls.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   The scaling group is in the Active state.
      * *   No scaling activities in the scaling group are in progress.
      * If no scaling activities in the scaling group are in progress, the operation can trigger scaling activities even before the cooldown time expires.
@@ -6627,71 +5527,58 @@ class Ess extends OpenApiClient
      * If the addition of a specified number of Elastic Compute Service (ECS) instances to a scaling group causes the total number of ECS instances in the scaling group to exceed the maximum number of instances allowed, Auto Scaling adds only a specific number of ECS instances to ensure that the total number of instances is equal to the maximum number of instances.
      * If the removal of a specified number of ECS instances from a scaling group causes the total number of ECS instances in the scaling group to drop below the minimum number of instances allowed, Auto Scaling removes only a specific number of ECS instances to ensure that the total number of instances is equal to the minimum number of instances.
      * You can specify only a limited number of ECS instances in each adjustment. For more information, see the description of the AdjustmentValue parameter in the CreateScalingRule topic.
+     *  *
+     * @param ExecuteScalingRuleRequest $request ExecuteScalingRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ExecuteScalingRuleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ExecuteScalingRuleResponse
-     *
-     * @param ExecuteScalingRuleRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ExecuteScalingRuleResponse
+     * @return ExecuteScalingRuleResponse ExecuteScalingRuleResponse
      */
     public function executeScalingRuleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->breachThreshold) {
-            @$query['BreachThreshold'] = $request->breachThreshold;
+        if (!Utils::isUnset($request->breachThreshold)) {
+            $query['BreachThreshold'] = $request->breachThreshold;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->metricValue) {
-            @$query['MetricValue'] = $request->metricValue;
+        if (!Utils::isUnset($request->metricValue)) {
+            $query['MetricValue'] = $request->metricValue;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingRuleAri) {
-            @$query['ScalingRuleAri'] = $request->scalingRuleAri;
+        if (!Utils::isUnset($request->scalingRuleAri)) {
+            $query['ScalingRuleAri'] = $request->scalingRuleAri;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteScalingRule',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecuteScalingRule',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ExecuteScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6699,10 +5586,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Executes a scaling rule. To adjust the number of Elastic Compute Service (ECS) instances or elastic container instances, you can manually execute a scaling rule or enable Auto Scaling to execute a scaling rule. You can call the ExecuteScalingRule operation to execute simple scaling rules or step scaling rules. Auto Scaling automatically executes target tracking scaling rules and predictive scaling rules on your behalf without requiring explicit execution calls.
-     *
-     * @remarks
-     * Before you call this operation, take note of the following items:
+     * @summary Executes a scaling rule. To adjust the number of Elastic Compute Service (ECS) instances or elastic container instances, you can manually execute a scaling rule or enable Auto Scaling to execute a scaling rule. You can call the ExecuteScalingRule operation to execute simple scaling rules or step scaling rules. Auto Scaling automatically executes target tracking scaling rules and predictive scaling rules on your behalf without requiring explicit execution calls.
+     *  *
+     * @description Before you call this operation, take note of the following items:
      * *   The scaling group is in the Active state.
      * *   No scaling activities in the scaling group are in progress.
      * If no scaling activities in the scaling group are in progress, the operation can trigger scaling activities even before the cooldown time expires.
@@ -6710,13 +5596,10 @@ class Ess extends OpenApiClient
      * If the addition of a specified number of Elastic Compute Service (ECS) instances to a scaling group causes the total number of ECS instances in the scaling group to exceed the maximum number of instances allowed, Auto Scaling adds only a specific number of ECS instances to ensure that the total number of instances is equal to the maximum number of instances.
      * If the removal of a specified number of ECS instances from a scaling group causes the total number of ECS instances in the scaling group to drop below the minimum number of instances allowed, Auto Scaling removes only a specific number of ECS instances to ensure that the total number of instances is equal to the minimum number of instances.
      * You can specify only a limited number of ECS instances in each adjustment. For more information, see the description of the AdjustmentValue parameter in the CreateScalingRule topic.
+     *  *
+     * @param ExecuteScalingRuleRequest $request ExecuteScalingRuleRequest
      *
-     * @param request - ExecuteScalingRuleRequest
-     * @returns ExecuteScalingRuleResponse
-     *
-     * @param ExecuteScalingRuleRequest $request
-     *
-     * @return ExecuteScalingRuleResponse
+     * @return ExecuteScalingRuleResponse ExecuteScalingRuleResponse
      */
     public function executeScalingRule($request)
     {
@@ -6726,71 +5609,59 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Removes an instance from the Standby state. When a scale-in event is triggered in a scaling group, Auto Scaling does not remove Elastic Compute Service (ECS) instances or elastic container instances that are in the Standby state from the scaling group. If you want to restart the instances that are in the Standby state, you can call the ExitStandby operation to remove the instances from the Standby state and put them into the In Service state.
-     *
-     * @remarks
-     * After ECS instances or elastic container instances are removed from the Standby state, the following rules apply:
+     * @summary Removes an instance from the Standby state. When a scale-in event is triggered in a scaling group, Auto Scaling does not remove Elastic Compute Service (ECS) instances or elastic container instances that are in the Standby state from the scaling group. If you want to restart the instances that are in the Standby state, you can call the ExitStandby operation to remove the instances from the Standby state and put them into the In Service state.
+     *  *
+     * @description After ECS instances or elastic container instances are removed from the Standby state, the following rules apply:
      * *   The ECS instances or elastic container instances enter the In Service state.
      * *   The default weight of each ECS instance or elastic container instance as a backend server of the attached load balancer is 50.
      * *   If you stop or restart the ECS instances or elastic container instances, the health check status of the instances will be updated.
      * *   When a scale-in event is triggered, Auto Scaling may remove the ECS instances or elastic container instances from the scaling group.
+     *  *
+     * @param ExitStandbyRequest $request ExitStandbyRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ExitStandbyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ExitStandbyResponse
-     *
-     * @param ExitStandbyRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ExitStandbyResponse
+     * @return ExitStandbyResponse ExitStandbyResponse
      */
     public function exitStandbyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->async) {
-            @$query['Async'] = $request->async;
+        if (!Utils::isUnset($request->async)) {
+            $query['Async'] = $request->async;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExitStandby',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExitStandby',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ExitStandbyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6798,21 +5669,17 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Removes an instance from the Standby state. When a scale-in event is triggered in a scaling group, Auto Scaling does not remove Elastic Compute Service (ECS) instances or elastic container instances that are in the Standby state from the scaling group. If you want to restart the instances that are in the Standby state, you can call the ExitStandby operation to remove the instances from the Standby state and put them into the In Service state.
-     *
-     * @remarks
-     * After ECS instances or elastic container instances are removed from the Standby state, the following rules apply:
+     * @summary Removes an instance from the Standby state. When a scale-in event is triggered in a scaling group, Auto Scaling does not remove Elastic Compute Service (ECS) instances or elastic container instances that are in the Standby state from the scaling group. If you want to restart the instances that are in the Standby state, you can call the ExitStandby operation to remove the instances from the Standby state and put them into the In Service state.
+     *  *
+     * @description After ECS instances or elastic container instances are removed from the Standby state, the following rules apply:
      * *   The ECS instances or elastic container instances enter the In Service state.
      * *   The default weight of each ECS instance or elastic container instance as a backend server of the attached load balancer is 50.
      * *   If you stop or restart the ECS instances or elastic container instances, the health check status of the instances will be updated.
      * *   When a scale-in event is triggered, Auto Scaling may remove the ECS instances or elastic container instances from the scaling group.
+     *  *
+     * @param ExitStandbyRequest $request ExitStandbyRequest
      *
-     * @param request - ExitStandbyRequest
-     * @returns ExitStandbyResponse
-     *
-     * @param ExitStandbyRequest $request
-     *
-     * @return ExitStandbyResponse
+     * @return ExitStandbyResponse ExitStandbyResponse
      */
     public function exitStandby($request)
     {
@@ -6822,60 +5689,50 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the tag keys added to Auto Scaling resources. Querying tag keys facilitates easier classification, identification, and monitoring of your Auto Scaling resources, thereby enhancing the flexibility and convenience of your resource management processes.
+     * @summary Queries the tag keys added to Auto Scaling resources. Querying tag keys facilitates easier classification, identification, and monitoring of your Auto Scaling resources, thereby enhancing the flexibility and convenience of your resource management processes.
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagKeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagKeysResponse
-     *
-     * @param ListTagKeysRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagKeys',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagKeys',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6883,14 +5740,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the tag keys added to Auto Scaling resources. Querying tag keys facilitates easier classification, identification, and monitoring of your Auto Scaling resources, thereby enhancing the flexibility and convenience of your resource management processes.
+     * @summary Queries the tag keys added to Auto Scaling resources. Querying tag keys facilitates easier classification, identification, and monitoring of your Auto Scaling resources, thereby enhancing the flexibility and convenience of your resource management processes.
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
      *
-     * @param request - ListTagKeysRequest
-     * @returns ListTagKeysResponse
-     *
-     * @param ListTagKeysRequest $request
-     *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -6900,68 +5754,56 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries tags. You can call the ListTagResources operation to query tags that are added to Auto Scaling resources, thereby clarifying resource utilization and facilitating efficient resource management. This operation aids in the automation of resource categorization and permission management processes.
-     *
-     * @remarks
-     *   Specify at least one of the following request parameters: `ResourceIds` and `Tags`. `Tags.Key` and `Tags.Value` are used to specify the query objects.
+     * @summary Queries tags. You can call the ListTagResources operation to query tags that are added to Auto Scaling resources, thereby clarifying resource utilization and facilitating efficient resource management. This operation aids in the automation of resource categorization and permission management processes.
+     *  *
+     * @description *   Specify at least one of the following request parameters: `ResourceIds` and `Tags`. `Tags.Key` and `Tags.Value` are used to specify the query objects.
      * *   If you provide both `ResourceIds` and `Tags` in your request, the response will exclusively include Auto Scaling resources that satisfy the criteria set by these parameters, ensuring targeted and precise information retrieval.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceIds) {
-            @$query['ResourceIds'] = $request->resourceIds;
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -6969,18 +5811,14 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries tags. You can call the ListTagResources operation to query tags that are added to Auto Scaling resources, thereby clarifying resource utilization and facilitating efficient resource management. This operation aids in the automation of resource categorization and permission management processes.
-     *
-     * @remarks
-     *   Specify at least one of the following request parameters: `ResourceIds` and `Tags`. `Tags.Key` and `Tags.Value` are used to specify the query objects.
+     * @summary Queries tags. You can call the ListTagResources operation to query tags that are added to Auto Scaling resources, thereby clarifying resource utilization and facilitating efficient resource management. This operation aids in the automation of resource categorization and permission management processes.
+     *  *
+     * @description *   Specify at least one of the following request parameters: `ResourceIds` and `Tags`. `Tags.Key` and `Tags.Value` are used to specify the query objects.
      * *   If you provide both `ResourceIds` and `Tags` in your request, the response will exclusively include Auto Scaling resources that satisfy the criteria set by these parameters, ensuring targeted and precise information retrieval.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param request - ListTagResourcesRequest
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -6990,64 +5828,53 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the tag keys associated with Auto Scaling resources to facilitate a deeper comprehension of those resources. By doing so, you can categorize and manage your Auto Scaling resources more efficiently.
+     * @summary Queries the tag keys associated with Auto Scaling resources to facilitate a deeper comprehension of those resources. By doing so, you can categorize and manage your Auto Scaling resources more efficiently.
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagValuesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagValuesResponse
-     *
-     * @param ListTagValuesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->key) {
-            @$query['Key'] = $request->key;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagValues',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagValues',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7055,14 +5882,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the tag keys associated with Auto Scaling resources to facilitate a deeper comprehension of those resources. By doing so, you can categorize and manage your Auto Scaling resources more efficiently.
+     * @summary Queries the tag keys associated with Auto Scaling resources to facilitate a deeper comprehension of those resources. By doing so, you can categorize and manage your Auto Scaling resources more efficiently.
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
      *
-     * @param request - ListTagValuesRequest
-     * @returns ListTagValuesResponse
-     *
-     * @param ListTagValuesRequest $request
-     *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -7072,119 +5896,95 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies an event-triggered task.
-     *
-     * @remarks
-     *   If you set the MetricType parameter to custom, you must report your custom metrics to CloudMonitor before you can create event-triggered tasks by using the custom metrics. For more information, see [Custom monitoring event-triggered tasks](https://help.aliyun.com/document_detail/74861.html).
+     * @summary Modifies an event-triggered task.
+     *  *
+     * @description *   If you set the MetricType parameter to custom, you must report your custom metrics to CloudMonitor before you can create event-triggered tasks by using the custom metrics. For more information, see [Custom monitoring event-triggered tasks](https://help.aliyun.com/document_detail/74861.html).
      * *   When you create an event-triggered task, you must specify the MetricName, DimensionKey, and DimensionValue parameters to determine the range of statistics that you want to aggregate for the metrics of the scaling group. For example, you can specify the user_id and scaling_group dimensions for an event-triggered task to aggregate monitoring data of all Elastic Compute Service (ECS) instances or elastic container instances in a scaling group within an Alibaba Cloud account.
      *     *   If you set the MetricType parameter to custom, the valid values are your custom metrics.
      *     *   For information about the metrics that are supported if you set the MetricType parameter to system, see[ Event-triggered task for system monitoring](https://help.aliyun.com/document_detail/74854.html).
      * > The user_id and scaling_group dimensions are automatically populated. You need to only specify the device and state dimensions. For more information, see the `DimensionKey` and `DimensionValue` parameters in the "Request parameters" section of this topic.
+     *  *
+     * @param ModifyAlarmRequest $request ModifyAlarmRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAlarmRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyAlarmResponse
-     *
-     * @param ModifyAlarmRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ModifyAlarmResponse
+     * @return ModifyAlarmResponse ModifyAlarmResponse
      */
     public function modifyAlarmWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->alarmActions) {
-            @$query['AlarmActions'] = $request->alarmActions;
+        if (!Utils::isUnset($request->alarmActions)) {
+            $query['AlarmActions'] = $request->alarmActions;
         }
-
-        if (null !== $request->alarmTaskId) {
-            @$query['AlarmTaskId'] = $request->alarmTaskId;
+        if (!Utils::isUnset($request->alarmTaskId)) {
+            $query['AlarmTaskId'] = $request->alarmTaskId;
         }
-
-        if (null !== $request->comparisonOperator) {
-            @$query['ComparisonOperator'] = $request->comparisonOperator;
+        if (!Utils::isUnset($request->comparisonOperator)) {
+            $query['ComparisonOperator'] = $request->comparisonOperator;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->dimensions) {
-            @$query['Dimensions'] = $request->dimensions;
+        if (!Utils::isUnset($request->dimensions)) {
+            $query['Dimensions'] = $request->dimensions;
         }
-
-        if (null !== $request->effective) {
-            @$query['Effective'] = $request->effective;
+        if (!Utils::isUnset($request->effective)) {
+            $query['Effective'] = $request->effective;
         }
-
-        if (null !== $request->evaluationCount) {
-            @$query['EvaluationCount'] = $request->evaluationCount;
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
         }
-
-        if (null !== $request->expressions) {
-            @$query['Expressions'] = $request->expressions;
+        if (!Utils::isUnset($request->expressions)) {
+            $query['Expressions'] = $request->expressions;
         }
-
-        if (null !== $request->expressionsLogicOperator) {
-            @$query['ExpressionsLogicOperator'] = $request->expressionsLogicOperator;
+        if (!Utils::isUnset($request->expressionsLogicOperator)) {
+            $query['ExpressionsLogicOperator'] = $request->expressionsLogicOperator;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->metricName) {
-            @$query['MetricName'] = $request->metricName;
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
         }
-
-        if (null !== $request->metricType) {
-            @$query['MetricType'] = $request->metricType;
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->statistics) {
-            @$query['Statistics'] = $request->statistics;
+        if (!Utils::isUnset($request->statistics)) {
+            $query['Statistics'] = $request->statistics;
         }
-
-        if (null !== $request->threshold) {
-            @$query['Threshold'] = $request->threshold;
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAlarm',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAlarm',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7192,21 +5992,17 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies an event-triggered task.
-     *
-     * @remarks
-     *   If you set the MetricType parameter to custom, you must report your custom metrics to CloudMonitor before you can create event-triggered tasks by using the custom metrics. For more information, see [Custom monitoring event-triggered tasks](https://help.aliyun.com/document_detail/74861.html).
+     * @summary Modifies an event-triggered task.
+     *  *
+     * @description *   If you set the MetricType parameter to custom, you must report your custom metrics to CloudMonitor before you can create event-triggered tasks by using the custom metrics. For more information, see [Custom monitoring event-triggered tasks](https://help.aliyun.com/document_detail/74861.html).
      * *   When you create an event-triggered task, you must specify the MetricName, DimensionKey, and DimensionValue parameters to determine the range of statistics that you want to aggregate for the metrics of the scaling group. For example, you can specify the user_id and scaling_group dimensions for an event-triggered task to aggregate monitoring data of all Elastic Compute Service (ECS) instances or elastic container instances in a scaling group within an Alibaba Cloud account.
      *     *   If you set the MetricType parameter to custom, the valid values are your custom metrics.
      *     *   For information about the metrics that are supported if you set the MetricType parameter to system, see[ Event-triggered task for system monitoring](https://help.aliyun.com/document_detail/74854.html).
      * > The user_id and scaling_group dimensions are automatically populated. You need to only specify the device and state dimensions. For more information, see the `DimensionKey` and `DimensionValue` parameters in the "Request parameters" section of this topic.
+     *  *
+     * @param ModifyAlarmRequest $request ModifyAlarmRequest
      *
-     * @param request - ModifyAlarmRequest
-     * @returns ModifyAlarmResponse
-     *
-     * @param ModifyAlarmRequest $request
-     *
-     * @return ModifyAlarmResponse
+     * @return ModifyAlarmResponse ModifyAlarmResponse
      */
     public function modifyAlarm($request)
     {
@@ -7216,56 +6012,47 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Sets the status of scaling activities that prompt text message or email notifications.
+     * @summary Sets the status of scaling activities that prompt text message or email notifications.
+     *  *
+     * @param ModifyAlertConfigurationRequest $request ModifyAlertConfigurationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAlertConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyAlertConfigurationResponse
-     *
-     * @param ModifyAlertConfigurationRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ModifyAlertConfigurationResponse
+     * @return ModifyAlertConfigurationResponse ModifyAlertConfigurationResponse
      */
     public function modifyAlertConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scaleStatuses) {
-            @$query['ScaleStatuses'] = $request->scaleStatuses;
+        if (!Utils::isUnset($request->scaleStatuses)) {
+            $query['ScaleStatuses'] = $request->scaleStatuses;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAlertConfiguration',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAlertConfiguration',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyAlertConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7273,14 +6060,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Sets the status of scaling activities that prompt text message or email notifications.
+     * @summary Sets the status of scaling activities that prompt text message or email notifications.
+     *  *
+     * @param ModifyAlertConfigurationRequest $request ModifyAlertConfigurationRequest
      *
-     * @param request - ModifyAlertConfigurationRequest
-     * @returns ModifyAlertConfigurationResponse
-     *
-     * @param ModifyAlertConfigurationRequest $request
-     *
-     * @return ModifyAlertConfigurationResponse
+     * @return ModifyAlertConfigurationResponse ModifyAlertConfigurationResponse
      */
     public function modifyAlertConfiguration($request)
     {
@@ -7290,244 +6074,188 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a scaling configuration of the Elastic Container Instance type. When you call the ModifyEciScalingConfiguration operation, you can specify the ID, name, and instance properties of the scaling configuration whose information you want to modify. You can modify the instance restart policy, instance bidding policy, and elastic IP address (EIP) bandwidth.
-     *
-     * @remarks
-     *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
+     * @summary Modifies a scaling configuration of the Elastic Container Instance type. When you call the ModifyEciScalingConfiguration operation, you can specify the ID, name, and instance properties of the scaling configuration whose information you want to modify. You can modify the instance restart policy, instance bidding policy, and elastic IP address (EIP) bandwidth.
+     *  *
+     * @description *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
      * *   You can call the [ModifyEciScalingConfiguration](https://help.aliyun.com/document_detail/459378.html) operation to check the modification result.
+     *  *
+     * @param ModifyEciScalingConfigurationRequest $request ModifyEciScalingConfigurationRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyEciScalingConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyEciScalingConfigurationResponse
-     *
-     * @param ModifyEciScalingConfigurationRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ModifyEciScalingConfigurationResponse
+     * @return ModifyEciScalingConfigurationResponse ModifyEciScalingConfigurationResponse
      */
     public function modifyEciScalingConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acrRegistryInfos) {
-            @$query['AcrRegistryInfos'] = $request->acrRegistryInfos;
+        if (!Utils::isUnset($request->acrRegistryInfos)) {
+            $query['AcrRegistryInfos'] = $request->acrRegistryInfos;
         }
-
-        if (null !== $request->activeDeadlineSeconds) {
-            @$query['ActiveDeadlineSeconds'] = $request->activeDeadlineSeconds;
+        if (!Utils::isUnset($request->activeDeadlineSeconds)) {
+            $query['ActiveDeadlineSeconds'] = $request->activeDeadlineSeconds;
         }
-
-        if (null !== $request->autoCreateEip) {
-            @$query['AutoCreateEip'] = $request->autoCreateEip;
+        if (!Utils::isUnset($request->autoCreateEip)) {
+            $query['AutoCreateEip'] = $request->autoCreateEip;
         }
-
-        if (null !== $request->autoMatchImageCache) {
-            @$query['AutoMatchImageCache'] = $request->autoMatchImageCache;
+        if (!Utils::isUnset($request->autoMatchImageCache)) {
+            $query['AutoMatchImageCache'] = $request->autoMatchImageCache;
         }
-
-        if (null !== $request->containerGroupName) {
-            @$query['ContainerGroupName'] = $request->containerGroupName;
+        if (!Utils::isUnset($request->containerGroupName)) {
+            $query['ContainerGroupName'] = $request->containerGroupName;
         }
-
-        if (null !== $request->containers) {
-            @$query['Containers'] = $request->containers;
+        if (!Utils::isUnset($request->containers)) {
+            $query['Containers'] = $request->containers;
         }
-
-        if (null !== $request->containersUpdateType) {
-            @$query['ContainersUpdateType'] = $request->containersUpdateType;
+        if (!Utils::isUnset($request->containersUpdateType)) {
+            $query['ContainersUpdateType'] = $request->containersUpdateType;
         }
-
-        if (null !== $request->costOptimization) {
-            @$query['CostOptimization'] = $request->costOptimization;
+        if (!Utils::isUnset($request->costOptimization)) {
+            $query['CostOptimization'] = $request->costOptimization;
         }
-
-        if (null !== $request->cpu) {
-            @$query['Cpu'] = $request->cpu;
+        if (!Utils::isUnset($request->cpu)) {
+            $query['Cpu'] = $request->cpu;
         }
-
-        if (null !== $request->cpuOptionsCore) {
-            @$query['CpuOptionsCore'] = $request->cpuOptionsCore;
+        if (!Utils::isUnset($request->cpuOptionsCore)) {
+            $query['CpuOptionsCore'] = $request->cpuOptionsCore;
         }
-
-        if (null !== $request->cpuOptionsThreadsPerCore) {
-            @$query['CpuOptionsThreadsPerCore'] = $request->cpuOptionsThreadsPerCore;
+        if (!Utils::isUnset($request->cpuOptionsThreadsPerCore)) {
+            $query['CpuOptionsThreadsPerCore'] = $request->cpuOptionsThreadsPerCore;
         }
-
-        if (null !== $request->dataCacheBucket) {
-            @$query['DataCacheBucket'] = $request->dataCacheBucket;
+        if (!Utils::isUnset($request->dataCacheBucket)) {
+            $query['DataCacheBucket'] = $request->dataCacheBucket;
         }
-
-        if (null !== $request->dataCacheBurstingEnabled) {
-            @$query['DataCacheBurstingEnabled'] = $request->dataCacheBurstingEnabled;
+        if (!Utils::isUnset($request->dataCacheBurstingEnabled)) {
+            $query['DataCacheBurstingEnabled'] = $request->dataCacheBurstingEnabled;
         }
-
-        if (null !== $request->dataCachePL) {
-            @$query['DataCachePL'] = $request->dataCachePL;
+        if (!Utils::isUnset($request->dataCachePL)) {
+            $query['DataCachePL'] = $request->dataCachePL;
         }
-
-        if (null !== $request->dataCacheProvisionedIops) {
-            @$query['DataCacheProvisionedIops'] = $request->dataCacheProvisionedIops;
+        if (!Utils::isUnset($request->dataCacheProvisionedIops)) {
+            $query['DataCacheProvisionedIops'] = $request->dataCacheProvisionedIops;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->dnsConfigNameServers) {
-            @$query['DnsConfigNameServers'] = $request->dnsConfigNameServers;
+        if (!Utils::isUnset($request->dnsConfigNameServers)) {
+            $query['DnsConfigNameServers'] = $request->dnsConfigNameServers;
         }
-
-        if (null !== $request->dnsConfigOptions) {
-            @$query['DnsConfigOptions'] = $request->dnsConfigOptions;
+        if (!Utils::isUnset($request->dnsConfigOptions)) {
+            $query['DnsConfigOptions'] = $request->dnsConfigOptions;
         }
-
-        if (null !== $request->dnsConfigSearchs) {
-            @$query['DnsConfigSearchs'] = $request->dnsConfigSearchs;
+        if (!Utils::isUnset($request->dnsConfigSearchs)) {
+            $query['DnsConfigSearchs'] = $request->dnsConfigSearchs;
         }
-
-        if (null !== $request->dnsPolicy) {
-            @$query['DnsPolicy'] = $request->dnsPolicy;
+        if (!Utils::isUnset($request->dnsPolicy)) {
+            $query['DnsPolicy'] = $request->dnsPolicy;
         }
-
-        if (null !== $request->egressBandwidth) {
-            @$query['EgressBandwidth'] = $request->egressBandwidth;
+        if (!Utils::isUnset($request->egressBandwidth)) {
+            $query['EgressBandwidth'] = $request->egressBandwidth;
         }
-
-        if (null !== $request->eipBandwidth) {
-            @$query['EipBandwidth'] = $request->eipBandwidth;
+        if (!Utils::isUnset($request->eipBandwidth)) {
+            $query['EipBandwidth'] = $request->eipBandwidth;
         }
-
-        if (null !== $request->enableSls) {
-            @$query['EnableSls'] = $request->enableSls;
+        if (!Utils::isUnset($request->enableSls)) {
+            $query['EnableSls'] = $request->enableSls;
         }
-
-        if (null !== $request->ephemeralStorage) {
-            @$query['EphemeralStorage'] = $request->ephemeralStorage;
+        if (!Utils::isUnset($request->ephemeralStorage)) {
+            $query['EphemeralStorage'] = $request->ephemeralStorage;
         }
-
-        if (null !== $request->gpuDriverVersion) {
-            @$query['GpuDriverVersion'] = $request->gpuDriverVersion;
+        if (!Utils::isUnset($request->gpuDriverVersion)) {
+            $query['GpuDriverVersion'] = $request->gpuDriverVersion;
         }
-
-        if (null !== $request->hostAliases) {
-            @$query['HostAliases'] = $request->hostAliases;
+        if (!Utils::isUnset($request->hostAliases)) {
+            $query['HostAliases'] = $request->hostAliases;
         }
-
-        if (null !== $request->hostName) {
-            @$query['HostName'] = $request->hostName;
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
         }
-
-        if (null !== $request->imageRegistryCredentials) {
-            @$query['ImageRegistryCredentials'] = $request->imageRegistryCredentials;
+        if (!Utils::isUnset($request->imageRegistryCredentials)) {
+            $query['ImageRegistryCredentials'] = $request->imageRegistryCredentials;
         }
-
-        if (null !== $request->imageSnapshotId) {
-            @$query['ImageSnapshotId'] = $request->imageSnapshotId;
+        if (!Utils::isUnset($request->imageSnapshotId)) {
+            $query['ImageSnapshotId'] = $request->imageSnapshotId;
         }
-
-        if (null !== $request->ingressBandwidth) {
-            @$query['IngressBandwidth'] = $request->ingressBandwidth;
+        if (!Utils::isUnset($request->ingressBandwidth)) {
+            $query['IngressBandwidth'] = $request->ingressBandwidth;
         }
-
-        if (null !== $request->initContainers) {
-            @$query['InitContainers'] = $request->initContainers;
+        if (!Utils::isUnset($request->initContainers)) {
+            $query['InitContainers'] = $request->initContainers;
         }
-
-        if (null !== $request->instanceFamilyLevel) {
-            @$query['InstanceFamilyLevel'] = $request->instanceFamilyLevel;
+        if (!Utils::isUnset($request->instanceFamilyLevel)) {
+            $query['InstanceFamilyLevel'] = $request->instanceFamilyLevel;
         }
-
-        if (null !== $request->instanceTypes) {
-            @$query['InstanceTypes'] = $request->instanceTypes;
+        if (!Utils::isUnset($request->instanceTypes)) {
+            $query['InstanceTypes'] = $request->instanceTypes;
         }
-
-        if (null !== $request->ipv6AddressCount) {
-            @$query['Ipv6AddressCount'] = $request->ipv6AddressCount;
+        if (!Utils::isUnset($request->ipv6AddressCount)) {
+            $query['Ipv6AddressCount'] = $request->ipv6AddressCount;
         }
-
-        if (null !== $request->loadBalancerWeight) {
-            @$query['LoadBalancerWeight'] = $request->loadBalancerWeight;
+        if (!Utils::isUnset($request->loadBalancerWeight)) {
+            $query['LoadBalancerWeight'] = $request->loadBalancerWeight;
         }
-
-        if (null !== $request->memory) {
-            @$query['Memory'] = $request->memory;
+        if (!Utils::isUnset($request->memory)) {
+            $query['Memory'] = $request->memory;
         }
-
-        if (null !== $request->ntpServers) {
-            @$query['NtpServers'] = $request->ntpServers;
+        if (!Utils::isUnset($request->ntpServers)) {
+            $query['NtpServers'] = $request->ntpServers;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->ramRoleName) {
-            @$query['RamRoleName'] = $request->ramRoleName;
+        if (!Utils::isUnset($request->ramRoleName)) {
+            $query['RamRoleName'] = $request->ramRoleName;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->restartPolicy) {
-            @$query['RestartPolicy'] = $request->restartPolicy;
+        if (!Utils::isUnset($request->restartPolicy)) {
+            $query['RestartPolicy'] = $request->restartPolicy;
         }
-
-        if (null !== $request->scalingConfigurationId) {
-            @$query['ScalingConfigurationId'] = $request->scalingConfigurationId;
+        if (!Utils::isUnset($request->scalingConfigurationId)) {
+            $query['ScalingConfigurationId'] = $request->scalingConfigurationId;
         }
-
-        if (null !== $request->scalingConfigurationName) {
-            @$query['ScalingConfigurationName'] = $request->scalingConfigurationName;
+        if (!Utils::isUnset($request->scalingConfigurationName)) {
+            $query['ScalingConfigurationName'] = $request->scalingConfigurationName;
         }
-
-        if (null !== $request->securityContextSysCtls) {
-            @$query['SecurityContextSysCtls'] = $request->securityContextSysCtls;
+        if (!Utils::isUnset($request->securityContextSysCtls)) {
+            $query['SecurityContextSysCtls'] = $request->securityContextSysCtls;
         }
-
-        if (null !== $request->securityGroupId) {
-            @$query['SecurityGroupId'] = $request->securityGroupId;
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
         }
-
-        if (null !== $request->spotPriceLimit) {
-            @$query['SpotPriceLimit'] = $request->spotPriceLimit;
+        if (!Utils::isUnset($request->spotPriceLimit)) {
+            $query['SpotPriceLimit'] = $request->spotPriceLimit;
         }
-
-        if (null !== $request->spotStrategy) {
-            @$query['SpotStrategy'] = $request->spotStrategy;
+        if (!Utils::isUnset($request->spotStrategy)) {
+            $query['SpotStrategy'] = $request->spotStrategy;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
-        if (null !== $request->terminationGracePeriodSeconds) {
-            @$query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
+        if (!Utils::isUnset($request->terminationGracePeriodSeconds)) {
+            $query['TerminationGracePeriodSeconds'] = $request->terminationGracePeriodSeconds;
         }
-
-        if (null !== $request->volumes) {
-            @$query['Volumes'] = $request->volumes;
+        if (!Utils::isUnset($request->volumes)) {
+            $query['Volumes'] = $request->volumes;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyEciScalingConfiguration',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyEciScalingConfiguration',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7535,18 +6263,14 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a scaling configuration of the Elastic Container Instance type. When you call the ModifyEciScalingConfiguration operation, you can specify the ID, name, and instance properties of the scaling configuration whose information you want to modify. You can modify the instance restart policy, instance bidding policy, and elastic IP address (EIP) bandwidth.
-     *
-     * @remarks
-     *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
+     * @summary Modifies a scaling configuration of the Elastic Container Instance type. When you call the ModifyEciScalingConfiguration operation, you can specify the ID, name, and instance properties of the scaling configuration whose information you want to modify. You can modify the instance restart policy, instance bidding policy, and elastic IP address (EIP) bandwidth.
+     *  *
+     * @description *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
      * *   You can call the [ModifyEciScalingConfiguration](https://help.aliyun.com/document_detail/459378.html) operation to check the modification result.
+     *  *
+     * @param ModifyEciScalingConfigurationRequest $request ModifyEciScalingConfigurationRequest
      *
-     * @param request - ModifyEciScalingConfigurationRequest
-     * @returns ModifyEciScalingConfigurationResponse
-     *
-     * @param ModifyEciScalingConfigurationRequest $request
-     *
-     * @return ModifyEciScalingConfigurationResponse
+     * @return ModifyEciScalingConfigurationResponse ModifyEciScalingConfigurationResponse
      */
     public function modifyEciScalingConfiguration($request)
     {
@@ -7556,60 +6280,50 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies the information of an Elastic Compute Service (ECS) instance. When you call the ModifyInstanceAttribute operation, you can specify attributes such as the instance ID, scaling group ID, and region ID to modify the attributes of an ECS instance in a scaling group. You can modify only the hosting attributes of instances that are manually added to scaling groups.
+     * @summary Modifies the information of an Elastic Compute Service (ECS) instance. When you call the ModifyInstanceAttribute operation, you can specify attributes such as the instance ID, scaling group ID, and region ID to modify the attributes of an ECS instance in a scaling group. You can modify only the hosting attributes of instances that are manually added to scaling groups.
+     *  *
+     * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyInstanceAttributeResponse
-     *
-     * @param ModifyInstanceAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyInstanceAttributeResponse
+     * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
      */
     public function modifyInstanceAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->entrusted) {
-            @$query['Entrusted'] = $request->entrusted;
+        if (!Utils::isUnset($request->entrusted)) {
+            $query['Entrusted'] = $request->entrusted;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceAttribute',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceAttribute',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7617,14 +6331,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies the information of an Elastic Compute Service (ECS) instance. When you call the ModifyInstanceAttribute operation, you can specify attributes such as the instance ID, scaling group ID, and region ID to modify the attributes of an ECS instance in a scaling group. You can modify only the hosting attributes of instances that are manually added to scaling groups.
+     * @summary Modifies the information of an Elastic Compute Service (ECS) instance. When you call the ModifyInstanceAttribute operation, you can specify attributes such as the instance ID, scaling group ID, and region ID to modify the attributes of an ECS instance in a scaling group. You can modify only the hosting attributes of instances that are manually added to scaling groups.
+     *  *
+     * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      *
-     * @param request - ModifyInstanceAttributeRequest
-     * @returns ModifyInstanceAttributeResponse
-     *
-     * @param ModifyInstanceAttributeRequest $request
-     *
-     * @return ModifyInstanceAttributeResponse
+     * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
      */
     public function modifyInstanceAttribute($request)
     {
@@ -7634,93 +6345,75 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a lifecycle hook. If an existing lifecycle hook does not meet your business requirements anymore, you can call the ModifyLifecycleHook operation to modify the information such as the scaling event, timeout period, and default action of the lifecycle hook. Before you modify a lifecycle hook, you can locate the lifecycle hook by its ID, name, or scaling group.
-     *
-     * @remarks
-     * You can use one of the following methods to locate the lifecycle hook that you want to modify:
+     * @summary Modifies a lifecycle hook. If an existing lifecycle hook does not meet your business requirements anymore, you can call the ModifyLifecycleHook operation to modify the information such as the scaling event, timeout period, and default action of the lifecycle hook. Before you modify a lifecycle hook, you can locate the lifecycle hook by its ID, name, or scaling group.
+     *  *
+     * @description You can use one of the following methods to locate the lifecycle hook that you want to modify:
      * *   Specify LifecycleHookId. In this case, ScalingGroupId and LifecycleHookName are ignored.
      * *   Specify ScalingGroupId and LifecycleHookName. Each lifecycle hook within a scaling group has a unique name.
+     *  *
+     * @param ModifyLifecycleHookRequest $request ModifyLifecycleHookRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyLifecycleHookRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyLifecycleHookResponse
-     *
-     * @param ModifyLifecycleHookRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyLifecycleHookResponse
+     * @return ModifyLifecycleHookResponse ModifyLifecycleHookResponse
      */
     public function modifyLifecycleHookWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->defaultResult) {
-            @$query['DefaultResult'] = $request->defaultResult;
+        if (!Utils::isUnset($request->defaultResult)) {
+            $query['DefaultResult'] = $request->defaultResult;
         }
-
-        if (null !== $request->heartbeatTimeout) {
-            @$query['HeartbeatTimeout'] = $request->heartbeatTimeout;
+        if (!Utils::isUnset($request->heartbeatTimeout)) {
+            $query['HeartbeatTimeout'] = $request->heartbeatTimeout;
         }
-
-        if (null !== $request->lifecycleHookId) {
-            @$query['LifecycleHookId'] = $request->lifecycleHookId;
+        if (!Utils::isUnset($request->lifecycleHookId)) {
+            $query['LifecycleHookId'] = $request->lifecycleHookId;
         }
-
-        if (null !== $request->lifecycleHookName) {
-            @$query['LifecycleHookName'] = $request->lifecycleHookName;
+        if (!Utils::isUnset($request->lifecycleHookName)) {
+            $query['LifecycleHookName'] = $request->lifecycleHookName;
         }
-
-        if (null !== $request->lifecycleHookStatus) {
-            @$query['LifecycleHookStatus'] = $request->lifecycleHookStatus;
+        if (!Utils::isUnset($request->lifecycleHookStatus)) {
+            $query['LifecycleHookStatus'] = $request->lifecycleHookStatus;
         }
-
-        if (null !== $request->lifecycleTransition) {
-            @$query['LifecycleTransition'] = $request->lifecycleTransition;
+        if (!Utils::isUnset($request->lifecycleTransition)) {
+            $query['LifecycleTransition'] = $request->lifecycleTransition;
         }
-
-        if (null !== $request->notificationArn) {
-            @$query['NotificationArn'] = $request->notificationArn;
+        if (!Utils::isUnset($request->notificationArn)) {
+            $query['NotificationArn'] = $request->notificationArn;
         }
-
-        if (null !== $request->notificationMetadata) {
-            @$query['NotificationMetadata'] = $request->notificationMetadata;
+        if (!Utils::isUnset($request->notificationMetadata)) {
+            $query['NotificationMetadata'] = $request->notificationMetadata;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyLifecycleHook',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyLifecycleHook',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7728,19 +6421,15 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a lifecycle hook. If an existing lifecycle hook does not meet your business requirements anymore, you can call the ModifyLifecycleHook operation to modify the information such as the scaling event, timeout period, and default action of the lifecycle hook. Before you modify a lifecycle hook, you can locate the lifecycle hook by its ID, name, or scaling group.
-     *
-     * @remarks
-     * You can use one of the following methods to locate the lifecycle hook that you want to modify:
+     * @summary Modifies a lifecycle hook. If an existing lifecycle hook does not meet your business requirements anymore, you can call the ModifyLifecycleHook operation to modify the information such as the scaling event, timeout period, and default action of the lifecycle hook. Before you modify a lifecycle hook, you can locate the lifecycle hook by its ID, name, or scaling group.
+     *  *
+     * @description You can use one of the following methods to locate the lifecycle hook that you want to modify:
      * *   Specify LifecycleHookId. In this case, ScalingGroupId and LifecycleHookName are ignored.
      * *   Specify ScalingGroupId and LifecycleHookName. Each lifecycle hook within a scaling group has a unique name.
+     *  *
+     * @param ModifyLifecycleHookRequest $request ModifyLifecycleHookRequest
      *
-     * @param request - ModifyLifecycleHookRequest
-     * @returns ModifyLifecycleHookResponse
-     *
-     * @param ModifyLifecycleHookRequest $request
-     *
-     * @return ModifyLifecycleHookResponse
+     * @return ModifyLifecycleHookResponse ModifyLifecycleHookResponse
      */
     public function modifyLifecycleHook($request)
     {
@@ -7750,64 +6439,53 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies event notification rules. Event notification rules support automatic sending of notifications to CloudMonitor, Message Service (MNS) topics, or MNS queues when a specified type of events occur. This helps you learn about the dynamics of your scaling group at the earliest opportunity and further automate resource management. If an existing event notification rule does not meet your business requirements, you can call the ModifyNotificationConfiguration operation to modify the event notification rule, without the need to create a new rule. Take not that you cannot modify the notification method of an event notification rule by calling this operation.
+     * @summary Modifies event notification rules. Event notification rules support automatic sending of notifications to CloudMonitor, Message Service (MNS) topics, or MNS queues when a specified type of events occur. This helps you learn about the dynamics of your scaling group at the earliest opportunity and further automate resource management. If an existing event notification rule does not meet your business requirements, you can call the ModifyNotificationConfiguration operation to modify the event notification rule, without the need to create a new rule. Take not that you cannot modify the notification method of an event notification rule by calling this operation.
+     *  *
+     * @param ModifyNotificationConfigurationRequest $request ModifyNotificationConfigurationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyNotificationConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyNotificationConfigurationResponse
-     *
-     * @param ModifyNotificationConfigurationRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ModifyNotificationConfigurationResponse
+     * @return ModifyNotificationConfigurationResponse ModifyNotificationConfigurationResponse
      */
     public function modifyNotificationConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->notificationArn) {
-            @$query['NotificationArn'] = $request->notificationArn;
+        if (!Utils::isUnset($request->notificationArn)) {
+            $query['NotificationArn'] = $request->notificationArn;
         }
-
-        if (null !== $request->notificationTypes) {
-            @$query['NotificationTypes'] = $request->notificationTypes;
+        if (!Utils::isUnset($request->notificationTypes)) {
+            $query['NotificationTypes'] = $request->notificationTypes;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->timeZone) {
-            @$query['TimeZone'] = $request->timeZone;
+        if (!Utils::isUnset($request->timeZone)) {
+            $query['TimeZone'] = $request->timeZone;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyNotificationConfiguration',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyNotificationConfiguration',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -7815,14 +6493,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies event notification rules. Event notification rules support automatic sending of notifications to CloudMonitor, Message Service (MNS) topics, or MNS queues when a specified type of events occur. This helps you learn about the dynamics of your scaling group at the earliest opportunity and further automate resource management. If an existing event notification rule does not meet your business requirements, you can call the ModifyNotificationConfiguration operation to modify the event notification rule, without the need to create a new rule. Take not that you cannot modify the notification method of an event notification rule by calling this operation.
+     * @summary Modifies event notification rules. Event notification rules support automatic sending of notifications to CloudMonitor, Message Service (MNS) topics, or MNS queues when a specified type of events occur. This helps you learn about the dynamics of your scaling group at the earliest opportunity and further automate resource management. If an existing event notification rule does not meet your business requirements, you can call the ModifyNotificationConfiguration operation to modify the event notification rule, without the need to create a new rule. Take not that you cannot modify the notification method of an event notification rule by calling this operation.
+     *  *
+     * @param ModifyNotificationConfigurationRequest $request ModifyNotificationConfigurationRequest
      *
-     * @param request - ModifyNotificationConfigurationRequest
-     * @returns ModifyNotificationConfigurationResponse
-     *
-     * @param ModifyNotificationConfigurationRequest $request
-     *
-     * @return ModifyNotificationConfigurationResponse
+     * @return ModifyNotificationConfigurationResponse ModifyNotificationConfigurationResponse
      */
     public function modifyNotificationConfiguration($request)
     {
@@ -7832,280 +6507,216 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a scaling configuration.
-     *
-     * @remarks
-     *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
+     * @summary Modifies a scaling configuration.
+     *  *
+     * @description *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
      * *   If you want to bind a primary elastic network interface (ENI) when you call this operation, you must use one of the following methods. If you use the following methods at the same time, the call fails and an error is reported. In addition, if you use one of the following methods to modify the ENI information when you call this operation, the ENI information configured by using the other method is cleared.
      *     *   You can specify SecurityGroupId, SecurityGroupIds, and Ipv6AddressCount to configure ENI-related information.
      *     *   You can specify NetworkInterfaces to configure primary and secondary ENIs. You must use NetworkInterface to specify at least one primary ENI. If you set NetworkInterface.InstanceType to Primary, it specifies that a primary ENI is configured. If you set NetworkInterface.InstanceType to Secondary or leave it empty, it specifies that a secondary ENI is configured.
+     *  *
+     * @param ModifyScalingConfigurationRequest $tmpReq  ModifyScalingConfigurationRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ModifyScalingConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyScalingConfigurationResponse
-     *
-     * @param ModifyScalingConfigurationRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyScalingConfigurationResponse
+     * @return ModifyScalingConfigurationResponse ModifyScalingConfigurationResponse
      */
     public function modifyScalingConfigurationWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyScalingConfigurationShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->schedulerOptions) {
-            $request->schedulerOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->schedulerOptions, 'SchedulerOptions', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->schedulerOptions)) {
+            $request->schedulerOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedulerOptions, 'SchedulerOptions', 'json');
         }
-
         $query = [];
-        if (null !== $request->affinity) {
-            @$query['Affinity'] = $request->affinity;
+        if (!Utils::isUnset($request->affinity)) {
+            $query['Affinity'] = $request->affinity;
         }
-
-        if (null !== $request->cpu) {
-            @$query['Cpu'] = $request->cpu;
+        if (!Utils::isUnset($request->cpu)) {
+            $query['Cpu'] = $request->cpu;
         }
-
-        if (null !== $request->creditSpecification) {
-            @$query['CreditSpecification'] = $request->creditSpecification;
+        if (!Utils::isUnset($request->creditSpecification)) {
+            $query['CreditSpecification'] = $request->creditSpecification;
         }
-
-        if (null !== $request->customPriorities) {
-            @$query['CustomPriorities'] = $request->customPriorities;
+        if (!Utils::isUnset($request->customPriorities)) {
+            $query['CustomPriorities'] = $request->customPriorities;
         }
-
-        if (null !== $request->dataDisks) {
-            @$query['DataDisks'] = $request->dataDisks;
+        if (!Utils::isUnset($request->dataDisks)) {
+            $query['DataDisks'] = $request->dataDisks;
         }
-
-        if (null !== $request->dedicatedHostClusterId) {
-            @$query['DedicatedHostClusterId'] = $request->dedicatedHostClusterId;
+        if (!Utils::isUnset($request->dedicatedHostClusterId)) {
+            $query['DedicatedHostClusterId'] = $request->dedicatedHostClusterId;
         }
-
-        if (null !== $request->dedicatedHostId) {
-            @$query['DedicatedHostId'] = $request->dedicatedHostId;
+        if (!Utils::isUnset($request->dedicatedHostId)) {
+            $query['DedicatedHostId'] = $request->dedicatedHostId;
         }
-
-        if (null !== $request->deletionProtection) {
-            @$query['DeletionProtection'] = $request->deletionProtection;
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $query['DeletionProtection'] = $request->deletionProtection;
         }
-
-        if (null !== $request->deploymentSetId) {
-            @$query['DeploymentSetId'] = $request->deploymentSetId;
+        if (!Utils::isUnset($request->deploymentSetId)) {
+            $query['DeploymentSetId'] = $request->deploymentSetId;
         }
-
-        if (null !== $request->hostName) {
-            @$query['HostName'] = $request->hostName;
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
         }
-
-        if (null !== $request->hpcClusterId) {
-            @$query['HpcClusterId'] = $request->hpcClusterId;
+        if (!Utils::isUnset($request->hpcClusterId)) {
+            $query['HpcClusterId'] = $request->hpcClusterId;
         }
-
-        if (null !== $request->httpEndpoint) {
-            @$query['HttpEndpoint'] = $request->httpEndpoint;
+        if (!Utils::isUnset($request->httpEndpoint)) {
+            $query['HttpEndpoint'] = $request->httpEndpoint;
         }
-
-        if (null !== $request->httpTokens) {
-            @$query['HttpTokens'] = $request->httpTokens;
+        if (!Utils::isUnset($request->httpTokens)) {
+            $query['HttpTokens'] = $request->httpTokens;
         }
-
-        if (null !== $request->imageFamily) {
-            @$query['ImageFamily'] = $request->imageFamily;
+        if (!Utils::isUnset($request->imageFamily)) {
+            $query['ImageFamily'] = $request->imageFamily;
         }
-
-        if (null !== $request->imageId) {
-            @$query['ImageId'] = $request->imageId;
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
         }
-
-        if (null !== $request->imageName) {
-            @$query['ImageName'] = $request->imageName;
+        if (!Utils::isUnset($request->imageName)) {
+            $query['ImageName'] = $request->imageName;
         }
-
-        if (null !== $request->instanceDescription) {
-            @$query['InstanceDescription'] = $request->instanceDescription;
+        if (!Utils::isUnset($request->instanceDescription)) {
+            $query['InstanceDescription'] = $request->instanceDescription;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->instancePatternInfos) {
-            @$query['InstancePatternInfos'] = $request->instancePatternInfos;
+        if (!Utils::isUnset($request->instancePatternInfos)) {
+            $query['InstancePatternInfos'] = $request->instancePatternInfos;
         }
-
-        if (null !== $request->instanceTypeOverrides) {
-            @$query['InstanceTypeOverrides'] = $request->instanceTypeOverrides;
+        if (!Utils::isUnset($request->instanceTypeOverrides)) {
+            $query['InstanceTypeOverrides'] = $request->instanceTypeOverrides;
         }
-
-        if (null !== $request->instanceTypes) {
-            @$query['InstanceTypes'] = $request->instanceTypes;
+        if (!Utils::isUnset($request->instanceTypes)) {
+            $query['InstanceTypes'] = $request->instanceTypes;
         }
-
-        if (null !== $request->internetChargeType) {
-            @$query['InternetChargeType'] = $request->internetChargeType;
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
         }
-
-        if (null !== $request->internetMaxBandwidthIn) {
-            @$query['InternetMaxBandwidthIn'] = $request->internetMaxBandwidthIn;
+        if (!Utils::isUnset($request->internetMaxBandwidthIn)) {
+            $query['InternetMaxBandwidthIn'] = $request->internetMaxBandwidthIn;
         }
-
-        if (null !== $request->internetMaxBandwidthOut) {
-            @$query['InternetMaxBandwidthOut'] = $request->internetMaxBandwidthOut;
+        if (!Utils::isUnset($request->internetMaxBandwidthOut)) {
+            $query['InternetMaxBandwidthOut'] = $request->internetMaxBandwidthOut;
         }
-
-        if (null !== $request->ioOptimized) {
-            @$query['IoOptimized'] = $request->ioOptimized;
+        if (!Utils::isUnset($request->ioOptimized)) {
+            $query['IoOptimized'] = $request->ioOptimized;
         }
-
-        if (null !== $request->ipv6AddressCount) {
-            @$query['Ipv6AddressCount'] = $request->ipv6AddressCount;
+        if (!Utils::isUnset($request->ipv6AddressCount)) {
+            $query['Ipv6AddressCount'] = $request->ipv6AddressCount;
         }
-
-        if (null !== $request->keyPairName) {
-            @$query['KeyPairName'] = $request->keyPairName;
+        if (!Utils::isUnset($request->keyPairName)) {
+            $query['KeyPairName'] = $request->keyPairName;
         }
-
-        if (null !== $request->loadBalancerWeight) {
-            @$query['LoadBalancerWeight'] = $request->loadBalancerWeight;
+        if (!Utils::isUnset($request->loadBalancerWeight)) {
+            $query['LoadBalancerWeight'] = $request->loadBalancerWeight;
         }
-
-        if (null !== $request->memory) {
-            @$query['Memory'] = $request->memory;
+        if (!Utils::isUnset($request->memory)) {
+            $query['Memory'] = $request->memory;
         }
-
-        if (null !== $request->networkInterfaces) {
-            @$query['NetworkInterfaces'] = $request->networkInterfaces;
+        if (!Utils::isUnset($request->networkInterfaces)) {
+            $query['NetworkInterfaces'] = $request->networkInterfaces;
         }
-
-        if (null !== $request->override) {
-            @$query['Override'] = $request->override;
+        if (!Utils::isUnset($request->override)) {
+            $query['Override'] = $request->override;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->passwordInherit) {
-            @$query['PasswordInherit'] = $request->passwordInherit;
+        if (!Utils::isUnset($request->passwordInherit)) {
+            $query['PasswordInherit'] = $request->passwordInherit;
         }
-
-        if (null !== $request->ramRoleName) {
-            @$query['RamRoleName'] = $request->ramRoleName;
+        if (!Utils::isUnset($request->ramRoleName)) {
+            $query['RamRoleName'] = $request->ramRoleName;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingConfigurationId) {
-            @$query['ScalingConfigurationId'] = $request->scalingConfigurationId;
+        if (!Utils::isUnset($request->scalingConfigurationId)) {
+            $query['ScalingConfigurationId'] = $request->scalingConfigurationId;
         }
-
-        if (null !== $request->scalingConfigurationName) {
-            @$query['ScalingConfigurationName'] = $request->scalingConfigurationName;
+        if (!Utils::isUnset($request->scalingConfigurationName)) {
+            $query['ScalingConfigurationName'] = $request->scalingConfigurationName;
         }
-
-        if (null !== $request->schedulerOptionsShrink) {
-            @$query['SchedulerOptions'] = $request->schedulerOptionsShrink;
+        if (!Utils::isUnset($request->schedulerOptionsShrink)) {
+            $query['SchedulerOptions'] = $request->schedulerOptionsShrink;
         }
-
-        if (null !== $request->securityGroupId) {
-            @$query['SecurityGroupId'] = $request->securityGroupId;
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
         }
-
-        if (null !== $request->securityGroupIds) {
-            @$query['SecurityGroupIds'] = $request->securityGroupIds;
+        if (!Utils::isUnset($request->securityGroupIds)) {
+            $query['SecurityGroupIds'] = $request->securityGroupIds;
         }
-
-        if (null !== $request->securityOptions) {
-            @$query['SecurityOptions'] = $request->securityOptions;
+        if (!Utils::isUnset($request->securityOptions)) {
+            $query['SecurityOptions'] = $request->securityOptions;
         }
-
-        if (null !== $request->spotDuration) {
-            @$query['SpotDuration'] = $request->spotDuration;
+        if (!Utils::isUnset($request->spotDuration)) {
+            $query['SpotDuration'] = $request->spotDuration;
         }
-
-        if (null !== $request->spotInterruptionBehavior) {
-            @$query['SpotInterruptionBehavior'] = $request->spotInterruptionBehavior;
+        if (!Utils::isUnset($request->spotInterruptionBehavior)) {
+            $query['SpotInterruptionBehavior'] = $request->spotInterruptionBehavior;
         }
-
-        if (null !== $request->spotPriceLimits) {
-            @$query['SpotPriceLimits'] = $request->spotPriceLimits;
+        if (!Utils::isUnset($request->spotPriceLimits)) {
+            $query['SpotPriceLimits'] = $request->spotPriceLimits;
         }
-
-        if (null !== $request->spotStrategy) {
-            @$query['SpotStrategy'] = $request->spotStrategy;
+        if (!Utils::isUnset($request->spotStrategy)) {
+            $query['SpotStrategy'] = $request->spotStrategy;
         }
-
-        if (null !== $request->storageSetId) {
-            @$query['StorageSetId'] = $request->storageSetId;
+        if (!Utils::isUnset($request->storageSetId)) {
+            $query['StorageSetId'] = $request->storageSetId;
         }
-
-        if (null !== $request->storageSetPartitionNumber) {
-            @$query['StorageSetPartitionNumber'] = $request->storageSetPartitionNumber;
+        if (!Utils::isUnset($request->storageSetPartitionNumber)) {
+            $query['StorageSetPartitionNumber'] = $request->storageSetPartitionNumber;
         }
-
-        if (null !== $request->systemDiskCategories) {
-            @$query['SystemDiskCategories'] = $request->systemDiskCategories;
+        if (!Utils::isUnset($request->systemDiskCategories)) {
+            $query['SystemDiskCategories'] = $request->systemDiskCategories;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
-        if (null !== $request->tenancy) {
-            @$query['Tenancy'] = $request->tenancy;
+        if (!Utils::isUnset($request->tenancy)) {
+            $query['Tenancy'] = $request->tenancy;
         }
-
-        if (null !== $request->userData) {
-            @$query['UserData'] = $request->userData;
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
-        if (null !== $request->imageOptions) {
-            @$query['ImageOptions'] = $request->imageOptions;
+        if (!Utils::isUnset($request->imageOptions)) {
+            $query['ImageOptions'] = $request->imageOptions;
         }
-
-        if (null !== $request->privatePoolOptions) {
-            @$query['PrivatePoolOptions'] = $request->privatePoolOptions;
+        if (!Utils::isUnset($request->privatePoolOptions)) {
+            $query['PrivatePoolOptions'] = $request->privatePoolOptions;
         }
-
-        if (null !== $request->systemDisk) {
-            @$query['SystemDisk'] = $request->systemDisk;
+        if (!Utils::isUnset($request->systemDisk)) {
+            $query['SystemDisk'] = $request->systemDisk;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyScalingConfiguration',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyScalingConfiguration',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8113,20 +6724,16 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a scaling configuration.
-     *
-     * @remarks
-     *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
+     * @summary Modifies a scaling configuration.
+     *  *
+     * @description *   If you want to change the name of a scaling configuration in a scaling group, make sure that the new name is unique within the scaling group.
      * *   If you want to bind a primary elastic network interface (ENI) when you call this operation, you must use one of the following methods. If you use the following methods at the same time, the call fails and an error is reported. In addition, if you use one of the following methods to modify the ENI information when you call this operation, the ENI information configured by using the other method is cleared.
      *     *   You can specify SecurityGroupId, SecurityGroupIds, and Ipv6AddressCount to configure ENI-related information.
      *     *   You can specify NetworkInterfaces to configure primary and secondary ENIs. You must use NetworkInterface to specify at least one primary ENI. If you set NetworkInterface.InstanceType to Primary, it specifies that a primary ENI is configured. If you set NetworkInterface.InstanceType to Secondary or leave it empty, it specifies that a secondary ENI is configured.
+     *  *
+     * @param ModifyScalingConfigurationRequest $request ModifyScalingConfigurationRequest
      *
-     * @param request - ModifyScalingConfigurationRequest
-     * @returns ModifyScalingConfigurationResponse
-     *
-     * @param ModifyScalingConfigurationRequest $request
-     *
-     * @return ModifyScalingConfigurationResponse
+     * @return ModifyScalingConfigurationResponse ModifyScalingConfigurationResponse
      */
     public function modifyScalingConfiguration($request)
     {
@@ -8136,10 +6743,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a scaling group. If you want to enable policy-based automatic addition or removal of instances of a specific type to meet evolving business requirements, you can modify scaling groups to adjust your computing power with ease. The computing power refers to the instances that provide the computing capability. When your scaling group cannot meet your business requirements, you can call the ModifyScalingGroup operation to modify scaling group attributes such as the maximum, minimum, and expected numbers of instances. This prevents repeated creation and configuration of scaling groups, which saves you a lot of time and resource costs.
-     *
-     * @remarks
-     *   You cannot modify the following parameters by calling this operation:
+     * @summary Modifies a scaling group. If you want to enable policy-based automatic addition or removal of instances of a specific type to meet evolving business requirements, you can modify scaling groups to adjust your computing power with ease. The computing power refers to the instances that provide the computing capability. When your scaling group cannot meet your business requirements, you can call the ModifyScalingGroup operation to modify scaling group attributes such as the maximum, minimum, and expected numbers of instances. This prevents repeated creation and configuration of scaling groups, which saves you a lot of time and resource costs.
+     *  *
+     * @description *   You cannot modify the following parameters by calling this operation:
      *     *   RegionId
      *     *   LoadBalancerId
      *     **
@@ -8152,171 +6758,133 @@ class Ess extends OpenApiClient
      * *   If the modification of the MaxSize setting leads to the total number of ECS instances or elastic container instances in the scaling group exceeding the new maximum limit, Auto Scaling proactively removes the surplus instances to restore the total number to match the new maximum limit.
      * *   If the modification of the MinSize setting leads to the total number of ECS instances or elastic container instances in the scaling group exceeding the new minimum threshold, Auto Scaling proactively adds more instances to the scaling group to ensure that the total number aligns with the new minimum threshold.
      * *   If the modification of the DesiredCapacity setting leads to the total number of ECS instances or elastic container instances in the scaling group not matching the new desired capacity, Auto Scaling proactively adjusts the total number of instances to ensure that the total number aligns with the new desired capacity.
+     *  *
+     * @param ModifyScalingGroupRequest $request ModifyScalingGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyScalingGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyScalingGroupResponse
-     *
-     * @param ModifyScalingGroupRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyScalingGroupResponse
+     * @return ModifyScalingGroupResponse ModifyScalingGroupResponse
      */
     public function modifyScalingGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->activeScalingConfigurationId) {
-            @$query['ActiveScalingConfigurationId'] = $request->activeScalingConfigurationId;
+        if (!Utils::isUnset($request->activeScalingConfigurationId)) {
+            $query['ActiveScalingConfigurationId'] = $request->activeScalingConfigurationId;
         }
-
-        if (null !== $request->allocationStrategy) {
-            @$query['AllocationStrategy'] = $request->allocationStrategy;
+        if (!Utils::isUnset($request->allocationStrategy)) {
+            $query['AllocationStrategy'] = $request->allocationStrategy;
         }
-
-        if (null !== $request->azBalance) {
-            @$query['AzBalance'] = $request->azBalance;
+        if (!Utils::isUnset($request->azBalance)) {
+            $query['AzBalance'] = $request->azBalance;
         }
-
-        if (null !== $request->capacityOptions) {
-            @$query['CapacityOptions'] = $request->capacityOptions;
+        if (!Utils::isUnset($request->capacityOptions)) {
+            $query['CapacityOptions'] = $request->capacityOptions;
         }
-
-        if (null !== $request->compensateWithOnDemand) {
-            @$query['CompensateWithOnDemand'] = $request->compensateWithOnDemand;
+        if (!Utils::isUnset($request->compensateWithOnDemand)) {
+            $query['CompensateWithOnDemand'] = $request->compensateWithOnDemand;
         }
-
-        if (null !== $request->customPolicyARN) {
-            @$query['CustomPolicyARN'] = $request->customPolicyARN;
+        if (!Utils::isUnset($request->customPolicyARN)) {
+            $query['CustomPolicyARN'] = $request->customPolicyARN;
         }
-
-        if (null !== $request->defaultCooldown) {
-            @$query['DefaultCooldown'] = $request->defaultCooldown;
+        if (!Utils::isUnset($request->defaultCooldown)) {
+            $query['DefaultCooldown'] = $request->defaultCooldown;
         }
-
-        if (null !== $request->desiredCapacity) {
-            @$query['DesiredCapacity'] = $request->desiredCapacity;
+        if (!Utils::isUnset($request->desiredCapacity)) {
+            $query['DesiredCapacity'] = $request->desiredCapacity;
         }
-
-        if (null !== $request->disableDesiredCapacity) {
-            @$query['DisableDesiredCapacity'] = $request->disableDesiredCapacity;
+        if (!Utils::isUnset($request->disableDesiredCapacity)) {
+            $query['DisableDesiredCapacity'] = $request->disableDesiredCapacity;
         }
-
-        if (null !== $request->groupDeletionProtection) {
-            @$query['GroupDeletionProtection'] = $request->groupDeletionProtection;
+        if (!Utils::isUnset($request->groupDeletionProtection)) {
+            $query['GroupDeletionProtection'] = $request->groupDeletionProtection;
         }
-
-        if (null !== $request->healthCheckType) {
-            @$query['HealthCheckType'] = $request->healthCheckType;
+        if (!Utils::isUnset($request->healthCheckType)) {
+            $query['HealthCheckType'] = $request->healthCheckType;
         }
-
-        if (null !== $request->healthCheckTypes) {
-            @$query['HealthCheckTypes'] = $request->healthCheckTypes;
+        if (!Utils::isUnset($request->healthCheckTypes)) {
+            $query['HealthCheckTypes'] = $request->healthCheckTypes;
         }
-
-        if (null !== $request->launchTemplateId) {
-            @$query['LaunchTemplateId'] = $request->launchTemplateId;
+        if (!Utils::isUnset($request->launchTemplateId)) {
+            $query['LaunchTemplateId'] = $request->launchTemplateId;
         }
-
-        if (null !== $request->launchTemplateOverrides) {
-            @$query['LaunchTemplateOverrides'] = $request->launchTemplateOverrides;
+        if (!Utils::isUnset($request->launchTemplateOverrides)) {
+            $query['LaunchTemplateOverrides'] = $request->launchTemplateOverrides;
         }
-
-        if (null !== $request->launchTemplateVersion) {
-            @$query['LaunchTemplateVersion'] = $request->launchTemplateVersion;
+        if (!Utils::isUnset($request->launchTemplateVersion)) {
+            $query['LaunchTemplateVersion'] = $request->launchTemplateVersion;
         }
-
-        if (null !== $request->maxInstanceLifetime) {
-            @$query['MaxInstanceLifetime'] = $request->maxInstanceLifetime;
+        if (!Utils::isUnset($request->maxInstanceLifetime)) {
+            $query['MaxInstanceLifetime'] = $request->maxInstanceLifetime;
         }
-
-        if (null !== $request->maxSize) {
-            @$query['MaxSize'] = $request->maxSize;
+        if (!Utils::isUnset($request->maxSize)) {
+            $query['MaxSize'] = $request->maxSize;
         }
-
-        if (null !== $request->minSize) {
-            @$query['MinSize'] = $request->minSize;
+        if (!Utils::isUnset($request->minSize)) {
+            $query['MinSize'] = $request->minSize;
         }
-
-        if (null !== $request->multiAZPolicy) {
-            @$query['MultiAZPolicy'] = $request->multiAZPolicy;
+        if (!Utils::isUnset($request->multiAZPolicy)) {
+            $query['MultiAZPolicy'] = $request->multiAZPolicy;
         }
-
-        if (null !== $request->onDemandBaseCapacity) {
-            @$query['OnDemandBaseCapacity'] = $request->onDemandBaseCapacity;
+        if (!Utils::isUnset($request->onDemandBaseCapacity)) {
+            $query['OnDemandBaseCapacity'] = $request->onDemandBaseCapacity;
         }
-
-        if (null !== $request->onDemandPercentageAboveBaseCapacity) {
-            @$query['OnDemandPercentageAboveBaseCapacity'] = $request->onDemandPercentageAboveBaseCapacity;
+        if (!Utils::isUnset($request->onDemandPercentageAboveBaseCapacity)) {
+            $query['OnDemandPercentageAboveBaseCapacity'] = $request->onDemandPercentageAboveBaseCapacity;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->removalPolicies) {
-            @$query['RemovalPolicies'] = $request->removalPolicies;
+        if (!Utils::isUnset($request->removalPolicies)) {
+            $query['RemovalPolicies'] = $request->removalPolicies;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->scalingGroupName) {
-            @$query['ScalingGroupName'] = $request->scalingGroupName;
+        if (!Utils::isUnset($request->scalingGroupName)) {
+            $query['ScalingGroupName'] = $request->scalingGroupName;
         }
-
-        if (null !== $request->scalingPolicy) {
-            @$query['ScalingPolicy'] = $request->scalingPolicy;
+        if (!Utils::isUnset($request->scalingPolicy)) {
+            $query['ScalingPolicy'] = $request->scalingPolicy;
         }
-
-        if (null !== $request->spotAllocationStrategy) {
-            @$query['SpotAllocationStrategy'] = $request->spotAllocationStrategy;
+        if (!Utils::isUnset($request->spotAllocationStrategy)) {
+            $query['SpotAllocationStrategy'] = $request->spotAllocationStrategy;
         }
-
-        if (null !== $request->spotInstancePools) {
-            @$query['SpotInstancePools'] = $request->spotInstancePools;
+        if (!Utils::isUnset($request->spotInstancePools)) {
+            $query['SpotInstancePools'] = $request->spotInstancePools;
         }
-
-        if (null !== $request->spotInstanceRemedy) {
-            @$query['SpotInstanceRemedy'] = $request->spotInstanceRemedy;
+        if (!Utils::isUnset($request->spotInstanceRemedy)) {
+            $query['SpotInstanceRemedy'] = $request->spotInstanceRemedy;
         }
-
-        if (null !== $request->stopInstanceTimeout) {
-            @$query['StopInstanceTimeout'] = $request->stopInstanceTimeout;
+        if (!Utils::isUnset($request->stopInstanceTimeout)) {
+            $query['StopInstanceTimeout'] = $request->stopInstanceTimeout;
         }
-
-        if (null !== $request->vSwitchIds) {
-            @$query['VSwitchIds'] = $request->vSwitchIds;
+        if (!Utils::isUnset($request->vSwitchIds)) {
+            $query['VSwitchIds'] = $request->vSwitchIds;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyScalingGroup',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyScalingGroup',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8324,10 +6892,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a scaling group. If you want to enable policy-based automatic addition or removal of instances of a specific type to meet evolving business requirements, you can modify scaling groups to adjust your computing power with ease. The computing power refers to the instances that provide the computing capability. When your scaling group cannot meet your business requirements, you can call the ModifyScalingGroup operation to modify scaling group attributes such as the maximum, minimum, and expected numbers of instances. This prevents repeated creation and configuration of scaling groups, which saves you a lot of time and resource costs.
-     *
-     * @remarks
-     *   You cannot modify the following parameters by calling this operation:
+     * @summary Modifies a scaling group. If you want to enable policy-based automatic addition or removal of instances of a specific type to meet evolving business requirements, you can modify scaling groups to adjust your computing power with ease. The computing power refers to the instances that provide the computing capability. When your scaling group cannot meet your business requirements, you can call the ModifyScalingGroup operation to modify scaling group attributes such as the maximum, minimum, and expected numbers of instances. This prevents repeated creation and configuration of scaling groups, which saves you a lot of time and resource costs.
+     *  *
+     * @description *   You cannot modify the following parameters by calling this operation:
      *     *   RegionId
      *     *   LoadBalancerId
      *     **
@@ -8340,13 +6907,10 @@ class Ess extends OpenApiClient
      * *   If the modification of the MaxSize setting leads to the total number of ECS instances or elastic container instances in the scaling group exceeding the new maximum limit, Auto Scaling proactively removes the surplus instances to restore the total number to match the new maximum limit.
      * *   If the modification of the MinSize setting leads to the total number of ECS instances or elastic container instances in the scaling group exceeding the new minimum threshold, Auto Scaling proactively adds more instances to the scaling group to ensure that the total number aligns with the new minimum threshold.
      * *   If the modification of the DesiredCapacity setting leads to the total number of ECS instances or elastic container instances in the scaling group not matching the new desired capacity, Auto Scaling proactively adjusts the total number of instances to ensure that the total number aligns with the new desired capacity.
+     *  *
+     * @param ModifyScalingGroupRequest $request ModifyScalingGroupRequest
      *
-     * @param request - ModifyScalingGroupRequest
-     * @returns ModifyScalingGroupResponse
-     *
-     * @param ModifyScalingGroupRequest $request
-     *
-     * @return ModifyScalingGroupResponse
+     * @return ModifyScalingGroupResponse ModifyScalingGroupResponse
      */
     public function modifyScalingGroup($request)
     {
@@ -8356,140 +6920,110 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a scaling rule. If an existing scaling rule cannot meet your business requirements, you can call the ModifyScalingRule operation to modify the scaling rule, without the need to create a new one. This streamlines your workflow, enhancing operational efficiency while also contributing to cost optimization by avoiding redundant steps.
+     * @summary Modifies a scaling rule. If an existing scaling rule cannot meet your business requirements, you can call the ModifyScalingRule operation to modify the scaling rule, without the need to create a new one. This streamlines your workflow, enhancing operational efficiency while also contributing to cost optimization by avoiding redundant steps.
+     *  *
+     * @param ModifyScalingRuleRequest $request ModifyScalingRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyScalingRuleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyScalingRuleResponse
-     *
-     * @param ModifyScalingRuleRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifyScalingRuleResponse
+     * @return ModifyScalingRuleResponse ModifyScalingRuleResponse
      */
     public function modifyScalingRuleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->adjustmentType) {
-            @$query['AdjustmentType'] = $request->adjustmentType;
+        if (!Utils::isUnset($request->adjustmentType)) {
+            $query['AdjustmentType'] = $request->adjustmentType;
         }
-
-        if (null !== $request->adjustmentValue) {
-            @$query['AdjustmentValue'] = $request->adjustmentValue;
+        if (!Utils::isUnset($request->adjustmentValue)) {
+            $query['AdjustmentValue'] = $request->adjustmentValue;
         }
-
-        if (null !== $request->alarmDimensions) {
-            @$query['AlarmDimensions'] = $request->alarmDimensions;
+        if (!Utils::isUnset($request->alarmDimensions)) {
+            $query['AlarmDimensions'] = $request->alarmDimensions;
         }
-
-        if (null !== $request->cooldown) {
-            @$query['Cooldown'] = $request->cooldown;
+        if (!Utils::isUnset($request->cooldown)) {
+            $query['Cooldown'] = $request->cooldown;
         }
-
-        if (null !== $request->disableScaleIn) {
-            @$query['DisableScaleIn'] = $request->disableScaleIn;
+        if (!Utils::isUnset($request->disableScaleIn)) {
+            $query['DisableScaleIn'] = $request->disableScaleIn;
         }
-
-        if (null !== $request->estimatedInstanceWarmup) {
-            @$query['EstimatedInstanceWarmup'] = $request->estimatedInstanceWarmup;
+        if (!Utils::isUnset($request->estimatedInstanceWarmup)) {
+            $query['EstimatedInstanceWarmup'] = $request->estimatedInstanceWarmup;
         }
-
-        if (null !== $request->hybridMetrics) {
-            @$query['HybridMetrics'] = $request->hybridMetrics;
+        if (!Utils::isUnset($request->hybridMetrics)) {
+            $query['HybridMetrics'] = $request->hybridMetrics;
         }
-
-        if (null !== $request->hybridMonitorNamespace) {
-            @$query['HybridMonitorNamespace'] = $request->hybridMonitorNamespace;
+        if (!Utils::isUnset($request->hybridMonitorNamespace)) {
+            $query['HybridMonitorNamespace'] = $request->hybridMonitorNamespace;
         }
-
-        if (null !== $request->initialMaxSize) {
-            @$query['InitialMaxSize'] = $request->initialMaxSize;
+        if (!Utils::isUnset($request->initialMaxSize)) {
+            $query['InitialMaxSize'] = $request->initialMaxSize;
         }
-
-        if (null !== $request->metricName) {
-            @$query['MetricName'] = $request->metricName;
+        if (!Utils::isUnset($request->metricName)) {
+            $query['MetricName'] = $request->metricName;
         }
-
-        if (null !== $request->metricType) {
-            @$query['MetricType'] = $request->metricType;
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
         }
-
-        if (null !== $request->minAdjustmentMagnitude) {
-            @$query['MinAdjustmentMagnitude'] = $request->minAdjustmentMagnitude;
+        if (!Utils::isUnset($request->minAdjustmentMagnitude)) {
+            $query['MinAdjustmentMagnitude'] = $request->minAdjustmentMagnitude;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->predictiveScalingMode) {
-            @$query['PredictiveScalingMode'] = $request->predictiveScalingMode;
+        if (!Utils::isUnset($request->predictiveScalingMode)) {
+            $query['PredictiveScalingMode'] = $request->predictiveScalingMode;
         }
-
-        if (null !== $request->predictiveTaskBufferTime) {
-            @$query['PredictiveTaskBufferTime'] = $request->predictiveTaskBufferTime;
+        if (!Utils::isUnset($request->predictiveTaskBufferTime)) {
+            $query['PredictiveTaskBufferTime'] = $request->predictiveTaskBufferTime;
         }
-
-        if (null !== $request->predictiveValueBehavior) {
-            @$query['PredictiveValueBehavior'] = $request->predictiveValueBehavior;
+        if (!Utils::isUnset($request->predictiveValueBehavior)) {
+            $query['PredictiveValueBehavior'] = $request->predictiveValueBehavior;
         }
-
-        if (null !== $request->predictiveValueBuffer) {
-            @$query['PredictiveValueBuffer'] = $request->predictiveValueBuffer;
+        if (!Utils::isUnset($request->predictiveValueBuffer)) {
+            $query['PredictiveValueBuffer'] = $request->predictiveValueBuffer;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scaleInEvaluationCount) {
-            @$query['ScaleInEvaluationCount'] = $request->scaleInEvaluationCount;
+        if (!Utils::isUnset($request->scaleInEvaluationCount)) {
+            $query['ScaleInEvaluationCount'] = $request->scaleInEvaluationCount;
         }
-
-        if (null !== $request->scaleOutEvaluationCount) {
-            @$query['ScaleOutEvaluationCount'] = $request->scaleOutEvaluationCount;
+        if (!Utils::isUnset($request->scaleOutEvaluationCount)) {
+            $query['ScaleOutEvaluationCount'] = $request->scaleOutEvaluationCount;
         }
-
-        if (null !== $request->scalingRuleId) {
-            @$query['ScalingRuleId'] = $request->scalingRuleId;
+        if (!Utils::isUnset($request->scalingRuleId)) {
+            $query['ScalingRuleId'] = $request->scalingRuleId;
         }
-
-        if (null !== $request->scalingRuleName) {
-            @$query['ScalingRuleName'] = $request->scalingRuleName;
+        if (!Utils::isUnset($request->scalingRuleName)) {
+            $query['ScalingRuleName'] = $request->scalingRuleName;
         }
-
-        if (null !== $request->stepAdjustments) {
-            @$query['StepAdjustments'] = $request->stepAdjustments;
+        if (!Utils::isUnset($request->stepAdjustments)) {
+            $query['StepAdjustments'] = $request->stepAdjustments;
         }
-
-        if (null !== $request->targetValue) {
-            @$query['TargetValue'] = $request->targetValue;
+        if (!Utils::isUnset($request->targetValue)) {
+            $query['TargetValue'] = $request->targetValue;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyScalingRule',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyScalingRule',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8497,14 +7031,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a scaling rule. If an existing scaling rule cannot meet your business requirements, you can call the ModifyScalingRule operation to modify the scaling rule, without the need to create a new one. This streamlines your workflow, enhancing operational efficiency while also contributing to cost optimization by avoiding redundant steps.
+     * @summary Modifies a scaling rule. If an existing scaling rule cannot meet your business requirements, you can call the ModifyScalingRule operation to modify the scaling rule, without the need to create a new one. This streamlines your workflow, enhancing operational efficiency while also contributing to cost optimization by avoiding redundant steps.
+     *  *
+     * @param ModifyScalingRuleRequest $request ModifyScalingRuleRequest
      *
-     * @param request - ModifyScalingRuleRequest
-     * @returns ModifyScalingRuleResponse
-     *
-     * @param ModifyScalingRuleRequest $request
-     *
-     * @return ModifyScalingRuleResponse
+     * @return ModifyScalingRuleResponse ModifyScalingRuleResponse
      */
     public function modifyScalingRule($request)
     {
@@ -8514,118 +7045,94 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a scheduled task. If an existing scheduled task cannot meet your business requirements, you can call the ModifyScheduledTask operation to adjust its parameter settings including the scaling rule to execute and the boundary values of your scaling group, without the need to create a new scheduled task. This operation provides a flexible way to optimize scheduled tasks.
-     *
-     * @remarks
-     * You can use the following parameters to specify the scaling method of a scheduled task:
+     * @summary Modifies a scheduled task. If an existing scheduled task cannot meet your business requirements, you can call the ModifyScheduledTask operation to adjust its parameter settings including the scaling rule to execute and the boundary values of your scaling group, without the need to create a new scheduled task. This operation provides a flexible way to optimize scheduled tasks.
+     *  *
+     * @description You can use the following parameters to specify the scaling method of a scheduled task:
      * *   If you use the `ScheduledAction` parameter, you must select an existing scaling rule for the scheduled task.
      * *   If you use the `ScalingGroupId` parameter, you must specify the minimum number, maximum number, or expected number of instances in the scheduled task.
      * > You cannot specify the `ScheduledAction` and `ScalingGroupId` parameters at the same time.
+     *  *
+     * @param ModifyScheduledTaskRequest $request ModifyScheduledTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyScheduledTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyScheduledTaskResponse
-     *
-     * @param ModifyScheduledTaskRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyScheduledTaskResponse
+     * @return ModifyScheduledTaskResponse ModifyScheduledTaskResponse
      */
     public function modifyScheduledTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->desiredCapacity) {
-            @$query['DesiredCapacity'] = $request->desiredCapacity;
+        if (!Utils::isUnset($request->desiredCapacity)) {
+            $query['DesiredCapacity'] = $request->desiredCapacity;
         }
-
-        if (null !== $request->launchExpirationTime) {
-            @$query['LaunchExpirationTime'] = $request->launchExpirationTime;
+        if (!Utils::isUnset($request->launchExpirationTime)) {
+            $query['LaunchExpirationTime'] = $request->launchExpirationTime;
         }
-
-        if (null !== $request->launchTime) {
-            @$query['LaunchTime'] = $request->launchTime;
+        if (!Utils::isUnset($request->launchTime)) {
+            $query['LaunchTime'] = $request->launchTime;
         }
-
-        if (null !== $request->maxValue) {
-            @$query['MaxValue'] = $request->maxValue;
+        if (!Utils::isUnset($request->maxValue)) {
+            $query['MaxValue'] = $request->maxValue;
         }
-
-        if (null !== $request->minValue) {
-            @$query['MinValue'] = $request->minValue;
+        if (!Utils::isUnset($request->minValue)) {
+            $query['MinValue'] = $request->minValue;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->recurrenceEndTime) {
-            @$query['RecurrenceEndTime'] = $request->recurrenceEndTime;
+        if (!Utils::isUnset($request->recurrenceEndTime)) {
+            $query['RecurrenceEndTime'] = $request->recurrenceEndTime;
         }
-
-        if (null !== $request->recurrenceType) {
-            @$query['RecurrenceType'] = $request->recurrenceType;
+        if (!Utils::isUnset($request->recurrenceType)) {
+            $query['RecurrenceType'] = $request->recurrenceType;
         }
-
-        if (null !== $request->recurrenceValue) {
-            @$query['RecurrenceValue'] = $request->recurrenceValue;
+        if (!Utils::isUnset($request->recurrenceValue)) {
+            $query['RecurrenceValue'] = $request->recurrenceValue;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->scheduledAction) {
-            @$query['ScheduledAction'] = $request->scheduledAction;
+        if (!Utils::isUnset($request->scheduledAction)) {
+            $query['ScheduledAction'] = $request->scheduledAction;
         }
-
-        if (null !== $request->scheduledTaskId) {
-            @$query['ScheduledTaskId'] = $request->scheduledTaskId;
+        if (!Utils::isUnset($request->scheduledTaskId)) {
+            $query['ScheduledTaskId'] = $request->scheduledTaskId;
         }
-
-        if (null !== $request->scheduledTaskName) {
-            @$query['ScheduledTaskName'] = $request->scheduledTaskName;
+        if (!Utils::isUnset($request->scheduledTaskName)) {
+            $query['ScheduledTaskName'] = $request->scheduledTaskName;
         }
-
-        if (null !== $request->taskEnabled) {
-            @$query['TaskEnabled'] = $request->taskEnabled;
+        if (!Utils::isUnset($request->taskEnabled)) {
+            $query['TaskEnabled'] = $request->taskEnabled;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyScheduledTask',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyScheduledTask',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8633,20 +7140,16 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a scheduled task. If an existing scheduled task cannot meet your business requirements, you can call the ModifyScheduledTask operation to adjust its parameter settings including the scaling rule to execute and the boundary values of your scaling group, without the need to create a new scheduled task. This operation provides a flexible way to optimize scheduled tasks.
-     *
-     * @remarks
-     * You can use the following parameters to specify the scaling method of a scheduled task:
+     * @summary Modifies a scheduled task. If an existing scheduled task cannot meet your business requirements, you can call the ModifyScheduledTask operation to adjust its parameter settings including the scaling rule to execute and the boundary values of your scaling group, without the need to create a new scheduled task. This operation provides a flexible way to optimize scheduled tasks.
+     *  *
+     * @description You can use the following parameters to specify the scaling method of a scheduled task:
      * *   If you use the `ScheduledAction` parameter, you must select an existing scaling rule for the scheduled task.
      * *   If you use the `ScalingGroupId` parameter, you must specify the minimum number, maximum number, or expected number of instances in the scheduled task.
      * > You cannot specify the `ScheduledAction` and `ScalingGroupId` parameters at the same time.
+     *  *
+     * @param ModifyScheduledTaskRequest $request ModifyScheduledTaskRequest
      *
-     * @param request - ModifyScheduledTaskRequest
-     * @returns ModifyScheduledTaskResponse
-     *
-     * @param ModifyScheduledTaskRequest $request
-     *
-     * @return ModifyScheduledTaskResponse
+     * @return ModifyScheduledTaskResponse ModifyScheduledTaskResponse
      */
     public function modifyScheduledTask($request)
     {
@@ -8656,69 +7159,58 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Rebalances the distribution of Elastic Compute Service (ECS) instances across zones. If ECS instances are unevenly distributed across multiple zones, you can call the RebalanceInstances operation to rebalance the distribution of the ECS instances across the zones.
-     *
-     * @remarks
-     * ## [](#)Usage notes
+     * @summary Rebalances the distribution of Elastic Compute Service (ECS) instances across zones. If ECS instances are unevenly distributed across multiple zones, you can call the RebalanceInstances operation to rebalance the distribution of the ECS instances across the zones.
+     *  *
+     * @description ## [](#)Usage notes
      * Auto Scaling creates new ECS instances to replace the existing ECS instances to fulfill the rebalancing purpose. Auto Scaling starts the new ECS instances before stopping the existing ECS instances. The rebalancing operation does not affect the performance or service availability of your application.
      * *   This operation is supported by only multi-zone scaling groups whose `MultiAZPolicy` is set to `BALANCE`.
      * *   A rebalancing operation is required only when the distribution of the instances of a multi-zone scaling group is significantly unbalanced. In a rebalancing activity, Auto Scaling replaces up to 20 ECS instances to rectify the unbalanced distribution.
      * *   During the execution of a rebalancing operation, if the number of instances in the scaling group approaches or hits the value of MaxSize but the rebalancing operation needs to continue, Auto Scaling allows the total number of ECS instances to momentarily exceed the value of MaxSize by 10%. This temporary surplus condition persists for a duration until equilibrium in the distribution of ECS instances is achieved. Typically, it takes 1 to 6 minutes.
      *     **
      *     **Note** If the 10% increment of the maximum number of instances in a scaling group yield a non-integer value, the decimal portion is always rounded up to ensure an additional instance is accounted for. For example, you have a scaling group that holds a maximum of 15 ECS instances. During a rebalancing operation, Auto Scaling would permit the total number of instances to momentarily surpass this limit by 2, instead of the calculated 10% (which is 1.5).
+     *  *
+     * @param RebalanceInstancesRequest $request RebalanceInstancesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RebalanceInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RebalanceInstancesResponse
-     *
-     * @param RebalanceInstancesRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return RebalanceInstancesResponse
+     * @return RebalanceInstancesResponse RebalanceInstancesResponse
      */
     public function rebalanceInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RebalanceInstances',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RebalanceInstances',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RebalanceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8726,23 +7218,19 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Rebalances the distribution of Elastic Compute Service (ECS) instances across zones. If ECS instances are unevenly distributed across multiple zones, you can call the RebalanceInstances operation to rebalance the distribution of the ECS instances across the zones.
-     *
-     * @remarks
-     * ## [](#)Usage notes
+     * @summary Rebalances the distribution of Elastic Compute Service (ECS) instances across zones. If ECS instances are unevenly distributed across multiple zones, you can call the RebalanceInstances operation to rebalance the distribution of the ECS instances across the zones.
+     *  *
+     * @description ## [](#)Usage notes
      * Auto Scaling creates new ECS instances to replace the existing ECS instances to fulfill the rebalancing purpose. Auto Scaling starts the new ECS instances before stopping the existing ECS instances. The rebalancing operation does not affect the performance or service availability of your application.
      * *   This operation is supported by only multi-zone scaling groups whose `MultiAZPolicy` is set to `BALANCE`.
      * *   A rebalancing operation is required only when the distribution of the instances of a multi-zone scaling group is significantly unbalanced. In a rebalancing activity, Auto Scaling replaces up to 20 ECS instances to rectify the unbalanced distribution.
      * *   During the execution of a rebalancing operation, if the number of instances in the scaling group approaches or hits the value of MaxSize but the rebalancing operation needs to continue, Auto Scaling allows the total number of ECS instances to momentarily exceed the value of MaxSize by 10%. This temporary surplus condition persists for a duration until equilibrium in the distribution of ECS instances is achieved. Typically, it takes 1 to 6 minutes.
      *     **
      *     **Note** If the 10% increment of the maximum number of instances in a scaling group yield a non-integer value, the decimal portion is always rounded up to ensure an additional instance is accounted for. For example, you have a scaling group that holds a maximum of 15 ECS instances. During a rebalancing operation, Auto Scaling would permit the total number of instances to momentarily surpass this limit by 2, instead of the calculated 10% (which is 1.5).
+     *  *
+     * @param RebalanceInstancesRequest $request RebalanceInstancesRequest
      *
-     * @param request - RebalanceInstancesRequest
-     * @returns RebalanceInstancesResponse
-     *
-     * @param RebalanceInstancesRequest $request
-     *
-     * @return RebalanceInstancesResponse
+     * @return RebalanceInstancesResponse RebalanceInstancesResponse
      */
     public function rebalanceInstances($request)
     {
@@ -8752,68 +7240,56 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Extends the time window during which Elastic Compute Service (ECS) instances stay in a Pending state. If the current time window during which an ECS instance stays in a Pending state is not sufficient for you to complete custom operations on the ECS instance, you can call the RecordLifecycleActionHeartbeat operation to extend the time window. When you call this operation, you can specify lifecycleHookId, lifecycleActionToken, and heartbeatTimeout to extend the time window for the desired ECS instance.
-     *
-     * @remarks
-     * You can call this operation only to extend the time window during which Elastic Compute Service (ECS) instances stay in a Pending state.
+     * @summary Extends the time window during which Elastic Compute Service (ECS) instances stay in a Pending state. If the current time window during which an ECS instance stays in a Pending state is not sufficient for you to complete custom operations on the ECS instance, you can call the RecordLifecycleActionHeartbeat operation to extend the time window. When you call this operation, you can specify lifecycleHookId, lifecycleActionToken, and heartbeatTimeout to extend the time window for the desired ECS instance.
+     *  *
+     * @description You can call this operation only to extend the time window during which Elastic Compute Service (ECS) instances stay in a Pending state.
      * An ECS instance can stay in a Pending state for up to six hours. Each time an ECS instance enters a Pending state, you can extend the time window during which the ECS instance stays in the Pending state up to 20 times.
+     *  *
+     * @param RecordLifecycleActionHeartbeatRequest $request RecordLifecycleActionHeartbeatRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RecordLifecycleActionHeartbeatRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RecordLifecycleActionHeartbeatResponse
-     *
-     * @param RecordLifecycleActionHeartbeatRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return RecordLifecycleActionHeartbeatResponse
+     * @return RecordLifecycleActionHeartbeatResponse RecordLifecycleActionHeartbeatResponse
      */
     public function recordLifecycleActionHeartbeatWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->heartbeatTimeout) {
-            @$query['heartbeatTimeout'] = $request->heartbeatTimeout;
+        if (!Utils::isUnset($request->heartbeatTimeout)) {
+            $query['heartbeatTimeout'] = $request->heartbeatTimeout;
         }
-
-        if (null !== $request->lifecycleActionToken) {
-            @$query['lifecycleActionToken'] = $request->lifecycleActionToken;
+        if (!Utils::isUnset($request->lifecycleActionToken)) {
+            $query['lifecycleActionToken'] = $request->lifecycleActionToken;
         }
-
-        if (null !== $request->lifecycleHookId) {
-            @$query['lifecycleHookId'] = $request->lifecycleHookId;
+        if (!Utils::isUnset($request->lifecycleHookId)) {
+            $query['lifecycleHookId'] = $request->lifecycleHookId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RecordLifecycleActionHeartbeat',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecordLifecycleActionHeartbeat',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RecordLifecycleActionHeartbeatResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8821,18 +7297,14 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Extends the time window during which Elastic Compute Service (ECS) instances stay in a Pending state. If the current time window during which an ECS instance stays in a Pending state is not sufficient for you to complete custom operations on the ECS instance, you can call the RecordLifecycleActionHeartbeat operation to extend the time window. When you call this operation, you can specify lifecycleHookId, lifecycleActionToken, and heartbeatTimeout to extend the time window for the desired ECS instance.
-     *
-     * @remarks
-     * You can call this operation only to extend the time window during which Elastic Compute Service (ECS) instances stay in a Pending state.
+     * @summary Extends the time window during which Elastic Compute Service (ECS) instances stay in a Pending state. If the current time window during which an ECS instance stays in a Pending state is not sufficient for you to complete custom operations on the ECS instance, you can call the RecordLifecycleActionHeartbeat operation to extend the time window. When you call this operation, you can specify lifecycleHookId, lifecycleActionToken, and heartbeatTimeout to extend the time window for the desired ECS instance.
+     *  *
+     * @description You can call this operation only to extend the time window during which Elastic Compute Service (ECS) instances stay in a Pending state.
      * An ECS instance can stay in a Pending state for up to six hours. Each time an ECS instance enters a Pending state, you can extend the time window during which the ECS instance stays in the Pending state up to 20 times.
+     *  *
+     * @param RecordLifecycleActionHeartbeatRequest $request RecordLifecycleActionHeartbeatRequest
      *
-     * @param request - RecordLifecycleActionHeartbeatRequest
-     * @returns RecordLifecycleActionHeartbeatResponse
-     *
-     * @param RecordLifecycleActionHeartbeatRequest $request
-     *
-     * @return RecordLifecycleActionHeartbeatResponse
+     * @return RecordLifecycleActionHeartbeatResponse RecordLifecycleActionHeartbeatResponse
      */
     public function recordLifecycleActionHeartbeat($request)
     {
@@ -8842,10 +7314,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Removes one or more instances from a scaling group. If your scaling group is enabled and contains no ongoing scaling activities, you can call the RemoveInstances operation to remove instances that you no longer require from the scaling group.
-     *
-     * @remarks
-     *   Before you call this operation, make sure that the following requirements are met:
+     * @summary Removes one or more instances from a scaling group. If your scaling group is enabled and contains no ongoing scaling activities, you can call the RemoveInstances operation to remove instances that you no longer require from the scaling group.
+     *  *
+     * @description *   Before you call this operation, make sure that the following requirements are met:
      *     *   The scaling group is in the Active state.
      *     *   No scaling activity is in progress within the scaling group.
      * > If no scaling activity is in progress within the scaling group, you can call the operation even within the cooldown period.
@@ -8853,83 +7324,67 @@ class Ess extends OpenApiClient
      * *   If an ECS instance is manually added to a scaling group and is not managed by the scaling group, the ECS instance is not stopped or released after the instance is removed from the scaling group.
      * *   If the difference between the number of existing ECS instances specified by the TotalCapacity parameter and the number of ECS instances that you call this operation to remove is less than the value of the MinSize parameter, the call fails.
      * A successful call only means that Auto Scaling accepts the request. The scaling activity may still fail. You can obtain the status of a scaling activity based on the value of the ScalingActivityId parameter in the response.
+     *  *
+     * @param RemoveInstancesRequest $request RemoveInstancesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveInstancesResponse
-     *
-     * @param RemoveInstancesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return RemoveInstancesResponse
+     * @return RemoveInstancesResponse RemoveInstancesResponse
      */
     public function removeInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->decreaseDesiredCapacity) {
-            @$query['DecreaseDesiredCapacity'] = $request->decreaseDesiredCapacity;
+        if (!Utils::isUnset($request->decreaseDesiredCapacity)) {
+            $query['DecreaseDesiredCapacity'] = $request->decreaseDesiredCapacity;
         }
-
-        if (null !== $request->ignoreInvalidInstance) {
-            @$query['IgnoreInvalidInstance'] = $request->ignoreInvalidInstance;
+        if (!Utils::isUnset($request->ignoreInvalidInstance)) {
+            $query['IgnoreInvalidInstance'] = $request->ignoreInvalidInstance;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->removePolicy) {
-            @$query['RemovePolicy'] = $request->removePolicy;
+        if (!Utils::isUnset($request->removePolicy)) {
+            $query['RemovePolicy'] = $request->removePolicy;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->stopInstanceTimeout) {
-            @$query['StopInstanceTimeout'] = $request->stopInstanceTimeout;
+        if (!Utils::isUnset($request->stopInstanceTimeout)) {
+            $query['StopInstanceTimeout'] = $request->stopInstanceTimeout;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveInstances',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveInstances',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -8937,10 +7392,9 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Removes one or more instances from a scaling group. If your scaling group is enabled and contains no ongoing scaling activities, you can call the RemoveInstances operation to remove instances that you no longer require from the scaling group.
-     *
-     * @remarks
-     *   Before you call this operation, make sure that the following requirements are met:
+     * @summary Removes one or more instances from a scaling group. If your scaling group is enabled and contains no ongoing scaling activities, you can call the RemoveInstances operation to remove instances that you no longer require from the scaling group.
+     *  *
+     * @description *   Before you call this operation, make sure that the following requirements are met:
      *     *   The scaling group is in the Active state.
      *     *   No scaling activity is in progress within the scaling group.
      * > If no scaling activity is in progress within the scaling group, you can call the operation even within the cooldown period.
@@ -8948,13 +7402,10 @@ class Ess extends OpenApiClient
      * *   If an ECS instance is manually added to a scaling group and is not managed by the scaling group, the ECS instance is not stopped or released after the instance is removed from the scaling group.
      * *   If the difference between the number of existing ECS instances specified by the TotalCapacity parameter and the number of ECS instances that you call this operation to remove is less than the value of the MinSize parameter, the call fails.
      * A successful call only means that Auto Scaling accepts the request. The scaling activity may still fail. You can obtain the status of a scaling activity based on the value of the ScalingActivityId parameter in the response.
+     *  *
+     * @param RemoveInstancesRequest $request RemoveInstancesRequest
      *
-     * @param request - RemoveInstancesRequest
-     * @returns RemoveInstancesResponse
-     *
-     * @param RemoveInstancesRequest $request
-     *
-     * @return RemoveInstancesResponse
+     * @return RemoveInstancesResponse RemoveInstancesResponse
      */
     public function removeInstances($request)
     {
@@ -8964,56 +7415,47 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Resumes an instance refresh task.
+     * @summary Resumes an instance refresh task.
+     *  *
+     * @param ResumeInstanceRefreshRequest $request ResumeInstanceRefreshRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ResumeInstanceRefreshRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ResumeInstanceRefreshResponse
-     *
-     * @param ResumeInstanceRefreshRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ResumeInstanceRefreshResponse
+     * @return ResumeInstanceRefreshResponse ResumeInstanceRefreshResponse
      */
     public function resumeInstanceRefreshWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceRefreshTaskId) {
-            @$query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
+        if (!Utils::isUnset($request->instanceRefreshTaskId)) {
+            $query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResumeInstanceRefresh',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResumeInstanceRefresh',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ResumeInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9021,14 +7463,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Resumes an instance refresh task.
+     * @summary Resumes an instance refresh task.
+     *  *
+     * @param ResumeInstanceRefreshRequest $request ResumeInstanceRefreshRequest
      *
-     * @param request - ResumeInstanceRefreshRequest
-     * @returns ResumeInstanceRefreshResponse
-     *
-     * @param ResumeInstanceRefreshRequest $request
-     *
-     * @return ResumeInstanceRefreshResponse
+     * @return ResumeInstanceRefreshResponse ResumeInstanceRefreshResponse
      */
     public function resumeInstanceRefresh($request)
     {
@@ -9038,60 +7477,50 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Resumes suspended processes in a scaling group. This operation allows Auto Scaling to proceed with executing these processes according to their predefined rules and logic. For example, if you resume the health check process in your scaling group, Auto Scaling automatically detects and removes any instances deemed unhealthy from the scaling group.
+     * @summary Resumes suspended processes in a scaling group. This operation allows Auto Scaling to proceed with executing these processes according to their predefined rules and logic. For example, if you resume the health check process in your scaling group, Auto Scaling automatically detects and removes any instances deemed unhealthy from the scaling group.
+     *  *
+     * @param ResumeProcessesRequest $request ResumeProcessesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ResumeProcessesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ResumeProcessesResponse
-     *
-     * @param ResumeProcessesRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ResumeProcessesResponse
+     * @return ResumeProcessesResponse ResumeProcessesResponse
      */
     public function resumeProcessesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->processes) {
-            @$query['Processes'] = $request->processes;
+        if (!Utils::isUnset($request->processes)) {
+            $query['Processes'] = $request->processes;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResumeProcesses',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResumeProcesses',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ResumeProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9099,14 +7528,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Resumes suspended processes in a scaling group. This operation allows Auto Scaling to proceed with executing these processes according to their predefined rules and logic. For example, if you resume the health check process in your scaling group, Auto Scaling automatically detects and removes any instances deemed unhealthy from the scaling group.
+     * @summary Resumes suspended processes in a scaling group. This operation allows Auto Scaling to proceed with executing these processes according to their predefined rules and logic. For example, if you resume the health check process in your scaling group, Auto Scaling automatically detects and removes any instances deemed unhealthy from the scaling group.
+     *  *
+     * @param ResumeProcessesRequest $request ResumeProcessesRequest
      *
-     * @param request - ResumeProcessesRequest
-     * @returns ResumeProcessesResponse
-     *
-     * @param ResumeProcessesRequest $request
-     *
-     * @return ResumeProcessesResponse
+     * @return ResumeProcessesResponse ResumeProcessesResponse
      */
     public function resumeProcesses($request)
     {
@@ -9116,56 +7542,47 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Rolls back an instance refresh task. If an instance refresh task cannot meet your business requirements, you can call the RollbackInstanceRefresh operation. When you roll back an instance refresh task, Auto Scaling creates new instances based on the active scaling configuration to replace the instances whose configurations are already updated by running the task.
+     * @summary Rolls back an instance refresh task. If an instance refresh task cannot meet your business requirements, you can call the RollbackInstanceRefresh operation. When you roll back an instance refresh task, Auto Scaling creates new instances based on the active scaling configuration to replace the instances whose configurations are already updated by running the task.
+     *  *
+     * @param RollbackInstanceRefreshRequest $request RollbackInstanceRefreshRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RollbackInstanceRefreshRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RollbackInstanceRefreshResponse
-     *
-     * @param RollbackInstanceRefreshRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return RollbackInstanceRefreshResponse
+     * @return RollbackInstanceRefreshResponse RollbackInstanceRefreshResponse
      */
     public function rollbackInstanceRefreshWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceRefreshTaskId) {
-            @$query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
+        if (!Utils::isUnset($request->instanceRefreshTaskId)) {
+            $query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RollbackInstanceRefresh',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RollbackInstanceRefresh',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RollbackInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9173,14 +7590,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Rolls back an instance refresh task. If an instance refresh task cannot meet your business requirements, you can call the RollbackInstanceRefresh operation. When you roll back an instance refresh task, Auto Scaling creates new instances based on the active scaling configuration to replace the instances whose configurations are already updated by running the task.
+     * @summary Rolls back an instance refresh task. If an instance refresh task cannot meet your business requirements, you can call the RollbackInstanceRefresh operation. When you roll back an instance refresh task, Auto Scaling creates new instances based on the active scaling configuration to replace the instances whose configurations are already updated by running the task.
+     *  *
+     * @param RollbackInstanceRefreshRequest $request RollbackInstanceRefreshRequest
      *
-     * @param request - RollbackInstanceRefreshRequest
-     * @returns RollbackInstanceRefreshResponse
-     *
-     * @param RollbackInstanceRefreshRequest $request
-     *
-     * @return RollbackInstanceRefreshResponse
+     * @return RollbackInstanceRefreshResponse RollbackInstanceRefreshResponse
      */
     public function rollbackInstanceRefresh($request)
     {
@@ -9190,99 +7604,81 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Scales instances. The ScaleWithAdjustment operation differs from the ExecuteScalingRule operation in that ScaleWithAdjust can directly scale instances without requiring you to create a scaling rule in advance.
-     *
-     * @remarks
-     *   Before you call this operation, take note of the following items:
+     * @summary Scales instances. The ScaleWithAdjustment operation differs from the ExecuteScalingRule operation in that ScaleWithAdjust can directly scale instances without requiring you to create a scaling rule in advance.
+     *  *
+     * @description *   Before you call this operation, take note of the following items:
      *     *   The scaling group is in the Active state.
      *     *   The scaling group has no ongoing scaling activities.
      * *   If no scaling activities in the scaling group are in progress, the operation can trigger scaling activities before the cooldown period of the scaling group expires.
      * *   If the addition of a specific number of Elastic Compute Service (ECS) instances to the scaling group causes the total number of ECS instances in the scaling group to exceed the maximum allowed number, Auto Scaling adds ECS instances to the scaling group until the total number of instances is equal to the maximum allowed number.
      * *   If the removal of a specific number of ECS instances from the scaling group causes the total number of ECS instances in the scaling group to be less than the minimum allowed number, Auto Scaling removes ECS instances from the scaling group until the total number of instances is equal to the minimum allowed number.
      * A successful call indicates that Auto Scaling accepts the request. However, the scaling activity may still fail. You can obtain the status of a scaling activity based on the value of `ScalingActivityId` in the response.
+     *  *
+     * @param ScaleWithAdjustmentRequest $tmpReq  ScaleWithAdjustmentRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ScaleWithAdjustmentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ScaleWithAdjustmentResponse
-     *
-     * @param ScaleWithAdjustmentRequest $tmpReq
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ScaleWithAdjustmentResponse
+     * @return ScaleWithAdjustmentResponse ScaleWithAdjustmentResponse
      */
     public function scaleWithAdjustmentWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ScaleWithAdjustmentShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->lifecycleHookContext) {
-            $request->lifecycleHookContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->lifecycleHookContext, 'LifecycleHookContext', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->lifecycleHookContext)) {
+            $request->lifecycleHookContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lifecycleHookContext, 'LifecycleHookContext', 'json');
         }
-
-        if (null !== $tmpReq->overrides) {
-            $request->overridesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->overrides, 'Overrides', 'json');
+        if (!Utils::isUnset($tmpReq->overrides)) {
+            $request->overridesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->overrides, 'Overrides', 'json');
         }
-
         $query = [];
-        if (null !== $request->activityMetadata) {
-            @$query['ActivityMetadata'] = $request->activityMetadata;
+        if (!Utils::isUnset($request->activityMetadata)) {
+            $query['ActivityMetadata'] = $request->activityMetadata;
         }
-
-        if (null !== $request->adjustmentType) {
-            @$query['AdjustmentType'] = $request->adjustmentType;
+        if (!Utils::isUnset($request->adjustmentType)) {
+            $query['AdjustmentType'] = $request->adjustmentType;
         }
-
-        if (null !== $request->adjustmentValue) {
-            @$query['AdjustmentValue'] = $request->adjustmentValue;
+        if (!Utils::isUnset($request->adjustmentValue)) {
+            $query['AdjustmentValue'] = $request->adjustmentValue;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->lifecycleHookContextShrink) {
-            @$query['LifecycleHookContext'] = $request->lifecycleHookContextShrink;
+        if (!Utils::isUnset($request->lifecycleHookContextShrink)) {
+            $query['LifecycleHookContext'] = $request->lifecycleHookContextShrink;
         }
-
-        if (null !== $request->minAdjustmentMagnitude) {
-            @$query['MinAdjustmentMagnitude'] = $request->minAdjustmentMagnitude;
+        if (!Utils::isUnset($request->minAdjustmentMagnitude)) {
+            $query['MinAdjustmentMagnitude'] = $request->minAdjustmentMagnitude;
         }
-
-        if (null !== $request->overridesShrink) {
-            @$query['Overrides'] = $request->overridesShrink;
+        if (!Utils::isUnset($request->overridesShrink)) {
+            $query['Overrides'] = $request->overridesShrink;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->syncActivity) {
-            @$query['SyncActivity'] = $request->syncActivity;
+        if (!Utils::isUnset($request->syncActivity)) {
+            $query['SyncActivity'] = $request->syncActivity;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ScaleWithAdjustment',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ScaleWithAdjustment',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ScaleWithAdjustmentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9290,23 +7686,19 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Scales instances. The ScaleWithAdjustment operation differs from the ExecuteScalingRule operation in that ScaleWithAdjust can directly scale instances without requiring you to create a scaling rule in advance.
-     *
-     * @remarks
-     *   Before you call this operation, take note of the following items:
+     * @summary Scales instances. The ScaleWithAdjustment operation differs from the ExecuteScalingRule operation in that ScaleWithAdjust can directly scale instances without requiring you to create a scaling rule in advance.
+     *  *
+     * @description *   Before you call this operation, take note of the following items:
      *     *   The scaling group is in the Active state.
      *     *   The scaling group has no ongoing scaling activities.
      * *   If no scaling activities in the scaling group are in progress, the operation can trigger scaling activities before the cooldown period of the scaling group expires.
      * *   If the addition of a specific number of Elastic Compute Service (ECS) instances to the scaling group causes the total number of ECS instances in the scaling group to exceed the maximum allowed number, Auto Scaling adds ECS instances to the scaling group until the total number of instances is equal to the maximum allowed number.
      * *   If the removal of a specific number of ECS instances from the scaling group causes the total number of ECS instances in the scaling group to be less than the minimum allowed number, Auto Scaling removes ECS instances from the scaling group until the total number of instances is equal to the minimum allowed number.
      * A successful call indicates that Auto Scaling accepts the request. However, the scaling activity may still fail. You can obtain the status of a scaling activity based on the value of `ScalingActivityId` in the response.
+     *  *
+     * @param ScaleWithAdjustmentRequest $request ScaleWithAdjustmentRequest
      *
-     * @param request - ScaleWithAdjustmentRequest
-     * @returns ScaleWithAdjustmentResponse
-     *
-     * @param ScaleWithAdjustmentRequest $request
-     *
-     * @return ScaleWithAdjustmentResponse
+     * @return ScaleWithAdjustmentResponse ScaleWithAdjustmentResponse
      */
     public function scaleWithAdjustment($request)
     {
@@ -9316,56 +7708,47 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Sets deletion protection for a scaling group. If you enable deletion protection for a scaling group, you cannot delete the scaling group. If you disable deletion protection for a scaling group, you can directly delete the scaling group. You can call the SetGroupDeletionProtection operation to enable or disable deletion protection.
+     * @summary Sets deletion protection for a scaling group. If you enable deletion protection for a scaling group, you cannot delete the scaling group. If you disable deletion protection for a scaling group, you can directly delete the scaling group. You can call the SetGroupDeletionProtection operation to enable or disable deletion protection.
+     *  *
+     * @param SetGroupDeletionProtectionRequest $request SetGroupDeletionProtectionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetGroupDeletionProtectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetGroupDeletionProtectionResponse
-     *
-     * @param SetGroupDeletionProtectionRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return SetGroupDeletionProtectionResponse
+     * @return SetGroupDeletionProtectionResponse SetGroupDeletionProtectionResponse
      */
     public function setGroupDeletionProtectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupDeletionProtection) {
-            @$query['GroupDeletionProtection'] = $request->groupDeletionProtection;
+        if (!Utils::isUnset($request->groupDeletionProtection)) {
+            $query['GroupDeletionProtection'] = $request->groupDeletionProtection;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetGroupDeletionProtection',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetGroupDeletionProtection',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetGroupDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9373,14 +7756,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Sets deletion protection for a scaling group. If you enable deletion protection for a scaling group, you cannot delete the scaling group. If you disable deletion protection for a scaling group, you can directly delete the scaling group. You can call the SetGroupDeletionProtection operation to enable or disable deletion protection.
+     * @summary Sets deletion protection for a scaling group. If you enable deletion protection for a scaling group, you cannot delete the scaling group. If you disable deletion protection for a scaling group, you can directly delete the scaling group. You can call the SetGroupDeletionProtection operation to enable or disable deletion protection.
+     *  *
+     * @param SetGroupDeletionProtectionRequest $request SetGroupDeletionProtectionRequest
      *
-     * @param request - SetGroupDeletionProtectionRequest
-     * @returns SetGroupDeletionProtectionResponse
-     *
-     * @param SetGroupDeletionProtectionRequest $request
-     *
-     * @return SetGroupDeletionProtectionResponse
+     * @return SetGroupDeletionProtectionResponse SetGroupDeletionProtectionResponse
      */
     public function setGroupDeletionProtection($request)
     {
@@ -9390,55 +7770,46 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Sets instance health. At times, the automatic health check system might not sufficiently determine the precise health status of your Elastic Compute Service (ECS) instances or elastic container instances. To overcome this, you can call the SetInstanceHealth operation to swiftly pinpoint problematic instances and resolve issues. This operation is designed to more precisely align with real-world business requirements and tackle O\\&M hurdles efficiently.
+     * @summary Sets instance health. At times, the automatic health check system might not sufficiently determine the precise health status of your Elastic Compute Service (ECS) instances or elastic container instances. To overcome this, you can call the SetInstanceHealth operation to swiftly pinpoint problematic instances and resolve issues. This operation is designed to more precisely align with real-world business requirements and tackle O\\&M hurdles efficiently.
+     *  *
+     * @description Auto Scaling detects and removes unhealthy ECS instances or elastic container instances from the corresponding scaling groups. If you want to retain a specific instance in the corresponding scaling group, you can put the instance into the Standby or Protected state. For more information, see [EnterStandby](~~EnterStandby~~) and [SetInstancesProtection](~~SetInstancesProtection~~).
+     *  *
+     * @param SetInstanceHealthRequest $request SetInstanceHealthRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Auto Scaling detects and removes unhealthy ECS instances or elastic container instances from the corresponding scaling groups. If you want to retain a specific instance in the corresponding scaling group, you can put the instance into the Standby or Protected state. For more information, see [EnterStandby](~~EnterStandby~~) and [SetInstancesProtection](~~SetInstancesProtection~~).
-     *
-     * @param request - SetInstanceHealthRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetInstanceHealthResponse
-     *
-     * @param SetInstanceHealthRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return SetInstanceHealthResponse
+     * @return SetInstanceHealthResponse SetInstanceHealthResponse
      */
     public function setInstanceHealthWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->healthStatus) {
-            @$query['HealthStatus'] = $request->healthStatus;
+        if (!Utils::isUnset($request->healthStatus)) {
+            $query['HealthStatus'] = $request->healthStatus;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetInstanceHealth',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetInstanceHealth',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetInstanceHealthResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9446,17 +7817,13 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Sets instance health. At times, the automatic health check system might not sufficiently determine the precise health status of your Elastic Compute Service (ECS) instances or elastic container instances. To overcome this, you can call the SetInstanceHealth operation to swiftly pinpoint problematic instances and resolve issues. This operation is designed to more precisely align with real-world business requirements and tackle O\\&M hurdles efficiently.
+     * @summary Sets instance health. At times, the automatic health check system might not sufficiently determine the precise health status of your Elastic Compute Service (ECS) instances or elastic container instances. To overcome this, you can call the SetInstanceHealth operation to swiftly pinpoint problematic instances and resolve issues. This operation is designed to more precisely align with real-world business requirements and tackle O\\&M hurdles efficiently.
+     *  *
+     * @description Auto Scaling detects and removes unhealthy ECS instances or elastic container instances from the corresponding scaling groups. If you want to retain a specific instance in the corresponding scaling group, you can put the instance into the Standby or Protected state. For more information, see [EnterStandby](~~EnterStandby~~) and [SetInstancesProtection](~~SetInstancesProtection~~).
+     *  *
+     * @param SetInstanceHealthRequest $request SetInstanceHealthRequest
      *
-     * @remarks
-     * Auto Scaling detects and removes unhealthy ECS instances or elastic container instances from the corresponding scaling groups. If you want to retain a specific instance in the corresponding scaling group, you can put the instance into the Standby or Protected state. For more information, see [EnterStandby](~~EnterStandby~~) and [SetInstancesProtection](~~SetInstancesProtection~~).
-     *
-     * @param request - SetInstanceHealthRequest
-     * @returns SetInstanceHealthResponse
-     *
-     * @param SetInstanceHealthRequest $request
-     *
-     * @return SetInstanceHealthResponse
+     * @return SetInstanceHealthResponse SetInstanceHealthResponse
      */
     public function setInstanceHealth($request)
     {
@@ -9466,62 +7833,52 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Puts or removes Elastic Compute Service (ECS) instances into or from the Protected state. After you put an ECS instance into the Protected state, the ECS instance will not be stopped or released when a scale-in event is triggered. In this case, you can manually delete the ECS instance in the Auto Scaling console or by calling the RemoveInstances operation.
-     *
-     * @remarks
-     * Once ECS instances enter the Protected state, they become subject to the following restrictions:
+     * @summary Puts or removes Elastic Compute Service (ECS) instances into or from the Protected state. After you put an ECS instance into the Protected state, the ECS instance will not be stopped or released when a scale-in event is triggered. In this case, you can manually delete the ECS instance in the Auto Scaling console or by calling the RemoveInstances operation.
+     *  *
+     * @description Once ECS instances enter the Protected state, they become subject to the following restrictions:
      * *   ECS instances will persist in the Protected state, unless you deliberately remove them from this state.
      * *   Even in scenarios where automatic scale-in actions are initiated due to fluctuations in the number of ECS instances or the execution of event-triggered tasks, Auto Scaling does not remove ECS instances that are in the Protected state from their respective scaling groups. Only after being manually removed from their respective scaling groups can ECS instances that are in the Protected state be released. For more information, see [Remove an ECS instance](https://help.aliyun.com/document_detail/459393.html).
      * *   ECS instances in the Protected state maintain their health status even when they undergo stopping or restarting processes.
+     *  *
+     * @param SetInstancesProtectionRequest $request SetInstancesProtectionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SetInstancesProtectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetInstancesProtectionResponse
-     *
-     * @param SetInstancesProtectionRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return SetInstancesProtectionResponse
+     * @return SetInstancesProtectionResponse SetInstancesProtectionResponse
      */
     public function setInstancesProtectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->protectedFromScaleIn) {
-            @$query['ProtectedFromScaleIn'] = $request->protectedFromScaleIn;
+        if (!Utils::isUnset($request->protectedFromScaleIn)) {
+            $query['ProtectedFromScaleIn'] = $request->protectedFromScaleIn;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetInstancesProtection',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetInstancesProtection',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetInstancesProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9529,20 +7886,16 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Puts or removes Elastic Compute Service (ECS) instances into or from the Protected state. After you put an ECS instance into the Protected state, the ECS instance will not be stopped or released when a scale-in event is triggered. In this case, you can manually delete the ECS instance in the Auto Scaling console or by calling the RemoveInstances operation.
-     *
-     * @remarks
-     * Once ECS instances enter the Protected state, they become subject to the following restrictions:
+     * @summary Puts or removes Elastic Compute Service (ECS) instances into or from the Protected state. After you put an ECS instance into the Protected state, the ECS instance will not be stopped or released when a scale-in event is triggered. In this case, you can manually delete the ECS instance in the Auto Scaling console or by calling the RemoveInstances operation.
+     *  *
+     * @description Once ECS instances enter the Protected state, they become subject to the following restrictions:
      * *   ECS instances will persist in the Protected state, unless you deliberately remove them from this state.
      * *   Even in scenarios where automatic scale-in actions are initiated due to fluctuations in the number of ECS instances or the execution of event-triggered tasks, Auto Scaling does not remove ECS instances that are in the Protected state from their respective scaling groups. Only after being manually removed from their respective scaling groups can ECS instances that are in the Protected state be released. For more information, see [Remove an ECS instance](https://help.aliyun.com/document_detail/459393.html).
      * *   ECS instances in the Protected state maintain their health status even when they undergo stopping or restarting processes.
+     *  *
+     * @param SetInstancesProtectionRequest $request SetInstancesProtectionRequest
      *
-     * @param request - SetInstancesProtectionRequest
-     * @returns SetInstancesProtectionResponse
-     *
-     * @param SetInstancesProtectionRequest $request
-     *
-     * @return SetInstancesProtectionResponse
+     * @return SetInstancesProtectionResponse SetInstancesProtectionResponse
      */
     public function setInstancesProtection($request)
     {
@@ -9552,78 +7905,64 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Starts an instance refresh task. If you want to apply a new scaling configuration in a scaling group or update the image specified in a scaling configuration, you can call the StartInstanceRefresh operation.
-     *
-     * @remarks
-     *   Only one instance refresh task can be executed at a time in a scaling group.
+     * @summary Starts an instance refresh task. If you want to apply a new scaling configuration in a scaling group or update the image specified in a scaling configuration, you can call the StartInstanceRefresh operation.
+     *  *
+     * @description *   Only one instance refresh task can be executed at a time in a scaling group.
      * *   You can start instance refresh tasks for Elastic Compute Service (ECS) instances in scaling groups that use the **priority policy** as the scaling policy. Scaling groups whose capacity is measured based on the **number of vCPUs** and scaling groups whose instance reclaim mode is **Economical Mode** or **Forcibly Recycle** do not support the StartInstanceRefresh operation.
      * *   When you start an instance refresh task, scaling events can be completed as expected. Take note that instances that are scaled out use the configurations specified in the instance refresh task.
      * *   The StartInstanceRefresh operation does not take effect on instances that are manually added or instances that are in the Standby and Protected states.
+     *  *
+     * @param StartInstanceRefreshRequest $request StartInstanceRefreshRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StartInstanceRefreshRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns StartInstanceRefreshResponse
-     *
-     * @param StartInstanceRefreshRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return StartInstanceRefreshResponse
+     * @return StartInstanceRefreshResponse StartInstanceRefreshResponse
      */
     public function startInstanceRefreshWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->desiredConfiguration) {
-            @$query['DesiredConfiguration'] = $request->desiredConfiguration;
+        if (!Utils::isUnset($request->desiredConfiguration)) {
+            $query['DesiredConfiguration'] = $request->desiredConfiguration;
         }
-
-        if (null !== $request->maxHealthyPercentage) {
-            @$query['MaxHealthyPercentage'] = $request->maxHealthyPercentage;
+        if (!Utils::isUnset($request->maxHealthyPercentage)) {
+            $query['MaxHealthyPercentage'] = $request->maxHealthyPercentage;
         }
-
-        if (null !== $request->minHealthyPercentage) {
-            @$query['MinHealthyPercentage'] = $request->minHealthyPercentage;
+        if (!Utils::isUnset($request->minHealthyPercentage)) {
+            $query['MinHealthyPercentage'] = $request->minHealthyPercentage;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
-        if (null !== $request->skipMatching) {
-            @$query['SkipMatching'] = $request->skipMatching;
+        if (!Utils::isUnset($request->skipMatching)) {
+            $query['SkipMatching'] = $request->skipMatching;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartInstanceRefresh',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartInstanceRefresh',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return StartInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9631,20 +7970,16 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Starts an instance refresh task. If you want to apply a new scaling configuration in a scaling group or update the image specified in a scaling configuration, you can call the StartInstanceRefresh operation.
-     *
-     * @remarks
-     *   Only one instance refresh task can be executed at a time in a scaling group.
+     * @summary Starts an instance refresh task. If you want to apply a new scaling configuration in a scaling group or update the image specified in a scaling configuration, you can call the StartInstanceRefresh operation.
+     *  *
+     * @description *   Only one instance refresh task can be executed at a time in a scaling group.
      * *   You can start instance refresh tasks for Elastic Compute Service (ECS) instances in scaling groups that use the **priority policy** as the scaling policy. Scaling groups whose capacity is measured based on the **number of vCPUs** and scaling groups whose instance reclaim mode is **Economical Mode** or **Forcibly Recycle** do not support the StartInstanceRefresh operation.
      * *   When you start an instance refresh task, scaling events can be completed as expected. Take note that instances that are scaled out use the configurations specified in the instance refresh task.
      * *   The StartInstanceRefresh operation does not take effect on instances that are manually added or instances that are in the Standby and Protected states.
+     *  *
+     * @param StartInstanceRefreshRequest $request StartInstanceRefreshRequest
      *
-     * @param request - StartInstanceRefreshRequest
-     * @returns StartInstanceRefreshResponse
-     *
-     * @param StartInstanceRefreshRequest $request
-     *
-     * @return StartInstanceRefreshResponse
+     * @return StartInstanceRefreshResponse StartInstanceRefreshResponse
      */
     public function startInstanceRefresh($request)
     {
@@ -9654,59 +7989,49 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Suspends an instance refresh task. If you are not sure that you want to roll back an ongoing instance refresh task whose configurations you think has an issue, you can call the SuspendInstanceRefresh operation to suspend the task.
+     * @summary Suspends an instance refresh task. If you are not sure that you want to roll back an ongoing instance refresh task whose configurations you think has an issue, you can call the SuspendInstanceRefresh operation to suspend the task.
+     *  *
+     * @description *   You cannot call this operation to suspend an instance refresh task that is being rolled back.
+     *  *
+     * @param SuspendInstanceRefreshRequest $request SuspendInstanceRefreshRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   You cannot call this operation to suspend an instance refresh task that is being rolled back.
-     *
-     * @param request - SuspendInstanceRefreshRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SuspendInstanceRefreshResponse
-     *
-     * @param SuspendInstanceRefreshRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return SuspendInstanceRefreshResponse
+     * @return SuspendInstanceRefreshResponse SuspendInstanceRefreshResponse
      */
     public function suspendInstanceRefreshWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceRefreshTaskId) {
-            @$query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
+        if (!Utils::isUnset($request->instanceRefreshTaskId)) {
+            $query['InstanceRefreshTaskId'] = $request->instanceRefreshTaskId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SuspendInstanceRefresh',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SuspendInstanceRefresh',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SuspendInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9714,17 +8039,13 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Suspends an instance refresh task. If you are not sure that you want to roll back an ongoing instance refresh task whose configurations you think has an issue, you can call the SuspendInstanceRefresh operation to suspend the task.
+     * @summary Suspends an instance refresh task. If you are not sure that you want to roll back an ongoing instance refresh task whose configurations you think has an issue, you can call the SuspendInstanceRefresh operation to suspend the task.
+     *  *
+     * @description *   You cannot call this operation to suspend an instance refresh task that is being rolled back.
+     *  *
+     * @param SuspendInstanceRefreshRequest $request SuspendInstanceRefreshRequest
      *
-     * @remarks
-     *   You cannot call this operation to suspend an instance refresh task that is being rolled back.
-     *
-     * @param request - SuspendInstanceRefreshRequest
-     * @returns SuspendInstanceRefreshResponse
-     *
-     * @param SuspendInstanceRefreshRequest $request
-     *
-     * @return SuspendInstanceRefreshResponse
+     * @return SuspendInstanceRefreshResponse SuspendInstanceRefreshResponse
      */
     public function suspendInstanceRefresh($request)
     {
@@ -9734,60 +8055,50 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Suspends scaling processes. This operation empowers you to selectively pause distinct scaling processes within a particular scaling group, enabling you to carry out alternative tasks and achieve more granular management over your scaling operations.
+     * @summary Suspends scaling processes. This operation empowers you to selectively pause distinct scaling processes within a particular scaling group, enabling you to carry out alternative tasks and achieve more granular management over your scaling operations.
+     *  *
+     * @param SuspendProcessesRequest $request SuspendProcessesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SuspendProcessesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SuspendProcessesResponse
-     *
-     * @param SuspendProcessesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SuspendProcessesResponse
+     * @return SuspendProcessesResponse SuspendProcessesResponse
      */
     public function suspendProcessesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->processes) {
-            @$query['Processes'] = $request->processes;
+        if (!Utils::isUnset($request->processes)) {
+            $query['Processes'] = $request->processes;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->scalingGroupId) {
-            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        if (!Utils::isUnset($request->scalingGroupId)) {
+            $query['ScalingGroupId'] = $request->scalingGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SuspendProcesses',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SuspendProcesses',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SuspendProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9795,14 +8106,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Suspends scaling processes. This operation empowers you to selectively pause distinct scaling processes within a particular scaling group, enabling you to carry out alternative tasks and achieve more granular management over your scaling operations.
+     * @summary Suspends scaling processes. This operation empowers you to selectively pause distinct scaling processes within a particular scaling group, enabling you to carry out alternative tasks and achieve more granular management over your scaling operations.
+     *  *
+     * @param SuspendProcessesRequest $request SuspendProcessesRequest
      *
-     * @param request - SuspendProcessesRequest
-     * @returns SuspendProcessesResponse
-     *
-     * @param SuspendProcessesRequest $request
-     *
-     * @return SuspendProcessesResponse
+     * @return SuspendProcessesResponse SuspendProcessesResponse
      */
     public function suspendProcesses($request)
     {
@@ -9812,69 +8120,58 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates and adds tags. You can call the TagResources operation to uniformly create and attach tags to your Auto Scaling resources, streamlining resource management. This capability empowers you to categorize resources based on tags, thereby enhancing the overall efficiency of resource allocation and utilization.
-     *
-     * @remarks
-     *   You can attach up to 20 tags to a scaling group.
+     * @summary Creates and adds tags. You can call the TagResources operation to uniformly create and attach tags to your Auto Scaling resources, streamlining resource management. This capability empowers you to categorize resources based on tags, thereby enhancing the overall efficiency of resource allocation and utilization.
+     *  *
+     * @description *   You can attach up to 20 tags to a scaling group.
      *     **
      *     **Note** Before you attach tags to a specific Auto Scaling resource, Alibaba Cloud automatically verifies the current number of tags attached to that resource. In the event the proposed addition would exceed the maximum allowed number of tags, an error message will be promptly returned after you call this operation.
      * *   If you set `Tags.Propagate` to `true`, any tags attached to your scaling group will be automatically propagated to new instances that are subsequently created in the scaling group, without affecting existing instances.
      * *   If both the scaling configuration and the scaling group have tags attached, and tag propagation from the scaling group is enabled, the tags of newly created instances comply with the following rules:
      *     *   Instances set to join the scaling group will inherit the following tags: tags attached to the scaling configuration that initiates the instance creation and tags attached to the scaling group that are allowed to propagate to these instances upon instance creation.
      *     *   If the tag keys of the scaling configuration and those attached to the scaling group and propagated to the instances are identical, the tags attached to the scaling group and propagated to the instances will be overwritten by the tags of the scaling configuration.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceIds) {
-            @$query['ResourceIds'] = $request->resourceIds;
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9882,23 +8179,19 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates and adds tags. You can call the TagResources operation to uniformly create and attach tags to your Auto Scaling resources, streamlining resource management. This capability empowers you to categorize resources based on tags, thereby enhancing the overall efficiency of resource allocation and utilization.
-     *
-     * @remarks
-     *   You can attach up to 20 tags to a scaling group.
+     * @summary Creates and adds tags. You can call the TagResources operation to uniformly create and attach tags to your Auto Scaling resources, streamlining resource management. This capability empowers you to categorize resources based on tags, thereby enhancing the overall efficiency of resource allocation and utilization.
+     *  *
+     * @description *   You can attach up to 20 tags to a scaling group.
      *     **
      *     **Note** Before you attach tags to a specific Auto Scaling resource, Alibaba Cloud automatically verifies the current number of tags attached to that resource. In the event the proposed addition would exceed the maximum allowed number of tags, an error message will be promptly returned after you call this operation.
      * *   If you set `Tags.Propagate` to `true`, any tags attached to your scaling group will be automatically propagated to new instances that are subsequently created in the scaling group, without affecting existing instances.
      * *   If both the scaling configuration and the scaling group have tags attached, and tag propagation from the scaling group is enabled, the tags of newly created instances comply with the following rules:
      *     *   Instances set to join the scaling group will inherit the following tags: tags attached to the scaling configuration that initiates the instance creation and tags attached to the scaling group that are allowed to propagate to these instances upon instance creation.
      *     *   If the tag keys of the scaling configuration and those attached to the scaling group and propagated to the instances are identical, the tags attached to the scaling group and propagated to the instances will be overwritten by the tags of the scaling configuration.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -9908,64 +8201,53 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Removes tags from Auto Scaling resources simultaneously. This operation streamlines resource management activities, enhances system efficiency, and mitigates potential security vulnerabilities. Once a tag is removed from a particular resource, and if it is not re-added to any other resource, the system will automatically delete the unused tag.
+     * @summary Removes tags from Auto Scaling resources simultaneously. This operation streamlines resource management activities, enhances system efficiency, and mitigates potential security vulnerabilities. Once a tag is removed from a particular resource, and if it is not re-added to any other resource, the system will automatically delete the unused tag.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UntagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->all) {
-            @$query['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceIds) {
-            @$query['ResourceIds'] = $request->resourceIds;
+        if (!Utils::isUnset($request->resourceIds)) {
+            $query['ResourceIds'] = $request->resourceIds;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKeys) {
-            @$query['TagKeys'] = $request->tagKeys;
+        if (!Utils::isUnset($request->tagKeys)) {
+            $query['TagKeys'] = $request->tagKeys;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -9973,14 +8255,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Removes tags from Auto Scaling resources simultaneously. This operation streamlines resource management activities, enhances system efficiency, and mitigates potential security vulnerabilities. Once a tag is removed from a particular resource, and if it is not re-added to any other resource, the system will automatically delete the unused tag.
+     * @summary Removes tags from Auto Scaling resources simultaneously. This operation streamlines resource management activities, enhances system efficiency, and mitigates potential security vulnerabilities. Once a tag is removed from a particular resource, and if it is not re-added to any other resource, the system will automatically delete the unused tag.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @param request - UntagResourcesRequest
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -9990,56 +8269,47 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Checks whether the specified Alibaba Cloud account assumes the AliyunServiceRoleForAutoScaling service-linked role. An account can be used to operate Elastic Compute Service (ECS) instances and elastic container instances only after it assumes the service-linked role.
+     * @summary Checks whether the specified Alibaba Cloud account assumes the AliyunServiceRoleForAutoScaling service-linked role. An account can be used to operate Elastic Compute Service (ECS) instances and elastic container instances only after it assumes the service-linked role.
+     *  *
+     * @param VerifyAuthenticationRequest $request VerifyAuthenticationRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - VerifyAuthenticationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns VerifyAuthenticationResponse
-     *
-     * @param VerifyAuthenticationRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return VerifyAuthenticationResponse
+     * @return VerifyAuthenticationResponse VerifyAuthenticationResponse
      */
     public function verifyAuthenticationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->onlyCheck) {
-            @$query['OnlyCheck'] = $request->onlyCheck;
+        if (!Utils::isUnset($request->onlyCheck)) {
+            $query['OnlyCheck'] = $request->onlyCheck;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->uid) {
-            @$query['Uid'] = $request->uid;
+        if (!Utils::isUnset($request->uid)) {
+            $query['Uid'] = $request->uid;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyAuthentication',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyAuthentication',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return VerifyAuthenticationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10047,14 +8317,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Checks whether the specified Alibaba Cloud account assumes the AliyunServiceRoleForAutoScaling service-linked role. An account can be used to operate Elastic Compute Service (ECS) instances and elastic container instances only after it assumes the service-linked role.
+     * @summary Checks whether the specified Alibaba Cloud account assumes the AliyunServiceRoleForAutoScaling service-linked role. An account can be used to operate Elastic Compute Service (ECS) instances and elastic container instances only after it assumes the service-linked role.
+     *  *
+     * @param VerifyAuthenticationRequest $request VerifyAuthenticationRequest
      *
-     * @param request - VerifyAuthenticationRequest
-     * @returns VerifyAuthenticationResponse
-     *
-     * @param VerifyAuthenticationRequest $request
-     *
-     * @return VerifyAuthenticationResponse
+     * @return VerifyAuthenticationResponse VerifyAuthenticationResponse
      */
     public function verifyAuthentication($request)
     {
@@ -10064,52 +8331,44 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Verifies whether Auto Scaling is activated. This operation guarantees that in response to shifts in business workloads or variations in incoming traffic, the system will automatically adjust resource provisioning. This auto-scaling capability enhances the overall system performance, ensuring high availability and improved flexibility to accommodate dynamic demands.
+     * @summary Verifies whether Auto Scaling is activated. This operation guarantees that in response to shifts in business workloads or variations in incoming traffic, the system will automatically adjust resource provisioning. This auto-scaling capability enhances the overall system performance, ensuring high availability and improved flexibility to accommodate dynamic demands.
+     *  *
+     * @param VerifyUserRequest $request VerifyUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - VerifyUserRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns VerifyUserResponse
-     *
-     * @param VerifyUserRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return VerifyUserResponse
+     * @return VerifyUserResponse VerifyUserResponse
      */
     public function verifyUserWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyUser',
-            'version'     => '2022-02-22',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyUser',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return VerifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -10117,14 +8376,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Verifies whether Auto Scaling is activated. This operation guarantees that in response to shifts in business workloads or variations in incoming traffic, the system will automatically adjust resource provisioning. This auto-scaling capability enhances the overall system performance, ensuring high availability and improved flexibility to accommodate dynamic demands.
+     * @summary Verifies whether Auto Scaling is activated. This operation guarantees that in response to shifts in business workloads or variations in incoming traffic, the system will automatically adjust resource provisioning. This auto-scaling capability enhances the overall system performance, ensuring high availability and improved flexibility to accommodate dynamic demands.
+     *  *
+     * @param VerifyUserRequest $request VerifyUserRequest
      *
-     * @param request - VerifyUserRequest
-     * @returns VerifyUserResponse
-     *
-     * @param VerifyUserRequest $request
-     *
-     * @return VerifyUserResponse
+     * @return VerifyUserResponse VerifyUserResponse
      */
     public function verifyUser($request)
     {

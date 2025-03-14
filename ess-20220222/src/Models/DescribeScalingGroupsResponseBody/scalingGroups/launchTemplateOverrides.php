@@ -4,44 +4,55 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class launchTemplateOverrides extends Model
 {
     /**
+     * @description The instance type. The instance type that is specified by this parameter overrides the instance type that is specified in the launch template.
+     *
+     * @example ecs.c5.xlarge
+     *
      * @var string
      */
     public $instanceType;
+
     /**
+     * @description The maximum bid price of the instance type that is specified by `LaunchTemplateOverride.InstanceType`.
+     *
+     * >  This parameter takes effect only if you use `LaunchTemplateId` to specify a launch template.
+     *
+     * @example 0.025
+     *
      * @var float
      */
     public $spotPriceLimit;
+
     /**
+     * @description The weight of the instance type. The value of this parameter indicates the capacity of a single instance of the specified instance type in the scaling group. A higher weight indicates that a smaller number of instances of the specified instance type are required to meet the expected capacity.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $weightedCapacity;
     protected $_name = [
-        'instanceType'     => 'InstanceType',
-        'spotPriceLimit'   => 'SpotPriceLimit',
+        'instanceType' => 'InstanceType',
+        'spotPriceLimit' => 'SpotPriceLimit',
         'weightedCapacity' => 'WeightedCapacity',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-
         if (null !== $this->spotPriceLimit) {
             $res['SpotPriceLimit'] = $this->spotPriceLimit;
         }
-
         if (null !== $this->weightedCapacity) {
             $res['WeightedCapacity'] = $this->weightedCapacity;
         }
@@ -49,22 +60,20 @@ class launchTemplateOverrides extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return launchTemplateOverrides
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-
         if (isset($map['SpotPriceLimit'])) {
             $model->spotPriceLimit = $map['SpotPriceLimit'];
         }
-
         if (isset($map['WeightedCapacity'])) {
             $model->weightedCapacity = $map['WeightedCapacity'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyScheduledTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyScheduledTaskResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyScheduledTaskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyScheduledTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

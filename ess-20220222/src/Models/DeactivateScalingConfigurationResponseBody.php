@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeactivateScalingConfigurationResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example D09C9E64-7D19-4E1C-8CD6-123D34A4****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeactivateScalingConfigurationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeactivateScalingConfigurationResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeactivateScalingConfigurationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
