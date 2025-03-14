@@ -91,19 +91,17 @@ class cubeTableList extends Model
      */
     public $uniqueId;
     protected $_name = [
-        'caption'      => 'Caption',
-        'customsql'    => 'Customsql',
+        'caption' => 'Caption',
+        'customsql' => 'Customsql',
         'datasourceId' => 'DatasourceId',
-        'dsType'       => 'DsType',
-        'factTable'    => 'FactTable',
-        'sql'          => 'Sql',
-        'tableName'    => 'TableName',
-        'uniqueId'     => 'UniqueId',
+        'dsType' => 'DsType',
+        'factTable' => 'FactTable',
+        'sql' => 'Sql',
+        'tableName' => 'TableName',
+        'uniqueId' => 'UniqueId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

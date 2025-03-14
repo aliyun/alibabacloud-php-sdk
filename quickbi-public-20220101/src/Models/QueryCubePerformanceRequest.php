@@ -55,16 +55,14 @@ class QueryCubePerformanceRequest extends Model
     public $workspaceId;
     protected $_name = [
         'costTimeAvgMin' => 'CostTimeAvgMin',
-        'cubeId'         => 'CubeId',
-        'pageNum'        => 'PageNum',
-        'pageSize'       => 'PageSize',
-        'queryType'      => 'QueryType',
-        'workspaceId'    => 'WorkspaceId',
+        'cubeId' => 'CubeId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'queryType' => 'QueryType',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

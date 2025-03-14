@@ -28,14 +28,12 @@ class result extends Model
      */
     public $usersModel;
     protected $_name = [
-        'cubeId'     => 'CubeId',
-        'ruleType'   => 'RuleType',
+        'cubeId' => 'CubeId',
+        'ruleType' => 'RuleType',
         'usersModel' => 'UsersModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

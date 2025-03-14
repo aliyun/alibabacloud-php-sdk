@@ -12,6 +12,7 @@ class QueryWorksBloodRelationshipRequest extends Model
      * @description Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
      *
      * This parameter is required.
+     *
      * @example abcd****
      *
      * @var string
@@ -21,9 +22,7 @@ class QueryWorksBloodRelationshipRequest extends Model
         'worksId' => 'WorksId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

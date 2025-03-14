@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryOrganizationRoleConfigResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
      * @example BCE45E6D-9304-4F94-86BB-5A772B1615FF
      *
      * @var string
@@ -17,11 +19,17 @@ class QueryOrganizationRoleConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Details of the organization role configuration.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Possible values:
+     * - true: The request was successful
+     * - false: The request failed
+     *
      * @example true
      *
      * @var bool
@@ -29,13 +37,11 @@ class QueryOrganizationRoleConfigResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

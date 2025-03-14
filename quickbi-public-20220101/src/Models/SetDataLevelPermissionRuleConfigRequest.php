@@ -18,9 +18,7 @@ class SetDataLevelPermissionRuleConfigRequest extends Model
         'ruleModel' => 'RuleModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

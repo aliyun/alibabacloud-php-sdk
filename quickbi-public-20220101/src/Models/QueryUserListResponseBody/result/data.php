@@ -35,6 +35,11 @@ class data extends Model
     public $authAdminUser;
 
     /**
+     * @var bool
+     */
+    public $isDeleted;
+
+    /**
      * @var int
      */
     public $joinedDate;
@@ -68,21 +73,20 @@ class data extends Model
      */
     public $userType;
     protected $_name = [
-        'accountId'     => 'AccountId',
-        'accountName'   => 'AccountName',
-        'adminUser'     => 'AdminUser',
+        'accountId' => 'AccountId',
+        'accountName' => 'AccountName',
+        'adminUser' => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
-        'joinedDate'    => 'JoinedDate',
+        'isDeleted' => 'IsDeleted',
+        'joinedDate' => 'JoinedDate',
         'lastLoginTime' => 'LastLoginTime',
-        'nickName'      => 'NickName',
-        'roleIdList'    => 'RoleIdList',
-        'userId'        => 'UserId',
-        'userType'      => 'UserType',
+        'nickName' => 'NickName',
+        'roleIdList' => 'RoleIdList',
+        'userId' => 'UserId',
+        'userType' => 'UserType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,6 +102,9 @@ class data extends Model
         }
         if (null !== $this->authAdminUser) {
             $res['AuthAdminUser'] = $this->authAdminUser;
+        }
+        if (null !== $this->isDeleted) {
+            $res['IsDeleted'] = $this->isDeleted;
         }
         if (null !== $this->joinedDate) {
             $res['JoinedDate'] = $this->joinedDate;
@@ -140,6 +147,9 @@ class data extends Model
         }
         if (isset($map['AuthAdminUser'])) {
             $model->authAdminUser = $map['AuthAdminUser'];
+        }
+        if (isset($map['IsDeleted'])) {
+            $model->isDeleted = $map['IsDeleted'];
         }
         if (isset($map['JoinedDate'])) {
             $model->joinedDate = $map['JoinedDate'];

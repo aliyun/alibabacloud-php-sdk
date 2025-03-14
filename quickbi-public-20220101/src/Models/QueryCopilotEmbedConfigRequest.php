@@ -18,9 +18,7 @@ class QueryCopilotEmbedConfigRequest extends Model
         'keyword' => 'Keyword',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -104,21 +104,19 @@ class dimensionList extends Model
      */
     public $uid;
     protected $_name = [
-        'caption'          => 'Caption',
-        'dataType'         => 'DataType',
-        'dimensionType'    => 'DimensionType',
-        'expression'       => 'Expression',
-        'factColumn'       => 'FactColumn',
+        'caption' => 'Caption',
+        'dataType' => 'DataType',
+        'dimensionType' => 'DimensionType',
+        'expression' => 'Expression',
+        'factColumn' => 'FactColumn',
         'fieldDescription' => 'FieldDescription',
-        'granularity'      => 'Granularity',
-        'refUid'           => 'RefUid',
-        'tableUniqueId'    => 'TableUniqueId',
-        'uid'              => 'Uid',
+        'granularity' => 'Granularity',
+        'refUid' => 'RefUid',
+        'tableUniqueId' => 'TableUniqueId',
+        'uid' => 'Uid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

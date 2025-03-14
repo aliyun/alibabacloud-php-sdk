@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetWorksEmbedListResponseBody extends Model
 {
     /**
+     * @description Request ID
+     *
      * @example 38C0F*****0-415****9F1-*****422BDB65
      *
      * @var string
@@ -17,11 +19,15 @@ class GetWorksEmbedListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Array of report objects
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description Whether the request was successful
+     *
      * @example true
      *
      * @var bool
@@ -29,13 +35,11 @@ class GetWorksEmbedListResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

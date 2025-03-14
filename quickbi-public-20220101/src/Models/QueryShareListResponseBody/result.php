@@ -62,19 +62,17 @@ class result extends Model
      */
     public $shareType;
     protected $_name = [
-        'authPoint'   => 'AuthPoint',
-        'expireDate'  => 'ExpireDate',
-        'reportId'    => 'ReportId',
-        'shareId'     => 'ShareId',
-        'shareToId'   => 'ShareToId',
+        'authPoint' => 'AuthPoint',
+        'expireDate' => 'ExpireDate',
+        'reportId' => 'ReportId',
+        'shareId' => 'ShareId',
+        'shareToId' => 'ShareToId',
         'shareToName' => 'ShareToName',
         'shareToType' => 'ShareToType',
-        'shareType'   => 'ShareType',
+        'shareType' => 'ShareType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

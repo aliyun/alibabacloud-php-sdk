@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryApprovalInfoRequest extends Model
 {
     /**
+     * @description Page number, default is 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryApprovalInfoRequest extends Model
     public $page;
 
     /**
+     * @description Number of rows per page, default is 1000.
+     *
      * @example 1000
      *
      * @var int
@@ -23,7 +27,11 @@ class QueryApprovalInfoRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description Approval status:
+     * - 0: Pending
+     * - 1: Processed
+     *
+     * This parameter is required.
      *
      * @example 0
      *
@@ -32,7 +40,9 @@ class QueryApprovalInfoRequest extends Model
     public $status;
 
     /**
-     * @description This parameter is required.
+     * @description Current approver user ID, qbi user ID.
+     *
+     * This parameter is required.
      *
      * @example 12352fasdavsa
      *
@@ -40,15 +50,13 @@ class QueryApprovalInfoRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'page'     => 'Page',
+        'page' => 'Page',
         'pageSize' => 'PageSize',
-        'status'   => 'Status',
-        'userId'   => 'UserId',
+        'status' => 'Status',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

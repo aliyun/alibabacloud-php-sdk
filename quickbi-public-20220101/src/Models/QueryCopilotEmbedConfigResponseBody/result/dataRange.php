@@ -32,15 +32,13 @@ class dataRange extends Model
      */
     public $themes;
     protected $_name = [
-        'allCube'  => 'AllCube',
+        'allCube' => 'AllCube',
         'allTheme' => 'AllTheme',
         'llmCubes' => 'LlmCubes',
-        'themes'   => 'Themes',
+        'themes' => 'Themes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

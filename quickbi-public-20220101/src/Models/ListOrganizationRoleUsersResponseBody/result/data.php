@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Nickname of the organization member.
+     *
+     * @example Test User
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @description UserID of the organization member in Quick BI.
+     *
      * @example b5d8fd9348cc4327****afb604
      *
      * @var string
@@ -21,12 +27,10 @@ class data extends Model
     public $userId;
     protected $_name = [
         'nickName' => 'NickName',
-        'userId'   => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

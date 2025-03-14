@@ -35,14 +35,12 @@ class AddUserToWorkspaceRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'roleId'      => 'RoleId',
-        'userId'      => 'UserId',
+        'roleId' => 'RoleId',
+        'userId' => 'UserId',
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

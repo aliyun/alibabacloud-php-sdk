@@ -31,14 +31,12 @@ class SmartqQueryAbilityRequest extends Model
      */
     public $userQuestion;
     protected $_name = [
-        'cubeId'       => 'CubeId',
-        'userId'       => 'UserId',
+        'cubeId' => 'CubeId',
+        'userId' => 'UserId',
         'userQuestion' => 'UserQuestion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

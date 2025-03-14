@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cubePerformanceDiagnoseModel extends Model
 {
     /**
+     * @description The average duration of cache hits.
+     *
      * @example 1
      *
      * @var float
@@ -16,6 +18,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $cacheCostTimeAvg;
 
     /**
+     * @description The number of cache hits.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $cacheQueryCount;
 
     /**
+     * @description The average query duration associated with the SQL pattern.
+     *
      * @example 1.0
      *
      * @var float
@@ -30,6 +36,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $costTimeAvg;
 
     /**
+     * @description The dataset ID.
+     *
      * @example 3e45b61a-9ba8-4c7c-8248-8dbe69945636
      *
      * @var string
@@ -37,6 +45,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $cubeId;
 
     /**
+     * @description The name of the dataset.
+     *
      * @example test
      *
      * @var string
@@ -44,6 +54,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $cubeName;
 
     /**
+     * @description The number of queries.
+     *
      * @example 50
      *
      * @var int
@@ -51,6 +63,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $queryCount;
 
     /**
+     * @description The average number of queries.
+     *
      * @example 2
      *
      * @var float
@@ -58,6 +72,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $queryCountAvg;
 
     /**
+     * @description The percentage of the number of queries that exceed the 5S.
+     *
      * @example 0.1
      *
      * @var float
@@ -65,6 +81,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $queryOverFivePercentNum;
 
     /**
+     * @description Query the proportion of more than 5S.
+     *
      * @example 0.5
      *
      * @var string
@@ -72,6 +90,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $queryOverFiveSecPercent;
 
     /**
+     * @description The percentage of queries that exceed 10s.
+     *
      * @example 0.1
      *
      * @var string
@@ -79,6 +99,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $queryOverTenSecPercent;
 
     /**
+     * @description The percentage of queries that exceed 10s.
+     *
      * @example 0.3
      *
      * @var float
@@ -86,6 +108,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $queryOverTenSecPercentNum;
 
     /**
+     * @description The number of times that the chart query times out.
+     *
      * @example 1
      *
      * @var int
@@ -93,6 +117,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $queryTimeoutCount;
 
     /**
+     * @description The percentage of timeout times for chart queries.
+     *
      * @example 0.3
      *
      * @var float
@@ -100,6 +126,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $queryTimeoutCountPercent;
 
     /**
+     * @description The average time consumed by the Quick engine query.
+     *
      * @example 1
      *
      * @var float
@@ -107,6 +135,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $quickIndexCostTimeAvg;
 
     /**
+     * @description The number of times that the Quick engine is hit.
+     *
      * @example 2
      *
      * @var int
@@ -114,6 +144,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $quickIndexQueryCount;
 
     /**
+     * @description The proportion of duplicate queries.
+     *
      * @example 0.1
      *
      * @var string
@@ -121,6 +153,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $repeatQueryPercent;
 
     /**
+     * @description The number of duplicate queries.
+     *
      * @example 2
      *
      * @var float
@@ -128,6 +162,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $repeatQueryPercentNum;
 
     /**
+     * @description The number of times the query is repeated.
+     *
      * @example 2
      *
      * @var int
@@ -135,6 +171,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $repeatSqlQueryCount;
 
     /**
+     * @description The proportion of duplicate queries.
+     *
      * @example 0.3
      *
      * @var string
@@ -142,6 +180,8 @@ class cubePerformanceDiagnoseModel extends Model
     public $repeatSqlQueryPercent;
 
     /**
+     * @description The workspace ID.
+     *
      * @example 6ea74bff-c818-4188-b462-dbb45a24dbac
      *
      * @var string
@@ -149,38 +189,38 @@ class cubePerformanceDiagnoseModel extends Model
     public $workspaceId;
 
     /**
+     * @description The name of the workspace.
+     *
      * @example eco0sh0prods
      *
      * @var string
      */
     public $workspaceName;
     protected $_name = [
-        'cacheCostTimeAvg'          => 'CacheCostTimeAvg',
-        'cacheQueryCount'           => 'CacheQueryCount',
-        'costTimeAvg'               => 'CostTimeAvg',
-        'cubeId'                    => 'CubeId',
-        'cubeName'                  => 'CubeName',
-        'queryCount'                => 'QueryCount',
-        'queryCountAvg'             => 'QueryCountAvg',
-        'queryOverFivePercentNum'   => 'QueryOverFivePercentNum',
-        'queryOverFiveSecPercent'   => 'QueryOverFiveSecPercent',
-        'queryOverTenSecPercent'    => 'QueryOverTenSecPercent',
+        'cacheCostTimeAvg' => 'CacheCostTimeAvg',
+        'cacheQueryCount' => 'CacheQueryCount',
+        'costTimeAvg' => 'CostTimeAvg',
+        'cubeId' => 'CubeId',
+        'cubeName' => 'CubeName',
+        'queryCount' => 'QueryCount',
+        'queryCountAvg' => 'QueryCountAvg',
+        'queryOverFivePercentNum' => 'QueryOverFivePercentNum',
+        'queryOverFiveSecPercent' => 'QueryOverFiveSecPercent',
+        'queryOverTenSecPercent' => 'QueryOverTenSecPercent',
         'queryOverTenSecPercentNum' => 'QueryOverTenSecPercentNum',
-        'queryTimeoutCount'         => 'QueryTimeoutCount',
-        'queryTimeoutCountPercent'  => 'QueryTimeoutCountPercent',
-        'quickIndexCostTimeAvg'     => 'QuickIndexCostTimeAvg',
-        'quickIndexQueryCount'      => 'QuickIndexQueryCount',
-        'repeatQueryPercent'        => 'RepeatQueryPercent',
-        'repeatQueryPercentNum'     => 'RepeatQueryPercentNum',
-        'repeatSqlQueryCount'       => 'RepeatSqlQueryCount',
-        'repeatSqlQueryPercent'     => 'RepeatSqlQueryPercent',
-        'workspaceId'               => 'WorkspaceId',
-        'workspaceName'             => 'WorkspaceName',
+        'queryTimeoutCount' => 'QueryTimeoutCount',
+        'queryTimeoutCountPercent' => 'QueryTimeoutCountPercent',
+        'quickIndexCostTimeAvg' => 'QuickIndexCostTimeAvg',
+        'quickIndexQueryCount' => 'QuickIndexQueryCount',
+        'repeatQueryPercent' => 'RepeatQueryPercent',
+        'repeatQueryPercentNum' => 'RepeatQueryPercentNum',
+        'repeatSqlQueryCount' => 'RepeatSqlQueryCount',
+        'repeatSqlQueryPercent' => 'RepeatSqlQueryPercent',
+        'workspaceId' => 'WorkspaceId',
+        'workspaceName' => 'WorkspaceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

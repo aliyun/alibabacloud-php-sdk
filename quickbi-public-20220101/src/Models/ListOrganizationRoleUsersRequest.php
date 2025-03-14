@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListOrganizationRoleUsersRequest extends Model
 {
     /**
+     * @description Keyword for the nickname of the organization member.
+     *
+     * @example zhangsan
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description Page number.
+     *
+     * - Default value is 1.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +29,9 @@ class ListOrganizationRoleUsersRequest extends Model
     public $pageNum;
 
     /**
+     * @description Number of items per page.
+     * - Default value is 10.
+     *
      * @example 10
      *
      * @var int
@@ -28,7 +39,14 @@ class ListOrganizationRoleUsersRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description Organization role ID, including predefined roles and custom roles:
+     *
+     * - Organization Administrator (predefined role): 111111111
+     * - Permission Administrator (predefined role): 111111112
+     * - Regular User (predefined role): 111111113
+     * - Custom Role: The corresponding role ID for a custom role
+     *
+     * This parameter is required.
      *
      * @example 111111111
      *
@@ -36,15 +54,13 @@ class ListOrganizationRoleUsersRequest extends Model
      */
     public $roleId;
     protected $_name = [
-        'keyword'  => 'Keyword',
-        'pageNum'  => 'PageNum',
+        'keyword' => 'Keyword',
+        'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
-        'roleId'   => 'RoleId',
+        'roleId' => 'RoleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

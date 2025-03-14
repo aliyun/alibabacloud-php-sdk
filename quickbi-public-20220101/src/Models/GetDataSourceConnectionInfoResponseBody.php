@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataSourceConnectionInfoResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
      * @example 7AAB95D-*****-****-*4FC0C976
      *
      * @var string
@@ -17,11 +19,15 @@ class GetDataSourceConnectionInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Data source information.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description Indicates whether the operation was successful.
+     *
      * @example true
      *
      * @var bool
@@ -29,13 +35,11 @@ class GetDataSourceConnectionInfoResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

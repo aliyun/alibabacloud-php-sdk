@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class QueryDataServiceResponseBody extends Model
 {
     /**
-     * @description The list of parameter names of the returned parameters. The value is a string of the List type.
+     * @description The request ID.
      *
      * @example 78C1AA2D-9201-599E-A0BA-6FC462E57A95
      *
@@ -19,17 +19,18 @@ class QueryDataServiceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   true: The request was successful.
-     *   false: The request failed.
+     * @description Returns the result of the interface query.
      *
      * @var result
      */
     public $result;
 
     /**
-     * @description { "area": ["East China", "North China"], "shopping_date": "2019Q1", }
+     * @description Indicates whether the request was successful. Possible values:
+     *
+     * - true: The request was successful
+     *
+     * - false: The request failed
      *
      * @example true
      *
@@ -38,13 +39,11 @@ class QueryDataServiceResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class authConfigList extends Model
 {
     /**
+     * @description Permission scope.
+     *
      * @var string[]
      */
     public $actionAuthKeys;
 
     /**
+     * @description Permission type:
+     * - portal_create: Data Portal
+     * - dashboard_create: Dashboard
+     * - report_create: Spreadsheet
+     * - screen_create: Data Screen
+     * - analysis: Ad-hoc Analysis
+     * - offline_download: Self-service Data Retrieval
+     * - data_form: Data Entry
+     * - quick_etl: Data Preparation
+     * - cube: Dataset
+     * - datasource: Data Source
+     *
      * @example portal_create
      *
      * @var string
@@ -21,12 +35,10 @@ class authConfigList extends Model
     public $authKey;
     protected $_name = [
         'actionAuthKeys' => 'ActionAuthKeys',
-        'authKey'        => 'AuthKey',
+        'authKey' => 'AuthKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

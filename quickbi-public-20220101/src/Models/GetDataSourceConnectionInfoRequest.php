@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDataSourceConnectionInfoRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Data source ID.
+     *
+     * This parameter is required.
      *
      * @example 7AAB95D-*****-****-*4FC0C976
      *
@@ -20,9 +22,7 @@ class GetDataSourceConnectionInfoRequest extends Model
         'dsId' => 'DsId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

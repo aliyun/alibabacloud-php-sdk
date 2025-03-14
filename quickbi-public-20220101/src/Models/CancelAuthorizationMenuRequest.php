@@ -41,14 +41,12 @@ class CancelAuthorizationMenuRequest extends Model
     public $userIds;
     protected $_name = [
         'dataPortalId' => 'DataPortalId',
-        'menuIds'      => 'MenuIds',
+        'menuIds' => 'MenuIds',
         'userGroupIds' => 'UserGroupIds',
-        'userIds'      => 'UserIds',
+        'userIds' => 'UserIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

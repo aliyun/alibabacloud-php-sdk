@@ -26,13 +26,11 @@ class UpdateTicketNumRequest extends Model
      */
     public $ticketNum;
     protected $_name = [
-        'ticket'    => 'Ticket',
+        'ticket' => 'Ticket',
         'ticketNum' => 'TicketNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

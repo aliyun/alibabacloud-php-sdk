@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class authConfigList extends Model
 {
     /**
+     * @description Permission type:
+     * - quick_monitor: Metric Monitoring
+     * - subscription: Subscription Management
+     * - offline_download: Self-service Data Retrieval
+     * - resource_package: Resource Package Management
+     * - organization_ask: Organization Access Key/Secret (AK/SK)
+     * - developer_openapi: Open API
+     * - data_service: Data Service
+     * - admin_authorize3rd: Embedded Analysis
+     * - component_manage: Custom Component
+     * - template_open: Custom Template
+     * - custom_driver: Custom Driver (supported only in standalone deployment)
+     * - open_platform_custom_plugin: Custom Plugin (supported only in standalone deployment)
+     * - enterprise_safety: Enterprise Security
+     *
      * @example quick_monitor
      *
      * @var string
@@ -18,9 +33,7 @@ class authConfigList extends Model
         'authKey' => 'AuthKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

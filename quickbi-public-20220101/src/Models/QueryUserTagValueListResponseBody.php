@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryUserTagValueListResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
      * @example D787E1A3-A93C-424A-B626-C2B05DF8D885
      *
      * @var string
@@ -17,11 +19,18 @@ class QueryUserTagValueListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result of the request for a list of user tags and their values.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Possible values:
+     *
+     * - true: The request was successful.
+     * - false: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -29,13 +38,11 @@ class QueryUserTagValueListResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -73,7 +80,7 @@ class QueryUserTagValueListResponseBody extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }

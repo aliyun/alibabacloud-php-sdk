@@ -36,15 +36,13 @@ class QueryWorkspaceUserListRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'keyword'     => 'Keyword',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
+        'keyword' => 'Keyword',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

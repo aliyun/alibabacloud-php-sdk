@@ -28,13 +28,11 @@ class role extends Model
     public $roleName;
     protected $_name = [
         'roleCode' => 'RoleCode',
-        'roleId'   => 'RoleId',
+        'roleId' => 'RoleId',
         'roleName' => 'RoleName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

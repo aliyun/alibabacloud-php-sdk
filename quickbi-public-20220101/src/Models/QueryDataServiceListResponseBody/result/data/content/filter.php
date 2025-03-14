@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description Combined conditions.
+     *
      * @var mixed[][]
      */
     public $filters;
 
     /**
+     * @description Logical relationship between multiple SQL text keywords.
+     *
+     * - **or**: or
+     * - **and**: and
+     *
      * @example and
      *
      * @var string
@@ -21,20 +28,23 @@ class filter extends Model
     public $logicalOperator;
 
     /**
+     * @description Type.
+     *
+     * - basic: basic
+     * - combined: complex
+     *
      * @example basic
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'filters'         => 'Filters',
+        'filters' => 'Filters',
         'logicalOperator' => 'LogicalOperator',
-        'type'            => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class QueryDataServiceListRequest extends Model
 {
     /**
+     * @description Data service name.
+     *
+     * @example 测试sql
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +27,11 @@ class QueryDataServiceListRequest extends Model
     public $pageNo;
 
     /**
+     * @description Number of items per page in a paginated query:
+     *
+     * - Default value: 10
+     * - Maximum value: 1000
+     *
      * @example 10
      *
      * @var int
@@ -28,21 +39,21 @@ class QueryDataServiceListRequest extends Model
     public $pageSize;
 
     /**
+     * @description User ID.
+     *
      * @example dasdfdsa-csddf-dsadsa
      *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'name'     => 'Name',
-        'pageNo'   => 'PageNo',
+        'name' => 'Name',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
-        'userId'   => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

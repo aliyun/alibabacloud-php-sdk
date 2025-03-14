@@ -30,9 +30,7 @@ class DeleteDataLevelRuleConfigRequest extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

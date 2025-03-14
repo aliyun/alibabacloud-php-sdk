@@ -9,7 +9,14 @@ use AlibabaCloud\Tea\Model;
 class QueryOrganizationRoleConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Organization role ID, including predefined roles and custom roles:
+     *
+     * - Organization Administrator (predefined role): 111111111
+     * - Permission Administrator (predefined role): 111111112
+     * - Regular User (predefined role): 111111113
+     * - Custom Role: The corresponding role ID of the custom role
+     *
+     * This parameter is required.
      *
      * @example 111111111
      *
@@ -20,9 +27,7 @@ class QueryOrganizationRoleConfigRequest extends Model
         'roleId' => 'RoleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -47,16 +47,14 @@ class SmartqAuthorizeRequest extends Model
      */
     public $userIds;
     protected $_name = [
-        'expireDay'     => 'ExpireDay',
+        'expireDay' => 'ExpireDay',
         'llmCubeThemes' => 'LlmCubeThemes',
-        'llmCubes'      => 'LlmCubes',
+        'llmCubes' => 'LlmCubes',
         'operationType' => 'OperationType',
-        'userIds'       => 'UserIds',
+        'userIds' => 'UserIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

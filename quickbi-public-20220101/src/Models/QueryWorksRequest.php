@@ -20,9 +20,7 @@ class QueryWorksRequest extends Model
         'worksId' => 'WorksId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

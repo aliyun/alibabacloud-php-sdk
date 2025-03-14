@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The description of the tag.
+     *
+     * @example Used to distinguish some positions
+     *
      * @var string
      */
     public $tagDescription;
 
     /**
+     * @description The ID of the label.
+     *
      * @example pop_001
      *
      * @var string
@@ -21,18 +27,20 @@ class result extends Model
     public $tagId;
 
     /**
+     * @description The name of the tag.
+     *
+     * @example Position
+     *
      * @var string
      */
     public $tagName;
     protected $_name = [
         'tagDescription' => 'TagDescription',
-        'tagId'          => 'TagId',
-        'tagName'        => 'TagName',
+        'tagId' => 'TagId',
+        'tagName' => 'TagName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

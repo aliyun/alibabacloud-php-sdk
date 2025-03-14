@@ -59,23 +59,22 @@ class QueryDatasetListRequest extends Model
      * @description The name of the data source.
      *
      * This parameter is required.
+     *
      * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
      *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'directoryId'  => 'DirectoryId',
-        'keyword'      => 'Keyword',
-        'pageNum'      => 'PageNum',
-        'pageSize'     => 'PageSize',
+        'directoryId' => 'DirectoryId',
+        'keyword' => 'Keyword',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'withChildren' => 'WithChildren',
-        'workspaceId'  => 'WorkspaceId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

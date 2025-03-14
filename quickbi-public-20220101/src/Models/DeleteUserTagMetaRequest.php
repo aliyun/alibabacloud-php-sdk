@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserTagMetaRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the tag to be deleted.
+     *
+     * This parameter is required.
      *
      * @example pop_001
      *
@@ -20,9 +22,7 @@ class DeleteUserTagMetaRequest extends Model
         'tagId' => 'TagId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

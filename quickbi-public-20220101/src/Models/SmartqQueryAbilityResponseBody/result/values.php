@@ -16,9 +16,7 @@ class values extends Model
         'row' => 'Row',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

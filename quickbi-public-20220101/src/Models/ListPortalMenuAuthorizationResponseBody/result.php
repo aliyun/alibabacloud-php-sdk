@@ -37,14 +37,12 @@ class result extends Model
      */
     public $showOnlyWithAccess;
     protected $_name = [
-        'menuId'             => 'MenuId',
-        'receivers'          => 'Receivers',
+        'menuId' => 'MenuId',
+        'receivers' => 'Receivers',
         'showOnlyWithAccess' => 'ShowOnlyWithAccess',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class result extends Model
         if (isset($map['Receivers'])) {
             if (!empty($map['Receivers'])) {
                 $model->receivers = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Receivers'] as $item) {
                     $model->receivers[$n++] = null !== $item ? receivers::fromMap($item) : $item;
                 }

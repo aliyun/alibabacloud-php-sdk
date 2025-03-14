@@ -24,6 +24,7 @@ class AuthorizeMenuRequest extends Model
      * @description The ID of the BI portal.
      *
      * This parameter is required.
+     *
      * @example 0d173abb53e84c8ca7495429163b****
      *
      * @var string
@@ -37,6 +38,7 @@ class AuthorizeMenuRequest extends Model
      *   You can upload multiple parameters at a time. Separate multiple IDs with commas (,). The maximum number of parameters that can be modified at a time is 100.
      *
      * This parameter is required.
+     *
      * @example 54kqgoa****,pg1n135****
      *
      * @var string
@@ -67,15 +69,13 @@ class AuthorizeMenuRequest extends Model
     public $userIds;
     protected $_name = [
         'authPointsValue' => 'AuthPointsValue',
-        'dataPortalId'    => 'DataPortalId',
-        'menuIds'         => 'MenuIds',
-        'userGroupIds'    => 'UserGroupIds',
-        'userIds'         => 'UserIds',
+        'dataPortalId' => 'DataPortalId',
+        'menuIds' => 'MenuIds',
+        'userGroupIds' => 'UserGroupIds',
+        'userIds' => 'UserIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DataSetBloodRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description List of dataset IDs, separated by English commas.
+     *
+     * This parameter is required.
      *
      * @example 234235234,234235235,234235235
      *
@@ -18,6 +20,8 @@ class DataSetBloodRequest extends Model
     public $dataSetIds;
 
     /**
+     * @description Specify the owner of the report, which is the userId.
+     *
      * @example dasasgaj342351
      *
      * @var string
@@ -25,6 +29,14 @@ class DataSetBloodRequest extends Model
     public $userId;
 
     /**
+     * @description Specify the type of report:
+     * - REPORT: Workbooks
+     * - dashboardOfflineQuery: Downloads
+     * - DASHBOARD: Dashboard
+     * - ANALYSIS: Ad Hoc Analysis
+     * - SCREEN: Visualization Screen
+     * - PAGE: Old dashboard
+     *
      * @example PAGE
      *
      * @var string
@@ -32,13 +44,11 @@ class DataSetBloodRequest extends Model
     public $worksType;
     protected $_name = [
         'dataSetIds' => 'DataSetIds',
-        'userId'     => 'UserId',
-        'worksType'  => 'WorksType',
+        'userId' => 'UserId',
+        'worksType' => 'WorksType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

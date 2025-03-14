@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Applicant\\"s user ID, qbi user ID.
+     *
      * @example 1359508
      *
      * @var string
@@ -16,11 +18,17 @@ class data extends Model
     public $applicantId;
 
     /**
+     * @description Applicant\\"s nickname.
+     *
+     * @example Li Fei
+     *
      * @var string
      */
     public $applicantName;
 
     /**
+     * @description Application ID.
+     *
      * @example 64813ef6da58e80eef8ed2f9
      *
      * @var string
@@ -28,11 +36,17 @@ class data extends Model
     public $applicationId;
 
     /**
+     * @description Application reason.
+     *
+     * @example Development needs
+     *
      * @var string
      */
     public $applyReason;
 
     /**
+     * @description Approver\\"s user ID, qbi user ID.
+     *
      * @example sdasascasxasd
      *
      * @var string
@@ -40,6 +54,8 @@ class data extends Model
     public $approverId;
 
     /**
+     * @description Approver\\"s nickname.
+     *
      * @example data_fusion_002
      *
      * @var string
@@ -47,6 +63,10 @@ class data extends Model
     public $approverName;
 
     /**
+     * @description Whether the resource has been deleted:
+     * - true: Deleted
+     * - false: Not deleted
+     *
      * @example true
      *
      * @var bool
@@ -54,6 +74,8 @@ class data extends Model
     public $deleteFlag;
 
     /**
+     * @description Permission expiration date, timestamp.
+     *
      * @example 1708568097135
      *
      * @var int
@@ -61,6 +83,11 @@ class data extends Model
     public $expireDate;
 
     /**
+     * @description Permission approval status:
+     * - 0: Under review, corresponding to 0 in the request parameters
+     * - 1: Approved, corresponding to 1 in the request parameters
+     * - 2: Rejected, corresponding to 1 in the request parameters
+     *
      * @example 0
      *
      * @var int
@@ -68,6 +95,8 @@ class data extends Model
     public $flagStatus;
 
     /**
+     * @description Application creation time, timestamp.
+     *
      * @example 1687315758
      *
      * @var int
@@ -75,6 +104,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description Application modification time, timestamp.
+     *
      * @example 1640595729000
      *
      * @var int
@@ -82,11 +113,17 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description Handling reason.
+     *
+     * @example Development needs
+     *
      * @var string
      */
     public $handleReason;
 
     /**
+     * @description The ID of the resource for which permission is requested.
+     *
      * @example acl-ct4t2e4u2x4ej1bzur
      *
      * @var string
@@ -94,11 +131,17 @@ class data extends Model
     public $resourceId;
 
     /**
+     * @description The name of the resource for which permission is requested (e.g., report name, space name...).
+     *
+     * @example Test Resources
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The type of the resource.
+     *
      * @example DASHBOARD
      *
      * @var string
@@ -106,31 +149,33 @@ class data extends Model
     public $resourceType;
 
     /**
+     * @description The name of the workspace.
+     *
+     * @example Test Workspace
+     *
      * @var string
      */
     public $workspaceName;
     protected $_name = [
-        'applicantId'   => 'ApplicantId',
+        'applicantId' => 'ApplicantId',
         'applicantName' => 'ApplicantName',
         'applicationId' => 'ApplicationId',
-        'applyReason'   => 'ApplyReason',
-        'approverId'    => 'ApproverId',
-        'approverName'  => 'ApproverName',
-        'deleteFlag'    => 'DeleteFlag',
-        'expireDate'    => 'ExpireDate',
-        'flagStatus'    => 'FlagStatus',
-        'gmtCreate'     => 'GmtCreate',
-        'gmtModified'   => 'GmtModified',
-        'handleReason'  => 'HandleReason',
-        'resourceId'    => 'ResourceId',
-        'resourceName'  => 'ResourceName',
-        'resourceType'  => 'ResourceType',
+        'applyReason' => 'ApplyReason',
+        'approverId' => 'ApproverId',
+        'approverName' => 'ApproverName',
+        'deleteFlag' => 'DeleteFlag',
+        'expireDate' => 'ExpireDate',
+        'flagStatus' => 'FlagStatus',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'handleReason' => 'HandleReason',
+        'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
+        'resourceType' => 'ResourceType',
         'workspaceName' => 'WorkspaceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,13 +22,11 @@ class QueryUserGroupMemberRequest extends Model
      */
     public $userGroupId;
     protected $_name = [
-        'keyword'     => 'Keyword',
+        'keyword' => 'Keyword',
         'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

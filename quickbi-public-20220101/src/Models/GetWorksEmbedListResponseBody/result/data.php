@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Embed time
+     *
      * @example YYYY-mm-DD hh:MM:ss
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $embedTime;
 
     /**
+     * @description Report ID
+     *
      * @example 897ce25e-****-****-af84-d13c5610****
      *
      * @var string
@@ -23,11 +27,17 @@ class data extends Model
     public $worksId;
 
     /**
+     * @description Report name
+     *
+     * @example test
+     *
      * @var string
      */
     public $worksName;
 
     /**
+     * @description Report type
+     *
      * @example page
      *
      * @var string
@@ -35,22 +45,22 @@ class data extends Model
     public $worksType;
 
     /**
+     * @description Workspace ID
+     *
      * @example 87c6b145-****-43e1-9426-8f93be23****
      *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'embedTime'   => 'EmbedTime',
-        'worksId'     => 'WorksId',
-        'worksName'   => 'WorksName',
-        'worksType'   => 'WorksType',
+        'embedTime' => 'EmbedTime',
+        'worksId' => 'WorksId',
+        'worksName' => 'WorksName',
+        'worksType' => 'WorksType',
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

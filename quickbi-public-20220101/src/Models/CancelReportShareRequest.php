@@ -12,6 +12,7 @@ class CancelReportShareRequest extends Model
      * @description The ID of the work. The works here include BI portal, dashboards, spreadsheets, and self-service access.
      *
      * This parameter is required.
+     *
      * @example 6b407e50-e774-406b-9956-da2425c2****
      *
      * @var string
@@ -26,6 +27,7 @@ class CancelReportShareRequest extends Model
      *   When ShareToType=2 (organization), ShareTo is the ID of the organization.
      *
      * This parameter is required.
+     *
      * @example de4bc5f9429141cc8091cdd1c15b****
      *
      * @var string
@@ -40,20 +42,19 @@ class CancelReportShareRequest extends Model
      *   2: Delete by organization
      *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
      */
     public $shareToType;
     protected $_name = [
-        'reportId'    => 'ReportId',
-        'shareToIds'  => 'ShareToIds',
+        'reportId' => 'ReportId',
+        'shareToIds' => 'ShareToIds',
         'shareToType' => 'ShareToType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

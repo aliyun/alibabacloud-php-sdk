@@ -66,18 +66,16 @@ class result extends Model
      */
     public $queryParams;
     protected $_name = [
-        'componentId'         => 'ComponentId',
-        'componentName'       => 'ComponentName',
-        'componentType'       => 'ComponentType',
+        'componentId' => 'ComponentId',
+        'componentName' => 'ComponentName',
+        'componentType' => 'ComponentType',
         'componentTypeCnName' => 'ComponentTypeCnName',
-        'componentTypeName'   => 'ComponentTypeName',
-        'datasetId'           => 'DatasetId',
-        'queryParams'         => 'QueryParams',
+        'componentTypeName' => 'ComponentTypeName',
+        'datasetId' => 'DatasetId',
+        'queryParams' => 'QueryParams',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -142,7 +140,7 @@ class result extends Model
         if (isset($map['QueryParams'])) {
             if (!empty($map['QueryParams'])) {
                 $model->queryParams = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['QueryParams'] as $item) {
                     $model->queryParams[$n++] = null !== $item ? queryParams::fromMap($item) : $item;
                 }

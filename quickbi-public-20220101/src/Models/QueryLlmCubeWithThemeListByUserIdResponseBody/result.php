@@ -18,13 +18,11 @@ class result extends Model
      */
     public $themeIds;
     protected $_name = [
-        'cubeIds'  => 'CubeIds',
+        'cubeIds' => 'CubeIds',
         'themeIds' => 'ThemeIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

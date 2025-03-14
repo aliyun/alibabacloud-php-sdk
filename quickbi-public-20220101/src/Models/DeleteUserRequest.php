@@ -19,6 +19,7 @@ class DeleteUserRequest extends Model
      * @description Deletes a user from a specified organization.
      *
      * This parameter is required.
+     *
      * @example fe67f61a35a94b7da1a34ba174a7****
      *
      * @var string
@@ -26,12 +27,10 @@ class DeleteUserRequest extends Model
     public $userId;
     protected $_name = [
         'transferUserId' => 'TransferUserId',
-        'userId'         => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

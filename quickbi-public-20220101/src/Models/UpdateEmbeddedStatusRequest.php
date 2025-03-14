@@ -27,12 +27,10 @@ class UpdateEmbeddedStatusRequest extends Model
     public $worksId;
     protected $_name = [
         'thirdPartAuthFlag' => 'ThirdPartAuthFlag',
-        'worksId'           => 'WorksId',
+        'worksId' => 'WorksId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

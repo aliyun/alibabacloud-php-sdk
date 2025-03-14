@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserTagValueResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
      * @example 46e5374665ba4b679ee22e2a29270
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateUserTagValueResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Returns the result of modifying the user tag. Possible values:
+     *
+     * - true: Operation succeeded
+     * - false: Operation failed
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,9 @@ class UpdateUserTagValueResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Value range:
+     * - true: The request was successful - false: The request failed
+     *
      * @example true
      *
      * @var bool
@@ -30,13 +40,11 @@ class UpdateUserTagValueResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

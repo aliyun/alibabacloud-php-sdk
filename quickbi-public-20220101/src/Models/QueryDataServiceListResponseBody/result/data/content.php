@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description Cube identifier ID.
+     *
      * @example 56f9f34a-bdba-496a-91a3-a18b1ff73a80
      *
      * @var string
@@ -18,11 +20,17 @@ class content extends Model
     public $cubeId;
 
     /**
+     * @description Dataset name.
+     *
+     * @example test data source
+     *
      * @var string
      */
     public $cubeName;
 
     /**
+     * @description Detail or Summary
+     *
      * @example true
      *
      * @var bool
@@ -30,25 +38,27 @@ class content extends Model
     public $detail;
 
     /**
+     * @description Request parameter information.
+     *
      * @var filter
      */
     public $filter;
 
     /**
+     * @description Return information.
+     *
      * @var returnFields[]
      */
     public $returnFields;
     protected $_name = [
-        'cubeId'       => 'CubeId',
-        'cubeName'     => 'CubeName',
-        'detail'       => 'Detail',
-        'filter'       => 'Filter',
+        'cubeId' => 'CubeId',
+        'cubeName' => 'CubeName',
+        'detail' => 'Detail',
+        'filter' => 'Filter',
         'returnFields' => 'ReturnFields',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -101,7 +111,7 @@ class content extends Model
         if (isset($map['ReturnFields'])) {
             if (!empty($map['ReturnFields'])) {
                 $model->returnFields = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ReturnFields'] as $item) {
                     $model->returnFields[$n++] = null !== $item ? returnFields::fromMap($item) : $item;
                 }

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class field extends Model
 {
     /**
+     * @description Display name in the cube model (can be in Chinese or English).
+     *
+     * @example date(year)
+     *
      * @var string
      */
     public $caption;
 
     /**
+     * @description The corresponding physical field name.
+     *
      * @example shid_star
      *
      * @var string
@@ -21,6 +27,17 @@ class field extends Model
     public $column;
 
     /**
+     * @description Data type.
+     *
+     * - number: numeric
+     * - string: string
+     * - date: date
+     * - datetime: datetime
+     * - time: time
+     * - geographic: geographic
+     * - boolean: boolean
+     * - url: URL
+     *
      * @example datetime
      *
      * @var string
@@ -28,6 +45,8 @@ class field extends Model
     public $dataType;
 
     /**
+     * @description Unique identifier for the original field.
+     *
      * @example 1c1f88cb7d
      *
      * @var string
@@ -35,6 +54,8 @@ class field extends Model
     public $fid;
 
     /**
+     * @description This attribute is included for date and geographic dimensions, indicating the supported granularity.
+     *
      * @example yearRegion
      *
      * @var string
@@ -42,6 +63,8 @@ class field extends Model
     public $granularity;
 
     /**
+     * @description Unique name of the cube field, mainly used for unique positioning in the returned result.
+     *
      * @example sss
      *
      * @var string
@@ -49,24 +72,27 @@ class field extends Model
     public $name;
 
     /**
+     * @description Type.
+     *
+     * - Dimension: Dimension
+     * - Measure: Measure
+     *
      * @example dimension
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'caption'     => 'Caption',
-        'column'      => 'Column',
-        'dataType'    => 'DataType',
-        'fid'         => 'Fid',
+        'caption' => 'Caption',
+        'column' => 'Column',
+        'dataType' => 'DataType',
+        'fid' => 'Fid',
         'granularity' => 'Granularity',
-        'name'        => 'Name',
-        'type'        => 'Type',
+        'name' => 'Name',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

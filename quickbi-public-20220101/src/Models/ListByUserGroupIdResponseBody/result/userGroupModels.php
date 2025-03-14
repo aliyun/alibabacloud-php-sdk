@@ -89,20 +89,18 @@ class userGroupModels extends Model
      */
     public $usergroupName;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'createUser'        => 'CreateUser',
-        'identifiedPath'    => 'IdentifiedPath',
-        'modifiedTime'      => 'ModifiedTime',
-        'modifyUser'        => 'ModifyUser',
+        'createTime' => 'CreateTime',
+        'createUser' => 'CreateUser',
+        'identifiedPath' => 'IdentifiedPath',
+        'modifiedTime' => 'ModifiedTime',
+        'modifyUser' => 'ModifyUser',
         'parentUsergroupId' => 'ParentUsergroupId',
-        'usergroupDesc'     => 'UsergroupDesc',
-        'usergroupId'       => 'UsergroupId',
-        'usergroupName'     => 'UsergroupName',
+        'usergroupDesc' => 'UsergroupDesc',
+        'usergroupId' => 'UsergroupId',
+        'usergroupName' => 'UsergroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

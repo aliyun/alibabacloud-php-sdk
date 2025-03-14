@@ -9,13 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserGroupMembersResponseBody extends Model
 {
     /**
-     * @example ABBAD906-3925-5D18-B23D-714053AB0AA2
+     * @description Request ID.
+     *
+     * @example ABBAD906-****-5D18-B23D-****53AB0AA2
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Returns the result of the interface execution. Possible values:
+     *
+     * - true: Execution succeeded
+     * - false: Execution failed
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,11 @@ class DeleteUserGroupMembersResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Possible values:
+     *
+     * - true: Request succeeded
+     * - false: Request failed
+     *
      * @example true
      *
      * @var bool
@@ -30,13 +42,11 @@ class DeleteUserGroupMembersResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class queryParams extends Model
      * @description Indices whether the metric. Valid values:
      *
      * true false
+     *
      * @example area_column
      *
      * @var string
@@ -88,19 +89,17 @@ class queryParams extends Model
      */
     public $uid;
     protected $_name = [
-        'areaId'     => 'AreaId',
-        'areaName'   => 'AreaName',
-        'caption'    => 'Caption',
-        'dataType'   => 'DataType',
+        'areaId' => 'AreaId',
+        'areaName' => 'AreaName',
+        'caption' => 'Caption',
+        'dataType' => 'DataType',
         'expression' => 'Expression',
-        'isMeasure'  => 'IsMeasure',
-        'pathId'     => 'PathId',
-        'uid'        => 'Uid',
+        'isMeasure' => 'IsMeasure',
+        'pathId' => 'PathId',
+        'uid' => 'Uid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

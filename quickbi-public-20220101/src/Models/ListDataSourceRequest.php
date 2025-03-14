@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourceRequest extends Model
 {
     /**
+     * @description Data source type.
+     *
      * @example mysql
      *
      * @var string
@@ -16,7 +18,9 @@ class ListDataSourceRequest extends Model
     public $dsType;
 
     /**
-     * @description This parameter is required.
+     * @description Workspace ID.
+     *
+     * This parameter is required.
      *
      * @example 95296e95-******c7d-8af9-dedf0ad0****
      *
@@ -24,13 +28,11 @@ class ListDataSourceRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'dsType'      => 'DsType',
+        'dsType' => 'DsType',
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

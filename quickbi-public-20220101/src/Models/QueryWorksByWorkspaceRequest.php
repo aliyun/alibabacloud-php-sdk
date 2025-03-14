@@ -74,23 +74,22 @@ class QueryWorksByWorkspaceRequest extends Model
      * @description The ID of the workspace.
      *
      * This parameter is required.
+     *
      * @example 89713491-cb4f-4579-b889-e82c35f1****
      *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'pageNum'           => 'PageNum',
-        'pageSize'          => 'PageSize',
-        'status'            => 'Status',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
         'thirdPartAuthFlag' => 'ThirdPartAuthFlag',
-        'worksType'         => 'WorksType',
-        'workspaceId'       => 'WorkspaceId',
+        'worksType' => 'WorksType',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

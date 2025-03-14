@@ -12,6 +12,7 @@ class CheckReadableRequest extends Model
      * @description The user ID of the Quick BI to be checked.
      *
      * This parameter is required.
+     *
      * @example de4bc5f9429141cc8091cdd1c15b****
      *
      * @var string
@@ -22,19 +23,18 @@ class CheckReadableRequest extends Model
      * @description The ID of the work. Resources here include BI portal, dashboards, spreadsheets, and self-service access.
      *
      * This parameter is required.
+     *
      * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
      *
      * @var string
      */
     public $worksId;
     protected $_name = [
-        'userId'  => 'UserId',
+        'userId' => 'UserId',
         'worksId' => 'WorksId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

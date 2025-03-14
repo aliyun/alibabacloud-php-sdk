@@ -12,6 +12,7 @@ class ListPortalMenusRequest extends Model
      * @description The ID of the BI portal.
      *
      * This parameter is required.
+     *
      * @example 0d173abb53e84c8ca7495429163b****
      *
      * @var string
@@ -28,12 +29,10 @@ class ListPortalMenusRequest extends Model
     public $userId;
     protected $_name = [
         'dataPortalId' => 'DataPortalId',
-        'userId'       => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,6 +11,8 @@ class UpdateWorkspaceUserRoleRequest extends Model
     /**
      * @example 25
      *
+     * @deprecated
+     *
      * @var int
      */
     public $roleId;
@@ -38,15 +40,13 @@ class UpdateWorkspaceUserRoleRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'roleId'      => 'RoleId',
-        'roleIds'     => 'RoleIds',
-        'userId'      => 'UserId',
+        'roleId' => 'RoleId',
+        'roleIds' => 'RoleIds',
+        'userId' => 'UserId',
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

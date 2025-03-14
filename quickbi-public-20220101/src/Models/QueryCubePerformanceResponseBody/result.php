@@ -153,32 +153,30 @@ class result extends Model
      */
     public $workspaceName;
     protected $_name = [
-        'cacheCostTimeAvg'          => 'CacheCostTimeAvg',
-        'cacheQueryCount'           => 'CacheQueryCount',
-        'costTimeAvg'               => 'CostTimeAvg',
-        'cubeId'                    => 'CubeId',
-        'cubeName'                  => 'CubeName',
-        'queryCount'                => 'QueryCount',
-        'queryCountAvg'             => 'QueryCountAvg',
-        'queryOverFivePercentNum'   => 'QueryOverFivePercentNum',
-        'queryOverFiveSecPercent'   => 'QueryOverFiveSecPercent',
-        'queryOverTenSecPercent'    => 'QueryOverTenSecPercent',
+        'cacheCostTimeAvg' => 'CacheCostTimeAvg',
+        'cacheQueryCount' => 'CacheQueryCount',
+        'costTimeAvg' => 'CostTimeAvg',
+        'cubeId' => 'CubeId',
+        'cubeName' => 'CubeName',
+        'queryCount' => 'QueryCount',
+        'queryCountAvg' => 'QueryCountAvg',
+        'queryOverFivePercentNum' => 'QueryOverFivePercentNum',
+        'queryOverFiveSecPercent' => 'QueryOverFiveSecPercent',
+        'queryOverTenSecPercent' => 'QueryOverTenSecPercent',
         'queryOverTenSecPercentNum' => 'QueryOverTenSecPercentNum',
-        'queryTimeoutCount'         => 'QueryTimeoutCount',
-        'queryTimeoutCountPercent'  => 'QueryTimeoutCountPercent',
-        'quickIndexCostTimeAvg'     => 'QuickIndexCostTimeAvg',
-        'quickIndexQueryCount'      => 'QuickIndexQueryCount',
-        'repeatQueryPercent'        => 'RepeatQueryPercent',
-        'repeatQueryPercentNum'     => 'RepeatQueryPercentNum',
-        'repeatSqlQueryCount'       => 'RepeatSqlQueryCount',
-        'repeatSqlQueryPercent'     => 'RepeatSqlQueryPercent',
-        'workspaceId'               => 'WorkspaceId',
-        'workspaceName'             => 'WorkspaceName',
+        'queryTimeoutCount' => 'QueryTimeoutCount',
+        'queryTimeoutCountPercent' => 'QueryTimeoutCountPercent',
+        'quickIndexCostTimeAvg' => 'QuickIndexCostTimeAvg',
+        'quickIndexQueryCount' => 'QuickIndexQueryCount',
+        'repeatQueryPercent' => 'RepeatQueryPercent',
+        'repeatQueryPercentNum' => 'RepeatQueryPercentNum',
+        'repeatSqlQueryCount' => 'RepeatSqlQueryCount',
+        'repeatSqlQueryPercent' => 'RepeatSqlQueryPercent',
+        'workspaceId' => 'WorkspaceId',
+        'workspaceName' => 'WorkspaceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

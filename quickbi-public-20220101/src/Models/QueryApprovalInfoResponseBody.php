@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryApprovalInfoResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
      * @example D787E1A3-A93C-424A-B626-C2B05DF8D885
      *
      * @var string
@@ -17,11 +19,17 @@ class QueryApprovalInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Return the result of the interface execution.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description Indicates whether the API call was successful. Possible values are:
+     * - true: success
+     * - false: failure
+     *
      * @example true
      *
      * @var bool
@@ -29,13 +37,11 @@ class QueryApprovalInfoResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

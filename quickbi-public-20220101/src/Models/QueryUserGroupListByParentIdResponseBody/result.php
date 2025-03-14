@@ -87,20 +87,18 @@ class result extends Model
      */
     public $userGroupName;
     protected $_name = [
-        'createTime'           => 'CreateTime',
-        'createUser'           => 'CreateUser',
-        'identifiedPath'       => 'IdentifiedPath',
-        'modifiedTime'         => 'ModifiedTime',
-        'modifyUser'           => 'ModifyUser',
-        'parentUserGroupId'    => 'ParentUserGroupId',
+        'createTime' => 'CreateTime',
+        'createUser' => 'CreateUser',
+        'identifiedPath' => 'IdentifiedPath',
+        'modifiedTime' => 'ModifiedTime',
+        'modifyUser' => 'ModifyUser',
+        'parentUserGroupId' => 'ParentUserGroupId',
         'userGroupDescription' => 'UserGroupDescription',
-        'userGroupId'          => 'UserGroupId',
-        'userGroupName'        => 'UserGroupName',
+        'userGroupId' => 'UserGroupId',
+        'userGroupName' => 'UserGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class UpdateDataLevelPermissionStatusRequest extends Model
      * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
      *
      * This parameter is required.
+     *
      * @example 7c7223ae-****-3c744528014b
      *
      * @var string
@@ -36,14 +37,12 @@ class UpdateDataLevelPermissionStatusRequest extends Model
      */
     public $ruleType;
     protected $_name = [
-        'cubeId'   => 'CubeId',
-        'isOpen'   => 'IsOpen',
+        'cubeId' => 'CubeId',
+        'isOpen' => 'IsOpen',
         'ruleType' => 'RuleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

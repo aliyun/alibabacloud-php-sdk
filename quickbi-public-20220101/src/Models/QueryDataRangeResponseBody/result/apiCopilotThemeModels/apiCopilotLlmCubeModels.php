@@ -25,14 +25,12 @@ class apiCopilotLlmCubeModels extends Model
      */
     public $llmCubeId;
     protected $_name = [
-        'alias'      => 'Alias',
+        'alias' => 'Alias',
         'createUser' => 'CreateUser',
-        'llmCubeId'  => 'LlmCubeId',
+        'llmCubeId' => 'LlmCubeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

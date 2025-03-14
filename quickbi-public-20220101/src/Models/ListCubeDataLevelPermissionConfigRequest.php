@@ -12,6 +12,7 @@ class ListCubeDataLevelPermissionConfigRequest extends Model
      * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
      *
      * This parameter is required.
+     *
      * @example 7c7223ae-****-3c744528014b
      *
      * @var string
@@ -25,19 +26,18 @@ class ListCubeDataLevelPermissionConfigRequest extends Model
      *   COLUMN_LEVEL: column-level permissions
      *
      * This parameter is required.
+     *
      * @example ROW_LEVEL
      *
      * @var string
      */
     public $ruleType;
     protected $_name = [
-        'cubeId'   => 'CubeId',
+        'cubeId' => 'CubeId',
         'ruleType' => 'RuleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

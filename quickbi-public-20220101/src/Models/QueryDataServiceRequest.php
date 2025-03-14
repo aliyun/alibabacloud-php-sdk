@@ -9,9 +9,10 @@ use AlibabaCloud\Tea\Model;
 class QueryDataServiceRequest extends Model
 {
     /**
-     * @description Call an API that is created in DataService Studio.
+     * @description The API ID in the data service. For more information, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
      *
      * This parameter is required.
+     *
      * @example f4cc43bc3***
      *
      * @var string
@@ -19,37 +20,38 @@ class QueryDataServiceRequest extends Model
     public $apiId;
 
     /**
-     * @description # Prerequisites
+     * @description The query conditions for the data service, passed in as Key-Value pairs. This is a map-type string. Here, Key is the name of the request parameter, and Value is the value of the request parameter. Keys and Values must appear in pairs.
      *
-     * # Limits
+     **Note:**
      *
-     *   The Data Service feature is available only to Professional customers.
-     *   The timeout period for API calls is 60s. The QPS of a single API is 10 times per second.
-     *   If row-level permissions are enabled for datasets that are referenced by a Data Service API, the API may be blocked by row-level permission policies.
+     * - When the operator of the request parameter is set to **enumeration filter**, the value can contain multiple values. In this case, the format of the value is a JSON list. For example: `area=["East China","North China","South China"]`
      *
-     * @example For more information about API IDs in DataService, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
+     * - For dates, different formats are provided based on the type:
+     *
+     * - Year: 2019
+     *
+     * - Quarter: 2019Q1
+     *
+     * - Month: 201901 (with leading zero)
+     *
+     * - Week: 2019-52
+     *
+     * - Day: 20190101
+     *
+     * - Hour: 14:00:00 (minutes and seconds are 00)
+     *
+     * - Minute: 14:12:00 (seconds are 00)
+     *
+     * - Second: 14:34:34
+     *
+     * @example { "area": ["华东", "华北"],  "shopping_date": "2019Q1",  }
      *
      * @var string
      */
     public $conditions;
 
     /**
-     * @description The query conditions of the data service. The query conditions are specified in the form of keys and values. A string of the map type. Key is the name of the request parameters parameter, and Value is the value of the request parameters parameter. Key and Value must appear in pairs.
-     *
-     **Note:**
-     *
-     *   If a value contains multiple values, the value is a List in the JSON format. Example: `area=["East China","North China","South China"]`
-     *
-     *   For dates, different input parameter formats are provided based on different types:
-     *
-     *   Year: 2019
-     *   Season: 2019Q1
-     *   Month: 201901 (carry 0)
-     *   Week: 2019-52
-     *   Day: 20190101
-     *   Hours: 14:00:00 (minutes and seconds are 00)
-     *   Minutes: 14:12:00 (seconds are 00)
-     *   Seconds: 14:34:34
+     * @description A list of parameter names to be returned, as a List-type string.
      *
      * @example ["area", "city", "price", "date"]
      *
@@ -57,14 +59,12 @@ class QueryDataServiceRequest extends Model
      */
     public $returnFields;
     protected $_name = [
-        'apiId'        => 'ApiId',
-        'conditions'   => 'Conditions',
+        'apiId' => 'ApiId',
+        'conditions' => 'Conditions',
         'returnFields' => 'ReturnFields',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

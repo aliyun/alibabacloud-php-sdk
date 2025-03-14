@@ -50,17 +50,15 @@ class ListRecentViewReportsRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'keyword'   => 'Keyword',
+        'keyword' => 'Keyword',
         'offsetDay' => 'OffsetDay',
-        'pageSize'  => 'PageSize',
+        'pageSize' => 'PageSize',
         'queryMode' => 'QueryMode',
-        'treeType'  => 'TreeType',
-        'userId'    => 'UserId',
+        'treeType' => 'TreeType',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

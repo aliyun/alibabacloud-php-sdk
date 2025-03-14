@@ -40,16 +40,14 @@ class data extends Model
      */
     public $userId;
     protected $_name = [
-        'accountId'   => 'AccountId',
+        'accountId' => 'AccountId',
         'accountName' => 'AccountName',
-        'nickName'    => 'NickName',
-        'role'        => 'Role',
-        'userId'      => 'UserId',
+        'nickName' => 'NickName',
+        'role' => 'Role',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

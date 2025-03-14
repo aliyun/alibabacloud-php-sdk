@@ -38,15 +38,13 @@ class directory extends Model
      */
     public $pathName;
     protected $_name = [
-        'id'       => 'Id',
-        'name'     => 'Name',
-        'pathId'   => 'PathId',
+        'id' => 'Id',
+        'name' => 'Name',
+        'pathId' => 'PathId',
         'pathName' => 'PathName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

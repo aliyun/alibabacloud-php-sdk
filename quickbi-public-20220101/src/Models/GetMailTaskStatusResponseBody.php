@@ -10,18 +10,26 @@ use AlibabaCloud\Tea\Model;
 class GetMailTaskStatusResponseBody extends Model
 {
     /**
-     * @example 38C0FEC8-1510-415C-A9F1-9AE9422BDB65
+     * @description Request ID.
+     *
+     * @example 38C0FEC8-****-415C-A9F1-****422BDB65
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Return result.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Possible values:
+     * - true: The request was successful.
+     * - false: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -29,13 +37,11 @@ class GetMailTaskStatusResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -73,7 +79,7 @@ class GetMailTaskStatusResponseBody extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }

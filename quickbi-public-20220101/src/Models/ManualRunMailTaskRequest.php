@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ManualRunMailTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the email task in the subscription management interface.
+     *
+     * This parameter is required.
      *
      * @example 3423423sdfa****sdadw
      *
@@ -20,9 +22,7 @@ class ManualRunMailTaskRequest extends Model
         'mailId' => 'MailId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

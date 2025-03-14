@@ -36,15 +36,13 @@ class ListFavoriteReportsRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'keyword'  => 'Keyword',
+        'keyword' => 'Keyword',
         'pageSize' => 'PageSize',
         'treeType' => 'TreeType',
-        'userId'   => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

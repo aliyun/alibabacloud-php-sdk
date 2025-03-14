@@ -10,18 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListOrganizationRoleUsersResponseBody extends Model
 {
     /**
-     * @example BCE45E6D-9304-4F94-86BB-5A772B1615FF
+     * @description Request ID.
+     *
+     * @example BCE45E6D-****-4F94-86BB-****2B1615FF
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Returns the list of users under the organization role.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Possible values:
+     * - true: Request succeeded
+     * - false: Request failed
+     *
      * @example true
      *
      * @var bool
@@ -29,13 +37,11 @@ class ListOrganizationRoleUsersResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

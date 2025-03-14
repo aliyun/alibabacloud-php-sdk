@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyApiDatasourceParametersResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example D8749D65-E80A-433C-AF1B-CE9C180FF3B4
      *
      * @var string
@@ -16,6 +18,11 @@ class ModifyApiDatasourceParametersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The execution result of the interface. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,11 @@ class ModifyApiDatasourceParametersResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -30,13 +42,11 @@ class ModifyApiDatasourceParametersResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

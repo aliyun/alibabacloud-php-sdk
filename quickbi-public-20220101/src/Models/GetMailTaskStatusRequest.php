@@ -9,16 +9,23 @@ use AlibabaCloud\Tea\Model;
 class GetMailTaskStatusRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Mail ID
      *
-     * @example d5a59a898b634d75be5584f8dc159c62
+     * This parameter is required.
+     *
+     * @example d5a5****8b634d****5584f8dc159c62
      *
      * @var string
      */
     public $mailId;
 
     /**
-     * @example 7218865303929605212
+     * @description Task ID
+     *
+     * > - If the task ID is not provided, the latest task status will be returned by default;
+     * > - If the task ID is provided, the status of the specified task will be returned.
+     *
+     * @example 7218****0392****212
      *
      * @var int
      */
@@ -28,9 +35,7 @@ class GetMailTaskStatusRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ResultCallbackRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the approval process.
+     *
+     * This parameter is required.
      *
      * @example c5ea0db8-****-****-9081-04bc0df4c6a3
      *
@@ -18,14 +20,23 @@ class ResultCallbackRequest extends Model
     public $applicationId;
 
     /**
-     * @description This parameter is required.
+     * @description The reason for the approval.
+     *
+     * This parameter is required.
+     *
+     * @example You are not a Division A analyst.
      *
      * @var string
      */
     public $handleReason;
 
     /**
-     * @description This parameter is required.
+     * @description Approval result:
+     *
+     *   1: passed
+     *   2: rejected
+     *
+     * This parameter is required.
      *
      * @example 1
      *
@@ -34,13 +45,11 @@ class ResultCallbackRequest extends Model
     public $status;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'handleReason'  => 'HandleReason',
-        'status'        => 'Status',
+        'handleReason' => 'HandleReason',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

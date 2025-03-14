@@ -81,22 +81,20 @@ class result extends Model
      */
     public $worksId;
     protected $_name = [
-        'accessTicket'   => 'AccessTicket',
-        'cmptId'         => 'CmptId',
-        'globalParam'    => 'GlobalParam',
-        'invalidTime'    => 'InvalidTime',
-        'maxTicketNum'   => 'MaxTicketNum',
+        'accessTicket' => 'AccessTicket',
+        'cmptId' => 'CmptId',
+        'globalParam' => 'GlobalParam',
+        'invalidTime' => 'InvalidTime',
+        'maxTicketNum' => 'MaxTicketNum',
         'organizationId' => 'OrganizationId',
-        'registerTime'   => 'RegisterTime',
-        'usedTicketNum'  => 'UsedTicketNum',
-        'userId'         => 'UserId',
+        'registerTime' => 'RegisterTime',
+        'usedTicketNum' => 'UsedTicketNum',
+        'userId' => 'UserId',
         'watermarkParam' => 'WatermarkParam',
-        'worksId'        => 'WorksId',
+        'worksId' => 'WorksId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

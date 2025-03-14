@@ -20,9 +20,7 @@ class AddDataLevelPermissionRuleUsersRequest extends Model
         'addUserModel' => 'AddUserModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

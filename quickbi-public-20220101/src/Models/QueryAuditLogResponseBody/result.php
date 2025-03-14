@@ -37,6 +37,8 @@ class result extends Model
     public $operatorType;
 
     /**
+     * @example 1113***************8500
+     *
      * @var string
      */
     public $targetId;
@@ -60,19 +62,17 @@ class result extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'gmtCreate'           => 'GmtCreate',
+        'gmtCreate' => 'GmtCreate',
         'operatorAccountName' => 'OperatorAccountName',
-        'operatorName'        => 'OperatorName',
-        'operatorType'        => 'OperatorType',
-        'targetId'            => 'TargetId',
-        'targetName'          => 'TargetName',
-        'targetType'          => 'TargetType',
-        'workspaceId'         => 'WorkspaceId',
+        'operatorName' => 'OperatorName',
+        'operatorType' => 'OperatorType',
+        'targetId' => 'TargetId',
+        'targetName' => 'TargetName',
+        'targetType' => 'TargetType',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

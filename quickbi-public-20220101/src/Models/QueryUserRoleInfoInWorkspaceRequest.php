@@ -26,13 +26,11 @@ class QueryUserRoleInfoInWorkspaceRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'userId'      => 'UserId',
+        'userId' => 'UserId',
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryCubeOptimizationRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The workspace ID.
+     *
+     * This parameter is required.
      *
      * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
      *
@@ -20,9 +22,7 @@ class QueryCubeOptimizationRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

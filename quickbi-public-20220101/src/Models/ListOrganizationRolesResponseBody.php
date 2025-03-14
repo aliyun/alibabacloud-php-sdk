@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListOrganizationRolesResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
      * @example 7AAB95D7-2E11-4FE2-94BC-858E4FC0C976
      *
      * @var string
@@ -17,11 +19,17 @@ class ListOrganizationRolesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Returns the list of organization roles.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description 是否请求成功。取值范围：
+     * - true：请求成功
+     * - false：请求失败
+     *
      * @example true
      *
      * @var bool
@@ -29,13 +37,11 @@ class ListOrganizationRolesResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -73,7 +79,7 @@ class ListOrganizationRolesResponseBody extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }

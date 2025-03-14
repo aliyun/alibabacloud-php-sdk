@@ -27,14 +27,12 @@ class result extends Model
      */
     public $hasPerssion;
     protected $_name = [
-        'cubeId'      => 'CubeId',
-        'cubeName'    => 'CubeName',
+        'cubeId' => 'CubeId',
+        'cubeName' => 'CubeName',
         'hasPerssion' => 'HasPerssion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

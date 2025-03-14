@@ -15,6 +15,7 @@ class CreateUserGroupRequest extends Model
      *   If you enter -1, the new user group is added to the root directory.
      *
      * This parameter is required.
+     *
      * @example 3d2c23d4-2b41-4af8-a1f5-f6390f32****
      *
      * @var string
@@ -52,21 +53,20 @@ class CreateUserGroupRequest extends Model
      *   Special format verification: Chinese and English digits_ \\ / | () ] [
      *
      * This parameter is required.
+     *
      * @example Hangzhou Financial Report
      *
      * @var string
      */
     public $userGroupName;
     protected $_name = [
-        'parentUserGroupId'    => 'ParentUserGroupId',
+        'parentUserGroupId' => 'ParentUserGroupId',
         'userGroupDescription' => 'UserGroupDescription',
-        'userGroupId'          => 'UserGroupId',
-        'userGroupName'        => 'UserGroupName',
+        'userGroupId' => 'UserGroupId',
+        'userGroupName' => 'UserGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

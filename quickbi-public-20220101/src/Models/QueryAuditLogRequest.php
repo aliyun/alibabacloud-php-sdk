@@ -63,18 +63,16 @@ class QueryAuditLogRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'endDate'       => 'EndDate',
-        'logType'       => 'LogType',
-        'operatorId'    => 'OperatorId',
+        'endDate' => 'EndDate',
+        'logType' => 'LogType',
+        'operatorId' => 'OperatorId',
         'operatorTypes' => 'OperatorTypes',
-        'resourceType'  => 'ResourceType',
-        'startDate'     => 'StartDate',
-        'workspaceId'   => 'WorkspaceId',
+        'resourceType' => 'ResourceType',
+        'startDate' => 'StartDate',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class WithdrawAllUserGroupsRequest extends Model
      * @description The ID of the user. The UserID of the Quick BI is used instead of the UID of Alibaba Cloud.
      *
      * This parameter is required.
+     *
      * @example 46e5374665ba4b679ee22e2a2927****
      *
      * @var string
@@ -21,9 +22,7 @@ class WithdrawAllUserGroupsRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

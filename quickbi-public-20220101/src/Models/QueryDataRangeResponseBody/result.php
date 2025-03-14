@@ -21,12 +21,10 @@ class result extends Model
     public $apiCopilotThemeModels;
     protected $_name = [
         'apiCopilotLlmCubeModels' => 'ApiCopilotLlmCubeModels',
-        'apiCopilotThemeModels'   => 'ApiCopilotThemeModels',
+        'apiCopilotThemeModels' => 'ApiCopilotThemeModels',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -64,7 +62,7 @@ class result extends Model
         if (isset($map['ApiCopilotLlmCubeModels'])) {
             if (!empty($map['ApiCopilotLlmCubeModels'])) {
                 $model->apiCopilotLlmCubeModels = [];
-                $n                              = 0;
+                $n = 0;
                 foreach ($map['ApiCopilotLlmCubeModels'] as $item) {
                     $model->apiCopilotLlmCubeModels[$n++] = null !== $item ? apiCopilotLlmCubeModels::fromMap($item) : $item;
                 }
@@ -73,7 +71,7 @@ class result extends Model
         if (isset($map['ApiCopilotThemeModels'])) {
             if (!empty($map['ApiCopilotThemeModels'])) {
                 $model->apiCopilotThemeModels = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['ApiCopilotThemeModels'] as $item) {
                     $model->apiCopilotThemeModels[$n++] = null !== $item ? apiCopilotThemeModels::fromMap($item) : $item;
                 }

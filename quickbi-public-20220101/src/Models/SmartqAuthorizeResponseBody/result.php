@@ -37,14 +37,12 @@ class result extends Model
     public $userId;
     protected $_name = [
         'detailMessage' => 'DetailMessage',
-        'llmCube'       => 'LlmCube',
-        'llmCubeTheme'  => 'LlmCubeTheme',
-        'userId'        => 'UserId',
+        'llmCube' => 'LlmCube',
+        'llmCubeTheme' => 'LlmCubeTheme',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

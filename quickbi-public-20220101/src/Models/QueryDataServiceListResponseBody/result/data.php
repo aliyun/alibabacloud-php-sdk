@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The model of the data service in JSON format.
+     *
      * @var content
      */
     public $content;
 
     /**
+     * @description Creator ID.
+     *
      * @example 7cb94cd48701
      *
      * @var string
@@ -22,11 +26,17 @@ class data extends Model
     public $creatorId;
 
     /**
+     * @description Creator\\"s name.
+     *
+     * @example zhangsan
+     *
      * @var string
      */
     public $creatorName;
 
     /**
+     * @description Cube identifier ID.
+     *
      * @example d14e7448-0eb3-40d3-9375-4afef8de29fd
      *
      * @var string
@@ -34,16 +44,26 @@ class data extends Model
     public $cubeId;
 
     /**
+     * @description Dataset name.
+     *
+     * @example test data source
+     *
      * @var string
      */
     public $cubeName;
 
     /**
+     * @description Description
+     *
+     * @example test
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description Creation time.
+     *
      * @example 2023-05-18 14:00:02.0
      *
      * @var string
@@ -51,6 +71,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description Modification time.
+     *
      * @example 2023-03-21 18:02:36
      *
      * @var string
@@ -58,6 +80,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description Modifier\\"s userId.
+     *
      * @example 7cb94cd48701
      *
      * @var string
@@ -65,16 +89,26 @@ class data extends Model
     public $modifierId;
 
     /**
+     * @description Modifier\\"s name
+     *
+     * @example zhangsan
+     *
      * @var string
      */
     public $modifierName;
 
     /**
+     * @description Data service name.
+     *
+     * @example test report
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Owner ID
+     *
      * @example 862801339
      *
      * @var string
@@ -82,11 +116,17 @@ class data extends Model
     public $ownerId;
 
     /**
+     * @description Owner\\"s name
+     *
+     * @example lisi
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @description Unique ID of the data service.
+     *
      * @example dtsuq3i31f5j8v848b
      *
      * @var string
@@ -94,6 +134,8 @@ class data extends Model
     public $sid;
 
     /**
+     * @description Workspace ID.
+     *
      * @example 7350a155-0e94-4c6c-8620-57bbec38****
      *
      * @var string
@@ -101,31 +143,33 @@ class data extends Model
     public $workspaceId;
 
     /**
+     * @description Workspace name.
+     *
+     * @example test workspace
+     *
      * @var string
      */
     public $workspaceName;
     protected $_name = [
-        'content'       => 'Content',
-        'creatorId'     => 'CreatorId',
-        'creatorName'   => 'CreatorName',
-        'cubeId'        => 'CubeId',
-        'cubeName'      => 'CubeName',
-        'desc'          => 'Desc',
-        'gmtCreate'     => 'GmtCreate',
-        'gmtModified'   => 'GmtModified',
-        'modifierId'    => 'ModifierId',
-        'modifierName'  => 'ModifierName',
-        'name'          => 'Name',
-        'ownerId'       => 'OwnerId',
-        'ownerName'     => 'OwnerName',
-        'sid'           => 'Sid',
-        'workspaceId'   => 'WorkspaceId',
+        'content' => 'Content',
+        'creatorId' => 'CreatorId',
+        'creatorName' => 'CreatorName',
+        'cubeId' => 'CubeId',
+        'cubeName' => 'CubeName',
+        'desc' => 'Desc',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'modifierId' => 'ModifierId',
+        'modifierName' => 'ModifierName',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'ownerName' => 'OwnerName',
+        'sid' => 'Sid',
+        'workspaceId' => 'WorkspaceId',
         'workspaceName' => 'WorkspaceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

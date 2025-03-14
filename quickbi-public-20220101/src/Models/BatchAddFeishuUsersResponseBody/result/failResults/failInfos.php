@@ -27,14 +27,12 @@ class failInfos extends Model
      */
     public $input;
     protected $_name = [
-        'code'     => 'Code',
+        'code' => 'Code',
         'codeDesc' => 'CodeDesc',
-        'input'    => 'Input',
+        'input' => 'Input',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

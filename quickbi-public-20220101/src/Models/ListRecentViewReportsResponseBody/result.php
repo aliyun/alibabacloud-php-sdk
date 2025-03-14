@@ -49,17 +49,15 @@ class result extends Model
      */
     public $totalPages;
     protected $_name = [
-        'attention'  => 'Attention',
-        'data'       => 'Data',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
-        'totalNum'   => 'TotalNum',
+        'attention' => 'Attention',
+        'data' => 'Data',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'totalNum' => 'TotalNum',
         'totalPages' => 'TotalPages',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -106,7 +104,7 @@ class result extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Data'] as $item) {
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }

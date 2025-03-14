@@ -28,14 +28,12 @@ class result extends Model
      */
     public $maxCount;
     protected $_name = [
-        'detail'        => 'Detail',
+        'detail' => 'Detail',
         'embeddedCount' => 'EmbeddedCount',
-        'maxCount'      => 'MaxCount',
+        'maxCount' => 'MaxCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -31,13 +31,11 @@ class ListUserGroupsByUserIdResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ListUserGroupsByUserIdResponseBody extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }

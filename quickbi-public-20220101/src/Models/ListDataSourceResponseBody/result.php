@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Quick BI user ID of the creator.
+     *
      * @example 281*****-485******-8
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $creatorId;
 
     /**
+     * @description Owner\\"s nickname.
+     *
      * @example system
      *
      * @var string
@@ -23,6 +27,8 @@ class result extends Model
     public $creatorName;
 
     /**
+     * @description Data source ID.
+     *
      * @example 7FC9A6A6-****-5CED-B*****E891E4075
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $datasourceId;
 
     /**
+     * @description Data source type.
+     *
      * @example odps
      *
      * @var string
@@ -37,6 +45,8 @@ class result extends Model
     public $dsType;
 
     /**
+     * @description Creation time of the data source, in yyyy-MM-dd HH:mm:ss format.
+     *
      * @example 2024-04-16 13:17:39
      *
      * @var string
@@ -44,6 +54,8 @@ class result extends Model
     public $gmtCreate;
 
     /**
+     * @description Modification time.
+     *
      * @example 2024-08-15 10:06:31
      *
      * @var string
@@ -51,6 +63,8 @@ class result extends Model
     public $gmtModified;
 
     /**
+     * @description Primary data source type for multi-engine data sources.
+     *
      * @example dataphin
      *
      * @var string
@@ -58,25 +72,25 @@ class result extends Model
     public $parentDsType;
 
     /**
+     * @description Display name of the data source.
+     *
      * @example 0327
      *
      * @var string
      */
     public $showName;
     protected $_name = [
-        'creatorId'    => 'CreatorId',
-        'creatorName'  => 'CreatorName',
+        'creatorId' => 'CreatorId',
+        'creatorName' => 'CreatorName',
         'datasourceId' => 'DatasourceId',
-        'dsType'       => 'DsType',
-        'gmtCreate'    => 'GmtCreate',
-        'gmtModified'  => 'GmtModified',
+        'dsType' => 'DsType',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
         'parentDsType' => 'ParentDsType',
-        'showName'     => 'ShowName',
+        'showName' => 'ShowName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

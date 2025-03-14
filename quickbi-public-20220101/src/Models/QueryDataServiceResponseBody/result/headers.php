@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
-     * @description The field name, which corresponds to the physical table field name.
+     * @description Aggregation operator. Only present for measure fields, such as SUM, AVG, and MAX.
      *
      * @example SUM
      *
@@ -18,10 +18,7 @@ class headers extends Model
     public $aggregator;
 
     /**
-     * @description The granularity of the dimension field. This field is returned only when the requested field is a date dimension or a geographical dimension. Valid values:
-     *
-     *   Date granularity: yearRegion (year), monthRegion (month), weekRegion (week), dayRegion (day), hourRegion (hour), minRegion (minute), secRegion (second)
-     *   Geographic information granularity: COUNTRY (international level), PROVINCE (provincial level), CITY (municipal level), XIAN (district /county), and REGION (regional level)
+     * @description Field name, corresponding to the physical table field name.
      *
      * @example The alias of the field. The key of the map data row in the result parameter values.
      *
@@ -30,7 +27,7 @@ class headers extends Model
     public $column;
 
     /**
-     * @description The column header.
+     * @description The data type of the field. Common types include number, string, date, datetime, time, and geographic.
      *
      * @example string
      *
@@ -39,7 +36,12 @@ class headers extends Model
     public $dataType;
 
     /**
-     * @description The field type, which is used to distinguish whether the field type is a dimension or a measure.
+     * @description The granularity of the dimension field.
+     * This field is returned only when the requested field is a date or geographic dimension, with the following possible values:
+     *
+     * - Date granularity: yearRegion (year), monthRegion (month), weekRegion (week), dayRegion (day), hourRegion (hour), minRegion (minute), secRegion (second)
+     *
+     * - Geographic granularity: COUNTRY (country level), PROVINCE (province level), CITY (city level), XIAN (district/county level), REGION (region)
      *
      * @example yearRegion
      *
@@ -48,7 +50,7 @@ class headers extends Model
     public $granularity;
 
     /**
-     * @description The data type of the field. generally have number, string, date, datetime, time, and geographic.
+     * @description 字段别名，结果参数values中map数据行的key。
      *
      * @example area
      *
@@ -57,7 +59,7 @@ class headers extends Model
     public $label;
 
     /**
-     * @description SELECT COMPANY_T_1_.\\"area\\" AS D_AREA_2_, COMPANY_T_1_.\\"city\\" AS D_CITY_3_, SUM(COMPANY_T_1_.\\"profit_amt\\") AS D_PROFIT_4_ FROM \\"quickbi_test\\".\\"company_sales_record_copy\\" AS COMPANY_T_1_ WHERE COMPANY_T_1_.\\"area\\" LIKE \\"% China East %\\" GROUP BY COMPANY_T_1_.\\"area\\", COMPANY_T_1_.\\"city\\" HAVING SUM(COMPANY_T_1_.\\"order_amt\\") > 1 LIMIT 0,10
+     * @description Field type, used to distinguish between dimension and measure fields.
      *
      * @example StandardDimension
      *
@@ -65,17 +67,15 @@ class headers extends Model
      */
     public $type;
     protected $_name = [
-        'aggregator'  => 'Aggregator',
-        'column'      => 'Column',
-        'dataType'    => 'DataType',
+        'aggregator' => 'Aggregator',
+        'column' => 'Column',
+        'dataType' => 'DataType',
         'granularity' => 'Granularity',
-        'label'       => 'Label',
-        'type'        => 'Type',
+        'label' => 'Label',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

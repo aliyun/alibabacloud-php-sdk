@@ -34,15 +34,13 @@ class QueryOrganizationWorkspaceListRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'keyword'  => 'Keyword',
-        'pageNum'  => 'PageNum',
+        'keyword' => 'Keyword',
+        'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
-        'userId'   => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

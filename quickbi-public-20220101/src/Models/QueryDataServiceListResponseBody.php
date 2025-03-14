@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDataServiceListResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
      * @example 78C1AA2D-9201-599E-A0BA-6FC462E57A95
      *
      * @var string
@@ -17,11 +19,17 @@ class QueryDataServiceListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Return result.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Value range:
+     * - true: The request was successful
+     * - false: The request failed
+     *
      * @example true
      *
      * @var bool
@@ -29,13 +37,11 @@ class QueryDataServiceListResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -57,19 +57,17 @@ class result extends Model
      */
     public $showName;
     protected $_name = [
-        'agentName'      => 'AgentName',
-        'copilotId'      => 'CopilotId',
-        'createUser'     => 'CreateUser',
+        'agentName' => 'AgentName',
+        'copilotId' => 'CopilotId',
+        'createUser' => 'CreateUser',
         'createUserName' => 'CreateUserName',
-        'dataRange'      => 'DataRange',
-        'modifyUser'     => 'ModifyUser',
-        'moduleName'     => 'ModuleName',
-        'showName'       => 'ShowName',
+        'dataRange' => 'DataRange',
+        'modifyUser' => 'ModifyUser',
+        'moduleName' => 'ModuleName',
+        'showName' => 'ShowName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

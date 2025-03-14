@@ -14,9 +14,9 @@ class AddUserRequest extends Model
     public $accountId;
 
     /**
-     * @description This parameter is required.
-     *
      * @example xxxxxx@163.com
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -59,18 +59,16 @@ class AddUserRequest extends Model
      */
     public $userType;
     protected $_name = [
-        'accountId'     => 'AccountId',
-        'accountName'   => 'AccountName',
-        'adminUser'     => 'AdminUser',
+        'accountId' => 'AccountId',
+        'accountName' => 'AccountName',
+        'adminUser' => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
-        'nickName'      => 'NickName',
-        'roleIds'       => 'RoleIds',
-        'userType'      => 'UserType',
+        'nickName' => 'NickName',
+        'roleIds' => 'RoleIds',
+        'userType' => 'UserType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

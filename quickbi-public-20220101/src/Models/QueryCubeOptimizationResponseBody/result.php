@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The type of the suggestion. Valid values:
+     *
+     *   **OPEN_CACHE**: Open cache.
+     *   **OPEN_QUICK_ENGINE**: Open FAST Cache.
+     *   **INCREASE_CACHE_TIME**: Increase the cache time.
+     *
      * @example OPENQUICKENGINE
      *
      * @var string
@@ -17,17 +23,17 @@ class result extends Model
     public $adviceType;
 
     /**
+     * @description The diagnostic information about the dataset.
+     *
      * @var cubePerformanceDiagnoseModel
      */
     public $cubePerformanceDiagnoseModel;
     protected $_name = [
-        'adviceType'                   => 'AdviceType',
+        'adviceType' => 'AdviceType',
         'cubePerformanceDiagnoseModel' => 'CubePerformanceDiagnoseModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

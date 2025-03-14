@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyApiDatasourceParametersRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the API data source.
+     *
+     * This parameter is required.
      *
      * @example b66a66de51f24d149116c17718138194
      *
@@ -18,7 +20,12 @@ class ModifyApiDatasourceParametersRequest extends Model
     public $apiId;
 
     /**
-     * @description This parameter is required.
+     * @description The configuration of API data parameters in the JSONArray format. You can modify a maximum of 10 parameters.
+     *
+     *   name: the name of a common parameter or a parameter in a query statement
+     *   value: the value of a common parameter or a parameter in a query statement.
+     *
+     * This parameter is required.
      *
      * @example [{"name":"token","value":"xxxxxxxxxxxx"},{"name":"pageSize","value":100}]
      *
@@ -27,7 +34,9 @@ class ModifyApiDatasourceParametersRequest extends Model
     public $parameters;
 
     /**
-     * @description This parameter is required.
+     * @description The workspace ID.
+     *
+     * This parameter is required.
      *
      * @example 726bee5a-****-43e1-9a8e-b550f0120f35
      *
@@ -35,14 +44,12 @@ class ModifyApiDatasourceParametersRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'apiId'       => 'ApiId',
-        'parameters'  => 'Parameters',
+        'apiId' => 'ApiId',
+        'parameters' => 'Parameters',
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ManualRunMailTaskResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
      * @example a4d1a221d-41za1-****
      *
      * @var string
@@ -16,6 +18,8 @@ class ManualRunMailTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the execution was successful.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,10 @@ class ManualRunMailTaskResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Value range:
+     * - true: The request succeeded
+     * - false: The request failed
+     *
      * @example true
      *
      * @var bool
@@ -30,13 +38,11 @@ class ManualRunMailTaskResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

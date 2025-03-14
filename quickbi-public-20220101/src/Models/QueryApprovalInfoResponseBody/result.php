@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Array of approval flow information.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The current page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class result extends Model
     public $page;
 
     /**
+     * @description The number of records requested per page.
+     *
      * @example 1000
      *
      * @var int
@@ -29,6 +35,8 @@ class result extends Model
     public $pageSize;
 
     /**
+     * @description The starting position of the current page.
+     *
      * @example 0
      *
      * @var int
@@ -36,6 +44,8 @@ class result extends Model
     public $start;
 
     /**
+     * @description The total number of items.
+     *
      * @example 3
      *
      * @var int
@@ -43,23 +53,23 @@ class result extends Model
     public $total;
 
     /**
+     * @description The total number of pages.
+     *
      * @example 1
      *
      * @var int
      */
     public $totalPages;
     protected $_name = [
-        'data'       => 'Data',
-        'page'       => 'Page',
-        'pageSize'   => 'PageSize',
-        'start'      => 'Start',
-        'total'      => 'Total',
+        'data' => 'Data',
+        'page' => 'Page',
+        'pageSize' => 'PageSize',
+        'start' => 'Start',
+        'total' => 'Total',
         'totalPages' => 'TotalPages',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,7 +113,7 @@ class result extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Data'] as $item) {
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }

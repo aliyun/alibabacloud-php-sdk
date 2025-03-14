@@ -26,13 +26,11 @@ class SmartqAuthTransferRequest extends Model
      */
     public $targetUserIds;
     protected $_name = [
-        'originUserId'  => 'OriginUserId',
+        'originUserId' => 'OriginUserId',
         'targetUserIds' => 'TargetUserIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

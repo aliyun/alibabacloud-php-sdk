@@ -107,26 +107,24 @@ class data extends Model
      */
     public $workspaceName;
     protected $_name = [
-        'favorite'       => 'Favorite',
-        'gmtCreate'      => 'GmtCreate',
-        'gmtModified'    => 'GmtModified',
-        'hasEditAuth'    => 'HasEditAuth',
-        'hasViewAuth'    => 'HasViewAuth',
+        'favorite' => 'Favorite',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'hasEditAuth' => 'HasEditAuth',
+        'hasViewAuth' => 'HasViewAuth',
         'latestViewTime' => 'LatestViewTime',
-        'name'           => 'Name',
-        'ownerName'      => 'OwnerName',
-        'ownerNum'       => 'OwnerNum',
-        'publishStatus'  => 'PublishStatus',
-        'treeId'         => 'TreeId',
-        'type'           => 'Type',
-        'viewCount'      => 'ViewCount',
-        'workspaceId'    => 'WorkspaceId',
-        'workspaceName'  => 'WorkspaceName',
+        'name' => 'Name',
+        'ownerName' => 'OwnerName',
+        'ownerNum' => 'OwnerNum',
+        'publishStatus' => 'PublishStatus',
+        'treeId' => 'TreeId',
+        'type' => 'Type',
+        'viewCount' => 'ViewCount',
+        'workspaceId' => 'WorkspaceId',
+        'workspaceName' => 'WorkspaceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

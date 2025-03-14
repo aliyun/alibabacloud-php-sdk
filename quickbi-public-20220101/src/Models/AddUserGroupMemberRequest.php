@@ -15,6 +15,7 @@ class AddUserGroupMemberRequest extends Model
      *   false: The tag failed to be added.
      *
      * This parameter is required.
+     *
      * @example 555c4cd****
      *
      * @var string
@@ -28,6 +29,7 @@ class AddUserGroupMemberRequest extends Model
      *   false: The request failed.
      *
      * This parameter is required.
+     *
      * @example 46e537a5****,3dadsu****
      *
      * @var string
@@ -35,12 +37,10 @@ class AddUserGroupMemberRequest extends Model
     public $userIdList;
     protected $_name = [
         'userGroupId' => 'UserGroupId',
-        'userIdList'  => 'UserIdList',
+        'userIdList' => 'UserIdList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

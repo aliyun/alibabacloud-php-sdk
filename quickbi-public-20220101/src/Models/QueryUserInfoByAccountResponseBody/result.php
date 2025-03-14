@@ -78,6 +78,8 @@ class result extends Model
     public $phone;
 
     /**
+     * @description 用户绑定的组织角色ID列表。
+     *
      * @var int[]
      */
     public $roleIdList;
@@ -104,21 +106,19 @@ class result extends Model
      */
     public $userType;
     protected $_name = [
-        'accountId'     => 'AccountId',
-        'accountName'   => 'AccountName',
-        'adminUser'     => 'AdminUser',
+        'accountId' => 'AccountId',
+        'accountName' => 'AccountName',
+        'adminUser' => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
-        'email'         => 'Email',
-        'nickName'      => 'NickName',
-        'phone'         => 'Phone',
-        'roleIdList'    => 'RoleIdList',
-        'userId'        => 'UserId',
-        'userType'      => 'UserType',
+        'email' => 'Email',
+        'nickName' => 'NickName',
+        'phone' => 'Phone',
+        'roleIdList' => 'RoleIdList',
+        'userId' => 'UserId',
+        'userType' => 'UserType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

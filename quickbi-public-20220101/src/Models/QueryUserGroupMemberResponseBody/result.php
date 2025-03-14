@@ -39,16 +39,14 @@ class result extends Model
      */
     public $parentUserGroupName;
     protected $_name = [
-        'id'                  => 'Id',
-        'isUserGroup'         => 'IsUserGroup',
-        'name'                => 'Name',
-        'parentUserGroupId'   => 'ParentUserGroupId',
+        'id' => 'Id',
+        'isUserGroup' => 'IsUserGroup',
+        'name' => 'Name',
+        'parentUserGroupId' => 'ParentUserGroupId',
         'parentUserGroupName' => 'ParentUserGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

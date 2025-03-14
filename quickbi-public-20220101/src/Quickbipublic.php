@@ -289,18 +289,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDataLevelPermissionRuleUsers',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDataLevelPermissionRuleUsers',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddDataLevelPermissionRuleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddDataLevelPermissionRuleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddDataLevelPermissionRuleUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -352,18 +355,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDataLevelPermissionWhiteList',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDataLevelPermissionWhiteList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddDataLevelPermissionWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddDataLevelPermissionWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddDataLevelPermissionWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -413,18 +419,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddShareReport',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddShareReport',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddShareReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddShareReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddShareReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -477,21 +486,24 @@ class Quickbipublic extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddUser',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddUser',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -530,18 +542,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddUserGroupMember',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddUserGroupMember',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddUserGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -580,18 +595,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddUserGroupMembers',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddUserGroupMembers',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddUserGroupMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -630,18 +648,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddUserTagMeta',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddUserTagMeta',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddUserTagMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddUserTagMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddUserTagMetaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -683,18 +704,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddUserToWorkspace',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddUserToWorkspace',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddUserToWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddUserToWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddUserToWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -736,18 +760,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddWorkspaceUsers',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddWorkspaceUsers',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddWorkspaceUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddWorkspaceUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddWorkspaceUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -783,18 +810,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllotDatasetAccelerationTask',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllotDatasetAccelerationTask',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AllotDatasetAccelerationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AllotDatasetAccelerationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AllotDatasetAccelerationTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -842,18 +872,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AuthorizeMenu',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AuthorizeMenu',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AuthorizeMenuResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AuthorizeMenuResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AuthorizeMenuResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -901,18 +934,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchAddFeishuUsers',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchAddFeishuUsers',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchAddFeishuUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchAddFeishuUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchAddFeishuUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -957,18 +993,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelAuthorizationMenu',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelAuthorizationMenu',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CancelAuthorizationMenuResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelAuthorizationMenuResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelAuthorizationMenuResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1007,18 +1046,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelCollection',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelCollection',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CancelCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelCollectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1060,18 +1102,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelReportShare',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelReportShare',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CancelReportShareResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelReportShareResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelReportShareResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1113,18 +1158,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeVisibilityModel',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeVisibilityModel',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChangeVisibilityModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeVisibilityModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeVisibilityModelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1163,18 +1211,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckReadable',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckReadable',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CheckReadableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckReadableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckReadableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1192,7 +1243,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 生成三方嵌入的ticket。
+     * @summary Generates a ticket for third-party embedding.
+     *  *
+     * @description For detailed usage, please refer to the [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
      *  *
      * @param CreateTicketRequest $request CreateTicketRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1234,22 +1287,27 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTicket',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTicket',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTicketResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 生成三方嵌入的ticket。
+     * @summary Generates a ticket for third-party embedding.
+     *  *
+     * @description For detailed usage, please refer to the [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
      *  *
      * @param CreateTicketRequest $request CreateTicketRequest
      *
@@ -1296,18 +1354,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTicket4Copilot',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTicket4Copilot',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateTicket4CopilotResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTicket4CopilotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTicket4CopilotResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1352,18 +1413,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateUserGroup',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateUserGroup',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1381,7 +1445,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询引用指定数据集下的作品信息。
+     * @summary Query works information under the specified dataset.
      *  *
      * @param DataSetBloodRequest $request DataSetBloodRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1405,22 +1469,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DataSetBlood',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DataSetBlood',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DataSetBloodResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DataSetBloodResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DataSetBloodResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询引用指定数据集下的作品信息。
+     * @summary Query works information under the specified dataset.
      *  *
      * @param DataSetBloodRequest $request DataSetBloodRequest
      *
@@ -1452,18 +1519,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DataSourceBlood',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DataSourceBlood',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DataSourceBloodResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DataSourceBloodResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DataSourceBloodResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1502,18 +1572,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DelayTicketExpireTime',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DelayTicketExpireTime',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DelayTicketExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DelayTicketExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DelayTicketExpireTimeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1551,18 +1624,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataLevelPermissionRuleUsers',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDataLevelPermissionRuleUsers',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteDataLevelPermissionRuleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataLevelPermissionRuleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataLevelPermissionRuleUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1605,18 +1681,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataLevelRuleConfig',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDataLevelRuleConfig',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteDataLevelRuleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataLevelRuleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataLevelRuleConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1636,7 +1715,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary auditing
+     * @summary Deletes a specified ticket from an embedded report.
      *  *
      * @param DeleteTicketRequest $request DeleteTicketRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1654,22 +1733,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTicket',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTicket',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTicketResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary auditing
+     * @summary Deletes a specified ticket from an embedded report.
      *  *
      * @param DeleteTicketRequest $request DeleteTicketRequest
      *
@@ -1704,18 +1786,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUser',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUser',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1754,18 +1839,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUserFromWorkspace',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUserFromWorkspace',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserFromWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserFromWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserFromWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1801,18 +1889,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUserGroup',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUserGroup',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1851,18 +1942,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUserGroupMember',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUserGroupMember',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1880,9 +1974,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary Indicates whether the request is successful. Valid values:
-     * *   true: The request was successful.
-     * *   false: The request failed.
+     * @summary Batch remove specified users from user groups.
      *  *
      * @param DeleteUserGroupMembersRequest $request DeleteUserGroupMembersRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1903,24 +1995,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUserGroupMembers',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUserGroupMembers',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserGroupMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Indicates whether the request is successful. Valid values:
-     * *   true: The request was successful.
-     * *   false: The request failed.
+     * @summary Batch remove specified users from user groups.
      *  *
      * @param DeleteUserGroupMembersRequest $request DeleteUserGroupMembersRequest
      *
@@ -1952,18 +2045,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUserTagMeta',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUserTagMeta',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserTagMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserTagMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserTagMetaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1981,7 +2077,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据源信息
+     * @summary Get Data Source Information
      *  *
      * @param GetDataSourceConnectionInfoRequest $request GetDataSourceConnectionInfoRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1999,22 +2095,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDataSourceConnectionInfo',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDataSourceConnectionInfo',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDataSourceConnectionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataSourceConnectionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataSourceConnectionInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取数据源信息
+     * @summary Get Data Source Information
      *  *
      * @param GetDataSourceConnectionInfoRequest $request GetDataSourceConnectionInfoRequest
      *
@@ -2028,7 +2127,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 组织内查看邮件任务运行状态
+     * @summary Check the running status of mail tasks within an organization
      *  *
      * @param GetMailTaskStatusRequest $request GetMailTaskStatusRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2049,22 +2148,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMailTaskStatus',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMailTaskStatus',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMailTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMailTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMailTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 组织内查看邮件任务运行状态
+     * @summary Check the running status of mail tasks within an organization
      *  *
      * @param GetMailTaskStatusRequest $request GetMailTaskStatusRequest
      *
@@ -2096,18 +2198,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUserGroupInfo',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserGroupInfo',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUserGroupInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserGroupInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserGroupInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2125,7 +2230,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询已嵌入报表列表
+     * @summary Query the list of embedded reports
      *  *
      * @param GetWorksEmbedListRequest $request GetWorksEmbedListRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2155,22 +2260,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetWorksEmbedList',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetWorksEmbedList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetWorksEmbedListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWorksEmbedListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWorksEmbedListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询已嵌入报表列表
+     * @summary Query the list of embedded reports
      *  *
      * @param GetWorksEmbedListRequest $request GetWorksEmbedListRequest
      *
@@ -2184,7 +2292,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询API数据源列表。
+     * @summary Queries API data sources.
+     *  *
+     * @description For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
      *  *
      * @param ListApiDatasourceRequest $request ListApiDatasourceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2211,22 +2321,27 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApiDatasource',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApiDatasource',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListApiDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListApiDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListApiDatasourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询API数据源列表。
+     * @summary Queries API data sources.
+     *  *
+     * @description For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
      *  *
      * @param ListApiDatasourceRequest $request ListApiDatasourceRequest
      *
@@ -2258,18 +2373,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListByUserGroupId',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListByUserGroupId',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListByUserGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListByUserGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListByUserGroupIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2305,18 +2423,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCollections',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCollections',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCollectionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2357,18 +2478,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCubeDataLevelPermissionConfig',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCubeDataLevelPermissionConfig',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListCubeDataLevelPermissionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCubeDataLevelPermissionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCubeDataLevelPermissionConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2409,18 +2533,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDataLevelPermissionWhiteList',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataLevelPermissionWhiteList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDataLevelPermissionWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataLevelPermissionWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataLevelPermissionWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2438,7 +2565,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定空间下的所有数据源
+     * @summary Query all data sources under the specified space
      *  *
      * @param ListDataSourceRequest $request ListDataSourceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2459,22 +2586,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDataSource',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataSource',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询指定空间下的所有数据源
+     * @summary Query all data sources under the specified space
      *  *
      * @param ListDataSourceRequest $request ListDataSourceRequest
      *
@@ -2515,18 +2645,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListFavoriteReports',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFavoriteReports',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListFavoriteReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFavoriteReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFavoriteReportsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2544,7 +2677,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定组织角色下的用户列表。
+     * @summary Get user list under the specified organization role.
      *  *
      * @param ListOrganizationRoleUsersRequest $request ListOrganizationRoleUsersRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2571,22 +2704,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOrganizationRoleUsers',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListOrganizationRoleUsers',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListOrganizationRoleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOrganizationRoleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOrganizationRoleUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取指定组织角色下的用户列表。
+     * @summary Get user list under the specified organization role.
      *  *
      * @param ListOrganizationRoleUsersRequest $request ListOrganizationRoleUsersRequest
      *
@@ -2600,7 +2736,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取组织级别自定义角色列表。
+     * @summary Retrieve the list of custom roles at the organization level.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -2608,24 +2744,27 @@ class Quickbipublic extends OpenApiClient
      */
     public function listOrganizationRolesWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListOrganizationRoles',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListOrganizationRoles',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListOrganizationRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOrganizationRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOrganizationRolesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取组织级别自定义角色列表。
+     * @summary Retrieve the list of custom roles at the organization level.
      *  *
      * @return ListOrganizationRolesResponse ListOrganizationRolesResponse
      */
@@ -2655,18 +2794,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPortalMenuAuthorization',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPortalMenuAuthorization',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPortalMenuAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPortalMenuAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPortalMenuAuthorizationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2705,18 +2847,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPortalMenus',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPortalMenus',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPortalMenusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPortalMenusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPortalMenusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2767,18 +2912,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRecentViewReports',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRecentViewReports',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListRecentViewReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRecentViewReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRecentViewReportsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2823,18 +2971,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSharedReports',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSharedReports',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListSharedReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSharedReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSharedReportsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2870,18 +3021,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserGroupsByUserId',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserGroupsByUserId',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListUserGroupsByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserGroupsByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserGroupsByUserIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2899,7 +3053,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定空间角色下的用户列表。
+     * @summary Get user list under the specified workspace role.
      *  *
      * @param ListWorkspaceRoleUsersRequest $request ListWorkspaceRoleUsersRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2929,22 +3083,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListWorkspaceRoleUsers',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListWorkspaceRoleUsers',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListWorkspaceRoleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkspaceRoleUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkspaceRoleUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取指定空间角色下的用户列表。
+     * @summary Get user list under the specified workspace role.
      *  *
      * @param ListWorkspaceRoleUsersRequest $request ListWorkspaceRoleUsersRequest
      *
@@ -2958,7 +3115,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取空间角色列表。
+     * @summary Get the list of workspace roles.
      *  *
      * @param ListWorkspaceRolesRequest $request ListWorkspaceRolesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -2976,22 +3133,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListWorkspaceRoles',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListWorkspaceRoles',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListWorkspaceRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkspaceRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkspaceRolesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取空间角色列表。
+     * @summary Get the list of workspace roles.
      *  *
      * @param ListWorkspaceRolesRequest $request ListWorkspaceRolesRequest
      *
@@ -3005,7 +3165,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 手动执行邮件任务
+     * @summary Manually Execute Email Task
      *  *
      * @param ManualRunMailTaskRequest $request ManualRunMailTaskRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -3023,22 +3183,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ManualRunMailTask',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ManualRunMailTask',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ManualRunMailTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ManualRunMailTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ManualRunMailTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 手动执行邮件任务
+     * @summary Manually Execute Email Task
      *  *
      * @param ManualRunMailTaskRequest $request ManualRunMailTaskRequest
      *
@@ -3052,7 +3215,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 修改指定API数据源参数值。
+     * @summary Modifies the configurations of a specified API data source.
+     *  *
+     * @description When you modify a query statement, you can modify only the top-level JsonObject. You cannot modify parameters that are nested in multiple layers. For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
      *  *
      * @param ModifyApiDatasourceParametersRequest $request ModifyApiDatasourceParametersRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -3076,22 +3241,27 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApiDatasourceParameters',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApiDatasourceParameters',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyApiDatasourceParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyApiDatasourceParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyApiDatasourceParametersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改指定API数据源参数值。
+     * @summary Modifies the configurations of a specified API data source.
+     *  *
+     * @description When you modify a query statement, you can modify only the top-level JsonObject. You cannot modify parameters that are nested in multiple layers. For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
      *  *
      * @param ModifyApiDatasourceParametersRequest $request ModifyApiDatasourceParametersRequest
      *
@@ -3132,18 +3302,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCopilotEmbedConfig',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCopilotEmbedConfig',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyCopilotEmbedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyCopilotEmbedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyCopilotEmbedConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3161,7 +3334,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据审批人获取相应的审批流信息。
+     * @summary Get approval flow information based on the approver.
      *  *
      * @param QueryApprovalInfoRequest $request QueryApprovalInfoRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -3188,22 +3361,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryApprovalInfo',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryApprovalInfo',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryApprovalInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryApprovalInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryApprovalInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据审批人获取相应的审批流信息。
+     * @summary Get approval flow information based on the approver.
      *  *
      * @param QueryApprovalInfoRequest $request QueryApprovalInfoRequest
      *
@@ -3253,18 +3429,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAuditLog',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAuditLog',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryAuditLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3282,7 +3461,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询组件性能列表。
+     * @summary Queries component performance logs.
      *  *
      * @param QueryComponentPerformanceRequest $request QueryComponentPerformanceRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -3318,22 +3497,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryComponentPerformance',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryComponentPerformance',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryComponentPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryComponentPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryComponentPerformanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询组件性能列表。
+     * @summary Queries component performance logs.
      *  *
      * @param QueryComponentPerformanceRequest $request QueryComponentPerformanceRequest
      *
@@ -3365,18 +3547,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCopilotEmbedConfig',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCopilotEmbedConfig',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryCopilotEmbedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryCopilotEmbedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryCopilotEmbedConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3394,7 +3579,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据集优化建议。
+     * @summary Queries dataset optimization suggestions.
      *  *
      * @param QueryCubeOptimizationRequest $request QueryCubeOptimizationRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -3412,22 +3597,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCubeOptimization',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCubeOptimization',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryCubeOptimizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryCubeOptimizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryCubeOptimizationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询数据集优化建议。
+     * @summary Queries dataset optimization suggestions.
      *  *
      * @param QueryCubeOptimizationRequest $request QueryCubeOptimizationRequest
      *
@@ -3474,18 +3662,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCubePerformance',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCubePerformance',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryCubePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryCubePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryCubePerformanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3503,7 +3694,14 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 调用开放数据服务API。
+     * @summary Invoke the open data service API.
+     *  *
+     * @description ### Prerequisites
+     * You need to create a data service API through Quick BI\\"s data service. For more details, see: [Data Service](https://help.aliyun.com/document_detail/144980.html).
+     * ### Usage Restrictions
+     * * The data service feature is only available to professional edition customers.
+     * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
+     * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call will also be intercepted by the row-level permission policy.
      *  *
      * @param QueryDataRequest $request QueryDataRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -3530,22 +3728,32 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryData',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryData',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 调用开放数据服务API。
+     * @summary Invoke the open data service API.
+     *  *
+     * @description ### Prerequisites
+     * You need to create a data service API through Quick BI\\"s data service. For more details, see: [Data Service](https://help.aliyun.com/document_detail/144980.html).
+     * ### Usage Restrictions
+     * * The data service feature is only available to professional edition customers.
+     * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
+     * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call will also be intercepted by the row-level permission policy.
      *  *
      * @param QueryDataRequest $request QueryDataRequest
      *
@@ -3580,18 +3788,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDataRange',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDataRange',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryDataRangeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDataRangeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDataRangeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3609,9 +3820,14 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary The operator for the aggregate operation. Metric fields are available, such as SUM, AVG, and MAX.
+     * @summary Invoke an already created API in the data service.
      *  *
-     * @description f4cc43bc3***
+     * @description #### Prerequisites
+     * You create the data service API through Quick BI\\"s data service. For more details, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
+     * #### Usage Restrictions
+     * * The data service feature is only available to professional edition customers.
+     * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
+     * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call may be intercepted by the row-level permission policy.
      *  *
      * @param QueryDataServiceRequest $request QueryDataServiceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -3635,24 +3851,32 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDataService',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDataService',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDataServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary The operator for the aggregate operation. Metric fields are available, such as SUM, AVG, and MAX.
+     * @summary Invoke an already created API in the data service.
      *  *
-     * @description f4cc43bc3***
+     * @description #### Prerequisites
+     * You create the data service API through Quick BI\\"s data service. For more details, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
+     * #### Usage Restrictions
+     * * The data service feature is only available to professional edition customers.
+     * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
+     * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call may be intercepted by the row-level permission policy.
      *  *
      * @param QueryDataServiceRequest $request QueryDataServiceRequest
      *
@@ -3666,7 +3890,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询数据服务API列表。
+     * @summary Query Data Service API List
      *  *
      * @param QueryDataServiceListRequest $request QueryDataServiceListRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3693,22 +3917,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDataServiceList',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDataServiceList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryDataServiceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDataServiceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDataServiceListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询数据服务API列表。
+     * @summary Query Data Service API List
      *  *
      * @param QueryDataServiceListRequest $request QueryDataServiceListRequest
      *
@@ -3742,18 +3969,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDatasetDetailInfo',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDatasetDetailInfo',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryDatasetDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDatasetDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDatasetDetailInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3793,18 +4023,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDatasetInfo',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDatasetInfo',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryDatasetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDatasetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDatasetInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3857,18 +4090,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDatasetList',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDatasetList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryDatasetListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDatasetListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDatasetListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3904,18 +4140,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDatasetSmartqStatus',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDatasetSmartqStatus',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryDatasetSmartqStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDatasetSmartqStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDatasetSmartqStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3951,18 +4190,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDatasetSwitchInfo',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDatasetSwitchInfo',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryDatasetSwitchInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDatasetSwitchInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDatasetSwitchInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3988,20 +4230,23 @@ class Quickbipublic extends OpenApiClient
      */
     public function queryEmbeddedInfoWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'QueryEmbeddedInfo',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryEmbeddedInfo',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryEmbeddedInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryEmbeddedInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEmbeddedInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4035,18 +4280,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryEmbeddedStatus',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryEmbeddedStatus',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryEmbeddedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryEmbeddedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEmbeddedStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4082,18 +4330,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryLlmCubeWithThemeListByUserId',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryLlmCubeWithThemeListByUserId',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryLlmCubeWithThemeListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryLlmCubeWithThemeListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryLlmCubeWithThemeListByUserIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4111,7 +4362,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定组织角色的配置信息
+     * @summary Retrieve Configuration Information for a Specified Organization Role
      *  *
      * @param QueryOrganizationRoleConfigRequest $request QueryOrganizationRoleConfigRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -4129,22 +4380,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryOrganizationRoleConfig',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryOrganizationRoleConfig',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryOrganizationRoleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryOrganizationRoleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryOrganizationRoleConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取指定组织角色的配置信息
+     * @summary Retrieve Configuration Information for a Specified Organization Role
      *  *
      * @param QueryOrganizationRoleConfigRequest $request QueryOrganizationRoleConfigRequest
      *
@@ -4185,18 +4439,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryOrganizationWorkspaceList',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryOrganizationWorkspaceList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryOrganizationWorkspaceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryOrganizationWorkspaceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryOrganizationWorkspaceListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4232,18 +4489,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryReadableResourcesListByUserId',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryReadableResourcesListByUserId',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryReadableResourcesListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryReadableResourcesListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryReadableResourcesListByUserIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4261,7 +4521,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询报表性能列表
+     * @summary Queries report performance logs.
      *  *
      * @param QueryReportPerformanceRequest $request QueryReportPerformanceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -4297,22 +4557,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryReportPerformance',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryReportPerformance',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryReportPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryReportPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryReportPerformanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询报表性能列表
+     * @summary Queries report performance logs.
      *  *
      * @param QueryReportPerformanceRequest $request QueryReportPerformanceRequest
      *
@@ -4344,18 +4607,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryShareList',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryShareList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryShareListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryShareListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryShareListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4391,18 +4657,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySharesToUserList',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySharesToUserList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QuerySharesToUserListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QuerySharesToUserListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySharesToUserListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4441,18 +4710,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySmartqPermissionByCubeId',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySmartqPermissionByCubeId',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QuerySmartqPermissionByCubeIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QuerySmartqPermissionByCubeIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySmartqPermissionByCubeIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4488,18 +4760,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTicketInfo',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTicketInfo',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryTicketInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryTicketInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryTicketInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4535,18 +4810,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryUserGroupListByParentId',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryUserGroupListByParentId',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryUserGroupListByParentIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryUserGroupListByParentIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryUserGroupListByParentIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4585,18 +4863,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryUserGroupMember',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryUserGroupMember',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryUserGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryUserGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4635,18 +4916,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryUserInfoByAccount',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryUserInfoByAccount',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryUserInfoByAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryUserInfoByAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryUserInfoByAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4682,18 +4966,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryUserInfoByUserId',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryUserInfoByUserId',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryUserInfoByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryUserInfoByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryUserInfoByUserIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4722,22 +5009,25 @@ class Quickbipublic extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryUserList',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryUserList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryUserListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryUserListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryUserListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4776,18 +5066,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryUserRoleInfoInWorkspace',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryUserRoleInfoInWorkspace',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryUserRoleInfoInWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryUserRoleInfoInWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryUserRoleInfoInWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4805,7 +5098,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary auditing
+     * @summary Queries the metadata list of member tags in an organization.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -4813,24 +5106,27 @@ class Quickbipublic extends OpenApiClient
      */
     public function queryUserTagMetaListWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'QueryUserTagMetaList',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryUserTagMetaList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryUserTagMetaListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryUserTagMetaListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryUserTagMetaListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary auditing
+     * @summary Queries the metadata list of member tags in an organization.
      *  *
      * @return QueryUserTagMetaListResponse QueryUserTagMetaListResponse
      */
@@ -4842,7 +5138,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of tag values for a specific user.
+     * @summary Query the list of specific user tag values.
      *  *
      * @param QueryUserTagValueListRequest $request QueryUserTagValueListRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -4853,26 +5149,29 @@ class Quickbipublic extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryUserTagValueList',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryUserTagValueList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryUserTagValueListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryUserTagValueListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryUserTagValueListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of tag values for a specific user.
+     * @summary Query the list of specific user tag values.
      *  *
      * @param QueryUserTagValueListRequest $request QueryUserTagValueListRequest
      *
@@ -4904,18 +5203,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryWorks',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryWorks',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryWorksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryWorksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryWorksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4951,18 +5253,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryWorksBloodRelationship',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryWorksBloodRelationship',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryWorksBloodRelationshipResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryWorksBloodRelationshipResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryWorksBloodRelationshipResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5010,18 +5315,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryWorksByOrganization',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryWorksByOrganization',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryWorksByOrganizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryWorksByOrganizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryWorksByOrganizationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5072,18 +5380,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryWorksByWorkspace',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryWorksByWorkspace',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryWorksByWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryWorksByWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryWorksByWorkspaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5101,7 +5412,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定空间角色的配置信息
+     * @summary Get Configuration Information for a Specified Workspace Role
      *  *
      * @param QueryWorkspaceRoleConfigRequest $request QueryWorkspaceRoleConfigRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -5119,22 +5430,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryWorkspaceRoleConfig',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryWorkspaceRoleConfig',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryWorkspaceRoleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryWorkspaceRoleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryWorkspaceRoleConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取指定空间角色的配置信息
+     * @summary Get Configuration Information for a Specified Workspace Role
      *  *
      * @param QueryWorkspaceRoleConfigRequest $request QueryWorkspaceRoleConfigRequest
      *
@@ -5175,18 +5489,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryWorkspaceUserList',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryWorkspaceUserList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryWorkspaceUserListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryWorkspaceUserListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryWorkspaceUserListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5204,7 +5521,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 第三方资源审批回调接口
+     * @summary You can customize the callback interface for approval processes to process Quick BI approval processes.
      *  *
      * @param ResultCallbackRequest $request ResultCallbackRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -5228,22 +5545,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResultCallback',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResultCallback',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ResultCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResultCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResultCallbackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 第三方资源审批回调接口
+     * @summary You can customize the callback interface for approval processes to process Quick BI approval processes.
      *  *
      * @param ResultCallbackRequest $request ResultCallbackRequest
      *
@@ -5278,18 +5598,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SaveFavorites',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveFavorites',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SaveFavoritesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SaveFavoritesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SaveFavoritesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5331,18 +5654,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDataLevelPermissionExtraConfig',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDataLevelPermissionExtraConfig',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetDataLevelPermissionExtraConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDataLevelPermissionExtraConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDataLevelPermissionExtraConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5378,18 +5704,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDataLevelPermissionRuleConfig',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDataLevelPermissionRuleConfig',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetDataLevelPermissionRuleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDataLevelPermissionRuleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDataLevelPermissionRuleConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5427,18 +5756,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDataLevelPermissionWhiteList',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDataLevelPermissionWhiteList',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetDataLevelPermissionWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDataLevelPermissionWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDataLevelPermissionWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5479,18 +5811,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SmartqAuthTransfer',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SmartqAuthTransfer',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SmartqAuthTransferResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SmartqAuthTransferResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SmartqAuthTransferResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5538,18 +5873,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SmartqAuthorize',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SmartqAuthorize',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SmartqAuthorizeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SmartqAuthorizeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SmartqAuthorizeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5591,18 +5929,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SmartqQueryAbility',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SmartqQueryAbility',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SmartqQueryAbilityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SmartqQueryAbilityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SmartqQueryAbilityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5650,18 +5991,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDataLevelPermissionStatus',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDataLevelPermissionStatus',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateDataLevelPermissionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDataLevelPermissionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDataLevelPermissionStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5706,18 +6050,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateEmbeddedStatus',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateEmbeddedStatus',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateEmbeddedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateEmbeddedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEmbeddedStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5756,18 +6103,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTicketNum',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTicketNum',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateTicketNumResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTicketNumResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTicketNumResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5821,18 +6171,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUser',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUser',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5874,18 +6227,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUserGroup',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUserGroup',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5903,7 +6259,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 用于更新组织成员标签元信息
+     * @summary Used for updating the metadata of organization member tags
      *  *
      * @param UpdateUserTagMetaRequest $request UpdateUserTagMetaRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -5927,22 +6283,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUserTagMeta',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUserTagMeta',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateUserTagMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserTagMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserTagMetaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 用于更新组织成员标签元信息
+     * @summary Used for updating the metadata of organization member tags
      *  *
      * @param UpdateUserTagMetaRequest $request UpdateUserTagMetaRequest
      *
@@ -5956,7 +6315,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新组织成员标签值
+     * @summary Update the tag value of an organization member.
      *  *
      * @param UpdateUserTagValueRequest $request UpdateUserTagValueRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -5980,22 +6339,25 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUserTagValue',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUserTagValue',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateUserTagValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserTagValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserTagValueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新组织成员标签值
+     * @summary Update the tag value of an organization member.
      *  *
      * @param UpdateUserTagValueRequest $request UpdateUserTagValueRequest
      *
@@ -6036,18 +6398,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateWorkspaceUserRole',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateWorkspaceUserRole',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateWorkspaceUserRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateWorkspaceUserRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateWorkspaceUserRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6089,18 +6454,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateWorkspaceUsersRole',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateWorkspaceUsersRole',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateWorkspaceUsersRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateWorkspaceUsersRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateWorkspaceUsersRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6136,18 +6504,21 @@ class Quickbipublic extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'WithdrawAllUserGroups',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'WithdrawAllUserGroups',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return WithdrawAllUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return WithdrawAllUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return WithdrawAllUserGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

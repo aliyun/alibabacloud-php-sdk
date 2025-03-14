@@ -9,12 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserTagMetaRequest extends Model
 {
     /**
+     * @description The tag description.
+     *
+     * - Format check: Maximum length is 255 characters.
+     *
+     * @example Job Positions within the Department
+     *
      * @var string
      */
     public $tagDescription;
 
     /**
-     * @description This parameter is required.
+     * @description The specified TagID.
+     *
+     * - Format check: Maximum length is 64 characters.
+     *
+     * This parameter is required.
      *
      * @example e82f6c6c0333431bad0225b2f85e****
      *
@@ -23,20 +33,24 @@ class UpdateUserTagMetaRequest extends Model
     public $tagId;
 
     /**
-     * @description This parameter is required.
+     * @description The tag name.
+     * - Format check: Maximum length is 50 characters.
+     * - Only Chinese, English, numbers, and /\\|[]() symbols are allowed.
+     *
+     * This parameter is required.
+     *
+     * @example Department
      *
      * @var string
      */
     public $tagName;
     protected $_name = [
         'tagDescription' => 'TagDescription',
-        'tagId'          => 'TagId',
-        'tagName'        => 'TagName',
+        'tagId' => 'TagId',
+        'tagName' => 'TagName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

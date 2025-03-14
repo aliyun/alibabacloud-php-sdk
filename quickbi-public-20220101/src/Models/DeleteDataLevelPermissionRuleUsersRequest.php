@@ -20,9 +20,7 @@ class DeleteDataLevelPermissionRuleUsersRequest extends Model
         'deleteUserModel' => 'DeleteUserModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

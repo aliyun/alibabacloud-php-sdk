@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListWorkspaceRolesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Workspace ID.
+     *
+     * This parameter is required.
      *
      * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
      *
@@ -20,9 +22,7 @@ class ListWorkspaceRolesRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

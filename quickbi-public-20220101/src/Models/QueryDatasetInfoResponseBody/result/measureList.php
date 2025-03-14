@@ -85,19 +85,17 @@ class measureList extends Model
      */
     public $uid;
     protected $_name = [
-        'caption'          => 'Caption',
-        'dataType'         => 'DataType',
-        'expression'       => 'Expression',
-        'factColumn'       => 'FactColumn',
+        'caption' => 'Caption',
+        'dataType' => 'DataType',
+        'expression' => 'Expression',
+        'factColumn' => 'FactColumn',
         'fieldDescription' => 'FieldDescription',
-        'measureType'      => 'MeasureType',
-        'tableUniqueId'    => 'TableUniqueId',
-        'uid'              => 'Uid',
+        'measureType' => 'MeasureType',
+        'tableUniqueId' => 'TableUniqueId',
+        'uid' => 'Uid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

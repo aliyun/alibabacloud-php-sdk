@@ -19,12 +19,10 @@ class usersModel extends Model
     public $users;
     protected $_name = [
         'userGroups' => 'UserGroups',
-        'users'      => 'Users',
+        'users' => 'Users',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

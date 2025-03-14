@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetWorksEmbedListRequest extends Model
 {
     /**
+     * @description Report name (fuzzy match)
+     *
+     * @example test dataset
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description Page number (defaults to 1 if empty)
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +27,8 @@ class GetWorksEmbedListRequest extends Model
     public $pageNo;
 
     /**
+     * @description Number of items per page (defaults to 10 if empty)
+     *
      * @example 100
      *
      * @var int
@@ -28,6 +36,15 @@ class GetWorksEmbedListRequest extends Model
     public $pageSize;
 
     /**
+     * @description Report type
+     *
+     * - page, Dashboard
+     * - screen, Visualization Screen
+     * - report, Workbooks
+     * - ANALYSIS, Ad Hoc Analysis
+     * - dashboardOfflineQuery, Downloads
+     * - dataForm, Forms
+     *
      * @example page
      *
      * @var string
@@ -35,22 +52,22 @@ class GetWorksEmbedListRequest extends Model
     public $worksType;
 
     /**
+     * @description Workspace ID
+     *
      * @example 919818-***-*****-wdasd
      *
      * @var string
      */
     public $wsId;
     protected $_name = [
-        'keyword'   => 'Keyword',
-        'pageNo'    => 'PageNo',
-        'pageSize'  => 'PageSize',
+        'keyword' => 'Keyword',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'worksType' => 'WorksType',
-        'wsId'      => 'WsId',
+        'wsId' => 'WsId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

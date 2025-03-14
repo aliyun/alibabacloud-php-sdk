@@ -29,14 +29,12 @@ class result extends Model
      */
     public $isOpenRowLevelPermission;
     protected $_name = [
-        'cubeId'                      => 'CubeId',
+        'cubeId' => 'CubeId',
         'isOpenColumnLevelPermission' => 'IsOpenColumnLevelPermission',
-        'isOpenRowLevelPermission'    => 'IsOpenRowLevelPermission',
+        'isOpenRowLevelPermission' => 'IsOpenRowLevelPermission',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

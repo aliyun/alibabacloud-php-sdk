@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserTagMetaResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
      * @example D787E1A3-A93C-424A-B626-C2B05DF8D885
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateUserTagMetaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the interface was executed successfully. Possible values:
+     *
+     * - true: Execution succeeded
+     * - false: Execution failed
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,9 @@ class UpdateUserTagMetaResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Possible values:
+     * - true: The request succeeded - false: The request failed
+     *
      * @example true
      *
      * @var bool
@@ -30,13 +40,11 @@ class UpdateUserTagMetaResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -52,15 +52,13 @@ class CreateTicket4CopilotRequest extends Model
     protected $_name = [
         'accountName' => 'AccountName',
         'accountType' => 'AccountType',
-        'copilotId'   => 'CopilotId',
-        'expireTime'  => 'ExpireTime',
-        'ticketNum'   => 'TicketNum',
-        'userId'      => 'UserId',
+        'copilotId' => 'CopilotId',
+        'expireTime' => 'ExpireTime',
+        'ticketNum' => 'TicketNum',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Database connection string address (domain or IP).
+     *
      * @example 172.**.**.48
      *
      * @var string
@@ -16,6 +18,13 @@ class result extends Model
     public $address;
 
     /**
+     * @description Permission level:
+     *
+     * - 0 -- Private
+     * - 1 -- Collaborative Editing (old)
+     * - 11 -- Collaborative Editing - Space Members
+     * - 12 -- Collaborative Editing - Specified to Individuals
+     *
      * @example 0
      *
      * @var string
@@ -23,6 +32,8 @@ class result extends Model
     public $authLevel;
 
     /**
+     * @description Quick BI user ID of the creator.
+     *
      * @example U240****0880C6095
      *
      * @var string
@@ -30,6 +41,8 @@ class result extends Model
     public $creatorId;
 
     /**
+     * @description Data source ID.
+     *
      * @example a201c85c-******
      *
      * @var string
@@ -37,6 +50,8 @@ class result extends Model
     public $dsId;
 
     /**
+     * @description Data source type.
+     *
      * @example mysql
      *
      * @var string
@@ -44,6 +59,8 @@ class result extends Model
     public $dsType;
 
     /**
+     * @description Version of the data source.
+     *
      * @example 5.7
      *
      * @var string
@@ -51,6 +68,8 @@ class result extends Model
     public $dsVersion;
 
     /**
+     * @description Database instance, corresponding to the database name, and for ODPS, it is the project.
+     *
      * @example rm*********t44ju1
      *
      * @var string
@@ -58,6 +77,8 @@ class result extends Model
     public $instance;
 
     /**
+     * @description Instance ID.
+     *
      * @example rm*********t44ju1
      *
      * @var string
@@ -65,6 +86,8 @@ class result extends Model
     public $instanceId;
 
     /**
+     * @description Quick BI user ID of the modifier.
+     *
      * @example U240****0880C6095
      *
      * @var string
@@ -72,6 +95,11 @@ class result extends Model
     public $modifyUser;
 
     /**
+     * @description Whether the impala data source requires authentication to log in:
+     *
+     * - true - Requires account and password login
+     * - false - No authentication required (default)
+     *
      * @example true
      *
      * @var bool
@@ -79,6 +107,8 @@ class result extends Model
     public $noSasl;
 
     /**
+     * @description Primary data source type for multi-engine data sources.
+     *
      * @example dataphin
      *
      * @var string
@@ -86,6 +116,8 @@ class result extends Model
     public $parentDsType;
 
     /**
+     * @description Port.
+     *
      * @example 3306
      *
      * @var string
@@ -93,6 +125,8 @@ class result extends Model
     public $port;
 
     /**
+     * @description Used for front-end display when obtaining connection details for ODPS.
+     *
      * @example prod-ossdoc
      *
      * @var string
@@ -100,6 +134,8 @@ class result extends Model
     public $project;
 
     /**
+     * @description Database schema, only needs to be set for databases that support schemas.
+     *
      * @example Analysis
      *
      * @var string
@@ -107,6 +143,8 @@ class result extends Model
     public $schema;
 
     /**
+     * @description Display name of the data source on the front end.
+     *
      * @example 0327
      *
      * @var string
@@ -114,33 +152,33 @@ class result extends Model
     public $showName;
 
     /**
+     * @description Workspace ID to which the data source belongs.
+     *
      * @example 0de6**2-d**-4720-8836-0cc****1394c
      *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'address'      => 'Address',
-        'authLevel'    => 'AuthLevel',
-        'creatorId'    => 'CreatorId',
-        'dsId'         => 'DsId',
-        'dsType'       => 'DsType',
-        'dsVersion'    => 'DsVersion',
-        'instance'     => 'Instance',
-        'instanceId'   => 'InstanceId',
-        'modifyUser'   => 'ModifyUser',
-        'noSasl'       => 'NoSasl',
+        'address' => 'Address',
+        'authLevel' => 'AuthLevel',
+        'creatorId' => 'CreatorId',
+        'dsId' => 'DsId',
+        'dsType' => 'DsType',
+        'dsVersion' => 'DsVersion',
+        'instance' => 'Instance',
+        'instanceId' => 'InstanceId',
+        'modifyUser' => 'ModifyUser',
+        'noSasl' => 'NoSasl',
         'parentDsType' => 'ParentDsType',
-        'port'         => 'Port',
-        'project'      => 'Project',
-        'schema'       => 'Schema',
-        'showName'     => 'ShowName',
-        'workspaceId'  => 'WorkspaceId',
+        'port' => 'Port',
+        'project' => 'Project',
+        'schema' => 'Schema',
+        'showName' => 'ShowName',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

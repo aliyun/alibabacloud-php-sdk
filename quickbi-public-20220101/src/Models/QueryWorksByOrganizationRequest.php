@@ -53,16 +53,14 @@ class QueryWorksByOrganizationRequest extends Model
      */
     public $worksType;
     protected $_name = [
-        'pageNum'           => 'PageNum',
-        'pageSize'          => 'PageSize',
-        'status'            => 'Status',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
         'thirdPartAuthFlag' => 'ThirdPartAuthFlag',
-        'worksType'         => 'WorksType',
+        'worksType' => 'WorksType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

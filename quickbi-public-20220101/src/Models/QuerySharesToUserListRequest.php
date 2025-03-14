@@ -12,6 +12,7 @@ class QuerySharesToUserListRequest extends Model
      * @description The ID of the user. The user ID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
      *
      * This parameter is required.
+     *
      * @example 46e53****5ba4b679ee22e2a2927****
      *
      * @var string
@@ -21,9 +22,7 @@ class QuerySharesToUserListRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

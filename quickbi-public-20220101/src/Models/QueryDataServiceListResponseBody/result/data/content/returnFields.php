@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class returnFields extends Model
 {
     /**
+     * @description Aggregation operator. For example, SUM, AVG, and MAX.
+     *
      * @example SUM
      *
      * @var string
@@ -17,6 +19,8 @@ class returnFields extends Model
     public $aggregator;
 
     /**
+     * @description Field parameter name.
+     *
      * @example s_number
      *
      * @var string
@@ -24,16 +28,28 @@ class returnFields extends Model
     public $alias;
 
     /**
+     * @description Remark for the returned field.
+     *
+     * @example Theme Configuration already exists
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description Corresponding cube field information.
+     *
      * @var field
      */
     public $field;
 
     /**
+     * @description Sorting.
+     *
+     * - asc: Ascending
+     * - desc: Descending
+     * - no: No sorting
+     *
      * @example no
      *
      * @var string
@@ -41,15 +57,13 @@ class returnFields extends Model
     public $orderby;
     protected $_name = [
         'aggregator' => 'Aggregator',
-        'alias'      => 'Alias',
-        'desc'       => 'Desc',
-        'field'      => 'Field',
-        'orderby'    => 'Orderby',
+        'alias' => 'Alias',
+        'desc' => 'Desc',
+        'field' => 'Field',
+        'orderby' => 'Orderby',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

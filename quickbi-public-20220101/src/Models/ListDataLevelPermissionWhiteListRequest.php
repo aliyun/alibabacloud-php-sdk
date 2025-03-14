@@ -26,13 +26,11 @@ class ListDataLevelPermissionWhiteListRequest extends Model
      */
     public $ruleType;
     protected $_name = [
-        'cubeId'   => 'CubeId',
+        'cubeId' => 'CubeId',
         'ruleType' => 'RuleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

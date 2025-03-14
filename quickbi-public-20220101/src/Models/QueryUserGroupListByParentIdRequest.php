@@ -15,6 +15,7 @@ class QueryUserGroupListByParentIdRequest extends Model
      *   If you enter -1, you can obtain the sub-user group information under the root directory.
      *
      * This parameter is required.
+     *
      * @example 3d2c23d4-2b41-4af8-a1f5-f6390f32****
      *
      * @var string
@@ -24,9 +25,7 @@ class QueryUserGroupListByParentIdRequest extends Model
         'parentUserGroupId' => 'ParentUserGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -24,7 +24,12 @@ class ModifyCopilotEmbedConfigRequest extends Model
 
     /**
      * @example Map<String,Object> data=new HashMap<>();
+     * data.put("allTheme",true);
+     * //data.put("allCube",true);
+     * //data.put("themes",Lists.newArrayList("1111","22222"));
+     * //data.put("llmCubes",Lists.newArrayList("33333","44444"));
      * request.setDataRange(JSON.toJSONString(data));
+     *
      * @var string
      */
     public $dataRange;
@@ -34,15 +39,13 @@ class ModifyCopilotEmbedConfigRequest extends Model
      */
     public $moduleName;
     protected $_name = [
-        'agentName'  => 'AgentName',
-        'copilotId'  => 'CopilotId',
-        'dataRange'  => 'DataRange',
+        'agentName' => 'AgentName',
+        'copilotId' => 'CopilotId',
+        'dataRange' => 'DataRange',
         'moduleName' => 'ModuleName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Tag ID.
+     *
      * @example pop_001
      *
      * @var string
@@ -16,23 +18,29 @@ class result extends Model
     public $tagId;
 
     /**
+     * @description Tag name.
+     *
+     * @example Position
+     *
      * @var string
      */
     public $tagName;
 
     /**
+     * @description The value of the tag.
+     *
+     * @example Supervisor
+     *
      * @var string
      */
     public $tagValue;
     protected $_name = [
-        'tagId'    => 'TagId',
-        'tagName'  => 'TagName',
+        'tagId' => 'TagId',
+        'tagName' => 'TagName',
         'tagValue' => 'TagValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class QueryDatasetDetailInfoRequest extends Model
      * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
      *
      * This parameter is required.
+     *
      * @example 5820f58c-c734-4d8a-baf1-7979af4f****
      *
      * @var string
@@ -21,9 +22,7 @@ class QueryDatasetDetailInfoRequest extends Model
         'datasetId' => 'DatasetId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

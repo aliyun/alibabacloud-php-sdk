@@ -29,13 +29,11 @@ class receivers extends Model
      */
     public $receiverType;
     protected $_name = [
-        'receiverId'   => 'ReceiverId',
+        'receiverId' => 'ReceiverId',
         'receiverType' => 'ReceiverType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

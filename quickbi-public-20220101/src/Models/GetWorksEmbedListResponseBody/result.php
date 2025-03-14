@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Array of reports
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description Page number
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class result extends Model
     public $pageNo;
 
     /**
+     * @description Number of items per page
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class result extends Model
     public $pageSize;
 
     /**
+     * @description Total number of items
+     *
      * @example 18
      *
      * @var int
@@ -36,22 +44,22 @@ class result extends Model
     public $totalNum;
 
     /**
+     * @description Total number of pages
+     *
      * @example 2
      *
      * @var int
      */
     public $totalPages;
     protected $_name = [
-        'data'       => 'Data',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'totalNum'   => 'TotalNum',
+        'data' => 'Data',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'totalNum' => 'TotalNum',
         'totalPages' => 'TotalPages',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +100,7 @@ class result extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Data'] as $item) {
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }

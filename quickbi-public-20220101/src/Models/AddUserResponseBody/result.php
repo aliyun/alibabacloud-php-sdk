@@ -53,18 +53,16 @@ class result extends Model
      */
     public $userType;
     protected $_name = [
-        'accountName'   => 'AccountName',
-        'adminUser'     => 'AdminUser',
+        'accountName' => 'AccountName',
+        'adminUser' => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
-        'nickName'      => 'NickName',
-        'roleIdList'    => 'RoleIdList',
-        'userId'        => 'UserId',
-        'userType'      => 'UserType',
+        'nickName' => 'NickName',
+        'roleIdList' => 'RoleIdList',
+        'userId' => 'UserId',
+        'userType' => 'UserType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

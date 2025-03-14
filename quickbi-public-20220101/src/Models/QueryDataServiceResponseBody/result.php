@@ -10,36 +10,34 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The SQL of the request query.
+     * @description Column headers.
      *
      * @var headers[]
      */
     public $headers;
 
     /**
-     * @description The ID of the request.
+     * @description The SQL of the query request.
      *
-     * @example The query result of the API operation is returned.
+     * @example SELECT COMPANY_T_1_.`area` AS D_AREA_2_, COMPANY_T_1_.`city` AS D_CITY_3_, SUM(COMPANY_T_1_.`profit_amt`) AS D_PROFIT_4_ FROM `quickbi_test`.`company_sales_record_copy` AS COMPANY_T_1_ WHERE COMPANY_T_1_.`area` LIKE \\"%华东%\\" GROUP BY COMPANY_T_1_.`area`, COMPANY_T_1_.`city` HAVING SUM(COMPANY_T_1_.`order_amt`) > 1 LIMIT 0, 10
      *
      * @var string
      */
     public $sql;
 
     /**
-     * @description Physical Field Name
+     * @description The queried results returned.
      *
      * @var mixed[][]
      */
     public $values;
     protected $_name = [
         'headers' => 'Headers',
-        'sql'     => 'Sql',
-        'values'  => 'Values',
+        'sql' => 'Sql',
+        'values' => 'Values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -74,7 +72,7 @@ class result extends Model
         if (isset($map['Headers'])) {
             if (!empty($map['Headers'])) {
                 $model->headers = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Headers'] as $item) {
                     $model->headers[$n++] = null !== $item ? headers::fromMap($item) : $item;
                 }

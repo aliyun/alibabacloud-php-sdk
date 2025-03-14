@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryComponentPerformanceRequest extends Model
 {
     /**
+     * @description The average duration (minutes).
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,11 @@ class QueryComponentPerformanceRequest extends Model
     public $costTimeAvgMin;
 
     /**
+     * @description The current page number of the workspace member list:
+     *
+     *   Pages start from page 1.
+     *   Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +30,11 @@ class QueryComponentPerformanceRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of rows per page in a paged query.
+     *
+     *   Default value: 10.
+     *   Maximum value: 1,000.
+     *
      * @example 100
      *
      * @var int
@@ -30,7 +42,13 @@ class QueryComponentPerformanceRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The query type. Valid values:
+     *
+     *   **lastDay**: Yesterday
+     *   **sevenDays**: Within seven days
+     *   **thirtyDays**: Within 30 days
+     *
+     * This parameter is required.
      *
      * @example sevenDays
      *
@@ -39,6 +57,8 @@ class QueryComponentPerformanceRequest extends Model
     public $queryType;
 
     /**
+     * @description The ID of the work. The works here include BI portal, dashboards, spreadsheets, and self-service access.
+     *
      * @example 6b407e50-e774-406b-9956-da2425c2****
      *
      * @var string
@@ -46,6 +66,8 @@ class QueryComponentPerformanceRequest extends Model
     public $reportId;
 
     /**
+     * @description The resource types.
+     *
      * @example report
      *
      * @var string
@@ -53,7 +75,9 @@ class QueryComponentPerformanceRequest extends Model
     public $resourceType;
 
     /**
-     * @description This parameter is required.
+     * @description The workspace ID.
+     *
+     * This parameter is required.
      *
      * @example 89713491-cb4f-4579-b889-e82c35f1****
      *
@@ -62,17 +86,15 @@ class QueryComponentPerformanceRequest extends Model
     public $workspaceId;
     protected $_name = [
         'costTimeAvgMin' => 'CostTimeAvgMin',
-        'pageNum'        => 'PageNum',
-        'pageSize'       => 'PageSize',
-        'queryType'      => 'QueryType',
-        'reportId'       => 'ReportId',
-        'resourceType'   => 'ResourceType',
-        'workspaceId'    => 'WorkspaceId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'queryType' => 'QueryType',
+        'reportId' => 'ReportId',
+        'resourceType' => 'ResourceType',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

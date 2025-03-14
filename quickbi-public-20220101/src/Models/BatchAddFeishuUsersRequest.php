@@ -41,16 +41,14 @@ class BatchAddFeishuUsersRequest extends Model
      */
     public $userType;
     protected $_name = [
-        'feishuUsers'  => 'FeishuUsers',
-        'isAdmin'      => 'IsAdmin',
-        'isAuthAdmin'  => 'IsAuthAdmin',
+        'feishuUsers' => 'FeishuUsers',
+        'isAdmin' => 'IsAdmin',
+        'isAuthAdmin' => 'IsAuthAdmin',
         'userGroupIds' => 'UserGroupIds',
-        'userType'     => 'UserType',
+        'userType' => 'UserType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

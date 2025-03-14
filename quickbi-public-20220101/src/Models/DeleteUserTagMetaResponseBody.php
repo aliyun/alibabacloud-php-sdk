@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserTagMetaResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example D787E1A3-A93C-424A-B626-C2B05DF8D885
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteUserTagMetaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The execution result of the deleted tag is returned. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request fails.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,11 @@ class DeleteUserTagMetaResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -30,13 +42,11 @@ class DeleteUserTagMetaResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

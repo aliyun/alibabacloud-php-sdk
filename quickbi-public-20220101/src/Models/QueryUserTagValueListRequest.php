@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryUserTagValueListRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description This UserID refers to the Quick BI UserID, not the Alibaba Cloud UID.
+     *
+     * This parameter is required.
      *
      * @example fe67f61a35a94b7da1a34ba174a7****
      *
@@ -20,9 +22,7 @@ class QueryUserTagValueListRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

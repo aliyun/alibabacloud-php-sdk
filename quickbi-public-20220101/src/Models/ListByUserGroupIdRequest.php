@@ -12,6 +12,7 @@ class ListByUserGroupIdRequest extends Model
      * @description The ID of the user group that you want to query. Separate multiple user groups with commas (,).
      *
      * This parameter is required.
+     *
      * @example 34fe-***-6dcb,84q9-****-4a274
      *
      * @var string
@@ -21,9 +22,7 @@ class ListByUserGroupIdRequest extends Model
         'userGroupIds' => 'UserGroupIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

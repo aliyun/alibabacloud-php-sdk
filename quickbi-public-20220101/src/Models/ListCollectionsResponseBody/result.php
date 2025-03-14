@@ -53,18 +53,16 @@ class result extends Model
      */
     public $workspaceName;
     protected $_name = [
-        'favoriteId'    => 'FavoriteId',
-        'ownerId'       => 'OwnerId',
-        'worksId'       => 'WorksId',
-        'worksName'     => 'WorksName',
-        'worksType'     => 'WorksType',
-        'workspaceId'   => 'WorkspaceId',
+        'favoriteId' => 'FavoriteId',
+        'ownerId' => 'OwnerId',
+        'worksId' => 'WorksId',
+        'worksName' => 'WorksName',
+        'worksType' => 'WorksType',
+        'workspaceId' => 'WorkspaceId',
         'workspaceName' => 'WorkspaceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

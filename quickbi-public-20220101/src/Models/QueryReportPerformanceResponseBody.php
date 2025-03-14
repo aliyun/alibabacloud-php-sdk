@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryReportPerformanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 1FC71085-D5FD-08E0-813A-4D4BD1031BC5
      *
      * @var string
@@ -22,6 +24,11 @@ class QueryReportPerformanceResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example True
      *
      * @var bool
@@ -29,13 +36,11 @@ class QueryReportPerformanceResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -73,7 +78,7 @@ class QueryReportPerformanceResponseBody extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }

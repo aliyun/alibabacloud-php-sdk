@@ -58,6 +58,7 @@ class UpdateUserRequest extends Model
      * @description The ID of the user to be updated. The user ID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
      *
      * This parameter is required.
+     *
      * @example fe67f61a35a94b7da1a34ba174a7****
      *
      * @var string
@@ -77,18 +78,16 @@ class UpdateUserRequest extends Model
      */
     public $userType;
     protected $_name = [
-        'adminUser'     => 'AdminUser',
+        'adminUser' => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
-        'isDeleted'     => 'IsDeleted',
-        'nickName'      => 'NickName',
-        'roleIds'       => 'RoleIds',
-        'userId'        => 'UserId',
-        'userType'      => 'UserType',
+        'isDeleted' => 'IsDeleted',
+        'nickName' => 'NickName',
+        'roleIds' => 'RoleIds',
+        'userId' => 'UserId',
+        'userType' => 'UserType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

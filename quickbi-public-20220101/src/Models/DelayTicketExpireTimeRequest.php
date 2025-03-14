@@ -15,6 +15,7 @@ class DelayTicketExpireTimeRequest extends Model
      *   Expired bills cannot be extended.
      *
      * This parameter is required.
+     *
      * @example 200
      *
      * @var int
@@ -25,6 +26,7 @@ class DelayTicketExpireTimeRequest extends Model
      * @description The value of the third-party embedded ticket, that is, the accessTicket value in the URL.
      *
      * This parameter is required.
+     *
      * @example 040e6f79d33444838e*****c7206c070
      *
      * @var string
@@ -32,12 +34,10 @@ class DelayTicketExpireTimeRequest extends Model
     public $ticket;
     protected $_name = [
         'expireTime' => 'ExpireTime',
-        'ticket'     => 'Ticket',
+        'ticket' => 'Ticket',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

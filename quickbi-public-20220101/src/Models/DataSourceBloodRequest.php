@@ -20,9 +20,7 @@ class DataSourceBloodRequest extends Model
         'dataSourceId' => 'DataSourceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

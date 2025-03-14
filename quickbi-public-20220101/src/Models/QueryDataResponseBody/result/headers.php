@@ -9,6 +9,18 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @description Aggregation operator. Only present for measure fields, such as SUM, AVG, and MAX.
+     * - SUM: Sum
+     * - MAX: Maximum value
+     * - MIN: Minimum value
+     * - AVG: Average
+     * - COUNT: Count
+     * - COUNTD: Distinct count
+     * - STDDEV_POP: Population standard deviation
+     * - STDDEV_SAMP: Sample standard deviation
+     * - VAR_POP: Population variance
+     * - VAR_SAMP: Sample variance
+     *
      * @example SUM
      *
      * @var string
@@ -16,11 +28,22 @@ class headers extends Model
     public $aggregator;
 
     /**
+     * @description Field name, corresponding to the physical table field name.
+     *
+     * @example Specific physical field name
+     *
      * @var string
      */
     public $column;
 
     /**
+     * @description 字段的数据类型。一般有：
+     * - number：数值
+     * - string：字符串
+     * - date：日期
+     * - time：时间
+     * - datetime：日期时间
+     *
      * @example string
      *
      * @var string
@@ -28,6 +51,13 @@ class headers extends Model
     public $dataType;
 
     /**
+     * @description The granularity of the dimension field.
+     * This field is returned only when the requested field is a date or geographic dimension, with the following possible values:
+     *
+     * - Date Granularity: yearRegion (year), monthRegion (month), weekRegion (week), dayRegion (day), hourRegion (hour), minRegion (minute), secRegion (second)
+     *
+     * - Geographic Granularity: COUNTRY (international level), PROVINCE (provincial level), CITY (city level), XIAN (district/county level), REGION (region)
+     *
      * @example REGION
      *
      * @var string
@@ -35,6 +65,8 @@ class headers extends Model
     public $granularity;
 
     /**
+     * @description Field alias, which serves as the key in the map data rows of the `values` parameter.
+     *
      * @example area
      *
      * @var string
@@ -42,23 +74,25 @@ class headers extends Model
     public $label;
 
     /**
+     * @description Field type, used to distinguish between dimension and measure fields.
+     * - Dimension: dimension
+     * - Measure: measure
+     *
      * @example Dimension
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'aggregator'  => 'Aggregator',
-        'column'      => 'Column',
-        'dataType'    => 'DataType',
+        'aggregator' => 'Aggregator',
+        'column' => 'Column',
+        'dataType' => 'DataType',
         'granularity' => 'Granularity',
-        'label'       => 'Label',
-        'type'        => 'Type',
+        'label' => 'Label',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

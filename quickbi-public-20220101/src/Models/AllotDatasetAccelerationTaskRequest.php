@@ -20,9 +20,7 @@ class AllotDatasetAccelerationTaskRequest extends Model
         'cubeId' => 'CubeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListWorkspaceRoleUsersResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
      * @example D787E1A3-A93C-424A-B626-C2B05DF8D885
      *
      * @var string
@@ -17,11 +19,17 @@ class ListWorkspaceRoleUsersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Returns the list of users under the specified workspace role.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description 是否请求成功。取值范围：
+     * - true：请求成功
+     * - false：请求失败
+     *
      * @example true
      *
      * @var bool
@@ -29,13 +37,11 @@ class ListWorkspaceRoleUsersResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

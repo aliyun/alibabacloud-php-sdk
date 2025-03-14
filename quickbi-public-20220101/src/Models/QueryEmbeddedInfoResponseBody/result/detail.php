@@ -30,13 +30,11 @@ class detail extends Model
     public $report;
     protected $_name = [
         'dashboardOfflineQuery' => 'DashboardOfflineQuery',
-        'page'                  => 'Page',
-        'report'                => 'Report',
+        'page' => 'Page',
+        'report' => 'Report',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

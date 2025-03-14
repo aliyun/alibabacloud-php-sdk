@@ -26,13 +26,11 @@ class result extends Model
     public $values;
     protected $_name = [
         'chartType' => 'ChartType',
-        'metaType'  => 'MetaType',
-        'values'    => 'Values',
+        'metaType' => 'MetaType',
+        'values' => 'Values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class result extends Model
         if (isset($map['MetaType'])) {
             if (!empty($map['MetaType'])) {
                 $model->metaType = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['MetaType'] as $item) {
                     $model->metaType[$n++] = null !== $item ? metaType::fromMap($item) : $item;
                 }
@@ -85,7 +83,7 @@ class result extends Model
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Values'] as $item) {
                     $model->values[$n++] = null !== $item ? values::fromMap($item) : $item;
                 }

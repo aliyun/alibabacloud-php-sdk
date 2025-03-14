@@ -9,7 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryWorkspaceRoleConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Workspace role ID, including predefined roles and custom roles:
+     *
+     * - 25: Workspace Administrator (predefined role)
+     * - 26: Developer (predefined role)
+     * - 27: Analyst (predefined role)
+     * - 30: Viewer (predefined role)
+     * - Custom role: The corresponding role ID for the custom role
+     *
+     * This parameter is required.
      *
      * @example 25
      *
@@ -20,9 +28,7 @@ class QueryWorkspaceRoleConfigRequest extends Model
         'roleId' => 'RoleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

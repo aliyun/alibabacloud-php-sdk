@@ -173,29 +173,27 @@ class result extends Model
      */
     public $workspaceName;
     protected $_name = [
-        'cubeTableList'           => 'CubeTableList',
-        'custimzeSql'             => 'CustimzeSql',
-        'datasetId'               => 'DatasetId',
-        'datasetName'             => 'DatasetName',
-        'dimensionList'           => 'DimensionList',
-        'directory'               => 'Directory',
-        'dsId'                    => 'DsId',
-        'dsName'                  => 'DsName',
-        'dsType'                  => 'DsType',
-        'gmtCreate'               => 'GmtCreate',
-        'gmtModify'               => 'GmtModify',
-        'measureList'             => 'MeasureList',
+        'cubeTableList' => 'CubeTableList',
+        'custimzeSql' => 'CustimzeSql',
+        'datasetId' => 'DatasetId',
+        'datasetName' => 'DatasetName',
+        'dimensionList' => 'DimensionList',
+        'directory' => 'Directory',
+        'dsId' => 'DsId',
+        'dsName' => 'DsName',
+        'dsType' => 'DsType',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModify' => 'GmtModify',
+        'measureList' => 'MeasureList',
         'openOfflineAcceleration' => 'OpenOfflineAcceleration',
-        'ownerId'                 => 'OwnerId',
-        'ownerName'               => 'OwnerName',
-        'rowLevel'                => 'RowLevel',
-        'workspaceId'             => 'WorkspaceId',
-        'workspaceName'           => 'WorkspaceName',
+        'ownerId' => 'OwnerId',
+        'ownerName' => 'OwnerName',
+        'rowLevel' => 'RowLevel',
+        'workspaceId' => 'WorkspaceId',
+        'workspaceName' => 'WorkspaceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -287,7 +285,7 @@ class result extends Model
         if (isset($map['CubeTableList'])) {
             if (!empty($map['CubeTableList'])) {
                 $model->cubeTableList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['CubeTableList'] as $item) {
                     $model->cubeTableList[$n++] = null !== $item ? cubeTableList::fromMap($item) : $item;
                 }
@@ -305,7 +303,7 @@ class result extends Model
         if (isset($map['DimensionList'])) {
             if (!empty($map['DimensionList'])) {
                 $model->dimensionList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['DimensionList'] as $item) {
                     $model->dimensionList[$n++] = null !== $item ? dimensionList::fromMap($item) : $item;
                 }
@@ -332,7 +330,7 @@ class result extends Model
         if (isset($map['MeasureList'])) {
             if (!empty($map['MeasureList'])) {
                 $model->measureList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['MeasureList'] as $item) {
                     $model->measureList[$n++] = null !== $item ? measureList::fromMap($item) : $item;
                 }

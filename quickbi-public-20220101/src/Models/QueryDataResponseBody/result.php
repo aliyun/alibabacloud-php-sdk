@@ -10,28 +10,35 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Column headers.
+     *
      * @var headers[]
      */
     public $headers;
 
     /**
+     * @description The SQL query that was executed.
+     * > The filter conditions in the returned SQL statement include not only the parameters passed through this interface but also the row and column permission configurations.
+     *
+     * @example SELECT COMPANY_T_1_.`area` AS D_AREA_2_, COMPANY_T_1_.`city` AS D_CITY_3_, SUM(COMPANY_T_1_.`profit_amt`) AS D_PROFIT_4_ FROM `quickbi_test`.`company_sales_record_copy` AS COMPANY_T_1_ WHERE COMPANY_T_1_.`area` LIKE \\"%华东%\\" GROUP BY COMPANY_T_1_.`area`, COMPANY_T_1_.`city` HAVING SUM(COMPANY_T_1_.`order_amt`) > 1 LIMIT 0, 10
+     *
      * @var string
      */
     public $sql;
 
     /**
+     * @description The results of the query.
+     *
      * @var mixed[][]
      */
     public $values;
     protected $_name = [
         'headers' => 'Headers',
-        'sql'     => 'Sql',
-        'values'  => 'Values',
+        'sql' => 'Sql',
+        'values' => 'Values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +73,7 @@ class result extends Model
         if (isset($map['Headers'])) {
             if (!empty($map['Headers'])) {
                 $model->headers = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Headers'] as $item) {
                     $model->headers[$n++] = null !== $item ? headers::fromMap($item) : $item;
                 }

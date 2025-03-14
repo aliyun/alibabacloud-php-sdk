@@ -24,6 +24,7 @@ class UpdateUserGroupRequest extends Model
      * @description The ID of the user group.
      *
      * This parameter is required.
+     *
      * @example f5eeb52e-d9c2-4a8b-80e3-47ab55c2****
      *
      * @var string
@@ -43,13 +44,11 @@ class UpdateUserGroupRequest extends Model
     public $userGroupName;
     protected $_name = [
         'userGroupDescription' => 'UserGroupDescription',
-        'userGroupId'          => 'UserGroupId',
-        'userGroupName'        => 'UserGroupName',
+        'userGroupId' => 'UserGroupId',
+        'userGroupName' => 'UserGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

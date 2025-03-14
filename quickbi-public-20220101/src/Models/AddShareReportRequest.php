@@ -15,6 +15,7 @@ class AddShareReportRequest extends Model
      *   3: View and export
      *
      * This parameter is required.
+     *
      * @example 3
      *
      * @var int
@@ -25,6 +26,7 @@ class AddShareReportRequest extends Model
      * @description The validity period of the share. The value is a timestamp in milliseconds.
      *
      * This parameter is required.
+     *
      * @example 1608202110838
      *
      * @var int
@@ -52,6 +54,7 @@ class AddShareReportRequest extends Model
      *   2: organization
      *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -62,22 +65,21 @@ class AddShareReportRequest extends Model
      * @description The ID of the shared work. The works here include BI portal, dashboards, spreadsheets, and self-service access.
      *
      * This parameter is required.
+     *
      * @example 6b407e50-e774-406b-9956-da2425c2****
      *
      * @var string
      */
     public $worksId;
     protected $_name = [
-        'authPoint'   => 'AuthPoint',
-        'expireDate'  => 'ExpireDate',
-        'shareToId'   => 'ShareToId',
+        'authPoint' => 'AuthPoint',
+        'expireDate' => 'ExpireDate',
+        'shareToId' => 'ShareToId',
         'shareToType' => 'ShareToType',
-        'worksId'     => 'WorksId',
+        'worksId' => 'WorksId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

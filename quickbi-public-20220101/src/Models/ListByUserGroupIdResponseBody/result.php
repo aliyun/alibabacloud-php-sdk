@@ -22,12 +22,10 @@ class result extends Model
     public $userGroupModels;
     protected $_name = [
         'failedUserGroupIds' => 'FailedUserGroupIds',
-        'userGroupModels'    => 'UserGroupModels',
+        'userGroupModels' => 'UserGroupModels',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -64,7 +62,7 @@ class result extends Model
         if (isset($map['UserGroupModels'])) {
             if (!empty($map['UserGroupModels'])) {
                 $model->userGroupModels = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['UserGroupModels'] as $item) {
                     $model->userGroupModels[$n++] = null !== $item ? userGroupModels::fromMap($item) : $item;
                 }

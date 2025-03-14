@@ -21,12 +21,10 @@ class AddUserTagMetaRequest extends Model
     public $tagName;
     protected $_name = [
         'tagDescription' => 'TagDescription',
-        'tagName'        => 'TagName',
+        'tagName' => 'TagName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -35,14 +35,12 @@ class dataSource extends Model
      */
     public $dsType;
     protected $_name = [
-        'dsId'   => 'DsId',
+        'dsId' => 'DsId',
         'dsName' => 'DsName',
         'dsType' => 'DsType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
