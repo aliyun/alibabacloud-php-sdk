@@ -22,13 +22,11 @@ class ConfirmDisburseCmd extends Model
      */
     public $purchaseOrderId;
     protected $_name = [
-        'orderId'         => 'orderId',
+        'orderId' => 'orderId',
         'purchaseOrderId' => 'purchaseOrderId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

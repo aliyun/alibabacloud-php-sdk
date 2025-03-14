@@ -83,22 +83,20 @@ class OrderProductResult extends Model
      */
     public $skuTitle;
     protected $_name = [
-        'canSell'       => 'canSell',
-        'features'      => 'features',
-        'message'       => 'message',
-        'price'         => 'price',
-        'productId'     => 'productId',
+        'canSell' => 'canSell',
+        'features' => 'features',
+        'message' => 'message',
+        'price' => 'price',
+        'productId' => 'productId',
         'productPicUrl' => 'productPicUrl',
-        'productTitle'  => 'productTitle',
-        'purchaserId'   => 'purchaserId',
-        'quantity'      => 'quantity',
-        'skuId'         => 'skuId',
-        'skuTitle'      => 'skuTitle',
+        'productTitle' => 'productTitle',
+        'purchaserId' => 'purchaserId',
+        'quantity' => 'quantity',
+        'skuId' => 'skuId',
+        'skuTitle' => 'skuTitle',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

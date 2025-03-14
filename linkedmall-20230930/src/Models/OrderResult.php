@@ -69,20 +69,18 @@ class OrderResult extends Model
      */
     public $requestId;
     protected $_name = [
-        'createDate'        => 'createDate',
-        'distributorId'     => 'distributorId',
-        'logisticsStatus'   => 'logisticsStatus',
-        'orderAmount'       => 'orderAmount',
+        'createDate' => 'createDate',
+        'distributorId' => 'distributorId',
+        'logisticsStatus' => 'logisticsStatus',
+        'orderAmount' => 'orderAmount',
         'orderClosedReason' => 'orderClosedReason',
-        'orderId'           => 'orderId',
-        'orderLineList'     => 'orderLineList',
-        'orderStatus'       => 'orderStatus',
-        'requestId'         => 'requestId',
+        'orderId' => 'orderId',
+        'orderLineList' => 'orderLineList',
+        'orderStatus' => 'orderStatus',
+        'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -153,7 +151,7 @@ class OrderResult extends Model
         if (isset($map['orderLineList'])) {
             if (!empty($map['orderLineList'])) {
                 $model->orderLineList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['orderLineList'] as $item) {
                     $model->orderLineList[$n++] = null !== $item ? OrderLineResult::fromMap($item) : $item;
                 }

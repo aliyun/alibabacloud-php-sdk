@@ -25,12 +25,10 @@ class ProductQuery extends Model
     public $divisionCode;
     protected $_name = [
         'distributorShopId' => 'distributorShopId',
-        'divisionCode'      => 'divisionCode',
+        'divisionCode' => 'divisionCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

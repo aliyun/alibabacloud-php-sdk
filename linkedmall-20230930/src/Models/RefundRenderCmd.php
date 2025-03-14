@@ -36,13 +36,11 @@ class RefundRenderCmd extends Model
     public $orderLineId;
     protected $_name = [
         'bizClaimType' => 'bizClaimType',
-        'goodsStatus'  => 'goodsStatus',
-        'orderLineId'  => 'orderLineId',
+        'goodsStatus' => 'goodsStatus',
+        'orderLineId' => 'orderLineId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

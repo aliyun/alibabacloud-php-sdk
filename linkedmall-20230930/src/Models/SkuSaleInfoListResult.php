@@ -20,13 +20,11 @@ class SkuSaleInfoListResult extends Model
      */
     public $skuSaleInfos;
     protected $_name = [
-        'requestId'    => 'requestId',
+        'requestId' => 'requestId',
         'skuSaleInfos' => 'skuSaleInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -61,7 +59,7 @@ class SkuSaleInfoListResult extends Model
         if (isset($map['skuSaleInfos'])) {
             if (!empty($map['skuSaleInfos'])) {
                 $model->skuSaleInfos = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['skuSaleInfos'] as $item) {
                     $model->skuSaleInfos[$n++] = null !== $item ? SkuSaleInfo::fromMap($item) : $item;
                 }

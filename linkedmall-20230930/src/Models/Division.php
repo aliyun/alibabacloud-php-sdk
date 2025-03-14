@@ -43,16 +43,14 @@ class Division extends Model
      */
     public $pinyin;
     protected $_name = [
-        'divisionCode'  => 'divisionCode',
+        'divisionCode' => 'divisionCode',
         'divisionLevel' => 'divisionLevel',
-        'divisionName'  => 'divisionName',
-        'parentId'      => 'parentId',
-        'pinyin'        => 'pinyin',
+        'divisionName' => 'divisionName',
+        'parentId' => 'parentId',
+        'pinyin' => 'pinyin',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

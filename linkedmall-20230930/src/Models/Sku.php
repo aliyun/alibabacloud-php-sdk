@@ -140,31 +140,29 @@ class Sku extends Model
      */
     public $title;
     protected $_name = [
-        'barcode'              => 'barcode',
-        'canSell'              => 'canSell',
-        'discountRetailPrice'  => 'discountRetailPrice',
-        'divisionCode'         => 'divisionCode',
-        'fuzzyQuantity'        => 'fuzzyQuantity',
-        'markPrice'            => 'markPrice',
-        'picUrl'               => 'picUrl',
-        'platformPrice'        => 'platformPrice',
-        'price'                => 'price',
-        'productId'            => 'productId',
-        'quantity'             => 'quantity',
-        'rankValue'            => 'rankValue',
-        'shopId'               => 'shopId',
-        'skuAlias'             => 'skuAlias',
-        'skuId'                => 'skuId',
-        'skuSpecs'             => 'skuSpecs',
-        'skuSpecsCode'         => 'skuSpecsCode',
-        'skuStatus'            => 'skuStatus',
+        'barcode' => 'barcode',
+        'canSell' => 'canSell',
+        'discountRetailPrice' => 'discountRetailPrice',
+        'divisionCode' => 'divisionCode',
+        'fuzzyQuantity' => 'fuzzyQuantity',
+        'markPrice' => 'markPrice',
+        'picUrl' => 'picUrl',
+        'platformPrice' => 'platformPrice',
+        'price' => 'price',
+        'productId' => 'productId',
+        'quantity' => 'quantity',
+        'rankValue' => 'rankValue',
+        'shopId' => 'shopId',
+        'skuAlias' => 'skuAlias',
+        'skuId' => 'skuId',
+        'skuSpecs' => 'skuSpecs',
+        'skuSpecsCode' => 'skuSpecsCode',
+        'skuStatus' => 'skuStatus',
         'suggestedRetailPrice' => 'suggestedRetailPrice',
-        'title'                => 'title',
+        'title' => 'title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -295,7 +293,7 @@ class Sku extends Model
         if (isset($map['skuSpecs'])) {
             if (!empty($map['skuSpecs'])) {
                 $model->skuSpecs = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['skuSpecs'] as $item) {
                     $model->skuSpecs[$n++] = null !== $item ? SkuSpec::fromMap($item) : $item;
                 }

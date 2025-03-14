@@ -78,25 +78,23 @@ class DistributionSku extends Model
      */
     public $title;
     protected $_name = [
-        'aliasTitle'   => 'aliasTitle',
-        'barCode'      => 'barCode',
+        'aliasTitle' => 'aliasTitle',
+        'barCode' => 'barCode',
         'creditPeriod' => 'creditPeriod',
-        'dxPrice'      => 'dxPrice',
-        'hasCredit'    => 'hasCredit',
-        'hasInvoice'   => 'hasInvoice',
-        'jxPrice'      => 'jxPrice',
-        'picUrl'       => 'picUrl',
-        'quantity'     => 'quantity',
-        'skuId'        => 'skuId',
-        'skuStatus'    => 'skuStatus',
-        'taxCode'      => 'taxCode',
-        'taxRate'      => 'taxRate',
-        'title'        => 'title',
+        'dxPrice' => 'dxPrice',
+        'hasCredit' => 'hasCredit',
+        'hasInvoice' => 'hasInvoice',
+        'jxPrice' => 'jxPrice',
+        'picUrl' => 'picUrl',
+        'quantity' => 'quantity',
+        'skuId' => 'skuId',
+        'skuStatus' => 'skuStatus',
+        'taxCode' => 'taxCode',
+        'taxRate' => 'taxRate',
+        'title' => 'title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

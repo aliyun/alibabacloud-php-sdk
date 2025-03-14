@@ -48,15 +48,13 @@ class ProductPageResult extends Model
     public $total;
     protected $_name = [
         'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
-        'products'   => 'products',
-        'requestId'  => 'requestId',
-        'total'      => 'total',
+        'pageSize' => 'pageSize',
+        'products' => 'products',
+        'requestId' => 'requestId',
+        'total' => 'total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,7 +101,7 @@ class ProductPageResult extends Model
         if (isset($map['products'])) {
             if (!empty($map['products'])) {
                 $model->products = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['products'] as $item) {
                     $model->products[$n++] = null !== $item ? Product::fromMap($item) : $item;
                 }

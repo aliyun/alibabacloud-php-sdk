@@ -21,12 +21,10 @@ class ProductSaleInfoListResult extends Model
     public $requestId;
     protected $_name = [
         'productSaleInfos' => 'productSaleInfos',
-        'requestId'        => 'requestId',
+        'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -58,7 +56,7 @@ class ProductSaleInfoListResult extends Model
         if (isset($map['productSaleInfos'])) {
             if (!empty($map['productSaleInfos'])) {
                 $model->productSaleInfos = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['productSaleInfos'] as $item) {
                     $model->productSaleInfos[$n++] = null !== $item ? ProductSaleInfo::fromMap($item) : $item;
                 }

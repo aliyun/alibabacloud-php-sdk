@@ -23,12 +23,10 @@ class ApplyReason extends Model
     public $reasonTips;
     protected $_name = [
         'reasonTextId' => 'reasonTextId',
-        'reasonTips'   => 'reasonTips',
+        'reasonTips' => 'reasonTips',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

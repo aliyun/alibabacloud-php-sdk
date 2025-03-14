@@ -88,23 +88,21 @@ class ProductSaleInfo extends Model
      */
     public $title;
     protected $_name = [
-        'canSell'       => 'canSell',
-        'divisionCode'  => 'divisionCode',
+        'canSell' => 'canSell',
+        'divisionCode' => 'divisionCode',
         'fuzzyQuantity' => 'fuzzyQuantity',
-        'limitRules'    => 'limitRules',
-        'lmItemId'      => 'lmItemId',
-        'productId'     => 'productId',
+        'limitRules' => 'limitRules',
+        'lmItemId' => 'lmItemId',
+        'productId' => 'productId',
         'productStatus' => 'productStatus',
-        'quantity'      => 'quantity',
-        'requestId'     => 'requestId',
-        'shopId'        => 'shopId',
-        'skus'          => 'skus',
-        'title'         => 'title',
+        'quantity' => 'quantity',
+        'requestId' => 'requestId',
+        'shopId' => 'shopId',
+        'skus' => 'skus',
+        'title' => 'title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -181,7 +179,7 @@ class ProductSaleInfo extends Model
         if (isset($map['limitRules'])) {
             if (!empty($map['limitRules'])) {
                 $model->limitRules = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['limitRules'] as $item) {
                     $model->limitRules[$n++] = null !== $item ? LimitRule::fromMap($item) : $item;
                 }
@@ -208,7 +206,7 @@ class ProductSaleInfo extends Model
         if (isset($map['skus'])) {
             if (!empty($map['skus'])) {
                 $model->skus = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['skus'] as $item) {
                     $model->skus[$n++] = null !== $item ? SkuSaleInfo::fromMap($item) : $item;
                 }

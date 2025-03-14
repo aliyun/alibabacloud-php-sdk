@@ -44,18 +44,16 @@ class Money extends Model
      */
     public $positive;
     protected $_name = [
-        'amount'         => 'amount',
+        'amount' => 'amount',
         'amountAsString' => 'amountAsString',
-        'amountString'   => 'amountString',
-        'cent'           => 'cent',
-        'currency'       => 'currency',
-        'currencyCode'   => 'currencyCode',
-        'positive'       => 'positive',
+        'amountString' => 'amountString',
+        'cent' => 'cent',
+        'currency' => 'currency',
+        'currencyCode' => 'currencyCode',
+        'positive' => 'positive',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

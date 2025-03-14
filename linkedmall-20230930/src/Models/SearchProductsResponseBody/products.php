@@ -67,6 +67,7 @@ class products extends Model
     /**
      * @example 2025-01-02 12:23:34
      * (yyyy-MM-dd HH:mm:ss)
+     *
      * @var string
      */
     public $gmtCreate;
@@ -74,6 +75,7 @@ class products extends Model
     /**
      * @example 2025-01-02 12:23:34
      * (yyyy-MM-dd HH:mm:ss)
+     *
      * @var string
      */
     public $gmtModified;
@@ -88,6 +90,7 @@ class products extends Model
     /**
      * @example 2025-01-02 12:23:34
      * (yyyy-MM-dd HH:mm:ss)
+     *
      * @var string
      */
     public $inGroupTime;
@@ -179,37 +182,35 @@ class products extends Model
      */
     public $tradeMode;
     protected $_name = [
-        'bandName'               => 'bandName',
-        'canNotSellReason'       => 'canNotSellReason',
-        'canSell'                => 'canSell',
-        'categoryChain'          => 'categoryChain',
-        'credit'                 => 'credit',
-        'diffPrice'              => 'diffPrice',
-        'distributionPrice'      => 'distributionPrice',
+        'bandName' => 'bandName',
+        'canNotSellReason' => 'canNotSellReason',
+        'canSell' => 'canSell',
+        'categoryChain' => 'categoryChain',
+        'credit' => 'credit',
+        'diffPrice' => 'diffPrice',
+        'distributionPrice' => 'distributionPrice',
         'distributionPriceRatio' => 'distributionPriceRatio',
-        'externalPlatformType'   => 'externalPlatformType',
-        'gmtCreate'              => 'gmtCreate',
-        'gmtModified'            => 'gmtModified',
-        'inGroup'                => 'inGroup',
-        'inGroupTime'            => 'inGroupTime',
-        'inventoryRiskLevel'     => 'inventoryRiskLevel',
-        'invoiceType'            => 'invoiceType',
-        'lmItemId'               => 'lmItemId',
-        'picUrl'                 => 'picUrl',
-        'platformPrice'          => 'platformPrice',
-        'platformReservePrice'   => 'platformReservePrice',
-        'productId'              => 'productId',
-        'productName'            => 'productName',
-        'shopName'               => 'shopName',
-        'soldQuantity'           => 'soldQuantity',
-        'taxCode'                => 'taxCode',
-        'taxRate'                => 'taxRate',
-        'tradeMode'              => 'tradeMode',
+        'externalPlatformType' => 'externalPlatformType',
+        'gmtCreate' => 'gmtCreate',
+        'gmtModified' => 'gmtModified',
+        'inGroup' => 'inGroup',
+        'inGroupTime' => 'inGroupTime',
+        'inventoryRiskLevel' => 'inventoryRiskLevel',
+        'invoiceType' => 'invoiceType',
+        'lmItemId' => 'lmItemId',
+        'picUrl' => 'picUrl',
+        'platformPrice' => 'platformPrice',
+        'platformReservePrice' => 'platformReservePrice',
+        'productId' => 'productId',
+        'productName' => 'productName',
+        'shopName' => 'shopName',
+        'soldQuantity' => 'soldQuantity',
+        'taxCode' => 'taxCode',
+        'taxRate' => 'taxRate',
+        'tradeMode' => 'tradeMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -322,7 +323,7 @@ class products extends Model
         if (isset($map['categoryChain'])) {
             if (!empty($map['categoryChain'])) {
                 $model->categoryChain = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['categoryChain'] as $item) {
                     $model->categoryChain[$n++] = null !== $item ? categoryChain::fromMap($item) : $item;
                 }

@@ -23,12 +23,10 @@ class PurchaseOrderStatusResult extends Model
     public $status;
     protected $_name = [
         'requestId' => 'requestId',
-        'status'    => 'status',
+        'status' => 'status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

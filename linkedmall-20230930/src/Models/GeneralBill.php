@@ -58,21 +58,19 @@ class GeneralBill extends Model
      */
     public $totalAmount;
     protected $_name = [
-        'billId'      => 'billId',
-        'billPeriod'  => 'billPeriod',
+        'billId' => 'billId',
+        'billPeriod' => 'billPeriod',
         'downloadUrl' => 'downloadUrl',
-        'endTime'     => 'endTime',
-        'gmtCreate'   => 'gmtCreate',
+        'endTime' => 'endTime',
+        'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
-        'shopId'      => 'shopId',
-        'shopName'    => 'shopName',
-        'startTime'   => 'startTime',
+        'shopId' => 'shopId',
+        'shopName' => 'shopName',
+        'startTime' => 'startTime',
         'totalAmount' => 'totalAmount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

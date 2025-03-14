@@ -82,19 +82,17 @@ class RefundOrderCmd extends Model
     public $orderLineId;
     protected $_name = [
         'applyReasonTextId' => 'applyReasonTextId',
-        'applyReasonTips'   => 'applyReasonTips',
-        'applyRefundCount'  => 'applyRefundCount',
-        'applyRefundFee'    => 'applyRefundFee',
-        'bizClaimType'      => 'bizClaimType',
-        'goodsStatus'       => 'goodsStatus',
-        'leaveMessage'      => 'leaveMessage',
+        'applyReasonTips' => 'applyReasonTips',
+        'applyRefundCount' => 'applyRefundCount',
+        'applyRefundFee' => 'applyRefundFee',
+        'bizClaimType' => 'bizClaimType',
+        'goodsStatus' => 'goodsStatus',
+        'leaveMessage' => 'leaveMessage',
         'leavePictureLists' => 'leavePictureLists',
-        'orderLineId'       => 'orderLineId',
+        'orderLineId' => 'orderLineId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -168,7 +166,7 @@ class RefundOrderCmd extends Model
         if (isset($map['leavePictureLists'])) {
             if (!empty($map['leavePictureLists'])) {
                 $model->leavePictureLists = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['leavePictureLists'] as $item) {
                     $model->leavePictureLists[$n++] = null !== $item ? LeavePictureList::fromMap($item) : $item;
                 }

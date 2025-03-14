@@ -16,9 +16,7 @@ class SelectionGroupRemoveProductResponseBody extends Model
         'productIds' => 'productIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

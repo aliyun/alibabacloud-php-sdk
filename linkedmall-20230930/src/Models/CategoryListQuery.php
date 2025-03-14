@@ -20,13 +20,11 @@ class CategoryListQuery extends Model
      */
     public $parentCategoryId;
     protected $_name = [
-        'categoryIds'      => 'categoryIds',
+        'categoryIds' => 'categoryIds',
         'parentCategoryId' => 'parentCategoryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -32,13 +32,11 @@ class ProductSaleInfoListQuery extends Model
     public $purchaserId;
     protected $_name = [
         'divisionCode' => 'divisionCode',
-        'productIds'   => 'productIds',
-        'purchaserId'  => 'purchaserId',
+        'productIds' => 'productIds',
+        'purchaserId' => 'purchaserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

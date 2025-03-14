@@ -38,15 +38,13 @@ class PurchaseOrderRenderQuery extends Model
      */
     public $productList;
     protected $_name = [
-        'buyerId'         => 'buyerId',
+        'buyerId' => 'buyerId',
         'deliveryAddress' => 'deliveryAddress',
-        'extInfo'         => 'extInfo',
-        'productList'     => 'productList',
+        'extInfo' => 'extInfo',
+        'productList' => 'productList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -93,7 +91,7 @@ class PurchaseOrderRenderQuery extends Model
         if (isset($map['productList'])) {
             if (!empty($map['productList'])) {
                 $model->productList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['productList'] as $item) {
                     $model->productList[$n++] = null !== $item ? OrderRenderProductDTO::fromMap($item) : $item;
                 }

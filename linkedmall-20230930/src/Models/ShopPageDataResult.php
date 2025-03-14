@@ -65,18 +65,16 @@ class ShopPageDataResult extends Model
     public $status;
     protected $_name = [
         'cooperationShops' => 'cooperationShops',
-        'endDate'          => 'endDate',
-        'purchaserId'      => 'purchaserId',
-        'shopId'           => 'shopId',
-        'shopName'         => 'shopName',
-        'shopType'         => 'shopType',
-        'startDate'        => 'startDate',
-        'status'           => 'status',
+        'endDate' => 'endDate',
+        'purchaserId' => 'purchaserId',
+        'shopId' => 'shopId',
+        'shopName' => 'shopName',
+        'shopType' => 'shopType',
+        'startDate' => 'startDate',
+        'status' => 'status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -126,7 +124,7 @@ class ShopPageDataResult extends Model
         if (isset($map['cooperationShops'])) {
             if (!empty($map['cooperationShops'])) {
                 $model->cooperationShops = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['cooperationShops'] as $item) {
                     $model->cooperationShops[$n++] = null !== $item ? CooperationShop::fromMap($item) : $item;
                 }

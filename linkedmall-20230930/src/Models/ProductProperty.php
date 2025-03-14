@@ -20,13 +20,11 @@ class ProductProperty extends Model
      */
     public $values;
     protected $_name = [
-        'text'   => 'text',
+        'text' => 'text',
         'values' => 'values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

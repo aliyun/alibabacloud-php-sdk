@@ -39,16 +39,14 @@ class Good extends Model
      */
     public $skuTitle;
     protected $_name = [
-        'goodName'  => 'goodName',
+        'goodName' => 'goodName',
         'productId' => 'productId',
-        'quantity'  => 'quantity',
-        'skuId'     => 'skuId',
-        'skuTitle'  => 'skuTitle',
+        'quantity' => 'quantity',
+        'skuId' => 'skuId',
+        'skuTitle' => 'skuTitle',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

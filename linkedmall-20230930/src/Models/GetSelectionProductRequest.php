@@ -25,12 +25,10 @@ class GetSelectionProductRequest extends Model
     public $purchaserId;
     protected $_name = [
         'divisionCode' => 'divisionCode',
-        'purchaserId'  => 'purchaserId',
+        'purchaserId' => 'purchaserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -79,20 +79,18 @@ class Shop extends Model
     public $status;
     protected $_name = [
         'cooperationShops' => 'cooperationShops',
-        'distributorId'    => 'distributorId',
-        'endDate'          => 'endDate',
-        'purchaserId'      => 'purchaserId',
-        'requestId'        => 'requestId',
-        'shopId'           => 'shopId',
-        'shopName'         => 'shopName',
-        'shopType'         => 'shopType',
-        'startDate'        => 'startDate',
-        'status'           => 'status',
+        'distributorId' => 'distributorId',
+        'endDate' => 'endDate',
+        'purchaserId' => 'purchaserId',
+        'requestId' => 'requestId',
+        'shopId' => 'shopId',
+        'shopName' => 'shopName',
+        'shopType' => 'shopType',
+        'startDate' => 'startDate',
+        'status' => 'status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -148,7 +146,7 @@ class Shop extends Model
         if (isset($map['cooperationShops'])) {
             if (!empty($map['cooperationShops'])) {
                 $model->cooperationShops = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['cooperationShops'] as $item) {
                     $model->cooperationShops[$n++] = null !== $item ? CooperationShop::fromMap($item) : $item;
                 }

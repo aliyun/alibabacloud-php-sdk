@@ -22,13 +22,11 @@ class ShopCreateResult extends Model
      */
     public $shopStatus;
     protected $_name = [
-        'shopId'     => 'shopId',
+        'shopId' => 'shopId',
         'shopStatus' => 'shopStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

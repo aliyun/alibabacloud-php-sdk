@@ -22,13 +22,11 @@ class LeavePictureList extends Model
      */
     public $picture;
     protected $_name = [
-        'desc'    => 'desc',
+        'desc' => 'desc',
         'picture' => 'picture',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

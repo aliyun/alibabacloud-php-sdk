@@ -51,16 +51,14 @@ class ProductDTO extends Model
      */
     public $skuId;
     protected $_name = [
-        'price'       => 'price',
-        'productId'   => 'productId',
+        'price' => 'price',
+        'productId' => 'productId',
         'purchaserId' => 'purchaserId',
-        'quantity'    => 'quantity',
-        'skuId'       => 'skuId',
+        'quantity' => 'quantity',
+        'skuId' => 'skuId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

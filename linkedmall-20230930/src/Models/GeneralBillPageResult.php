@@ -38,15 +38,13 @@ class GeneralBillPageResult extends Model
     public $total;
     protected $_name = [
         'generalBills' => 'generalBills',
-        'pageNumber'   => 'pageNumber',
-        'pageSize'     => 'pageSize',
-        'requestId'    => 'requestId',
-        'total'        => 'total',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
+        'requestId' => 'requestId',
+        'total' => 'total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -87,7 +85,7 @@ class GeneralBillPageResult extends Model
         if (isset($map['generalBills'])) {
             if (!empty($map['generalBills'])) {
                 $model->generalBills = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['generalBills'] as $item) {
                     $model->generalBills[$n++] = null !== $item ? GeneralBill::fromMap($item) : $item;
                 }

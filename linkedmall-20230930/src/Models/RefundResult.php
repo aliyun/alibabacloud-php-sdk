@@ -158,33 +158,31 @@ class RefundResult extends Model
      */
     public $sellerRefuseReason;
     protected $_name = [
-        'applyDisputeDesc'             => 'applyDisputeDesc',
-        'applyReason'                  => 'applyReason',
-        'bizClaimType'                 => 'bizClaimType',
-        'disputeCreateTime'            => 'disputeCreateTime',
-        'disputeDesc'                  => 'disputeDesc',
-        'disputeEndTime'               => 'disputeEndTime',
-        'disputeId'                    => 'disputeId',
-        'disputeStatus'                => 'disputeStatus',
-        'orderId'                      => 'orderId',
-        'orderLineId'                  => 'orderLineId',
-        'orderLogisticsStatus'         => 'orderLogisticsStatus',
-        'refundFee'                    => 'refundFee',
-        'refundFeeData'                => 'refundFeeData',
-        'refunderAddress'              => 'refunderAddress',
-        'refunderName'                 => 'refunderName',
-        'refunderTel'                  => 'refunderTel',
-        'refunderZipCode'              => 'refunderZipCode',
-        'requestId'                    => 'requestId',
-        'returnGoodLogisticsStatus'    => 'returnGoodLogisticsStatus',
-        'sellerAgreeMsg'               => 'sellerAgreeMsg',
+        'applyDisputeDesc' => 'applyDisputeDesc',
+        'applyReason' => 'applyReason',
+        'bizClaimType' => 'bizClaimType',
+        'disputeCreateTime' => 'disputeCreateTime',
+        'disputeDesc' => 'disputeDesc',
+        'disputeEndTime' => 'disputeEndTime',
+        'disputeId' => 'disputeId',
+        'disputeStatus' => 'disputeStatus',
+        'orderId' => 'orderId',
+        'orderLineId' => 'orderLineId',
+        'orderLogisticsStatus' => 'orderLogisticsStatus',
+        'refundFee' => 'refundFee',
+        'refundFeeData' => 'refundFeeData',
+        'refunderAddress' => 'refunderAddress',
+        'refunderName' => 'refunderName',
+        'refunderTel' => 'refunderTel',
+        'refunderZipCode' => 'refunderZipCode',
+        'requestId' => 'requestId',
+        'returnGoodLogisticsStatus' => 'returnGoodLogisticsStatus',
+        'sellerAgreeMsg' => 'sellerAgreeMsg',
         'sellerRefuseAgreementMessage' => 'sellerRefuseAgreementMessage',
-        'sellerRefuseReason'           => 'sellerRefuseReason',
+        'sellerRefuseReason' => 'sellerRefuseReason',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

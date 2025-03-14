@@ -35,14 +35,12 @@ class categoryChain extends Model
     public $parentId;
     protected $_name = [
         'categoryId' => 'categoryId',
-        'level'      => 'level',
-        'name'       => 'name',
-        'parentId'   => 'parentId',
+        'level' => 'level',
+        'name' => 'name',
+        'parentId' => 'parentId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

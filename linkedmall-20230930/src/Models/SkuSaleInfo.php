@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class SkuSaleInfo extends Model
 {
     /**
+     * @example 不可售
+     *
+     * @var string
+     */
+    public $canNotSellReason;
+
+    /**
      * @example true
      *
      * @var bool
@@ -85,26 +92,28 @@ class SkuSaleInfo extends Model
      */
     public $title;
     protected $_name = [
-        'canSell'       => 'canSell',
-        'divisionCode'  => 'divisionCode',
+        'canNotSellReason' => 'canNotSellReason',
+        'canSell' => 'canSell',
+        'divisionCode' => 'divisionCode',
         'fuzzyQuantity' => 'fuzzyQuantity',
-        'markPrice'     => 'markPrice',
-        'price'         => 'price',
-        'productId'     => 'productId',
-        'quantity'      => 'quantity',
-        'shopId'        => 'shopId',
-        'skuId'         => 'skuId',
-        'skuStatus'     => 'skuStatus',
-        'title'         => 'title',
+        'markPrice' => 'markPrice',
+        'price' => 'price',
+        'productId' => 'productId',
+        'quantity' => 'quantity',
+        'shopId' => 'shopId',
+        'skuId' => 'skuId',
+        'skuStatus' => 'skuStatus',
+        'title' => 'title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->canNotSellReason) {
+            $res['canNotSellReason'] = $this->canNotSellReason;
+        }
         if (null !== $this->canSell) {
             $res['canSell'] = $this->canSell;
         }
@@ -150,6 +159,9 @@ class SkuSaleInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['canNotSellReason'])) {
+            $model->canNotSellReason = $map['canNotSellReason'];
+        }
         if (isset($map['canSell'])) {
             $model->canSell = $map['canSell'];
         }

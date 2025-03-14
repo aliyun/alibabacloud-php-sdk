@@ -18,9 +18,7 @@ class ProductPrice extends Model
         'fundAmountMoney' => 'fundAmountMoney',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

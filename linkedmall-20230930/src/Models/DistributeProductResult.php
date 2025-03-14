@@ -23,14 +23,12 @@ class DistributeProductResult extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'code',
-        'message'   => 'message',
+        'code' => 'code',
+        'message' => 'message',
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

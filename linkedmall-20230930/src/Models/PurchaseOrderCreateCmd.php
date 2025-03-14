@@ -45,16 +45,14 @@ class PurchaseOrderCreateCmd extends Model
      */
     public $productList;
     protected $_name = [
-        'buyerId'              => 'buyerId',
-        'deliveryAddress'      => 'deliveryAddress',
-        'extInfo'              => 'extInfo',
+        'buyerId' => 'buyerId',
+        'deliveryAddress' => 'deliveryAddress',
+        'extInfo' => 'extInfo',
         'outerPurchaseOrderId' => 'outerPurchaseOrderId',
-        'productList'          => 'productList',
+        'productList' => 'productList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -107,7 +105,7 @@ class PurchaseOrderCreateCmd extends Model
         if (isset($map['productList'])) {
             if (!empty($map['productList'])) {
                 $model->productList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['productList'] as $item) {
                     $model->productList[$n++] = null !== $item ? ProductDTO::fromMap($item) : $item;
                 }

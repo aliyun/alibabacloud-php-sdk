@@ -20,9 +20,7 @@ class MemberAccountRequest extends Model
         'shopId' => 'shopId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

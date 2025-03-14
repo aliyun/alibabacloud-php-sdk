@@ -28,15 +28,13 @@ class GetDistributionProductResult extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'code',
-        'message'   => 'message',
-        'products'  => 'products',
+        'code' => 'code',
+        'message' => 'message',
+        'products' => 'products',
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -80,7 +78,7 @@ class GetDistributionProductResult extends Model
         if (isset($map['products'])) {
             if (!empty($map['products'])) {
                 $model->products = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['products'] as $item) {
                     $model->products[$n++] = null !== $item ? DistributionProduct::fromMap($item) : $item;
                 }

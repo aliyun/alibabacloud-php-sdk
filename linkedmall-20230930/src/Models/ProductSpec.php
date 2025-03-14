@@ -27,14 +27,12 @@ class ProductSpec extends Model
      */
     public $values;
     protected $_name = [
-        'key'    => 'key',
-        'keyId'  => 'keyId',
+        'key' => 'key',
+        'keyId' => 'keyId',
         'values' => 'values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class ProductSpec extends Model
         if (isset($map['values'])) {
             if (!empty($map['values'])) {
                 $model->values = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['values'] as $item) {
                     $model->values[$n++] = null !== $item ? ProductSpecValue::fromMap($item) : $item;
                 }

@@ -53,20 +53,18 @@ class LogisticsInformationData extends Model
      */
     public $trackingNumber;
     protected $_name = [
-        'logisticsStatus'      => 'logisticsStatus',
-        'modifiedTime'         => 'modifiedTime',
-        'orderId'              => 'orderId',
-        'orderLineId'          => 'orderLineId',
+        'logisticsStatus' => 'logisticsStatus',
+        'modifiedTime' => 'modifiedTime',
+        'orderId' => 'orderId',
+        'orderLineId' => 'orderLineId',
         'outerPurchaseOrderId' => 'outerPurchaseOrderId',
-        'purchaserId'          => 'purchaserId',
-        'trackingCompanyCode'  => 'trackingCompanyCode',
-        'trackingCompanyName'  => 'trackingCompanyName',
-        'trackingNumber'       => 'trackingNumber',
+        'purchaserId' => 'purchaserId',
+        'trackingCompanyCode' => 'trackingCompanyCode',
+        'trackingCompanyName' => 'trackingCompanyName',
+        'trackingNumber' => 'trackingNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

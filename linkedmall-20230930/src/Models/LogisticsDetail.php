@@ -26,9 +26,7 @@ class LogisticsDetail extends Model
         'standerdDesc' => 'standerdDesc',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

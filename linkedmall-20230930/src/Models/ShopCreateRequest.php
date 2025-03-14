@@ -50,15 +50,13 @@ class ShopCreateRequest extends Model
     public $shopName;
     protected $_name = [
         'afterSaleDingTalkId' => 'afterSaleDingTalkId',
-        'description'         => 'description',
-        'operatorDingTalkId'  => 'operatorDingTalkId',
-        'preSaleDingTalkId'   => 'preSaleDingTalkId',
-        'shopName'            => 'shopName',
+        'description' => 'description',
+        'operatorDingTalkId' => 'operatorDingTalkId',
+        'preSaleDingTalkId' => 'preSaleDingTalkId',
+        'shopName' => 'shopName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

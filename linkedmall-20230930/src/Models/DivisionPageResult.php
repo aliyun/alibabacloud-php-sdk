@@ -21,12 +21,10 @@ class DivisionPageResult extends Model
     public $requestId;
     protected $_name = [
         'divisionList' => 'divisionList',
-        'requestId'    => 'requestId',
+        'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -58,7 +56,7 @@ class DivisionPageResult extends Model
         if (isset($map['divisionList'])) {
             if (!empty($map['divisionList'])) {
                 $model->divisionList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['divisionList'] as $item) {
                     $model->divisionList[$n++] = null !== $item ? Division::fromMap($item) : $item;
                 }

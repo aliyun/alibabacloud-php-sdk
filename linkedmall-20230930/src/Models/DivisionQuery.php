@@ -20,9 +20,7 @@ class DivisionQuery extends Model
         'divisionCode' => 'divisionCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,9 +26,7 @@ class DistributionMaxRefundFee extends Model
         'minRefundFee' => 'minRefundFee',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

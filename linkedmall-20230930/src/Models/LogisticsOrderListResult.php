@@ -21,12 +21,10 @@ class LogisticsOrderListResult extends Model
     public $requestId;
     protected $_name = [
         'logisticsOrderList' => 'logisticsOrderList',
-        'requestId'          => 'requestId',
+        'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -58,7 +56,7 @@ class LogisticsOrderListResult extends Model
         if (isset($map['logisticsOrderList'])) {
             if (!empty($map['logisticsOrderList'])) {
                 $model->logisticsOrderList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['logisticsOrderList'] as $item) {
                     $model->logisticsOrderList[$n++] = null !== $item ? LogisticsOrderResult::fromMap($item) : $item;
                 }

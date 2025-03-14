@@ -58,21 +58,19 @@ class GeneralBillPageQuery extends Model
      */
     public $start;
     protected $_name = [
-        'asc'            => 'asc',
-        'billId'         => 'billId',
-        'billPeriod'     => 'billPeriod',
-        'limit'          => 'limit',
-        'orderBy'        => 'orderBy',
+        'asc' => 'asc',
+        'billId' => 'billId',
+        'billPeriod' => 'billPeriod',
+        'limit' => 'limit',
+        'orderBy' => 'orderBy',
         'orderDirection' => 'orderDirection',
-        'pageNumber'     => 'pageNumber',
-        'pageSize'       => 'pageSize',
-        'shopId'         => 'shopId',
-        'start'          => 'start',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
+        'shopId' => 'shopId',
+        'start' => 'start',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

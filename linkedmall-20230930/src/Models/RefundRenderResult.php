@@ -39,16 +39,14 @@ class RefundRenderResult extends Model
      */
     public $requestId;
     protected $_name = [
-        'bizClaimType'     => 'bizClaimType',
+        'bizClaimType' => 'bizClaimType',
         'maxRefundFeeData' => 'maxRefundFeeData',
-        'orderLineId'      => 'orderLineId',
+        'orderLineId' => 'orderLineId',
         'refundReasonList' => 'refundReasonList',
-        'requestId'        => 'requestId',
+        'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class RefundRenderResult extends Model
         if (isset($map['refundReasonList'])) {
             if (!empty($map['refundReasonList'])) {
                 $model->refundReasonList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['refundReasonList'] as $item) {
                     $model->refundReasonList[$n++] = null !== $item ? RefundReason::fromMap($item) : $item;
                 }

@@ -68,23 +68,21 @@ class DistributionProduct extends Model
      */
     public $whiteBackgroundPicUrl;
     protected $_name = [
-        'categoryChain'         => 'categoryChain',
-        'categoryLeafId'        => 'categoryLeafId',
-        'categoryLeafName'      => 'categoryLeafName',
-        'channelCode'           => 'channelCode',
-        'distributeStatus'      => 'distributeStatus',
-        'picUrl'                => 'picUrl',
-        'productId'             => 'productId',
-        'sellerId'              => 'sellerId',
-        'shortTitle'            => 'shortTitle',
-        'skus'                  => 'skus',
-        'title'                 => 'title',
+        'categoryChain' => 'categoryChain',
+        'categoryLeafId' => 'categoryLeafId',
+        'categoryLeafName' => 'categoryLeafName',
+        'channelCode' => 'channelCode',
+        'distributeStatus' => 'distributeStatus',
+        'picUrl' => 'picUrl',
+        'productId' => 'productId',
+        'sellerId' => 'sellerId',
+        'shortTitle' => 'shortTitle',
+        'skus' => 'skus',
+        'title' => 'title',
         'whiteBackgroundPicUrl' => 'whiteBackgroundPicUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -173,7 +171,7 @@ class DistributionProduct extends Model
         if (isset($map['skus'])) {
             if (!empty($map['skus'])) {
                 $model->skus = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['skus'] as $item) {
                     $model->skus[$n++] = null !== $item ? DistributionSku::fromMap($item) : $item;
                 }

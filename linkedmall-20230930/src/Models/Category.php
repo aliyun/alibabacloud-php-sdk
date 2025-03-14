@@ -44,15 +44,13 @@ class Category extends Model
     public $parentId;
     protected $_name = [
         'categoryId' => 'categoryId',
-        'isLeaf'     => 'isLeaf',
-        'level'      => 'level',
-        'name'       => 'name',
-        'parentId'   => 'parentId',
+        'isLeaf' => 'isLeaf',
+        'level' => 'level',
+        'name' => 'name',
+        'parentId' => 'parentId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

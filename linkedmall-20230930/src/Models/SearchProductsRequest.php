@@ -21,6 +21,7 @@ class SearchProductsRequest extends Model
     /**
      * @example 2025-01-02 12:23:34
      * (yyyy-MM-dd HH:mm:ss)
+     *
      * @var string
      */
     public $createEndTime;
@@ -28,6 +29,7 @@ class SearchProductsRequest extends Model
     /**
      * @example 2025-01-02 12:23:34
      * (yyyy-MM-dd HH:mm:ss)
+     *
      * @var string
      */
     public $createStartTime;
@@ -76,6 +78,7 @@ class SearchProductsRequest extends Model
     /**
      * @example 2025-01-02 12:23:34
      * (yyyy-MM-dd HH:mm:ss)
+     *
      * @var string
      */
     public $inGroupEndTime;
@@ -83,6 +86,7 @@ class SearchProductsRequest extends Model
     /**
      * @example 2025-01-02 12:23:34
      * (yyyy-MM-dd HH:mm:ss)
+     *
      * @var string
      */
     public $inGroupStartTime;
@@ -114,6 +118,7 @@ class SearchProductsRequest extends Model
     /**
      * @example 2025-01-02 12:23:34
      * (yyyy-MM-dd HH:mm:ss)
+     *
      * @var string
      */
     public $modifyEndTime;
@@ -121,6 +126,7 @@ class SearchProductsRequest extends Model
     /**
      * @example 2025-01-02 12:23:34
      * (yyyy-MM-dd HH:mm:ss)
+     *
      * @var string
      */
     public $modifyStartTime;
@@ -204,41 +210,39 @@ class SearchProductsRequest extends Model
      */
     public $tradeModeAndCredit;
     protected $_name = [
-        'brandName'                  => 'brandName',
-        'categoryIds'                => 'categoryIds',
-        'createEndTime'              => 'createEndTime',
-        'createStartTime'            => 'createStartTime',
-        'distributionHighPrice'      => 'distributionHighPrice',
+        'brandName' => 'brandName',
+        'categoryIds' => 'categoryIds',
+        'createEndTime' => 'createEndTime',
+        'createStartTime' => 'createStartTime',
+        'distributionHighPrice' => 'distributionHighPrice',
         'distributionHighPriceRatio' => 'distributionHighPriceRatio',
-        'distributionLowPrice'       => 'distributionLowPrice',
-        'distributionLowPriceRatio'  => 'distributionLowPriceRatio',
-        'highMarkPrice'              => 'highMarkPrice',
-        'highPrice'                  => 'highPrice',
-        'inGroup'                    => 'inGroup',
-        'inGroupEndTime'             => 'inGroupEndTime',
-        'inGroupStartTime'           => 'inGroupStartTime',
-        'inventoryRiskLevel'         => 'inventoryRiskLevel',
-        'lmItemId'                   => 'lmItemId',
-        'lowMarkPrice'               => 'lowMarkPrice',
-        'lowPrice'                   => 'lowPrice',
-        'modifyEndTime'              => 'modifyEndTime',
-        'modifyStartTime'            => 'modifyStartTime',
-        'orderBy'                    => 'orderBy',
-        'orderDirection'             => 'orderDirection',
-        'pageNumber'                 => 'pageNumber',
-        'pageSize'                   => 'pageSize',
-        'platform'                   => 'platform',
-        'productId'                  => 'productId',
-        'productName'                => 'productName',
-        'productStatus'              => 'productStatus',
-        'purchaserId'                => 'purchaserId',
-        'taxRate'                    => 'taxRate',
-        'tradeModeAndCredit'         => 'tradeModeAndCredit',
+        'distributionLowPrice' => 'distributionLowPrice',
+        'distributionLowPriceRatio' => 'distributionLowPriceRatio',
+        'highMarkPrice' => 'highMarkPrice',
+        'highPrice' => 'highPrice',
+        'inGroup' => 'inGroup',
+        'inGroupEndTime' => 'inGroupEndTime',
+        'inGroupStartTime' => 'inGroupStartTime',
+        'inventoryRiskLevel' => 'inventoryRiskLevel',
+        'lmItemId' => 'lmItemId',
+        'lowMarkPrice' => 'lowMarkPrice',
+        'lowPrice' => 'lowPrice',
+        'modifyEndTime' => 'modifyEndTime',
+        'modifyStartTime' => 'modifyStartTime',
+        'orderBy' => 'orderBy',
+        'orderDirection' => 'orderDirection',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
+        'platform' => 'platform',
+        'productId' => 'productId',
+        'productName' => 'productName',
+        'productStatus' => 'productStatus',
+        'purchaserId' => 'purchaserId',
+        'taxRate' => 'taxRate',
+        'tradeModeAndCredit' => 'tradeModeAndCredit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

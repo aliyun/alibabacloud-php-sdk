@@ -37,14 +37,12 @@ class DeliveryInfo extends Model
     public $serviceType;
     protected $_name = [
         'displayName' => 'displayName',
-        'id'          => 'id',
-        'postFee'     => 'postFee',
+        'id' => 'id',
+        'postFee' => 'postFee',
         'serviceType' => 'serviceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

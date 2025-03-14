@@ -37,16 +37,14 @@ class OrderRenderResult extends Model
      */
     public $productList;
     protected $_name = [
-        'canSell'          => 'canSell',
+        'canSell' => 'canSell',
         'deliveryInfoList' => 'deliveryInfoList',
-        'extInfo'          => 'extInfo',
-        'message'          => 'message',
-        'productList'      => 'productList',
+        'extInfo' => 'extInfo',
+        'message' => 'message',
+        'productList' => 'productList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -96,7 +94,7 @@ class OrderRenderResult extends Model
         if (isset($map['deliveryInfoList'])) {
             if (!empty($map['deliveryInfoList'])) {
                 $model->deliveryInfoList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['deliveryInfoList'] as $item) {
                     $model->deliveryInfoList[$n++] = null !== $item ? DeliveryInfo::fromMap($item) : $item;
                 }
@@ -111,7 +109,7 @@ class OrderRenderResult extends Model
         if (isset($map['productList'])) {
             if (!empty($map['productList'])) {
                 $model->productList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['productList'] as $item) {
                     $model->productList[$n++] = null !== $item ? OrderProductResult::fromMap($item) : $item;
                 }

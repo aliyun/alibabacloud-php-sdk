@@ -53,18 +53,16 @@ class LogisticsOrderResult extends Model
      */
     public $mailNo;
     protected $_name = [
-        'dataProvider'         => 'dataProvider',
-        'dataProviderTitle'    => 'dataProviderTitle',
-        'goods'                => 'goods',
+        'dataProvider' => 'dataProvider',
+        'dataProviderTitle' => 'dataProviderTitle',
+        'goods' => 'goods',
         'logisticsCompanyCode' => 'logisticsCompanyCode',
         'logisticsCompanyName' => 'logisticsCompanyName',
-        'logisticsDetailList'  => 'logisticsDetailList',
-        'mailNo'               => 'mailNo',
+        'logisticsDetailList' => 'logisticsDetailList',
+        'mailNo' => 'mailNo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -123,7 +121,7 @@ class LogisticsOrderResult extends Model
         if (isset($map['goods'])) {
             if (!empty($map['goods'])) {
                 $model->goods = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['goods'] as $item) {
                     $model->goods[$n++] = null !== $item ? Good::fromMap($item) : $item;
                 }
@@ -138,7 +136,7 @@ class LogisticsOrderResult extends Model
         if (isset($map['logisticsDetailList'])) {
             if (!empty($map['logisticsDetailList'])) {
                 $model->logisticsDetailList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['logisticsDetailList'] as $item) {
                     $model->logisticsDetailList[$n++] = null !== $item ? LogisticsDetail::fromMap($item) : $item;
                 }

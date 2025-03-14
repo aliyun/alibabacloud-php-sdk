@@ -18,9 +18,7 @@ class ShopStatusChangeResult extends Model
         'operate' => 'operate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

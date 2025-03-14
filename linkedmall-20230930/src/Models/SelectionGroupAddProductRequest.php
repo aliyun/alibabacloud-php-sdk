@@ -24,13 +24,11 @@ class SelectionGroupAddProductRequest extends Model
      */
     public $purchaserId;
     protected $_name = [
-        'productIds'  => 'productIds',
+        'productIds' => 'productIds',
         'purchaserId' => 'purchaserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

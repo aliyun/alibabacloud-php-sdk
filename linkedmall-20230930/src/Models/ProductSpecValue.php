@@ -29,14 +29,12 @@ class ProductSpecValue extends Model
      */
     public $valueId;
     protected $_name = [
-        'value'      => 'value',
+        'value' => 'value',
         'valueAlias' => 'valueAlias',
-        'valueId'    => 'valueId',
+        'valueId' => 'valueId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

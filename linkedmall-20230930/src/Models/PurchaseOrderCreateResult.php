@@ -23,12 +23,10 @@ class PurchaseOrderCreateResult extends Model
     public $requestId;
     protected $_name = [
         'purchaseOrderId' => 'purchaseOrderId',
-        'requestId'       => 'requestId',
+        'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

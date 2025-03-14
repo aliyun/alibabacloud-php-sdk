@@ -34,15 +34,13 @@ class LimitRule extends Model
     public $ruleType;
     protected $_name = [
         'beginTime' => 'beginTime',
-        'condcase'  => 'condcase',
-        'endTime'   => 'endTime',
-        'limitNum'  => 'limitNum',
-        'ruleType'  => 'ruleType',
+        'condcase' => 'condcase',
+        'endTime' => 'endTime',
+        'limitNum' => 'limitNum',
+        'ruleType' => 'ruleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,15 +44,13 @@ class OrderRenderProductDTO extends Model
      */
     public $skuId;
     protected $_name = [
-        'productId'   => 'productId',
+        'productId' => 'productId',
         'purchaserId' => 'purchaserId',
-        'quantity'    => 'quantity',
-        'skuId'       => 'skuId',
+        'quantity' => 'quantity',
+        'skuId' => 'skuId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,15 +36,13 @@ class RefundReason extends Model
      */
     public $refundDescRequired;
     protected $_name = [
-        'proofRequired'      => 'proofRequired',
-        'reasonTextId'       => 'reasonTextId',
-        'reasonTips'         => 'reasonTips',
+        'proofRequired' => 'proofRequired',
+        'reasonTextId' => 'reasonTextId',
+        'reasonTips' => 'reasonTips',
         'refundDescRequired' => 'refundDescRequired',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

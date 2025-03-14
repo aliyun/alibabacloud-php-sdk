@@ -43,16 +43,14 @@ class SkuSpec extends Model
      */
     public $valueId;
     protected $_name = [
-        'key'        => 'key',
-        'keyId'      => 'keyId',
-        'value'      => 'value',
+        'key' => 'key',
+        'keyId' => 'keyId',
+        'value' => 'value',
         'valueAlias' => 'valueAlias',
-        'valueId'    => 'valueId',
+        'valueId' => 'valueId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

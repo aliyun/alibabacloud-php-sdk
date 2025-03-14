@@ -35,14 +35,12 @@ class GoodsShippingNoticeCreateCmd extends Model
      */
     public $logisticsNo;
     protected $_name = [
-        'cpCode'      => 'cpCode',
-        'disputeId'   => 'disputeId',
+        'cpCode' => 'cpCode',
+        'disputeId' => 'disputeId',
         'logisticsNo' => 'logisticsNo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

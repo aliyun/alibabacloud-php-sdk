@@ -86,21 +86,19 @@ class OrderLineResult extends Model
     public $skuTitle;
     protected $_name = [
         'logisticsStatus' => 'logisticsStatus',
-        'number'          => 'number',
-        'orderId'         => 'orderId',
-        'orderLineId'     => 'orderLineId',
+        'number' => 'number',
+        'orderId' => 'orderId',
+        'orderLineId' => 'orderLineId',
         'orderLineStatus' => 'orderLineStatus',
-        'payFee'          => 'payFee',
-        'productId'       => 'productId',
-        'productPic'      => 'productPic',
-        'productTitle'    => 'productTitle',
-        'skuId'           => 'skuId',
-        'skuTitle'        => 'skuTitle',
+        'payFee' => 'payFee',
+        'productId' => 'productId',
+        'productPic' => 'productPic',
+        'productTitle' => 'productTitle',
+        'skuId' => 'skuId',
+        'skuTitle' => 'skuTitle',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

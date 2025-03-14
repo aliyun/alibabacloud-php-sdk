@@ -56,17 +56,15 @@ class AddressInfo extends Model
      */
     public $townDivisionCode;
     protected $_name = [
-        'addressDetail'    => 'addressDetail',
-        'addressId'        => 'addressId',
-        'divisionCode'     => 'divisionCode',
-        'receiver'         => 'receiver',
-        'receiverPhone'    => 'receiverPhone',
+        'addressDetail' => 'addressDetail',
+        'addressId' => 'addressId',
+        'divisionCode' => 'divisionCode',
+        'receiver' => 'receiver',
+        'receiverPhone' => 'receiverPhone',
         'townDivisionCode' => 'townDivisionCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

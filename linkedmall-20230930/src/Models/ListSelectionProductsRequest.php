@@ -35,14 +35,12 @@ class ListSelectionProductsRequest extends Model
      */
     public $purchaserId;
     protected $_name = [
-        'pageNumber'  => 'pageNumber',
-        'pageSize'    => 'pageSize',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
         'purchaserId' => 'purchaserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

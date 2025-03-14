@@ -29,12 +29,10 @@ class OrderListResult extends Model
     protected $_name = [
         'orderList' => 'orderList',
         'requestId' => 'requestId',
-        'total'     => 'total',
+        'total' => 'total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -69,7 +67,7 @@ class OrderListResult extends Model
         if (isset($map['orderList'])) {
             if (!empty($map['orderList'])) {
                 $model->orderList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['orderList'] as $item) {
                     $model->orderList[$n++] = null !== $item ? OrderResult::fromMap($item) : $item;
                 }

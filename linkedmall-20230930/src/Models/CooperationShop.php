@@ -24,13 +24,11 @@ class CooperationShop extends Model
     public $shopId;
     protected $_name = [
         'cooperationCompanyId' => 'cooperationCompanyId',
-        'cooperationShopId'    => 'cooperationShopId',
-        'shopId'               => 'shopId',
+        'cooperationShopId' => 'cooperationShopId',
+        'shopId' => 'shopId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

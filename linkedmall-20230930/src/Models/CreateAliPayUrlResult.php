@@ -23,14 +23,12 @@ class CreateAliPayUrlResult extends Model
      */
     public $zftWithholdSignUrl;
     protected $_name = [
-        'accountId'          => 'accountId',
-        'memberId'           => 'memberId',
+        'accountId' => 'accountId',
+        'memberId' => 'memberId',
         'zftWithholdSignUrl' => 'zftWithholdSignUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

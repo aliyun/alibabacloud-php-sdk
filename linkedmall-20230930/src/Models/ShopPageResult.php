@@ -28,13 +28,11 @@ class ShopPageResult extends Model
     public $total;
     protected $_name = [
         'requestId' => 'requestId',
-        'shopList'  => 'shopList',
-        'total'     => 'total',
+        'shopList' => 'shopList',
+        'total' => 'total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -72,7 +70,7 @@ class ShopPageResult extends Model
         if (isset($map['shopList'])) {
             if (!empty($map['shopList'])) {
                 $model->shopList = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['shopList'] as $item) {
                     $model->shopList[$n++] = null !== $item ? ShopPageDataResult::fromMap($item) : $item;
                 }

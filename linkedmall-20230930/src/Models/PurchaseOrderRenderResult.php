@@ -49,18 +49,16 @@ class PurchaseOrderRenderResult extends Model
      */
     public $unsellableOrderList;
     protected $_name = [
-        'addressList'         => 'addressList',
-        'canSell'             => 'canSell',
-        'extInfo'             => 'extInfo',
-        'message'             => 'message',
-        'orderList'           => 'orderList',
-        'requestId'           => 'requestId',
+        'addressList' => 'addressList',
+        'canSell' => 'canSell',
+        'extInfo' => 'extInfo',
+        'message' => 'message',
+        'orderList' => 'orderList',
+        'requestId' => 'requestId',
         'unsellableOrderList' => 'unsellableOrderList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -119,7 +117,7 @@ class PurchaseOrderRenderResult extends Model
         if (isset($map['addressList'])) {
             if (!empty($map['addressList'])) {
                 $model->addressList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['addressList'] as $item) {
                     $model->addressList[$n++] = null !== $item ? AddressInfo::fromMap($item) : $item;
                 }
@@ -137,7 +135,7 @@ class PurchaseOrderRenderResult extends Model
         if (isset($map['orderList'])) {
             if (!empty($map['orderList'])) {
                 $model->orderList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['orderList'] as $item) {
                     $model->orderList[$n++] = null !== $item ? OrderRenderResult::fromMap($item) : $item;
                 }
@@ -149,7 +147,7 @@ class PurchaseOrderRenderResult extends Model
         if (isset($map['unsellableOrderList'])) {
             if (!empty($map['unsellableOrderList'])) {
                 $model->unsellableOrderList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['unsellableOrderList'] as $item) {
                     $model->unsellableOrderList[$n++] = null !== $item ? OrderRenderResult::fromMap($item) : $item;
                 }

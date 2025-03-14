@@ -23,12 +23,10 @@ class MemberAccountResult extends Model
     public $shopId;
     protected $_name = [
         'accountNo' => 'accountNo',
-        'shopId'    => 'shopId',
+        'shopId' => 'shopId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

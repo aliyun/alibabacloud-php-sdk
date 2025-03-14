@@ -38,15 +38,13 @@ class OrderPageQuery extends Model
      */
     public $purchaseOrderId;
     protected $_name = [
-        'orderIdList'     => 'orderIdList',
-        'pageNumber'      => 'pageNumber',
-        'pageSize'        => 'pageSize',
+        'orderIdList' => 'orderIdList',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
         'purchaseOrderId' => 'purchaseOrderId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

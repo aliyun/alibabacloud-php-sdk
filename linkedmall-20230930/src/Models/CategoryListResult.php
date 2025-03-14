@@ -19,12 +19,10 @@ class CategoryListResult extends Model
     public $requestId;
     protected $_name = [
         'categories' => 'categories',
-        'requestId'  => 'requestId',
+        'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -56,7 +54,7 @@ class CategoryListResult extends Model
         if (isset($map['categories'])) {
             if (!empty($map['categories'])) {
                 $model->categories = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['categories'] as $item) {
                     $model->categories[$n++] = null !== $item ? Category::fromMap($item) : $item;
                 }

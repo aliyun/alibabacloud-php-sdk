@@ -31,14 +31,12 @@ class SkuSaleInfoListQuery extends Model
      */
     public $skuQueryParams;
     protected $_name = [
-        'divisionCode'   => 'divisionCode',
-        'purchaserId'    => 'purchaserId',
+        'divisionCode' => 'divisionCode',
+        'purchaserId' => 'purchaserId',
         'skuQueryParams' => 'skuQueryParams',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class SkuSaleInfoListQuery extends Model
         if (isset($map['skuQueryParams'])) {
             if (!empty($map['skuQueryParams'])) {
                 $model->skuQueryParams = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['skuQueryParams'] as $item) {
                     $model->skuQueryParams[$n++] = null !== $item ? SkuQueryParam::fromMap($item) : $item;
                 }

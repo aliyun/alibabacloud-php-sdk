@@ -35,16 +35,14 @@ class StopDistributionCommand extends Model
      */
     public $requestUser;
     protected $_name = [
-        'lmShopId'    => 'lmShopId',
-        'productId'   => 'productId',
-        'requestId'   => 'requestId',
+        'lmShopId' => 'lmShopId',
+        'productId' => 'productId',
+        'requestId' => 'requestId',
         'requestTime' => 'requestTime',
         'requestUser' => 'requestUser',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

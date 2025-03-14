@@ -174,37 +174,35 @@ class Product extends Model
      */
     public $title;
     protected $_name = [
-        'brandName'        => 'brandName',
-        'canSell'          => 'canSell',
-        'categoryChain'    => 'categoryChain',
-        'categoryLeafId'   => 'categoryLeafId',
-        'descPath'         => 'descPath',
-        'divisionCode'     => 'divisionCode',
+        'brandName' => 'brandName',
+        'canSell' => 'canSell',
+        'categoryChain' => 'categoryChain',
+        'categoryLeafId' => 'categoryLeafId',
+        'descPath' => 'descPath',
+        'divisionCode' => 'divisionCode',
         'extendProperties' => 'extendProperties',
-        'fuzzyQuantity'    => 'fuzzyQuantity',
-        'images'           => 'images',
-        'inGroup'          => 'inGroup',
-        'limitRules'       => 'limitRules',
-        'lmItemId'         => 'lmItemId',
-        'picUrl'           => 'picUrl',
-        'productId'        => 'productId',
-        'productSpecs'     => 'productSpecs',
-        'productStatus'    => 'productStatus',
-        'productType'      => 'productType',
-        'properties'       => 'properties',
-        'quantity'         => 'quantity',
-        'requestId'        => 'requestId',
-        'shopId'           => 'shopId',
-        'skus'             => 'skus',
-        'soldQuantity'     => 'soldQuantity',
-        'taxCode'          => 'taxCode',
-        'taxRate'          => 'taxRate',
-        'title'            => 'title',
+        'fuzzyQuantity' => 'fuzzyQuantity',
+        'images' => 'images',
+        'inGroup' => 'inGroup',
+        'limitRules' => 'limitRules',
+        'lmItemId' => 'lmItemId',
+        'picUrl' => 'picUrl',
+        'productId' => 'productId',
+        'productSpecs' => 'productSpecs',
+        'productStatus' => 'productStatus',
+        'productType' => 'productType',
+        'properties' => 'properties',
+        'quantity' => 'quantity',
+        'requestId' => 'requestId',
+        'shopId' => 'shopId',
+        'skus' => 'skus',
+        'soldQuantity' => 'soldQuantity',
+        'taxCode' => 'taxCode',
+        'taxRate' => 'taxRate',
+        'title' => 'title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -344,7 +342,7 @@ class Product extends Model
         if (isset($map['categoryChain'])) {
             if (!empty($map['categoryChain'])) {
                 $model->categoryChain = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['categoryChain'] as $item) {
                     $model->categoryChain[$n++] = null !== $item ? Category::fromMap($item) : $item;
                 }
@@ -362,7 +360,7 @@ class Product extends Model
         if (isset($map['extendProperties'])) {
             if (!empty($map['extendProperties'])) {
                 $model->extendProperties = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['extendProperties'] as $item) {
                     $model->extendProperties[$n++] = null !== $item ? ProductExtendProperty::fromMap($item) : $item;
                 }
@@ -382,7 +380,7 @@ class Product extends Model
         if (isset($map['limitRules'])) {
             if (!empty($map['limitRules'])) {
                 $model->limitRules = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['limitRules'] as $item) {
                     $model->limitRules[$n++] = null !== $item ? LimitRule::fromMap($item) : $item;
                 }
@@ -400,7 +398,7 @@ class Product extends Model
         if (isset($map['productSpecs'])) {
             if (!empty($map['productSpecs'])) {
                 $model->productSpecs = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['productSpecs'] as $item) {
                     $model->productSpecs[$n++] = null !== $item ? ProductSpec::fromMap($item) : $item;
                 }
@@ -415,7 +413,7 @@ class Product extends Model
         if (isset($map['properties'])) {
             if (!empty($map['properties'])) {
                 $model->properties = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['properties'] as $item) {
                     $model->properties[$n++] = null !== $item ? ProductProperty::fromMap($item) : $item;
                 }
@@ -433,7 +431,7 @@ class Product extends Model
         if (isset($map['skus'])) {
             if (!empty($map['skus'])) {
                 $model->skus = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['skus'] as $item) {
                     $model->skus[$n++] = null !== $item ? Sku::fromMap($item) : $item;
                 }

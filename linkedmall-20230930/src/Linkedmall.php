@@ -62,61 +62,61 @@ class Linkedmall extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-hangzhou'                 => 'linkedmall.aliyuncs.com',
-            'cn-shanghai'                 => 'linkedmall.aliyuncs.com',
-            'ap-northeast-1'              => 'linkedmall.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'linkedmall.aliyuncs.com',
-            'ap-south-1'                  => 'linkedmall.aliyuncs.com',
-            'ap-southeast-1'              => 'linkedmall.aliyuncs.com',
-            'ap-southeast-2'              => 'linkedmall.aliyuncs.com',
-            'ap-southeast-3'              => 'linkedmall.aliyuncs.com',
-            'ap-southeast-5'              => 'linkedmall.aliyuncs.com',
-            'cn-beijing'                  => 'linkedmall.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'linkedmall.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'linkedmall.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'linkedmall.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'linkedmall.aliyuncs.com',
-            'cn-chengdu'                  => 'linkedmall.aliyuncs.com',
-            'cn-edge-1'                   => 'linkedmall.aliyuncs.com',
-            'cn-fujian'                   => 'linkedmall.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'linkedmall.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'linkedmall.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'linkedmall.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-hangzhou' => 'linkedmall.aliyuncs.com',
+            'cn-shanghai' => 'linkedmall.aliyuncs.com',
+            'ap-northeast-1' => 'linkedmall.aliyuncs.com',
+            'ap-northeast-2-pop' => 'linkedmall.aliyuncs.com',
+            'ap-south-1' => 'linkedmall.aliyuncs.com',
+            'ap-southeast-1' => 'linkedmall.aliyuncs.com',
+            'ap-southeast-2' => 'linkedmall.aliyuncs.com',
+            'ap-southeast-3' => 'linkedmall.aliyuncs.com',
+            'ap-southeast-5' => 'linkedmall.aliyuncs.com',
+            'cn-beijing' => 'linkedmall.aliyuncs.com',
+            'cn-beijing-finance-1' => 'linkedmall.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'linkedmall.aliyuncs.com',
+            'cn-beijing-gov-1' => 'linkedmall.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'linkedmall.aliyuncs.com',
+            'cn-chengdu' => 'linkedmall.aliyuncs.com',
+            'cn-edge-1' => 'linkedmall.aliyuncs.com',
+            'cn-fujian' => 'linkedmall.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'linkedmall.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'linkedmall.aliyuncs.com',
+            'cn-hangzhou-finance' => 'linkedmall.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'linkedmall.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'linkedmall.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'linkedmall.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'linkedmall.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'linkedmall.aliyuncs.com',
-            'cn-hongkong'                 => 'linkedmall.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'linkedmall.aliyuncs.com',
-            'cn-huhehaote'                => 'linkedmall.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'linkedmall.aliyuncs.com',
-            'cn-qingdao'                  => 'linkedmall.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'linkedmall.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'linkedmall.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'linkedmall.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'linkedmall.aliyuncs.com',
-            'cn-shanghai-inner'           => 'linkedmall.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'linkedmall.aliyuncs.com',
+            'cn-hongkong' => 'linkedmall.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'linkedmall.aliyuncs.com',
+            'cn-huhehaote' => 'linkedmall.aliyuncs.com',
+            'cn-north-2-gov-1' => 'linkedmall.aliyuncs.com',
+            'cn-qingdao' => 'linkedmall.aliyuncs.com',
+            'cn-qingdao-nebula' => 'linkedmall.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'linkedmall.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'linkedmall.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'linkedmall.aliyuncs.com',
+            'cn-shanghai-inner' => 'linkedmall.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'linkedmall.aliyuncs.com',
-            'cn-shenzhen'                 => 'linkedmall.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'linkedmall.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'linkedmall.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'linkedmall.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'linkedmall.aliyuncs.com',
-            'cn-wuhan'                    => 'linkedmall.aliyuncs.com',
-            'cn-yushanfang'               => 'linkedmall.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'linkedmall.aliyuncs.com',
-            'cn-zhangjiakou'              => 'linkedmall.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'linkedmall.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'linkedmall.aliyuncs.com',
-            'eu-central-1'                => 'linkedmall.aliyuncs.com',
-            'eu-west-1'                   => 'linkedmall.aliyuncs.com',
-            'eu-west-1-oxs'               => 'linkedmall.aliyuncs.com',
-            'me-east-1'                   => 'linkedmall.aliyuncs.com',
-            'rus-west-1-pop'              => 'linkedmall.aliyuncs.com',
-            'us-east-1'                   => 'linkedmall.aliyuncs.com',
-            'us-west-1'                   => 'linkedmall.aliyuncs.com',
+            'cn-shenzhen' => 'linkedmall.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'linkedmall.aliyuncs.com',
+            'cn-shenzhen-inner' => 'linkedmall.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'linkedmall.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'linkedmall.aliyuncs.com',
+            'cn-wuhan' => 'linkedmall.aliyuncs.com',
+            'cn-yushanfang' => 'linkedmall.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'linkedmall.aliyuncs.com',
+            'cn-zhangjiakou' => 'linkedmall.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'linkedmall.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'linkedmall.aliyuncs.com',
+            'eu-central-1' => 'linkedmall.aliyuncs.com',
+            'eu-west-1' => 'linkedmall.aliyuncs.com',
+            'eu-west-1-oxs' => 'linkedmall.aliyuncs.com',
+            'me-east-1' => 'linkedmall.aliyuncs.com',
+            'rus-west-1-pop' => 'linkedmall.aliyuncs.com',
+            'us-east-1' => 'linkedmall.aliyuncs.com',
+            'us-west-1' => 'linkedmall.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('linkedmall', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -160,15 +160,15 @@ class Linkedmall extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'CancelRefundOrder',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/' . OpenApiUtilClient::getEncodeParam($disputeId) . '/commands/cancel',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CancelRefundOrder',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/' . OpenApiUtilClient::getEncodeParam($disputeId) . '/commands/cancel',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -206,18 +206,18 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'ConfirmDisburse',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/commands/confirmDisburse',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ConfirmDisburse',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/commands/confirmDisburse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ConfirmDisburseResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -255,18 +255,18 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateGoodsShippingNotice',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/command/createGoodsShippingNotice',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateGoodsShippingNotice',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/command/createGoodsShippingNotice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateGoodsShippingNoticeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -304,18 +304,18 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreatePurchaseOrder',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreatePurchaseOrder',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreatePurchaseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -353,18 +353,18 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateRefundOrder',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateRefundOrder',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -403,15 +403,15 @@ class Linkedmall extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetOrder',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/' . OpenApiUtilClient::getEncodeParam($orderId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetOrder',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/' . OpenApiUtilClient::getEncodeParam($orderId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -450,15 +450,15 @@ class Linkedmall extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetPurchaseOrderStatus',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/' . OpenApiUtilClient::getEncodeParam($purchaseOrderId) . '/status',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetPurchaseOrderStatus',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/' . OpenApiUtilClient::getEncodeParam($purchaseOrderId) . '/status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetPurchaseOrderStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -497,15 +497,15 @@ class Linkedmall extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetPurchaserShop',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaserShops/' . OpenApiUtilClient::getEncodeParam($purchaserId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetPurchaserShop',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaserShops/' . OpenApiUtilClient::getEncodeParam($purchaserId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetPurchaserShopResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -544,15 +544,15 @@ class Linkedmall extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetRefundOrder',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/' . OpenApiUtilClient::getEncodeParam($disputeId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetRefundOrder',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/' . OpenApiUtilClient::getEncodeParam($disputeId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -598,18 +598,18 @@ class Linkedmall extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSelectionProduct',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/' . OpenApiUtilClient::getEncodeParam($productId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSelectionProduct',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/' . OpenApiUtilClient::getEncodeParam($productId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetSelectionProductResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -656,18 +656,18 @@ class Linkedmall extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSelectionProductSaleInfo',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/' . OpenApiUtilClient::getEncodeParam($productId) . '/saleInfo',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSelectionProductSaleInfo',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/' . OpenApiUtilClient::getEncodeParam($productId) . '/saleInfo',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetSelectionProductSaleInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -706,18 +706,18 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'ListCategories',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/categories/commands/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListCategories',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/categories/commands/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -756,15 +756,15 @@ class Linkedmall extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListLogisticsOrders',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/' . OpenApiUtilClient::getEncodeParam($orderId) . '/logisticsOrders',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListLogisticsOrders',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/' . OpenApiUtilClient::getEncodeParam($orderId) . '/logisticsOrders',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListLogisticsOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -809,18 +809,18 @@ class Linkedmall extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPurchaserShops',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaserShops',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListPurchaserShops',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaserShops',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListPurchaserShopsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -858,18 +858,18 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'ListSelectionProductSaleInfos',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/saleInfo/commands/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSelectionProductSaleInfos',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/saleInfo/commands/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListSelectionProductSaleInfosResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -917,18 +917,18 @@ class Linkedmall extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSelectionProducts',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSelectionProducts',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListSelectionProductsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -966,18 +966,18 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'ListSelectionSkuSaleInfos',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/skus/saleInfo/commands/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSelectionSkuSaleInfos',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/skus/saleInfo/commands/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListSelectionSkuSaleInfosResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1015,18 +1015,18 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'QueryChildDivisionCode',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/division/commands/queryChildDivisionCode',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryChildDivisionCode',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/division/commands/queryChildDivisionCode',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return QueryChildDivisionCodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1064,18 +1064,18 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'QueryOrders',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/commands/query',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryOrders',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/commands/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return QueryOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1113,18 +1113,18 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'RenderPurchaseOrder',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/commands/render',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RenderPurchaseOrder',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/commands/render',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RenderPurchaseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1162,18 +1162,18 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'RenderRefundOrder',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/commands/render',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RenderRefundOrder',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/commands/render',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RenderRefundOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1302,18 +1302,18 @@ class Linkedmall extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchProducts',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/selection-group/product/command/searchProduct',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchProducts',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/selection-group/product/command/searchProduct',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SearchProductsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1358,18 +1358,18 @@ class Linkedmall extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SelectionGroupAddProduct',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/selection-group/product/command/addProduct',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SelectionGroupAddProduct',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/selection-group/product/command/addProduct',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SelectionGroupAddProductResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1414,18 +1414,18 @@ class Linkedmall extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SelectionGroupRemoveProduct',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/selection-group/product/command/removeProduct',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SelectionGroupRemoveProduct',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/selection-group/product/command/removeProduct',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SelectionGroupRemoveProductResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1463,18 +1463,18 @@ class Linkedmall extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'SplitPurchaseOrder',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/commands/split',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SplitPurchaseOrder',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/commands/split',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SplitPurchaseOrderResponse::fromMap($this->callApi($params, $req, $runtime));

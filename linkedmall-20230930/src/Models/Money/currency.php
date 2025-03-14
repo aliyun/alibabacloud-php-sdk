@@ -33,16 +33,14 @@ class currency extends Model
      */
     public $symbol;
     protected $_name = [
-        'currencyCode'          => 'currencyCode',
+        'currencyCode' => 'currencyCode',
         'defaultFractionDigits' => 'defaultFractionDigits',
-        'displayName'           => 'displayName',
-        'numericCode'           => 'numericCode',
-        'symbol'                => 'symbol',
+        'displayName' => 'displayName',
+        'numericCode' => 'numericCode',
+        'symbol' => 'symbol',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -35,16 +35,14 @@ class DistributeProductCommand extends Model
      */
     public $requestUser;
     protected $_name = [
-        'lmShopId'    => 'lmShopId',
-        'products'    => 'products',
-        'requestId'   => 'requestId',
+        'lmShopId' => 'lmShopId',
+        'products' => 'products',
+        'requestId' => 'requestId',
         'requestTime' => 'requestTime',
         'requestUser' => 'requestUser',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -88,7 +86,7 @@ class DistributeProductCommand extends Model
         if (isset($map['products'])) {
             if (!empty($map['products'])) {
                 $model->products = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['products'] as $item) {
                     $model->products[$n++] = null !== $item ? DistributionProduct::fromMap($item) : $item;
                 }

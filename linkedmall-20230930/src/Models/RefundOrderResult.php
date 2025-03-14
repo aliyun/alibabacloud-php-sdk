@@ -36,15 +36,13 @@ class RefundOrderResult extends Model
      */
     public $requestId;
     protected $_name = [
-        'disputeId'     => 'disputeId',
+        'disputeId' => 'disputeId',
         'disputeStatus' => 'disputeStatus',
-        'orderLineId'   => 'orderLineId',
-        'requestId'     => 'requestId',
+        'orderLineId' => 'orderLineId',
+        'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
