@@ -35,15 +35,13 @@ class publicMediaInfos extends Model
      */
     public $remainingAuthTime;
     protected $_name = [
-        'authorized'        => 'Authorized',
-        'favorite'          => 'Favorite',
-        'mediaInfo'         => 'MediaInfo',
+        'authorized' => 'Authorized',
+        'favorite' => 'Favorite',
+        'mediaInfo' => 'MediaInfo',
         'remainingAuthTime' => 'RemainingAuthTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

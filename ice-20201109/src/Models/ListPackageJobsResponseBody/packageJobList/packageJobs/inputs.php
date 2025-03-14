@@ -19,9 +19,7 @@ class inputs extends Model
         'input' => 'Input',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class CreateDNADBResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'DBInfo'    => 'DBInfo',
+        'DBInfo' => 'DBInfo',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

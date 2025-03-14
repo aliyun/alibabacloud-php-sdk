@@ -12,6 +12,7 @@ class ListAIAgentInstanceRequest extends Model
      * @description The ID of the AI agent.
      *
      * This parameter is required.
+     *
      * @example 39f8e0bc005e4f309379701645f4***
      *
      * @var string
@@ -54,16 +55,14 @@ class ListAIAgentInstanceRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'AIAgentId'  => 'AIAgentId',
-        'endTime'    => 'EndTime',
+        'AIAgentId' => 'AIAgentId',
+        'endTime' => 'EndTime',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

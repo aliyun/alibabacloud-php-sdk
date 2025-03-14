@@ -62,23 +62,22 @@ class audioSettings extends Model
      * @description The name of the audio settings. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example audio1
      *
      * @var string
      */
     public $name;
     protected $_name = [
-        'audioCodec'        => 'AudioCodec',
+        'audioCodec' => 'AudioCodec',
         'audioCodecSetting' => 'AudioCodecSetting',
         'audioSelectorName' => 'AudioSelectorName',
-        'languageCode'      => 'LanguageCode',
-        'languageName'      => 'LanguageName',
-        'name'              => 'Name',
+        'languageCode' => 'LanguageCode',
+        'languageName' => 'LanguageName',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

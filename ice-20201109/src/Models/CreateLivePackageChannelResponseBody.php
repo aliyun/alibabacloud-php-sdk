@@ -26,12 +26,10 @@ class CreateLivePackageChannelResponseBody extends Model
     public $requestId;
     protected $_name = [
         'livePackageChannel' => 'LivePackageChannel',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

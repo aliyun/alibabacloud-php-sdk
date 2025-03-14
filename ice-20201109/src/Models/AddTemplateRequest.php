@@ -59,6 +59,7 @@ class AddTemplateRequest extends Model
      *   WebSDK
      *
      * <!---->
+     *
      * @example OpenAPI
      *
      * @var string
@@ -76,6 +77,7 @@ class AddTemplateRequest extends Model
      *   ProcessFailed: Failed to process the advanced template.
      *
      * <!---->
+     *
      * @example Available
      *
      * @var string
@@ -89,25 +91,24 @@ class AddTemplateRequest extends Model
      *   VETemplate: an advanced template created using effects of Adobe After Effects (AE). It can be used to produce complex animations and advanced media effects.
      *
      * <!---->
+     *
      * @example Timeline
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'config'          => 'Config',
-        'coverUrl'        => 'CoverUrl',
-        'name'            => 'Name',
-        'previewMedia'    => 'PreviewMedia',
+        'config' => 'Config',
+        'coverUrl' => 'CoverUrl',
+        'name' => 'Name',
+        'previewMedia' => 'PreviewMedia',
         'relatedMediaids' => 'RelatedMediaids',
-        'source'          => 'Source',
-        'status'          => 'Status',
-        'type'            => 'Type',
+        'source' => 'Source',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

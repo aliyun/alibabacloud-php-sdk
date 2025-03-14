@@ -30,6 +30,7 @@ class inputGroup extends Model
      *   If Type is set to Media, set this parameter to the ID of a media asset.
      *
      * This parameter is required.
+     *
      * @example oss://bucket/path/to/video.mp4
      *
      * @var string
@@ -43,6 +44,7 @@ class inputGroup extends Model
      *   Media: a media asset.
      *
      * This parameter is required.
+     *
      * @example OSS
      *
      * @var string
@@ -50,13 +52,11 @@ class inputGroup extends Model
     public $type;
     protected $_name = [
         'inputUrl' => 'InputUrl',
-        'media'    => 'Media',
-        'type'     => 'Type',
+        'media' => 'Media',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,9 +18,7 @@ class GetPublicMediaInfoRequest extends Model
         'mediaId' => 'MediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

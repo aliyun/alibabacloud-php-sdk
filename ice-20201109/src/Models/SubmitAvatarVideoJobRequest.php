@@ -26,6 +26,7 @@ class SubmitAvatarVideoJobRequest extends Model
      * @description The input configurations of the video rendering job for an avatar. You can specify text, the Object Storage Service (OSS) URL of an audio file, or the ID of a media asset. The audio file must be in the MP3 or WAV format.
      *
      * >  The text must be at least five words in length.
+     *
      * @var string
      */
     public $inputConfig;
@@ -51,17 +52,15 @@ class SubmitAvatarVideoJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'description'   => 'Description',
+        'description' => 'Description',
         'editingConfig' => 'EditingConfig',
-        'inputConfig'   => 'InputConfig',
-        'outputConfig'  => 'OutputConfig',
-        'title'         => 'Title',
-        'userData'      => 'UserData',
+        'inputConfig' => 'InputConfig',
+        'outputConfig' => 'OutputConfig',
+        'title' => 'Title',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,7 +30,17 @@ class editingBatchJobList extends Model
      * @description The editing configurations. For more information, see [EditingConfig](~~2692547#1be9bba03b7qu~~).
      *
      * @example {
+     * "MediaConfig": {
+     * "Volume": 0
+     * },
+     * "SpeechConfig": {
+     * "Volume": 1
+     * },
+     * "BackgroundMusicConfig": {
+     * "Volume": 0.3
      * }
+     * }
+     *
      * @var string
      */
     public $editingConfig;
@@ -87,7 +97,14 @@ class editingBatchJobList extends Model
      * @description The output configurations. For more information, see [OutputConfig](~~2692547#447b928fcbuoa~~).
      *
      * @example {
+     * "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
+     * "Count": 20,
+     * "MaxDuration": 15,
+     * "Width": 1080,
+     * "Height": 1920,
+     * "Video": {"Crf": 27}
      * }
+     *
      * @var string
      */
     public $outputConfig;
@@ -115,22 +132,20 @@ class editingBatchJobList extends Model
      */
     public $userData;
     protected $_name = [
-        'completeTime'  => 'CompleteTime',
-        'createTime'    => 'CreateTime',
+        'completeTime' => 'CompleteTime',
+        'createTime' => 'CreateTime',
         'editingConfig' => 'EditingConfig',
-        'extend'        => 'Extend',
-        'inputConfig'   => 'InputConfig',
-        'jobId'         => 'JobId',
-        'jobType'       => 'JobType',
-        'modifiedTime'  => 'ModifiedTime',
-        'outputConfig'  => 'OutputConfig',
-        'status'        => 'Status',
-        'userData'      => 'UserData',
+        'extend' => 'Extend',
+        'inputConfig' => 'InputConfig',
+        'jobId' => 'JobId',
+        'jobType' => 'JobType',
+        'modifiedTime' => 'ModifiedTime',
+        'outputConfig' => 'OutputConfig',
+        'status' => 'Status',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

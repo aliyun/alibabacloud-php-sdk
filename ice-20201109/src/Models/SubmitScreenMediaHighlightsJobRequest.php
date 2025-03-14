@@ -10,7 +10,15 @@ class SubmitScreenMediaHighlightsJobRequest extends Model
 {
     /**
      * @example {
+     * "MediaConfig": {
+     * "Volume": 1
+     * },
+     * "ProcessConfig": {
+     * "AllowTransition": true,
+     * "TransitionList": ["fadecolor"]
      * }
+     * }
+     *
      * @var string
      */
     public $editingConfig;
@@ -20,14 +28,21 @@ class SubmitScreenMediaHighlightsJobRequest extends Model
      * "MediaArray": [
      * "****9d46c886b45481030f6e****",
      * "****6c886b4549d481030f6e****"
+     * ]
      * }
+     *
      * @var string
      */
     public $inputConfig;
 
     /**
      * @example {
+     * "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
+     * "Count": 1,
+     * "Width": 1080,
+     * "Height": 1920
      * }
+     *
      * @var string
      */
     public $outputConfig;
@@ -38,14 +53,12 @@ class SubmitScreenMediaHighlightsJobRequest extends Model
     public $userData;
     protected $_name = [
         'editingConfig' => 'EditingConfig',
-        'inputConfig'   => 'InputConfig',
-        'outputConfig'  => 'OutputConfig',
-        'userData'      => 'UserData',
+        'inputConfig' => 'InputConfig',
+        'outputConfig' => 'OutputConfig',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

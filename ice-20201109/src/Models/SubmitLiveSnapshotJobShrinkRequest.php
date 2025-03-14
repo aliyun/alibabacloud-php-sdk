@@ -26,6 +26,7 @@ class SubmitLiveSnapshotJobShrinkRequest extends Model
      *   It cannot exceed 128 characters in length.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $jobName;
@@ -34,6 +35,7 @@ class SubmitLiveSnapshotJobShrinkRequest extends Model
      * @description The information about the output snapshot.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $snapshotOutputShrink;
@@ -42,6 +44,7 @@ class SubmitLiveSnapshotJobShrinkRequest extends Model
      * @description The information about the input stream.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $streamInputShrink;
@@ -50,22 +53,21 @@ class SubmitLiveSnapshotJobShrinkRequest extends Model
      * @description The template ID.
      *
      * This parameter is required.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'callbackUrl'          => 'CallbackUrl',
-        'jobName'              => 'JobName',
+        'callbackUrl' => 'CallbackUrl',
+        'jobName' => 'JobName',
         'snapshotOutputShrink' => 'SnapshotOutput',
-        'streamInputShrink'    => 'StreamInput',
-        'templateId'           => 'TemplateId',
+        'streamInputShrink' => 'StreamInput',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

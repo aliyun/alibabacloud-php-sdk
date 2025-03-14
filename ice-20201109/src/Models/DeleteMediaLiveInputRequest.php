@@ -12,6 +12,7 @@ class DeleteMediaLiveInputRequest extends Model
      * @description The ID of the input.
      *
      * This parameter is required.
+     *
      * @example SEGK5KA6KYKAWQQH
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteMediaLiveInputRequest extends Model
         'inputId' => 'InputId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

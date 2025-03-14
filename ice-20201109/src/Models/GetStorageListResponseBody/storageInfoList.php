@@ -71,20 +71,18 @@ class storageInfoList extends Model
      */
     public $storageType;
     protected $_name = [
-        'appId'                  => 'AppId',
-        'creationTime'           => 'CreationTime',
-        'defaultStorage'         => 'DefaultStorage',
+        'appId' => 'AppId',
+        'creationTime' => 'CreationTime',
+        'defaultStorage' => 'DefaultStorage',
         'editingTempFileStorage' => 'EditingTempFileStorage',
-        'modifiedTime'           => 'ModifiedTime',
-        'path'                   => 'Path',
-        'status'                 => 'Status',
-        'storageLocation'        => 'StorageLocation',
-        'storageType'            => 'StorageType',
+        'modifiedTime' => 'ModifiedTime',
+        'path' => 'Path',
+        'status' => 'Status',
+        'storageLocation' => 'StorageLocation',
+        'storageType' => 'StorageType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

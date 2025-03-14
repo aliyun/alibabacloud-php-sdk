@@ -54,6 +54,7 @@ class ListMediaProducingJobsRequest extends Model
      * @description The maximum number of entries to return.
      *
      * Default value: 10. Valid values: 1 to 100.
+     *
      * @example 100
      *
      * @var int
@@ -117,21 +118,19 @@ class ListMediaProducingJobsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'endTime'     => 'EndTime',
-        'jobType'     => 'JobType',
-        'keyword'     => 'Keyword',
+        'endTime' => 'EndTime',
+        'jobType' => 'JobType',
+        'keyword' => 'Keyword',
         'masterJobId' => 'MasterJobId',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'projectId'   => 'ProjectId',
-        'sortBy'      => 'SortBy',
-        'startTime'   => 'StartTime',
-        'status'      => 'Status',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'projectId' => 'ProjectId',
+        'sortBy' => 'SortBy',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

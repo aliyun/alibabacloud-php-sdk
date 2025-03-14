@@ -35,13 +35,11 @@ class overwriteParams extends Model
     public $format;
     protected $_name = [
         'charEnc' => 'CharEnc',
-        'file'    => 'File',
-        'format'  => 'Format',
+        'file' => 'File',
+        'format' => 'Format',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

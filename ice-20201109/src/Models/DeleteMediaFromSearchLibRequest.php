@@ -12,6 +12,7 @@ class DeleteMediaFromSearchLibRequest extends Model
      * @description The ID of the media asset.
      *
      * This parameter is required.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -36,14 +37,12 @@ class DeleteMediaFromSearchLibRequest extends Model
      */
     public $searchLibName;
     protected $_name = [
-        'mediaId'       => 'MediaId',
-        'msgBody'       => 'MsgBody',
+        'mediaId' => 'MediaId',
+        'msgBody' => 'MsgBody',
         'searchLibName' => 'SearchLibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -51,6 +51,7 @@ class videoParams extends Model
      * @description The height of the output video. Valid values: Height ≥ 128 max (Height,Width) ≤ 2560 min (Height,Width) ≤ 1440
      *
      * Note: The resolution of the output video that is transcoded by using the H.265 Narrowband HD transcoding template cannot exceed 1280 × 720 pixels.
+     *
      * @example 720
      *
      * @var string
@@ -70,6 +71,7 @@ class videoParams extends Model
      * @description The width of the output video. Valid values: Width ≥ 128 max (Height,Width) ≤ 2560 min (Height,Width) ≤ 1440
      *
      * Note: The resolution of the output video that is transcoded by using the H.265 Narrowband HD transcoding template cannot exceed 1280 × 720 pixels.
+     *
      * @example 1280
      *
      * @var string
@@ -77,17 +79,15 @@ class videoParams extends Model
     public $width;
     protected $_name = [
         'bitrate' => 'Bitrate',
-        'codec'   => 'Codec',
-        'fps'     => 'Fps',
-        'gop'     => 'Gop',
-        'height'  => 'Height',
+        'codec' => 'Codec',
+        'fps' => 'Fps',
+        'gop' => 'Gop',
+        'height' => 'Height',
         'profile' => 'Profile',
-        'width'   => 'Width',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

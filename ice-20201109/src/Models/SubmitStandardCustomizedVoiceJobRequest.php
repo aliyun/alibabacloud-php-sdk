@@ -13,6 +13,7 @@ class SubmitStandardCustomizedVoiceJobRequest extends Model
      *   Separate multiple media IDs with commas (,).
      *
      * > : The total duration of all materials must be within 15 to 30 minutes. The duration of each material must be greater than 1 minute.
+     *
      * @example ****571c704445f9a0ee011406c2****,****571c704445f9a0ee011406c2****,****571c704445f9a0ee011406c2****
      *
      * @var string
@@ -23,11 +24,7 @@ class SubmitStandardCustomizedVoiceJobRequest extends Model
      * @description *   The media asset ID of the authentication audio.
      *
      *   Upload an audio file for identity authentication. If the voiceprint extracted from the uploaded file differs from that of the training file, the job fails.
-     *
-     **
-     *
      **Note**: Clearly read and record the following text: I confirm to customize human voice cloning and provide audio files that contain my voice for training. I promise that I am responsible for the customized content and that the content complies with laws and regulations.
-     *
      * @example ****571c704445f9a0ee011406c2****
      *
      * @var string
@@ -40,11 +37,7 @@ class SubmitStandardCustomizedVoiceJobRequest extends Model
      *   If this parameter is specified, a sample audio file is generated at the specified Object Storage Service (OSS) URL after the training is complete.
      *
      *   If this parameter is not specified, no sample audio file is generated.
-     *
-     **
-     *
      **Note**: The URL must be a valid public OSS URL within your Alibaba Cloud account.
-     *
      * @example https://your-bucket.oss-cn-shanghai.aliyuncs.com/demo.mp3
      *
      * @var string
@@ -72,16 +65,14 @@ class SubmitStandardCustomizedVoiceJobRequest extends Model
      */
     public $voiceName;
     protected $_name = [
-        'audios'            => 'Audios',
-        'authentication'    => 'Authentication',
+        'audios' => 'Audios',
+        'authentication' => 'Authentication',
         'demoAudioMediaURL' => 'DemoAudioMediaURL',
-        'gender'            => 'Gender',
-        'voiceName'         => 'VoiceName',
+        'gender' => 'Gender',
+        'voiceName' => 'VoiceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

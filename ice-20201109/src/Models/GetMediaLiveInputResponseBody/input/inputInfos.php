@@ -54,17 +54,15 @@ class inputInfos extends Model
      */
     public $streamName;
     protected $_name = [
-        'destHost'       => 'DestHost',
-        'flowId'         => 'FlowId',
+        'destHost' => 'DestHost',
+        'flowId' => 'FlowId',
         'flowOutputName' => 'FlowOutputName',
-        'monitorUrl'     => 'MonitorUrl',
-        'sourceUrl'      => 'SourceUrl',
-        'streamName'     => 'StreamName',
+        'monitorUrl' => 'MonitorUrl',
+        'sourceUrl' => 'SourceUrl',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

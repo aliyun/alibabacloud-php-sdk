@@ -26,13 +26,11 @@ class GetMediaMarksRequest extends Model
      */
     public $mediaMarkIds;
     protected $_name = [
-        'mediaId'      => 'MediaId',
+        'mediaId' => 'MediaId',
         'mediaMarkIds' => 'MediaMarkIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

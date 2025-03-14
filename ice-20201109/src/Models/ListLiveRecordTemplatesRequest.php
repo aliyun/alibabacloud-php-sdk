@@ -68,17 +68,15 @@ class ListLiveRecordTemplatesRequest extends Model
      */
     public $type;
     protected $_name = [
-        'keyword'     => 'Keyword',
-        'pageNo'      => 'PageNo',
-        'pageSize'    => 'PageSize',
-        'sortBy'      => 'SortBy',
+        'keyword' => 'Keyword',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
         'templateIds' => 'TemplateIds',
-        'type'        => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteAdInsertionRequest extends Model
      * @description The name of the configuration that you want to delete.
      *
      * This parameter is required.
+     *
      * @example my_ad
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteAdInsertionRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

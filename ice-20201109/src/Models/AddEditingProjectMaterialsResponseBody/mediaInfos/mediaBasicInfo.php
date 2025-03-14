@@ -137,7 +137,14 @@ class mediaBasicInfo extends Model
     /**
      * @description The status of the media asset. Valid values:
      *
+     * \\- Init
+     *
+     * \\- Preparing
+     *
+     * \\- PrepareFail
+     *
      * \\- Normal
+     *
      * @example Normal
      *
      * @var string
@@ -171,29 +178,27 @@ class mediaBasicInfo extends Model
      */
     public $userData;
     protected $_name = [
-        'businessType'    => 'BusinessType',
-        'category'        => 'Category',
-        'coverURL'        => 'CoverURL',
-        'createTime'      => 'CreateTime',
-        'deletedTime'     => 'DeletedTime',
-        'description'     => 'Description',
-        'inputURL'        => 'InputURL',
-        'mediaId'         => 'MediaId',
-        'mediaTags'       => 'MediaTags',
-        'mediaType'       => 'MediaType',
-        'modifiedTime'    => 'ModifiedTime',
-        'snapshots'       => 'Snapshots',
-        'source'          => 'Source',
-        'spriteImages'    => 'SpriteImages',
-        'status'          => 'Status',
-        'title'           => 'Title',
+        'businessType' => 'BusinessType',
+        'category' => 'Category',
+        'coverURL' => 'CoverURL',
+        'createTime' => 'CreateTime',
+        'deletedTime' => 'DeletedTime',
+        'description' => 'Description',
+        'inputURL' => 'InputURL',
+        'mediaId' => 'MediaId',
+        'mediaTags' => 'MediaTags',
+        'mediaType' => 'MediaType',
+        'modifiedTime' => 'ModifiedTime',
+        'snapshots' => 'Snapshots',
+        'source' => 'Source',
+        'spriteImages' => 'SpriteImages',
+        'status' => 'Status',
+        'title' => 'Title',
         'transcodeStatus' => 'TranscodeStatus',
-        'userData'        => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

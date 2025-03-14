@@ -43,6 +43,7 @@ class UploadMediaByURLRequest extends Model
      * @description The postprocessing configurations. You can specify this parameter if Type is set to video or audio.
      *
      * Set ProcessType to Workflow.
+     *
      * @example {"ProcessType": "Workflow","ProcessID":"b72a06c6beeb4dcdb898feef067b1***"}
      *
      * @var string
@@ -52,7 +53,10 @@ class UploadMediaByURLRequest extends Model
     /**
      * @description The destination storage address.
      *
+     * Set StorageType to oss.
+     *
      * Set StorageLocation to an address in ApsaraVideo VOD. You cannot set this field to an OSS URL.
+     *
      * @example {"StorageType":"oss","StorageLocation":"outin-***.oss-cn-shanghai.aliyuncs.com"}
      *
      * @var string
@@ -86,18 +90,16 @@ class UploadMediaByURLRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'appId'              => 'AppId',
-        'entityId'           => 'EntityId',
-        'mediaMetaData'      => 'MediaMetaData',
-        'postProcessConfig'  => 'PostProcessConfig',
+        'appId' => 'AppId',
+        'entityId' => 'EntityId',
+        'mediaMetaData' => 'MediaMetaData',
+        'postProcessConfig' => 'PostProcessConfig',
         'uploadTargetConfig' => 'UploadTargetConfig',
-        'uploadURLs'         => 'UploadURLs',
-        'userData'           => 'UserData',
+        'uploadURLs' => 'UploadURLs',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

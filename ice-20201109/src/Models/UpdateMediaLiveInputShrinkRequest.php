@@ -12,6 +12,7 @@ class UpdateMediaLiveInputShrinkRequest extends Model
      * @description The ID of the input.
      *
      * This parameter is required.
+     *
      * @example SEGK5KA6KYKAWQQH
      *
      * @var string
@@ -22,6 +23,7 @@ class UpdateMediaLiveInputShrinkRequest extends Model
      * @description The input settings. An input can have up to two sources: primary and backup sources.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $inputSettingsShrink;
@@ -30,6 +32,7 @@ class UpdateMediaLiveInputShrinkRequest extends Model
      * @description The name of the input. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example myinput
      *
      * @var string
@@ -45,15 +48,13 @@ class UpdateMediaLiveInputShrinkRequest extends Model
      */
     public $securityGroupIdsShrink;
     protected $_name = [
-        'inputId'                => 'InputId',
-        'inputSettingsShrink'    => 'InputSettings',
-        'name'                   => 'Name',
+        'inputId' => 'InputId',
+        'inputSettingsShrink' => 'InputSettings',
+        'name' => 'Name',
         'securityGroupIdsShrink' => 'SecurityGroupIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

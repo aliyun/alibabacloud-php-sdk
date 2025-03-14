@@ -50,16 +50,14 @@ class outputs extends Model
      */
     public $videoSettingName;
     protected $_name = [
-        'audioSettingNames'         => 'AudioSettingNames',
+        'audioSettingNames' => 'AudioSettingNames',
         'mediaPackageOutputSetting' => 'MediaPackageOutputSetting',
-        'mediaType'                 => 'MediaType',
-        'name'                      => 'Name',
-        'videoSettingName'          => 'VideoSettingName',
+        'mediaType' => 'MediaType',
+        'name' => 'Name',
+        'videoSettingName' => 'VideoSettingName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

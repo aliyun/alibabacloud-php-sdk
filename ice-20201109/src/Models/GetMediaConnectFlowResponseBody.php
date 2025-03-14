@@ -43,15 +43,13 @@ class GetMediaConnectFlowResponseBody extends Model
      */
     public $retcode;
     protected $_name = [
-        'content'     => 'Content',
+        'content' => 'Content',
         'description' => 'Description',
-        'requestId'   => 'RequestId',
-        'retcode'     => 'Retcode',
+        'requestId' => 'RequestId',
+        'retcode' => 'Retcode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

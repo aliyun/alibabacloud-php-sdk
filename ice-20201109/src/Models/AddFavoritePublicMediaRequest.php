@@ -18,9 +18,7 @@ class AddFavoritePublicMediaRequest extends Model
         'mediaIds' => 'MediaIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

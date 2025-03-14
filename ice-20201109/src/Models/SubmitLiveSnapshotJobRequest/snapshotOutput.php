@@ -12,6 +12,7 @@ class snapshotOutput extends Model
      * @description The bucket of the snapshot output endpoint.
      *
      * This parameter is required.
+     *
      * @example testbucket
      *
      * @var string
@@ -22,6 +23,7 @@ class snapshotOutput extends Model
      * @description The output endpoint of the snapshot.
      *
      * This parameter is required.
+     *
      * @example oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -32,20 +34,19 @@ class snapshotOutput extends Model
      * @description The storage type of the snapshot. The value can only be oss.
      *
      * This parameter is required.
+     *
      * @example oss
      *
      * @var string
      */
     public $storageType;
     protected $_name = [
-        'bucket'      => 'Bucket',
-        'endpoint'    => 'Endpoint',
+        'bucket' => 'Bucket',
+        'endpoint' => 'Endpoint',
         'storageType' => 'StorageType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

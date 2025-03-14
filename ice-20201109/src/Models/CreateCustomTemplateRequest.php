@@ -12,6 +12,7 @@ class CreateCustomTemplateRequest extends Model
      * @description The template name.
      *
      * This parameter is required.
+     *
      * @example test-template
      *
      * @var string
@@ -56,6 +57,7 @@ class CreateCustomTemplateRequest extends Model
      * @description The template configurations. For more information, see [Template parameters](https://help.aliyun.com/document_detail/448291.html).
      *
      * This parameter is required.
+     *
      * @example {"Container":{"Format":"flv"},"Video":{},"Audio":{}}
      *
      * @var string
@@ -78,21 +80,20 @@ class CreateCustomTemplateRequest extends Model
      *   11: AI-assisted smart tagging template.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
      */
     public $type;
     protected $_name = [
-        'name'           => 'Name',
-        'subtype'        => 'Subtype',
+        'name' => 'Name',
+        'subtype' => 'Subtype',
         'templateConfig' => 'TemplateConfig',
-        'type'           => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -20,9 +20,7 @@ class GetTranscodeJobRequest extends Model
         'parentJobId' => 'ParentJobId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

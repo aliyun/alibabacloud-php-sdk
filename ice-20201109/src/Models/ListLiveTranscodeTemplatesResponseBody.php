@@ -34,14 +34,12 @@ class ListLiveTranscodeTemplatesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'templateContentList' => 'TemplateContentList',
-        'totalCount'          => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class ListLiveTranscodeTemplatesResponseBody extends Model
         if (isset($map['TemplateContentList'])) {
             if (!empty($map['TemplateContentList'])) {
                 $model->templateContentList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['TemplateContentList'] as $item) {
                     $model->templateContentList[$n++] = null !== $item ? templateContentList::fromMap($item) : $item;
                 }

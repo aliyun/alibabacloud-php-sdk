@@ -15,6 +15,7 @@ class input extends Model
      *   If Type is set to Media, set this parameter to the ID of a media asset.
      *
      * This parameter is required.
+     *
      * @example oss://bucket/path/to/video.mp4
      *
      * @var string
@@ -28,6 +29,7 @@ class input extends Model
      *   Media: a media asset.
      *
      * This parameter is required.
+     *
      * @example OSS
      *
      * @var string
@@ -35,12 +37,10 @@ class input extends Model
     public $type;
     protected $_name = [
         'media' => 'Media',
-        'type'  => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

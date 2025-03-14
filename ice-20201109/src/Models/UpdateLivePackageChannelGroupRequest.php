@@ -19,6 +19,7 @@ class UpdateLivePackageChannelGroupRequest extends Model
      * @description The channel group name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
      *
      * This parameter is required.
+     *
      * @example channel-group-1
      *
      * @var string
@@ -26,12 +27,10 @@ class UpdateLivePackageChannelGroupRequest extends Model
     public $groupName;
     protected $_name = [
         'description' => 'Description',
-        'groupName'   => 'GroupName',
+        'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

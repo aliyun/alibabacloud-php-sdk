@@ -134,25 +134,23 @@ class GetLiveSnapshotJobResponseBody extends Model
      */
     public $timeInterval;
     protected $_name = [
-        'callbackUrl'     => 'CallbackUrl',
-        'createTime'      => 'CreateTime',
-        'jobId'           => 'JobId',
-        'jobName'         => 'JobName',
-        'lastModified'    => 'LastModified',
+        'callbackUrl' => 'CallbackUrl',
+        'createTime' => 'CreateTime',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
+        'lastModified' => 'LastModified',
         'overwriteFormat' => 'OverwriteFormat',
-        'requestId'       => 'RequestId',
-        'sequenceFormat'  => 'SequenceFormat',
-        'snapshotOutput'  => 'SnapshotOutput',
-        'status'          => 'Status',
-        'streamInput'     => 'StreamInput',
-        'templateId'      => 'TemplateId',
-        'templateName'    => 'TemplateName',
-        'timeInterval'    => 'TimeInterval',
+        'requestId' => 'RequestId',
+        'sequenceFormat' => 'SequenceFormat',
+        'snapshotOutput' => 'SnapshotOutput',
+        'status' => 'Status',
+        'streamInput' => 'StreamInput',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'timeInterval' => 'TimeInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

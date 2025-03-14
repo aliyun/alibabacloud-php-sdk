@@ -15,6 +15,7 @@ class SubmitPackageJobRequest extends Model
      * @description The input of the job.
      *
      * This parameter is required.
+     *
      * @var inputs[]
      */
     public $inputs;
@@ -32,6 +33,7 @@ class SubmitPackageJobRequest extends Model
      * @description The output of the job.
      *
      * This parameter is required.
+     *
      * @var output
      */
     public $output;
@@ -52,16 +54,14 @@ class SubmitPackageJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'inputs'         => 'Inputs',
-        'name'           => 'Name',
-        'output'         => 'Output',
+        'inputs' => 'Inputs',
+        'name' => 'Name',
+        'output' => 'Output',
         'scheduleConfig' => 'ScheduleConfig',
-        'userData'       => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +102,7 @@ class SubmitPackageJobRequest extends Model
         if (isset($map['Inputs'])) {
             if (!empty($map['Inputs'])) {
                 $model->inputs = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Inputs'] as $item) {
                     $model->inputs[$n++] = null !== $item ? inputs::fromMap($item) : $item;
                 }

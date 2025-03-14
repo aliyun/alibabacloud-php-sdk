@@ -12,6 +12,7 @@ class GetAvatarRequest extends Model
      * @description *   The ID of the digital human.
      *
      * This parameter is required.
+     *
      * @example Avatar-XXXX
      *
      * @var string
@@ -21,9 +22,7 @@ class GetAvatarRequest extends Model
         'avatarId' => 'AvatarId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

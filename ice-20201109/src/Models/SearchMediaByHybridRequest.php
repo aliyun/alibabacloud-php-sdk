@@ -50,17 +50,15 @@ class SearchMediaByHybridRequest extends Model
      */
     public $text;
     protected $_name = [
-        'mediaId'       => 'MediaId',
-        'mediaType'     => 'MediaType',
-        'pageNo'        => 'PageNo',
-        'pageSize'      => 'PageSize',
+        'mediaId' => 'MediaId',
+        'mediaType' => 'MediaType',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'searchLibName' => 'SearchLibName',
-        'text'          => 'Text',
+        'text' => 'Text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

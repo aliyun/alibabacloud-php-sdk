@@ -76,19 +76,17 @@ class SubmitCopyrightJobRequest extends Model
     public $userData;
     protected $_name = [
         'description' => 'Description',
-        'input'       => 'Input',
-        'level'       => 'Level',
-        'message'     => 'Message',
-        'output'      => 'Output',
-        'params'      => 'Params',
-        'startTime'   => 'StartTime',
-        'totalTime'   => 'TotalTime',
-        'userData'    => 'UserData',
+        'input' => 'Input',
+        'level' => 'Level',
+        'message' => 'Message',
+        'output' => 'Output',
+        'params' => 'Params',
+        'startTime' => 'StartTime',
+        'totalTime' => 'TotalTime',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

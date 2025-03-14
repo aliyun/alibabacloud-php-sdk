@@ -31,14 +31,12 @@ class ListSmartSysAvatarModelsRequest extends Model
      */
     public $sdkVersion;
     protected $_name = [
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'sdkVersion' => 'SdkVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

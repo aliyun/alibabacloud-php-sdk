@@ -26,6 +26,7 @@ class UpdateAdInsertionRequest extends Model
      * @description The request URL of the ad decision server (ADS). HTTP and HTTPS are supported. The maximum length is 2,048 characters.
      *
      * This parameter is required.
+     *
      * @example http://ads.com/ad1?param1=[palyer_params.p1]
      *
      * @var string
@@ -63,6 +64,7 @@ class UpdateAdInsertionRequest extends Model
      * @description The URL prefix for the source content. HTTP and HTTPS are supported. The maximum length is 512 characters.
      *
      * This parameter is required.
+     *
      * @example https://source.com/
      *
      * @var string
@@ -73,6 +75,7 @@ class UpdateAdInsertionRequest extends Model
      * @description The configuration name, which cannot be modified.
      *
      * This parameter is required.
+     *
      * @example my_ad
      *
      * @var string
@@ -97,20 +100,18 @@ class UpdateAdInsertionRequest extends Model
      */
     public $slateAdUrl;
     protected $_name = [
-        'adMarkerPassthrough'        => 'AdMarkerPassthrough',
-        'adsUrl'                     => 'AdsUrl',
-        'cdnAdSegmentUrlPrefix'      => 'CdnAdSegmentUrlPrefix',
+        'adMarkerPassthrough' => 'AdMarkerPassthrough',
+        'adsUrl' => 'AdsUrl',
+        'cdnAdSegmentUrlPrefix' => 'CdnAdSegmentUrlPrefix',
         'cdnContentSegmentUrlPrefix' => 'CdnContentSegmentUrlPrefix',
-        'configAliases'              => 'ConfigAliases',
-        'contentUrlPrefix'           => 'ContentUrlPrefix',
-        'name'                       => 'Name',
-        'personalizationThreshold'   => 'PersonalizationThreshold',
-        'slateAdUrl'                 => 'SlateAdUrl',
+        'configAliases' => 'ConfigAliases',
+        'contentUrlPrefix' => 'ContentUrlPrefix',
+        'name' => 'Name',
+        'personalizationThreshold' => 'PersonalizationThreshold',
+        'slateAdUrl' => 'SlateAdUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

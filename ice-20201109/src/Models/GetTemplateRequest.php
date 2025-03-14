@@ -27,12 +27,10 @@ class GetTemplateRequest extends Model
     public $templateId;
     protected $_name = [
         'relatedMediaidFlag' => 'RelatedMediaidFlag',
-        'templateId'         => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

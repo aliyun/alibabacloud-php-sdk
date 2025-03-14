@@ -19,12 +19,10 @@ class llmHistory extends Model
     public $role;
     protected $_name = [
         'content' => 'Content',
-        'role'    => 'Role',
+        'role' => 'Role',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

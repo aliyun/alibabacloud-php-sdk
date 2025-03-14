@@ -16,6 +16,7 @@ class SubmitSnapshotJobRequest extends Model
      * @description The snapshot input.
      *
      * This parameter is required.
+     *
      * @var input
      */
     public $input;
@@ -33,6 +34,7 @@ class SubmitSnapshotJobRequest extends Model
      * @description The snapshot output.
      *
      * This parameter is required.
+     *
      * @var output
      */
     public $output;
@@ -48,6 +50,7 @@ class SubmitSnapshotJobRequest extends Model
      * @description The snapshot template configuration.
      *
      * This parameter is required.
+     *
      * @var templateConfig
      */
     public $templateConfig;
@@ -61,17 +64,15 @@ class SubmitSnapshotJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'input'          => 'Input',
-        'name'           => 'Name',
-        'output'         => 'Output',
+        'input' => 'Input',
+        'name' => 'Name',
+        'output' => 'Output',
         'scheduleConfig' => 'ScheduleConfig',
         'templateConfig' => 'TemplateConfig',
-        'userData'       => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

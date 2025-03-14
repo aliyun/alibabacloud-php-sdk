@@ -20,9 +20,7 @@ class inputConfig extends Model
         'inputFile' => 'InputFile',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

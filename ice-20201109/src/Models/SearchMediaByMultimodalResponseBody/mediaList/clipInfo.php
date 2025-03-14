@@ -35,14 +35,12 @@ class clipInfo extends Model
      */
     public $to;
     protected $_name = [
-        'from'  => 'From',
+        'from' => 'From',
         'score' => 'Score',
-        'to'    => 'To',
+        'to' => 'To',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

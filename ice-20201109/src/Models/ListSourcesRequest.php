@@ -80,19 +80,17 @@ class ListSourcesRequest extends Model
      */
     public $sourceType;
     protected $_name = [
-        'filterState'        => 'FilterState',
-        'pageNo'             => 'PageNo',
-        'pageSize'           => 'PageSize',
-        'sortBy'             => 'SortBy',
+        'filterState' => 'FilterState',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
         'sortByModifiedTime' => 'SortByModifiedTime',
         'sourceLocationName' => 'SourceLocationName',
-        'sourceName'         => 'SourceName',
-        'sourceType'         => 'SourceType',
+        'sourceName' => 'SourceName',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

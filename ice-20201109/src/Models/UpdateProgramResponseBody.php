@@ -24,13 +24,11 @@ class UpdateProgramResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'program'   => 'Program',
+        'program' => 'Program',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

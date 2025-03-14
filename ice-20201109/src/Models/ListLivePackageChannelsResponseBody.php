@@ -60,16 +60,14 @@ class ListLivePackageChannelsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'livePackageChannels' => 'LivePackageChannels',
-        'pageNo'              => 'PageNo',
-        'pageSize'            => 'PageSize',
-        'requestId'           => 'RequestId',
-        'sortBy'              => 'SortBy',
-        'totalCount'          => 'TotalCount',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'sortBy' => 'SortBy',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -113,7 +111,7 @@ class ListLivePackageChannelsResponseBody extends Model
         if (isset($map['LivePackageChannels'])) {
             if (!empty($map['LivePackageChannels'])) {
                 $model->livePackageChannels = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['LivePackageChannels'] as $item) {
                     $model->livePackageChannels[$n++] = null !== $item ? livePackageChannels::fromMap($item) : $item;
                 }

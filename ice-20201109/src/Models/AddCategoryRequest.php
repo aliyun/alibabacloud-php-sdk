@@ -15,6 +15,7 @@ class AddCategoryRequest extends Model
      *   The value must be encoded in UTF-8.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $cateName;
@@ -42,12 +43,10 @@ class AddCategoryRequest extends Model
     protected $_name = [
         'cateName' => 'CateName',
         'parentId' => 'ParentId',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,14 +36,12 @@ class searchLibInfoList extends Model
      */
     public $status;
     protected $_name = [
-        'indexInfo'     => 'IndexInfo',
+        'indexInfo' => 'IndexInfo',
         'searchLibName' => 'SearchLibName',
-        'status'        => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class searchLibInfoList extends Model
         if (isset($map['IndexInfo'])) {
             if (!empty($map['IndexInfo'])) {
                 $model->indexInfo = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['IndexInfo'] as $item) {
                     $model->indexInfo[$n++] = null !== $item ? indexInfo::fromMap($item) : $item;
                 }

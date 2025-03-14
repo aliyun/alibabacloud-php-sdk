@@ -52,16 +52,14 @@ class ListMediaLiveInputSecurityGroupsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'requestId'      => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'securityGroups' => 'SecurityGroups',
-        'totalCount'     => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class ListMediaLiveInputSecurityGroupsResponseBody extends Model
         if (isset($map['SecurityGroups'])) {
             if (!empty($map['SecurityGroups'])) {
                 $model->securityGroups = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['SecurityGroups'] as $item) {
                     $model->securityGroups[$n++] = null !== $item ? securityGroups::fromMap($item) : $item;
                 }

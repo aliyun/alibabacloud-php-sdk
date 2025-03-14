@@ -93,21 +93,19 @@ class occurrences extends Model
      */
     public $tracks;
     protected $_name = [
-        'clipId'          => 'ClipId',
-        'content'         => 'Content',
-        'finegrainId'     => 'FinegrainId',
-        'finegrainName'   => 'FinegrainName',
-        'from'            => 'From',
-        'image'           => 'Image',
-        'score'           => 'Score',
+        'clipId' => 'ClipId',
+        'content' => 'Content',
+        'finegrainId' => 'FinegrainId',
+        'finegrainName' => 'FinegrainName',
+        'from' => 'From',
+        'image' => 'Image',
+        'score' => 'Score',
         'tableBatchSeqId' => 'TableBatchSeqId',
-        'to'              => 'To',
-        'tracks'          => 'Tracks',
+        'to' => 'To',
+        'tracks' => 'Tracks',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -190,7 +188,7 @@ class occurrences extends Model
         if (isset($map['Tracks'])) {
             if (!empty($map['Tracks'])) {
                 $model->tracks = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Tracks'] as $item) {
                     $model->tracks[$n++] = null !== $item ? tracks::fromMap($item) : $item;
                 }

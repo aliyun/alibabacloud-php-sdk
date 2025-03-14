@@ -13,6 +13,7 @@ class CreateLiveTranscodeTemplateRequest extends Model
      * @description The name of the template.
      *
      * This parameter is required.
+     *
      * @example my template
      *
      * @var string
@@ -35,20 +36,19 @@ class CreateLiveTranscodeTemplateRequest extends Model
      *   origin
      *
      * This parameter is required.
+     *
      * @example normal
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'name'           => 'Name',
+        'name' => 'Name',
         'templateConfig' => 'TemplateConfig',
-        'type'           => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

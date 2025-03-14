@@ -94,21 +94,19 @@ class channel extends Model
      */
     public $videoSettings;
     protected $_name = [
-        'audioSettings'    => 'AudioSettings',
-        'channelId'        => 'ChannelId',
-        'createTime'       => 'CreateTime',
+        'audioSettings' => 'AudioSettings',
+        'channelId' => 'ChannelId',
+        'createTime' => 'CreateTime',
         'inputAttachments' => 'InputAttachments',
-        'lastStartTime'    => 'LastStartTime',
-        'lastStopTime'     => 'LastStopTime',
-        'name'             => 'Name',
-        'outputGroups'     => 'OutputGroups',
-        'state'            => 'State',
-        'videoSettings'    => 'VideoSettings',
+        'lastStartTime' => 'LastStartTime',
+        'lastStopTime' => 'LastStopTime',
+        'name' => 'Name',
+        'outputGroups' => 'OutputGroups',
+        'state' => 'State',
+        'videoSettings' => 'VideoSettings',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -182,7 +180,7 @@ class channel extends Model
         if (isset($map['AudioSettings'])) {
             if (!empty($map['AudioSettings'])) {
                 $model->audioSettings = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['AudioSettings'] as $item) {
                     $model->audioSettings[$n++] = null !== $item ? audioSettings::fromMap($item) : $item;
                 }
@@ -197,7 +195,7 @@ class channel extends Model
         if (isset($map['InputAttachments'])) {
             if (!empty($map['InputAttachments'])) {
                 $model->inputAttachments = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['InputAttachments'] as $item) {
                     $model->inputAttachments[$n++] = null !== $item ? inputAttachments::fromMap($item) : $item;
                 }
@@ -215,7 +213,7 @@ class channel extends Model
         if (isset($map['OutputGroups'])) {
             if (!empty($map['OutputGroups'])) {
                 $model->outputGroups = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['OutputGroups'] as $item) {
                     $model->outputGroups[$n++] = null !== $item ? outputGroups::fromMap($item) : $item;
                 }
@@ -227,7 +225,7 @@ class channel extends Model
         if (isset($map['VideoSettings'])) {
             if (!empty($map['VideoSettings'])) {
                 $model->videoSettings = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['VideoSettings'] as $item) {
                     $model->videoSettings[$n++] = null !== $item ? videoSettings::fromMap($item) : $item;
                 }

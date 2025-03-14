@@ -47,15 +47,13 @@ class CreateSearchLibResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'          => 'Code',
-        'requestId'     => 'RequestId',
+        'code' => 'Code',
+        'requestId' => 'RequestId',
         'searchLibName' => 'SearchLibName',
-        'success'       => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

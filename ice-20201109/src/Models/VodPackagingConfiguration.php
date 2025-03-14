@@ -39,16 +39,14 @@ class VodPackagingConfiguration extends Model
     public $protocol;
     protected $_name = [
         'configurationName' => 'ConfigurationName',
-        'createTime'        => 'CreateTime',
-        'description'       => 'Description',
-        'groupName'         => 'GroupName',
-        'packageConfig'     => 'PackageConfig',
-        'protocol'          => 'Protocol',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'groupName' => 'GroupName',
+        'packageConfig' => 'PackageConfig',
+        'protocol' => 'Protocol',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

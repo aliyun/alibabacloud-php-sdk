@@ -25,13 +25,11 @@ class GetSystemTemplateResponseBody extends Model
      */
     public $systemTemplate;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'systemTemplate' => 'SystemTemplate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

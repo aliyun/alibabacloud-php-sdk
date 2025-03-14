@@ -51,16 +51,14 @@ class livePackageChannelGroup extends Model
      */
     public $originDomain;
     protected $_name = [
-        'createTime'   => 'CreateTime',
-        'description'  => 'Description',
-        'groupName'    => 'GroupName',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'groupName' => 'GroupName',
         'lastModified' => 'LastModified',
         'originDomain' => 'OriginDomain',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

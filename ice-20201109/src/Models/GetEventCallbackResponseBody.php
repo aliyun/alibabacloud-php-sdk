@@ -77,18 +77,16 @@ class GetEventCallbackResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'authKey'           => 'AuthKey',
-        'authSwitch'        => 'AuthSwitch',
+        'authKey' => 'AuthKey',
+        'authSwitch' => 'AuthSwitch',
         'callbackQueueName' => 'CallbackQueueName',
-        'callbackType'      => 'CallbackType',
-        'callbackURL'       => 'CallbackURL',
-        'eventTypeList'     => 'EventTypeList',
-        'requestId'         => 'RequestId',
+        'callbackType' => 'CallbackType',
+        'callbackURL' => 'CallbackURL',
+        'eventTypeList' => 'EventTypeList',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

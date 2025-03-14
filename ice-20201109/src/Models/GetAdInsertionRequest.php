@@ -12,6 +12,7 @@ class GetAdInsertionRequest extends Model
      * @description The name of the ad insertion configuration that you want to query.
      *
      * This parameter is required.
+     *
      * @example my_ad
      *
      * @var string
@@ -21,9 +22,7 @@ class GetAdInsertionRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

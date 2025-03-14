@@ -22,15 +22,22 @@ class result extends Model
      *
      *   The type of the analysis result based on Smart tagging V1.0. Valid values:
      *
+     * 1.  TextLabel: the text tag.
+     * 2.  VideoLabel: the video tag.
+     * 3.  ASR: the original result of automatic speech recognition (ASR). By default, this type of result is not returned.
+     * 4.  OCR: the original result of optical character recognition (OCR). By default, this type of result is not returned.
      * 5.  NLP: the natural language processing (NLP)-based result. By default, this type of result is not returned.
      *
      *   The type of the analysis result based on Smart tagging V2.0. Valid values:
      *
+     * 1.  CPVLabel
      * 2.  Meta: the information about the video file, such as the title of the video. By default, this type of information is not returned.
      *
      *   The type of the analysis result based on Smart tagging V2.0-custom. Valid values:
      *
+     * 1.  CPVLabel
      * 2.  Meta: the information about the video file, such as the title of the video. By default, this type of information is not returned.
+     *
      * @example Meta
      *
      * @var string
@@ -41,9 +48,7 @@ class result extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

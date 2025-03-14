@@ -21,6 +21,7 @@ class SubmitTranscodeJobShrinkRequest extends Model
      * @description The input group of the job. An input of a single file indicates a transcoding job. An input of multiple files indicates an audio and video stream merge job.
      *
      * This parameter is required.
+     *
      * @example job-name
      *
      * @var string
@@ -40,6 +41,7 @@ class SubmitTranscodeJobShrinkRequest extends Model
      * @description The output group of the job.
      *
      * This parameter is required.
+     *
      * @example user-data
      *
      * @var string
@@ -64,17 +66,15 @@ class SubmitTranscodeJobShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'inputGroupShrink'     => 'InputGroup',
-        'name'                 => 'Name',
-        'outputGroupShrink'    => 'OutputGroup',
+        'clientToken' => 'ClientToken',
+        'inputGroupShrink' => 'InputGroup',
+        'name' => 'Name',
+        'outputGroupShrink' => 'OutputGroup',
         'scheduleConfigShrink' => 'ScheduleConfig',
-        'userData'             => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -64,17 +64,15 @@ class ListVodPackagingAssetsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'assets'     => 'Assets',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'sortBy'     => 'SortBy',
+        'assets' => 'Assets',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'sortBy' => 'SortBy',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -118,7 +116,7 @@ class ListVodPackagingAssetsResponseBody extends Model
         if (isset($map['Assets'])) {
             if (!empty($map['Assets'])) {
                 $model->assets = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Assets'] as $item) {
                     $model->assets[$n++] = null !== $item ? assets::fromMap($item) : $item;
                 }

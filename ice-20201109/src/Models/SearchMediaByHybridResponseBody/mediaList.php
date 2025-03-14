@@ -22,12 +22,10 @@ class mediaList extends Model
     public $mediaId;
     protected $_name = [
         'clipInfo' => 'ClipInfo',
-        'mediaId'  => 'MediaId',
+        'mediaId' => 'MediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -59,7 +57,7 @@ class mediaList extends Model
         if (isset($map['ClipInfo'])) {
             if (!empty($map['ClipInfo'])) {
                 $model->clipInfo = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['ClipInfo'] as $item) {
                     $model->clipInfo[$n++] = null !== $item ? clipInfo::fromMap($item) : $item;
                 }

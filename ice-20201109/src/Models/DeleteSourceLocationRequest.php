@@ -21,19 +21,18 @@ class DeleteSourceLocationRequest extends Model
      * @description The name of the source location.
      *
      * This parameter is required.
+     *
      * @example MySourceLocation
      *
      * @var string
      */
     public $sourceLocationName;
     protected $_name = [
-        'softDelete'         => 'SoftDelete',
+        'softDelete' => 'SoftDelete',
         'sourceLocationName' => 'SourceLocationName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

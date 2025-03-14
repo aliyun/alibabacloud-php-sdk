@@ -54,15 +54,13 @@ class content extends Model
     public $startTime;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'flowId'     => 'FlowId',
-        'flowName'   => 'FlowName',
+        'flowId' => 'FlowId',
+        'flowName' => 'FlowName',
         'flowStatus' => 'FlowStatus',
-        'startTime'  => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

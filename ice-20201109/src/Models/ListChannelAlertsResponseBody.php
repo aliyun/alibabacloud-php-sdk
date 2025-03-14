@@ -52,16 +52,14 @@ class ListChannelAlertsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNo'        => 'PageNo',
-        'pageSize'      => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'programAlerts' => 'ProgramAlerts',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +106,7 @@ class ListChannelAlertsResponseBody extends Model
         if (isset($map['ProgramAlerts'])) {
             if (!empty($map['ProgramAlerts'])) {
                 $model->programAlerts = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ProgramAlerts'] as $item) {
                     $model->programAlerts[$n++] = null !== $item ? programAlerts::fromMap($item) : $item;
                 }

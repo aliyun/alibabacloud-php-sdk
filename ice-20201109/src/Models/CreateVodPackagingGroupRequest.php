@@ -27,12 +27,10 @@ class CreateVodPackagingGroupRequest extends Model
     public $groupName;
     protected $_name = [
         'description' => 'Description',
-        'groupName'   => 'GroupName',
+        'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

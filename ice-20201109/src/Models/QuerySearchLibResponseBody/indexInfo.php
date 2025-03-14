@@ -24,13 +24,11 @@ class indexInfo extends Model
     public $indexType;
     protected $_name = [
         'indexReadiness' => 'IndexReadiness',
-        'indexStatus'    => 'IndexStatus',
-        'indexType'      => 'IndexType',
+        'indexStatus' => 'IndexStatus',
+        'indexType' => 'IndexType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

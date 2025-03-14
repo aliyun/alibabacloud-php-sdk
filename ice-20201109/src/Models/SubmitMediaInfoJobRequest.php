@@ -14,6 +14,7 @@ class SubmitMediaInfoJobRequest extends Model
      * @description The input of the job.
      *
      * This parameter is required.
+     *
      * @var input
      */
     public $input;
@@ -43,15 +44,13 @@ class SubmitMediaInfoJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'input'          => 'Input',
-        'name'           => 'Name',
+        'input' => 'Input',
+        'name' => 'Name',
         'scheduleConfig' => 'ScheduleConfig',
-        'userData'       => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

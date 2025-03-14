@@ -34,14 +34,12 @@ class ListSystemTemplatesResponseBody extends Model
      */
     public $total;
     protected $_name = [
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
         'systemTemplateList' => 'SystemTemplateList',
-        'total'              => 'Total',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class ListSystemTemplatesResponseBody extends Model
         if (isset($map['SystemTemplateList'])) {
             if (!empty($map['SystemTemplateList'])) {
                 $model->systemTemplateList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['SystemTemplateList'] as $item) {
                     $model->systemTemplateList[$n++] = null !== $item ? systemTemplateList::fromMap($item) : $item;
                 }

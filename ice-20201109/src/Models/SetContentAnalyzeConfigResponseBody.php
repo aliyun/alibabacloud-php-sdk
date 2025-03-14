@@ -23,12 +23,10 @@ class SetContentAnalyzeConfigResponseBody extends Model
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

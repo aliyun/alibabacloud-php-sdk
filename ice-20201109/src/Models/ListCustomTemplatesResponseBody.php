@@ -35,13 +35,11 @@ class ListCustomTemplatesResponseBody extends Model
     public $total;
     protected $_name = [
         'customTemplateList' => 'CustomTemplateList',
-        'requestId'          => 'RequestId',
-        'total'              => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListCustomTemplatesResponseBody extends Model
         if (isset($map['CustomTemplateList'])) {
             if (!empty($map['CustomTemplateList'])) {
                 $model->customTemplateList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['CustomTemplateList'] as $item) {
                     $model->customTemplateList[$n++] = null !== $item ? customTemplateList::fromMap($item) : $item;
                 }

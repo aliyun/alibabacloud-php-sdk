@@ -26,12 +26,10 @@ class UpdateLivePackageOriginEndpointResponseBody extends Model
     public $requestId;
     protected $_name = [
         'livePackageOriginEndpoint' => 'LivePackageOriginEndpoint',
-        'requestId'                 => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -113,21 +113,19 @@ class overwriteParams extends Model
      */
     public $top;
     protected $_name = [
-        'adaptive'    => 'Adaptive',
+        'adaptive' => 'Adaptive',
         'borderColor' => 'BorderColor',
         'borderWidth' => 'BorderWidth',
-        'content'     => 'Content',
-        'fontAlpha'   => 'FontAlpha',
-        'fontColor'   => 'FontColor',
-        'fontName'    => 'FontName',
-        'fontSize'    => 'FontSize',
-        'left'        => 'Left',
-        'top'         => 'Top',
+        'content' => 'Content',
+        'fontAlpha' => 'FontAlpha',
+        'fontColor' => 'FontColor',
+        'fontName' => 'FontName',
+        'fontSize' => 'FontSize',
+        'left' => 'Left',
+        'top' => 'Top',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

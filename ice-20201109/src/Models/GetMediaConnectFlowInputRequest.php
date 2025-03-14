@@ -12,6 +12,7 @@ class GetMediaConnectFlowInputRequest extends Model
      * @description The flow ID.
      *
      * This parameter is required.
+     *
      * @example 34900dc6-90ec-4968-af3c-fcd87f231a5f
      *
      * @var string
@@ -21,9 +22,7 @@ class GetMediaConnectFlowInputRequest extends Model
         'flowId' => 'FlowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -86,19 +86,17 @@ class avatar extends Model
     public $width;
     protected $_name = [
         'avatarDescription' => 'AvatarDescription',
-        'avatarId'          => 'AvatarId',
-        'avatarName'        => 'AvatarName',
-        'avatarType'        => 'AvatarType',
-        'height'            => 'Height',
-        'portrait'          => 'Portrait',
-        'thumbnail'         => 'Thumbnail',
-        'transparent'       => 'Transparent',
-        'width'             => 'Width',
+        'avatarId' => 'AvatarId',
+        'avatarName' => 'AvatarName',
+        'avatarType' => 'AvatarType',
+        'height' => 'Height',
+        'portrait' => 'Portrait',
+        'thumbnail' => 'Thumbnail',
+        'transparent' => 'Transparent',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,13 +26,11 @@ class ListSearchLibRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'pageNo'   => 'PageNo',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

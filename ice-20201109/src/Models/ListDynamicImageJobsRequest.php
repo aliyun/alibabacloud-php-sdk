@@ -38,7 +38,9 @@ class ListDynamicImageJobsRequest extends Model
     /**
      * @description The order that you use to sort the query results. Valid values:
      *
+     * 1.  CreateTimeAsc: sorts the jobs by creation time in ascending order.
      * 2.  CreateTimeDesc: sorts the jobs by creation time in descending order.
+     *
      * @example CreateTimeDesc
      *
      * @var string
@@ -78,18 +80,16 @@ class ListDynamicImageJobsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'endOfCreateTime'   => 'EndOfCreateTime',
-        'jobId'             => 'JobId',
-        'nextPageToken'     => 'NextPageToken',
-        'orderBy'           => 'OrderBy',
-        'pageSize'          => 'PageSize',
+        'endOfCreateTime' => 'EndOfCreateTime',
+        'jobId' => 'JobId',
+        'nextPageToken' => 'NextPageToken',
+        'orderBy' => 'OrderBy',
+        'pageSize' => 'PageSize',
         'startOfCreateTime' => 'StartOfCreateTime',
-        'status'            => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

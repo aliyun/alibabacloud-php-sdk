@@ -26,12 +26,10 @@ class ListAllPublicMediaTagsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'mediaTagList' => 'MediaTagList',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListAllPublicMediaTagsResponseBody extends Model
         if (isset($map['MediaTagList'])) {
             if (!empty($map['MediaTagList'])) {
                 $model->mediaTagList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['MediaTagList'] as $item) {
                     $model->mediaTagList[$n++] = null !== $item ? mediaTagList::fromMap($item) : $item;
                 }

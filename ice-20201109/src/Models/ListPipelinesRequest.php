@@ -26,9 +26,7 @@ class ListPipelinesRequest extends Model
         'speed' => 'Speed',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

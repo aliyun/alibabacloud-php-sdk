@@ -37,15 +37,13 @@ class QueryTraceAbJobListResponseBody extends Model
      */
     public $statusCode;
     protected $_name = [
-        'data'       => 'Data',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
+        'data' => 'Data',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
         'statusCode' => 'StatusCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -83,7 +81,7 @@ class QueryTraceAbJobListResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Data'] as $item) {
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }

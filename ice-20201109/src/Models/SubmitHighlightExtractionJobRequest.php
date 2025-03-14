@@ -27,14 +27,28 @@ class SubmitHighlightExtractionJobRequest extends Model
      * "MediaId": "d047e120e****1ef81c1e6f6d5686302"
      * }, {
      * "MediaId": "cfe2ddc0e****1ef81c1e6f6d5686302"
+     * }],
+     * "Strategy": {
+     * "Count": 5,
+     * "ClipDuration": 15
      * }
+     * }
+     *
      * @var string
      */
     public $inputConfig;
 
     /**
      * @example {
+     * "NeedExport": true,
+     * "OutputMediaTarget": "oss-object",
+     * "Bucket": "test-bucket",
+     * "ObjectKey": "path/to/test_{index}.mp4",
+     * "Width": 1920,
+     * "Height": 1080,
+     * "ExportAsNewMedia": false
      * }
+     *
      * @var string
      */
     public $outputConfig;
@@ -44,15 +58,13 @@ class SubmitHighlightExtractionJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
-        'inputConfig'  => 'InputConfig',
+        'clientToken' => 'ClientToken',
+        'inputConfig' => 'InputConfig',
         'outputConfig' => 'OutputConfig',
-        'userData'     => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,6 +22,7 @@ class videoSettings extends Model
      * @description The name of the video settings. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example video1
      *
      * @var string
@@ -53,16 +54,14 @@ class videoSettings extends Model
      */
     public $width;
     protected $_name = [
-        'height'            => 'Height',
-        'name'              => 'Name',
-        'videoCodec'        => 'VideoCodec',
+        'height' => 'Height',
+        'name' => 'Name',
+        'videoCodec' => 'VideoCodec',
         'videoCodecSetting' => 'VideoCodecSetting',
-        'width'             => 'Width',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

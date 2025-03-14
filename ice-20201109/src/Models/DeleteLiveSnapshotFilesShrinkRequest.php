@@ -12,6 +12,7 @@ class DeleteLiveSnapshotFilesShrinkRequest extends Model
      * @description The list of timestamps when the jobs were created. The values are UNIX timestamps representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A maximum of 200 jobs can be deleted at a time.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $createTimestampListShrink;
@@ -29,6 +30,7 @@ class DeleteLiveSnapshotFilesShrinkRequest extends Model
      * @description The ID of the snapshot job.
      *
      * This parameter is required.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -36,13 +38,11 @@ class DeleteLiveSnapshotFilesShrinkRequest extends Model
     public $jobId;
     protected $_name = [
         'createTimestampListShrink' => 'CreateTimestampList',
-        'deleteOriginalFile'        => 'DeleteOriginalFile',
-        'jobId'                     => 'JobId',
+        'deleteOriginalFile' => 'DeleteOriginalFile',
+        'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

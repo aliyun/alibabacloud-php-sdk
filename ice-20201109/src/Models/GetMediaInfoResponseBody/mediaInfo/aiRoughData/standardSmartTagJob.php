@@ -47,15 +47,13 @@ class standardSmartTagJob extends Model
      */
     public $status;
     protected $_name = [
-        'aiJobId'   => 'AiJobId',
+        'aiJobId' => 'AiJobId',
         'resultUrl' => 'ResultUrl',
-        'results'   => 'Results',
-        'status'    => 'Status',
+        'results' => 'Results',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -99,7 +97,7 @@ class standardSmartTagJob extends Model
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Results'] as $item) {
                     $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }

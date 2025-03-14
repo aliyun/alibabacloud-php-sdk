@@ -12,6 +12,7 @@ class transcodeOutput extends Model
      * @description The streaming domain name of ApsaraVideo Live.
      *
      * This parameter is required.
+     *
      * @example mydomain
      *
      * @var string
@@ -22,6 +23,7 @@ class transcodeOutput extends Model
      * @description The type of the output stream. A value of LiveCenter indicates that the URL of the output stream is generated based on the domain name of ApsaraVideo Live. The value can only be LiveCenter.
      *
      * This parameter is required.
+     *
      * @example LiveCenter
      *
      * @var string
@@ -29,12 +31,10 @@ class transcodeOutput extends Model
     public $type;
     protected $_name = [
         'domainName' => 'DomainName',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

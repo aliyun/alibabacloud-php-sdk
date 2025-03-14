@@ -20,9 +20,7 @@ class GetVodPackagingGroupRequest extends Model
         'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

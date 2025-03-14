@@ -12,6 +12,7 @@ class DropSearchLibRequest extends Model
      * @description The name of the search library.
      *
      * This parameter is required.
+     *
      * @example test1
      *
      * @var string
@@ -21,9 +22,7 @@ class DropSearchLibRequest extends Model
         'searchLibName' => 'SearchLibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

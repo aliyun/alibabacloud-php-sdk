@@ -52,16 +52,14 @@ class ListMediaLiveInputsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'inputs'     => 'Inputs',
+        'inputs' => 'Inputs',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class ListMediaLiveInputsResponseBody extends Model
         if (isset($map['Inputs'])) {
             if (!empty($map['Inputs'])) {
                 $model->inputs = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Inputs'] as $item) {
                     $model->inputs[$n++] = null !== $item ? inputs::fromMap($item) : $item;
                 }

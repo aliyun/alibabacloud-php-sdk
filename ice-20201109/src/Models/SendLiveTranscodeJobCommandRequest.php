@@ -12,6 +12,7 @@ class SendLiveTranscodeJobCommandRequest extends Model
      * @description The operation command. Only the stop command is supported. This command is used to stop a transcoding job.
      *
      * This parameter is required.
+     *
      * @example stop
      *
      * @var string
@@ -22,6 +23,7 @@ class SendLiveTranscodeJobCommandRequest extends Model
      * @description The ID of the transcoding job.
      *
      * This parameter is required.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -29,12 +31,10 @@ class SendLiveTranscodeJobCommandRequest extends Model
     public $jobId;
     protected $_name = [
         'command' => 'Command',
-        'jobId'   => 'JobId',
+        'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

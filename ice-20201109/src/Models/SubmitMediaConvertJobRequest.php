@@ -21,6 +21,7 @@ class SubmitMediaConvertJobRequest extends Model
      * @description The configurations of the transcoding task.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $config;
@@ -44,14 +45,12 @@ class SubmitMediaConvertJobRequest extends Model
     public $userData;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'config'      => 'Config',
-        'pipelineId'  => 'PipelineId',
-        'userData'    => 'UserData',
+        'config' => 'Config',
+        'pipelineId' => 'PipelineId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -19,7 +19,10 @@ class SubmitProjectExportJobRequest extends Model
      * @description This parameter is required.
      *
      * @example {
+     * "Bucket": "example-bucket",
+     * "Prefix": "example_prefix"
      * }
+     *
      * @var string
      */
     public $outputMediaConfig;
@@ -45,16 +48,14 @@ class SubmitProjectExportJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'exportType'        => 'ExportType',
+        'exportType' => 'ExportType',
         'outputMediaConfig' => 'OutputMediaConfig',
-        'projectId'         => 'ProjectId',
-        'timeline'          => 'Timeline',
-        'userData'          => 'UserData',
+        'projectId' => 'ProjectId',
+        'timeline' => 'Timeline',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

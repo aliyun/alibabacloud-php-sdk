@@ -20,6 +20,7 @@ class ListBatchMediaProducingJobsResponseBody extends Model
      * @description The number of entries per page. Valid values: 1 to 100.
      *
      * Default value: 10.
+     *
      * @example 100
      *
      * @var int
@@ -45,14 +46,12 @@ class ListBatchMediaProducingJobsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'editingBatchJobList' => 'EditingBatchJobList',
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'requestId'           => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -90,7 +89,7 @@ class ListBatchMediaProducingJobsResponseBody extends Model
         if (isset($map['EditingBatchJobList'])) {
             if (!empty($map['EditingBatchJobList'])) {
                 $model->editingBatchJobList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['EditingBatchJobList'] as $item) {
                     $model->editingBatchJobList[$n++] = null !== $item ? editingBatchJobList::fromMap($item) : $item;
                 }

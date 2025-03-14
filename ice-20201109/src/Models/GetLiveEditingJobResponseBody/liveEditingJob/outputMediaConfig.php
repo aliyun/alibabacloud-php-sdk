@@ -71,18 +71,16 @@ class outputMediaConfig extends Model
      */
     public $width;
     protected $_name = [
-        'bitrate'            => 'Bitrate',
-        'fileName'           => 'FileName',
-        'height'             => 'Height',
-        'mediaURL'           => 'MediaURL',
-        'storageLocation'    => 'StorageLocation',
+        'bitrate' => 'Bitrate',
+        'fileName' => 'FileName',
+        'height' => 'Height',
+        'mediaURL' => 'MediaURL',
+        'storageLocation' => 'StorageLocation',
         'vodTemplateGroupId' => 'VodTemplateGroupId',
-        'width'              => 'Width',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

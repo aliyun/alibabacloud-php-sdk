@@ -42,16 +42,14 @@ class SearchMediaByHybridResponseBody extends Model
      */
     public $total;
     protected $_name = [
-        'code'      => 'Code',
+        'code' => 'Code',
         'mediaList' => 'MediaList',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'total'     => 'Total',
+        'success' => 'Success',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -95,7 +93,7 @@ class SearchMediaByHybridResponseBody extends Model
         if (isset($map['MediaList'])) {
             if (!empty($map['MediaList'])) {
                 $model->mediaList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['MediaList'] as $item) {
                     $model->mediaList[$n++] = null !== $item ? mediaList::fromMap($item) : $item;
                 }

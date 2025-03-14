@@ -21,6 +21,7 @@ class UpdateCustomizedVoiceRequest extends Model
      * @description The voice ID.
      *
      * This parameter is required.
+     *
      * @example xiaozhuan
      *
      * @var string
@@ -28,12 +29,10 @@ class UpdateCustomizedVoiceRequest extends Model
     public $voiceId;
     protected $_name = [
         'demoAudioMediaId' => 'DemoAudioMediaId',
-        'voiceId'          => 'VoiceId',
+        'voiceId' => 'VoiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

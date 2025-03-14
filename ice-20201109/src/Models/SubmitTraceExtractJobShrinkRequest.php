@@ -30,13 +30,11 @@ class SubmitTraceExtractJobShrinkRequest extends Model
     public $userData;
     protected $_name = [
         'inputShrink' => 'Input',
-        'params'      => 'Params',
-        'userData'    => 'UserData',
+        'params' => 'Params',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

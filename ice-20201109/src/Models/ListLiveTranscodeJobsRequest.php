@@ -63,6 +63,7 @@ class ListLiveTranscodeJobsRequest extends Model
      * @description The state of the job.
      *
      * 0: The job is not started. 1: The job is in progress. 2: The job is stopped.
+     *
      * @example 1
      *
      * @var int
@@ -83,18 +84,16 @@ class ListLiveTranscodeJobsRequest extends Model
      */
     public $type;
     protected $_name = [
-        'keyWord'   => 'KeyWord',
-        'pageNo'    => 'PageNo',
-        'pageSize'  => 'PageSize',
-        'sortBy'    => 'SortBy',
+        'keyWord' => 'KeyWord',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
         'startMode' => 'StartMode',
-        'status'    => 'Status',
-        'type'      => 'Type',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

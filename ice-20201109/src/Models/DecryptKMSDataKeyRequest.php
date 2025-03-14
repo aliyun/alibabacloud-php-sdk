@@ -12,6 +12,7 @@ class DecryptKMSDataKeyRequest extends Model
      * @description The ciphertext that you want to decrypt.
      *
      * This parameter is required.
+     *
      * @example ODZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmS7FmDBBQ0BkKsQrtRnidtPwirmDcS0ZuJCU41xxAAWk4Z8qsADfbV0b+i6kQmlvj79dJdGOvtX69Uycs901qOjop4bTS****
      *
      * @var string
@@ -21,9 +22,7 @@ class DecryptKMSDataKeyRequest extends Model
         'ciphertextBlob' => 'CiphertextBlob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -20,9 +20,7 @@ class DeleteEditingProjectsRequest extends Model
         'projectIds' => 'ProjectIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

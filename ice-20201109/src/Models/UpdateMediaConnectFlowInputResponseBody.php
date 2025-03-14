@@ -44,15 +44,13 @@ class UpdateMediaConnectFlowInputResponseBody extends Model
      */
     public $retCode;
     protected $_name = [
-        'content'     => 'Content',
+        'content' => 'Content',
         'description' => 'Description',
-        'requestId'   => 'RequestId',
-        'retCode'     => 'RetCode',
+        'requestId' => 'RequestId',
+        'retCode' => 'RetCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

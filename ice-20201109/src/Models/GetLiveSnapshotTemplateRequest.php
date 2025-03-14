@@ -12,6 +12,7 @@ class GetLiveSnapshotTemplateRequest extends Model
      * @description The template ID.
      *
      * This parameter is required.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -21,9 +22,7 @@ class GetLiveSnapshotTemplateRequest extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

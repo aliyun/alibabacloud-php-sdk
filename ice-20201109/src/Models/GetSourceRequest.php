@@ -12,6 +12,7 @@ class GetSourceRequest extends Model
      * @description The source location.
      *
      * This parameter is required.
+     *
      * @example MySourceLocation
      *
      * @var string
@@ -22,6 +23,7 @@ class GetSourceRequest extends Model
      * @description The name of the source.
      *
      * This parameter is required.
+     *
      * @example MyVodSource
      *
      * @var string
@@ -32,6 +34,7 @@ class GetSourceRequest extends Model
      * @description The source type. Valid values: vodSource and liveSource.
      *
      * This parameter is required.
+     *
      * @example vodSource
      *
      * @var string
@@ -39,13 +42,11 @@ class GetSourceRequest extends Model
     public $sourceType;
     protected $_name = [
         'sourceLocationName' => 'SourceLocationName',
-        'sourceName'         => 'SourceName',
-        'sourceType'         => 'SourceType',
+        'sourceName' => 'SourceName',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -38,17 +38,15 @@ class MediaConvertOutputGroupOutput extends Model
      */
     public $templateId;
     protected $_name = [
-        'features'       => 'Features',
-        'name'           => 'Name',
+        'features' => 'Features',
+        'name' => 'Name',
         'outputFileName' => 'OutputFileName',
         'overrideParams' => 'OverrideParams',
-        'priority'       => 'Priority',
-        'templateId'     => 'TemplateId',
+        'priority' => 'Priority',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -170,29 +170,27 @@ class audioStreamInfoList extends Model
      */
     public $timebase;
     protected $_name = [
-        'bitrate'        => 'Bitrate',
-        'channelLayout'  => 'ChannelLayout',
-        'channels'       => 'Channels',
-        'codecLongName'  => 'CodecLongName',
-        'codecName'      => 'CodecName',
-        'codecTag'       => 'CodecTag',
+        'bitrate' => 'Bitrate',
+        'channelLayout' => 'ChannelLayout',
+        'channels' => 'Channels',
+        'codecLongName' => 'CodecLongName',
+        'codecName' => 'CodecName',
+        'codecTag' => 'CodecTag',
         'codecTagString' => 'CodecTagString',
-        'codecTimeBase'  => 'CodecTimeBase',
-        'duration'       => 'Duration',
-        'fps'            => 'Fps',
-        'index'          => 'Index',
-        'lang'           => 'Lang',
-        'numFrames'      => 'NumFrames',
-        'profile'        => 'Profile',
-        'sampleFmt'      => 'SampleFmt',
-        'sampleRate'     => 'SampleRate',
-        'startTime'      => 'StartTime',
-        'timebase'       => 'Timebase',
+        'codecTimeBase' => 'CodecTimeBase',
+        'duration' => 'Duration',
+        'fps' => 'Fps',
+        'index' => 'Index',
+        'lang' => 'Lang',
+        'numFrames' => 'NumFrames',
+        'profile' => 'Profile',
+        'sampleFmt' => 'SampleFmt',
+        'sampleRate' => 'SampleRate',
+        'startTime' => 'StartTime',
+        'timebase' => 'Timebase',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

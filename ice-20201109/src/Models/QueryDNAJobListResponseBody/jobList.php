@@ -120,23 +120,21 @@ class jobList extends Model
      */
     public $userData;
     protected $_name = [
-        'code'         => 'Code',
-        'config'       => 'Config',
+        'code' => 'Code',
+        'config' => 'Config',
         'creationTime' => 'CreationTime',
-        'DBId'         => 'DBId',
-        'DNAResult'    => 'DNAResult',
-        'finishTime'   => 'FinishTime',
-        'id'           => 'Id',
-        'input'        => 'Input',
-        'message'      => 'Message',
-        'primaryKey'   => 'PrimaryKey',
-        'status'       => 'Status',
-        'userData'     => 'UserData',
+        'DBId' => 'DBId',
+        'DNAResult' => 'DNAResult',
+        'finishTime' => 'FinishTime',
+        'id' => 'Id',
+        'input' => 'Input',
+        'message' => 'Message',
+        'primaryKey' => 'PrimaryKey',
+        'status' => 'Status',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

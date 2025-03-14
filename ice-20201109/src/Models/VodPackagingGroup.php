@@ -39,16 +39,14 @@ class VodPackagingGroup extends Model
     public $groupName;
     protected $_name = [
         'approximateAssetCount' => 'ApproximateAssetCount',
-        'configurationCount'    => 'ConfigurationCount',
-        'createTime'            => 'CreateTime',
-        'description'           => 'Description',
-        'domainName'            => 'DomainName',
-        'groupName'             => 'GroupName',
+        'configurationCount' => 'ConfigurationCount',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'domainName' => 'DomainName',
+        'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

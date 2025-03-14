@@ -25,12 +25,10 @@ class GetSourceResponseBody extends Model
     public $source;
     protected $_name = [
         'requestId' => 'RequestId',
-        'source'    => 'Source',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -113,23 +113,21 @@ class customTemplate extends Model
      */
     public $typeName;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'frontendHint'   => 'FrontendHint',
-        'isDefault'      => 'IsDefault',
-        'modifiedTime'   => 'ModifiedTime',
-        'status'         => 'Status',
-        'subtype'        => 'Subtype',
-        'subtypeName'    => 'SubtypeName',
+        'createTime' => 'CreateTime',
+        'frontendHint' => 'FrontendHint',
+        'isDefault' => 'IsDefault',
+        'modifiedTime' => 'ModifiedTime',
+        'status' => 'Status',
+        'subtype' => 'Subtype',
+        'subtypeName' => 'SubtypeName',
         'templateConfig' => 'TemplateConfig',
-        'templateId'     => 'TemplateId',
-        'templateName'   => 'TemplateName',
-        'type'           => 'Type',
-        'typeName'       => 'TypeName',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'type' => 'Type',
+        'typeName' => 'TypeName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

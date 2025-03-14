@@ -11,7 +11,10 @@ class transConfig extends Model
     /**
      * @description The method that is used to adjust the resolution. This parameter takes effect only if both the Width and Height parameters are specified. You can use this parameter together with the LongShortMode parameter.
      *
+     * Valid values: rescale, crop, pad, and none.
+     *
      * Default value: none.
+     *
      * @example none
      *
      * @var string
@@ -42,6 +45,7 @@ class transConfig extends Model
      *   false
      *
      * Default value: false.
+     *
      * @example true
      *
      * @var string
@@ -55,6 +59,7 @@ class transConfig extends Model
      *   false
      *
      * Default value: false.
+     *
      * @example true
      *
      * @var string
@@ -68,6 +73,7 @@ class transConfig extends Model
      *   false
      *
      * Default value: false.
+     *
      * @example true
      *
      * @var string
@@ -81,6 +87,7 @@ class transConfig extends Model
      *   false
      *
      * Default value: false.
+     *
      * @example true
      *
      * @var string
@@ -94,6 +101,7 @@ class transConfig extends Model
      *   false
      *
      * Default value: false.
+     *
      * @example true
      *
      * @var string
@@ -108,25 +116,24 @@ class transConfig extends Model
      *   CBR: the constant bitrate mode.
      *
      * Default value: onepass.
+     *
      * @example onepass
      *
      * @var string
      */
     public $transMode;
     protected $_name = [
-        'adjDarMethod'            => 'AdjDarMethod',
-        'isCheckAudioBitrate'     => 'IsCheckAudioBitrate',
+        'adjDarMethod' => 'AdjDarMethod',
+        'isCheckAudioBitrate' => 'IsCheckAudioBitrate',
         'isCheckAudioBitrateFail' => 'IsCheckAudioBitrateFail',
-        'isCheckReso'             => 'IsCheckReso',
-        'isCheckResoFail'         => 'IsCheckResoFail',
-        'isCheckVideoBitrate'     => 'IsCheckVideoBitrate',
+        'isCheckReso' => 'IsCheckReso',
+        'isCheckResoFail' => 'IsCheckResoFail',
+        'isCheckVideoBitrate' => 'IsCheckVideoBitrate',
         'isCheckVideoBitrateFail' => 'IsCheckVideoBitrateFail',
-        'transMode'               => 'TransMode',
+        'transMode' => 'TransMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

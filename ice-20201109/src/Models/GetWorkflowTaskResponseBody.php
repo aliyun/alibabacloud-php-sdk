@@ -25,13 +25,11 @@ class GetWorkflowTaskResponseBody extends Model
      */
     public $workflowTask;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'workflowTask' => 'WorkflowTask',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

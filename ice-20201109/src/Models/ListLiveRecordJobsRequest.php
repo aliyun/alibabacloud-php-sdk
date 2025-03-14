@@ -12,6 +12,7 @@ class ListLiveRecordJobsRequest extends Model
      * @description The end of the time range to query. The maximum time range between EndTime and StartTime cannot exceed 30 days. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2022-07-11T08:00:00Z
      *
      * @var string
@@ -63,6 +64,7 @@ class ListLiveRecordJobsRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2022-07-15T08:00:00Z
      *
      * @var string
@@ -84,18 +86,16 @@ class ListLiveRecordJobsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'keyword'   => 'Keyword',
-        'pageNo'    => 'PageNo',
-        'pageSize'  => 'PageSize',
-        'sortBy'    => 'SortBy',
+        'endTime' => 'EndTime',
+        'keyword' => 'Keyword',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
         'startTime' => 'StartTime',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

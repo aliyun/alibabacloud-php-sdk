@@ -16,6 +16,7 @@ class UpdateCategoryRequest extends Model
      *   View the value of CateId returned by the GetCategories operation that you called to query a category.
      *
      * This parameter is required.
+     *
      * @example 43
      *
      * @var int
@@ -26,17 +27,16 @@ class UpdateCategoryRequest extends Model
      * @description The category name.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $cateName;
     protected $_name = [
-        'cateId'   => 'CateId',
+        'cateId' => 'CateId',
         'cateName' => 'CateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

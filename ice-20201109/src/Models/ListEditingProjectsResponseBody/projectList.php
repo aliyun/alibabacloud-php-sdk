@@ -38,7 +38,12 @@ class projectList extends Model
     /**
      * @description The method for editing the online editing project. Valid values:
      *
+     * \\- OpenAPI
+     *
+     * \\- AliyunConsole
+     *
      * \\- WebSDK
+     *
      * @example OpenAPI
      *
      * @var string
@@ -121,7 +126,16 @@ class projectList extends Model
     /**
      * @description The status of the online editing project. Valid values:
      *
+     * \\- Draft
+     *
+     * \\- Editing
+     *
+     * \\- Producing
+     *
+     * \\- Produced
+     *
      * \\- ProduceFailed
+     *
      * @example Produced
      *
      * @var string
@@ -149,24 +163,22 @@ class projectList extends Model
     protected $_name = [
         'businessConfig' => 'BusinessConfig',
         'businessStatus' => 'BusinessStatus',
-        'coverURL'       => 'CoverURL',
-        'createSource'   => 'CreateSource',
-        'createTime'     => 'CreateTime',
-        'description'    => 'Description',
-        'errorCode'      => 'ErrorCode',
-        'errorMessage'   => 'ErrorMessage',
+        'coverURL' => 'CoverURL',
+        'createSource' => 'CreateSource',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'modifiedSource' => 'ModifiedSource',
-        'modifiedTime'   => 'ModifiedTime',
-        'projectId'      => 'ProjectId',
-        'projectType'    => 'ProjectType',
-        'status'         => 'Status',
-        'templateType'   => 'TemplateType',
-        'title'          => 'Title',
+        'modifiedTime' => 'ModifiedTime',
+        'projectId' => 'ProjectId',
+        'projectType' => 'ProjectType',
+        'status' => 'Status',
+        'templateType' => 'TemplateType',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

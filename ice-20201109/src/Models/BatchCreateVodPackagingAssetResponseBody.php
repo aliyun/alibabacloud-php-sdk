@@ -34,14 +34,12 @@ class BatchCreateVodPackagingAssetResponseBody extends Model
      */
     public $resultList;
     protected $_name = [
-        'groupName'  => 'GroupName',
-        'requestId'  => 'RequestId',
+        'groupName' => 'GroupName',
+        'requestId' => 'RequestId',
         'resultList' => 'ResultList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class BatchCreateVodPackagingAssetResponseBody extends Model
         if (isset($map['ResultList'])) {
             if (!empty($map['ResultList'])) {
                 $model->resultList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ResultList'] as $item) {
                     $model->resultList[$n++] = null !== $item ? resultList::fromMap($item) : $item;
                 }

@@ -21,11 +21,7 @@ class demonstrationList extends Model
      * @description The URL of the sample audio.
      *
      *   The value is an Object Storage Service (OSS) URL.
-     *
-     **
-     *
      **Note**: The URL expires in 12 hours.
-     *
      * @example http://bucket.oss-cn-shanghai.aliyuncs.com/1.wav
      *
      * @var string
@@ -39,14 +35,12 @@ class demonstrationList extends Model
      */
     public $text;
     protected $_name = [
-        'audioId'   => 'AudioId',
+        'audioId' => 'AudioId',
         'demoAudio' => 'DemoAudio',
-        'text'      => 'Text',
+        'text' => 'Text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

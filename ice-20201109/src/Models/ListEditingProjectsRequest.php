@@ -11,7 +11,12 @@ class ListEditingProjectsRequest extends Model
     /**
      * @description The method for creating the online editing project. Valid values:
      *
+     * \\- OpenAPI
+     *
+     * \\- AliyunConsole
+     *
      * \\- WebSDK
+     *
      * @example OpenAPI
      *
      * @var string
@@ -40,6 +45,7 @@ class ListEditingProjectsRequest extends Model
      * @description The number of entries per page. A maximum of 100 entries can be returned on each page.
      *
      * Default value: 10.
+     *
      * @example 10
      *
      * @var string
@@ -99,13 +105,7 @@ class ListEditingProjectsRequest extends Model
 
     /**
      * @description The template type. This parameter is required if you create a template-based online editing project. Default value: Timeline.
-     *
-     * Valid values:
-     *
-     *   Timeline: a regular template.
-     *   VETemplate: an advanced template.
      *   None: general editing.
-     *
      * @example None
      *
      * @var string
@@ -113,20 +113,18 @@ class ListEditingProjectsRequest extends Model
     public $templateType;
     protected $_name = [
         'createSource' => 'CreateSource',
-        'endTime'      => 'EndTime',
-        'keyword'      => 'Keyword',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'projectType'  => 'ProjectType',
-        'sortBy'       => 'SortBy',
-        'startTime'    => 'StartTime',
-        'status'       => 'Status',
+        'endTime' => 'EndTime',
+        'keyword' => 'Keyword',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'projectType' => 'ProjectType',
+        'sortBy' => 'SortBy',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
         'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

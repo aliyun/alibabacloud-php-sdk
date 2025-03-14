@@ -51,16 +51,14 @@ class AddEditingProjectMaterialsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'liveMaterials'    => 'LiveMaterials',
-        'mediaInfos'       => 'MediaInfos',
-        'projectId'        => 'ProjectId',
+        'liveMaterials' => 'LiveMaterials',
+        'mediaInfos' => 'MediaInfos',
+        'projectId' => 'ProjectId',
         'projectMaterials' => 'ProjectMaterials',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -107,7 +105,7 @@ class AddEditingProjectMaterialsResponseBody extends Model
         if (isset($map['LiveMaterials'])) {
             if (!empty($map['LiveMaterials'])) {
                 $model->liveMaterials = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['LiveMaterials'] as $item) {
                     $model->liveMaterials[$n++] = null !== $item ? liveMaterials::fromMap($item) : $item;
                 }
@@ -116,7 +114,7 @@ class AddEditingProjectMaterialsResponseBody extends Model
         if (isset($map['MediaInfos'])) {
             if (!empty($map['MediaInfos'])) {
                 $model->mediaInfos = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['MediaInfos'] as $item) {
                     $model->mediaInfos[$n++] = null !== $item ? mediaInfos::fromMap($item) : $item;
                 }

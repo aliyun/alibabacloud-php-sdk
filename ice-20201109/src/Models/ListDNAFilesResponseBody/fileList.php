@@ -25,13 +25,11 @@ class fileList extends Model
      */
     public $primaryKey;
     protected $_name = [
-        'inputFile'  => 'InputFile',
+        'inputFile' => 'InputFile',
         'primaryKey' => 'PrimaryKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

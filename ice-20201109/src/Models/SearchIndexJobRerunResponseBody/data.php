@@ -18,9 +18,7 @@ class data extends Model
         'mediaIdsNoExist' => 'MediaIdsNoExist',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

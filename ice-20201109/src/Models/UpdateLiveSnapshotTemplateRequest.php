@@ -41,6 +41,7 @@ class UpdateLiveSnapshotTemplateRequest extends Model
      * @description The template ID.
      *
      * This parameter is required.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -53,6 +54,7 @@ class UpdateLiveSnapshotTemplateRequest extends Model
      *   It cannot exceed 128 characters in length.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $templateName;
@@ -63,6 +65,7 @@ class UpdateLiveSnapshotTemplateRequest extends Model
      *   Valid values: [5,3600].
      *
      * This parameter is required.
+     *
      * @example 5
      *
      * @var int
@@ -70,15 +73,13 @@ class UpdateLiveSnapshotTemplateRequest extends Model
     public $timeInterval;
     protected $_name = [
         'overwriteFormat' => 'OverwriteFormat',
-        'sequenceFormat'  => 'SequenceFormat',
-        'templateId'      => 'TemplateId',
-        'templateName'    => 'TemplateName',
-        'timeInterval'    => 'TimeInterval',
+        'sequenceFormat' => 'SequenceFormat',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'timeInterval' => 'TimeInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

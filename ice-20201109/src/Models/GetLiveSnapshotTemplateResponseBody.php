@@ -92,20 +92,18 @@ class GetLiveSnapshotTemplateResponseBody extends Model
      */
     public $type;
     protected $_name = [
-        'createTime'      => 'CreateTime',
-        'lastModified'    => 'LastModified',
+        'createTime' => 'CreateTime',
+        'lastModified' => 'LastModified',
         'overwriteFormat' => 'OverwriteFormat',
-        'requestId'       => 'RequestId',
-        'sequenceFormat'  => 'SequenceFormat',
-        'templateId'      => 'TemplateId',
-        'templateName'    => 'TemplateName',
-        'timeInterval'    => 'TimeInterval',
-        'type'            => 'Type',
+        'requestId' => 'RequestId',
+        'sequenceFormat' => 'SequenceFormat',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'timeInterval' => 'TimeInterval',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

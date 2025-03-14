@@ -27,12 +27,10 @@ class DeleteAIAgentDialogueRequest extends Model
     public $sessionId;
     protected $_name = [
         'dialogueId' => 'DialogueId',
-        'sessionId'  => 'SessionId',
+        'sessionId' => 'SessionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

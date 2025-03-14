@@ -84,6 +84,7 @@ class URLUploadInfoList extends Model
      * @description The upload URL of the source file.
      *
      * >  A maximum of 100 URLs can be returned.
+     *
      * @example http://****.mp4
      *
      * @var string
@@ -101,19 +102,17 @@ class URLUploadInfoList extends Model
     protected $_name = [
         'completeTime' => 'CompleteTime',
         'creationTime' => 'CreationTime',
-        'errorCode'    => 'ErrorCode',
+        'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
-        'fileSize'     => 'FileSize',
-        'jobId'        => 'JobId',
-        'mediaId'      => 'MediaId',
-        'status'       => 'Status',
-        'uploadURL'    => 'UploadURL',
-        'userData'     => 'UserData',
+        'fileSize' => 'FileSize',
+        'jobId' => 'JobId',
+        'mediaId' => 'MediaId',
+        'status' => 'Status',
+        'uploadURL' => 'UploadURL',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

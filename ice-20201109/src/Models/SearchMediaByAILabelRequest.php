@@ -107,21 +107,19 @@ class SearchMediaByAILabelRequest extends Model
      */
     public $text;
     protected $_name = [
-        'matchingMode'         => 'MatchingMode',
-        'mediaId'              => 'MediaId',
-        'mediaType'            => 'MediaType',
+        'matchingMode' => 'MatchingMode',
+        'mediaId' => 'MediaId',
+        'mediaType' => 'MediaType',
         'multimodalSearchType' => 'MultimodalSearchType',
-        'pageNo'               => 'PageNo',
-        'pageSize'             => 'PageSize',
-        'searchLibName'        => 'SearchLibName',
-        'sortBy'               => 'SortBy',
-        'specificSearch'       => 'SpecificSearch',
-        'text'                 => 'Text',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'searchLibName' => 'SearchLibName',
+        'sortBy' => 'SortBy',
+        'specificSearch' => 'SpecificSearch',
+        'text' => 'Text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

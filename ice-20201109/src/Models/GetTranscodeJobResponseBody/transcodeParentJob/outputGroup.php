@@ -24,13 +24,11 @@ class outputGroup extends Model
      */
     public $processConfig;
     protected $_name = [
-        'output'        => 'Output',
+        'output' => 'Output',
         'processConfig' => 'ProcessConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

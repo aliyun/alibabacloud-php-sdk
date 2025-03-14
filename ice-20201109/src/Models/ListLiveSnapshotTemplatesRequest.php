@@ -75,17 +75,15 @@ class ListLiveSnapshotTemplatesRequest extends Model
      */
     public $type;
     protected $_name = [
-        'pageNo'        => 'PageNo',
-        'pageSize'      => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'searchKeyWord' => 'SearchKeyWord',
-        'sortBy'        => 'SortBy',
-        'templateIds'   => 'TemplateIds',
-        'type'          => 'Type',
+        'sortBy' => 'SortBy',
+        'templateIds' => 'TemplateIds',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

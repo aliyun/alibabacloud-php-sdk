@@ -59,15 +59,13 @@ class StartRtcRobotInstanceRequest extends Model
     protected $_name = [
         'authToken' => 'AuthToken',
         'channelId' => 'ChannelId',
-        'config'    => 'Config',
-        'robotId'   => 'RobotId',
-        'userData'  => 'UserData',
-        'userId'    => 'UserId',
+        'config' => 'Config',
+        'robotId' => 'RobotId',
+        'userData' => 'UserData',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

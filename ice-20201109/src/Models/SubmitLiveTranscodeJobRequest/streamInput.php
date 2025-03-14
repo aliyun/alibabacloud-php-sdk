@@ -12,6 +12,7 @@ class streamInput extends Model
      * @description The URL of the input stream.
      *
      * This parameter is required.
+     *
      * @example rtmp://mydomain/app/stream1
      *
      * @var string
@@ -22,6 +23,7 @@ class streamInput extends Model
      * @description The type of the input stream. The value can only be rtmp.
      *
      * This parameter is required.
+     *
      * @example rtmp
      *
      * @var string
@@ -29,12 +31,10 @@ class streamInput extends Model
     public $type;
     protected $_name = [
         'inputUrl' => 'InputUrl',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

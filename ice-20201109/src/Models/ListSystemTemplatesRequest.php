@@ -66,24 +66,23 @@ class ListSystemTemplatesRequest extends Model
      * @description The template type. Separate multiple types with commas (,).
      *
      * This parameter is required.
+     *
      * @example 1,2
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'name'       => 'Name',
+        'name' => 'Name',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'status'     => 'Status',
-        'subtype'    => 'Subtype',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
+        'subtype' => 'Subtype',
         'templateId' => 'TemplateId',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

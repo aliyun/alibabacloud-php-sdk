@@ -48,19 +48,17 @@ class adBreaks extends Model
      */
     public $timeSignalSettings;
     protected $_name = [
-        'channelName'          => 'ChannelName',
-        'messageType'          => 'MessageType',
-        'offsetMillis'         => 'OffsetMillis',
-        'programName'          => 'ProgramName',
-        'sourceLocationName'   => 'SourceLocationName',
-        'sourceName'           => 'SourceName',
+        'channelName' => 'ChannelName',
+        'messageType' => 'MessageType',
+        'offsetMillis' => 'OffsetMillis',
+        'programName' => 'ProgramName',
+        'sourceLocationName' => 'SourceLocationName',
+        'sourceName' => 'SourceName',
         'spliceInsertSettings' => 'SpliceInsertSettings',
-        'timeSignalSettings'   => 'TimeSignalSettings',
+        'timeSignalSettings' => 'TimeSignalSettings',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

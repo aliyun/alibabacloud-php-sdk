@@ -48,19 +48,17 @@ class licenseConfigs extends Model
      */
     public $subscriptionPkg;
     protected $_name = [
-        'businessType'    => 'BusinessType',
-        'featureIds'      => 'FeatureIds',
-        'isTrial'         => 'IsTrial',
-        'sdkId'           => 'SdkId',
-        'sdkName'         => 'SdkName',
-        'subscription'    => 'Subscription',
+        'businessType' => 'BusinessType',
+        'featureIds' => 'FeatureIds',
+        'isTrial' => 'IsTrial',
+        'sdkId' => 'SdkId',
+        'sdkName' => 'SdkName',
+        'subscription' => 'Subscription',
         'subscriptionImp' => 'SubscriptionImp',
         'subscriptionPkg' => 'SubscriptionPkg',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

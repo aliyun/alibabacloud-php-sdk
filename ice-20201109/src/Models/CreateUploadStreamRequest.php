@@ -76,16 +76,14 @@ class CreateUploadStreamRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'definition'    => 'Definition',
+        'definition' => 'Definition',
         'fileExtension' => 'FileExtension',
-        'HDRType'       => 'HDRType',
-        'mediaId'       => 'MediaId',
-        'userData'      => 'UserData',
+        'HDRType' => 'HDRType',
+        'mediaId' => 'MediaId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

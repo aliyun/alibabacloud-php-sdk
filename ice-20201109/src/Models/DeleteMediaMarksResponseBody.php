@@ -35,14 +35,12 @@ class DeleteMediaMarksResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'mediaId'      => 'MediaId',
+        'mediaId' => 'MediaId',
         'mediaMarkIds' => 'MediaMarkIds',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

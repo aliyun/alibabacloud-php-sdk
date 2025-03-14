@@ -43,6 +43,7 @@ class CreateLiveSnapshotTemplateRequest extends Model
      *   It cannot exceed 128 characters in length.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $templateName;
@@ -53,6 +54,7 @@ class CreateLiveSnapshotTemplateRequest extends Model
      *   Valid values: [5,3600].
      *
      * This parameter is required.
+     *
      * @example 5
      *
      * @var int
@@ -60,14 +62,12 @@ class CreateLiveSnapshotTemplateRequest extends Model
     public $timeInterval;
     protected $_name = [
         'overwriteFormat' => 'OverwriteFormat',
-        'sequenceFormat'  => 'SequenceFormat',
-        'templateName'    => 'TemplateName',
-        'timeInterval'    => 'TimeInterval',
+        'sequenceFormat' => 'SequenceFormat',
+        'templateName' => 'TemplateName',
+        'timeInterval' => 'TimeInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ListProgramsRequest extends Model
      * @description The name of the channel.
      *
      * This parameter is required.
+     *
      * @example MyChannel
      *
      * @var string
@@ -58,15 +59,13 @@ class ListProgramsRequest extends Model
     public $sortBy;
     protected $_name = [
         'channelName' => 'ChannelName',
-        'pageNo'      => 'PageNo',
-        'pageSize'    => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'programName' => 'ProgramName',
-        'sortBy'      => 'SortBy',
+        'sortBy' => 'SortBy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -52,16 +52,14 @@ class ListAlertsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'alerts'     => 'Alerts',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'alerts' => 'Alerts',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class ListAlertsResponseBody extends Model
         if (isset($map['Alerts'])) {
             if (!empty($map['Alerts'])) {
                 $model->alerts = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Alerts'] as $item) {
                     $model->alerts[$n++] = null !== $item ? alerts::fromMap($item) : $item;
                 }

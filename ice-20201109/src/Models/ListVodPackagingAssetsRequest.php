@@ -57,15 +57,13 @@ class ListVodPackagingAssetsRequest extends Model
     public $sortBy;
     protected $_name = [
         'groupName' => 'GroupName',
-        'keyword'   => 'Keyword',
-        'pageNo'    => 'PageNo',
-        'pageSize'  => 'PageSize',
-        'sortBy'    => 'SortBy',
+        'keyword' => 'Keyword',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

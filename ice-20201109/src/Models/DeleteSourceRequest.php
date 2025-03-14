@@ -21,6 +21,7 @@ class DeleteSourceRequest extends Model
      * @description The name of the source location.
      *
      * This parameter is required.
+     *
      * @example MySourceLocation
      *
      * @var string
@@ -31,6 +32,7 @@ class DeleteSourceRequest extends Model
      * @description The name of the source.
      *
      * This parameter is required.
+     *
      * @example MyVodSource
      *
      * @var string
@@ -41,21 +43,20 @@ class DeleteSourceRequest extends Model
      * @description The source type. Valid values: vodSource and liveSource.
      *
      * This parameter is required.
+     *
      * @example vodSource
      *
      * @var string
      */
     public $sourceType;
     protected $_name = [
-        'softDelete'         => 'SoftDelete',
+        'softDelete' => 'SoftDelete',
         'sourceLocationName' => 'SourceLocationName',
-        'sourceName'         => 'SourceName',
-        'sourceType'         => 'SourceType',
+        'sourceName' => 'SourceName',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

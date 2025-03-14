@@ -60,17 +60,15 @@ class asset extends Model
      */
     public $input;
     protected $_name = [
-        'assetName'       => 'AssetName',
-        'contentId'       => 'ContentId',
-        'createTime'      => 'CreateTime',
+        'assetName' => 'AssetName',
+        'contentId' => 'ContentId',
+        'createTime' => 'CreateTime',
         'egressEndpoints' => 'EgressEndpoints',
-        'groupName'       => 'GroupName',
-        'input'           => 'Input',
+        'groupName' => 'GroupName',
+        'input' => 'Input',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -123,7 +121,7 @@ class asset extends Model
         if (isset($map['EgressEndpoints'])) {
             if (!empty($map['EgressEndpoints'])) {
                 $model->egressEndpoints = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['EgressEndpoints'] as $item) {
                     $model->egressEndpoints[$n++] = null !== $item ? egressEndpoints::fromMap($item) : $item;
                 }

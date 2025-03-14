@@ -15,6 +15,7 @@ class CreateCustomizedVoiceJobRequest extends Model
      *   male
      *
      * This parameter is required.
+     *
      * @example female
      *
      * @var string
@@ -29,6 +30,7 @@ class CreateCustomizedVoiceJobRequest extends Model
      *   navigation
      *
      * This parameter is required.
+     *
      * @example story
      *
      * @var string
@@ -52,6 +54,7 @@ class CreateCustomizedVoiceJobRequest extends Model
      *   Only letters and digits are supported.
      *
      * This parameter is required.
+     *
      * @example xiaozhuan
      *
      * @var string
@@ -67,16 +70,14 @@ class CreateCustomizedVoiceJobRequest extends Model
      */
     public $voiceName;
     protected $_name = [
-        'gender'    => 'Gender',
-        'scenario'  => 'Scenario',
+        'gender' => 'Gender',
+        'scenario' => 'Scenario',
         'voiceDesc' => 'VoiceDesc',
-        'voiceId'   => 'VoiceId',
+        'voiceId' => 'VoiceId',
         'voiceName' => 'VoiceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

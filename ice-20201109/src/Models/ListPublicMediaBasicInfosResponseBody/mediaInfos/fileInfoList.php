@@ -19,9 +19,7 @@ class fileInfoList extends Model
         'fileBasicInfo' => 'FileBasicInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

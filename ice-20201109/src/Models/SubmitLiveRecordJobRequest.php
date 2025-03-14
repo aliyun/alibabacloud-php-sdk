@@ -14,6 +14,7 @@ class SubmitLiveRecordJobRequest extends Model
      * @description The name of the recording job.
      *
      * This parameter is required.
+     *
      * @example live stream record 1
      *
      * @var string
@@ -33,6 +34,7 @@ class SubmitLiveRecordJobRequest extends Model
      * @description The storage address of the recording.
      *
      * This parameter is required.
+     *
      * @var recordOutput
      */
     public $recordOutput;
@@ -41,6 +43,7 @@ class SubmitLiveRecordJobRequest extends Model
      * @description The URL of the live stream.
      *
      * This parameter is required.
+     *
      * @var streamInput
      */
     public $streamInput;
@@ -49,22 +52,21 @@ class SubmitLiveRecordJobRequest extends Model
      * @description The ID of the recording template.
      *
      * This parameter is required.
+     *
      * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
      *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'name'         => 'Name',
-        'notifyUrl'    => 'NotifyUrl',
+        'name' => 'Name',
+        'notifyUrl' => 'NotifyUrl',
         'recordOutput' => 'RecordOutput',
-        'streamInput'  => 'StreamInput',
-        'templateId'   => 'TemplateId',
+        'streamInput' => 'StreamInput',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

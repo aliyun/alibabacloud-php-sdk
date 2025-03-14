@@ -33,14 +33,12 @@ class GetPlayInfoResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'mediaBase'    => 'MediaBase',
+        'mediaBase' => 'MediaBase',
         'playInfoList' => 'PlayInfoList',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class GetPlayInfoResponseBody extends Model
         if (isset($map['PlayInfoList'])) {
             if (!empty($map['PlayInfoList'])) {
                 $model->playInfoList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PlayInfoList'] as $item) {
                     $model->playInfoList[$n++] = null !== $item ? playInfoList::fromMap($item) : $item;
                 }

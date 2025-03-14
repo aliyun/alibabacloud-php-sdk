@@ -12,6 +12,7 @@ class SendAIAgentDataChannelMessageRequest extends Model
      * @description The ID of the AI agent in the conversation.
      *
      * This parameter is required.
+     *
      * @example 39f8e0bc005e4f309379701645f4****
      *
      * @var string
@@ -22,6 +23,7 @@ class SendAIAgentDataChannelMessageRequest extends Model
      * @description The DataChannel message you want to send. You must specify a JSON string. The value can be up to 8,192 characters in length.
      *
      * This parameter is required.
+     *
      * @example {"key":"value"}
      *
      * @var string
@@ -29,12 +31,10 @@ class SendAIAgentDataChannelMessageRequest extends Model
     public $message;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'message'    => 'Message',
+        'message' => 'Message',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

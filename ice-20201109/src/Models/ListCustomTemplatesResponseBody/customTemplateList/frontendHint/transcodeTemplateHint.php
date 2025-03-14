@@ -16,9 +16,7 @@ class transcodeTemplateHint extends Model
         'bitrateControlType' => 'BitrateControlType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

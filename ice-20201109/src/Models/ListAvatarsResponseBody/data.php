@@ -29,9 +29,7 @@ class data extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class data extends Model
         if (isset($map['AvatarList'])) {
             if (!empty($map['AvatarList'])) {
                 $model->avatarList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['AvatarList'] as $item) {
                     $model->avatarList[$n++] = null !== $item ? avatarList::fromMap($item) : $item;
                 }

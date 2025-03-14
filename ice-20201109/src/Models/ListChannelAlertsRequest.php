@@ -55,6 +55,7 @@ class ListChannelAlertsRequest extends Model
      * @description The ARN of the channel.
      *
      * This parameter is required.
+     *
      * @example acs:ims:mediaweaver:<regionId>:<userId>:channel/myChannel
      *
      * @var string
@@ -70,18 +71,16 @@ class ListChannelAlertsRequest extends Model
      */
     public $sortByModifiedTime;
     protected $_name = [
-        'category'           => 'Category',
-        'gmtEnd'             => 'GmtEnd',
-        'gmtStart'           => 'GmtStart',
-        'pageNo'             => 'PageNo',
-        'pageSize'           => 'PageSize',
-        'resourceArn'        => 'ResourceArn',
+        'category' => 'Category',
+        'gmtEnd' => 'GmtEnd',
+        'gmtStart' => 'GmtStart',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'resourceArn' => 'ResourceArn',
         'sortByModifiedTime' => 'SortByModifiedTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

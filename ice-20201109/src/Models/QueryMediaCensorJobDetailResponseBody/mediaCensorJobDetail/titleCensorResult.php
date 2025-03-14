@@ -56,15 +56,13 @@ class titleCensorResult extends Model
      */
     public $suggestion;
     protected $_name = [
-        'label'      => 'Label',
-        'rate'       => 'Rate',
-        'scene'      => 'Scene',
+        'label' => 'Label',
+        'rate' => 'Rate',
+        'scene' => 'Scene',
         'suggestion' => 'Suggestion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

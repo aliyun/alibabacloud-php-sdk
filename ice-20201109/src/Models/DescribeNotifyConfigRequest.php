@@ -20,9 +20,7 @@ class DescribeNotifyConfigRequest extends Model
         'AIAgentId' => 'AIAgentId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

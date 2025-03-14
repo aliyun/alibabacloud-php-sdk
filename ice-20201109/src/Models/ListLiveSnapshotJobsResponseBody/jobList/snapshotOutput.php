@@ -35,14 +35,12 @@ class snapshotOutput extends Model
      */
     public $storageType;
     protected $_name = [
-        'bucket'      => 'Bucket',
-        'endpoint'    => 'Endpoint',
+        'bucket' => 'Bucket',
+        'endpoint' => 'Endpoint',
         'storageType' => 'StorageType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

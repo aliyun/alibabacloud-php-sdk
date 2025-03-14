@@ -12,6 +12,7 @@ class SubmitMediaInfoJobShrinkRequest extends Model
      * @description The input of the job.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $inputShrink;
@@ -41,15 +42,13 @@ class SubmitMediaInfoJobShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'inputShrink'          => 'Input',
-        'name'                 => 'Name',
+        'inputShrink' => 'Input',
+        'name' => 'Name',
         'scheduleConfigShrink' => 'ScheduleConfig',
-        'userData'             => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

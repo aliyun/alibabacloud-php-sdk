@@ -42,15 +42,13 @@ class GetCategoriesResponseBody extends Model
      */
     public $subTotal;
     protected $_name = [
-        'category'      => 'Category',
-        'requestId'     => 'RequestId',
+        'category' => 'Category',
+        'requestId' => 'RequestId',
         'subCategories' => 'SubCategories',
-        'subTotal'      => 'SubTotal',
+        'subTotal' => 'SubTotal',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

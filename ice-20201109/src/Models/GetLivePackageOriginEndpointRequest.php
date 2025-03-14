@@ -12,6 +12,7 @@ class GetLivePackageOriginEndpointRequest extends Model
      * @description The channel name.
      *
      * This parameter is required.
+     *
      * @example channel-1
      *
      * @var string
@@ -22,6 +23,7 @@ class GetLivePackageOriginEndpointRequest extends Model
      * @description The endpoint name.
      *
      * This parameter is required.
+     *
      * @example endpoint-1
      *
      * @var string
@@ -32,20 +34,19 @@ class GetLivePackageOriginEndpointRequest extends Model
      * @description The channel group name.
      *
      * This parameter is required.
+     *
      * @example channel-group-1
      *
      * @var string
      */
     public $groupName;
     protected $_name = [
-        'channelName'  => 'ChannelName',
+        'channelName' => 'ChannelName',
         'endpointName' => 'EndpointName',
-        'groupName'    => 'GroupName',
+        'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

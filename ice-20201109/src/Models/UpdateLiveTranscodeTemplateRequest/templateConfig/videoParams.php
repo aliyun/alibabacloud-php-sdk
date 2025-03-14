@@ -55,6 +55,7 @@ class videoParams extends Model
      *   min（Height,Width）≤ 1440
      *
      * >  The resolution of a video transcoded by using the H.265 Narrowband HD template cannot exceed 1,280 × 720 pixels.
+     *
      * @example 720
      *
      * @var string
@@ -82,6 +83,7 @@ class videoParams extends Model
      *   min（Height,Width）≤ 1440
      *
      * >  The resolution of a video transcoded by using the H.265 Narrowband HD template cannot exceed 1,280 × 720 pixels.
+     *
      * @example 1280
      *
      * @var string
@@ -89,17 +91,15 @@ class videoParams extends Model
     public $width;
     protected $_name = [
         'bitrate' => 'Bitrate',
-        'codec'   => 'Codec',
-        'fps'     => 'Fps',
-        'gop'     => 'Gop',
-        'height'  => 'Height',
+        'codec' => 'Codec',
+        'fps' => 'Fps',
+        'gop' => 'Gop',
+        'height' => 'Height',
         'profile' => 'Profile',
-        'width'   => 'Width',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

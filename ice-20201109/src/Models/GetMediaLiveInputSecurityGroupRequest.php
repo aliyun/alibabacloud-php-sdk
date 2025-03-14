@@ -12,6 +12,7 @@ class GetMediaLiveInputSecurityGroupRequest extends Model
      * @description The ID of the security group.
      *
      * This parameter is required.
+     *
      * @example SEGK5KA6KYKAWQQH
      *
      * @var string
@@ -21,9 +22,7 @@ class GetMediaLiveInputSecurityGroupRequest extends Model
         'securityGroupId' => 'SecurityGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

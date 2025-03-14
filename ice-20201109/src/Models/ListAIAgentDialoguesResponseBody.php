@@ -25,9 +25,7 @@ class ListAIAgentDialoguesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -59,7 +57,7 @@ class ListAIAgentDialoguesResponseBody extends Model
         if (isset($map['Dialogues'])) {
             if (!empty($map['Dialogues'])) {
                 $model->dialogues = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Dialogues'] as $item) {
                     $model->dialogues[$n++] = null !== $item ? dialogues::fromMap($item) : $item;
                 }

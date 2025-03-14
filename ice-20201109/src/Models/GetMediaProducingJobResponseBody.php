@@ -26,12 +26,10 @@ class GetMediaProducingJobResponseBody extends Model
     public $requestId;
     protected $_name = [
         'mediaProducingJob' => 'MediaProducingJob',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

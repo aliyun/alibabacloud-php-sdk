@@ -12,6 +12,7 @@ class DeleteMediaConnectFlowOutputRequest extends Model
      * @description The flow ID.
      *
      * This parameter is required.
+     *
      * @example 34900dc6-90ec-4968-af3c-fcd87f231a5f
      *
      * @var string
@@ -22,19 +23,18 @@ class DeleteMediaConnectFlowOutputRequest extends Model
      * @description The name of the output that you want to delete.
      *
      * This parameter is required.
+     *
      * @example AliTestOutput
      *
      * @var string
      */
     public $outputName;
     protected $_name = [
-        'flowId'     => 'FlowId',
+        'flowId' => 'FlowId',
         'outputName' => 'OutputName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

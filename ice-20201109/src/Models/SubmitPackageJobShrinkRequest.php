@@ -12,6 +12,7 @@ class SubmitPackageJobShrinkRequest extends Model
      * @description The input of the job.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $inputsShrink;
@@ -29,6 +30,7 @@ class SubmitPackageJobShrinkRequest extends Model
      * @description The output of the job.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $outputShrink;
@@ -49,16 +51,14 @@ class SubmitPackageJobShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'inputsShrink'         => 'Inputs',
-        'name'                 => 'Name',
-        'outputShrink'         => 'Output',
+        'inputsShrink' => 'Inputs',
+        'name' => 'Name',
+        'outputShrink' => 'Output',
         'scheduleConfigShrink' => 'ScheduleConfig',
-        'userData'             => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

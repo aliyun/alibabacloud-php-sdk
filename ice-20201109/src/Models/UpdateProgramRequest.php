@@ -21,6 +21,7 @@ class UpdateProgramRequest extends Model
      * @description The name of the channel.
      *
      * This parameter is required.
+     *
      * @example MyChannel
      *
      * @var string
@@ -40,6 +41,7 @@ class UpdateProgramRequest extends Model
      * @description The name of the program.
      *
      * This parameter is required.
+     *
      * @example program1
      *
      * @var string
@@ -82,19 +84,17 @@ class UpdateProgramRequest extends Model
      */
     public $transition;
     protected $_name = [
-        'adBreaks'           => 'AdBreaks',
-        'channelName'        => 'ChannelName',
-        'clipRange'          => 'ClipRange',
-        'programName'        => 'ProgramName',
+        'adBreaks' => 'AdBreaks',
+        'channelName' => 'ChannelName',
+        'clipRange' => 'ClipRange',
+        'programName' => 'ProgramName',
         'sourceLocationName' => 'SourceLocationName',
-        'sourceName'         => 'SourceName',
-        'sourceType'         => 'SourceType',
-        'transition'         => 'Transition',
+        'sourceName' => 'SourceName',
+        'sourceType' => 'SourceType',
+        'transition' => 'Transition',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

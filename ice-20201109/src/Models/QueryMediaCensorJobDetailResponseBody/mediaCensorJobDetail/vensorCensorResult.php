@@ -33,14 +33,12 @@ class vensorCensorResult extends Model
      */
     public $videoTimelines;
     protected $_name = [
-        'censorResults'  => 'CensorResults',
-        'nextPageToken'  => 'NextPageToken',
+        'censorResults' => 'CensorResults',
+        'nextPageToken' => 'NextPageToken',
         'videoTimelines' => 'VideoTimelines',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

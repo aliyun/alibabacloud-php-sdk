@@ -157,26 +157,24 @@ class jobs extends Model
      */
     public $type;
     protected $_name = [
-        'async'         => 'Async',
-        'count'         => 'Count',
-        'createTime'    => 'CreateTime',
-        'finishTime'    => 'FinishTime',
-        'input'         => 'Input',
-        'jobId'         => 'JobId',
-        'modifiedTime'  => 'ModifiedTime',
-        'name'          => 'Name',
-        'output'        => 'Output',
-        'pipelineId'    => 'PipelineId',
-        'status'        => 'Status',
-        'submitTime'    => 'SubmitTime',
-        'templateId'    => 'TemplateId',
+        'async' => 'Async',
+        'count' => 'Count',
+        'createTime' => 'CreateTime',
+        'finishTime' => 'FinishTime',
+        'input' => 'Input',
+        'jobId' => 'JobId',
+        'modifiedTime' => 'ModifiedTime',
+        'name' => 'Name',
+        'output' => 'Output',
+        'pipelineId' => 'PipelineId',
+        'status' => 'Status',
+        'submitTime' => 'SubmitTime',
+        'templateId' => 'TemplateId',
         'triggerSource' => 'TriggerSource',
-        'type'          => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

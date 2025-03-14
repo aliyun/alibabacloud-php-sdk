@@ -30,6 +30,7 @@ class CreateChannelRequest extends Model
      * @description The name of the channel.
      *
      * This parameter is required.
+     *
      * @example MyChannel
      *
      * @var string
@@ -40,6 +41,7 @@ class CreateChannelRequest extends Model
      * @description The tier of the channel. Valid values: basic and standard.
      *
      * This parameter is required.
+     *
      * @example basic
      *
      * @var string
@@ -68,8 +70,17 @@ class CreateChannelRequest extends Model
      * @description The channel output configurations.
      *
      * This parameter is required.
+     *
      * @example [{
+     * "ManifestName": "manifest-1",
+     * "Format": "HLS",
+     * "SourceGroupName": "source-group-1",
+     * "ManifestSettings": {
+     * "WindowDuration": 60,
+     * "AdMarkType": "Daterange"
+     * }
      * }]
+     *
      * @var string
      */
     public $outPutConfigList;
@@ -78,25 +89,24 @@ class CreateChannelRequest extends Model
      * @description The playback mode. Valid values: loop and linear.
      *
      * This parameter is required.
+     *
      * @example loop
      *
      * @var string
      */
     public $playbackMode;
     protected $_name = [
-        'accessPolicy'             => 'AccessPolicy',
-        'accessToken'              => 'AccessToken',
-        'channelName'              => 'ChannelName',
-        'channelTier'              => 'ChannelTier',
+        'accessPolicy' => 'AccessPolicy',
+        'accessToken' => 'AccessToken',
+        'channelName' => 'ChannelName',
+        'channelTier' => 'ChannelTier',
         'fillerSourceLocationName' => 'FillerSourceLocationName',
-        'fillerSourceName'         => 'FillerSourceName',
-        'outPutConfigList'         => 'OutPutConfigList',
-        'playbackMode'             => 'PlaybackMode',
+        'fillerSourceName' => 'FillerSourceName',
+        'outPutConfigList' => 'OutPutConfigList',
+        'playbackMode' => 'PlaybackMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

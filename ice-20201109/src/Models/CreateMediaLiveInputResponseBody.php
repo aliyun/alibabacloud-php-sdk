@@ -26,13 +26,11 @@ class CreateMediaLiveInputResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'inputId'   => 'InputId',
+        'inputId' => 'InputId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

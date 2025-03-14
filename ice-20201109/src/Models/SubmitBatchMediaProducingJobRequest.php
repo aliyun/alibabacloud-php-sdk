@@ -21,7 +21,17 @@ class SubmitBatchMediaProducingJobRequest extends Model
      * @description The editing configurations. For more information, see [EditingConfig](~~2692547#1be9bba03b7qu~~).
      *
      * @example {
+     * "MediaConfig": {
+     * "Volume": 0
+     * },
+     * "SpeechConfig": {
+     * "Volume": 1
+     * },
+     * "BackgroundMusicConfig": {
+     * "Volume": 0.3
      * }
+     * }
+     *
      * @var string
      */
     public $editingConfig;
@@ -37,7 +47,14 @@ class SubmitBatchMediaProducingJobRequest extends Model
      * @description The output configurations. For more information, see [OutputConfig](~~2692547#447b928fcbuoa~~).
      *
      * @example {
+     * "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
+     * "Count": 20,
+     * "MaxDuration": 15,
+     * "Width": 1080,
+     * "Height": 1920,
+     * "Video": {"Crf": 27}
      * }
+     *
      * @var string
      */
     public $outputConfig;
@@ -49,16 +66,14 @@ class SubmitBatchMediaProducingJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'editingConfig' => 'EditingConfig',
-        'inputConfig'   => 'InputConfig',
-        'outputConfig'  => 'OutputConfig',
-        'userData'      => 'UserData',
+        'inputConfig' => 'InputConfig',
+        'outputConfig' => 'OutputConfig',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

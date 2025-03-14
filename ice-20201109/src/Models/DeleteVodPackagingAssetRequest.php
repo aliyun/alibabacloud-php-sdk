@@ -20,9 +20,7 @@ class DeleteVodPackagingAssetRequest extends Model
         'assetName' => 'AssetName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -20,9 +20,7 @@ class content extends Model
         'inputUrl' => 'InputUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -110,22 +110,20 @@ class job extends Model
      */
     public $userData;
     protected $_name = [
-        'clientToken'        => 'ClientToken',
-        'code'               => 'Code',
-        'config'             => 'Config',
-        'jobId'              => 'JobId',
-        'message'            => 'Message',
-        'outputDetails'      => 'OutputDetails',
+        'clientToken' => 'ClientToken',
+        'code' => 'Code',
+        'config' => 'Config',
+        'jobId' => 'JobId',
+        'message' => 'Message',
+        'outputDetails' => 'OutputDetails',
         'outputGroupDetails' => 'OutputGroupDetails',
-        'pipelineId'         => 'PipelineId',
-        'requestId'          => 'RequestId',
-        'state'              => 'State',
-        'userData'           => 'UserData',
+        'pipelineId' => 'PipelineId',
+        'requestId' => 'RequestId',
+        'state' => 'State',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -205,7 +203,7 @@ class job extends Model
         if (isset($map['OutputDetails'])) {
             if (!empty($map['OutputDetails'])) {
                 $model->outputDetails = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['OutputDetails'] as $item) {
                     $model->outputDetails[$n++] = null !== $item ? MediaConvertOutputDetail::fromMap($item) : $item;
                 }
@@ -214,7 +212,7 @@ class job extends Model
         if (isset($map['OutputGroupDetails'])) {
             if (!empty($map['OutputGroupDetails'])) {
                 $model->outputGroupDetails = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['OutputGroupDetails'] as $item) {
                     $model->outputGroupDetails[$n++] = null !== $item ? MediaConvertOutputGroupDetail::fromMap($item) : $item;
                 }

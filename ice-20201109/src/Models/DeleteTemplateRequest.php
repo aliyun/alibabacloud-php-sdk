@@ -20,9 +20,7 @@ class DeleteTemplateRequest extends Model
         'templateIds' => 'TemplateIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

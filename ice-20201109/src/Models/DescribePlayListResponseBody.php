@@ -44,16 +44,14 @@ class DescribePlayListResponseBody extends Model
      */
     public $totalNum;
     protected $_name = [
-        'pageNum'   => 'PageNum',
-        'pageSize'  => 'PageSize',
-        'playList'  => 'PlayList',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'playList' => 'PlayList',
         'requestId' => 'RequestId',
-        'totalNum'  => 'TotalNum',
+        'totalNum' => 'TotalNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -100,7 +98,7 @@ class DescribePlayListResponseBody extends Model
         if (isset($map['PlayList'])) {
             if (!empty($map['PlayList'])) {
                 $model->playList = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['PlayList'] as $item) {
                     $model->playList[$n++] = null !== $item ? playList::fromMap($item) : $item;
                 }

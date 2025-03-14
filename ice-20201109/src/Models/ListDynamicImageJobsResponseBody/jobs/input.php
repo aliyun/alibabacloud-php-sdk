@@ -11,7 +11,9 @@ class input extends Model
     /**
      * @description The input file. The file can be an OSS object or a media asset. The URL of an OSS object can be in one of the following formats:
      *
+     * 1.  OSS://bucket/object
      * 2.  http(s)://bucket.oss-[regionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+     *
      * @example oss://bucket/object
      *
      * @var string
@@ -21,6 +23,8 @@ class input extends Model
     /**
      * @description The type of the input file. Valid values:
      *
+     * 1.  OSS: an Object Storage Service (OSS) object.
+     * 2.  Media: a media asset.
      *
      * @example OSS
      *
@@ -29,12 +33,10 @@ class input extends Model
     public $type;
     protected $_name = [
         'media' => 'Media',
-        'type'  => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -80,19 +80,17 @@ class systemTemplate extends Model
      */
     public $typeName;
     protected $_name = [
-        'status'         => 'Status',
-        'subtype'        => 'Subtype',
-        'subtypeName'    => 'SubtypeName',
+        'status' => 'Status',
+        'subtype' => 'Subtype',
+        'subtypeName' => 'SubtypeName',
         'templateConfig' => 'TemplateConfig',
-        'templateId'     => 'TemplateId',
-        'templateName'   => 'TemplateName',
-        'type'           => 'Type',
-        'typeName'       => 'TypeName',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'type' => 'Type',
+        'typeName' => 'TypeName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

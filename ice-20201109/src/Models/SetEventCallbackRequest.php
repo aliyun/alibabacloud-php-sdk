@@ -68,17 +68,15 @@ class SetEventCallbackRequest extends Model
      */
     public $eventTypeList;
     protected $_name = [
-        'authKey'           => 'AuthKey',
-        'authSwitch'        => 'AuthSwitch',
+        'authKey' => 'AuthKey',
+        'authSwitch' => 'AuthSwitch',
         'callbackQueueName' => 'CallbackQueueName',
-        'callbackType'      => 'CallbackType',
-        'callbackURL'       => 'CallbackURL',
-        'eventTypeList'     => 'EventTypeList',
+        'callbackType' => 'CallbackType',
+        'callbackURL' => 'CallbackURL',
+        'eventTypeList' => 'EventTypeList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteCustomizedVoiceJobRequest extends Model
      * @description The ID of the human voice cloning job.
      *
      * This parameter is required.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteCustomizedVoiceJobRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

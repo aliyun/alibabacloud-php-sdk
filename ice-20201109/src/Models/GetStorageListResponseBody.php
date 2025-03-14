@@ -23,13 +23,11 @@ class GetStorageListResponseBody extends Model
      */
     public $storageInfoList;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'storageInfoList' => 'StorageInfoList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -64,7 +62,7 @@ class GetStorageListResponseBody extends Model
         if (isset($map['StorageInfoList'])) {
             if (!empty($map['StorageInfoList'])) {
                 $model->storageInfoList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['StorageInfoList'] as $item) {
                     $model->storageInfoList[$n++] = null !== $item ? storageInfoList::fromMap($item) : $item;
                 }

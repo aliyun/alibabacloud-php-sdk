@@ -39,15 +39,13 @@ class occurrencesInfos extends Model
      */
     public $trackData;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'expression' => 'Expression',
-        'startTime'  => 'StartTime',
-        'trackData'  => 'TrackData',
+        'startTime' => 'StartTime',
+        'trackData' => 'TrackData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -94,7 +92,7 @@ class occurrencesInfos extends Model
         if (isset($map['TrackData'])) {
             if (!empty($map['TrackData'])) {
                 $model->trackData = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['TrackData'] as $item) {
                     $model->trackData[$n++] = null !== $item ? trackData::fromMap($item) : $item;
                 }

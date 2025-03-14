@@ -12,6 +12,7 @@ class StartChannelRequest extends Model
      * @description The name of the channel.
      *
      * This parameter is required.
+     *
      * @example MyChannel
      *
      * @var string
@@ -21,9 +22,7 @@ class StartChannelRequest extends Model
         'channelName' => 'ChannelName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

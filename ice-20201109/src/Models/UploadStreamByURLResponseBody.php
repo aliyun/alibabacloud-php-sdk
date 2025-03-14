@@ -53,16 +53,14 @@ class UploadStreamByURLResponseBody extends Model
      */
     public $sourceURL;
     protected $_name = [
-        'fileURL'   => 'FileURL',
-        'jobId'     => 'JobId',
-        'mediaId'   => 'MediaId',
+        'fileURL' => 'FileURL',
+        'jobId' => 'JobId',
+        'mediaId' => 'MediaId',
         'requestId' => 'RequestId',
         'sourceURL' => 'SourceURL',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -78,18 +78,16 @@ class ListMediaInfoJobsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'endOfCreateTime'   => 'EndOfCreateTime',
-        'jobId'             => 'JobId',
-        'nextPageToken'     => 'NextPageToken',
-        'orderBy'           => 'OrderBy',
-        'pageSize'          => 'PageSize',
+        'endOfCreateTime' => 'EndOfCreateTime',
+        'jobId' => 'JobId',
+        'nextPageToken' => 'NextPageToken',
+        'orderBy' => 'OrderBy',
+        'pageSize' => 'PageSize',
         'startOfCreateTime' => 'StartOfCreateTime',
-        'status'            => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

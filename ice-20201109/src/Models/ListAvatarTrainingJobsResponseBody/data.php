@@ -26,12 +26,10 @@ class data extends Model
     public $totalCount;
     protected $_name = [
         'avatarTrainingJobList' => 'AvatarTrainingJobList',
-        'totalCount'            => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class data extends Model
         if (isset($map['AvatarTrainingJobList'])) {
             if (!empty($map['AvatarTrainingJobList'])) {
                 $model->avatarTrainingJobList = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['AvatarTrainingJobList'] as $item) {
                     $model->avatarTrainingJobList[$n++] = null !== $item ? avatarTrainingJobList::fromMap($item) : $item;
                 }

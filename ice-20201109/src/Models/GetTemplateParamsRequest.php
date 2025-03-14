@@ -20,9 +20,7 @@ class GetTemplateParamsRequest extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

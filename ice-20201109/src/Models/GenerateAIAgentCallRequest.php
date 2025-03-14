@@ -13,6 +13,7 @@ class GenerateAIAgentCallRequest extends Model
      * @description The ID of the AI agent.
      *
      * This parameter is required.
+     *
      * @example 39f8e0bc005e4f309379701645f4****
      *
      * @var string
@@ -63,18 +64,16 @@ class GenerateAIAgentCallRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'AIAgentId'      => 'AIAgentId',
+        'AIAgentId' => 'AIAgentId',
         'chatSyncConfig' => 'ChatSyncConfig',
-        'expire'         => 'Expire',
-        'sessionId'      => 'SessionId',
+        'expire' => 'Expire',
+        'sessionId' => 'SessionId',
         'templateConfig' => 'TemplateConfig',
-        'userData'       => 'UserData',
-        'userId'         => 'UserId',
+        'userData' => 'UserData',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,15 +44,13 @@ class GetLiveEditingIndexFileRequest extends Model
      */
     public $streamName;
     protected $_name = [
-        'appName'    => 'AppName',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
-        'projectId'  => 'ProjectId',
+        'projectId' => 'ProjectId',
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

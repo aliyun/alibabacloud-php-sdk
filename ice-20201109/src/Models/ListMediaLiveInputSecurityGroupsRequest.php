@@ -53,16 +53,14 @@ class ListMediaLiveInputSecurityGroupsRequest extends Model
      */
     public $sortOrder;
     protected $_name = [
-        'keyword'    => 'Keyword',
+        'keyword' => 'Keyword',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'skip'       => 'Skip',
-        'sortOrder'  => 'SortOrder',
+        'nextToken' => 'NextToken',
+        'skip' => 'Skip',
+        'sortOrder' => 'SortOrder',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

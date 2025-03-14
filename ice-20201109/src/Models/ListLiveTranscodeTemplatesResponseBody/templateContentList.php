@@ -61,17 +61,15 @@ class templateContentList extends Model
      */
     public $type;
     protected $_name = [
-        'category'       => 'Category',
-        'createTime'     => 'CreateTime',
-        'name'           => 'Name',
+        'category' => 'Category',
+        'createTime' => 'CreateTime',
+        'name' => 'Name',
         'templateConfig' => 'TemplateConfig',
-        'templateId'     => 'TemplateId',
-        'type'           => 'Type',
+        'templateId' => 'TemplateId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

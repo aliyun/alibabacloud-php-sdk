@@ -30,7 +30,10 @@ class SubmitAudioProduceJobRequest extends Model
      *   speech_rate: the speech tempo. Default value: 0. Value range: -500 to 500.
      *   pitch_rate: the intonation. Default value: 0. Value range: -500 to 500.
      *
+     * >  If you specify both voice and customizedVoice, customizedVoice takes precedence over voice.
+     *
      * This parameter is required.
+     *
      * @example {"voice":"Siqi","format":"MP3","volume":50}
      *
      * @var string
@@ -41,6 +44,7 @@ class SubmitAudioProduceJobRequest extends Model
      * @description The text content. A maximum of 2,000 characters are supported. The [Speech Synthesis Markup Language (SSML)](https://help.aliyun.com/document_detail/2672807.html) is supported.
      *
      * This parameter is required.
+     *
      * @example 测试文本
      *
      * @var string
@@ -51,6 +55,7 @@ class SubmitAudioProduceJobRequest extends Model
      * @description The output audio configurations.
      *
      * This parameter is required.
+     *
      * @example {"bucket":"bucket","object":"objeck"}
      *
      * @var string
@@ -87,18 +92,16 @@ class SubmitAudioProduceJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'description'   => 'Description',
+        'description' => 'Description',
         'editingConfig' => 'EditingConfig',
-        'inputConfig'   => 'InputConfig',
-        'outputConfig'  => 'OutputConfig',
-        'overwrite'     => 'Overwrite',
-        'title'         => 'Title',
-        'userData'      => 'UserData',
+        'inputConfig' => 'InputConfig',
+        'outputConfig' => 'OutputConfig',
+        'overwrite' => 'Overwrite',
+        'title' => 'Title',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

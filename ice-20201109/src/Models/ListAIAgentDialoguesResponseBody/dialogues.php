@@ -56,19 +56,17 @@ class dialogues extends Model
      */
     public $type;
     protected $_name = [
-        'dialogueId'    => 'DialogueId',
-        'producer'      => 'Producer',
+        'dialogueId' => 'DialogueId',
+        'producer' => 'Producer',
         'reasoningText' => 'ReasoningText',
-        'roundId'       => 'RoundId',
-        'source'        => 'Source',
-        'text'          => 'Text',
-        'time'          => 'Time',
-        'type'          => 'Type',
+        'roundId' => 'RoundId',
+        'source' => 'Source',
+        'text' => 'Text',
+        'time' => 'Time',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

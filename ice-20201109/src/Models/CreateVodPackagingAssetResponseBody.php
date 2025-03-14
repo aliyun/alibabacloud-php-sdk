@@ -24,13 +24,11 @@ class CreateVodPackagingAssetResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'asset'     => 'Asset',
+        'asset' => 'Asset',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

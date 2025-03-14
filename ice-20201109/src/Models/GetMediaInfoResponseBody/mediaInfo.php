@@ -41,15 +41,13 @@ class mediaInfo extends Model
      */
     public $mediaId;
     protected $_name = [
-        'aiRoughData'    => 'AiRoughData',
-        'fileInfoList'   => 'FileInfoList',
+        'aiRoughData' => 'AiRoughData',
+        'fileInfoList' => 'FileInfoList',
         'mediaBasicInfo' => 'MediaBasicInfo',
-        'mediaId'        => 'MediaId',
+        'mediaId' => 'MediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -90,7 +88,7 @@ class mediaInfo extends Model
         if (isset($map['FileInfoList'])) {
             if (!empty($map['FileInfoList'])) {
                 $model->fileInfoList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['FileInfoList'] as $item) {
                     $model->fileInfoList[$n++] = null !== $item ? fileInfoList::fromMap($item) : $item;
                 }

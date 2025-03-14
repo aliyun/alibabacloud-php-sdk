@@ -13,6 +13,7 @@ class inputs extends Model
      * @description The information about the input stream file.
      *
      * This parameter is required.
+     *
      * @var input
      */
     public $input;
@@ -20,9 +21,7 @@ class inputs extends Model
         'input' => 'Input',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class packageJobList extends Model
     public $packageJobs;
     protected $_name = [
         'nextPageToken' => 'NextPageToken',
-        'packageJobs'   => 'PackageJobs',
+        'packageJobs' => 'PackageJobs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class packageJobList extends Model
         if (isset($map['PackageJobs'])) {
             if (!empty($map['PackageJobs'])) {
                 $model->packageJobs = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['PackageJobs'] as $item) {
                     $model->packageJobs[$n++] = null !== $item ? packageJobs::fromMap($item) : $item;
                 }

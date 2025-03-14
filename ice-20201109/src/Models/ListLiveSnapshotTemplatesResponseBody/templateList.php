@@ -56,16 +56,14 @@ class templateList extends Model
      */
     public $type;
     protected $_name = [
-        'createTime'   => 'CreateTime',
-        'templateId'   => 'TemplateId',
+        'createTime' => 'CreateTime',
+        'templateId' => 'TemplateId',
         'templateName' => 'TemplateName',
         'timeInterval' => 'TimeInterval',
-        'type'         => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -28,6 +28,7 @@ class UpdateAvatarTrainingJobRequest extends Model
      * @description The ID of the digital human training job.
      *
      * This parameter is required.
+     *
      * @example ****cdb3e74639973036bc84****
      *
      * @var string
@@ -61,11 +62,7 @@ class UpdateAvatarTrainingJobRequest extends Model
      * @description *   Indicates whether the input video supports alpha channels.
      *
      *   You can modify this parameter only if the job is in the Init or Fail state.
-     *
-     **
-     *
      **Note**: Make sure that the current settings are consistent with those of the submitted training video. Otherwise, the digital human may malfunction.
-     *
      * @example True
      *
      * @var bool
@@ -86,17 +83,15 @@ class UpdateAvatarTrainingJobRequest extends Model
     public $video;
     protected $_name = [
         'avatarDescription' => 'AvatarDescription',
-        'avatarName'        => 'AvatarName',
-        'jobId'             => 'JobId',
-        'portrait'          => 'Portrait',
-        'thumbnail'         => 'Thumbnail',
-        'transparent'       => 'Transparent',
-        'video'             => 'Video',
+        'avatarName' => 'AvatarName',
+        'jobId' => 'JobId',
+        'portrait' => 'Portrait',
+        'thumbnail' => 'Thumbnail',
+        'transparent' => 'Transparent',
+        'video' => 'Video',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

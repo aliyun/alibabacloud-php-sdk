@@ -25,13 +25,11 @@ class QueryDNAJobListResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'jobList'   => 'JobList',
+        'jobList' => 'JobList',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class QueryDNAJobListResponseBody extends Model
         if (isset($map['JobList'])) {
             if (!empty($map['JobList'])) {
                 $model->jobList = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['JobList'] as $item) {
                     $model->jobList[$n++] = null !== $item ? jobList::fromMap($item) : $item;
                 }

@@ -149,27 +149,25 @@ class mediaCensorJob extends Model
      */
     public $videoCensorConfig;
     protected $_name = [
-        'barrageCensorResult'     => 'BarrageCensorResult',
-        'code'                    => 'Code',
+        'barrageCensorResult' => 'BarrageCensorResult',
+        'code' => 'Code',
         'coverImageCensorResults' => 'CoverImageCensorResults',
-        'creationTime'            => 'CreationTime',
-        'descCensorResult'        => 'DescCensorResult',
-        'finishTime'              => 'FinishTime',
-        'input'                   => 'Input',
-        'jobId'                   => 'JobId',
-        'message'                 => 'Message',
-        'pipelineId'              => 'PipelineId',
-        'state'                   => 'State',
-        'suggestion'              => 'Suggestion',
-        'titleCensorResult'       => 'TitleCensorResult',
-        'userData'                => 'UserData',
-        'vensorCensorResult'      => 'VensorCensorResult',
-        'videoCensorConfig'       => 'VideoCensorConfig',
+        'creationTime' => 'CreationTime',
+        'descCensorResult' => 'DescCensorResult',
+        'finishTime' => 'FinishTime',
+        'input' => 'Input',
+        'jobId' => 'JobId',
+        'message' => 'Message',
+        'pipelineId' => 'PipelineId',
+        'state' => 'State',
+        'suggestion' => 'Suggestion',
+        'titleCensorResult' => 'TitleCensorResult',
+        'userData' => 'UserData',
+        'vensorCensorResult' => 'VensorCensorResult',
+        'videoCensorConfig' => 'VideoCensorConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

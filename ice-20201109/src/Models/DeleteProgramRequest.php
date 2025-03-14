@@ -12,6 +12,7 @@ class DeleteProgramRequest extends Model
      * @description The name of the channel.
      *
      * This parameter is required.
+     *
      * @example MyChannel
      *
      * @var string
@@ -22,6 +23,7 @@ class DeleteProgramRequest extends Model
      * @description The name of the program.
      *
      * This parameter is required.
+     *
      * @example program_name
      *
      * @var string
@@ -32,9 +34,7 @@ class DeleteProgramRequest extends Model
         'programName' => 'ProgramName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

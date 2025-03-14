@@ -41,14 +41,12 @@ class GenerateMessageChatTokenRequest extends Model
     public $userId;
     protected $_name = [
         'AIAgentId' => 'AIAgentId',
-        'expire'    => 'Expire',
-        'role'      => 'Role',
-        'userId'    => 'UserId',
+        'expire' => 'Expire',
+        'role' => 'Role',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

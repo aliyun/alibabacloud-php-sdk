@@ -35,14 +35,12 @@ class GetCustomTemplateRequest extends Model
      */
     public $type;
     protected $_name = [
-        'subtype'    => 'Subtype',
+        'subtype' => 'Subtype',
         'templateId' => 'TemplateId',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

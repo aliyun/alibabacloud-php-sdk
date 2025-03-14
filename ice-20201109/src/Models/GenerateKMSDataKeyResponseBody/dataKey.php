@@ -36,13 +36,11 @@ class dataKey extends Model
     public $plaintext;
     protected $_name = [
         'ciphertextBlob' => 'CiphertextBlob',
-        'keyId'          => 'KeyId',
-        'plaintext'      => 'Plaintext',
+        'keyId' => 'KeyId',
+        'plaintext' => 'Plaintext',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

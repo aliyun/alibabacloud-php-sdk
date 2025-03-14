@@ -27,13 +27,11 @@ class AIAgentTemplateConfig extends Model
     public $voiceChat;
     protected $_name = [
         'avatarChat3D' => 'AvatarChat3D',
-        'visionChat'   => 'VisionChat',
-        'voiceChat'    => 'VoiceChat',
+        'visionChat' => 'VisionChat',
+        'voiceChat' => 'VoiceChat',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

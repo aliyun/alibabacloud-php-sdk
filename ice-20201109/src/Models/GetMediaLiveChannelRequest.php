@@ -12,6 +12,7 @@ class GetMediaLiveChannelRequest extends Model
      * @description The ID of the channel.
      *
      * This parameter is required.
+     *
      * @example SEGK5KA6KYKAWQQH
      *
      * @var string
@@ -21,9 +22,7 @@ class GetMediaLiveChannelRequest extends Model
         'channelId' => 'ChannelId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,12 @@ class CreateEditingProjectRequest extends Model
     /**
      * @description The business configuration of the project. This parameter can be ignored for general editing projects.
      *
+     * For a live stream editing project, observe the following rules: OutputMediaConfig.StorageLocation is required. OutputMediaConfig.Path is optional. If you do not specify this option, the live streaming clips are stored in the root directory by default.
+     *
+     * Valid values of OutputMediaTarget include vod-media and oss-object. If you do not specify OutputMediaTarget, the default value oss-object is used.
+     *
      * If you set OutputMediaTarget to vod-media, the setting of OutputMediaConfig.Path does not take effect.
+     *
      * @example { "OutputMediaConfig" : { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path" }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
      *
      * @var string
@@ -93,6 +98,7 @@ class CreateEditingProjectRequest extends Model
      * @description The title of the online editing project.
      *
      * This parameter is required.
+     *
      * @example example
      *
      * @var string
@@ -100,20 +106,18 @@ class CreateEditingProjectRequest extends Model
     public $title;
     protected $_name = [
         'businessConfig' => 'BusinessConfig',
-        'clipsParam'     => 'ClipsParam',
-        'coverURL'       => 'CoverURL',
-        'description'    => 'Description',
-        'materialMaps'   => 'MaterialMaps',
-        'projectType'    => 'ProjectType',
-        'templateId'     => 'TemplateId',
-        'templateType'   => 'TemplateType',
-        'timeline'       => 'Timeline',
-        'title'          => 'Title',
+        'clipsParam' => 'ClipsParam',
+        'coverURL' => 'CoverURL',
+        'description' => 'Description',
+        'materialMaps' => 'MaterialMaps',
+        'projectType' => 'ProjectType',
+        'templateId' => 'TemplateId',
+        'templateType' => 'TemplateType',
+        'timeline' => 'Timeline',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

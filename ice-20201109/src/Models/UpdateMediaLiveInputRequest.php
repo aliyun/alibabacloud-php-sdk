@@ -13,6 +13,7 @@ class UpdateMediaLiveInputRequest extends Model
      * @description The ID of the input.
      *
      * This parameter is required.
+     *
      * @example SEGK5KA6KYKAWQQH
      *
      * @var string
@@ -23,6 +24,7 @@ class UpdateMediaLiveInputRequest extends Model
      * @description The input settings. An input can have up to two sources: primary and backup sources.
      *
      * This parameter is required.
+     *
      * @var inputSettings[]
      */
     public $inputSettings;
@@ -31,6 +33,7 @@ class UpdateMediaLiveInputRequest extends Model
      * @description The name of the input. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example myinput
      *
      * @var string
@@ -46,15 +49,13 @@ class UpdateMediaLiveInputRequest extends Model
      */
     public $securityGroupIds;
     protected $_name = [
-        'inputId'          => 'InputId',
-        'inputSettings'    => 'InputSettings',
-        'name'             => 'Name',
+        'inputId' => 'InputId',
+        'inputSettings' => 'InputSettings',
+        'name' => 'Name',
         'securityGroupIds' => 'SecurityGroupIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -95,7 +96,7 @@ class UpdateMediaLiveInputRequest extends Model
         if (isset($map['InputSettings'])) {
             if (!empty($map['InputSettings'])) {
                 $model->inputSettings = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['InputSettings'] as $item) {
                     $model->inputSettings[$n++] = null !== $item ? inputSettings::fromMap($item) : $item;
                 }

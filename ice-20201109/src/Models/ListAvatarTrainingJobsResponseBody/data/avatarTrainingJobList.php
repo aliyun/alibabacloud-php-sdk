@@ -105,21 +105,19 @@ class avatarTrainingJobList extends Model
     public $status;
     protected $_name = [
         'avatarDescription' => 'AvatarDescription',
-        'avatarId'          => 'AvatarId',
-        'avatarName'        => 'AvatarName',
-        'avatarType'        => 'AvatarType',
-        'createTime'        => 'CreateTime',
+        'avatarId' => 'AvatarId',
+        'avatarName' => 'AvatarName',
+        'avatarType' => 'AvatarType',
+        'createTime' => 'CreateTime',
         'firstTrainingTime' => 'FirstTrainingTime',
-        'jobId'             => 'JobId',
-        'lastTrainingTime'  => 'LastTrainingTime',
-        'message'           => 'Message',
-        'portrait'          => 'Portrait',
-        'status'            => 'Status',
+        'jobId' => 'JobId',
+        'lastTrainingTime' => 'LastTrainingTime',
+        'message' => 'Message',
+        'portrait' => 'Portrait',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

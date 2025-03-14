@@ -106,22 +106,20 @@ class overwriteParams extends Model
      */
     public $width;
     protected $_name = [
-        'blackLevel'           => 'BlackLevel',
-        'count'                => 'Count',
-        'frameType'            => 'FrameType',
-        'height'               => 'Height',
-        'interval'             => 'Interval',
-        'isSptFrag'            => 'IsSptFrag',
-        'pixelBlackThreshold'  => 'PixelBlackThreshold',
+        'blackLevel' => 'BlackLevel',
+        'count' => 'Count',
+        'frameType' => 'FrameType',
+        'height' => 'Height',
+        'interval' => 'Interval',
+        'isSptFrag' => 'IsSptFrag',
+        'pixelBlackThreshold' => 'PixelBlackThreshold',
         'spriteSnapshotConfig' => 'SpriteSnapshotConfig',
-        'time'                 => 'Time',
-        'type'                 => 'Type',
-        'width'                => 'Width',
+        'time' => 'Time',
+        'type' => 'Type',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

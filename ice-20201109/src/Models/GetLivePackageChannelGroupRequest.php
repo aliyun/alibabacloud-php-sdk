@@ -12,6 +12,7 @@ class GetLivePackageChannelGroupRequest extends Model
      * @description The channel group name.
      *
      * This parameter is required.
+     *
      * @example channel-group-1
      *
      * @var string
@@ -21,9 +22,7 @@ class GetLivePackageChannelGroupRequest extends Model
         'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -41,14 +41,12 @@ class jobResult extends Model
     public $usage;
     protected $_name = [
         'aiResult' => 'AiResult',
-        'mediaId'  => 'MediaId',
+        'mediaId' => 'MediaId',
         'mediaUrl' => 'MediaUrl',
-        'usage'    => 'Usage',
+        'usage' => 'Usage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

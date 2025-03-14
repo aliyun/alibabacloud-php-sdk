@@ -11,7 +11,10 @@ class DeletePlayInfoRequest extends Model
     /**
      * @description Specifies whether to delete the physical file of the media stream.
      *
+     * If the media asset is stored in your own Object Storage Service (OSS) bucket, you must authorize the service role AliyunICEDefaultRole in advance. <props="china">For more information, see [Authorize IMS to delete recording files in OSS](https://help.aliyun.com/document_detail/449331.html#p-ko2-wc7-iad).
+     *
      * You can delete only the physical files of transcoded streams, but not the physical files of source files.
+     *
      * @example false
      *
      * @var bool
@@ -37,13 +40,11 @@ class DeletePlayInfoRequest extends Model
     public $mediaId;
     protected $_name = [
         'deletePhysicalFiles' => 'DeletePhysicalFiles',
-        'fileURLs'            => 'FileURLs',
-        'mediaId'             => 'MediaId',
+        'fileURLs' => 'FileURLs',
+        'mediaId' => 'MediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

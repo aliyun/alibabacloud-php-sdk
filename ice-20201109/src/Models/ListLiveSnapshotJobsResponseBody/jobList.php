@@ -81,19 +81,17 @@ class jobList extends Model
      */
     public $timeInterval;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'jobId'          => 'JobId',
-        'jobName'        => 'JobName',
+        'createTime' => 'CreateTime',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
         'snapshotOutput' => 'SnapshotOutput',
-        'status'         => 'Status',
-        'templateId'     => 'TemplateId',
-        'templateName'   => 'TemplateName',
-        'timeInterval'   => 'TimeInterval',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'timeInterval' => 'TimeInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

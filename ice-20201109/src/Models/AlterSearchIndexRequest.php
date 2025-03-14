@@ -12,6 +12,7 @@ class AlterSearchIndexRequest extends Model
      * @description The configurations of the index.
      *
      * >  You must specify either IndexStatus or IndexConfig.
+     *
      * @example {}
      *
      * @var string
@@ -25,6 +26,7 @@ class AlterSearchIndexRequest extends Model
      *   Deactive: the index is not enabled.
      *
      * >  You must specify either IndexStatus or IndexConfig.
+     *
      * @example Active
      *
      * @var string
@@ -39,6 +41,7 @@ class AlterSearchIndexRequest extends Model
      *   aiLabel: smart tagging.
      *
      * This parameter is required.
+     *
      * @example mm
      *
      * @var string
@@ -57,15 +60,13 @@ class AlterSearchIndexRequest extends Model
      */
     public $searchLibName;
     protected $_name = [
-        'indexConfig'   => 'IndexConfig',
-        'indexStatus'   => 'IndexStatus',
-        'indexType'     => 'IndexType',
+        'indexConfig' => 'IndexConfig',
+        'indexStatus' => 'IndexStatus',
+        'indexType' => 'IndexType',
         'searchLibName' => 'SearchLibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

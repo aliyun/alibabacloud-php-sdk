@@ -24,13 +24,11 @@ class visionChat extends Model
     public $channelId;
     protected $_name = [
         'agentUserId' => 'AgentUserId',
-        'authToken'   => 'AuthToken',
-        'channelId'   => 'ChannelId',
+        'authToken' => 'AuthToken',
+        'channelId' => 'ChannelId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class SubmitDNAJobShrinkRequest extends Model
      * @description The ID of the media fingerprint library. If you do not specify this parameter, the default media fingerprint library is used. For more information about how to create a media fingerprint library, see [CreateDNADB](https://help.aliyun.com/document_detail/479275.html).
      *
      * This parameter is required.
+     *
      * @example 2288c6ca184c0e47098a5b665e2a12****
      *
      * @var string
@@ -31,6 +32,7 @@ class SubmitDNAJobShrinkRequest extends Model
      * @description The input file for media fingerprint analysis.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $inputShrink;
@@ -58,6 +60,7 @@ class SubmitDNAJobShrinkRequest extends Model
      * @description The primary key of the video. You must make sure that each primary key is unique.
      *
      * This parameter is required.
+     *
      * @example 3ca84a39a9024f19853b21be9cf9****
      *
      * @var string
@@ -92,22 +95,20 @@ class SubmitDNAJobShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'config'               => 'Config',
-        'DBId'                 => 'DBId',
-        'inputShrink'          => 'Input',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pipelineId'           => 'PipelineId',
-        'primaryKey'           => 'PrimaryKey',
+        'config' => 'Config',
+        'DBId' => 'DBId',
+        'inputShrink' => 'Input',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pipelineId' => 'PipelineId',
+        'primaryKey' => 'PrimaryKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'templateId'           => 'TemplateId',
-        'userData'             => 'UserData',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'templateId' => 'TemplateId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

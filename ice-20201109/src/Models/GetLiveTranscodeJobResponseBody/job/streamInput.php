@@ -27,12 +27,10 @@ class streamInput extends Model
     public $type;
     protected $_name = [
         'inputUrl' => 'InputUrl',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

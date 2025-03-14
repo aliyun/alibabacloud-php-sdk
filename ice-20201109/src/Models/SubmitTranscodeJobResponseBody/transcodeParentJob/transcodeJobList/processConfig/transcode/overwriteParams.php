@@ -48,16 +48,14 @@ class overwriteParams extends Model
      */
     public $video;
     protected $_name = [
-        'audio'       => 'Audio',
-        'container'   => 'Container',
-        'muxConfig'   => 'MuxConfig',
+        'audio' => 'Audio',
+        'container' => 'Container',
+        'muxConfig' => 'MuxConfig',
         'transConfig' => 'TransConfig',
-        'video'       => 'Video',
+        'video' => 'Video',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class CreateAvatarTrainingJobRequest extends Model
      *   The name can be up to seven characters in length.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $avatarName;
@@ -58,11 +59,7 @@ class CreateAvatarTrainingJobRequest extends Model
 
     /**
      * @description *   Specifies whether the training video supports alpha channels.
-     *
-     **
-     *
      **Note**: Make sure that the current settings are consistent with those of the submitted training video. Otherwise, the digital human may malfunction.
-     *
      * @example True
      *
      * @var bool
@@ -83,17 +80,15 @@ class CreateAvatarTrainingJobRequest extends Model
     public $video;
     protected $_name = [
         'avatarDescription' => 'AvatarDescription',
-        'avatarName'        => 'AvatarName',
-        'avatarType'        => 'AvatarType',
-        'portrait'          => 'Portrait',
-        'thumbnail'         => 'Thumbnail',
-        'transparent'       => 'Transparent',
-        'video'             => 'Video',
+        'avatarName' => 'AvatarName',
+        'avatarType' => 'AvatarType',
+        'portrait' => 'Portrait',
+        'thumbnail' => 'Thumbnail',
+        'transparent' => 'Transparent',
+        'video' => 'Video',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

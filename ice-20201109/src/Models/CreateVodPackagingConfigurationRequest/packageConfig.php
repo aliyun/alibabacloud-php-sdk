@@ -42,15 +42,13 @@ class packageConfig extends Model
      */
     public $streamSelection;
     protected $_name = [
-        'drmProvider'     => 'DrmProvider',
-        'manifestName'    => 'ManifestName',
+        'drmProvider' => 'DrmProvider',
+        'manifestName' => 'ManifestName',
         'segmentDuration' => 'SegmentDuration',
         'streamSelection' => 'StreamSelection',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

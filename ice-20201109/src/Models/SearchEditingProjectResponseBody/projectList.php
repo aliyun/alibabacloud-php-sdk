@@ -46,6 +46,12 @@ class projectList extends Model
     /**
      * @description The method for editing the online editing project.
      *
+     * \\-OpenAPI
+     *
+     * \\-AliyunConsole
+     *
+     * \\-WebSDK
+     *
      * Valid values:
      *
      *   AliyunConsole: The project is created in the Alibaba Cloud console.
@@ -147,6 +153,16 @@ class projectList extends Model
     /**
      * @description The status of the online editing project. Valid values:
      *
+     * \\-Draft
+     *
+     * \\-Editing
+     *
+     * \\-Producing
+     *
+     * \\-Produced
+     *
+     * \\-ProduceFailed
+     *
      * Valid values:
      *
      *   Draft
@@ -190,26 +206,24 @@ class projectList extends Model
     protected $_name = [
         'businessConfig' => 'BusinessConfig',
         'businessStatus' => 'BusinessStatus',
-        'coverURL'       => 'CoverURL',
-        'createSource'   => 'CreateSource',
-        'createTime'     => 'CreateTime',
-        'description'    => 'Description',
-        'duration'       => 'Duration',
-        'errorCode'      => 'ErrorCode',
-        'errorMessage'   => 'ErrorMessage',
+        'coverURL' => 'CoverURL',
+        'createSource' => 'CreateSource',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'duration' => 'Duration',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'modifiedSource' => 'ModifiedSource',
-        'modifiedTime'   => 'ModifiedTime',
-        'projectId'      => 'ProjectId',
-        'projectType'    => 'ProjectType',
-        'status'         => 'Status',
-        'templateType'   => 'TemplateType',
-        'timeline'       => 'Timeline',
-        'title'          => 'Title',
+        'modifiedTime' => 'ModifiedTime',
+        'projectId' => 'ProjectId',
+        'projectType' => 'ProjectType',
+        'status' => 'Status',
+        'templateType' => 'TemplateType',
+        'timeline' => 'Timeline',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

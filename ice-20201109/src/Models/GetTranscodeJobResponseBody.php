@@ -25,13 +25,11 @@ class GetTranscodeJobResponseBody extends Model
      */
     public $transcodeParentJob;
     protected $_name = [
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
         'transcodeParentJob' => 'TranscodeParentJob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

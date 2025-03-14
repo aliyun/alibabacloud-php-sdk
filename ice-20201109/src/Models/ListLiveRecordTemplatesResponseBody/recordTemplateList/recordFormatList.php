@@ -53,16 +53,14 @@ class recordFormatList extends Model
      */
     public $sliceOssObjectPrefix;
     protected $_name = [
-        'cycleDuration'        => 'CycleDuration',
-        'format'               => 'Format',
-        'ossObjectPrefix'      => 'OssObjectPrefix',
-        'sliceDuration'        => 'SliceDuration',
+        'cycleDuration' => 'CycleDuration',
+        'format' => 'Format',
+        'ossObjectPrefix' => 'OssObjectPrefix',
+        'sliceDuration' => 'SliceDuration',
         'sliceOssObjectPrefix' => 'SliceOssObjectPrefix',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

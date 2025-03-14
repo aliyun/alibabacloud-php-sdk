@@ -65,18 +65,16 @@ class processConfig extends Model
      */
     public $transcode;
     protected $_name = [
-        'combineConfigs'  => 'CombineConfigs',
-        'encryption'      => 'Encryption',
+        'combineConfigs' => 'CombineConfigs',
+        'encryption' => 'Encryption',
         'imageWatermarks' => 'ImageWatermarks',
-        'isInheritTags'   => 'IsInheritTags',
-        'subtitles'       => 'Subtitles',
-        'textWatermarks'  => 'TextWatermarks',
-        'transcode'       => 'Transcode',
+        'isInheritTags' => 'IsInheritTags',
+        'subtitles' => 'Subtitles',
+        'textWatermarks' => 'TextWatermarks',
+        'transcode' => 'Transcode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -141,7 +139,7 @@ class processConfig extends Model
         if (isset($map['CombineConfigs'])) {
             if (!empty($map['CombineConfigs'])) {
                 $model->combineConfigs = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['CombineConfigs'] as $item) {
                     $model->combineConfigs[$n++] = null !== $item ? combineConfigs::fromMap($item) : $item;
                 }
@@ -153,7 +151,7 @@ class processConfig extends Model
         if (isset($map['ImageWatermarks'])) {
             if (!empty($map['ImageWatermarks'])) {
                 $model->imageWatermarks = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['ImageWatermarks'] as $item) {
                     $model->imageWatermarks[$n++] = null !== $item ? imageWatermarks::fromMap($item) : $item;
                 }
@@ -165,7 +163,7 @@ class processConfig extends Model
         if (isset($map['Subtitles'])) {
             if (!empty($map['Subtitles'])) {
                 $model->subtitles = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Subtitles'] as $item) {
                     $model->subtitles[$n++] = null !== $item ? subtitles::fromMap($item) : $item;
                 }
@@ -174,7 +172,7 @@ class processConfig extends Model
         if (isset($map['TextWatermarks'])) {
             if (!empty($map['TextWatermarks'])) {
                 $model->textWatermarks = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['TextWatermarks'] as $item) {
                     $model->textWatermarks[$n++] = null !== $item ? textWatermarks::fromMap($item) : $item;
                 }

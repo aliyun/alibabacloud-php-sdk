@@ -67,6 +67,7 @@ class workflowTask extends Model
      * "Type": "Media",
      * "Media": "******30706071edbfe290b488******"
      * }
+     *
      * @var string
      */
     public $taskInput;
@@ -88,18 +89,16 @@ class workflowTask extends Model
     public $workflow;
     protected $_name = [
         'activityResults' => 'ActivityResults',
-        'createTime'      => 'CreateTime',
-        'finishTime'      => 'FinishTime',
-        'status'          => 'Status',
-        'taskId'          => 'TaskId',
-        'taskInput'       => 'TaskInput',
-        'userData'        => 'UserData',
-        'workflow'        => 'Workflow',
+        'createTime' => 'CreateTime',
+        'finishTime' => 'FinishTime',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskInput' => 'TaskInput',
+        'userData' => 'UserData',
+        'workflow' => 'Workflow',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -28,9 +28,7 @@ class templateConfig extends Model
         'videoParams' => 'VideoParams',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

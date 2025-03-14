@@ -30,12 +30,10 @@ class input extends Model
     public $type;
     protected $_name = [
         'media' => 'Media',
-        'type'  => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

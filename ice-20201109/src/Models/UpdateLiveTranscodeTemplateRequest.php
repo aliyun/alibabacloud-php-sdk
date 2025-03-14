@@ -27,20 +27,19 @@ class UpdateLiveTranscodeTemplateRequest extends Model
      * @description The template ID. To obtain the template ID, log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com/summary), choose Real-time Media Processing > Template Management, and then click the Transcoding tab. Alternatively, find the ID from the response parameters of the [CreateLiveTranscodeTemplate](https://help.aliyun.com/document_detail/449217.html) operation.
      *
      * This parameter is required.
+     *
      * @example ****96e8864746a0b6f3****
      *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'name'           => 'Name',
+        'name' => 'Name',
         'templateConfig' => 'TemplateConfig',
-        'templateId'     => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

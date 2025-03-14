@@ -25,12 +25,10 @@ class StartRtcRobotInstanceResponseBody extends Model
     public $requestId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

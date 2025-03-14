@@ -12,6 +12,7 @@ class CreateSearchLibRequest extends Model
      * @description The name of the search library. The name can contain letters and digits and must start with a letter.
      *
      * This parameter is required.
+     *
      * @example test1
      *
      * @var string
@@ -21,9 +22,7 @@ class CreateSearchLibRequest extends Model
         'searchLibName' => 'SearchLibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,13 +26,11 @@ class cdnConfig extends Model
      */
     public $contentSegmentUrlPrefix;
     protected $_name = [
-        'adSegmentUrlPrefix'      => 'AdSegmentUrlPrefix',
+        'adSegmentUrlPrefix' => 'AdSegmentUrlPrefix',
         'contentSegmentUrlPrefix' => 'ContentSegmentUrlPrefix',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

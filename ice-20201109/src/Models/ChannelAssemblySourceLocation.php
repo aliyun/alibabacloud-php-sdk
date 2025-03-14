@@ -43,18 +43,16 @@ class ChannelAssemblySourceLocation extends Model
      */
     public $state;
     protected $_name = [
-        'arn'                           => 'Arn',
-        'baseUrl'                       => 'BaseUrl',
-        'gmtCreate'                     => 'GmtCreate',
-        'gmtModified'                   => 'GmtModified',
+        'arn' => 'Arn',
+        'baseUrl' => 'BaseUrl',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
         'segmentDeliveryConfigurations' => 'SegmentDeliveryConfigurations',
-        'sourceLocationName'            => 'SourceLocationName',
-        'state'                         => 'State',
+        'sourceLocationName' => 'SourceLocationName',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -134,25 +134,23 @@ class mediaProducingJobList extends Model
      */
     public $userData;
     protected $_name = [
-        'clipsParam'   => 'ClipsParam',
-        'code'         => 'Code',
+        'clipsParam' => 'ClipsParam',
+        'code' => 'Code',
         'completeTime' => 'CompleteTime',
-        'createTime'   => 'CreateTime',
-        'duration'     => 'Duration',
-        'jobId'        => 'JobId',
-        'mediaId'      => 'MediaId',
-        'mediaURL'     => 'MediaURL',
-        'message'      => 'Message',
+        'createTime' => 'CreateTime',
+        'duration' => 'Duration',
+        'jobId' => 'JobId',
+        'mediaId' => 'MediaId',
+        'mediaURL' => 'MediaURL',
+        'message' => 'Message',
         'modifiedTime' => 'ModifiedTime',
-        'projectId'    => 'ProjectId',
-        'status'       => 'Status',
-        'templateId'   => 'TemplateId',
-        'userData'     => 'UserData',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

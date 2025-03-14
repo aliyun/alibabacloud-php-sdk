@@ -12,6 +12,7 @@ class audioLanguageSelection extends Model
      * @description A three-letter ISO 639-2 language code from within an audio source.
      *
      * This parameter is required.
+     *
      * @example eng
      *
      * @var string
@@ -21,9 +22,7 @@ class audioLanguageSelection extends Model
         'languageCode' => 'LanguageCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

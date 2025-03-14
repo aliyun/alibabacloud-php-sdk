@@ -33,16 +33,14 @@ class MediaConvertOutputDetail extends Model
      */
     public $taskId;
     protected $_name = [
-        'code'    => 'Code',
+        'code' => 'Code',
         'message' => 'Message',
-        'name'    => 'Name',
-        'status'  => 'Status',
-        'taskId'  => 'TaskId',
+        'name' => 'Name',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -13,6 +13,7 @@ class recordTemplate extends Model
      * @description The time when the job was created.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2022-07-20T03:26:36Z
      *
      * @var string
@@ -23,6 +24,7 @@ class recordTemplate extends Model
      * @description The time when the template was last modified.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2022-07-20T03:26:36Z
      *
      * @var string
@@ -68,17 +70,15 @@ class recordTemplate extends Model
      */
     public $type;
     protected $_name = [
-        'createTime'       => 'CreateTime',
-        'lastModified'     => 'LastModified',
-        'name'             => 'Name',
+        'createTime' => 'CreateTime',
+        'lastModified' => 'LastModified',
+        'name' => 'Name',
         'recordFormatList' => 'RecordFormatList',
-        'templateId'       => 'TemplateId',
-        'type'             => 'Type',
+        'templateId' => 'TemplateId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -131,7 +131,7 @@ class recordTemplate extends Model
         if (isset($map['RecordFormatList'])) {
             if (!empty($map['RecordFormatList'])) {
                 $model->recordFormatList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['RecordFormatList'] as $item) {
                     $model->recordFormatList[$n++] = null !== $item ? recordFormatList::fromMap($item) : $item;
                 }

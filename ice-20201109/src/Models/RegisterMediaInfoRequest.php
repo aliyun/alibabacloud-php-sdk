@@ -70,6 +70,8 @@ class RegisterMediaInfoRequest extends Model
      *
      *   OSS URL in one of the following formats:
      *
+     * http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+     *
      * oss://example-bucket/example.mp4: In this format, it is considered by default that the region of the OSS bucket in which the media asset resides is the same as the region in which IMS is activated.
      *
      *   URL of an ApsaraVideo VOD media asset
@@ -77,6 +79,7 @@ class RegisterMediaInfoRequest extends Model
      * vod://\\*\\*\\*20b48fb04483915d4f2cd8ac\\*\\*\\*\\*
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $inputURL;
@@ -103,7 +106,9 @@ class RegisterMediaInfoRequest extends Model
      *   audio
      *   text
      *
+     * We recommend that you specify this parameter based on your business requirements. If you set InputURL to an OSS URL, the media asset type can be automatically determined based on the file name extension. For more information
      * <props="china">, see [File formats](https://help.aliyun.com/document_detail/466207.html).
+     *
      * @example video
      *
      * @var string
@@ -113,7 +118,10 @@ class RegisterMediaInfoRequest extends Model
     /**
      * @description Specifies whether to overwrite the media asset that has been registered by using the same URL. Default value: false. Valid values:
      *
+     * \\- true: If a media asset has been registered by using the same URL, the original media asset is deleted and the new media asset is registered.
+     *
      * \\- false: If a media asset has been registered by using the same URL, the new media asset is not registered. A URL cannot be used to register multiple media assets.
+     *
      * @example true
      *
      * @var bool
@@ -132,9 +140,14 @@ class RegisterMediaInfoRequest extends Model
     /**
      * @description The registration configurations.
      *
+     * By default, a sprite is generated for the media asset. You can set NeedSprite to false to disable automatic sprite generation.
+     *
      * By default, a snapshot is generated for the media asset. You can set NeedSnapshot to false to disable automatic snapshot generation.
+     *
      * @example {
+     * "NeedSprite": "false"
      * }
+     *
      * @var string
      */
     public $registerConfig;
@@ -147,6 +160,7 @@ class RegisterMediaInfoRequest extends Model
      *   S00000103-000002: the system template that supports all tagging capabilities but does not support NLP for content recognition.
      *
      * After you configure this parameter, a smart tag analysis task is automatically initiated after the media asset is registered. For more information about the billable items<props="china">, see [Smart tagging](https://help.aliyun.com/zh/ims/media-ai-billing?spm=a2c4g.11186623.0.0.3147392dWwlSjL#p-k38-3rb-dug).
+     *
      * @example S00000101-300080
      *
      * @var string
@@ -185,26 +199,24 @@ class RegisterMediaInfoRequest extends Model
      */
     public $workflowId;
     protected $_name = [
-        'businessType'       => 'BusinessType',
-        'cateId'             => 'CateId',
-        'clientToken'        => 'ClientToken',
-        'coverURL'           => 'CoverURL',
-        'description'        => 'Description',
-        'inputURL'           => 'InputURL',
-        'mediaTags'          => 'MediaTags',
-        'mediaType'          => 'MediaType',
-        'overwrite'          => 'Overwrite',
-        'referenceId'        => 'ReferenceId',
-        'registerConfig'     => 'RegisterConfig',
+        'businessType' => 'BusinessType',
+        'cateId' => 'CateId',
+        'clientToken' => 'ClientToken',
+        'coverURL' => 'CoverURL',
+        'description' => 'Description',
+        'inputURL' => 'InputURL',
+        'mediaTags' => 'MediaTags',
+        'mediaType' => 'MediaType',
+        'overwrite' => 'Overwrite',
+        'referenceId' => 'ReferenceId',
+        'registerConfig' => 'RegisterConfig',
         'smartTagTemplateId' => 'SmartTagTemplateId',
-        'title'              => 'Title',
-        'userData'           => 'UserData',
-        'workflowId'         => 'WorkflowId',
+        'title' => 'Title',
+        'userData' => 'UserData',
+        'workflowId' => 'WorkflowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

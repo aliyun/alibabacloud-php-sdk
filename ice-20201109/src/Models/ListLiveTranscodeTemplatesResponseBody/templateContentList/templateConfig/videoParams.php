@@ -72,17 +72,15 @@ class videoParams extends Model
     public $width;
     protected $_name = [
         'bitrate' => 'Bitrate',
-        'codec'   => 'Codec',
-        'fps'     => 'Fps',
-        'gop'     => 'Gop',
-        'height'  => 'Height',
+        'codec' => 'Codec',
+        'fps' => 'Fps',
+        'gop' => 'Gop',
+        'height' => 'Height',
         'profile' => 'Profile',
-        'width'   => 'Width',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

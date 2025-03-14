@@ -88,18 +88,16 @@ class GetVideoListRequest extends Model
      */
     public $status;
     protected $_name = [
-        'cateId'    => 'CateId',
-        'endTime'   => 'EndTime',
-        'pageNo'    => 'PageNo',
-        'pageSize'  => 'PageSize',
-        'sortBy'    => 'SortBy',
+        'cateId' => 'CateId',
+        'endTime' => 'EndTime',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
         'startTime' => 'StartTime',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

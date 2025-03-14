@@ -28,7 +28,12 @@ class SubmitSportsHighlightsJobRequest extends Model
      * @description The output configurations.
      *
      * @example {
+     * "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
+     * "Count": 1,
+     * "Width": 1080,
+     * "Height": 1920
      * }
+     *
      * @var string
      */
     public $outputConfig;
@@ -40,15 +45,13 @@ class SubmitSportsHighlightsJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
-        'inputConfig'  => 'InputConfig',
+        'clientToken' => 'ClientToken',
+        'inputConfig' => 'InputConfig',
         'outputConfig' => 'OutputConfig',
-        'userData'     => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

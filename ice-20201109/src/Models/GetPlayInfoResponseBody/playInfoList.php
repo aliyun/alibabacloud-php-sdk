@@ -83,6 +83,7 @@ class playInfoList extends Model
      *   **HLSEncryption**: HTTP Live Streaming (HLS) encryption
      *
      * >  If the encryption type is AliyunVoDEncryption, only ApsaraVideo Player SDK can be used to play videos.
+     *
      * @example AliyunVoDEncryption
      *
      * @var string
@@ -170,6 +171,7 @@ class playInfoList extends Model
      *   **2.0**: Narrowband HD™ 2.0 transcoding
      *
      * This parameter is returned only when a definition that is available in the built-in Narrowband HD™ 1.0 transcoding template is specified. For more information, see the [Definition parameter in TranscodeTemplate](https://help.aliyun.com/document_detail/52839.html) table.
+     *
      * @example 0
      *
      * @var string
@@ -258,34 +260,32 @@ class playInfoList extends Model
      */
     public $width;
     protected $_name = [
-        'bitDepth'          => 'BitDepth',
-        'bitrate'           => 'Bitrate',
-        'creationTime'      => 'CreationTime',
-        'definition'        => 'Definition',
-        'duration'          => 'Duration',
-        'encrypt'           => 'Encrypt',
-        'encryptType'       => 'EncryptType',
-        'fileURL'           => 'FileURL',
-        'format'            => 'Format',
-        'fps'               => 'Fps',
-        'HDRType'           => 'HDRType',
-        'height'            => 'Height',
-        'jobId'             => 'JobId',
-        'modificationTime'  => 'ModificationTime',
-        'narrowBandType'    => 'NarrowBandType',
-        'playURL'           => 'PlayURL',
-        'size'              => 'Size',
-        'status'            => 'Status',
-        'streamTags'        => 'StreamTags',
-        'streamType'        => 'StreamType',
+        'bitDepth' => 'BitDepth',
+        'bitrate' => 'Bitrate',
+        'creationTime' => 'CreationTime',
+        'definition' => 'Definition',
+        'duration' => 'Duration',
+        'encrypt' => 'Encrypt',
+        'encryptType' => 'EncryptType',
+        'fileURL' => 'FileURL',
+        'format' => 'Format',
+        'fps' => 'Fps',
+        'HDRType' => 'HDRType',
+        'height' => 'Height',
+        'jobId' => 'JobId',
+        'modificationTime' => 'ModificationTime',
+        'narrowBandType' => 'NarrowBandType',
+        'playURL' => 'PlayURL',
+        'size' => 'Size',
+        'status' => 'Status',
+        'streamTags' => 'StreamTags',
+        'streamType' => 'StreamType',
         'transTemplateType' => 'TransTemplateType',
-        'watermarkId'       => 'WatermarkId',
-        'width'             => 'Width',
+        'watermarkId' => 'WatermarkId',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

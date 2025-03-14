@@ -21,19 +21,18 @@ class GetTemplateMaterialsRequest extends Model
      * @description The template ID.
      *
      * This parameter is required.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'fileList'   => 'FileList',
+        'fileList' => 'FileList',
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

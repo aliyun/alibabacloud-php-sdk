@@ -36,13 +36,11 @@ class TakeoverAIAgentCallRequest extends Model
     public $requireToken;
     protected $_name = [
         'humanAgentUserId' => 'HumanAgentUserId',
-        'instanceId'       => 'InstanceId',
-        'requireToken'     => 'RequireToken',
+        'instanceId' => 'InstanceId',
+        'requireToken' => 'RequireToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

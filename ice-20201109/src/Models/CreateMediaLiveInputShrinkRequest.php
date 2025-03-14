@@ -12,6 +12,7 @@ class CreateMediaLiveInputShrinkRequest extends Model
      * @description The input settings. An input can have up to two sources: primary and backup sources.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $inputSettingsShrink;
@@ -20,6 +21,7 @@ class CreateMediaLiveInputShrinkRequest extends Model
      * @description The name of the input. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example myinput
      *
      * @var string
@@ -39,21 +41,20 @@ class CreateMediaLiveInputShrinkRequest extends Model
      * @description The input type. Valid values: RTMP_PUSH, RTMP_PULL, SRT_PUSH, and SRT_PULL.
      *
      * This parameter is required.
+     *
      * @example RTMP_PUSH
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'inputSettingsShrink'    => 'InputSettings',
-        'name'                   => 'Name',
+        'inputSettingsShrink' => 'InputSettings',
+        'name' => 'Name',
         'securityGroupIdsShrink' => 'SecurityGroupIds',
-        'type'                   => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

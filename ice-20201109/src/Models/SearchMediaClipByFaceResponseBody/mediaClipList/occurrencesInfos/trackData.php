@@ -26,12 +26,10 @@ class trackData extends Model
     public $timestamp;
     protected $_name = [
         'boxPosition' => 'BoxPosition',
-        'timestamp'   => 'Timestamp',
+        'timestamp' => 'Timestamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class GetEditingProjectMaterialsRequest extends Model
      * @description The ID of the online editing project.
      *
      * This parameter is required.
+     *
      * @example *****fb2101cb318*****
      *
      * @var string
@@ -21,9 +22,7 @@ class GetEditingProjectMaterialsRequest extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

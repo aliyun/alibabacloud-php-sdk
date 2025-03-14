@@ -11,7 +11,12 @@ class RegisterMediaStreamRequest extends Model
     /**
      * @description The URL of the media asset in another service. The URL is associated with the ID of the media asset in IMS. The URL cannot be modified once registered.
      *
+     * Set this parameter to the OSS URL of the media asset. The following formats are supported:
+     *
+     * http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+     *
      * oss://example-bucket/example.mp4: In this format, it is considered by default that the region of the OSS bucket in which the media asset resides is the same as the region in which IMS is activated.
+     *
      * @var string
      */
     public $inputURL;
@@ -35,13 +40,11 @@ class RegisterMediaStreamRequest extends Model
     public $userData;
     protected $_name = [
         'inputURL' => 'InputURL',
-        'mediaId'  => 'MediaId',
+        'mediaId' => 'MediaId',
         'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

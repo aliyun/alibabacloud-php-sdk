@@ -12,6 +12,7 @@ class CreateSourceLocationRequest extends Model
      * @description The protocol and hostname of the source location.
      *
      * This parameter is required.
+     *
      * @example http://xxx.com
      *
      * @var string
@@ -40,21 +41,20 @@ class CreateSourceLocationRequest extends Model
      * @description The name of the source location.
      *
      * This parameter is required.
+     *
      * @example MySourcelocation
      *
      * @var string
      */
     public $sourceLocationName;
     protected $_name = [
-        'baseUrl'               => 'BaseUrl',
+        'baseUrl' => 'BaseUrl',
         'enableSegmentDelivery' => 'EnableSegmentDelivery',
-        'segmentDeliveryUrl'    => 'SegmentDeliveryUrl',
-        'sourceLocationName'    => 'SourceLocationName',
+        'segmentDeliveryUrl' => 'SegmentDeliveryUrl',
+        'sourceLocationName' => 'SourceLocationName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

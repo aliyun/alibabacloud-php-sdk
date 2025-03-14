@@ -22,6 +22,7 @@ class ListEditingProjectsResponseBody extends Model
      * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
      *
      * This parameter is required.
+     *
      * @example Nzv3rcKla9wHUGua9YXHNA==
      *
      * @var string
@@ -44,15 +45,13 @@ class ListEditingProjectsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'projectList' => 'ProjectList',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -96,7 +95,7 @@ class ListEditingProjectsResponseBody extends Model
         if (isset($map['ProjectList'])) {
             if (!empty($map['ProjectList'])) {
                 $model->projectList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ProjectList'] as $item) {
                     $model->projectList[$n++] = null !== $item ? projectList::fromMap($item) : $item;
                 }

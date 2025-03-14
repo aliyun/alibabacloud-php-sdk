@@ -22,13 +22,11 @@ class data extends Model
      */
     public $traceMediaId;
     protected $_name = [
-        'jobId'        => 'JobId',
+        'jobId' => 'JobId',
         'traceMediaId' => 'TraceMediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

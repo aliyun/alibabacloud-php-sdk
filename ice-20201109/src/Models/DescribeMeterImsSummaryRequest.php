@@ -12,6 +12,7 @@ class DescribeMeterImsSummaryRequest extends Model
      * @description The end of the time range to query. The value is a 10-digit timestamp.
      *
      * This parameter is required.
+     *
      * @example 1656995036
      *
      * @var int
@@ -31,20 +32,19 @@ class DescribeMeterImsSummaryRequest extends Model
      * @description The beginning of the time range to query. The value is a 10-digit timestamp.
      *
      * This parameter is required.
+     *
      * @example 1654403036
      *
      * @var int
      */
     public $startTs;
     protected $_name = [
-        'endTs'   => 'EndTs',
-        'region'  => 'Region',
+        'endTs' => 'EndTs',
+        'region' => 'Region',
         'startTs' => 'StartTs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

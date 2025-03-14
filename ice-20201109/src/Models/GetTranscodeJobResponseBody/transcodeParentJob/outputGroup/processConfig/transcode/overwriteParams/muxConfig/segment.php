@@ -26,13 +26,11 @@ class segment extends Model
      */
     public $forceSegTime;
     protected $_name = [
-        'duration'     => 'Duration',
+        'duration' => 'Duration',
         'forceSegTime' => 'ForceSegTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

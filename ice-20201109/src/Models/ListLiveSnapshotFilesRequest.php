@@ -14,6 +14,7 @@ class ListLiveSnapshotFilesRequest extends Model
      *   The maximum time range that can be specified is one day.
      *
      * This parameter is required.
+     *
      * @example 2022-02-02T23:59:59Z
      *
      * @var string
@@ -24,6 +25,7 @@ class ListLiveSnapshotFilesRequest extends Model
      * @description The ID of the snapshot job.
      *
      * This parameter is required.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -57,22 +59,21 @@ class ListLiveSnapshotFilesRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * This parameter is required.
+     *
      * @example 2022-02-02T00:00:00Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'jobId'     => 'JobId',
-        'limit'     => 'Limit',
-        'sortBy'    => 'SortBy',
+        'endTime' => 'EndTime',
+        'jobId' => 'JobId',
+        'limit' => 'Limit',
+        'sortBy' => 'SortBy',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

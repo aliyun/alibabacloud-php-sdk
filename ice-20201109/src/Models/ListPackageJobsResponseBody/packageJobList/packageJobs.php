@@ -145,26 +145,24 @@ class packageJobs extends Model
      */
     public $userData;
     protected $_name = [
-        'code'          => 'Code',
-        'createTime'    => 'CreateTime',
-        'finishTime'    => 'FinishTime',
-        'inputs'        => 'Inputs',
-        'jobId'         => 'JobId',
-        'message'       => 'Message',
-        'modifiedTime'  => 'ModifiedTime',
-        'name'          => 'Name',
-        'output'        => 'Output',
-        'pipelineId'    => 'PipelineId',
-        'priority'      => 'Priority',
-        'status'        => 'Status',
-        'submitTime'    => 'SubmitTime',
+        'code' => 'Code',
+        'createTime' => 'CreateTime',
+        'finishTime' => 'FinishTime',
+        'inputs' => 'Inputs',
+        'jobId' => 'JobId',
+        'message' => 'Message',
+        'modifiedTime' => 'ModifiedTime',
+        'name' => 'Name',
+        'output' => 'Output',
+        'pipelineId' => 'PipelineId',
+        'priority' => 'Priority',
+        'status' => 'Status',
+        'submitTime' => 'SubmitTime',
         'triggerSource' => 'TriggerSource',
-        'userData'      => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -244,7 +242,7 @@ class packageJobs extends Model
         if (isset($map['Inputs'])) {
             if (!empty($map['Inputs'])) {
                 $model->inputs = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Inputs'] as $item) {
                     $model->inputs[$n++] = null !== $item ? inputs::fromMap($item) : $item;
                 }

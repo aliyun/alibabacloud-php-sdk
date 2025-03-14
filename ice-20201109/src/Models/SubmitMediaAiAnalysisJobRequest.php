@@ -32,13 +32,11 @@ class SubmitMediaAiAnalysisJobRequest extends Model
     public $userData;
     protected $_name = [
         'analysisParams' => 'AnalysisParams',
-        'input'          => 'Input',
-        'userData'       => 'UserData',
+        'input' => 'Input',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

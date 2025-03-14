@@ -65,18 +65,16 @@ class SendMessageChatTextRequest extends Model
      */
     public $type;
     protected $_name = [
-        'AIAgentId'     => 'AIAgentId',
-        'mode'          => 'Mode',
+        'AIAgentId' => 'AIAgentId',
+        'mode' => 'Mode',
         'needArchiving' => 'NeedArchiving',
-        'receiverId'    => 'ReceiverId',
-        'sessionId'     => 'SessionId',
-        'text'          => 'Text',
-        'type'          => 'Type',
+        'receiverId' => 'ReceiverId',
+        'sessionId' => 'SessionId',
+        'text' => 'Text',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

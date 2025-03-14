@@ -26,7 +26,10 @@ class recordFormat extends Model
     /**
      * @description The format of recording files.
      *
+     * >  If you set this parameter to m3u8, you must also specify the SliceOssObjectPrefix and SliceDuration parameters.
+     *
      * This parameter is required.
+     *
      * @example m3u8
      *
      * @var string
@@ -48,7 +51,10 @@ class recordFormat extends Model
     /**
      * @description The duration of a single segment. Unit: seconds
      *
+     * >  This parameter takes effect only if you set Format to m3u8.
+     *
      * If you do not specify this parameter, the default value 30 seconds is used. Valid values: 5 to 30.
+     *
      * @example 30
      *
      * @var int
@@ -58,23 +64,24 @@ class recordFormat extends Model
     /**
      * @description The name of the TS segment.
      *
+     * >  This parameter is required only if you set Format to m3u8. By default, the duration of a segment is 30 seconds. The segment name must be less than 256 bytes in length and can contain the {JobId}, {UnixTimestamp}, and {Sequence} variables.
+     *
      * The segment name must contain the {UnixTimestamp} and {Sequence} variables.
+     *
      * @example record/{JobId}/{UnixTimestamp}_{Sequence}
      *
      * @var string
      */
     public $sliceOssObjectPrefix;
     protected $_name = [
-        'cycleDuration'        => 'CycleDuration',
-        'format'               => 'Format',
-        'ossObjectPrefix'      => 'OssObjectPrefix',
-        'sliceDuration'        => 'SliceDuration',
+        'cycleDuration' => 'CycleDuration',
+        'format' => 'Format',
+        'ossObjectPrefix' => 'OssObjectPrefix',
+        'sliceDuration' => 'SliceDuration',
         'sliceOssObjectPrefix' => 'SliceOssObjectPrefix',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

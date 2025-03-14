@@ -95,23 +95,21 @@ class SubmitVideoTranslationJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'clientToken'      => 'ClientToken',
-        'description'      => 'Description',
-        'editingConfig'    => 'EditingConfig',
-        'inputConfig'      => 'InputConfig',
-        'outputConfig'     => 'OutputConfig',
-        'signature'        => 'Signature',
-        'signatureMehtod'  => 'SignatureMehtod',
-        'signatureNonce'   => 'SignatureNonce',
-        'signatureType'    => 'SignatureType',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'editingConfig' => 'EditingConfig',
+        'inputConfig' => 'InputConfig',
+        'outputConfig' => 'OutputConfig',
+        'signature' => 'Signature',
+        'signatureMehtod' => 'SignatureMehtod',
+        'signatureNonce' => 'SignatureNonce',
+        'signatureType' => 'SignatureType',
         'signatureVersion' => 'SignatureVersion',
-        'title'            => 'Title',
-        'userData'         => 'UserData',
+        'title' => 'Title',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

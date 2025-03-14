@@ -19,9 +19,7 @@ class muxConfig extends Model
         'segment' => 'Segment',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

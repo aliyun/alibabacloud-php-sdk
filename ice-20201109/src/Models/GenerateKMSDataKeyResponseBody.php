@@ -25,13 +25,11 @@ class GenerateKMSDataKeyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'dataKey'   => 'DataKey',
+        'dataKey' => 'DataKey',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

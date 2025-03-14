@@ -124,21 +124,19 @@ class customizedVoiceJobList extends Model
     public $voiceName;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'gender'     => 'Gender',
-        'gmtCreate'  => 'GmtCreate',
-        'jobId'      => 'JobId',
-        'message'    => 'Message',
-        'scenario'   => 'Scenario',
-        'status'     => 'Status',
-        'type'       => 'Type',
-        'voiceDesc'  => 'VoiceDesc',
-        'voiceId'    => 'VoiceId',
-        'voiceName'  => 'VoiceName',
+        'gender' => 'Gender',
+        'gmtCreate' => 'GmtCreate',
+        'jobId' => 'JobId',
+        'message' => 'Message',
+        'scenario' => 'Scenario',
+        'status' => 'Status',
+        'type' => 'Type',
+        'voiceDesc' => 'VoiceDesc',
+        'voiceId' => 'VoiceId',
+        'voiceName' => 'VoiceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

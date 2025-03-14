@@ -20,9 +20,7 @@ class scheduleConfig extends Model
         'pipelineId' => 'PipelineId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

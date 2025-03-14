@@ -21,6 +21,7 @@ class UpdatePipelineRequest extends Model
      * @description The ID of the MPS queue.
      *
      * This parameter is required.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -50,15 +51,13 @@ class UpdatePipelineRequest extends Model
      */
     public $status;
     protected $_name = [
-        'name'       => 'Name',
+        'name' => 'Name',
         'pipelineId' => 'PipelineId',
-        'priority'   => 'Priority',
-        'status'     => 'Status',
+        'priority' => 'Priority',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,13 +26,11 @@ class codecDetail extends Model
      */
     public $profile;
     protected $_name = [
-        'level'   => 'Level',
+        'level' => 'Level',
         'profile' => 'Profile',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

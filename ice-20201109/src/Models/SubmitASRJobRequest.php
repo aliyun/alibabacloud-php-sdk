@@ -62,23 +62,24 @@ class SubmitASRJobRequest extends Model
      * @description The user-defined data in the JSON format. You can specify your business information, such as the business environment and job information.
      *
      * @example {
+     * "user": "data",
+     * "env": "prod"
      * }
+     *
      * @var string
      */
     public $userData;
     protected $_name = [
-        'description'   => 'Description',
-        'duration'      => 'Duration',
+        'description' => 'Description',
+        'duration' => 'Duration',
         'editingConfig' => 'EditingConfig',
-        'inputFile'     => 'InputFile',
-        'startTime'     => 'StartTime',
-        'title'         => 'Title',
-        'userData'      => 'UserData',
+        'inputFile' => 'InputFile',
+        'startTime' => 'StartTime',
+        'title' => 'Title',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

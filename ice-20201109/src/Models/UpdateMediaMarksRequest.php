@@ -12,6 +12,7 @@ class UpdateMediaMarksRequest extends Model
      * @description The ID of the media asset.
      *
      * This parameter is required.
+     *
      * @example 53afdf003a******6a16b5feac6402
      *
      * @var string
@@ -22,17 +23,16 @@ class UpdateMediaMarksRequest extends Model
      * @description The marks of the media asset.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $mediaMarks;
     protected $_name = [
-        'mediaId'    => 'MediaId',
+        'mediaId' => 'MediaId',
         'mediaMarks' => 'MediaMarks',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DescribeAIAgentInstanceRequest extends Model
      * @description The ID of the AI agent that you want to query.
      *
      * This parameter is required.
+     *
      * @example 39f8e0bc005e4f309379701645f4****
      *
      * @var string
@@ -21,9 +22,7 @@ class DescribeAIAgentInstanceRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ListLivePackageOriginEndpointsRequest extends Model
      * @description The channel name.
      *
      * This parameter is required.
+     *
      * @example channel-1
      *
      * @var string
@@ -22,6 +23,7 @@ class ListLivePackageOriginEndpointsRequest extends Model
      * @description The channel group name.
      *
      * This parameter is required.
+     *
      * @example channel-group-1
      *
      * @var string
@@ -65,16 +67,14 @@ class ListLivePackageOriginEndpointsRequest extends Model
     public $sortBy;
     protected $_name = [
         'channelName' => 'ChannelName',
-        'groupName'   => 'GroupName',
-        'keyword'     => 'Keyword',
-        'pageNo'      => 'PageNo',
-        'pageSize'    => 'PageSize',
-        'sortBy'      => 'SortBy',
+        'groupName' => 'GroupName',
+        'keyword' => 'Keyword',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

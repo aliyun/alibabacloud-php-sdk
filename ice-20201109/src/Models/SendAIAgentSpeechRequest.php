@@ -34,13 +34,11 @@ class SendAIAgentSpeechRequest extends Model
     public $text;
     protected $_name = [
         'enableInterrupt' => 'EnableInterrupt',
-        'instanceId'      => 'InstanceId',
-        'text'            => 'Text',
+        'instanceId' => 'InstanceId',
+        'text' => 'Text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

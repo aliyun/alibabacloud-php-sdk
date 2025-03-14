@@ -104,24 +104,23 @@ class ListCustomTemplatesRequest extends Model
      *   9: AI-assisted intelligent erasure template.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'name'       => 'Name',
-        'orderBy'    => 'OrderBy',
+        'name' => 'Name',
+        'orderBy' => 'OrderBy',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'subtype'    => 'Subtype',
+        'pageSize' => 'PageSize',
+        'subtype' => 'Subtype',
         'templateId' => 'TemplateId',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

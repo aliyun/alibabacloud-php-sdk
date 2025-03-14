@@ -50,13 +50,11 @@ class QuerySmarttagJobResponseBody extends Model
     protected $_name = [
         'jobStatus' => 'JobStatus',
         'requestId' => 'RequestId',
-        'results'   => 'Results',
-        'userData'  => 'UserData',
+        'results' => 'Results',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

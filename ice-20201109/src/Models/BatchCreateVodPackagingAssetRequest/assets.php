@@ -36,12 +36,10 @@ class assets extends Model
     protected $_name = [
         'assetName' => 'AssetName',
         'contentId' => 'ContentId',
-        'input'     => 'Input',
+        'input' => 'Input',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

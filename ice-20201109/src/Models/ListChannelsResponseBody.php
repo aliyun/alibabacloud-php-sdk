@@ -52,15 +52,13 @@ class ListChannelsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'channelList' => 'ChannelList',
-        'pageNo'      => 'PageNo',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -101,7 +99,7 @@ class ListChannelsResponseBody extends Model
         if (isset($map['ChannelList'])) {
             if (!empty($map['ChannelList'])) {
                 $model->channelList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ChannelList'] as $item) {
                     $model->channelList[$n++] = null !== $item ? ChannelAssemblyChannel::fromMap($item) : $item;
                 }

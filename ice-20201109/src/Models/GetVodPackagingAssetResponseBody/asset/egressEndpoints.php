@@ -38,13 +38,11 @@ class egressEndpoints extends Model
     public $url;
     protected $_name = [
         'configurationName' => 'ConfigurationName',
-        'status'            => 'Status',
-        'url'               => 'Url',
+        'status' => 'Status',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

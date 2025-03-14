@@ -13,6 +13,7 @@ class StartAIAgentInstanceRequest extends Model
      * @description The ID of the AI agent created in the [IMS](https://ims.console.aliyun.com/ai/robot/list) console.
      *
      * This parameter is required.
+     *
      * @example 39f8e0bc005e4f309379701645f4****
      *
      * @var string
@@ -52,17 +53,15 @@ class StartAIAgentInstanceRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'AIAgentId'      => 'AIAgentId',
+        'AIAgentId' => 'AIAgentId',
         'chatSyncConfig' => 'ChatSyncConfig',
-        'runtimeConfig'  => 'RuntimeConfig',
-        'sessionId'      => 'SessionId',
+        'runtimeConfig' => 'RuntimeConfig',
+        'sessionId' => 'SessionId',
         'templateConfig' => 'TemplateConfig',
-        'userData'       => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -27,12 +27,10 @@ class mediaPackageGroupSetting extends Model
     public $groupName;
     protected $_name = [
         'channelName' => 'ChannelName',
-        'groupName'   => 'GroupName',
+        'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

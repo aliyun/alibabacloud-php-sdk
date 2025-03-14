@@ -115,20 +115,18 @@ class template extends Model
      */
     public $type;
     protected $_name = [
-        'config'         => 'Config',
-        'coverUrl'       => 'CoverUrl',
-        'createSource'   => 'CreateSource',
+        'config' => 'Config',
+        'coverUrl' => 'CoverUrl',
+        'createSource' => 'CreateSource',
         'modifiedSource' => 'ModifiedSource',
-        'name'           => 'Name',
-        'previewMedia'   => 'PreviewMedia',
-        'status'         => 'Status',
-        'templateId'     => 'TemplateId',
-        'type'           => 'Type',
+        'name' => 'Name',
+        'previewMedia' => 'PreviewMedia',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

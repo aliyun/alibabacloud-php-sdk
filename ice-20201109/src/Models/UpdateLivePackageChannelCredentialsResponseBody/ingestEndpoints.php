@@ -44,15 +44,13 @@ class ingestEndpoints extends Model
      */
     public $username;
     protected $_name = [
-        'id'       => 'Id',
+        'id' => 'Id',
         'password' => 'Password',
-        'url'      => 'Url',
+        'url' => 'Url',
         'username' => 'Username',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

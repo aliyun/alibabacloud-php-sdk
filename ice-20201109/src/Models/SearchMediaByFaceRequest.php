@@ -21,6 +21,7 @@ class SearchMediaByFaceRequest extends Model
      * @description The token that is used to identify the query. You can use this parameter in the SearchMediaClipByFace operation to specify the same query conditions.
      *
      * This parameter is required.
+     *
      * @example zxtest-huangxuan-2023-3-7-V1
      *
      * @var string
@@ -61,6 +62,7 @@ class SearchMediaByFaceRequest extends Model
      * @description The URL of the face image.
      *
      * This parameter is required.
+     *
      * @example https://****.oss-cn-shanghai.aliyuncs.com/input/huangxuan****.jpg
      *
      * @var string
@@ -76,18 +78,16 @@ class SearchMediaByFaceRequest extends Model
      */
     public $searchLibName;
     protected $_name = [
-        'entityId'        => 'EntityId',
+        'entityId' => 'EntityId',
         'faceSearchToken' => 'FaceSearchToken',
-        'mediaType'       => 'MediaType',
-        'pageNo'          => 'PageNo',
-        'pageSize'        => 'PageSize',
-        'personImageUrl'  => 'PersonImageUrl',
-        'searchLibName'   => 'SearchLibName',
+        'mediaType' => 'MediaType',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'personImageUrl' => 'PersonImageUrl',
+        'searchLibName' => 'SearchLibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

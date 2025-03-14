@@ -57,20 +57,18 @@ class config extends Model
      */
     public $volume;
     protected $_name = [
-        'asrMaxSilence'        => 'AsrMaxSilence',
+        'asrMaxSilence' => 'AsrMaxSilence',
         'enableVoiceInterrupt' => 'EnableVoiceInterrupt',
-        'greeting'             => 'Greeting',
-        'useVoiceprint'        => 'UseVoiceprint',
-        'userOfflineTimeout'   => 'UserOfflineTimeout',
-        'userOnlineTimeout'    => 'UserOnlineTimeout',
-        'voiceId'              => 'VoiceId',
-        'voiceprintId'         => 'VoiceprintId',
-        'volume'               => 'Volume',
+        'greeting' => 'Greeting',
+        'useVoiceprint' => 'UseVoiceprint',
+        'userOfflineTimeout' => 'UserOfflineTimeout',
+        'userOnlineTimeout' => 'UserOnlineTimeout',
+        'voiceId' => 'VoiceId',
+        'voiceprintId' => 'VoiceprintId',
+        'volume' => 'Volume',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

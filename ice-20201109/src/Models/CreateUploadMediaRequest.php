@@ -53,6 +53,10 @@ class CreateUploadMediaRequest extends Model
      *   The value can be up to 1,024 characters in length.
      *   The value must be encoded in UTF-8.
      *
+     * CateId: optional.
+     *
+     * Tags: optional.
+     *
      * BusinessType: required. Valid values:
      *
      *   opening or ending if Type is set to video
@@ -62,6 +66,7 @@ class CreateUploadMediaRequest extends Model
      *   general CoverURL: optional.
      *
      * DynamicMetaData: The value is a string.
+     *
      * @example {\\"Title\\": \\"UploadTest\\", \\"Description\\": \\"UploadImageTest\\", \\"Tags\\": \\"tag1,tag2\\",\\"BusinessType\\":\\"cover\\"}
      *
      * @var string
@@ -72,6 +77,7 @@ class CreateUploadMediaRequest extends Model
      * @description The postprocessing configurations. You can specify this parameter if Type is set to video or audio.
      *
      * Set ProcessType to Workflow.
+     *
      * @example {\\"ProcessType\\":\\"Workflow\\",\\"ProcessID\\":\\"74ba870f1a4873a3ba238e0bf6fa9***\\"}
      *
      * @var string
@@ -81,7 +87,10 @@ class CreateUploadMediaRequest extends Model
     /**
      * @description The destination storage address.
      *
+     * Set StorageType to oss.
+     *
      * Set StorageLocation to an address in ApsaraVideo VOD. You cannot set this field to an OSS URL.
+     *
      * @example {\\"StorageType\\":\\"oss\\",\\"StorageLocation\\":\\"outin-***.oss-cn-shanghai.aliyuncs.com\\"}
      *
      * @var string
@@ -97,18 +106,16 @@ class CreateUploadMediaRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'appId'              => 'AppId',
-        'entityId'           => 'EntityId',
-        'fileInfo'           => 'FileInfo',
-        'mediaMetaData'      => 'MediaMetaData',
-        'postProcessConfig'  => 'PostProcessConfig',
+        'appId' => 'AppId',
+        'entityId' => 'EntityId',
+        'fileInfo' => 'FileInfo',
+        'mediaMetaData' => 'MediaMetaData',
+        'postProcessConfig' => 'PostProcessConfig',
         'uploadTargetConfig' => 'UploadTargetConfig',
-        'userData'           => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

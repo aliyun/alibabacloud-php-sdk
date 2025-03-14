@@ -33,20 +33,19 @@ class ListCustomizedVoiceJobsRequest extends Model
      *   Standard
      *
      * > : If you do not specify this parameter, the default value Basic is used.
+     *
      * @example Standard
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'pageNo'   => 'PageNo',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

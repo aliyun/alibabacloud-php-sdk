@@ -68,17 +68,15 @@ class QuerySearchLibResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'          => 'Code',
-        'indexInfo'     => 'IndexInfo',
-        'requestId'     => 'RequestId',
+        'code' => 'Code',
+        'indexInfo' => 'IndexInfo',
+        'requestId' => 'RequestId',
         'searchLibName' => 'SearchLibName',
-        'status'        => 'Status',
-        'success'       => 'Success',
+        'status' => 'Status',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -125,7 +123,7 @@ class QuerySearchLibResponseBody extends Model
         if (isset($map['IndexInfo'])) {
             if (!empty($map['IndexInfo'])) {
                 $model->indexInfo = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['IndexInfo'] as $item) {
                     $model->indexInfo[$n++] = null !== $item ? indexInfo::fromMap($item) : $item;
                 }

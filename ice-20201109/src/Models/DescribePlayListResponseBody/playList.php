@@ -79,20 +79,18 @@ class playList extends Model
     public $videoId;
     protected $_name = [
         'firstFrameDuration' => 'FirstFrameDuration',
-        'playDuration'       => 'PlayDuration',
-        'playTs'             => 'PlayTs',
-        'playType'           => 'PlayType',
-        'sessionId'          => 'SessionId',
-        'status'             => 'Status',
-        'stuckDuration'      => 'StuckDuration',
-        'traceId'            => 'TraceId',
-        'videoDuration'      => 'VideoDuration',
-        'videoId'            => 'VideoId',
+        'playDuration' => 'PlayDuration',
+        'playTs' => 'PlayTs',
+        'playType' => 'PlayType',
+        'sessionId' => 'SessionId',
+        'status' => 'Status',
+        'stuckDuration' => 'StuckDuration',
+        'traceId' => 'TraceId',
+        'videoDuration' => 'VideoDuration',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

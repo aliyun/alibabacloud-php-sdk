@@ -56,16 +56,14 @@ class SearchMediaByMultimodalRequest extends Model
      */
     public $text;
     protected $_name = [
-        'mediaType'     => 'MediaType',
-        'pageNo'        => 'PageNo',
-        'pageSize'      => 'PageSize',
+        'mediaType' => 'MediaType',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'searchLibName' => 'SearchLibName',
-        'text'          => 'Text',
+        'text' => 'Text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

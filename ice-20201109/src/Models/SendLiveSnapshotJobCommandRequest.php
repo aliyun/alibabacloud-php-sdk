@@ -18,6 +18,7 @@ class SendLiveSnapshotJobCommandRequest extends Model
      *   start
      *
      * This parameter is required.
+     *
      * @example start
      *
      * @var string
@@ -28,6 +29,7 @@ class SendLiveSnapshotJobCommandRequest extends Model
      * @description The ID of the snapshot job.
      *
      * This parameter is required.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -35,12 +37,10 @@ class SendLiveSnapshotJobCommandRequest extends Model
     public $jobId;
     protected $_name = [
         'command' => 'Command',
-        'jobId'   => 'JobId',
+        'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

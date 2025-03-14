@@ -35,13 +35,11 @@ class DeleteLiveRecordFilesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'deleteFileInfoList' => 'DeleteFileInfoList',
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DeleteLiveRecordFilesResponseBody extends Model
         if (isset($map['DeleteFileInfoList'])) {
             if (!empty($map['DeleteFileInfoList'])) {
                 $model->deleteFileInfoList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['DeleteFileInfoList'] as $item) {
                     $model->deleteFileInfoList[$n++] = null !== $item ? deleteFileInfoList::fromMap($item) : $item;
                 }

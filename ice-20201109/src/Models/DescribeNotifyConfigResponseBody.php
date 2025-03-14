@@ -49,16 +49,14 @@ class DescribeNotifyConfigResponseBody extends Model
      */
     public $token;
     protected $_name = [
-        'callbackUrl'  => 'CallbackUrl',
+        'callbackUrl' => 'CallbackUrl',
         'enableNotify' => 'EnableNotify',
-        'eventTypes'   => 'EventTypes',
-        'requestId'    => 'RequestId',
-        'token'        => 'Token',
+        'eventTypes' => 'EventTypes',
+        'requestId' => 'RequestId',
+        'token' => 'Token',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

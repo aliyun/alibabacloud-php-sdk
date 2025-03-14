@@ -20,9 +20,7 @@ class mediaInfoList extends Model
         'mediaId' => 'MediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,9 +18,7 @@ class manifestEndpointConfig extends Model
         'hlsPrefix' => 'HlsPrefix',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

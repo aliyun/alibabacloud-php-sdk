@@ -58,17 +58,15 @@ class SubmitTraceAbJobShrinkRequest extends Model
     public $userData;
     protected $_name = [
         'cipherBase64ed' => 'CipherBase64ed',
-        'inputShrink'    => 'Input',
-        'level'          => 'Level',
-        'outputShrink'   => 'Output',
-        'startTime'      => 'StartTime',
-        'totalTime'      => 'TotalTime',
-        'userData'       => 'UserData',
+        'inputShrink' => 'Input',
+        'level' => 'Level',
+        'outputShrink' => 'Output',
+        'startTime' => 'StartTime',
+        'totalTime' => 'TotalTime',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

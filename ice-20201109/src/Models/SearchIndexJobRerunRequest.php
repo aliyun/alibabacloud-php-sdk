@@ -12,6 +12,7 @@ class SearchIndexJobRerunRequest extends Model
      * @description The ID of the media asset. Separate multiple IDs with commas (,).
      *
      * This parameter is required.
+     *
      * @example ******b48fb04483915d4f2cd8******,******c48fb37407365d4f2cd8******
      *
      * @var string
@@ -40,14 +41,12 @@ class SearchIndexJobRerunRequest extends Model
      */
     public $task;
     protected $_name = [
-        'mediaIds'      => 'MediaIds',
+        'mediaIds' => 'MediaIds',
         'searchLibName' => 'SearchLibName',
-        'task'          => 'Task',
+        'task' => 'Task',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

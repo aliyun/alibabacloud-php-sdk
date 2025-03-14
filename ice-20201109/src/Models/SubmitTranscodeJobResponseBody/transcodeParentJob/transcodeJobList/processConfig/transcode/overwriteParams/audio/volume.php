@@ -45,14 +45,12 @@ class volume extends Model
     public $truePeak;
     protected $_name = [
         'integratedLoudnessTarget' => 'IntegratedLoudnessTarget',
-        'loudnessRangeTarget'      => 'LoudnessRangeTarget',
-        'method'                   => 'Method',
-        'truePeak'                 => 'TruePeak',
+        'loudnessRangeTarget' => 'LoudnessRangeTarget',
+        'method' => 'Method',
+        'truePeak' => 'TruePeak',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

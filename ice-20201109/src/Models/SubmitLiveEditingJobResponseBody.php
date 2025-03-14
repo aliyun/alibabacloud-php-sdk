@@ -62,17 +62,15 @@ class SubmitLiveEditingJobResponseBody extends Model
      */
     public $vodMediaId;
     protected $_name = [
-        'jobId'      => 'JobId',
-        'mediaId'    => 'MediaId',
-        'mediaURL'   => 'MediaURL',
-        'projectId'  => 'ProjectId',
-        'requestId'  => 'RequestId',
+        'jobId' => 'JobId',
+        'mediaId' => 'MediaId',
+        'mediaURL' => 'MediaURL',
+        'projectId' => 'ProjectId',
+        'requestId' => 'RequestId',
         'vodMediaId' => 'VodMediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

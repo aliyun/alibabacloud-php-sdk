@@ -93,28 +93,26 @@ class MediaConvertVideo extends Model
      */
     public $width;
     protected $_name = [
-        'bitrate'       => 'Bitrate',
-        'bufsize'       => 'Bufsize',
-        'codec'         => 'Codec',
-        'crf'           => 'Crf',
-        'crop'          => 'Crop',
-        'fps'           => 'Fps',
-        'gop'           => 'Gop',
-        'height'        => 'Height',
+        'bitrate' => 'Bitrate',
+        'bufsize' => 'Bufsize',
+        'codec' => 'Codec',
+        'crf' => 'Crf',
+        'crop' => 'Crop',
+        'fps' => 'Fps',
+        'gop' => 'Gop',
+        'height' => 'Height',
         'longShortMode' => 'LongShortMode',
-        'maxFps'        => 'MaxFps',
-        'maxrate'       => 'Maxrate',
-        'pad'           => 'Pad',
-        'profile'       => 'Profile',
-        'qscale'        => 'Qscale',
-        'remove'        => 'Remove',
-        'scanMode'      => 'ScanMode',
-        'width'         => 'Width',
+        'maxFps' => 'MaxFps',
+        'maxrate' => 'Maxrate',
+        'pad' => 'Pad',
+        'profile' => 'Profile',
+        'qscale' => 'Qscale',
+        'remove' => 'Remove',
+        'scanMode' => 'ScanMode',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

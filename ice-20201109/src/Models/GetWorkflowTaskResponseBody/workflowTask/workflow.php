@@ -71,17 +71,15 @@ class workflow extends Model
      */
     public $workflowId;
     protected $_name = [
-        'createTime'   => 'CreateTime',
+        'createTime' => 'CreateTime',
         'modifiedTime' => 'ModifiedTime',
-        'name'         => 'Name',
-        'status'       => 'Status',
-        'type'         => 'Type',
-        'workflowId'   => 'WorkflowId',
+        'name' => 'Name',
+        'status' => 'Status',
+        'type' => 'Type',
+        'workflowId' => 'WorkflowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

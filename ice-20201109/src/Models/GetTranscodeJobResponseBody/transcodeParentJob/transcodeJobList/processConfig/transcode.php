@@ -26,12 +26,10 @@ class transcode extends Model
     public $templateId;
     protected $_name = [
         'overwriteParams' => 'OverwriteParams',
-        'templateId'      => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -60,16 +60,14 @@ class DescribeRtcRobotInstanceResponseBody extends Model
     protected $_name = [
         'authToken' => 'AuthToken',
         'channelId' => 'ChannelId',
-        'config'    => 'Config',
+        'config' => 'Config',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
-        'userData'  => 'UserData',
-        'userId'    => 'UserId',
+        'status' => 'Status',
+        'userData' => 'UserData',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

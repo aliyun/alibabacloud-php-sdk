@@ -151,27 +151,25 @@ class QueryIProductionJobResponseBody extends Model
      */
     public $userData;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'finishTime'     => 'FinishTime',
-        'functionName'   => 'FunctionName',
-        'input'          => 'Input',
-        'jobId'          => 'JobId',
-        'jobParams'      => 'JobParams',
-        'name'           => 'Name',
-        'output'         => 'Output',
-        'outputFiles'    => 'OutputFiles',
-        'outputUrls'     => 'OutputUrls',
-        'requestId'      => 'RequestId',
-        'result'         => 'Result',
+        'createTime' => 'CreateTime',
+        'finishTime' => 'FinishTime',
+        'functionName' => 'FunctionName',
+        'input' => 'Input',
+        'jobId' => 'JobId',
+        'jobParams' => 'JobParams',
+        'name' => 'Name',
+        'output' => 'Output',
+        'outputFiles' => 'OutputFiles',
+        'outputUrls' => 'OutputUrls',
+        'requestId' => 'RequestId',
+        'result' => 'Result',
         'scheduleConfig' => 'ScheduleConfig',
-        'status'         => 'Status',
-        'templateId'     => 'TemplateId',
-        'userData'       => 'UserData',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -38,17 +38,15 @@ class MediaConvertAudio extends Model
      */
     public $samplerate;
     protected $_name = [
-        'bitrate'    => 'Bitrate',
-        'channels'   => 'Channels',
-        'codec'      => 'Codec',
-        'profile'    => 'Profile',
-        'remove'     => 'Remove',
+        'bitrate' => 'Bitrate',
+        'channels' => 'Channels',
+        'codec' => 'Codec',
+        'profile' => 'Profile',
+        'remove' => 'Remove',
         'samplerate' => 'Samplerate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

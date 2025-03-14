@@ -25,12 +25,10 @@ class GetVodPackagingConfigurationResponseBody extends Model
     public $requestId;
     protected $_name = [
         'packagingConfiguration' => 'PackagingConfiguration',
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

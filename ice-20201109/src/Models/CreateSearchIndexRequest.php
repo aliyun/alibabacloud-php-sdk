@@ -33,6 +33,7 @@ class CreateSearchIndexRequest extends Model
      *   aiLabel: smart tagging. The smart tagging category is used to describe content such as subtitles and audio in videos. You can use the speech recognition technology to automatically extract, mark, and search for subtitles and dialog content from videos. This helps you quickly locate the video content that is related to specific topics or keywords.
      *
      * This parameter is required.
+     *
      * @example mm
      *
      * @var string
@@ -46,15 +47,13 @@ class CreateSearchIndexRequest extends Model
      */
     public $searchLibName;
     protected $_name = [
-        'indexConfig'   => 'IndexConfig',
-        'indexStatus'   => 'IndexStatus',
-        'indexType'     => 'IndexType',
+        'indexConfig' => 'IndexConfig',
+        'indexStatus' => 'IndexStatus',
+        'indexType' => 'IndexType',
         'searchLibName' => 'SearchLibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -55,17 +55,15 @@ class mediaInfoList extends Model
      */
     public $mediaId;
     protected $_name = [
-        'aiData'          => 'AiData',
-        'aiRoughData'     => 'AiRoughData',
-        'fileInfoList'    => 'FileInfoList',
+        'aiData' => 'AiData',
+        'aiRoughData' => 'AiRoughData',
+        'fileInfoList' => 'FileInfoList',
         'indexStatusList' => 'IndexStatusList',
-        'mediaBasicInfo'  => 'MediaBasicInfo',
-        'mediaId'         => 'MediaId',
+        'mediaBasicInfo' => 'MediaBasicInfo',
+        'mediaId' => 'MediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -121,7 +119,7 @@ class mediaInfoList extends Model
         if (isset($map['FileInfoList'])) {
             if (!empty($map['FileInfoList'])) {
                 $model->fileInfoList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['FileInfoList'] as $item) {
                     $model->fileInfoList[$n++] = null !== $item ? fileInfoList::fromMap($item) : $item;
                 }
@@ -130,7 +128,7 @@ class mediaInfoList extends Model
         if (isset($map['IndexStatusList'])) {
             if (!empty($map['IndexStatusList'])) {
                 $model->indexStatusList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['IndexStatusList'] as $item) {
                     $model->indexStatusList[$n++] = null !== $item ? indexStatusList::fromMap($item) : $item;
                 }

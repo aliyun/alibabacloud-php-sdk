@@ -12,6 +12,7 @@ class GetSourceLocationRequest extends Model
      * @description The name of the source location.
      *
      * This parameter is required.
+     *
      * @example MySourceLocation
      *
      * @var string
@@ -21,9 +22,7 @@ class GetSourceLocationRequest extends Model
         'sourceLocationName' => 'SourceLocationName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

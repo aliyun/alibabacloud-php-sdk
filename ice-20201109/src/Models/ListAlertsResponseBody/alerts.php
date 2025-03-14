@@ -69,18 +69,16 @@ class alerts extends Model
      */
     public $resourceArn;
     protected $_name = [
-        'category'            => 'Category',
-        'code'                => 'Code',
-        'gmtCreate'           => 'GmtCreate',
-        'gmtModified'         => 'GmtModified',
-        'message'             => 'Message',
+        'category' => 'Category',
+        'code' => 'Code',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'message' => 'Message',
         'relatedResourceArns' => 'RelatedResourceArns',
-        'resourceArn'         => 'ResourceArn',
+        'resourceArn' => 'ResourceArn',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

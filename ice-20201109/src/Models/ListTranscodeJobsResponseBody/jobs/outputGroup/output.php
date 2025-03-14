@@ -38,14 +38,12 @@ class output extends Model
      */
     public $type;
     protected $_name = [
-        'media'     => 'Media',
+        'media' => 'Media',
         'outputUrl' => 'OutputUrl',
-        'type'      => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

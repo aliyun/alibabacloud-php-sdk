@@ -65,6 +65,7 @@ class ListBatchMediaProducingJobsRequest extends Model
      *   asc: sorted by creation time in ascending order.
      *
      * <!---->
+     *
      * @example desc
      *
      * @var string
@@ -96,19 +97,17 @@ class ListBatchMediaProducingJobsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'endTime'    => 'EndTime',
-        'jobId'      => 'JobId',
-        'jobType'    => 'JobType',
+        'endTime' => 'EndTime',
+        'jobId' => 'JobId',
+        'jobType' => 'JobType',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'sortBy'     => 'SortBy',
-        'startTime'  => 'StartTime',
-        'status'     => 'Status',
+        'nextToken' => 'NextToken',
+        'sortBy' => 'SortBy',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

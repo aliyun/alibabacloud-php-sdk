@@ -60,17 +60,15 @@ class instance extends Model
      */
     public $userData;
     protected $_name = [
-        'callLogUrl'     => 'CallLogUrl',
-        'runtimeConfig'  => 'RuntimeConfig',
-        'sessionId'      => 'SessionId',
-        'status'         => 'Status',
+        'callLogUrl' => 'CallLogUrl',
+        'runtimeConfig' => 'RuntimeConfig',
+        'sessionId' => 'SessionId',
+        'status' => 'Status',
         'templateConfig' => 'TemplateConfig',
-        'userData'       => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -141,7 +141,11 @@ class mediaBasicInfo extends Model
      * @description The snapshots.
      *
      * @example [
+     * "http://example-bucket.oss-cn-shanghai.aliyuncs.com/snapshot-00001.png?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>",
+     * "http://example-bucket.oss-cn-shanghai.aliyuncs.com/snapshot-00002.jpg?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>",
+     *     "http://example-bucket.oss-cn-shanghai.aliyuncs.com/snapshot-00003.jpg?Expires=<ExpireTime>&OSSAccessKeyId=<OSSAccessKeyId>&Signature=<Signature>&security-token=<SecurityToken>"
      * ]
+     *
      * @var string
      */
     public $snapshots;
@@ -198,33 +202,31 @@ class mediaBasicInfo extends Model
      */
     public $userData;
     protected $_name = [
-        'biz'          => 'Biz',
+        'biz' => 'Biz',
         'businessType' => 'BusinessType',
-        'cateId'       => 'CateId',
-        'cateName'     => 'CateName',
-        'category'     => 'Category',
-        'coverURL'     => 'CoverURL',
-        'createTime'   => 'CreateTime',
-        'deletedTime'  => 'DeletedTime',
-        'description'  => 'Description',
-        'inputURL'     => 'InputURL',
-        'mediaId'      => 'MediaId',
-        'mediaTags'    => 'MediaTags',
-        'mediaType'    => 'MediaType',
+        'cateId' => 'CateId',
+        'cateName' => 'CateName',
+        'category' => 'Category',
+        'coverURL' => 'CoverURL',
+        'createTime' => 'CreateTime',
+        'deletedTime' => 'DeletedTime',
+        'description' => 'Description',
+        'inputURL' => 'InputURL',
+        'mediaId' => 'MediaId',
+        'mediaTags' => 'MediaTags',
+        'mediaType' => 'MediaType',
         'modifiedTime' => 'ModifiedTime',
-        'referenceId'  => 'ReferenceId',
-        'snapshots'    => 'Snapshots',
-        'source'       => 'Source',
+        'referenceId' => 'ReferenceId',
+        'snapshots' => 'Snapshots',
+        'source' => 'Source',
         'spriteImages' => 'SpriteImages',
-        'status'       => 'Status',
-        'title'        => 'Title',
+        'status' => 'Status',
+        'title' => 'Title',
         'uploadSource' => 'UploadSource',
-        'userData'     => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

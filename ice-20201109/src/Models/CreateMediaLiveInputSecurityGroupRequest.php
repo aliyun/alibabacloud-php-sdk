@@ -12,6 +12,7 @@ class CreateMediaLiveInputSecurityGroupRequest extends Model
      * @description The name of the security group. Letters, digits, hyphens (-), and underscores (_) are supported. The maximum length is 64 characters.
      *
      * This parameter is required.
+     *
      * @example mysg
      *
      * @var string
@@ -22,19 +23,18 @@ class CreateMediaLiveInputSecurityGroupRequest extends Model
      * @description The security group rules.
      *
      * This parameter is required.
+     *
      * @example ["10.1.1.0/24", "11.11.11.11/0"]
      *
      * @var string[]
      */
     public $whitelistRules;
     protected $_name = [
-        'name'           => 'Name',
+        'name' => 'Name',
         'whitelistRules' => 'WhitelistRules',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

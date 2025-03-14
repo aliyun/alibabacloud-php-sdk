@@ -30,9 +30,7 @@ class mediaPackageOutputSetting extends Model
         'nameModifier' => 'NameModifier',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

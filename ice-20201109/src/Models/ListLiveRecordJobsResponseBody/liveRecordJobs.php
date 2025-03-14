@@ -14,6 +14,7 @@ class liveRecordJobs extends Model
      * @description The time when the job was created.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2022-07-20T03:26:36Z
      *
      * @var string
@@ -86,20 +87,18 @@ class liveRecordJobs extends Model
      */
     public $templateName;
     protected $_name = [
-        'createTime'   => 'CreateTime',
-        'jobId'        => 'JobId',
-        'name'         => 'Name',
-        'notifyUrl'    => 'NotifyUrl',
+        'createTime' => 'CreateTime',
+        'jobId' => 'JobId',
+        'name' => 'Name',
+        'notifyUrl' => 'NotifyUrl',
         'recordOutput' => 'RecordOutput',
-        'status'       => 'Status',
-        'streamInput'  => 'StreamInput',
-        'templateId'   => 'TemplateId',
+        'status' => 'Status',
+        'streamInput' => 'StreamInput',
+        'templateId' => 'TemplateId',
         'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

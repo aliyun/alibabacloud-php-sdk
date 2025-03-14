@@ -78,18 +78,16 @@ class ListTranscodeJobsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'endOfCreateTime'   => 'EndOfCreateTime',
-        'nextPageToken'     => 'NextPageToken',
-        'orderBy'           => 'OrderBy',
-        'pageSize'          => 'PageSize',
-        'parentJobId'       => 'ParentJobId',
+        'endOfCreateTime' => 'EndOfCreateTime',
+        'nextPageToken' => 'NextPageToken',
+        'orderBy' => 'OrderBy',
+        'pageSize' => 'PageSize',
+        'parentJobId' => 'ParentJobId',
         'startOfCreateTime' => 'StartOfCreateTime',
-        'status'            => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

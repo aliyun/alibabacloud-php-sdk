@@ -30,20 +30,19 @@ class recordOutput extends Model
      * @description The type of the storage address.
      *
      * This parameter is required.
+     *
      * @example oss
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'bucket'   => 'Bucket',
+        'bucket' => 'Bucket',
         'endpoint' => 'Endpoint',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

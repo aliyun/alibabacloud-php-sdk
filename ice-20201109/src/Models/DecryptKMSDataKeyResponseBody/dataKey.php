@@ -26,13 +26,11 @@ class dataKey extends Model
      */
     public $plaintext;
     protected $_name = [
-        'keyId'     => 'KeyId',
+        'keyId' => 'KeyId',
         'plaintext' => 'Plaintext',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

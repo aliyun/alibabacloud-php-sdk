@@ -68,17 +68,15 @@ class avatarList extends Model
     public $transparent;
     protected $_name = [
         'avatarDescription' => 'AvatarDescription',
-        'avatarId'          => 'AvatarId',
-        'avatarName'        => 'AvatarName',
-        'avatarType'        => 'AvatarType',
-        'portrait'          => 'Portrait',
-        'thumbnail'         => 'Thumbnail',
-        'transparent'       => 'Transparent',
+        'avatarId' => 'AvatarId',
+        'avatarName' => 'AvatarName',
+        'avatarType' => 'AvatarType',
+        'portrait' => 'Portrait',
+        'thumbnail' => 'Thumbnail',
+        'transparent' => 'Transparent',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,6 +18,7 @@ class InsertMediaToSearchLibRequest extends Model
      * Specify an HTTP URL in the following format: public endpoint. For example, you can specify http://example-test-\\*\\*\\*\\*.mp4.
      *
      * This parameter is required.
+     *
      * @example http://example-test-****.mp4
      *
      * @var string
@@ -64,16 +65,14 @@ class InsertMediaToSearchLibRequest extends Model
      */
     public $searchLibName;
     protected $_name = [
-        'input'         => 'Input',
-        'mediaId'       => 'MediaId',
-        'mediaType'     => 'MediaType',
-        'msgBody'       => 'MsgBody',
+        'input' => 'Input',
+        'mediaId' => 'MediaId',
+        'mediaType' => 'MediaType',
+        'msgBody' => 'MsgBody',
         'searchLibName' => 'SearchLibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

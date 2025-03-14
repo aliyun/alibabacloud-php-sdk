@@ -12,8 +12,13 @@ class CreateSourceRequest extends Model
      * @description The source configurations.
      *
      * This parameter is required.
+     *
      * @example “[{
+     * "sourceGroupName": "mySourceGroup-1",
+     * "relativePath": "group1/hls.m3u8",
+     * "type": "hls"
      * }]”
+     *
      * @var string
      */
     public $httpPackageConfigurations;
@@ -22,6 +27,7 @@ class CreateSourceRequest extends Model
      * @description The name of the source location.
      *
      * This parameter is required.
+     *
      * @example MySourceLocation
      *
      * @var string
@@ -32,6 +38,7 @@ class CreateSourceRequest extends Model
      * @description The name of the source.
      *
      * This parameter is required.
+     *
      * @example MyVodSource
      *
      * @var string
@@ -42,6 +49,7 @@ class CreateSourceRequest extends Model
      * @description The source type. Valid values: vodSource and liveSource.
      *
      * This parameter is required.
+     *
      * @example vodSource
      *
      * @var string
@@ -49,14 +57,12 @@ class CreateSourceRequest extends Model
     public $sourceType;
     protected $_name = [
         'httpPackageConfigurations' => 'HttpPackageConfigurations',
-        'sourceLocationName'        => 'SourceLocationName',
-        'sourceName'                => 'SourceName',
-        'sourceType'                => 'SourceType',
+        'sourceLocationName' => 'SourceLocationName',
+        'sourceName' => 'SourceName',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

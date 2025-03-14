@@ -57,15 +57,13 @@ class CreateVodPackagingConfigurationRequest extends Model
     public $protocol;
     protected $_name = [
         'configurationName' => 'ConfigurationName',
-        'description'       => 'Description',
-        'groupName'         => 'GroupName',
-        'packageConfig'     => 'PackageConfig',
-        'protocol'          => 'Protocol',
+        'description' => 'Description',
+        'groupName' => 'GroupName',
+        'packageConfig' => 'PackageConfig',
+        'protocol' => 'Protocol',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

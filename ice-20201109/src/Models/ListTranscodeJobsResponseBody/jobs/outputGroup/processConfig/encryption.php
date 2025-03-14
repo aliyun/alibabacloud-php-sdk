@@ -35,14 +35,12 @@ class encryption extends Model
      */
     public $encryptType;
     protected $_name = [
-        'cipherText'    => 'CipherText',
+        'cipherText' => 'CipherText',
         'decryptKeyUri' => 'DecryptKeyUri',
-        'encryptType'   => 'EncryptType',
+        'encryptType' => 'EncryptType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

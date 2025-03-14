@@ -88,18 +88,16 @@ class ListLiveSnapshotJobsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'pageNo'        => 'PageNo',
-        'pageSize'      => 'PageSize',
+        'endTime' => 'EndTime',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'searchKeyWord' => 'SearchKeyWord',
-        'sortBy'        => 'SortBy',
-        'startTime'     => 'StartTime',
-        'status'        => 'Status',
+        'sortBy' => 'SortBy',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

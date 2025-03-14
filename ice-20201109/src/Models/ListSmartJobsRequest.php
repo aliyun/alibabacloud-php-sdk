@@ -44,6 +44,7 @@ class ListSmartJobsRequest extends Model
      * @description The maximum number of entries to return.
      *
      * Default value: 10. Valid values: 1 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -91,18 +92,16 @@ class ListSmartJobsRequest extends Model
      */
     public $sortBy;
     protected $_name = [
-        'jobState'   => 'JobState',
-        'jobType'    => 'JobType',
+        'jobState' => 'JobState',
+        'jobType' => 'JobType',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'sortBy'     => 'SortBy',
+        'nextToken' => 'NextToken',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

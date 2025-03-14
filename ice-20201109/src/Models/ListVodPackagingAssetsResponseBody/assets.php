@@ -52,16 +52,14 @@ class assets extends Model
      */
     public $input;
     protected $_name = [
-        'assetName'   => 'AssetName',
-        'createTime'  => 'CreateTime',
+        'assetName' => 'AssetName',
+        'createTime' => 'CreateTime',
         'description' => 'Description',
-        'groupName'   => 'GroupName',
-        'input'       => 'Input',
+        'groupName' => 'GroupName',
+        'input' => 'Input',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

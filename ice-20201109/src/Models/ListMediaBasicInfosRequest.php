@@ -11,7 +11,16 @@ class ListMediaBasicInfosRequest extends Model
     /**
      * @description The business type of the media asset. Valid values:
      *
+     * \\- subtitles
+     *
+     * \\- watermark
+     *
+     * \\- opening
+     *
+     * \\- ending
+     *
      * \\- general
+     *
      * @example opening
      *
      * @var string
@@ -21,7 +30,10 @@ class ListMediaBasicInfosRequest extends Model
     /**
      * @description The end time of utcCreated.
      *
+     * \\- The value is the end of the left-open right-closed interval.
+     *
      * \\- Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. For example, 2017-01-11T12:00:00Z indicates 20:00:00 on January 11, 2017 (UTC +8).
+     *
      * @example 2020-12-20T13:00:00Z
      *
      * @var string
@@ -41,6 +53,7 @@ class ListMediaBasicInfosRequest extends Model
      * @description The maximum number of entries to return.
      *
      * Maximum value: 100. Default value: 10.
+     *
      * @example 5
      *
      * @var int
@@ -59,7 +72,14 @@ class ListMediaBasicInfosRequest extends Model
     /**
      * @description The type of the media asset. Valid values:
      *
+     * \\- image
+     *
+     * \\- video
+     *
+     * \\- audio
+     *
      * \\- text
+     *
      * @example video
      *
      * @var string
@@ -78,7 +98,10 @@ class ListMediaBasicInfosRequest extends Model
     /**
      * @description The order of sorting by utcCreated. Default value: desc. Valid values:
      *
+     * \\- desc
+     *
      * \\- asc
+     *
      * @example desc
      *
      * @var string
@@ -88,7 +111,14 @@ class ListMediaBasicInfosRequest extends Model
     /**
      * @description The source of the media asset. Valid values:
      *
+     * \\- oss: Object Storage Service (OSS).
+     *
+     * \\- vod: ApsaraVideo VOD.
+     *
+     * \\- live: ApsaraVideo Live.
+     *
      * \\- general: other sources. This is the default value.
+     *
      * @example oss
      *
      * @var string
@@ -98,7 +128,10 @@ class ListMediaBasicInfosRequest extends Model
     /**
      * @description The start time of utcCreated.
      *
+     * \\- The value is the beginning of a left-open right-closed interval.
+     *
      * \\- Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. For example, 2017-01-11T12:00:00Z indicates 20:00:00 on January 11, 2017 (UTC +8).
+     *
      * @example 2020-12-20T12:00:00Z
      *
      * @var string
@@ -108,29 +141,34 @@ class ListMediaBasicInfosRequest extends Model
     /**
      * @description The status of the media asset. Valid values:
      *
+     * \\- Init: the initial state, which indicates that the source file is not ready.
+     *
+     * \\- Preparing: The source file is being prepared. For example, the file is being uploaded or edited.
+     *
+     * \\- PrepareFail: The source file failed to be prepared. For example, the information of the source file failed to be obtained.
+     *
      * \\- Normal: The source file is ready.
+     *
      * @example Normal
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'businessType'         => 'BusinessType',
-        'endTime'              => 'EndTime',
+        'businessType' => 'BusinessType',
+        'endTime' => 'EndTime',
         'includeFileBasicInfo' => 'IncludeFileBasicInfo',
-        'maxResults'           => 'MaxResults',
-        'mediaId'              => 'MediaId',
-        'mediaType'            => 'MediaType',
-        'nextToken'            => 'NextToken',
-        'sortBy'               => 'SortBy',
-        'source'               => 'Source',
-        'startTime'            => 'StartTime',
-        'status'               => 'Status',
+        'maxResults' => 'MaxResults',
+        'mediaId' => 'MediaId',
+        'mediaType' => 'MediaType',
+        'nextToken' => 'NextToken',
+        'sortBy' => 'SortBy',
+        'source' => 'Source',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

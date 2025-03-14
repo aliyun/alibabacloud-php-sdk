@@ -27,12 +27,10 @@ class inputConfig extends Model
     public $keyword;
     protected $_name = [
         'inputFile' => 'InputFile',
-        'keyword'   => 'Keyword',
+        'keyword' => 'Keyword',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

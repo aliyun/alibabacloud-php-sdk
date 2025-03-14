@@ -70,18 +70,16 @@ class audio extends Model
      */
     public $volume;
     protected $_name = [
-        'bitrate'    => 'Bitrate',
-        'channels'   => 'Channels',
-        'codec'      => 'Codec',
-        'profile'    => 'Profile',
-        'remove'     => 'Remove',
+        'bitrate' => 'Bitrate',
+        'channels' => 'Channels',
+        'codec' => 'Codec',
+        'profile' => 'Profile',
+        'remove' => 'Remove',
         'samplerate' => 'Samplerate',
-        'volume'     => 'Volume',
+        'volume' => 'Volume',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

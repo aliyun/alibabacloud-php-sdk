@@ -12,6 +12,7 @@ class CreateLiveRecordTemplateShrinkRequest extends Model
      * @description The name of the template.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -20,17 +21,16 @@ class CreateLiveRecordTemplateShrinkRequest extends Model
      * @description The list of recording formats.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $recordFormatShrink;
     protected $_name = [
-        'name'               => 'Name',
+        'name' => 'Name',
         'recordFormatShrink' => 'RecordFormat',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

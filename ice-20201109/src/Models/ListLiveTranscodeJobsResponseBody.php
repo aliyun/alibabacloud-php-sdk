@@ -34,14 +34,12 @@ class ListLiveTranscodeJobsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'jobList'    => 'JobList',
-        'requestId'  => 'RequestId',
+        'jobList' => 'JobList',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListLiveTranscodeJobsResponseBody extends Model
         if (isset($map['JobList'])) {
             if (!empty($map['JobList'])) {
                 $model->jobList = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['JobList'] as $item) {
                     $model->jobList[$n++] = null !== $item ? jobList::fromMap($item) : $item;
                 }

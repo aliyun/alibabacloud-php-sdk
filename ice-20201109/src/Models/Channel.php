@@ -69,23 +69,21 @@ class Channel extends Model
      */
     public $state;
     protected $_name = [
-        'accessPolicy'             => 'AccessPolicy',
-        'accessToken'              => 'AccessToken',
-        'arn'                      => 'Arn',
-        'channelName'              => 'ChannelName',
-        'channelTier'              => 'ChannelTier',
+        'accessPolicy' => 'AccessPolicy',
+        'accessToken' => 'AccessToken',
+        'arn' => 'Arn',
+        'channelName' => 'ChannelName',
+        'channelTier' => 'ChannelTier',
         'fillerSourceLocationName' => 'FillerSourceLocationName',
-        'fillerSourceName'         => 'FillerSourceName',
-        'gmtCreate'                => 'GmtCreate',
-        'gmtModified'              => 'GmtModified',
-        'outPutConfigList'         => 'OutPutConfigList',
-        'playbackMode'             => 'PlaybackMode',
-        'state'                    => 'State',
+        'fillerSourceName' => 'FillerSourceName',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'outPutConfigList' => 'OutPutConfigList',
+        'playbackMode' => 'PlaybackMode',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -174,7 +172,7 @@ class Channel extends Model
         if (isset($map['OutPutConfigList'])) {
             if (!empty($map['OutPutConfigList'])) {
                 $model->outPutConfigList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['OutPutConfigList'] as $item) {
                     $model->outPutConfigList[$n++] = null !== $item ? outPutConfigList::fromMap($item) : $item;
                 }

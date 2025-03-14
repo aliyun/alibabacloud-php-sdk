@@ -25,13 +25,11 @@ class ListDNADBResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'DBList'    => 'DBList',
+        'DBList' => 'DBList',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListDNADBResponseBody extends Model
         if (isset($map['DBList'])) {
             if (!empty($map['DBList'])) {
                 $model->DBList = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['DBList'] as $item) {
                     $model->DBList[$n++] = null !== $item ? DBList::fromMap($item) : $item;
                 }

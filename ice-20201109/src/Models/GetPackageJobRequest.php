@@ -12,6 +12,7 @@ class GetPackageJobRequest extends Model
      * @description The job ID. You can obtain the job ID from the response parameters of the [SubmitPackageJob](https://help.aliyun.com/document_detail/461964.html) operation.
      *
      * This parameter is required.
+     *
      * @example ab4802364a2e49208c99efab82dfa8e8
      *
      * @var string
@@ -21,9 +22,7 @@ class GetPackageJobRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

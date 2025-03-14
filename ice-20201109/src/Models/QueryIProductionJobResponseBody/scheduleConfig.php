@@ -30,12 +30,10 @@ class scheduleConfig extends Model
     public $priority;
     protected $_name = [
         'pipelineId' => 'PipelineId',
-        'priority'   => 'Priority',
+        'priority' => 'Priority',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -52,16 +52,14 @@ class ListMediaLiveChannelsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'channels'   => 'Channels',
+        'channels' => 'Channels',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class ListMediaLiveChannelsResponseBody extends Model
         if (isset($map['Channels'])) {
             if (!empty($map['Channels'])) {
                 $model->channels = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Channels'] as $item) {
                     $model->channels[$n++] = null !== $item ? channels::fromMap($item) : $item;
                 }

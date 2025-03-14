@@ -79,19 +79,17 @@ class ListAdInsertionsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'configs'    => 'Configs',
+        'configs' => 'Configs',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'sortBy'     => 'SortBy',
+        'nextToken' => 'NextToken',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'sortBy' => 'SortBy',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -141,7 +139,7 @@ class ListAdInsertionsResponseBody extends Model
         if (isset($map['Configs'])) {
             if (!empty($map['Configs'])) {
                 $model->configs = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Configs'] as $item) {
                     $model->configs[$n++] = null !== $item ? configs::fromMap($item) : $item;
                 }

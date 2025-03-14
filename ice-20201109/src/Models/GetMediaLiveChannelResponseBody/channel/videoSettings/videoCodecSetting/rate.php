@@ -44,15 +44,13 @@ class rate extends Model
      */
     public $rateControlMode;
     protected $_name = [
-        'bitrate'         => 'Bitrate',
-        'bufferSize'      => 'BufferSize',
-        'maxBitrate'      => 'MaxBitrate',
+        'bitrate' => 'Bitrate',
+        'bufferSize' => 'BufferSize',
+        'maxBitrate' => 'MaxBitrate',
         'rateControlMode' => 'RateControlMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

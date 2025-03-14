@@ -27,12 +27,10 @@ class streamInfos extends Model
     public $type;
     protected $_name = [
         'outputUrl' => 'OutputUrl',
-        'type'      => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

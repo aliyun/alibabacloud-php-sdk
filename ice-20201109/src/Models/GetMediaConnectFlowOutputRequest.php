@@ -12,6 +12,7 @@ class GetMediaConnectFlowOutputRequest extends Model
      * @description The flow ID.
      *
      * This parameter is required.
+     *
      * @example 0381f478-7d53-4076-9d5f-27680a6f73e7
      *
      * @var string
@@ -22,19 +23,18 @@ class GetMediaConnectFlowOutputRequest extends Model
      * @description The name of the output that you want to query.
      *
      * This parameter is required.
+     *
      * @example AliTestOutput
      *
      * @var string
      */
     public $outputName;
     protected $_name = [
-        'flowId'     => 'FlowId',
+        'flowId' => 'FlowId',
         'outputName' => 'OutputName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

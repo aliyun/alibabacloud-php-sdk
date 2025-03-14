@@ -12,6 +12,7 @@ class DeleteLivePackageChannelGroupRequest extends Model
      * @description The channel group name.
      *
      * This parameter is required.
+     *
      * @example group1
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteLivePackageChannelGroupRequest extends Model
         'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

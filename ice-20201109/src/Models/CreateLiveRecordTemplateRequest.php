@@ -13,6 +13,7 @@ class CreateLiveRecordTemplateRequest extends Model
      * @description The name of the template.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -21,17 +22,16 @@ class CreateLiveRecordTemplateRequest extends Model
      * @description The list of recording formats.
      *
      * This parameter is required.
+     *
      * @var recordFormat[]
      */
     public $recordFormat;
     protected $_name = [
-        'name'         => 'Name',
+        'name' => 'Name',
         'recordFormat' => 'RecordFormat',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +66,7 @@ class CreateLiveRecordTemplateRequest extends Model
         if (isset($map['RecordFormat'])) {
             if (!empty($map['RecordFormat'])) {
                 $model->recordFormat = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['RecordFormat'] as $item) {
                     $model->recordFormat[$n++] = null !== $item ? recordFormat::fromMap($item) : $item;
                 }

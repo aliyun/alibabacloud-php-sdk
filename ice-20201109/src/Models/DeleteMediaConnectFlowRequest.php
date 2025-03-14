@@ -12,6 +12,7 @@ class DeleteMediaConnectFlowRequest extends Model
      * @description The flow ID.
      *
      * This parameter is required.
+     *
      * @example 0381f478-7d53-4076-9d5f-27680a6f73e7
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteMediaConnectFlowRequest extends Model
         'flowId' => 'FlowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

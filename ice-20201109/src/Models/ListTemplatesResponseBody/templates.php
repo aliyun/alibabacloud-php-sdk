@@ -158,24 +158,22 @@ class templates extends Model
      */
     public $type;
     protected $_name = [
-        'clipsParam'         => 'ClipsParam',
-        'config'             => 'Config',
-        'coverURL'           => 'CoverURL',
-        'createSource'       => 'CreateSource',
-        'creationTime'       => 'CreationTime',
-        'modifiedSource'     => 'ModifiedSource',
-        'modifiedTime'       => 'ModifiedTime',
-        'name'               => 'Name',
-        'previewMedia'       => 'PreviewMedia',
+        'clipsParam' => 'ClipsParam',
+        'config' => 'Config',
+        'coverURL' => 'CoverURL',
+        'createSource' => 'CreateSource',
+        'creationTime' => 'CreationTime',
+        'modifiedSource' => 'ModifiedSource',
+        'modifiedTime' => 'ModifiedTime',
+        'name' => 'Name',
+        'previewMedia' => 'PreviewMedia',
         'previewMediaStatus' => 'PreviewMediaStatus',
-        'status'             => 'Status',
-        'templateId'         => 'TemplateId',
-        'type'               => 'Type',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

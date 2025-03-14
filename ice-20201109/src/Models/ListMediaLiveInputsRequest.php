@@ -62,17 +62,15 @@ class ListMediaLiveInputsRequest extends Model
      */
     public $types;
     protected $_name = [
-        'keyword'    => 'Keyword',
+        'keyword' => 'Keyword',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'skip'       => 'Skip',
-        'sortOrder'  => 'SortOrder',
-        'types'      => 'Types',
+        'nextToken' => 'NextToken',
+        'skip' => 'Skip',
+        'sortOrder' => 'SortOrder',
+        'types' => 'Types',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

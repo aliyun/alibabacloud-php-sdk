@@ -48,6 +48,7 @@ class overwriteParams extends Model
      * Default value: **true**.
      *
      * >  If this feature is enabled, the width of the output video corresponds to the long side of the input video, which is the height of the input video in portrait mode. The height of the output video corresponds to the short side of the input video, which is the width of the input video in portrait mode.
+     *
      * @example false
      *
      * @var bool
@@ -82,18 +83,16 @@ class overwriteParams extends Model
      */
     public $width;
     protected $_name = [
-        'format'        => 'Format',
-        'fps'           => 'Fps',
-        'height'        => 'Height',
+        'format' => 'Format',
+        'fps' => 'Fps',
+        'height' => 'Height',
         'longShortMode' => 'LongShortMode',
-        'scanMode'      => 'ScanMode',
-        'timeSpan'      => 'TimeSpan',
-        'width'         => 'Width',
+        'scanMode' => 'ScanMode',
+        'timeSpan' => 'TimeSpan',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

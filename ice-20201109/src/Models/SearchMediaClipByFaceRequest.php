@@ -21,6 +21,7 @@ class SearchMediaClipByFaceRequest extends Model
      * @description The value of this parameter is the same as that of the FaceSearchToken parameter in the SearchMediaByFace request. This specifies to return media asset clips that meet the same query conditions.
      *
      * This parameter is required.
+     *
      * @example zxtest-huangxuan-2023-3-7-V1
      *
      * @var string
@@ -31,6 +32,7 @@ class SearchMediaClipByFaceRequest extends Model
      * @description The ID of the media asset.
      *
      * This parameter is required.
+     *
      * @example 3b187b3620c8490886cfc2a9578c****
      *
      * @var string
@@ -64,17 +66,15 @@ class SearchMediaClipByFaceRequest extends Model
      */
     public $searchLibName;
     protected $_name = [
-        'entityId'        => 'EntityId',
+        'entityId' => 'EntityId',
         'faceSearchToken' => 'FaceSearchToken',
-        'mediaId'         => 'MediaId',
-        'pageNo'          => 'PageNo',
-        'pageSize'        => 'PageSize',
-        'searchLibName'   => 'SearchLibName',
+        'mediaId' => 'MediaId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'searchLibName' => 'SearchLibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

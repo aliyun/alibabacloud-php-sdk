@@ -38,17 +38,15 @@ class outPutConfigList extends Model
      */
     public $sourceGroupName;
     protected $_name = [
-        'channelName'      => 'ChannelName',
-        'format'           => 'Format',
-        'manifestName'     => 'ManifestName',
+        'channelName' => 'ChannelName',
+        'format' => 'Format',
+        'manifestName' => 'ManifestName',
         'manifestSettings' => 'ManifestSettings',
-        'playbackUrl'      => 'PlaybackUrl',
-        'sourceGroupName'  => 'SourceGroupName',
+        'playbackUrl' => 'PlaybackUrl',
+        'sourceGroupName' => 'SourceGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -78,19 +78,17 @@ class smartSysAvatarModelList extends Model
      */
     public $width;
     protected $_name = [
-        'avatarId'   => 'AvatarId',
+        'avatarId' => 'AvatarId',
         'avatarName' => 'AvatarName',
-        'bitrate'    => 'Bitrate',
-        'coverUrl'   => 'CoverUrl',
-        'height'     => 'Height',
+        'bitrate' => 'Bitrate',
+        'coverUrl' => 'CoverUrl',
+        'height' => 'Height',
         'outputMask' => 'OutputMask',
-        'videoUrl'   => 'VideoUrl',
-        'width'      => 'Width',
+        'videoUrl' => 'VideoUrl',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

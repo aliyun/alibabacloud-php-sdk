@@ -23,12 +23,10 @@ class UpdateRtcRobotInstanceShrinkRequest extends Model
     public $instanceId;
     protected $_name = [
         'configShrink' => 'Config',
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

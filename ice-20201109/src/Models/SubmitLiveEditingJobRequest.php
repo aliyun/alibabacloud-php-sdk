@@ -11,7 +11,10 @@ class SubmitLiveEditingJobRequest extends Model
     /**
      * @description The clips in the JSON array format. The output video is created by merging these clips sequentially.
      *
+     * Each clip has a start time and an end time. If no live stream parameters are specified, the outer live stream configurations apply. The start and end timestamps are in UTC. For more information about the parameters, see the "Clip" section of this topic.
+     *
      * This parameter is required.
+     *
      * @example [{\\"StartTime\\": \\" 2021-06-21T08:01:00Z\\",  \\"EndTime\\": \\" 2021-06-21T08:03:00Z\\" ,  "AppName": "app", "DomainName": "domain.com", "StreamName": "stream"},  {\\"StartTime\\": \\" 2021-06-21T08:05:00Z\\",  \\"EndTime\\": \\" 2021-06-21T08:09:00Z\\" }]
      *
      * @var string
@@ -85,18 +88,16 @@ class SubmitLiveEditingJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'clips'              => 'Clips',
-        'liveStreamConfig'   => 'LiveStreamConfig',
+        'clips' => 'Clips',
+        'liveStreamConfig' => 'LiveStreamConfig',
         'mediaProduceConfig' => 'MediaProduceConfig',
-        'outputMediaConfig'  => 'OutputMediaConfig',
-        'outputMediaTarget'  => 'OutputMediaTarget',
-        'projectId'          => 'ProjectId',
-        'userData'           => 'UserData',
+        'outputMediaConfig' => 'OutputMediaConfig',
+        'outputMediaTarget' => 'OutputMediaTarget',
+        'projectId' => 'ProjectId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

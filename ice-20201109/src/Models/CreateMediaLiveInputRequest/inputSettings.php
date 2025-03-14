@@ -36,15 +36,13 @@ class inputSettings extends Model
      */
     public $streamName;
     protected $_name = [
-        'flowId'         => 'FlowId',
+        'flowId' => 'FlowId',
         'flowOutputName' => 'FlowOutputName',
-        'sourceUrl'      => 'SourceUrl',
-        'streamName'     => 'StreamName',
+        'sourceUrl' => 'SourceUrl',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class UpdateAIAgentInstanceShrinkRequest extends Model
      * @description The ID of the AI agent that you want to update.
      *
      * This parameter is required.
+     *
      * @example 39f8e0bc005e4f309379701645f4****
      *
      * @var string
@@ -32,14 +33,12 @@ class UpdateAIAgentInstanceShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'templateConfigShrink' => 'TemplateConfig',
-        'userData'             => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

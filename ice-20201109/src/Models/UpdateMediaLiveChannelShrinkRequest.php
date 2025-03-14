@@ -19,6 +19,7 @@ class UpdateMediaLiveChannelShrinkRequest extends Model
      * @description The ID of the channel.
      *
      * This parameter is required.
+     *
      * @example SEGK5KA6KYKAWQQH
      *
      * @var string
@@ -29,6 +30,7 @@ class UpdateMediaLiveChannelShrinkRequest extends Model
      * @description The inputs associated with the channel.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $inputAttachmentsShrink;
@@ -37,6 +39,7 @@ class UpdateMediaLiveChannelShrinkRequest extends Model
      * @description The name of the channel. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example mych
      *
      * @var string
@@ -47,6 +50,7 @@ class UpdateMediaLiveChannelShrinkRequest extends Model
      * @description The output groups.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $outputGroupsShrink;
@@ -58,17 +62,15 @@ class UpdateMediaLiveChannelShrinkRequest extends Model
      */
     public $videoSettingsShrink;
     protected $_name = [
-        'audioSettingsShrink'    => 'AudioSettings',
-        'channelId'              => 'ChannelId',
+        'audioSettingsShrink' => 'AudioSettings',
+        'channelId' => 'ChannelId',
         'inputAttachmentsShrink' => 'InputAttachments',
-        'name'                   => 'Name',
-        'outputGroupsShrink'     => 'OutputGroups',
-        'videoSettingsShrink'    => 'VideoSettings',
+        'name' => 'Name',
+        'outputGroupsShrink' => 'OutputGroups',
+        'videoSettingsShrink' => 'VideoSettings',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

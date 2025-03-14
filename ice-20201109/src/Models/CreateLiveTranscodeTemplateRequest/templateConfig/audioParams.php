@@ -56,22 +56,21 @@ class audioParams extends Model
      * @description The audio sampling rate. Valid values: 22050 to 96000.
      *
      * Note: If you set AudioProfile to aac_ld, the audio sampling rate cannot exceed 44,100.
+     *
      * @example 44100
      *
      * @var string
      */
     public $samplerate;
     protected $_name = [
-        'bitrate'    => 'Bitrate',
-        'channels'   => 'Channels',
-        'codec'      => 'Codec',
-        'profile'    => 'Profile',
+        'bitrate' => 'Bitrate',
+        'channels' => 'Channels',
+        'codec' => 'Codec',
+        'profile' => 'Profile',
         'samplerate' => 'Samplerate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

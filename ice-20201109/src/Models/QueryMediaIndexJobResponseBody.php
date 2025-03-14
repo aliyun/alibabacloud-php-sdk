@@ -46,15 +46,13 @@ class QueryMediaIndexJobResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'             => 'Code',
+        'code' => 'Code',
         'indexJobInfoList' => 'IndexJobInfoList',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -95,7 +93,7 @@ class QueryMediaIndexJobResponseBody extends Model
         if (isset($map['IndexJobInfoList'])) {
             if (!empty($map['IndexJobInfoList'])) {
                 $model->indexJobInfoList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['IndexJobInfoList'] as $item) {
                     $model->indexJobInfoList[$n++] = null !== $item ? indexJobInfoList::fromMap($item) : $item;
                 }

@@ -75,6 +75,7 @@ class mediaBase extends Model
      * @description The type of the media asset. Valid values:
      *
      * video audio
+     *
      * @example video
      *
      * @var string
@@ -84,7 +85,14 @@ class mediaBase extends Model
     /**
      * @description The resource status. Valid values:
      *
+     * Init: the initial state, which indicates that the source file is not ready.
+     *
+     * Preparing: The source file is being prepared. For example, the file is being uploaded or edited.
+     *
+     * PrepareFail: The source file failed to be prepared. For example, the information of the source file failed to be obtained.
+     *
      * Normal: The source file is ready.
+     *
      * @example Normal
      *
      * @var string
@@ -100,20 +108,18 @@ class mediaBase extends Model
      */
     public $title;
     protected $_name = [
-        'cateId'       => 'CateId',
-        'coverURL'     => 'CoverURL',
+        'cateId' => 'CateId',
+        'coverURL' => 'CoverURL',
         'creationTime' => 'CreationTime',
-        'description'  => 'Description',
-        'mediaId'      => 'MediaId',
-        'mediaTags'    => 'MediaTags',
-        'mediaType'    => 'MediaType',
-        'status'       => 'Status',
-        'title'        => 'Title',
+        'description' => 'Description',
+        'mediaId' => 'MediaId',
+        'mediaTags' => 'MediaTags',
+        'mediaType' => 'MediaType',
+        'status' => 'Status',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -63,17 +63,15 @@ class ListSourceLocationsRequest extends Model
      */
     public $sourceLocationName;
     protected $_name = [
-        'filterState'        => 'FilterState',
-        'pageNo'             => 'PageNo',
-        'pageSize'           => 'PageSize',
-        'sortBy'             => 'SortBy',
+        'filterState' => 'FilterState',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
         'sortByModifiedTime' => 'SortByModifiedTime',
         'sourceLocationName' => 'SourceLocationName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,9 +18,7 @@ class exportResult extends Model
         'timeline' => 'Timeline',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

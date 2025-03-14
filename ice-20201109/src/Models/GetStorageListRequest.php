@@ -29,14 +29,12 @@ class GetStorageListRequest extends Model
      */
     public $storageType;
     protected $_name = [
-        'appId'       => 'AppId',
-        'status'      => 'Status',
+        'appId' => 'AppId',
+        'status' => 'Status',
         'storageType' => 'StorageType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

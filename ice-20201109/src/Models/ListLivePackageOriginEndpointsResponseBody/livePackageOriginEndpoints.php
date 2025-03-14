@@ -124,23 +124,21 @@ class livePackageOriginEndpoints extends Model
     public $timeshiftVision;
     protected $_name = [
         'authorizationCode' => 'AuthorizationCode',
-        'channelName'       => 'ChannelName',
-        'createTime'        => 'CreateTime',
-        'description'       => 'Description',
-        'endpointName'      => 'EndpointName',
-        'endpointUrl'       => 'EndpointUrl',
-        'groupName'         => 'GroupName',
-        'ipBlacklist'       => 'IpBlacklist',
-        'ipWhitelist'       => 'IpWhitelist',
-        'lastModified'      => 'LastModified',
-        'manifestName'      => 'ManifestName',
-        'protocol'          => 'Protocol',
-        'timeshiftVision'   => 'TimeshiftVision',
+        'channelName' => 'ChannelName',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'endpointName' => 'EndpointName',
+        'endpointUrl' => 'EndpointUrl',
+        'groupName' => 'GroupName',
+        'ipBlacklist' => 'IpBlacklist',
+        'ipWhitelist' => 'IpWhitelist',
+        'lastModified' => 'LastModified',
+        'manifestName' => 'ManifestName',
+        'protocol' => 'Protocol',
+        'timeshiftVision' => 'TimeshiftVision',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

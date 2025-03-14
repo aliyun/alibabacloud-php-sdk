@@ -55,12 +55,10 @@ class indexJobInfoList extends Model
         'gmtFinish' => 'GmtFinish',
         'gmtSubmit' => 'GmtSubmit',
         'indexType' => 'IndexType',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

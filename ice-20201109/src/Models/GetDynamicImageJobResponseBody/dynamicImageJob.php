@@ -171,28 +171,26 @@ class dynamicImageJob extends Model
      */
     public $userData;
     protected $_name = [
-        'code'           => 'Code',
-        'createTime'     => 'CreateTime',
-        'finishTime'     => 'FinishTime',
-        'input'          => 'Input',
-        'jobId'          => 'JobId',
-        'message'        => 'Message',
-        'modifiedTime'   => 'ModifiedTime',
-        'name'           => 'Name',
-        'output'         => 'Output',
-        'outputUrl'      => 'OutputUrl',
-        'pipelineId'     => 'PipelineId',
-        'status'         => 'Status',
-        'submitTime'     => 'SubmitTime',
+        'code' => 'Code',
+        'createTime' => 'CreateTime',
+        'finishTime' => 'FinishTime',
+        'input' => 'Input',
+        'jobId' => 'JobId',
+        'message' => 'Message',
+        'modifiedTime' => 'ModifiedTime',
+        'name' => 'Name',
+        'output' => 'Output',
+        'outputUrl' => 'OutputUrl',
+        'pipelineId' => 'PipelineId',
+        'status' => 'Status',
+        'submitTime' => 'SubmitTime',
         'templateConfig' => 'TemplateConfig',
-        'templateId'     => 'TemplateId',
-        'triggerSource'  => 'TriggerSource',
-        'userData'       => 'UserData',
+        'templateId' => 'TemplateId',
+        'triggerSource' => 'TriggerSource',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -122,22 +122,20 @@ class content extends Model
      */
     public $srtPbkeyLen;
     protected $_name = [
-        'cidrs'          => 'Cidrs',
-        'createTime'     => 'CreateTime',
-        'inputName'      => 'InputName',
-        'inputProtocol'  => 'InputProtocol',
-        'inputUrl'       => 'InputUrl',
-        'maxBitrate'     => 'MaxBitrate',
-        'pairFlowId'     => 'PairFlowId',
+        'cidrs' => 'Cidrs',
+        'createTime' => 'CreateTime',
+        'inputName' => 'InputName',
+        'inputProtocol' => 'InputProtocol',
+        'inputUrl' => 'InputUrl',
+        'maxBitrate' => 'MaxBitrate',
+        'pairFlowId' => 'PairFlowId',
         'pairOutputName' => 'PairOutputName',
-        'srtLatency'     => 'SrtLatency',
-        'srtPassphrase'  => 'SrtPassphrase',
-        'srtPbkeyLen'    => 'SrtPbkeyLen',
+        'srtLatency' => 'SrtLatency',
+        'srtPassphrase' => 'SrtPassphrase',
+        'srtPbkeyLen' => 'SrtPbkeyLen',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

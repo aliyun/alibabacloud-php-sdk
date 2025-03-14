@@ -21,6 +21,7 @@ class outputGroups extends Model
      * @description The name of the output group. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example group1
      *
      * @var string
@@ -31,6 +32,7 @@ class outputGroups extends Model
      * @description The outputs in the output group.
      *
      * This parameter is required.
+     *
      * @var outputs[]
      */
     public $outputs;
@@ -39,6 +41,7 @@ class outputGroups extends Model
      * @description The output group type. Only MediaPackage is supported.
      *
      * This parameter is required.
+     *
      * @example MediaPackage
      *
      * @var string
@@ -46,14 +49,12 @@ class outputGroups extends Model
     public $type;
     protected $_name = [
         'mediaPackageGroupSetting' => 'MediaPackageGroupSetting',
-        'name'                     => 'Name',
-        'outputs'                  => 'Outputs',
-        'type'                     => 'Type',
+        'name' => 'Name',
+        'outputs' => 'Outputs',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -97,7 +98,7 @@ class outputGroups extends Model
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Outputs'] as $item) {
                     $model->outputs[$n++] = null !== $item ? outputs::fromMap($item) : $item;
                 }

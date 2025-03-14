@@ -15,6 +15,7 @@ class GetUrlUploadInfosRequest extends Model
      *   Separate the job IDs with commas (,).
      *
      * >  You must specify either JobIds or UploadURLs. If you specify both parameters, only the value of JobIds takes effect.
+     *
      * @example df2ac80b481346daa1db6a7c40edc7f8
      *
      * @var string
@@ -38,13 +39,11 @@ class GetUrlUploadInfosRequest extends Model
      */
     public $uploadURLs;
     protected $_name = [
-        'jobIds'     => 'JobIds',
+        'jobIds' => 'JobIds',
         'uploadURLs' => 'UploadURLs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -66,18 +66,16 @@ class inputs extends Model
      */
     public $type;
     protected $_name = [
-        'channelIds'       => 'ChannelIds',
-        'createTime'       => 'CreateTime',
-        'inputId'          => 'InputId',
-        'inputInfos'       => 'InputInfos',
-        'name'             => 'Name',
+        'channelIds' => 'ChannelIds',
+        'createTime' => 'CreateTime',
+        'inputId' => 'InputId',
+        'inputInfos' => 'InputInfos',
+        'name' => 'Name',
         'securityGroupIds' => 'SecurityGroupIds',
-        'type'             => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -135,7 +133,7 @@ class inputs extends Model
         if (isset($map['InputInfos'])) {
             if (!empty($map['InputInfos'])) {
                 $model->inputInfos = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['InputInfos'] as $item) {
                     $model->inputInfos[$n++] = null !== $item ? inputInfos::fromMap($item) : $item;
                 }

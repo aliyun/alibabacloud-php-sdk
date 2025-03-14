@@ -97,17 +97,15 @@ class ListTemplatesRequest extends Model
     public $type;
     protected $_name = [
         'createSource' => 'CreateSource',
-        'keyword'      => 'Keyword',
-        'pageNo'       => 'PageNo',
-        'pageSize'     => 'PageSize',
-        'sortType'     => 'SortType',
-        'status'       => 'Status',
-        'type'         => 'Type',
+        'keyword' => 'Keyword',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortType' => 'SortType',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

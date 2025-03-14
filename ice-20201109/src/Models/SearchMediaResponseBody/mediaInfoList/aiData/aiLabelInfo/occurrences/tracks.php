@@ -35,14 +35,12 @@ class tracks extends Model
      */
     public $timestamp;
     protected $_name = [
-        'position'  => 'Position',
-        'size'      => 'Size',
+        'position' => 'Position',
+        'size' => 'Size',
         'timestamp' => 'Timestamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

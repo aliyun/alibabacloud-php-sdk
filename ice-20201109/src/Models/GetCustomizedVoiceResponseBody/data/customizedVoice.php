@@ -68,16 +68,14 @@ class customizedVoice extends Model
     public $voiceName;
     protected $_name = [
         'demoAudioMediaId' => 'DemoAudioMediaId',
-        'gender'           => 'Gender',
-        'scenario'         => 'Scenario',
-        'voiceDesc'        => 'VoiceDesc',
-        'voiceId'          => 'VoiceId',
-        'voiceName'        => 'VoiceName',
+        'gender' => 'Gender',
+        'scenario' => 'Scenario',
+        'voiceDesc' => 'VoiceDesc',
+        'voiceId' => 'VoiceId',
+        'voiceName' => 'VoiceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

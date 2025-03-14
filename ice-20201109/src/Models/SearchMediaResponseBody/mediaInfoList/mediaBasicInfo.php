@@ -209,34 +209,32 @@ class mediaBasicInfo extends Model
      */
     public $userData;
     protected $_name = [
-        'biz'             => 'Biz',
-        'businessType'    => 'BusinessType',
-        'cateId'          => 'CateId',
-        'cateName'        => 'CateName',
-        'category'        => 'Category',
-        'coverURL'        => 'CoverURL',
-        'createTime'      => 'CreateTime',
-        'deletedTime'     => 'DeletedTime',
-        'description'     => 'Description',
-        'inputURL'        => 'InputURL',
-        'mediaId'         => 'MediaId',
-        'mediaTags'       => 'MediaTags',
-        'mediaType'       => 'MediaType',
-        'modifiedTime'    => 'ModifiedTime',
-        'referenceId'     => 'ReferenceId',
-        'snapshots'       => 'Snapshots',
-        'source'          => 'Source',
-        'spriteImages'    => 'SpriteImages',
-        'status'          => 'Status',
-        'title'           => 'Title',
+        'biz' => 'Biz',
+        'businessType' => 'BusinessType',
+        'cateId' => 'CateId',
+        'cateName' => 'CateName',
+        'category' => 'Category',
+        'coverURL' => 'CoverURL',
+        'createTime' => 'CreateTime',
+        'deletedTime' => 'DeletedTime',
+        'description' => 'Description',
+        'inputURL' => 'InputURL',
+        'mediaId' => 'MediaId',
+        'mediaTags' => 'MediaTags',
+        'mediaType' => 'MediaType',
+        'modifiedTime' => 'ModifiedTime',
+        'referenceId' => 'ReferenceId',
+        'snapshots' => 'Snapshots',
+        'source' => 'Source',
+        'spriteImages' => 'SpriteImages',
+        'status' => 'Status',
+        'title' => 'Title',
         'transcodeStatus' => 'TranscodeStatus',
-        'uploadSource'    => 'UploadSource',
-        'userData'        => 'UserData',
+        'uploadSource' => 'UploadSource',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -60,17 +60,15 @@ class fileList extends Model
      */
     public $ossObject;
     protected $_name = [
-        'createTime'      => 'CreateTime',
+        'createTime' => 'CreateTime',
         'createTimestamp' => 'CreateTimestamp',
-        'isOverlay'       => 'IsOverlay',
-        'ossBucket'       => 'OssBucket',
-        'ossEndpoint'     => 'OssEndpoint',
-        'ossObject'       => 'OssObject',
+        'isOverlay' => 'IsOverlay',
+        'ossBucket' => 'OssBucket',
+        'ossEndpoint' => 'OssEndpoint',
+        'ossObject' => 'OssObject',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class SetDefaultCustomTemplateRequest extends Model
      * @description The template ID.
      *
      * This parameter is required.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string
@@ -21,9 +22,7 @@ class SetDefaultCustomTemplateRequest extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

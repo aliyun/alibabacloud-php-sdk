@@ -14,6 +14,7 @@ class outputGroup extends Model
      * @description The output file configuration.
      *
      * This parameter is required.
+     *
      * @var output
      */
     public $output;
@@ -22,17 +23,16 @@ class outputGroup extends Model
      * @description The job processing configuration.
      *
      * This parameter is required.
+     *
      * @var processConfig
      */
     public $processConfig;
     protected $_name = [
-        'output'        => 'Output',
+        'output' => 'Output',
         'processConfig' => 'ProcessConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

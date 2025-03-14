@@ -100,21 +100,20 @@ class result extends Model
      *   **block**: The content needs to be blocked.
      *
      * >  If the moderation result of any type of content is review, the overall result is review. If the moderation result of any type of content is block, the overall result is block.
+     *
      * @example pass
      *
      * @var string
      */
     public $suggestion;
     protected $_name = [
-        'label'      => 'Label',
-        'rate'       => 'Rate',
-        'scene'      => 'Scene',
+        'label' => 'Label',
+        'rate' => 'Rate',
+        'scene' => 'Scene',
         'suggestion' => 'Suggestion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

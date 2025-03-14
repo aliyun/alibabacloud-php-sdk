@@ -34,6 +34,7 @@ class ListPublicMediaBasicInfosRequest extends Model
      * @description The maximum number of entries to return.
      *
      * Maximum value: 100. Default value: 10.
+     *
      * @example 5
      *
      * @var int
@@ -102,18 +103,16 @@ class ListPublicMediaBasicInfosRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'businessType'         => 'BusinessType',
+        'businessType' => 'BusinessType',
         'includeFileBasicInfo' => 'IncludeFileBasicInfo',
-        'maxResults'           => 'MaxResults',
-        'mediaTagId'           => 'MediaTagId',
-        'nextToken'            => 'NextToken',
-        'pageNo'               => 'PageNo',
-        'pageSize'             => 'PageSize',
+        'maxResults' => 'MaxResults',
+        'mediaTagId' => 'MediaTagId',
+        'nextToken' => 'NextToken',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

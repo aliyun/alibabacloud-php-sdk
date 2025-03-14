@@ -128,24 +128,22 @@ class jobs extends Model
      */
     public $userData;
     protected $_name = [
-        'async'             => 'Async',
-        'finishTime'        => 'FinishTime',
-        'input'             => 'Input',
-        'jobId'             => 'JobId',
+        'async' => 'Async',
+        'finishTime' => 'FinishTime',
+        'input' => 'Input',
+        'jobId' => 'JobId',
         'mediaInfoProperty' => 'MediaInfoProperty',
-        'name'              => 'Name',
-        'requestId'         => 'RequestId',
-        'scheduleConfig'    => 'ScheduleConfig',
-        'status'            => 'Status',
-        'submitResultJson'  => 'SubmitResultJson',
-        'submitTime'        => 'SubmitTime',
-        'triggerSource'     => 'TriggerSource',
-        'userData'          => 'UserData',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
+        'scheduleConfig' => 'ScheduleConfig',
+        'status' => 'Status',
+        'submitResultJson' => 'SubmitResultJson',
+        'submitTime' => 'SubmitTime',
+        'triggerSource' => 'TriggerSource',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

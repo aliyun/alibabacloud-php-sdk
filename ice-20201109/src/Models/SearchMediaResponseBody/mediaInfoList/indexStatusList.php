@@ -23,12 +23,10 @@ class indexStatusList extends Model
     public $indexType;
     protected $_name = [
         'indexStatus' => 'IndexStatus',
-        'indexType'   => 'IndexType',
+        'indexType' => 'IndexType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

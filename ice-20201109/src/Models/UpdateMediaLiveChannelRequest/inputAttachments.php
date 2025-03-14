@@ -20,6 +20,7 @@ class inputAttachments extends Model
      * @description The ID of the associated input.
      *
      * This parameter is required.
+     *
      * @example myinput
      *
      * @var string
@@ -42,13 +43,11 @@ class inputAttachments extends Model
     public $languageName;
     protected $_name = [
         'audioSelectors' => 'AudioSelectors',
-        'inputId'        => 'InputId',
-        'languageName'   => 'LanguageName',
+        'inputId' => 'InputId',
+        'languageName' => 'LanguageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -83,7 +82,7 @@ class inputAttachments extends Model
         if (isset($map['AudioSelectors'])) {
             if (!empty($map['AudioSelectors'])) {
                 $model->audioSelectors = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['AudioSelectors'] as $item) {
                     $model->audioSelectors[$n++] = null !== $item ? audioSelectors::fromMap($item) : $item;
                 }

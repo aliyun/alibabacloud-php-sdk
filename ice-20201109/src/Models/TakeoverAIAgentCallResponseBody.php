@@ -44,15 +44,13 @@ class TakeoverAIAgentCallResponseBody extends Model
      */
     public $token;
     protected $_name = [
-        'channelId'        => 'ChannelId',
+        'channelId' => 'ChannelId',
         'humanAgentUserId' => 'HumanAgentUserId',
-        'requestId'        => 'RequestId',
-        'token'            => 'Token',
+        'requestId' => 'RequestId',
+        'token' => 'Token',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -54,14 +54,12 @@ class drmProvider extends Model
     public $url;
     protected $_name = [
         'encryptionMethod' => 'EncryptionMethod',
-        'IV'               => 'IV',
-        'systemIds'        => 'SystemIds',
-        'url'              => 'Url',
+        'IV' => 'IV',
+        'systemIds' => 'SystemIds',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

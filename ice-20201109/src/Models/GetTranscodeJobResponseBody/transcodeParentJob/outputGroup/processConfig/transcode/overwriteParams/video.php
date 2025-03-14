@@ -173,6 +173,7 @@ class video extends Model
      *   high: applicable to high-definition devices.
      *
      * Default value: high.
+     *
      * @example Main
      *
      * @var string
@@ -210,29 +211,27 @@ class video extends Model
      */
     public $width;
     protected $_name = [
-        'abrMax'        => 'AbrMax',
-        'bitrate'       => 'Bitrate',
-        'bufsize'       => 'Bufsize',
-        'codec'         => 'Codec',
-        'crf'           => 'Crf',
-        'crop'          => 'Crop',
-        'fps'           => 'Fps',
-        'gop'           => 'Gop',
-        'height'        => 'Height',
+        'abrMax' => 'AbrMax',
+        'bitrate' => 'Bitrate',
+        'bufsize' => 'Bufsize',
+        'codec' => 'Codec',
+        'crf' => 'Crf',
+        'crop' => 'Crop',
+        'fps' => 'Fps',
+        'gop' => 'Gop',
+        'height' => 'Height',
         'longShortMode' => 'LongShortMode',
-        'maxrate'       => 'Maxrate',
-        'pad'           => 'Pad',
-        'pixFmt'        => 'PixFmt',
-        'preset'        => 'Preset',
-        'profile'       => 'Profile',
-        'remove'        => 'Remove',
-        'scanMode'      => 'ScanMode',
-        'width'         => 'Width',
+        'maxrate' => 'Maxrate',
+        'pad' => 'Pad',
+        'pixFmt' => 'PixFmt',
+        'preset' => 'Preset',
+        'profile' => 'Profile',
+        'remove' => 'Remove',
+        'scanMode' => 'ScanMode',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

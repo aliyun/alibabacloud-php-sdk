@@ -25,12 +25,10 @@ class SendAIAgentTextRequest extends Model
     public $text;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'text'       => 'Text',
+        'text' => 'Text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

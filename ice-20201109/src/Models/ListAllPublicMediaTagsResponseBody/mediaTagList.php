@@ -41,15 +41,13 @@ class mediaTagList extends Model
      */
     public $options;
     protected $_name = [
-        'mediaTagId'          => 'MediaTagId',
+        'mediaTagId' => 'MediaTagId',
         'mediaTagNameChinese' => 'MediaTagNameChinese',
         'mediaTagNameEnglish' => 'MediaTagNameEnglish',
-        'options'             => 'Options',
+        'options' => 'Options',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -96,7 +94,7 @@ class mediaTagList extends Model
         if (isset($map['Options'])) {
             if (!empty($map['Options'])) {
                 $model->options = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Options'] as $item) {
                     $model->options[$n++] = null !== $item ? options::fromMap($item) : $item;
                 }

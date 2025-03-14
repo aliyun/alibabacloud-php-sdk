@@ -62,16 +62,14 @@ class ListLiveRecordJobsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'liveRecordJobs' => 'LiveRecordJobs',
-        'pageNo'         => 'PageNo',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'sortBy'         => 'SortBy',
-        'totalCount'     => 'TotalCount',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'sortBy' => 'SortBy',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -115,7 +113,7 @@ class ListLiveRecordJobsResponseBody extends Model
         if (isset($map['LiveRecordJobs'])) {
             if (!empty($map['LiveRecordJobs'])) {
                 $model->liveRecordJobs = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['LiveRecordJobs'] as $item) {
                     $model->liveRecordJobs[$n++] = null !== $item ? liveRecordJobs::fromMap($item) : $item;
                 }

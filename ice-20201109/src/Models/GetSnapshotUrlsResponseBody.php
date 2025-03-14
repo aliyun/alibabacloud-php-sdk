@@ -42,15 +42,13 @@ class GetSnapshotUrlsResponseBody extends Model
      */
     public $webVTTUrl;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'snapshotUrls' => 'SnapshotUrls',
-        'total'        => 'Total',
-        'webVTTUrl'    => 'WebVTTUrl',
+        'total' => 'Total',
+        'webVTTUrl' => 'WebVTTUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

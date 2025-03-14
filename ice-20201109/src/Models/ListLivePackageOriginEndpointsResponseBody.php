@@ -62,16 +62,14 @@ class ListLivePackageOriginEndpointsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'livePackageOriginEndpoints' => 'LivePackageOriginEndpoints',
-        'pageNo'                     => 'PageNo',
-        'pageSize'                   => 'PageSize',
-        'requestId'                  => 'RequestId',
-        'sortBy'                     => 'SortBy',
-        'totalCount'                 => 'TotalCount',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'sortBy' => 'SortBy',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -115,7 +113,7 @@ class ListLivePackageOriginEndpointsResponseBody extends Model
         if (isset($map['LivePackageOriginEndpoints'])) {
             if (!empty($map['LivePackageOriginEndpoints'])) {
                 $model->livePackageOriginEndpoints = [];
-                $n                                 = 0;
+                $n = 0;
                 foreach ($map['LivePackageOriginEndpoints'] as $item) {
                     $model->livePackageOriginEndpoints[$n++] = null !== $item ? livePackageOriginEndpoints::fromMap($item) : $item;
                 }

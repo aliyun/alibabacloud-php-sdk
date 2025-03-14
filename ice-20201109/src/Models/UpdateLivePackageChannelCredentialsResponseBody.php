@@ -26,12 +26,10 @@ class UpdateLivePackageChannelCredentialsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'ingestEndpoints' => 'IngestEndpoints',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class UpdateLivePackageChannelCredentialsResponseBody extends Model
         if (isset($map['IngestEndpoints'])) {
             if (!empty($map['IngestEndpoints'])) {
                 $model->ingestEndpoints = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['IngestEndpoints'] as $item) {
                     $model->ingestEndpoints[$n++] = null !== $item ? ingestEndpoints::fromMap($item) : $item;
                 }

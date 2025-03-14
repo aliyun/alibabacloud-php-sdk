@@ -12,6 +12,7 @@ class GetLiveRecordJobRequest extends Model
      * @description The ID of the recording job.
      *
      * This parameter is required.
+     *
      * @example ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
      *
      * @var string
@@ -21,9 +22,7 @@ class GetLiveRecordJobRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

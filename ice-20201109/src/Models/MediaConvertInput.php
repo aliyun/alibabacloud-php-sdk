@@ -19,12 +19,10 @@ class MediaConvertInput extends Model
     public $name;
     protected $_name = [
         'inputFile' => 'InputFile',
-        'name'      => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

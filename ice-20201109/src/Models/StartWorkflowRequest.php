@@ -15,6 +15,7 @@ class StartWorkflowRequest extends Model
      * "Type": "Media",
      * "Media": "******30706071edbfe290b488******"
      * }
+     *
      * @var string
      */
     public $taskInput;
@@ -35,14 +36,12 @@ class StartWorkflowRequest extends Model
      */
     public $workflowId;
     protected $_name = [
-        'taskInput'  => 'TaskInput',
-        'userData'   => 'UserData',
+        'taskInput' => 'TaskInput',
+        'userData' => 'UserData',
         'workflowId' => 'WorkflowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

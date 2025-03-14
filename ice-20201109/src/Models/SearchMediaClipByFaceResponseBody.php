@@ -52,16 +52,14 @@ class SearchMediaClipByFaceResponseBody extends Model
      */
     public $total;
     protected $_name = [
-        'code'          => 'Code',
+        'code' => 'Code',
         'mediaClipList' => 'MediaClipList',
-        'requestId'     => 'RequestId',
-        'success'       => 'Success',
-        'total'         => 'Total',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +103,7 @@ class SearchMediaClipByFaceResponseBody extends Model
         if (isset($map['MediaClipList'])) {
             if (!empty($map['MediaClipList'])) {
                 $model->mediaClipList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['MediaClipList'] as $item) {
                     $model->mediaClipList[$n++] = null !== $item ? mediaClipList::fromMap($item) : $item;
                 }

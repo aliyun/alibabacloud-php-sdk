@@ -44,15 +44,13 @@ class liveMaterials extends Model
      */
     public $streamName;
     protected $_name = [
-        'appName'    => 'AppName',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
-        'liveUrl'    => 'LiveUrl',
+        'liveUrl' => 'LiveUrl',
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

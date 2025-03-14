@@ -56,17 +56,15 @@ class ListAIAgentDialoguesRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
-        'order'      => 'Order',
+        'endTime' => 'EndTime',
+        'order' => 'Order',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'sessionId'  => 'SessionId',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'sessionId' => 'SessionId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

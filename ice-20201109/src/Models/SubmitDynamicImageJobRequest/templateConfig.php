@@ -20,6 +20,7 @@ class templateConfig extends Model
      * @description The template ID.
      *
      * This parameter is required.
+     *
      * @example ****96e8864746a0b6f3****
      *
      * @var string
@@ -27,12 +28,10 @@ class templateConfig extends Model
     public $templateId;
     protected $_name = [
         'overwriteParams' => 'OverwriteParams',
-        'templateId'      => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

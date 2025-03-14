@@ -11,6 +11,12 @@ class SearchEditingProjectRequest extends Model
     /**
      * @description The source of the project.
      *
+     * \\-OpenAPI
+     *
+     * \\-AliyunConsole
+     *
+     * \\-WebSDK
+     *
      * Valid values:
      *
      *   AliyunConsole: The project is created in the Alibaba Cloud console.
@@ -65,7 +71,10 @@ class SearchEditingProjectRequest extends Model
     /**
      * @description The sorting rule of results. Valid values:
      *
+     * \\- CreationTime:Desc (default): The results are sorted in reverse chronological order based on the creation time.
+     *
      * \\- CreationTime:Asc: The results are sorted in chronological order based on the creation time.
+     *
      * @example CreationTime:Desc
      *
      * @var string
@@ -84,7 +93,16 @@ class SearchEditingProjectRequest extends Model
     /**
      * @description The status of the online editing project. Separate multiple values with commas (,). By default, all online editing projects are queried.
      *
+     * Valid values:
+     *
+     * \\-Draft
+     *
+     * \\-Producing
+     *
+     * \\-Produced
+     *
      * \\-ProduceFailed
+     *
      * @example Producing
      *
      * @var string
@@ -93,6 +111,10 @@ class SearchEditingProjectRequest extends Model
 
     /**
      * @description The template type. Valid values:
+     *
+     * \\-Timeline
+     *
+     * \\-VETemplate
      *
      * Valid values:
      *
@@ -107,19 +129,17 @@ class SearchEditingProjectRequest extends Model
     public $templateType;
     protected $_name = [
         'createSource' => 'CreateSource',
-        'endTime'      => 'EndTime',
-        'pageNo'       => 'PageNo',
-        'pageSize'     => 'PageSize',
-        'projectType'  => 'ProjectType',
-        'sortBy'       => 'SortBy',
-        'startTime'    => 'StartTime',
-        'status'       => 'Status',
+        'endTime' => 'EndTime',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'projectType' => 'ProjectType',
+        'sortBy' => 'SortBy',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
         'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

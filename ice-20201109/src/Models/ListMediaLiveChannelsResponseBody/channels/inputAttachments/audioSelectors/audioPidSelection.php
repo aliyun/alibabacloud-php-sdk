@@ -12,6 +12,7 @@ class audioPidSelection extends Model
      * @description A PID from within a source.
      *
      * This parameter is required.
+     *
      * @example 123
      *
      * @var int
@@ -21,9 +22,7 @@ class audioPidSelection extends Model
         'pid' => 'Pid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

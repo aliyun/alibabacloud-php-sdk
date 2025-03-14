@@ -64,19 +64,17 @@ class SearchPublicMediaInfoRequest extends Model
      */
     public $sortBy;
     protected $_name = [
-        'authorized'                 => 'Authorized',
+        'authorized' => 'Authorized',
         'dynamicMetaDataMatchFields' => 'DynamicMetaDataMatchFields',
-        'entityId'                   => 'EntityId',
-        'favorite'                   => 'Favorite',
-        'mediaIds'                   => 'MediaIds',
-        'pageNo'                     => 'PageNo',
-        'pageSize'                   => 'PageSize',
-        'sortBy'                     => 'SortBy',
+        'entityId' => 'EntityId',
+        'favorite' => 'Favorite',
+        'mediaIds' => 'MediaIds',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

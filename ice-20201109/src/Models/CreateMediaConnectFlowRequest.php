@@ -12,6 +12,7 @@ class CreateMediaConnectFlowRequest extends Model
      * @description The flow name.
      *
      * This parameter is required.
+     *
      * @example AliTestFlow
      *
      * @var string
@@ -22,19 +23,18 @@ class CreateMediaConnectFlowRequest extends Model
      * @description The region in which the flow resides.
      *
      * This parameter is required.
+     *
      * @example ap-southeast-1
      *
      * @var string
      */
     public $flowRegion;
     protected $_name = [
-        'flowName'   => 'FlowName',
+        'flowName' => 'FlowName',
         'flowRegion' => 'FlowRegion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -55,6 +55,7 @@ class ListAlertsRequest extends Model
      * @description The ARN of the source or program.
      *
      * This parameter is required.
+     *
      * @example acs:ims:mediaweaver:<regionId>:<userId>:vodSource/mySourceLocation/MySource
      *
      * @var string
@@ -79,19 +80,17 @@ class ListAlertsRequest extends Model
      */
     public $sortByModifiedTime;
     protected $_name = [
-        'category'           => 'Category',
-        'gmtEnd'             => 'GmtEnd',
-        'gmtStart'           => 'GmtStart',
-        'pageNo'             => 'PageNo',
-        'pageSize'           => 'PageSize',
-        'resourceArn'        => 'ResourceArn',
-        'sortBy'             => 'SortBy',
+        'category' => 'Category',
+        'gmtEnd' => 'GmtEnd',
+        'gmtStart' => 'GmtStart',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'resourceArn' => 'ResourceArn',
+        'sortBy' => 'SortBy',
         'sortByModifiedTime' => 'SortByModifiedTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,11 @@ class input extends Model
     /**
      * @description The input file. The file can be an OSS object or a media asset. You can specify the path of an OSS object in one of the following formats:
      *
+     * 1.  oss://bucket/object
+     * 2.  http(s)://bucket.oss-[regionId].aliyuncs.com/object bucket in the path specifies an OSS bucket that resides in the same region as the intelligent production job. object in the path specifies the object path in OSS.
+     *
      * This parameter is required.
+     *
      * @example oss://bucket/object
      *
      * @var string
@@ -25,6 +29,7 @@ class input extends Model
      *   Media: media asset
      *
      * This parameter is required.
+     *
      * @example OSS
      *
      * @var string
@@ -32,12 +37,10 @@ class input extends Model
     public $type;
     protected $_name = [
         'media' => 'Media',
-        'type'  => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

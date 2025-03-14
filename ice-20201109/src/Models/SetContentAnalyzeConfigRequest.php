@@ -29,14 +29,12 @@ class SetContentAnalyzeConfigRequest extends Model
      */
     public $templateId;
     protected $_name = [
-        'auto'       => 'Auto',
-        'saveType'   => 'SaveType',
+        'auto' => 'Auto',
+        'saveType' => 'SaveType',
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

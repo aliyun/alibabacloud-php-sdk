@@ -39,21 +39,20 @@ class UpdateSourceLocationRequest extends Model
      * @description The name of the source location.
      *
      * This parameter is required.
+     *
      * @example MySourceLocation
      *
      * @var string
      */
     public $sourceLocationName;
     protected $_name = [
-        'baseUrl'               => 'BaseUrl',
+        'baseUrl' => 'BaseUrl',
         'enableSegmentDelivery' => 'EnableSegmentDelivery',
-        'segmentDeliveryUrl'    => 'SegmentDeliveryUrl',
-        'sourceLocationName'    => 'SourceLocationName',
+        'segmentDeliveryUrl' => 'SegmentDeliveryUrl',
+        'sourceLocationName' => 'SourceLocationName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

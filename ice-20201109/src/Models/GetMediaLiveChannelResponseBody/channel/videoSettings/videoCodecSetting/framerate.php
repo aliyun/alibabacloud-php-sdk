@@ -35,14 +35,12 @@ class framerate extends Model
      */
     public $framerateNumerator;
     protected $_name = [
-        'framerateControl'     => 'FramerateControl',
+        'framerateControl' => 'FramerateControl',
         'framerateDenominator' => 'FramerateDenominator',
-        'framerateNumerator'   => 'FramerateNumerator',
+        'framerateNumerator' => 'FramerateNumerator',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

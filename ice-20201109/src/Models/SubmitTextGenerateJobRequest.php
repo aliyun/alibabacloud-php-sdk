@@ -25,7 +25,10 @@ class SubmitTextGenerateJobRequest extends Model
     /**
      * @description The job title.
      *
+     * The job title can be up to 128 bytes in length.
+     *
      * The value must be encoded in UTF-8.
+     *
      * @var string
      */
     public $title;
@@ -51,16 +54,14 @@ class SubmitTextGenerateJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'description'    => 'Description',
+        'description' => 'Description',
         'generateConfig' => 'GenerateConfig',
-        'title'          => 'Title',
-        'type'           => 'Type',
-        'userData'       => 'UserData',
+        'title' => 'Title',
+        'type' => 'Type',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

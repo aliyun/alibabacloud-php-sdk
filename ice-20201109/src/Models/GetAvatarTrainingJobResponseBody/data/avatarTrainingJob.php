@@ -123,23 +123,21 @@ class avatarTrainingJob extends Model
     public $video;
     protected $_name = [
         'avatarDescription' => 'AvatarDescription',
-        'avatarId'          => 'AvatarId',
-        'avatarName'        => 'AvatarName',
-        'avatarType'        => 'AvatarType',
+        'avatarId' => 'AvatarId',
+        'avatarName' => 'AvatarName',
+        'avatarType' => 'AvatarType',
         'firstTrainingTime' => 'FirstTrainingTime',
-        'jobId'             => 'JobId',
-        'lastTrainingTime'  => 'LastTrainingTime',
-        'message'           => 'Message',
-        'portrait'          => 'Portrait',
-        'status'            => 'Status',
-        'thumbnail'         => 'Thumbnail',
-        'transparent'       => 'Transparent',
-        'video'             => 'Video',
+        'jobId' => 'JobId',
+        'lastTrainingTime' => 'LastTrainingTime',
+        'message' => 'Message',
+        'portrait' => 'Portrait',
+        'status' => 'Status',
+        'thumbnail' => 'Thumbnail',
+        'transparent' => 'Transparent',
+        'video' => 'Video',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -20,6 +20,7 @@ class subtitles extends Model
      * @description The template ID.
      *
      * This parameter is required.
+     *
      * @example 9547c6ad97cb4f2aaa29683ebd18d410
      *
      * @var string
@@ -27,12 +28,10 @@ class subtitles extends Model
     public $templateId;
     protected $_name = [
         'overwriteParams' => 'OverwriteParams',
-        'templateId'      => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

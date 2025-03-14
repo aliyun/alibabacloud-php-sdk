@@ -26,6 +26,7 @@ class AddAdInsertionRequest extends Model
      * @description The request URL of the ad decision server (ADS). HTTP and HTTPS are supported. The maximum length is 2,048 characters.
      *
      * This parameter is required.
+     *
      * @example http://ads.com/ad1?param1=[palyer_params.p1]
      *
      * @var string
@@ -72,6 +73,7 @@ class AddAdInsertionRequest extends Model
      * @description The URL prefix for the source content. HTTP and HTTPS are supported. The maximum length is 512 characters.
      *
      * This parameter is required.
+     *
      * @example https://source.com/
      *
      * @var string
@@ -82,6 +84,7 @@ class AddAdInsertionRequest extends Model
      * @description The name of the configuration. The name must be unique and can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
      *
      * This parameter is required.
+     *
      * @example my_ad
      *
      * @var string
@@ -106,21 +109,19 @@ class AddAdInsertionRequest extends Model
      */
     public $slateAdUrl;
     protected $_name = [
-        'adMarkerPassthrough'        => 'AdMarkerPassthrough',
-        'adsUrl'                     => 'AdsUrl',
-        'cdnAdSegmentUrlPrefix'      => 'CdnAdSegmentUrlPrefix',
+        'adMarkerPassthrough' => 'AdMarkerPassthrough',
+        'adsUrl' => 'AdsUrl',
+        'cdnAdSegmentUrlPrefix' => 'CdnAdSegmentUrlPrefix',
         'cdnContentSegmentUrlPrefix' => 'CdnContentSegmentUrlPrefix',
-        'clientToken'                => 'ClientToken',
-        'configAliases'              => 'ConfigAliases',
-        'contentUrlPrefix'           => 'ContentUrlPrefix',
-        'name'                       => 'Name',
-        'personalizationThreshold'   => 'PersonalizationThreshold',
-        'slateAdUrl'                 => 'SlateAdUrl',
+        'clientToken' => 'ClientToken',
+        'configAliases' => 'ConfigAliases',
+        'contentUrlPrefix' => 'ContentUrlPrefix',
+        'name' => 'Name',
+        'personalizationThreshold' => 'PersonalizationThreshold',
+        'slateAdUrl' => 'SlateAdUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

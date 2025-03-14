@@ -12,6 +12,7 @@ class DescribeMeterImsMediaConvertUHDUsageRequest extends Model
      * @description The end of the time range to query. The value is a 10-digit timestamp.
      *
      * This parameter is required.
+     *
      * @example 1656995036
      *
      * @var int
@@ -22,6 +23,7 @@ class DescribeMeterImsMediaConvertUHDUsageRequest extends Model
      * @description The time granularity of the query. Valid values: 3600 (hour) and 86400 (day).
      *
      * This parameter is required.
+     *
      * @example 3600
      *
      * @var string
@@ -41,21 +43,20 @@ class DescribeMeterImsMediaConvertUHDUsageRequest extends Model
      * @description The beginning of the time range to query. The value is a 10-digit timestamp.
      *
      * This parameter is required.
+     *
      * @example 1654403036
      *
      * @var int
      */
     public $startTs;
     protected $_name = [
-        'endTs'    => 'EndTs',
+        'endTs' => 'EndTs',
         'interval' => 'Interval',
         'regionId' => 'RegionId',
-        'startTs'  => 'StartTs',
+        'startTs' => 'StartTs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

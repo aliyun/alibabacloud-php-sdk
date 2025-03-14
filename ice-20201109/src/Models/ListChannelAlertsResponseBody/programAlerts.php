@@ -51,16 +51,14 @@ class programAlerts extends Model
      */
     public $programName;
     protected $_name = [
-        'arn'         => 'Arn',
-        'category'    => 'Category',
-        'count'       => 'Count',
+        'arn' => 'Arn',
+        'category' => 'Category',
+        'count' => 'Count',
         'gmtModified' => 'GmtModified',
         'programName' => 'ProgramName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class StartAIAgentInstanceShrinkRequest extends Model
      * @description The ID of the AI agent created in the [IMS](https://ims.console.aliyun.com/ai/robot/list) console.
      *
      * This parameter is required.
+     *
      * @example 39f8e0bc005e4f309379701645f4****
      *
      * @var string
@@ -51,17 +52,15 @@ class StartAIAgentInstanceShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'AIAgentId'            => 'AIAgentId',
+        'AIAgentId' => 'AIAgentId',
         'chatSyncConfigShrink' => 'ChatSyncConfig',
-        'runtimeConfigShrink'  => 'RuntimeConfig',
-        'sessionId'            => 'SessionId',
+        'runtimeConfigShrink' => 'RuntimeConfig',
+        'sessionId' => 'SessionId',
         'templateConfigShrink' => 'TemplateConfig',
-        'userData'             => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

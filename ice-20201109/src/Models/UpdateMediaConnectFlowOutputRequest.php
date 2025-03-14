@@ -21,6 +21,7 @@ class UpdateMediaConnectFlowOutputRequest extends Model
      * @description The flow ID.
      *
      * This parameter is required.
+     *
      * @example 34900dc6-90ec-4968-af3c-fcd87f231a5f
      *
      * @var string
@@ -31,6 +32,7 @@ class UpdateMediaConnectFlowOutputRequest extends Model
      * @description The output name.
      *
      * This parameter is required.
+     *
      * @example AliTestOutput
      *
      * @var string
@@ -82,19 +84,17 @@ class UpdateMediaConnectFlowOutputRequest extends Model
      */
     public $srtPbkeyLen;
     protected $_name = [
-        'cidrs'         => 'Cidrs',
-        'flowId'        => 'FlowId',
-        'outputName'    => 'OutputName',
-        'outputToUrl'   => 'OutputToUrl',
-        'playerLimit'   => 'PlayerLimit',
-        'srtLatency'    => 'SrtLatency',
+        'cidrs' => 'Cidrs',
+        'flowId' => 'FlowId',
+        'outputName' => 'OutputName',
+        'outputToUrl' => 'OutputToUrl',
+        'playerLimit' => 'PlayerLimit',
+        'srtLatency' => 'SrtLatency',
         'srtPassphrase' => 'SrtPassphrase',
-        'srtPbkeyLen'   => 'SrtPbkeyLen',
+        'srtPbkeyLen' => 'SrtPbkeyLen',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

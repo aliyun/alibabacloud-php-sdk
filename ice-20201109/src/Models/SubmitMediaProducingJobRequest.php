@@ -34,7 +34,10 @@ class SubmitMediaProducingJobRequest extends Model
      *   CoverConfig: the custom thumbnail parameters.
      *
      * @example {
+     * "AutoRegisterInputVodMedia": "true",
+     * "OutputWebmTransparentChannel": "true"
      * }
+     *
      * @var string
      */
     public $editingProduceConfig;
@@ -43,7 +46,10 @@ class SubmitMediaProducingJobRequest extends Model
      * @description The metadata of the produced video, in the JSON format. For more information about the parameters, see [MediaMetadata](https://help.aliyun.com/document_detail/357745.html).
      *
      * @example {
+     * "Title":"test-title",
+     * "Tags":"test-tags1,tags2"
      * }
+     *
      * @var string
      */
     public $mediaMetadata;
@@ -51,7 +57,12 @@ class SubmitMediaProducingJobRequest extends Model
     /**
      * @description The configurations of the output file, in the JSON format. You can specify an OSS URL or a storage location in a storage bucket of ApsaraVideo VOD.
      *
+     * To store the output file in OSS, you must specify MediaURL. To store the output file in ApsaraVideo VOD, you must specify StorageLocation and FileName.
+     *
+     * For more information, see [OutputMediaConfig](https://help.aliyun.com/document_detail/357745.html).
+     *
      * This parameter is required.
+     *
      * @example {"MediaURL":"https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4"}
      *
      * @var string
@@ -75,6 +86,7 @@ class SubmitMediaProducingJobRequest extends Model
      * @description The ID of the editing project.
      *
      * > : You must specify one of ProgectId, Timeline, and TempalteId and leave the other two parameters empty.
+     *
      * @example xxxxxfb2101cb318xxxxx
      *
      * @var string
@@ -105,6 +117,7 @@ class SubmitMediaProducingJobRequest extends Model
      * @description The template ID. The template is used to build a timeline with ease.
      *
      * > : You must specify one of ProgectId, Timeline, and TempalteId and leave the other two parameters empty. If TemplateId is specified, ClipsParam must also be specified.
+     *
      * @example ****96e8864746a0b6f3****
      *
      * @var string
@@ -125,23 +138,21 @@ class SubmitMediaProducingJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'clipsParam'           => 'ClipsParam',
+        'clientToken' => 'ClientToken',
+        'clipsParam' => 'ClipsParam',
         'editingProduceConfig' => 'EditingProduceConfig',
-        'mediaMetadata'        => 'MediaMetadata',
-        'outputMediaConfig'    => 'OutputMediaConfig',
-        'outputMediaTarget'    => 'OutputMediaTarget',
-        'projectId'            => 'ProjectId',
-        'projectMetadata'      => 'ProjectMetadata',
-        'source'               => 'Source',
-        'templateId'           => 'TemplateId',
-        'timeline'             => 'Timeline',
-        'userData'             => 'UserData',
+        'mediaMetadata' => 'MediaMetadata',
+        'outputMediaConfig' => 'OutputMediaConfig',
+        'outputMediaTarget' => 'OutputMediaTarget',
+        'projectId' => 'ProjectId',
+        'projectMetadata' => 'ProjectMetadata',
+        'source' => 'Source',
+        'templateId' => 'TemplateId',
+        'timeline' => 'Timeline',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

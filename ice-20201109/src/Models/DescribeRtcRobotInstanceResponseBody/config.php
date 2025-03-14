@@ -28,13 +28,11 @@ class config extends Model
     public $voiceId;
     protected $_name = [
         'enableVoiceInterrupt' => 'EnableVoiceInterrupt',
-        'greeting'             => 'Greeting',
-        'voiceId'              => 'VoiceId',
+        'greeting' => 'Greeting',
+        'voiceId' => 'VoiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,14 +34,12 @@ class ListDNAFilesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'fileList'      => 'FileList',
+        'fileList' => 'FileList',
         'nextPageToken' => 'NextPageToken',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListDNAFilesResponseBody extends Model
         if (isset($map['FileList'])) {
             if (!empty($map['FileList'])) {
                 $model->fileList = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['FileList'] as $item) {
                     $model->fileList[$n++] = null !== $item ? fileList::fromMap($item) : $item;
                 }

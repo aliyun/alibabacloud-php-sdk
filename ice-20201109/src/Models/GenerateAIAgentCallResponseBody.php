@@ -63,16 +63,14 @@ class GenerateAIAgentCallResponseBody extends Model
     public $userId;
     protected $_name = [
         'AIAgentUserId' => 'AIAgentUserId',
-        'channelId'     => 'ChannelId',
-        'instanceId'    => 'InstanceId',
-        'requestId'     => 'RequestId',
-        'token'         => 'Token',
-        'userId'        => 'UserId',
+        'channelId' => 'ChannelId',
+        'instanceId' => 'InstanceId',
+        'requestId' => 'RequestId',
+        'token' => 'Token',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

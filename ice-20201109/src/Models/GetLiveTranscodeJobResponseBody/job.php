@@ -100,21 +100,19 @@ class job extends Model
      */
     public $templateType;
     protected $_name = [
-        'createTime'   => 'CreateTime',
-        'jobId'        => 'JobId',
-        'name'         => 'Name',
+        'createTime' => 'CreateTime',
+        'jobId' => 'JobId',
+        'name' => 'Name',
         'outputStream' => 'OutputStream',
-        'startMode'    => 'StartMode',
-        'status'       => 'Status',
-        'streamInput'  => 'StreamInput',
-        'templateId'   => 'TemplateId',
+        'startMode' => 'StartMode',
+        'status' => 'Status',
+        'streamInput' => 'StreamInput',
+        'templateId' => 'TemplateId',
         'templateName' => 'TemplateName',
         'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

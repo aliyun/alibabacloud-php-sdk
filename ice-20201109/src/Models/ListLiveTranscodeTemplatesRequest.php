@@ -85,18 +85,16 @@ class ListLiveTranscodeTemplatesRequest extends Model
      */
     public $videoCodec;
     protected $_name = [
-        'category'   => 'Category',
-        'keyWord'    => 'KeyWord',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'sortBy'     => 'SortBy',
-        'type'       => 'Type',
+        'category' => 'Category',
+        'keyWord' => 'KeyWord',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
+        'type' => 'Type',
         'videoCodec' => 'VideoCodec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

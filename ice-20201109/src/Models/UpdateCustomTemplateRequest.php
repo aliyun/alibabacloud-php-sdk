@@ -30,20 +30,19 @@ class UpdateCustomTemplateRequest extends Model
      * @description The template ID.
      *
      * This parameter is required.
+     *
      * @example ****96e8864746a0b6f3****
      *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'name'           => 'Name',
+        'name' => 'Name',
         'templateConfig' => 'TemplateConfig',
-        'templateId'     => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

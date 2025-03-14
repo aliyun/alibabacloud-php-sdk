@@ -12,6 +12,7 @@ class QueryMediaIndexJobRequest extends Model
      * @description The ID of the media asset.
      *
      * This parameter is required.
+     *
      * @example c2e77390f75271ec802f0674a2ce6***
      *
      * @var string
@@ -27,13 +28,11 @@ class QueryMediaIndexJobRequest extends Model
      */
     public $searchLibName;
     protected $_name = [
-        'mediaId'       => 'MediaId',
+        'mediaId' => 'MediaId',
         'searchLibName' => 'SearchLibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

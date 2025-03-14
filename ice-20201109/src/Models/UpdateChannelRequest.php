@@ -30,6 +30,7 @@ class UpdateChannelRequest extends Model
      * @description The name of the channel.
      *
      * This parameter is required.
+     *
      * @example MyChannel
      *
      * @var string
@@ -58,23 +59,30 @@ class UpdateChannelRequest extends Model
      * @description The channel output configurations.
      *
      * This parameter is required.
+     *
      * @example [{
+     * "ManifestName": "manifest-1",
+     * "Format": "HLS",
+     * "SourceGroupName": "source-group-1",
+     * "ManifestSettings": {
+     * "WindowDuration": 60,
+     * "AdMarkType": "Daterange"
+     * }
      * }]
+     *
      * @var string
      */
     public $outPutConfigList;
     protected $_name = [
-        'accessPolicy'             => 'AccessPolicy',
-        'accessToken'              => 'AccessToken',
-        'channelName'              => 'ChannelName',
+        'accessPolicy' => 'AccessPolicy',
+        'accessToken' => 'AccessToken',
+        'channelName' => 'ChannelName',
         'fillerSourceLocationName' => 'FillerSourceLocationName',
-        'fillerSourceName'         => 'FillerSourceName',
-        'outPutConfigList'         => 'OutPutConfigList',
+        'fillerSourceName' => 'FillerSourceName',
+        'outPutConfigList' => 'OutPutConfigList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

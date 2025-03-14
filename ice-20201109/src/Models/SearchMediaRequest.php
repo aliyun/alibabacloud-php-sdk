@@ -20,6 +20,7 @@ class SearchMediaRequest extends Model
     /**
      * @description The filter conditions. For more information about the parameter syntax
      * <props="china">, see [Media asset search protocols](https://help.aliyun.com/document_detail/2584256.html).
+     *
      * @var string
      */
     public $match;
@@ -69,18 +70,16 @@ class SearchMediaRequest extends Model
      */
     public $sortBy;
     protected $_name = [
-        'entityId'      => 'EntityId',
-        'match'         => 'Match',
-        'pageNo'        => 'PageNo',
-        'pageSize'      => 'PageSize',
-        'scrollToken'   => 'ScrollToken',
+        'entityId' => 'EntityId',
+        'match' => 'Match',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'scrollToken' => 'ScrollToken',
         'searchLibName' => 'SearchLibName',
-        'sortBy'        => 'SortBy',
+        'sortBy' => 'SortBy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

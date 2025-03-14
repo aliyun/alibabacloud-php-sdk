@@ -76,18 +76,16 @@ class GetSmartHandleJobResponseBody extends Model
      */
     public $userData;
     protected $_name = [
-        'jobId'        => 'JobId',
-        'jobResult'    => 'JobResult',
-        'output'       => 'Output',
-        'requestId'    => 'RequestId',
+        'jobId' => 'JobId',
+        'jobResult' => 'JobResult',
+        'output' => 'Output',
+        'requestId' => 'RequestId',
         'smartJobInfo' => 'SmartJobInfo',
-        'state'        => 'State',
-        'userData'     => 'UserData',
+        'state' => 'State',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

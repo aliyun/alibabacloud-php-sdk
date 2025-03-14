@@ -53,16 +53,14 @@ class paramList extends Model
      */
     public $type;
     protected $_name = [
-        'content'  => 'Content',
+        'content' => 'Content',
         'coverUrl' => 'CoverUrl',
-        'key'      => 'Key',
+        'key' => 'Key',
         'mediaUrl' => 'MediaUrl',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

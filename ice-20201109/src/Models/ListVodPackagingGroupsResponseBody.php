@@ -64,16 +64,14 @@ class ListVodPackagingGroupsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'packagingGroups' => 'PackagingGroups',
-        'pageNo'          => 'PageNo',
-        'pageSize'        => 'PageSize',
-        'requestId'       => 'RequestId',
-        'sortBy'          => 'SortBy',
-        'totalCount'      => 'TotalCount',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'sortBy' => 'SortBy',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -117,7 +115,7 @@ class ListVodPackagingGroupsResponseBody extends Model
         if (isset($map['PackagingGroups'])) {
             if (!empty($map['PackagingGroups'])) {
                 $model->packagingGroups = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['PackagingGroups'] as $item) {
                     $model->packagingGroups[$n++] = null !== $item ? VodPackagingGroup::fromMap($item) : $item;
                 }

@@ -40,14 +40,12 @@ class SubmitASRJobResponseBody extends Model
      */
     public $state;
     protected $_name = [
-        'jobId'     => 'JobId',
+        'jobId' => 'JobId',
         'requestId' => 'RequestId',
-        'state'     => 'State',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

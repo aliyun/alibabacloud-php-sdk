@@ -52,6 +52,7 @@ class SubmitDynamicChartJobRequest extends Model
      *   Pie: pie chart
      *
      * This parameter is required.
+     *
      * @example Line
      *
      * @var string
@@ -76,6 +77,7 @@ class SubmitDynamicChartJobRequest extends Model
      * @description The input data for the chart.
      *
      * This parameter is required.
+     *
      * @example {"XlsFile":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/obj.xls"}
      *
      * @var string
@@ -86,6 +88,7 @@ class SubmitDynamicChartJobRequest extends Model
      * @description The output configurations.
      *
      * This parameter is required.
+     *
      * @example {"MediaURL":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/obj.mp4","Bitrate":2000,"Width":800,"Height":680}
      *
      * @var string
@@ -122,24 +125,22 @@ class SubmitDynamicChartJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'axisParams'   => 'AxisParams',
-        'background'   => 'Background',
-        'chartConfig'  => 'ChartConfig',
-        'chartTitle'   => 'ChartTitle',
-        'chartType'    => 'ChartType',
-        'dataSource'   => 'DataSource',
-        'description'  => 'Description',
-        'input'        => 'Input',
+        'axisParams' => 'AxisParams',
+        'background' => 'Background',
+        'chartConfig' => 'ChartConfig',
+        'chartTitle' => 'ChartTitle',
+        'chartType' => 'ChartType',
+        'dataSource' => 'DataSource',
+        'description' => 'Description',
+        'input' => 'Input',
         'outputConfig' => 'OutputConfig',
-        'subtitle'     => 'Subtitle',
-        'title'        => 'Title',
-        'unit'         => 'Unit',
-        'userData'     => 'UserData',
+        'subtitle' => 'Subtitle',
+        'title' => 'Title',
+        'unit' => 'Unit',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

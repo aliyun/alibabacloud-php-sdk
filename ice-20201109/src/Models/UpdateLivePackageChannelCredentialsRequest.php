@@ -12,6 +12,7 @@ class UpdateLivePackageChannelCredentialsRequest extends Model
      * @description The channel name.
      *
      * This parameter is required.
+     *
      * @example channel-1
      *
      * @var string
@@ -22,6 +23,7 @@ class UpdateLivePackageChannelCredentialsRequest extends Model
      * @description The channel group name.
      *
      * This parameter is required.
+     *
      * @example group-1
      *
      * @var string
@@ -32,20 +34,19 @@ class UpdateLivePackageChannelCredentialsRequest extends Model
      * @description Specifies whether to update the credentials. 1: updates the credentials of endpoint 1. 2: updates the credentials of endpoint 2. 3: updates the credentials of endpoints 1 and 2.
      *
      * This parameter is required.
+     *
      * @example 3
      *
      * @var int
      */
     public $rotateCredentials;
     protected $_name = [
-        'channelName'       => 'ChannelName',
-        'groupName'         => 'GroupName',
+        'channelName' => 'ChannelName',
+        'groupName' => 'GroupName',
         'rotateCredentials' => 'RotateCredentials',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

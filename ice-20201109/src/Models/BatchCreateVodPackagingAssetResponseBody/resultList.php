@@ -34,14 +34,12 @@ class resultList extends Model
      */
     public $message;
     protected $_name = [
-        'asset'   => 'Asset',
-        'code'    => 'Code',
+        'asset' => 'Asset',
+        'code' => 'Code',
         'message' => 'Message',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

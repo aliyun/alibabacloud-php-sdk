@@ -49,6 +49,7 @@ class UpdateEditingProjectRequest extends Model
      * @description The ID of the online editing project.
      *
      * This parameter is required.
+     *
      * @example ****4ee4b97e27b525142a6b2****
      *
      * @var string
@@ -79,18 +80,16 @@ class UpdateEditingProjectRequest extends Model
     public $title;
     protected $_name = [
         'businessStatus' => 'BusinessStatus',
-        'clipsParam'     => 'ClipsParam',
-        'coverURL'       => 'CoverURL',
-        'description'    => 'Description',
-        'projectId'      => 'ProjectId',
-        'templateId'     => 'TemplateId',
-        'timeline'       => 'Timeline',
-        'title'          => 'Title',
+        'clipsParam' => 'ClipsParam',
+        'coverURL' => 'CoverURL',
+        'description' => 'Description',
+        'projectId' => 'ProjectId',
+        'templateId' => 'TemplateId',
+        'timeline' => 'Timeline',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

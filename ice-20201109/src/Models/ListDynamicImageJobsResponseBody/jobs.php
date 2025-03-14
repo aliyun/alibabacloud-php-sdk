@@ -124,23 +124,21 @@ class jobs extends Model
      */
     public $triggerSource;
     protected $_name = [
-        'createTime'    => 'CreateTime',
-        'finishTime'    => 'FinishTime',
-        'input'         => 'Input',
-        'jobId'         => 'JobId',
-        'modifiedTime'  => 'ModifiedTime',
-        'name'          => 'Name',
-        'output'        => 'Output',
-        'pipelineId'    => 'PipelineId',
-        'status'        => 'Status',
-        'submitTime'    => 'SubmitTime',
-        'templateId'    => 'TemplateId',
+        'createTime' => 'CreateTime',
+        'finishTime' => 'FinishTime',
+        'input' => 'Input',
+        'jobId' => 'JobId',
+        'modifiedTime' => 'ModifiedTime',
+        'name' => 'Name',
+        'output' => 'Output',
+        'pipelineId' => 'PipelineId',
+        'status' => 'Status',
+        'submitTime' => 'SubmitTime',
+        'templateId' => 'TemplateId',
         'triggerSource' => 'TriggerSource',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

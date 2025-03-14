@@ -12,6 +12,7 @@ class CreatePipelineRequest extends Model
      * @description The name of the MPS queue.
      *
      * This parameter is required.
+     *
      * @example test-pipeline
      *
      * @var string
@@ -30,21 +31,24 @@ class CreatePipelineRequest extends Model
     /**
      * @description The type of the MPS queue. Valid values:
      *
+     * 1.  Standard: standard MPS queue.
+     * 2.  Boost: MPS queue with transcoding speed boosted.
+     * 3.  NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
+     *
      * This parameter is required.
+     *
      * @example Standard
      *
      * @var string
      */
     public $speed;
     protected $_name = [
-        'name'     => 'Name',
+        'name' => 'Name',
         'priority' => 'Priority',
-        'speed'    => 'Speed',
+        'speed' => 'Speed',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

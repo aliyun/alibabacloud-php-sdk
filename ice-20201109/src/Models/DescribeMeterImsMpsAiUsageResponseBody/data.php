@@ -34,13 +34,11 @@ class data extends Model
     public $type;
     protected $_name = [
         'duration' => 'Duration',
-        'time'     => 'Time',
-        'type'     => 'Type',
+        'time' => 'Time',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

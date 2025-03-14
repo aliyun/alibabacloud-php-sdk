@@ -30,9 +30,7 @@ class outputConfig extends Model
         'object' => 'Object',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

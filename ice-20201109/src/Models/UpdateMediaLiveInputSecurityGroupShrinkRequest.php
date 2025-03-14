@@ -12,6 +12,7 @@ class UpdateMediaLiveInputSecurityGroupShrinkRequest extends Model
      * @description The name of the security group. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example mysg
      *
      * @var string
@@ -22,6 +23,7 @@ class UpdateMediaLiveInputSecurityGroupShrinkRequest extends Model
      * @description The ID of the security group.
      *
      * This parameter is required.
+     *
      * @example SEGK5KA6KYKAWQQH
      *
      * @var string
@@ -32,18 +34,17 @@ class UpdateMediaLiveInputSecurityGroupShrinkRequest extends Model
      * @description The security group rules.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $whitelistRulesShrink;
     protected $_name = [
-        'name'                 => 'Name',
-        'securityGroupId'      => 'SecurityGroupId',
+        'name' => 'Name',
+        'securityGroupId' => 'SecurityGroupId',
         'whitelistRulesShrink' => 'WhitelistRules',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

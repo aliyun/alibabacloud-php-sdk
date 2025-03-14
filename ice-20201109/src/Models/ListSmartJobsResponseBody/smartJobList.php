@@ -127,23 +127,21 @@ class smartJobList extends Model
      */
     public $userId;
     protected $_name = [
-        'createTime'    => 'CreateTime',
-        'description'   => 'Description',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
         'editingConfig' => 'EditingConfig',
-        'inputConfig'   => 'InputConfig',
-        'jobId'         => 'JobId',
-        'jobState'      => 'JobState',
-        'jobType'       => 'JobType',
-        'modifiedTime'  => 'ModifiedTime',
-        'outputConfig'  => 'OutputConfig',
-        'title'         => 'Title',
-        'userData'      => 'UserData',
-        'userId'        => 'UserId',
+        'inputConfig' => 'InputConfig',
+        'jobId' => 'JobId',
+        'jobState' => 'JobState',
+        'jobType' => 'JobType',
+        'modifiedTime' => 'ModifiedTime',
+        'outputConfig' => 'OutputConfig',
+        'title' => 'Title',
+        'userData' => 'UserData',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

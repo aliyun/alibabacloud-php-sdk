@@ -78,19 +78,17 @@ class smartJobInfo extends Model
      */
     public $userId;
     protected $_name = [
-        'createTime'   => 'CreateTime',
-        'description'  => 'Description',
-        'inputConfig'  => 'InputConfig',
-        'jobType'      => 'JobType',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'inputConfig' => 'InputConfig',
+        'jobType' => 'JobType',
         'modifiedTime' => 'ModifiedTime',
         'outputConfig' => 'OutputConfig',
-        'title'        => 'Title',
-        'userId'       => 'UserId',
+        'title' => 'Title',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

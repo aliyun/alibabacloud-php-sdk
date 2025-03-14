@@ -64,22 +64,20 @@ class ChannelAssemblyProgram extends Model
      */
     public $transition;
     protected $_name = [
-        'adBreaks'           => 'AdBreaks',
-        'arn'                => 'Arn',
-        'channelName'        => 'ChannelName',
-        'clipRange'          => 'ClipRange',
-        'gmtCreate'          => 'GmtCreate',
-        'gmtModified'        => 'GmtModified',
-        'programName'        => 'ProgramName',
+        'adBreaks' => 'AdBreaks',
+        'arn' => 'Arn',
+        'channelName' => 'ChannelName',
+        'clipRange' => 'ClipRange',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'programName' => 'ProgramName',
         'sourceLocationName' => 'SourceLocationName',
-        'sourceName'         => 'SourceName',
-        'sourceType'         => 'SourceType',
-        'transition'         => 'Transition',
+        'sourceName' => 'SourceName',
+        'sourceType' => 'SourceType',
+        'transition' => 'Transition',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -138,7 +136,7 @@ class ChannelAssemblyProgram extends Model
         if (isset($map['AdBreaks'])) {
             if (!empty($map['AdBreaks'])) {
                 $model->adBreaks = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['AdBreaks'] as $item) {
                     $model->adBreaks[$n++] = null !== $item ? adBreaks::fromMap($item) : $item;
                 }

@@ -40,14 +40,12 @@ class recordOutput extends Model
      */
     public $type;
     protected $_name = [
-        'bucket'   => 'Bucket',
+        'bucket' => 'Bucket',
         'endpoint' => 'Endpoint',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

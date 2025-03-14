@@ -12,6 +12,7 @@ class QuerySmarttagJobRequest extends Model
      * @description The ID of the smart tagging job that you want to query. You can obtain the job ID from the response parameters of the SubmitSmarttagJob operation.
      *
      * This parameter is required.
+     *
      * @example 88c6ca184c0e47098a5b665e2****
      *
      * @var string
@@ -30,13 +31,11 @@ class QuerySmarttagJobRequest extends Model
      */
     public $params;
     protected $_name = [
-        'jobId'  => 'JobId',
+        'jobId' => 'JobId',
         'params' => 'Params',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

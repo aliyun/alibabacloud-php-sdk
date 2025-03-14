@@ -38,6 +38,9 @@ class ListSnapshotJobsRequest extends Model
     /**
      * @description The order that you use to sort the query results.
      *
+     * 1.  CreateTimeDesc
+     * 2.  CreateTimeAsc
+     *
      * Valid values:
      *
      *   CreateTimeDesc: sorts the jobs by creation time in descending order
@@ -82,18 +85,16 @@ class ListSnapshotJobsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'endOfCreateTime'   => 'EndOfCreateTime',
-        'jobId'             => 'JobId',
-        'nextPageToken'     => 'NextPageToken',
-        'orderBy'           => 'OrderBy',
-        'pageSize'          => 'PageSize',
+        'endOfCreateTime' => 'EndOfCreateTime',
+        'jobId' => 'JobId',
+        'nextPageToken' => 'NextPageToken',
+        'orderBy' => 'OrderBy',
+        'pageSize' => 'PageSize',
         'startOfCreateTime' => 'StartOfCreateTime',
-        'status'            => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

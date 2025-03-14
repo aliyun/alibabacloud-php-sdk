@@ -52,16 +52,14 @@ class ListSmartJobsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'smartJobList' => 'SmartJobList',
-        'totalCount'   => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class ListSmartJobsResponseBody extends Model
         if (isset($map['SmartJobList'])) {
             if (!empty($map['SmartJobList'])) {
                 $model->smartJobList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['SmartJobList'] as $item) {
                     $model->smartJobList[$n++] = null !== $item ? smartJobList::fromMap($item) : $item;
                 }

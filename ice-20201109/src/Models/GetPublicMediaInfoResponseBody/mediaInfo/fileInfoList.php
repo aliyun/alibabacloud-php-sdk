@@ -32,15 +32,13 @@ class fileInfoList extends Model
      */
     public $videoStreamInfoList;
     protected $_name = [
-        'audioStreamInfoList'    => 'AudioStreamInfoList',
-        'fileBasicInfo'          => 'FileBasicInfo',
+        'audioStreamInfoList' => 'AudioStreamInfoList',
+        'fileBasicInfo' => 'FileBasicInfo',
         'subtitleStreamInfoList' => 'SubtitleStreamInfoList',
-        'videoStreamInfoList'    => 'VideoStreamInfoList',
+        'videoStreamInfoList' => 'VideoStreamInfoList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -90,7 +88,7 @@ class fileInfoList extends Model
         if (isset($map['AudioStreamInfoList'])) {
             if (!empty($map['AudioStreamInfoList'])) {
                 $model->audioStreamInfoList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['AudioStreamInfoList'] as $item) {
                     $model->audioStreamInfoList[$n++] = null !== $item ? audioStreamInfoList::fromMap($item) : $item;
                 }
@@ -102,7 +100,7 @@ class fileInfoList extends Model
         if (isset($map['SubtitleStreamInfoList'])) {
             if (!empty($map['SubtitleStreamInfoList'])) {
                 $model->subtitleStreamInfoList = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['SubtitleStreamInfoList'] as $item) {
                     $model->subtitleStreamInfoList[$n++] = null !== $item ? subtitleStreamInfoList::fromMap($item) : $item;
                 }
@@ -111,7 +109,7 @@ class fileInfoList extends Model
         if (isset($map['VideoStreamInfoList'])) {
             if (!empty($map['VideoStreamInfoList'])) {
                 $model->videoStreamInfoList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['VideoStreamInfoList'] as $item) {
                     $model->videoStreamInfoList[$n++] = null !== $item ? videoStreamInfoList::fromMap($item) : $item;
                 }

@@ -60,16 +60,14 @@ class DBList extends Model
      */
     public $status;
     protected $_name = [
-        'DBId'        => 'DBId',
+        'DBId' => 'DBId',
         'description' => 'Description',
-        'model'       => 'Model',
-        'name'        => 'Name',
-        'status'      => 'Status',
+        'model' => 'Model',
+        'name' => 'Name',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

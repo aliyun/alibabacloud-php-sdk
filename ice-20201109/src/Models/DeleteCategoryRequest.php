@@ -16,6 +16,7 @@ class DeleteCategoryRequest extends Model
      *   View the value of CateId returned by the GetCategories operation that you called to query a category.
      *
      * This parameter is required.
+     *
      * @example 46
      *
      * @var int
@@ -25,9 +26,7 @@ class DeleteCategoryRequest extends Model
         'cateId' => 'CateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

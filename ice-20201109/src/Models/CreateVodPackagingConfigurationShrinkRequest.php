@@ -55,16 +55,14 @@ class CreateVodPackagingConfigurationShrinkRequest extends Model
      */
     public $protocol;
     protected $_name = [
-        'configurationName'   => 'ConfigurationName',
-        'description'         => 'Description',
-        'groupName'           => 'GroupName',
+        'configurationName' => 'ConfigurationName',
+        'description' => 'Description',
+        'groupName' => 'GroupName',
         'packageConfigShrink' => 'PackageConfig',
-        'protocol'            => 'Protocol',
+        'protocol' => 'Protocol',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

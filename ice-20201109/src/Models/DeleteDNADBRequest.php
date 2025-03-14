@@ -12,6 +12,7 @@ class DeleteDNADBRequest extends Model
      * @description The ID of the media fingerprint library that you want to delete.
      *
      * This parameter is required.
+     *
      * @example fb712a6890464059b1b2ea7c8647****
      *
      * @var string
@@ -38,16 +39,14 @@ class DeleteDNADBRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBId'                 => 'DBId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'DBId' => 'DBId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

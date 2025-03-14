@@ -34,14 +34,12 @@ class ListTemplatesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'templates'  => 'Templates',
+        'requestId' => 'RequestId',
+        'templates' => 'Templates',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class ListTemplatesResponseBody extends Model
         if (isset($map['Templates'])) {
             if (!empty($map['Templates'])) {
                 $model->templates = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Templates'] as $item) {
                     $model->templates[$n++] = null !== $item ? templates::fromMap($item) : $item;
                 }

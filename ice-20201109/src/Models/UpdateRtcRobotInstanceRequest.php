@@ -23,13 +23,11 @@ class UpdateRtcRobotInstanceRequest extends Model
      */
     public $instanceId;
     protected $_name = [
-        'config'     => 'Config',
+        'config' => 'Config',
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

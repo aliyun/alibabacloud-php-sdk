@@ -12,6 +12,7 @@ class GetSystemTemplateRequest extends Model
      * @description The template ID.
      *
      * This parameter is required.
+     *
      * @example S00000001-100060
      *
      * @var string
@@ -21,9 +22,7 @@ class GetSystemTemplateRequest extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

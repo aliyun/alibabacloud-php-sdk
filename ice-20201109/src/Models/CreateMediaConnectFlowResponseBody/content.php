@@ -20,9 +20,7 @@ class content extends Model
         'flowId' => 'FlowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

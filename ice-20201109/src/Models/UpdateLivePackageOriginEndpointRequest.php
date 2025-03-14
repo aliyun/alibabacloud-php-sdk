@@ -21,6 +21,7 @@ class UpdateLivePackageOriginEndpointRequest extends Model
      * @description The channel name.
      *
      * This parameter is required.
+     *
      * @example channel-1
      *
      * @var string
@@ -38,6 +39,7 @@ class UpdateLivePackageOriginEndpointRequest extends Model
      * @description The origin endpoint name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
      *
      * This parameter is required.
+     *
      * @example endpoint-1
      *
      * @var string
@@ -48,6 +50,7 @@ class UpdateLivePackageOriginEndpointRequest extends Model
      * @description The channel group name.
      *
      * This parameter is required.
+     *
      * @example channel-group-1
      *
      * @var string
@@ -85,6 +88,7 @@ class UpdateLivePackageOriginEndpointRequest extends Model
      * @description The protocol. Only HLS is supported.
      *
      * This parameter is required.
+     *
      * @example HLS
      *
      * @var string
@@ -101,20 +105,18 @@ class UpdateLivePackageOriginEndpointRequest extends Model
     public $timeshiftVision;
     protected $_name = [
         'authorizationCode' => 'AuthorizationCode',
-        'channelName'       => 'ChannelName',
-        'description'       => 'Description',
-        'endpointName'      => 'EndpointName',
-        'groupName'         => 'GroupName',
-        'ipBlacklist'       => 'IpBlacklist',
-        'ipWhitelist'       => 'IpWhitelist',
-        'manifestName'      => 'ManifestName',
-        'protocol'          => 'Protocol',
-        'timeshiftVision'   => 'TimeshiftVision',
+        'channelName' => 'ChannelName',
+        'description' => 'Description',
+        'endpointName' => 'EndpointName',
+        'groupName' => 'GroupName',
+        'ipBlacklist' => 'IpBlacklist',
+        'ipWhitelist' => 'IpWhitelist',
+        'manifestName' => 'ManifestName',
+        'protocol' => 'Protocol',
+        'timeshiftVision' => 'TimeshiftVision',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,19 +21,18 @@ class DeleteMediaMarksRequest extends Model
      * @description The mark ID. You can specify multiple mark IDs separated with commas (,).
      *
      * If you do not specify MediaMarkIds, all the marks of the media asset are deleted.
+     *
      * @example mark-f82d*****4994b0915948ef7e16,mark-3d56d*****4c8fa9ae2a1f9e5d2d60
      *
      * @var string
      */
     public $mediaMarkIds;
     protected $_name = [
-        'mediaId'      => 'MediaId',
+        'mediaId' => 'MediaId',
         'mediaMarkIds' => 'MediaMarkIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -35,14 +35,12 @@ class deleteFileInfoList extends Model
      */
     public $recordId;
     protected $_name = [
-        'code'     => 'Code',
-        'message'  => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'recordId' => 'RecordId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

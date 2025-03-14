@@ -12,6 +12,7 @@ class CancelDNAJobRequest extends Model
      * @description The ID of the media fingerprint analysis job that you want to cancel.
      *
      * This parameter is required.
+     *
      * @example 2288c6ca184c0e47098a5b665e2a12****
      *
      * @var string
@@ -38,16 +39,14 @@ class CancelDNAJobRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'jobId'                => 'JobId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'jobId' => 'JobId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

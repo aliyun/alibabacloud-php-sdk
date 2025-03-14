@@ -12,6 +12,7 @@ class ListDNAFilesRequest extends Model
      * @description The ID of the media fingerprint library.
      *
      * This parameter is required.
+     *
      * @example 2288c6ca184c0e47098a5b665e2a12****
      *
      * @var string
@@ -56,18 +57,16 @@ class ListDNAFilesRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBId'                 => 'DBId',
-        'nextPageToken'        => 'NextPageToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageSize'             => 'PageSize',
+        'DBId' => 'DBId',
+        'nextPageToken' => 'NextPageToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

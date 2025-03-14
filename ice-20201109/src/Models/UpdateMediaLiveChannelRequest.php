@@ -23,6 +23,7 @@ class UpdateMediaLiveChannelRequest extends Model
      * @description The ID of the channel.
      *
      * This parameter is required.
+     *
      * @example SEGK5KA6KYKAWQQH
      *
      * @var string
@@ -33,6 +34,7 @@ class UpdateMediaLiveChannelRequest extends Model
      * @description The inputs associated with the channel.
      *
      * This parameter is required.
+     *
      * @var inputAttachments[]
      */
     public $inputAttachments;
@@ -41,6 +43,7 @@ class UpdateMediaLiveChannelRequest extends Model
      * @description The name of the channel. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example mych
      *
      * @var string
@@ -51,6 +54,7 @@ class UpdateMediaLiveChannelRequest extends Model
      * @description The output groups.
      *
      * This parameter is required.
+     *
      * @var outputGroups[]
      */
     public $outputGroups;
@@ -62,17 +66,15 @@ class UpdateMediaLiveChannelRequest extends Model
      */
     public $videoSettings;
     protected $_name = [
-        'audioSettings'    => 'AudioSettings',
-        'channelId'        => 'ChannelId',
+        'audioSettings' => 'AudioSettings',
+        'channelId' => 'ChannelId',
         'inputAttachments' => 'InputAttachments',
-        'name'             => 'Name',
-        'outputGroups'     => 'OutputGroups',
-        'videoSettings'    => 'VideoSettings',
+        'name' => 'Name',
+        'outputGroups' => 'OutputGroups',
+        'videoSettings' => 'VideoSettings',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -134,7 +136,7 @@ class UpdateMediaLiveChannelRequest extends Model
         if (isset($map['AudioSettings'])) {
             if (!empty($map['AudioSettings'])) {
                 $model->audioSettings = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['AudioSettings'] as $item) {
                     $model->audioSettings[$n++] = null !== $item ? audioSettings::fromMap($item) : $item;
                 }
@@ -146,7 +148,7 @@ class UpdateMediaLiveChannelRequest extends Model
         if (isset($map['InputAttachments'])) {
             if (!empty($map['InputAttachments'])) {
                 $model->inputAttachments = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['InputAttachments'] as $item) {
                     $model->inputAttachments[$n++] = null !== $item ? inputAttachments::fromMap($item) : $item;
                 }
@@ -158,7 +160,7 @@ class UpdateMediaLiveChannelRequest extends Model
         if (isset($map['OutputGroups'])) {
             if (!empty($map['OutputGroups'])) {
                 $model->outputGroups = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['OutputGroups'] as $item) {
                     $model->outputGroups[$n++] = null !== $item ? outputGroups::fromMap($item) : $item;
                 }
@@ -167,7 +169,7 @@ class UpdateMediaLiveChannelRequest extends Model
         if (isset($map['VideoSettings'])) {
             if (!empty($map['VideoSettings'])) {
                 $model->videoSettings = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['VideoSettings'] as $item) {
                     $model->videoSettings[$n++] = null !== $item ? videoSettings::fromMap($item) : $item;
                 }

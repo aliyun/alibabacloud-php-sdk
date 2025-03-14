@@ -18,6 +18,7 @@ class GetDemonstrationForCustomizedVoiceJobRequest extends Model
      *   **navigation**
      *
      * This parameter is required.
+     *
      * @example story
      *
      * @var string
@@ -27,9 +28,7 @@ class GetDemonstrationForCustomizedVoiceJobRequest extends Model
         'scenario' => 'Scenario',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

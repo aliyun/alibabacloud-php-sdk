@@ -41,14 +41,12 @@ class videoCodecSetting extends Model
     public $rate;
     protected $_name = [
         'codecDetail' => 'CodecDetail',
-        'framerate'   => 'Framerate',
-        'gop'         => 'Gop',
-        'rate'        => 'Rate',
+        'framerate' => 'Framerate',
+        'gop' => 'Gop',
+        'rate' => 'Rate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

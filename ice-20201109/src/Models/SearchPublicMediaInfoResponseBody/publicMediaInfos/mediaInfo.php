@@ -30,13 +30,11 @@ class mediaInfo extends Model
     public $mediaId;
     protected $_name = [
         'dynamicMetaData' => 'DynamicMetaData',
-        'mediaBasicInfo'  => 'MediaBasicInfo',
-        'mediaId'         => 'MediaId',
+        'mediaBasicInfo' => 'MediaBasicInfo',
+        'mediaId' => 'MediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

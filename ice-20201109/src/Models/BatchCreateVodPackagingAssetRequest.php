@@ -25,13 +25,11 @@ class BatchCreateVodPackagingAssetRequest extends Model
      */
     public $groupName;
     protected $_name = [
-        'assets'    => 'Assets',
+        'assets' => 'Assets',
         'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class BatchCreateVodPackagingAssetRequest extends Model
         if (isset($map['Assets'])) {
             if (!empty($map['Assets'])) {
                 $model->assets = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Assets'] as $item) {
                     $model->assets[$n++] = null !== $item ? assets::fromMap($item) : $item;
                 }

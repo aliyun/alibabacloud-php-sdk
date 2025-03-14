@@ -38,17 +38,15 @@ class MediaConvertOutputGroupDetail extends Model
      */
     public $taskId;
     protected $_name = [
-        'code'    => 'Code',
+        'code' => 'Code',
         'message' => 'Message',
-        'name'    => 'Name',
+        'name' => 'Name',
         'outputs' => 'Outputs',
-        'status'  => 'Status',
-        'taskId'  => 'TaskId',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -101,7 +99,7 @@ class MediaConvertOutputGroupDetail extends Model
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Outputs'] as $item) {
                     $model->outputs[$n++] = null !== $item ? MediaConvertOutputDetail::fromMap($item) : $item;
                 }

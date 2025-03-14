@@ -114,25 +114,23 @@ class mediaBasicInfo extends Model
     public $userData;
     protected $_name = [
         'businessType' => 'BusinessType',
-        'category'     => 'Category',
-        'coverURL'     => 'CoverURL',
-        'createTime'   => 'CreateTime',
-        'deletedTime'  => 'DeletedTime',
-        'description'  => 'Description',
-        'mediaId'      => 'MediaId',
-        'mediaTags'    => 'MediaTags',
-        'mediaType'    => 'MediaType',
+        'category' => 'Category',
+        'coverURL' => 'CoverURL',
+        'createTime' => 'CreateTime',
+        'deletedTime' => 'DeletedTime',
+        'description' => 'Description',
+        'mediaId' => 'MediaId',
+        'mediaTags' => 'MediaTags',
+        'mediaType' => 'MediaType',
         'modifiedTime' => 'ModifiedTime',
-        'source'       => 'Source',
+        'source' => 'Source',
         'spriteImages' => 'SpriteImages',
-        'status'       => 'Status',
-        'title'        => 'Title',
-        'userData'     => 'UserData',
+        'status' => 'Status',
+        'title' => 'Title',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

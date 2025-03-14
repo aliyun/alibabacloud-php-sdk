@@ -79,20 +79,18 @@ class DescribePlayListRequest extends Model
      */
     public $traceId;
     protected $_name = [
-        'beginTs'   => 'BeginTs',
-        'endTs'     => 'EndTs',
+        'beginTs' => 'BeginTs',
+        'endTs' => 'EndTs',
         'orderName' => 'OrderName',
         'orderType' => 'OrderType',
-        'pageNo'    => 'PageNo',
-        'pageSize'  => 'PageSize',
-        'playType'  => 'PlayType',
-        'status'    => 'Status',
-        'traceId'   => 'TraceId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'playType' => 'PlayType',
+        'status' => 'Status',
+        'traceId' => 'TraceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

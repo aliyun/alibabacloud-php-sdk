@@ -80,19 +80,17 @@ class ListChannelsRequest extends Model
      */
     public $state;
     protected $_name = [
-        'channelName'        => 'ChannelName',
-        'channelTier'        => 'ChannelTier',
-        'pageNo'             => 'PageNo',
-        'pageSize'           => 'PageSize',
-        'playbackMode'       => 'PlaybackMode',
-        'sortBy'             => 'SortBy',
+        'channelName' => 'ChannelName',
+        'channelTier' => 'ChannelTier',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'playbackMode' => 'PlaybackMode',
+        'sortBy' => 'SortBy',
         'sortByModifiedTime' => 'SortByModifiedTime',
-        'state'              => 'State',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

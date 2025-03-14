@@ -51,7 +51,16 @@ class project extends Model
     /**
      * @description The method for creating the online editing project. Valid values:
      *
+     * \\- OpenAPI
+     *
+     * \\- AliyunConsole
+     *
+     * \\- WebSDK
+     *
+     * \\- LiveEditingOpenAPI
+     *
      * \\- LiveEditingConsole
+     *
      * @example WebSDK
      *
      * @var string
@@ -88,7 +97,16 @@ class project extends Model
     /**
      * @description The method for editing the online editing project. Valid values:
      *
+     * \\- OpenAPI
+     *
+     * \\- AliyunConsole
+     *
+     * \\- WebSDK
+     *
+     * \\- LiveEditingOpenAPI
+     *
      * \\- LiveEditingConsole
+     *
      * @example WebSDK
      *
      * @var string
@@ -116,7 +134,10 @@ class project extends Model
     /**
      * @description The type of the editing project. Default value: EditingProject. Valid values:
      *
+     * \\- EditingProject: a regular editing project.
+     *
      * \\- LiveEditingProject: a live stream editing project.
+     *
      * @example LiveEditingProject
      *
      * @var string
@@ -126,7 +147,20 @@ class project extends Model
     /**
      * @description The status of the online editing project.
      *
+     * Valid values:
+     *
+     * \\- 1: Draft
+     *
+     * \\- 2: Editing
+     *
+     * \\- 3: Producing
+     *
+     * \\- 4: Produced
+     *
+     * \\- 5: ProduceFailed
+     *
      * \\- 7: Deleted
+     *
      * @example 2
      *
      * @var int
@@ -154,7 +188,10 @@ class project extends Model
     /**
      * @description The template type of the online editing project. Valid values:
      *
+     * \\- Timeline
+     *
      * \\- VETemplate
+     *
      * @example Timeline
      *
      * @var string
@@ -181,27 +218,25 @@ class project extends Model
     protected $_name = [
         'businessConfig' => 'BusinessConfig',
         'businessStatus' => 'BusinessStatus',
-        'clipsParam'     => 'ClipsParam',
-        'coverURL'       => 'CoverURL',
-        'createSource'   => 'CreateSource',
-        'createTime'     => 'CreateTime',
-        'description'    => 'Description',
-        'duration'       => 'Duration',
+        'clipsParam' => 'ClipsParam',
+        'coverURL' => 'CoverURL',
+        'createSource' => 'CreateSource',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'duration' => 'Duration',
         'modifiedSource' => 'ModifiedSource',
-        'modifiedTime'   => 'ModifiedTime',
-        'projectId'      => 'ProjectId',
-        'projectType'    => 'ProjectType',
-        'status'         => 'Status',
-        'statusName'     => 'StatusName',
-        'templateId'     => 'TemplateId',
-        'templateType'   => 'TemplateType',
-        'timeline'       => 'Timeline',
-        'title'          => 'Title',
+        'modifiedTime' => 'ModifiedTime',
+        'projectId' => 'ProjectId',
+        'projectType' => 'ProjectType',
+        'status' => 'Status',
+        'statusName' => 'StatusName',
+        'templateId' => 'TemplateId',
+        'templateType' => 'TemplateType',
+        'timeline' => 'Timeline',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

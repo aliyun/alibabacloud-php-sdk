@@ -50,17 +50,15 @@ class QueryTraceAbJobListRequest extends Model
      */
     public $traceMediaId;
     protected $_name = [
-        'createTimeEnd'   => 'CreateTimeEnd',
+        'createTimeEnd' => 'CreateTimeEnd',
         'createTimeStart' => 'CreateTimeStart',
-        'jobId'           => 'JobId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'traceMediaId'    => 'TraceMediaId',
+        'jobId' => 'JobId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'traceMediaId' => 'TraceMediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

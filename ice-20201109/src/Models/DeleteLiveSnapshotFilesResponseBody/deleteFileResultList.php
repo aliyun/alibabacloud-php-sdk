@@ -32,12 +32,10 @@ class deleteFileResultList extends Model
     public $result;
     protected $_name = [
         'createTimestamp' => 'CreateTimestamp',
-        'result'          => 'Result',
+        'result' => 'Result',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -49,15 +49,13 @@ class SubmitAudioProduceJobResponseBody extends Model
      */
     public $state;
     protected $_name = [
-        'jobId'     => 'JobId',
-        'mediaId'   => 'MediaId',
+        'jobId' => 'JobId',
+        'mediaId' => 'MediaId',
         'requestId' => 'RequestId',
-        'state'     => 'State',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

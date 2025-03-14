@@ -62,17 +62,15 @@ class ListAdInsertionsRequest extends Model
      */
     public $sortBy;
     protected $_name = [
-        'keyword'    => 'Keyword',
+        'keyword' => 'Keyword',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'sortBy'     => 'SortBy',
+        'nextToken' => 'NextToken',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

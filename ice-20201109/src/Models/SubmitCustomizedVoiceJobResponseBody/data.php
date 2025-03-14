@@ -26,13 +26,11 @@ class data extends Model
      */
     public $voiceId;
     protected $_name = [
-        'jobId'   => 'JobId',
+        'jobId' => 'JobId',
         'voiceId' => 'VoiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

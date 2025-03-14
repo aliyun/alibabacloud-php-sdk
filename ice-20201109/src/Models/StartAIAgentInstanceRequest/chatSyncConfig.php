@@ -27,12 +27,10 @@ class chatSyncConfig extends Model
     public $receiverId;
     protected $_name = [
         'IMAIAgentId' => 'IMAIAgentId',
-        'receiverId'  => 'ReceiverId',
+        'receiverId' => 'ReceiverId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

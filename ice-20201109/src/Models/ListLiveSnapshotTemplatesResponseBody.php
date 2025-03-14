@@ -61,17 +61,15 @@ class ListLiveSnapshotTemplatesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNo'       => 'PageNo',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
-        'sortBy'       => 'SortBy',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'sortBy' => 'SortBy',
         'templateList' => 'TemplateList',
-        'totalCount'   => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -127,7 +125,7 @@ class ListLiveSnapshotTemplatesResponseBody extends Model
         if (isset($map['TemplateList'])) {
             if (!empty($map['TemplateList'])) {
                 $model->templateList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['TemplateList'] as $item) {
                     $model->templateList[$n++] = null !== $item ? templateList::fromMap($item) : $item;
                 }

@@ -72,17 +72,15 @@ class spriteSnapshotConfig extends Model
     public $padding;
     protected $_name = [
         'cellHeight' => 'CellHeight',
-        'cellWidth'  => 'CellWidth',
-        'color'      => 'Color',
-        'columns'    => 'Columns',
-        'lines'      => 'Lines',
-        'margin'     => 'Margin',
-        'padding'    => 'Padding',
+        'cellWidth' => 'CellWidth',
+        'color' => 'Color',
+        'columns' => 'Columns',
+        'lines' => 'Lines',
+        'margin' => 'Margin',
+        'padding' => 'Padding',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

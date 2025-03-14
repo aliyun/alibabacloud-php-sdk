@@ -19,9 +19,7 @@ class data extends Model
         'customizedVoiceJob' => 'CustomizedVoiceJob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

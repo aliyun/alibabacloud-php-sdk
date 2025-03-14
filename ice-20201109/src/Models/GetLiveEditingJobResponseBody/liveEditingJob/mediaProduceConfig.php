@@ -20,9 +20,7 @@ class mediaProduceConfig extends Model
         'mode' => 'Mode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

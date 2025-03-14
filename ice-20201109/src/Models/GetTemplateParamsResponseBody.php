@@ -34,14 +34,12 @@ class GetTemplateParamsResponseBody extends Model
      */
     public $templateId;
     protected $_name = [
-        'paramList'  => 'ParamList',
-        'requestId'  => 'RequestId',
+        'paramList' => 'ParamList',
+        'requestId' => 'RequestId',
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class GetTemplateParamsResponseBody extends Model
         if (isset($map['ParamList'])) {
             if (!empty($map['ParamList'])) {
                 $model->paramList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['ParamList'] as $item) {
                     $model->paramList[$n++] = null !== $item ? paramList::fromMap($item) : $item;
                 }

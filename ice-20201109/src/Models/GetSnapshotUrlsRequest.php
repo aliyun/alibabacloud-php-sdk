@@ -20,7 +20,10 @@ class GetSnapshotUrlsRequest extends Model
     /**
      * @description The order that you use to sort the query results. Valid values: Asc and Desc.
      *
+     * - Asc
+     *
      * - Desc
+     *
      * @example Asc
      *
      * @var string
@@ -54,16 +57,14 @@ class GetSnapshotUrlsRequest extends Model
      */
     public $timeout;
     protected $_name = [
-        'jobId'      => 'JobId',
-        'orderBy'    => 'OrderBy',
+        'jobId' => 'JobId',
+        'orderBy' => 'OrderBy',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'timeout'    => 'Timeout',
+        'pageSize' => 'PageSize',
+        'timeout' => 'Timeout',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

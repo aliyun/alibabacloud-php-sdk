@@ -21,6 +21,7 @@ class AddMediaConnectFlowInputRequest extends Model
      * @description The flow ID.
      *
      * This parameter is required.
+     *
      * @example 34900dc6-90ec-4968-af3c-fcd87f231a5f
      *
      * @var string
@@ -40,6 +41,7 @@ class AddMediaConnectFlowInputRequest extends Model
      * @description The source name.
      *
      * This parameter is required.
+     *
      * @example AliTestInput
      *
      * @var string
@@ -58,6 +60,7 @@ class AddMediaConnectFlowInputRequest extends Model
      *   Flow
      *
      * This parameter is required.
+     *
      * @example RTMP-PUSH
      *
      * @var string
@@ -125,22 +128,20 @@ class AddMediaConnectFlowInputRequest extends Model
      */
     public $srtPbkeyLen;
     protected $_name = [
-        'cidrs'          => 'Cidrs',
-        'flowId'         => 'FlowId',
-        'inputFromUrl'   => 'InputFromUrl',
-        'inputName'      => 'InputName',
-        'inputProtocol'  => 'InputProtocol',
-        'maxBitrate'     => 'MaxBitrate',
-        'pairFlowId'     => 'PairFlowId',
+        'cidrs' => 'Cidrs',
+        'flowId' => 'FlowId',
+        'inputFromUrl' => 'InputFromUrl',
+        'inputName' => 'InputName',
+        'inputProtocol' => 'InputProtocol',
+        'maxBitrate' => 'MaxBitrate',
+        'pairFlowId' => 'PairFlowId',
         'pairOutputName' => 'PairOutputName',
-        'srtLatency'     => 'SrtLatency',
-        'srtPassphrase'  => 'SrtPassphrase',
-        'srtPbkeyLen'    => 'SrtPbkeyLen',
+        'srtLatency' => 'SrtLatency',
+        'srtPassphrase' => 'SrtPassphrase',
+        'srtPbkeyLen' => 'SrtPbkeyLen',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

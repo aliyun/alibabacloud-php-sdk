@@ -38,17 +38,15 @@ class platforms extends Model
      */
     public $type;
     protected $_name = [
-        'itemId'         => 'ItemId',
+        'itemId' => 'ItemId',
         'licenseItemIds' => 'LicenseItemIds',
-        'pkgName'        => 'PkgName',
-        'pkgSignature'   => 'PkgSignature',
-        'platformType'   => 'PlatformType',
-        'type'           => 'Type',
+        'pkgName' => 'PkgName',
+        'pkgSignature' => 'PkgSignature',
+        'platformType' => 'PlatformType',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

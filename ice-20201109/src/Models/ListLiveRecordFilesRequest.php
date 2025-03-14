@@ -46,6 +46,7 @@ class ListLiveRecordFilesRequest extends Model
      * @description The format of the recording file. Valid values:
      *
      * M3U8, FLV, and MP4
+     *
      * @example m3u8
      *
      * @var string
@@ -55,7 +56,10 @@ class ListLiveRecordFilesRequest extends Model
     /**
      * @description The sorting order of the index files by creation time. Valid values:
      *
+     * asc: The query results are displayed in ascending order. This is the default value.
+     *
      * desc: The query results are displayed in descending order.
+     *
      * @example asc
      *
      * @var string
@@ -71,18 +75,16 @@ class ListLiveRecordFilesRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'jobIds'       => 'JobIds',
-        'pageNo'       => 'PageNo',
-        'pageSize'     => 'PageSize',
+        'endTime' => 'EndTime',
+        'jobIds' => 'JobIds',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'recordFormat' => 'RecordFormat',
-        'sortBy'       => 'SortBy',
-        'startTime'    => 'StartTime',
+        'sortBy' => 'SortBy',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

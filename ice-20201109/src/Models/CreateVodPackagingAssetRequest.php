@@ -52,16 +52,14 @@ class CreateVodPackagingAssetRequest extends Model
      */
     public $input;
     protected $_name = [
-        'assetName'   => 'AssetName',
-        'contentId'   => 'ContentId',
+        'assetName' => 'AssetName',
+        'contentId' => 'ContentId',
         'description' => 'Description',
-        'groupName'   => 'GroupName',
-        'input'       => 'Input',
+        'groupName' => 'GroupName',
+        'input' => 'Input',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

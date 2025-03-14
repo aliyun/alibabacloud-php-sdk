@@ -15,6 +15,7 @@ class UpdateLiveTranscodeJobRequest extends Model
      * @description The job ID.
      *
      * This parameter is required.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -51,16 +52,14 @@ class UpdateLiveTranscodeJobRequest extends Model
      */
     public $transcodeOutput;
     protected $_name = [
-        'jobId'           => 'JobId',
-        'name'            => 'Name',
-        'streamInput'     => 'StreamInput',
-        'timedConfig'     => 'TimedConfig',
+        'jobId' => 'JobId',
+        'name' => 'Name',
+        'streamInput' => 'StreamInput',
+        'timedConfig' => 'TimedConfig',
         'transcodeOutput' => 'TranscodeOutput',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

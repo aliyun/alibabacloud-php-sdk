@@ -24,6 +24,7 @@ class SubmitTranscodeJobRequest extends Model
      * @description The input group of the job. An input of a single file indicates a transcoding job. An input of multiple files indicates an audio and video stream merge job.
      *
      * This parameter is required.
+     *
      * @example job-name
      *
      * @var inputGroup[]
@@ -43,6 +44,7 @@ class SubmitTranscodeJobRequest extends Model
      * @description The output group of the job.
      *
      * This parameter is required.
+     *
      * @example user-data
      *
      * @var outputGroup[]
@@ -67,17 +69,15 @@ class SubmitTranscodeJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'inputGroup'     => 'InputGroup',
-        'name'           => 'Name',
-        'outputGroup'    => 'OutputGroup',
+        'clientToken' => 'ClientToken',
+        'inputGroup' => 'InputGroup',
+        'name' => 'Name',
+        'outputGroup' => 'OutputGroup',
         'scheduleConfig' => 'ScheduleConfig',
-        'userData'       => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -130,7 +130,7 @@ class SubmitTranscodeJobRequest extends Model
         if (isset($map['InputGroup'])) {
             if (!empty($map['InputGroup'])) {
                 $model->inputGroup = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['InputGroup'] as $item) {
                     $model->inputGroup[$n++] = null !== $item ? inputGroup::fromMap($item) : $item;
                 }
@@ -142,7 +142,7 @@ class SubmitTranscodeJobRequest extends Model
         if (isset($map['OutputGroup'])) {
             if (!empty($map['OutputGroup'])) {
                 $model->outputGroup = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['OutputGroup'] as $item) {
                     $model->outputGroup[$n++] = null !== $item ? outputGroup::fromMap($item) : $item;
                 }

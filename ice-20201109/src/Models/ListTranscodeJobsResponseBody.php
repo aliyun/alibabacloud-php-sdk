@@ -34,14 +34,12 @@ class ListTranscodeJobsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'jobs'          => 'Jobs',
+        'jobs' => 'Jobs',
         'nextPageToken' => 'NextPageToken',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListTranscodeJobsResponseBody extends Model
         if (isset($map['Jobs'])) {
             if (!empty($map['Jobs'])) {
                 $model->jobs = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Jobs'] as $item) {
                     $model->jobs[$n++] = null !== $item ? jobs::fromMap($item) : $item;
                 }

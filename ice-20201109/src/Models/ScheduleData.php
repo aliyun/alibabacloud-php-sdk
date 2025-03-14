@@ -49,19 +49,17 @@ class ScheduleData extends Model
      */
     public $sourceType;
     protected $_name = [
-        'adBreaks'                   => 'AdBreaks',
+        'adBreaks' => 'AdBreaks',
         'approximateDurationSeconds' => 'ApproximateDurationSeconds',
-        'approximateStartTime'       => 'ApproximateStartTime',
-        'entryType'                  => 'EntryType',
-        'programName'                => 'ProgramName',
-        'sourceLocationName'         => 'SourceLocationName',
-        'sourceName'                 => 'SourceName',
-        'sourceType'                 => 'SourceType',
+        'approximateStartTime' => 'ApproximateStartTime',
+        'entryType' => 'EntryType',
+        'programName' => 'ProgramName',
+        'sourceLocationName' => 'SourceLocationName',
+        'sourceName' => 'SourceName',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class ScheduleData extends Model
         if (isset($map['AdBreaks'])) {
             if (!empty($map['AdBreaks'])) {
                 $model->adBreaks = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['AdBreaks'] as $item) {
                     $model->adBreaks[$n++] = null !== $item ? adBreaks::fromMap($item) : $item;
                 }

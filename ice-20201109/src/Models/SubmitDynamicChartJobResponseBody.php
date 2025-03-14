@@ -26,13 +26,11 @@ class SubmitDynamicChartJobResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'jobId'     => 'JobId',
+        'jobId' => 'JobId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

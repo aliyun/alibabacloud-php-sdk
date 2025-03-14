@@ -27,12 +27,10 @@ class GetTemplateMaterialsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'materialUrls' => 'MaterialUrls',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

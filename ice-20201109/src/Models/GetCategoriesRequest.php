@@ -42,7 +42,10 @@ class GetCategoriesRequest extends Model
     /**
      * @description The sorting rule of results. Valid values:
      *
+     * \\- CreationTime:Desc (default): The results are sorted in reverse chronological order based on the creation time.
+     *
      * \\- CreationTime:Asc: The results are sorted in chronological order based on the creation time.
+     *
      * @example CreationTime:Desc
      *
      * @var string
@@ -58,16 +61,14 @@ class GetCategoriesRequest extends Model
      */
     public $type;
     protected $_name = [
-        'cateId'   => 'CateId',
-        'pageNo'   => 'PageNo',
+        'cateId' => 'CateId',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
-        'sortBy'   => 'SortBy',
-        'type'     => 'Type',
+        'sortBy' => 'SortBy',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

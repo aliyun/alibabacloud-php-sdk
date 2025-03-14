@@ -25,13 +25,11 @@ class GetPipelineResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'pipeline'  => 'Pipeline',
+        'pipeline' => 'Pipeline',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

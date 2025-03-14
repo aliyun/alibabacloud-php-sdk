@@ -21,19 +21,18 @@ class GetLiveRecordTemplateRequest extends Model
      * @description The template ID.
      *
      * This parameter is required.
+     *
      * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
      *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'jobId'      => 'JobId',
+        'jobId' => 'JobId',
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

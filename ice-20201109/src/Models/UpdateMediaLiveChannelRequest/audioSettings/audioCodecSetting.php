@@ -35,14 +35,12 @@ class audioCodecSetting extends Model
      */
     public $sampleRate;
     protected $_name = [
-        'bitrate'    => 'Bitrate',
-        'profile'    => 'Profile',
+        'bitrate' => 'Bitrate',
+        'profile' => 'Profile',
         'sampleRate' => 'SampleRate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

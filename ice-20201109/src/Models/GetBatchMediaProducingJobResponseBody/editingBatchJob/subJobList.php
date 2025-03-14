@@ -65,25 +65,30 @@ class subJobList extends Model
     /**
      * @description The subjob state. Valid values:
      *
+     * Init: The subjob is initialized.
+     *
+     * Processing: The subjob is in progress.
+     *
+     * Success: The subjob is successful.
+     *
      * Failed: The subjob failed.
+     *
      * @example Success
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'errorCode'    => 'ErrorCode',
+        'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
-        'jobId'        => 'JobId',
-        'mediaId'      => 'MediaId',
-        'mediaURL'     => 'MediaURL',
-        'projectId'    => 'ProjectId',
-        'status'       => 'Status',
+        'jobId' => 'JobId',
+        'mediaId' => 'MediaId',
+        'mediaURL' => 'MediaURL',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

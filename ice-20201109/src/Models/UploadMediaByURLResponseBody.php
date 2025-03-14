@@ -25,13 +25,11 @@ class UploadMediaByURLResponseBody extends Model
      */
     public $uploadJobs;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'uploadJobs' => 'UploadJobs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class UploadMediaByURLResponseBody extends Model
         if (isset($map['UploadJobs'])) {
             if (!empty($map['UploadJobs'])) {
                 $model->uploadJobs = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['UploadJobs'] as $item) {
                     $model->uploadJobs[$n++] = null !== $item ? uploadJobs::fromMap($item) : $item;
                 }

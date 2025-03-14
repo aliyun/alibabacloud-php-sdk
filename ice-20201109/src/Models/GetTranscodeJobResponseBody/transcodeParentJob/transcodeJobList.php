@@ -147,27 +147,25 @@ class transcodeJobList extends Model
      */
     public $userData;
     protected $_name = [
-        'createTime'       => 'CreateTime',
-        'finishTime'       => 'FinishTime',
-        'inputGroup'       => 'InputGroup',
-        'jobId'            => 'JobId',
-        'jobIndex'         => 'JobIndex',
-        'name'             => 'Name',
-        'outFileMeta'      => 'OutFileMeta',
-        'output'           => 'Output',
-        'parentJobId'      => 'ParentJobId',
-        'processConfig'    => 'ProcessConfig',
-        'requestId'        => 'RequestId',
-        'scheduleConfig'   => 'ScheduleConfig',
-        'status'           => 'Status',
+        'createTime' => 'CreateTime',
+        'finishTime' => 'FinishTime',
+        'inputGroup' => 'InputGroup',
+        'jobId' => 'JobId',
+        'jobIndex' => 'JobIndex',
+        'name' => 'Name',
+        'outFileMeta' => 'OutFileMeta',
+        'output' => 'Output',
+        'parentJobId' => 'ParentJobId',
+        'processConfig' => 'ProcessConfig',
+        'requestId' => 'RequestId',
+        'scheduleConfig' => 'ScheduleConfig',
+        'status' => 'Status',
         'submitResultJson' => 'SubmitResultJson',
-        'submitTime'       => 'SubmitTime',
-        'userData'         => 'UserData',
+        'submitTime' => 'SubmitTime',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -247,7 +245,7 @@ class transcodeJobList extends Model
         if (isset($map['InputGroup'])) {
             if (!empty($map['InputGroup'])) {
                 $model->inputGroup = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['InputGroup'] as $item) {
                     $model->inputGroup[$n++] = null !== $item ? inputGroup::fromMap($item) : $item;
                 }

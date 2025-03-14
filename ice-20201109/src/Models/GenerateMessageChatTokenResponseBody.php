@@ -64,19 +64,17 @@ class GenerateMessageChatTokenResponseBody extends Model
      */
     public $userId;
     protected $_name = [
-        'appId'     => 'AppId',
-        'appSign'   => 'AppSign',
-        'nonce'     => 'Nonce',
+        'appId' => 'AppId',
+        'appSign' => 'AppSign',
+        'nonce' => 'Nonce',
         'requestId' => 'RequestId',
-        'role'      => 'Role',
+        'role' => 'Role',
         'timeStamp' => 'TimeStamp',
-        'token'     => 'Token',
-        'userId'    => 'UserId',
+        'token' => 'Token',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

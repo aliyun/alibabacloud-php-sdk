@@ -75,19 +75,17 @@ class voiceList extends Model
      */
     public $voiceUrl;
     protected $_name = [
-        'desc'              => 'Desc',
-        'name'              => 'Name',
-        'remark'            => 'Remark',
+        'desc' => 'Desc',
+        'name' => 'Name',
+        'remark' => 'Remark',
         'supportSampleRate' => 'SupportSampleRate',
-        'tag'               => 'Tag',
-        'voice'             => 'Voice',
-        'voiceType'         => 'VoiceType',
-        'voiceUrl'          => 'VoiceUrl',
+        'tag' => 'Tag',
+        'voice' => 'Voice',
+        'voiceType' => 'VoiceType',
+        'voiceUrl' => 'VoiceUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

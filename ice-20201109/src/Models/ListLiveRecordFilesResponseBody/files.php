@@ -123,24 +123,22 @@ class files extends Model
      */
     public $width;
     protected $_name = [
-        'createTime'   => 'CreateTime',
-        'duration'     => 'Duration',
-        'endTime'      => 'EndTime',
-        'format'       => 'Format',
-        'height'       => 'Height',
-        'jobId'        => 'JobId',
-        'jobName'      => 'JobName',
-        'recordId'     => 'RecordId',
+        'createTime' => 'CreateTime',
+        'duration' => 'Duration',
+        'endTime' => 'EndTime',
+        'format' => 'Format',
+        'height' => 'Height',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
+        'recordId' => 'RecordId',
         'recordOutput' => 'RecordOutput',
-        'recordUrl'    => 'RecordUrl',
-        'startTime'    => 'StartTime',
-        'streamUrl'    => 'StreamUrl',
-        'width'        => 'Width',
+        'recordUrl' => 'RecordUrl',
+        'startTime' => 'StartTime',
+        'streamUrl' => 'StreamUrl',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

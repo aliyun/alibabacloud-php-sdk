@@ -17,9 +17,7 @@ class subCategories extends Model
         'category' => 'Category',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class subCategories extends Model
         if (isset($map['Category'])) {
             if (!empty($map['Category'])) {
                 $model->category = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Category'] as $item) {
                     $model->category[$n++] = null !== $item ? category::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class SetNotifyConfigRequest extends Model
      * @description The ID of the AI agent.
      *
      * This parameter is required.
+     *
      * @example 39f8e0bc005e4f309379701645f4****
      *
      * @var string
@@ -31,6 +32,7 @@ class SetNotifyConfigRequest extends Model
      * @description Specifies whether to enable event notifications.
      *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -59,16 +61,14 @@ class SetNotifyConfigRequest extends Model
      */
     public $token;
     protected $_name = [
-        'AIAgentId'    => 'AIAgentId',
-        'callbackUrl'  => 'CallbackUrl',
+        'AIAgentId' => 'AIAgentId',
+        'callbackUrl' => 'CallbackUrl',
         'enableNotify' => 'EnableNotify',
-        'eventTypes'   => 'EventTypes',
-        'token'        => 'Token',
+        'eventTypes' => 'EventTypes',
+        'token' => 'Token',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

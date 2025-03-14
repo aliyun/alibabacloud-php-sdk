@@ -39,7 +39,11 @@ class configs extends Model
      * @description The player parameter variables and aliases.
      *
      * @example {
+     * "player_params.p1": {
+     * "1": "abc"
      * }
+     * }
+     *
      * @var string
      */
     public $configAliases;
@@ -105,22 +109,20 @@ class configs extends Model
      */
     public $slateAdUrl;
     protected $_name = [
-        'adMarkerPassthrough'      => 'AdMarkerPassthrough',
-        'adsUrl'                   => 'AdsUrl',
-        'cdnConfig'                => 'CdnConfig',
-        'configAliases'            => 'ConfigAliases',
-        'contentUrlPrefix'         => 'ContentUrlPrefix',
-        'createTime'               => 'CreateTime',
-        'lastModified'             => 'LastModified',
-        'manifestEndpointConfig'   => 'ManifestEndpointConfig',
-        'name'                     => 'Name',
+        'adMarkerPassthrough' => 'AdMarkerPassthrough',
+        'adsUrl' => 'AdsUrl',
+        'cdnConfig' => 'CdnConfig',
+        'configAliases' => 'ConfigAliases',
+        'contentUrlPrefix' => 'ContentUrlPrefix',
+        'createTime' => 'CreateTime',
+        'lastModified' => 'LastModified',
+        'manifestEndpointConfig' => 'ManifestEndpointConfig',
+        'name' => 'Name',
         'personalizationThreshold' => 'PersonalizationThreshold',
-        'slateAdUrl'               => 'SlateAdUrl',
+        'slateAdUrl' => 'SlateAdUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

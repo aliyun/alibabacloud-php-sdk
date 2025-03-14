@@ -12,6 +12,7 @@ class GetPipelineRequest extends Model
      * @description The ID of the MPS queue.
      *
      * This parameter is required.
+     *
      * @example ****96e8864746a0b6f3****
      *
      * @var string
@@ -21,9 +22,7 @@ class GetPipelineRequest extends Model
         'pipelineId' => 'PipelineId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -86,20 +86,18 @@ class livePackageChannel extends Model
      */
     public $segmentDuration;
     protected $_name = [
-        'channelName'     => 'ChannelName',
-        'createTime'      => 'CreateTime',
-        'description'     => 'Description',
-        'groupName'       => 'GroupName',
+        'channelName' => 'ChannelName',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'groupName' => 'GroupName',
         'ingestEndpoints' => 'IngestEndpoints',
-        'lastModified'    => 'LastModified',
-        'protocol'        => 'Protocol',
-        'segmentCount'    => 'SegmentCount',
+        'lastModified' => 'LastModified',
+        'protocol' => 'Protocol',
+        'segmentCount' => 'SegmentCount',
         'segmentDuration' => 'SegmentDuration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -164,7 +162,7 @@ class livePackageChannel extends Model
         if (isset($map['IngestEndpoints'])) {
             if (!empty($map['IngestEndpoints'])) {
                 $model->ingestEndpoints = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['IngestEndpoints'] as $item) {
                     $model->ingestEndpoints[$n++] = null !== $item ? ingestEndpoints::fromMap($item) : $item;
                 }

@@ -52,15 +52,13 @@ class outputGroups extends Model
     public $type;
     protected $_name = [
         'mediaPackageGroupSetting' => 'MediaPackageGroupSetting',
-        'monitorUrl'               => 'MonitorUrl',
-        'name'                     => 'Name',
-        'outputs'                  => 'Outputs',
-        'type'                     => 'Type',
+        'monitorUrl' => 'MonitorUrl',
+        'name' => 'Name',
+        'outputs' => 'Outputs',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -110,7 +108,7 @@ class outputGroups extends Model
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Outputs'] as $item) {
                     $model->outputs[$n++] = null !== $item ? outputs::fromMap($item) : $item;
                 }

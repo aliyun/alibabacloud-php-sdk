@@ -52,16 +52,14 @@ class videoSettings extends Model
      */
     public $width;
     protected $_name = [
-        'height'            => 'Height',
-        'name'              => 'Name',
-        'videoCodec'        => 'VideoCodec',
+        'height' => 'Height',
+        'name' => 'Name',
+        'videoCodec' => 'VideoCodec',
         'videoCodecSetting' => 'VideoCodecSetting',
-        'width'             => 'Width',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

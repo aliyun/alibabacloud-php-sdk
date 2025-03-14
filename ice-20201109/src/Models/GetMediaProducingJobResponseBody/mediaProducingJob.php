@@ -21,6 +21,7 @@ class mediaProducingJob extends Model
      * @description The response code
      *
      * Note: Pay attention to this parameter if the job failed.
+     *
      * @example ExceededMaximumValue
      *
      * @var string
@@ -31,6 +32,7 @@ class mediaProducingJob extends Model
      * @description The time when the media editing and production job was complete.
      *
      * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2020-12-23T13:33:52Z
      *
      * @var string
@@ -41,6 +43,7 @@ class mediaProducingJob extends Model
      * @description The time when the media editing and production job was created.
      *
      * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2020-12-23T13:33:40Z
      *
      * @var string
@@ -51,6 +54,7 @@ class mediaProducingJob extends Model
      * @description The duration of the output file.
      *
      * Note: This parameter has a value if the job is successful and the output file is an audio or video file.
+     *
      * @example 30.500000
      *
      * @var float
@@ -88,6 +92,7 @@ class mediaProducingJob extends Model
      * @description The returned message.
      *
      * Note: Pay attention to this parameter if the job failed.
+     *
      * @example The specified "Width_Height" has exceeded maximum value.
      *
      * @var string
@@ -98,6 +103,7 @@ class mediaProducingJob extends Model
      * @description The time when the media editing and production job was last modified.
      *
      * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2020-12-23T13:33:49Z
      *
      * @var string
@@ -121,7 +127,16 @@ class mediaProducingJob extends Model
     /**
      * @description The state of the media editing and production job. Valid values:
      *
+     * Init
+     *
+     * Queuing
+     *
+     * Processing
+     *
+     * Success
+     *
      * Failed
+     *
      * @example Failed
      *
      * @var string
@@ -173,29 +188,27 @@ class mediaProducingJob extends Model
      */
     public $vodMediaId;
     protected $_name = [
-        'clipsParam'      => 'ClipsParam',
-        'code'            => 'Code',
-        'completeTime'    => 'CompleteTime',
-        'createTime'      => 'CreateTime',
-        'duration'        => 'Duration',
-        'jobId'           => 'JobId',
-        'mediaId'         => 'MediaId',
-        'mediaURL'        => 'MediaURL',
-        'message'         => 'Message',
-        'modifiedTime'    => 'ModifiedTime',
-        'progress'        => 'Progress',
-        'projectId'       => 'ProjectId',
-        'status'          => 'Status',
+        'clipsParam' => 'ClipsParam',
+        'code' => 'Code',
+        'completeTime' => 'CompleteTime',
+        'createTime' => 'CreateTime',
+        'duration' => 'Duration',
+        'jobId' => 'JobId',
+        'mediaId' => 'MediaId',
+        'mediaURL' => 'MediaURL',
+        'message' => 'Message',
+        'modifiedTime' => 'ModifiedTime',
+        'progress' => 'Progress',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
         'subJobMaterials' => 'SubJobMaterials',
-        'templateId'      => 'TemplateId',
-        'timeline'        => 'Timeline',
-        'userData'        => 'UserData',
-        'vodMediaId'      => 'VodMediaId',
+        'templateId' => 'TemplateId',
+        'timeline' => 'Timeline',
+        'userData' => 'UserData',
+        'vodMediaId' => 'VodMediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

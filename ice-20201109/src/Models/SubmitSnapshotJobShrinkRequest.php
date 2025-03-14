@@ -12,6 +12,7 @@ class SubmitSnapshotJobShrinkRequest extends Model
      * @description The snapshot input.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $inputShrink;
@@ -29,6 +30,7 @@ class SubmitSnapshotJobShrinkRequest extends Model
      * @description The snapshot output.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $outputShrink;
@@ -44,6 +46,7 @@ class SubmitSnapshotJobShrinkRequest extends Model
      * @description The snapshot template configuration.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $templateConfigShrink;
@@ -57,17 +60,15 @@ class SubmitSnapshotJobShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'inputShrink'          => 'Input',
-        'name'                 => 'Name',
-        'outputShrink'         => 'Output',
+        'inputShrink' => 'Input',
+        'name' => 'Name',
+        'outputShrink' => 'Output',
         'scheduleConfigShrink' => 'ScheduleConfig',
         'templateConfigShrink' => 'TemplateConfig',
-        'userData'             => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

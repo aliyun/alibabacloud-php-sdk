@@ -15,6 +15,7 @@ class SubmitLiveTranscodeJobRequest extends Model
      * @description The name of the transcoding job.
      *
      * This parameter is required.
+     *
      * @example task1
      *
      * @var string
@@ -28,6 +29,7 @@ class SubmitLiveTranscodeJobRequest extends Model
      *   1: The transcoding job starts at the scheduled time.
      *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -38,6 +40,7 @@ class SubmitLiveTranscodeJobRequest extends Model
      * @description The information about the input stream.
      *
      * This parameter is required.
+     *
      * @var streamInput
      */
     public $streamInput;
@@ -46,6 +49,7 @@ class SubmitLiveTranscodeJobRequest extends Model
      * @description The template ID.
      *
      * This parameter is required.
+     *
      * @example ****96e8864746a0b6f3****
      *
      * @var string
@@ -63,21 +67,20 @@ class SubmitLiveTranscodeJobRequest extends Model
      * @description The information about the transcoding output.
      *
      * This parameter is required.
+     *
      * @var transcodeOutput
      */
     public $transcodeOutput;
     protected $_name = [
-        'name'            => 'Name',
-        'startMode'       => 'StartMode',
-        'streamInput'     => 'StreamInput',
-        'templateId'      => 'TemplateId',
-        'timedConfig'     => 'TimedConfig',
+        'name' => 'Name',
+        'startMode' => 'StartMode',
+        'streamInput' => 'StreamInput',
+        'templateId' => 'TemplateId',
+        'timedConfig' => 'TimedConfig',
         'transcodeOutput' => 'TranscodeOutput',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

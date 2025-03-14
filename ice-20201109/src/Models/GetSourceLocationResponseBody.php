@@ -24,13 +24,11 @@ class GetSourceLocationResponseBody extends Model
      */
     public $sourceLocation;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'sourceLocation' => 'SourceLocation',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

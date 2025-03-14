@@ -140,25 +140,23 @@ class mediaList extends Model
      */
     public $title;
     protected $_name = [
-        'aiData'           => 'AiData',
-        'appId'            => 'AppId',
-        'coverUrl'         => 'CoverUrl',
-        'creationTime'     => 'CreationTime',
-        'description'      => 'Description',
-        'duration'         => 'Duration',
-        'mediaId'          => 'MediaId',
+        'aiData' => 'AiData',
+        'appId' => 'AppId',
+        'coverUrl' => 'CoverUrl',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'duration' => 'Duration',
+        'mediaId' => 'MediaId',
         'modificationTime' => 'ModificationTime',
-        'size'             => 'Size',
-        'snapshots'        => 'Snapshots',
-        'status'           => 'Status',
-        'storageLocation'  => 'StorageLocation',
-        'tags'             => 'Tags',
-        'title'            => 'Title',
+        'size' => 'Size',
+        'snapshots' => 'Snapshots',
+        'status' => 'Status',
+        'storageLocation' => 'StorageLocation',
+        'tags' => 'Tags',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

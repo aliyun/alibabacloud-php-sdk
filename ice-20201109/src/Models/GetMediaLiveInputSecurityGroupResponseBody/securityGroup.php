@@ -49,16 +49,14 @@ class securityGroup extends Model
      */
     public $whitelistRules;
     protected $_name = [
-        'createTime'      => 'CreateTime',
-        'inputIds'        => 'InputIds',
-        'name'            => 'Name',
+        'createTime' => 'CreateTime',
+        'inputIds' => 'InputIds',
+        'name' => 'Name',
         'securityGroupId' => 'SecurityGroupId',
-        'whitelistRules'  => 'WhitelistRules',
+        'whitelistRules' => 'WhitelistRules',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

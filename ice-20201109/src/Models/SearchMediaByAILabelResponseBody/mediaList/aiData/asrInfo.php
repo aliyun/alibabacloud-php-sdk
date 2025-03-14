@@ -51,16 +51,14 @@ class asrInfo extends Model
      */
     public $to;
     protected $_name = [
-        'clipId'    => 'ClipId',
-        'content'   => 'Content',
-        'from'      => 'From',
+        'clipId' => 'ClipId',
+        'content' => 'Content',
+        'from' => 'From',
         'timestamp' => 'Timestamp',
-        'to'        => 'To',
+        'to' => 'To',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

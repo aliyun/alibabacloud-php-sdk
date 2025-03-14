@@ -50,16 +50,14 @@ class mediaClipList extends Model
      */
     public $score;
     protected $_name = [
-        'category'         => 'Category',
-        'entityId'         => 'EntityId',
-        'labelName'        => 'LabelName',
+        'category' => 'Category',
+        'entityId' => 'EntityId',
+        'labelName' => 'LabelName',
         'occurrencesInfos' => 'OccurrencesInfos',
-        'score'            => 'Score',
+        'score' => 'Score',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -109,7 +107,7 @@ class mediaClipList extends Model
         if (isset($map['OccurrencesInfos'])) {
             if (!empty($map['OccurrencesInfos'])) {
                 $model->occurrencesInfos = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['OccurrencesInfos'] as $item) {
                     $model->occurrencesInfos[$n++] = null !== $item ? occurrencesInfos::fromMap($item) : $item;
                 }

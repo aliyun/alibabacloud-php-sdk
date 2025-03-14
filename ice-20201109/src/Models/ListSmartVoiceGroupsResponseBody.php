@@ -25,13 +25,11 @@ class ListSmartVoiceGroupsResponseBody extends Model
      */
     public $voiceGroups;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'voiceGroups' => 'VoiceGroups',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class ListSmartVoiceGroupsResponseBody extends Model
         if (isset($map['VoiceGroups'])) {
             if (!empty($map['VoiceGroups'])) {
                 $model->voiceGroups = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['VoiceGroups'] as $item) {
                     $model->voiceGroups[$n++] = null !== $item ? voiceGroups::fromMap($item) : $item;
                 }

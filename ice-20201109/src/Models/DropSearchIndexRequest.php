@@ -16,6 +16,7 @@ class DropSearchIndexRequest extends Model
      *   aiLabel: smart tagging.
      *
      * This parameter is required.
+     *
      * @example mm
      *
      * @var string
@@ -34,13 +35,11 @@ class DropSearchIndexRequest extends Model
      */
     public $searchLibName;
     protected $_name = [
-        'indexType'     => 'IndexType',
+        'indexType' => 'IndexType',
         'searchLibName' => 'SearchLibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

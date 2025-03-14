@@ -42,16 +42,14 @@ class SubmitTraceM3u8JobRequest extends Model
      */
     public $traceMediaId;
     protected $_name = [
-        'keyUri'       => 'KeyUri',
-        'output'       => 'Output',
-        'params'       => 'Params',
-        'trace'        => 'Trace',
+        'keyUri' => 'KeyUri',
+        'output' => 'Output',
+        'params' => 'Params',
+        'trace' => 'Trace',
         'traceMediaId' => 'TraceMediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

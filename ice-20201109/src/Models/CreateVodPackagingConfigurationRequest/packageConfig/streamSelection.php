@@ -41,12 +41,10 @@ class streamSelection extends Model
     protected $_name = [
         'maxVideoBitsPerSecond' => 'MaxVideoBitsPerSecond',
         'minVideoBitsPerSecond' => 'MinVideoBitsPerSecond',
-        'streamOrder'           => 'StreamOrder',
+        'streamOrder' => 'StreamOrder',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

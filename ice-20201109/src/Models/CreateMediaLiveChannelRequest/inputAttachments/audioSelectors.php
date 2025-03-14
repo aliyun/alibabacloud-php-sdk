@@ -36,6 +36,7 @@ class audioSelectors extends Model
      * @description The name of the audio selector. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example myselector
      *
      * @var string
@@ -43,14 +44,12 @@ class audioSelectors extends Model
     public $name;
     protected $_name = [
         'audioLanguageSelection' => 'AudioLanguageSelection',
-        'audioPidSelection'      => 'AudioPidSelection',
-        'audioTrackSelection'    => 'AudioTrackSelection',
-        'name'                   => 'Name',
+        'audioPidSelection' => 'AudioPidSelection',
+        'audioTrackSelection' => 'AudioTrackSelection',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -94,7 +93,7 @@ class audioSelectors extends Model
         if (isset($map['AudioTrackSelection'])) {
             if (!empty($map['AudioTrackSelection'])) {
                 $model->audioTrackSelection = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['AudioTrackSelection'] as $item) {
                     $model->audioTrackSelection[$n++] = null !== $item ? audioTrackSelection::fromMap($item) : $item;
                 }

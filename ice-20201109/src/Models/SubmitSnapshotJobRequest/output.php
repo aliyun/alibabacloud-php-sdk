@@ -11,7 +11,15 @@ class output extends Model
     /**
      * @description The output file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
      *
+     * 1.  oss://bucket/object
+     * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+     *
+     * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS. If multiple static snapshots were captured, the object must contain the "{Count}" placeholder. In the case of a sprite, the object must contain the "{TileCount}" placeholder. The suffix of the WebVTT snapshot objects must be ".vtt".
+     *
+     * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the IMS console.
+     *
      * This parameter is required.
+     *
      * @example oss://test-bucket/output-{Count}.jpg
      *
      * @var string
@@ -21,7 +29,11 @@ class output extends Model
     /**
      * @description The type of the output file. Valid values:
      *
+     * 1.  OSS: an OSS object.
+     * 2.  Media: a media asset.
+     *
      * This parameter is required.
+     *
      * @example OSS
      *
      * @var string
@@ -29,12 +41,10 @@ class output extends Model
     public $type;
     protected $_name = [
         'media' => 'Media',
-        'type'  => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

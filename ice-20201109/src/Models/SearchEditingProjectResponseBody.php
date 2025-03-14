@@ -12,7 +12,10 @@ class SearchEditingProjectResponseBody extends Model
     /**
      * @description The maximum number of entries returned on a single page. The value is set to the maximum number of entries returned on each page except for the last page.
      *
+     * Examples:
+     *
      * Valid example: 10,10,5. Invalid example: 10,5,10.
+     *
      * @example 10
      *
      * @var int
@@ -53,16 +56,14 @@ class SearchEditingProjectResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'projectList' => 'ProjectList',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -109,7 +110,7 @@ class SearchEditingProjectResponseBody extends Model
         if (isset($map['ProjectList'])) {
             if (!empty($map['ProjectList'])) {
                 $model->projectList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ProjectList'] as $item) {
                     $model->projectList[$n++] = null !== $item ? projectList::fromMap($item) : $item;
                 }

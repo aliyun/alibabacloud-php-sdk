@@ -45,13 +45,11 @@ class inputGroup extends Model
     public $type;
     protected $_name = [
         'inputUrl' => 'InputUrl',
-        'media'    => 'Media',
-        'type'     => 'Type',
+        'media' => 'Media',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -41,16 +41,14 @@ class SubmitTraceM3u8JobShrinkRequest extends Model
      */
     public $traceMediaId;
     protected $_name = [
-        'keyUri'       => 'KeyUri',
+        'keyUri' => 'KeyUri',
         'outputShrink' => 'Output',
-        'params'       => 'Params',
-        'trace'        => 'Trace',
+        'params' => 'Params',
+        'trace' => 'Trace',
         'traceMediaId' => 'TraceMediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

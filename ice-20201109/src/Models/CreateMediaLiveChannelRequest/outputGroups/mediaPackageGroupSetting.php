@@ -12,6 +12,7 @@ class mediaPackageGroupSetting extends Model
      * @description ChannelName in MediaPackage.
      *
      * This parameter is required.
+     *
      * @example myPackageChannel
      *
      * @var string
@@ -22,6 +23,7 @@ class mediaPackageGroupSetting extends Model
      * @description GroupName in MediaPackage.
      *
      * This parameter is required.
+     *
      * @example myPackageGroup
      *
      * @var string
@@ -29,12 +31,10 @@ class mediaPackageGroupSetting extends Model
     public $groupName;
     protected $_name = [
         'channelName' => 'ChannelName',
-        'groupName'   => 'GroupName',
+        'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

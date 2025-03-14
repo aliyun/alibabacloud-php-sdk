@@ -47,15 +47,13 @@ class ListVodPackagingGroupsRequest extends Model
      */
     public $sortBy;
     protected $_name = [
-        'keyword'  => 'Keyword',
-        'pageNo'   => 'PageNo',
+        'keyword' => 'Keyword',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
-        'sortBy'   => 'SortBy',
+        'sortBy' => 'SortBy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

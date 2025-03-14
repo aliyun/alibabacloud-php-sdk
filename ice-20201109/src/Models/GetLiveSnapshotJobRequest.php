@@ -12,6 +12,7 @@ class GetLiveSnapshotJobRequest extends Model
      * @description The job ID.
      *
      * This parameter is required.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -21,9 +22,7 @@ class GetLiveSnapshotJobRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

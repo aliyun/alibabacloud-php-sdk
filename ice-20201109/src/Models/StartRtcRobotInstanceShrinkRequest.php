@@ -56,17 +56,15 @@ class StartRtcRobotInstanceShrinkRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'authToken'    => 'AuthToken',
-        'channelId'    => 'ChannelId',
+        'authToken' => 'AuthToken',
+        'channelId' => 'ChannelId',
         'configShrink' => 'Config',
-        'robotId'      => 'RobotId',
-        'userData'     => 'UserData',
-        'userId'       => 'UserId',
+        'robotId' => 'RobotId',
+        'userData' => 'UserData',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

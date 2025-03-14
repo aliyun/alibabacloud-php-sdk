@@ -76,18 +76,16 @@ class pipelineList extends Model
      */
     public $status;
     protected $_name = [
-        'createTime'   => 'CreateTime',
+        'createTime' => 'CreateTime',
         'modifiedTime' => 'ModifiedTime',
-        'name'         => 'Name',
-        'pipelineId'   => 'PipelineId',
-        'priority'     => 'Priority',
-        'speed'        => 'Speed',
-        'status'       => 'Status',
+        'name' => 'Name',
+        'pipelineId' => 'PipelineId',
+        'priority' => 'Priority',
+        'speed' => 'Speed',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class SubmitLiveRecordJobShrinkRequest extends Model
      * @description The name of the recording job.
      *
      * This parameter is required.
+     *
      * @example live stream record 1
      *
      * @var string
@@ -31,6 +32,7 @@ class SubmitLiveRecordJobShrinkRequest extends Model
      * @description The storage address of the recording.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $recordOutputShrink;
@@ -39,6 +41,7 @@ class SubmitLiveRecordJobShrinkRequest extends Model
      * @description The URL of the live stream.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $streamInputShrink;
@@ -47,22 +50,21 @@ class SubmitLiveRecordJobShrinkRequest extends Model
      * @description The ID of the recording template.
      *
      * This parameter is required.
+     *
      * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
      *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'name'               => 'Name',
-        'notifyUrl'          => 'NotifyUrl',
+        'name' => 'Name',
+        'notifyUrl' => 'NotifyUrl',
         'recordOutputShrink' => 'RecordOutput',
-        'streamInputShrink'  => 'StreamInput',
-        'templateId'         => 'TemplateId',
+        'streamInputShrink' => 'StreamInput',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

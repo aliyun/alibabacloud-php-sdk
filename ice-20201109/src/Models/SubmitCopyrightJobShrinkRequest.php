@@ -73,20 +73,18 @@ class SubmitCopyrightJobShrinkRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'description'  => 'Description',
-        'inputShrink'  => 'Input',
-        'level'        => 'Level',
-        'message'      => 'Message',
+        'description' => 'Description',
+        'inputShrink' => 'Input',
+        'level' => 'Level',
+        'message' => 'Message',
         'outputShrink' => 'Output',
-        'params'       => 'Params',
-        'startTime'    => 'StartTime',
-        'totalTime'    => 'TotalTime',
-        'userData'     => 'UserData',
+        'params' => 'Params',
+        'startTime' => 'StartTime',
+        'totalTime' => 'TotalTime',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

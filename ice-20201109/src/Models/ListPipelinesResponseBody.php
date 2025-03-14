@@ -26,12 +26,10 @@ class ListPipelinesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'pipelineList' => 'PipelineList',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListPipelinesResponseBody extends Model
         if (isset($map['PipelineList'])) {
             if (!empty($map['PipelineList'])) {
                 $model->pipelineList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PipelineList'] as $item) {
                     $model->pipelineList[$n++] = null !== $item ? pipelineList::fromMap($item) : $item;
                 }

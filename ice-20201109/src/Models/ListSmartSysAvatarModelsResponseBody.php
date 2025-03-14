@@ -34,14 +34,12 @@ class ListSmartSysAvatarModelsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
         'smartSysAvatarModelList' => 'SmartSysAvatarModelList',
-        'totalCount'              => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class ListSmartSysAvatarModelsResponseBody extends Model
         if (isset($map['SmartSysAvatarModelList'])) {
             if (!empty($map['SmartSysAvatarModelList'])) {
                 $model->smartSysAvatarModelList = [];
-                $n                              = 0;
+                $n = 0;
                 foreach ($map['SmartSysAvatarModelList'] as $item) {
                     $model->smartSysAvatarModelList[$n++] = null !== $item ? smartSysAvatarModelList::fromMap($item) : $item;
                 }

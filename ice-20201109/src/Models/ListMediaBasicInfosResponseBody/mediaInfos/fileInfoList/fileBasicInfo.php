@@ -125,24 +125,22 @@ class fileBasicInfo extends Model
      */
     public $width;
     protected $_name = [
-        'bitrate'      => 'Bitrate',
-        'createTime'   => 'CreateTime',
-        'duration'     => 'Duration',
-        'fileName'     => 'FileName',
-        'fileSize'     => 'FileSize',
-        'fileStatus'   => 'FileStatus',
-        'fileType'     => 'FileType',
-        'fileUrl'      => 'FileUrl',
-        'formatName'   => 'FormatName',
-        'height'       => 'Height',
+        'bitrate' => 'Bitrate',
+        'createTime' => 'CreateTime',
+        'duration' => 'Duration',
+        'fileName' => 'FileName',
+        'fileSize' => 'FileSize',
+        'fileStatus' => 'FileStatus',
+        'fileType' => 'FileType',
+        'fileUrl' => 'FileUrl',
+        'formatName' => 'FormatName',
+        'height' => 'Height',
         'modifiedTime' => 'ModifiedTime',
-        'region'       => 'Region',
-        'width'        => 'Width',
+        'region' => 'Region',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

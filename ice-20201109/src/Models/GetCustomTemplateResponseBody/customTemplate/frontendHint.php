@@ -17,9 +17,7 @@ class frontendHint extends Model
         'transcodeTemplateHint' => 'TranscodeTemplateHint',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,6 +22,7 @@ class output extends Model
 
     /**
      * @description The URL of the output stream.\\
+     * This parameter takes effect only when Type is set to Media. You can select a specific file within the media asset as an output.\\
      * Supported placeholders:
      *
      *   {MediaId}: the ID of the media asset.
@@ -29,7 +30,11 @@ class output extends Model
      *   {MediaBucket}: the bucket to which the media asset belongs.
      *   {ExtName}: the file suffix, which uses the output format of the transcoding template.
      *   {DestMd5}: the MD5 value of the transcoded output file.\\
+     * Notes:
+     *
+     * 1.  This parameter must contain the {MediaId} and {JobId} placeholders.
      * 2.  The output bucket is the same as the bucket to which the media asset belongs.
+     *
      * @example oss://bucket/path/to/{MediaId}/{JobId}.mp4
      *
      * @var string
@@ -48,14 +53,12 @@ class output extends Model
      */
     public $type;
     protected $_name = [
-        'media'     => 'Media',
+        'media' => 'Media',
         'outputUrl' => 'OutputUrl',
-        'type'      => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

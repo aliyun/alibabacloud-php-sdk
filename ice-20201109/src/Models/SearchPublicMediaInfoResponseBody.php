@@ -29,13 +29,11 @@ class SearchPublicMediaInfoResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'publicMediaInfos' => 'PublicMediaInfos',
-        'requestId'        => 'RequestId',
-        'totalCount'       => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -70,7 +68,7 @@ class SearchPublicMediaInfoResponseBody extends Model
         if (isset($map['PublicMediaInfos'])) {
             if (!empty($map['PublicMediaInfos'])) {
                 $model->publicMediaInfos = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['PublicMediaInfos'] as $item) {
                     $model->publicMediaInfos[$n++] = null !== $item ? publicMediaInfos::fromMap($item) : $item;
                 }

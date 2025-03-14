@@ -24,13 +24,11 @@ class MediaObject extends Model
     public $url;
     protected $_name = [
         'media' => 'Media',
-        'type'  => 'Type',
-        'url'   => 'Url',
+        'type' => 'Type',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

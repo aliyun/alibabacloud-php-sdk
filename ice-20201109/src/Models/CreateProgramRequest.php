@@ -21,6 +21,7 @@ class CreateProgramRequest extends Model
      * @description The name of the channel.
      *
      * This parameter is required.
+     *
      * @example MyChannel
      *
      * @var string
@@ -40,6 +41,7 @@ class CreateProgramRequest extends Model
      * @description The name of the program.
      *
      * This parameter is required.
+     *
      * @example program1
      *
      * @var string
@@ -50,6 +52,7 @@ class CreateProgramRequest extends Model
      * @description The source location.
      *
      * This parameter is required.
+     *
      * @example MySourceLcation
      *
      * @var string
@@ -60,6 +63,7 @@ class CreateProgramRequest extends Model
      * @description The name of the source.
      *
      * This parameter is required.
+     *
      * @example MySource
      *
      * @var string
@@ -70,6 +74,7 @@ class CreateProgramRequest extends Model
      * @description The source type of the program.
      *
      * This parameter is required.
+     *
      * @example vodSource
      *
      * @var string
@@ -80,25 +85,24 @@ class CreateProgramRequest extends Model
      * @description The program transition method.
      *
      * This parameter is required.
+     *
      * @example {"Type": "RELATIVE", "RelativePosition": "AFTER_PROGRAM", "RelativeProgram": "program2"}
      *
      * @var string
      */
     public $transition;
     protected $_name = [
-        'adBreaks'           => 'AdBreaks',
-        'channelName'        => 'ChannelName',
-        'clipRange'          => 'ClipRange',
-        'programName'        => 'ProgramName',
+        'adBreaks' => 'AdBreaks',
+        'channelName' => 'ChannelName',
+        'clipRange' => 'ClipRange',
+        'programName' => 'ProgramName',
         'sourceLocationName' => 'SourceLocationName',
-        'sourceName'         => 'SourceName',
-        'sourceType'         => 'SourceType',
-        'transition'         => 'Transition',
+        'sourceName' => 'SourceName',
+        'sourceType' => 'SourceType',
+        'transition' => 'Transition',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

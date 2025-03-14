@@ -54,14 +54,12 @@ class ListMediaBasicInfosResponseBody extends Model
     protected $_name = [
         'maxResults' => 'MaxResults',
         'mediaInfos' => 'MediaInfos',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +103,7 @@ class ListMediaBasicInfosResponseBody extends Model
         if (isset($map['MediaInfos'])) {
             if (!empty($map['MediaInfos'])) {
                 $model->mediaInfos = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['MediaInfos'] as $item) {
                     $model->mediaInfos[$n++] = null !== $item ? mediaInfos::fromMap($item) : $item;
                 }

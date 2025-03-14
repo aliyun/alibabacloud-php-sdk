@@ -32,14 +32,12 @@ class config extends Model
      */
     public $outputs;
     protected $_name = [
-        'inputs'       => 'Inputs',
+        'inputs' => 'Inputs',
         'outputGroups' => 'OutputGroups',
-        'outputs'      => 'Outputs',
+        'outputs' => 'Outputs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -86,7 +84,7 @@ class config extends Model
         if (isset($map['Inputs'])) {
             if (!empty($map['Inputs'])) {
                 $model->inputs = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Inputs'] as $item) {
                     $model->inputs[$n++] = null !== $item ? MediaConvertInput::fromMap($item) : $item;
                 }
@@ -95,7 +93,7 @@ class config extends Model
         if (isset($map['OutputGroups'])) {
             if (!empty($map['OutputGroups'])) {
                 $model->outputGroups = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['OutputGroups'] as $item) {
                     $model->outputGroups[$n++] = null !== $item ? MediaConvertOutputGroup::fromMap($item) : $item;
                 }
@@ -104,7 +102,7 @@ class config extends Model
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Outputs'] as $item) {
                     $model->outputs[$n++] = null !== $item ? MediaConvertOutput::fromMap($item) : $item;
                 }

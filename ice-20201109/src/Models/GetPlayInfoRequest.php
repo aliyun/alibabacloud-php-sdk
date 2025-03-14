@@ -12,6 +12,7 @@ class GetPlayInfoRequest extends Model
      * @description The input URL that you specified for the media asset when you registered the media asset. For more information, see [RegisterMediaInfo](https://help.aliyun.com/document_detail/441152.html).
      *
      * >  You must specify at least one of the MediaId and InputURL parameters.
+     *
      * @var string
      */
     public $inputURL;
@@ -20,6 +21,7 @@ class GetPlayInfoRequest extends Model
      * @description The ID of the media asset.
      *
      * >  You must specify at least one of the MediaId and InputURL parameters.
+     *
      * @example 86434e152b7d4f20be480574439fe***
      *
      * @var string
@@ -27,12 +29,10 @@ class GetPlayInfoRequest extends Model
     public $mediaId;
     protected $_name = [
         'inputURL' => 'InputURL',
-        'mediaId'  => 'MediaId',
+        'mediaId' => 'MediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

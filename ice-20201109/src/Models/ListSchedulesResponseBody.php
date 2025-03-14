@@ -51,16 +51,14 @@ class ListSchedulesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'programs'   => 'Programs',
-        'requestId'  => 'RequestId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'programs' => 'Programs',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -107,7 +105,7 @@ class ListSchedulesResponseBody extends Model
         if (isset($map['Programs'])) {
             if (!empty($map['Programs'])) {
                 $model->programs = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Programs'] as $item) {
                     $model->programs[$n++] = null !== $item ? ChannelAssemblyScheduleData::fromMap($item) : $item;
                 }

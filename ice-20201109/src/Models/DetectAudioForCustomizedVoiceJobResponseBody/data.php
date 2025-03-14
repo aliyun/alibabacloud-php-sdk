@@ -27,13 +27,11 @@ class data extends Model
      */
     public $reason;
     protected $_name = [
-        'pass'   => 'Pass',
+        'pass' => 'Pass',
         'reason' => 'Reason',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

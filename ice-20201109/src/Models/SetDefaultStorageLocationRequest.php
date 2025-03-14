@@ -29,14 +29,12 @@ class SetDefaultStorageLocationRequest extends Model
      */
     public $storageType;
     protected $_name = [
-        'bucket'      => 'Bucket',
-        'path'        => 'Path',
+        'bucket' => 'Bucket',
+        'path' => 'Path',
         'storageType' => 'StorageType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

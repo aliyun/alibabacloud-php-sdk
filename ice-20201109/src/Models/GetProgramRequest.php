@@ -12,6 +12,7 @@ class GetProgramRequest extends Model
      * @description The name of the channel.
      *
      * This parameter is required.
+     *
      * @example MyChannel
      *
      * @var string
@@ -22,6 +23,7 @@ class GetProgramRequest extends Model
      * @description The name of the program.
      *
      * This parameter is required.
+     *
      * @example program1
      *
      * @var string
@@ -32,9 +34,7 @@ class GetProgramRequest extends Model
         'programName' => 'ProgramName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class GetLiveTranscodeTemplateResponseBody extends Model
      */
     public $templateContent;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'templateContent' => 'TemplateContent',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

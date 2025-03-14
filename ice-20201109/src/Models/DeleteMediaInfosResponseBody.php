@@ -32,13 +32,11 @@ class DeleteMediaInfosResponseBody extends Model
     public $requestId;
     protected $_name = [
         'forbiddenList' => 'ForbiddenList',
-        'ignoredList'   => 'IgnoredList',
-        'requestId'     => 'RequestId',
+        'ignoredList' => 'IgnoredList',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

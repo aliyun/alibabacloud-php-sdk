@@ -20,7 +20,16 @@ class project extends Model
     /**
      * @description The business status of the project. This parameter can be ignored for general editing projects. Valid values:
      *
+     * Reserving
+     *
+     * ReservationCanceled
+     *
+     * BroadCasting
+     *
+     * LoadingFailed
+     *
      * LiveFinished
+     *
      * @example Reserving
      *
      * @var string
@@ -46,7 +55,16 @@ class project extends Model
     /**
      * @description The method for creating the online editing project. Valid values:
      *
+     * \\- OpenAPI
+     *
+     * \\- AliyunConsole
+     *
+     * \\- WebSDK
+     *
+     * \\- LiveEditingOpenAPI
+     *
      * \\- LiveEditingConsole
+     *
      * @example OpenAPI
      *
      * @var string
@@ -81,7 +99,16 @@ class project extends Model
     /**
      * @description The method for editing the online editing project. Valid values:
      *
+     * \\- OpenAPI
+     *
+     * \\- AliyunConsole
+     *
+     * \\- WebSDK
+     *
+     * \\- LiveEditingOpenAPI
+     *
      * \\- LiveEditingConsole
+     *
      * @example OpenAPI
      *
      * @var string
@@ -109,7 +136,10 @@ class project extends Model
     /**
      * @description The type of the editing project. Default value: EditingProject. Valid values:
      *
+     * \\- EditingProject: a regular editing project.
+     *
      * \\- LiveEditingProject: a live stream editing project.
+     *
      * @example EditingProject
      *
      * @var string
@@ -119,7 +149,18 @@ class project extends Model
     /**
      * @description The status of the online editing project. Valid values:
      *
+     * \\- Draft
+     *
+     * \\- Editing
+     *
+     * \\- Producing
+     *
+     * \\- Produced
+     *
+     * \\- ProduceFailed
+     *
      * \\- Deleted
+     *
      * @example Editing
      *
      * @var string
@@ -138,7 +179,10 @@ class project extends Model
     /**
      * @description The template type of the online editing project. Valid values:
      *
+     * \\- Timeline
+     *
      * \\- VETemplate
+     *
      * @example Timeline
      *
      * @var string
@@ -166,7 +210,14 @@ class project extends Model
     /**
      * @description The project conversion status. Conversion of an API-style timeline into a frontend-style timeline is an asynchronous process and takes effect only if RequestSource:WebSDK is specified.
      *
+     * \\- Unconverted
+     *
+     * \\- Converting
+     *
+     * \\- Converted
+     *
      * \\- ConvertFailed
+     *
      * @example Converted
      *
      * @var string
@@ -180,30 +231,28 @@ class project extends Model
      */
     public $title;
     protected $_name = [
-        'businessConfig'              => 'BusinessConfig',
-        'businessStatus'              => 'BusinessStatus',
-        'clipsParam'                  => 'ClipsParam',
-        'coverURL'                    => 'CoverURL',
-        'createSource'                => 'CreateSource',
-        'createTime'                  => 'CreateTime',
-        'description'                 => 'Description',
-        'duration'                    => 'Duration',
-        'modifiedSource'              => 'ModifiedSource',
-        'modifiedTime'                => 'ModifiedTime',
-        'projectId'                   => 'ProjectId',
-        'projectType'                 => 'ProjectType',
-        'status'                      => 'Status',
-        'templateId'                  => 'TemplateId',
-        'templateType'                => 'TemplateType',
-        'timeline'                    => 'Timeline',
+        'businessConfig' => 'BusinessConfig',
+        'businessStatus' => 'BusinessStatus',
+        'clipsParam' => 'ClipsParam',
+        'coverURL' => 'CoverURL',
+        'createSource' => 'CreateSource',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'duration' => 'Duration',
+        'modifiedSource' => 'ModifiedSource',
+        'modifiedTime' => 'ModifiedTime',
+        'projectId' => 'ProjectId',
+        'projectType' => 'ProjectType',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
+        'templateType' => 'TemplateType',
+        'timeline' => 'Timeline',
         'timelineConvertErrorMessage' => 'TimelineConvertErrorMessage',
-        'timelineConvertStatus'       => 'TimelineConvertStatus',
-        'title'                       => 'Title',
+        'timelineConvertStatus' => 'TimelineConvertStatus',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class GetSnapshotJobResponseBody extends Model
      */
     public $snapshotJob;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'snapshotJob' => 'SnapshotJob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -83,7 +83,12 @@ class UpdateMediaInfoRequest extends Model
     /**
      * @description The input URL of the media asset in another service. The URL must be bound to the ID of the media asset in IMS. The URL cannot be modified once registered.
      *
+     * For a media asset from Object Storage Service (OSS), the URL may have one of the following formats:
+     *
+     * 1\\. http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
+     *
      * 2\\. oss://example-bucket/example.mp4. This format indicates that the region in which the OSS bucket of the media asset resides is the same as the region in which OSS is activated.
+     *
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
      *
      * @var string
@@ -143,23 +148,21 @@ class UpdateMediaInfoRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'appendTags'   => 'AppendTags',
+        'appendTags' => 'AppendTags',
         'businessType' => 'BusinessType',
-        'cateId'       => 'CateId',
-        'category'     => 'Category',
-        'coverURL'     => 'CoverURL',
-        'description'  => 'Description',
-        'inputURL'     => 'InputURL',
-        'mediaId'      => 'MediaId',
-        'mediaTags'    => 'MediaTags',
-        'referenceId'  => 'ReferenceId',
-        'title'        => 'Title',
-        'userData'     => 'UserData',
+        'cateId' => 'CateId',
+        'category' => 'Category',
+        'coverURL' => 'CoverURL',
+        'description' => 'Description',
+        'inputURL' => 'InputURL',
+        'mediaId' => 'MediaId',
+        'mediaTags' => 'MediaTags',
+        'referenceId' => 'ReferenceId',
+        'title' => 'Title',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

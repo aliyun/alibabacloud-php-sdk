@@ -51,16 +51,14 @@ class CreateVodPackagingAssetShrinkRequest extends Model
      */
     public $inputShrink;
     protected $_name = [
-        'assetName'   => 'AssetName',
-        'contentId'   => 'ContentId',
+        'assetName' => 'AssetName',
+        'contentId' => 'ContentId',
         'description' => 'Description',
-        'groupName'   => 'GroupName',
+        'groupName' => 'GroupName',
         'inputShrink' => 'Input',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -81,18 +81,16 @@ class QuerySearchIndexResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'          => 'Code',
-        'indexStatus'   => 'IndexStatus',
-        'indexType'     => 'IndexType',
-        'mediaTotal'    => 'MediaTotal',
-        'requestId'     => 'RequestId',
+        'code' => 'Code',
+        'indexStatus' => 'IndexStatus',
+        'indexType' => 'IndexType',
+        'mediaTotal' => 'MediaTotal',
+        'requestId' => 'RequestId',
         'searchLibName' => 'SearchLibName',
-        'success'       => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

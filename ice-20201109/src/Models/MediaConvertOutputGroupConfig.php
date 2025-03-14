@@ -23,14 +23,12 @@ class MediaConvertOutputGroupConfig extends Model
      */
     public $type;
     protected $_name = [
-        'manifestName'   => 'ManifestName',
+        'manifestName' => 'ManifestName',
         'outputFileBase' => 'OutputFileBase',
-        'type'           => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

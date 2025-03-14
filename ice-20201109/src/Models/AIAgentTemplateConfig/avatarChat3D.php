@@ -129,35 +129,33 @@ class avatarChat3D extends Model
      */
     public $workflowOverrideParams;
     protected $_name = [
-        'asrLanguageId'            => 'AsrLanguageId',
-        'asrMaxSilence'            => 'AsrMaxSilence',
-        'avatarId'                 => 'AvatarId',
-        'bailianAppParams'         => 'BailianAppParams',
+        'asrLanguageId' => 'AsrLanguageId',
+        'asrMaxSilence' => 'AsrMaxSilence',
+        'avatarId' => 'AvatarId',
+        'bailianAppParams' => 'BailianAppParams',
         'enableIntelligentSegment' => 'EnableIntelligentSegment',
-        'enablePushToTalk'         => 'EnablePushToTalk',
-        'enableVoiceInterrupt'     => 'EnableVoiceInterrupt',
-        'gracefulShutdown'         => 'GracefulShutdown',
-        'greeting'                 => 'Greeting',
-        'interruptWords'           => 'InterruptWords',
-        'llmHistory'               => 'LlmHistory',
-        'llmHistoryLimit'          => 'LlmHistoryLimit',
-        'llmSystemPrompt'          => 'LlmSystemPrompt',
-        'maxIdleTime'              => 'MaxIdleTime',
-        'useVoiceprint'            => 'UseVoiceprint',
-        'userOfflineTimeout'       => 'UserOfflineTimeout',
-        'userOnlineTimeout'        => 'UserOnlineTimeout',
-        'vadLevel'                 => 'VadLevel',
-        'voiceId'                  => 'VoiceId',
-        'voiceIdList'              => 'VoiceIdList',
-        'voiceprintId'             => 'VoiceprintId',
-        'volume'                   => 'Volume',
-        'wakeUpQuery'              => 'WakeUpQuery',
-        'workflowOverrideParams'   => 'WorkflowOverrideParams',
+        'enablePushToTalk' => 'EnablePushToTalk',
+        'enableVoiceInterrupt' => 'EnableVoiceInterrupt',
+        'gracefulShutdown' => 'GracefulShutdown',
+        'greeting' => 'Greeting',
+        'interruptWords' => 'InterruptWords',
+        'llmHistory' => 'LlmHistory',
+        'llmHistoryLimit' => 'LlmHistoryLimit',
+        'llmSystemPrompt' => 'LlmSystemPrompt',
+        'maxIdleTime' => 'MaxIdleTime',
+        'useVoiceprint' => 'UseVoiceprint',
+        'userOfflineTimeout' => 'UserOfflineTimeout',
+        'userOnlineTimeout' => 'UserOnlineTimeout',
+        'vadLevel' => 'VadLevel',
+        'voiceId' => 'VoiceId',
+        'voiceIdList' => 'VoiceIdList',
+        'voiceprintId' => 'VoiceprintId',
+        'volume' => 'Volume',
+        'wakeUpQuery' => 'WakeUpQuery',
+        'workflowOverrideParams' => 'WorkflowOverrideParams',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -287,7 +285,7 @@ class avatarChat3D extends Model
         if (isset($map['LlmHistory'])) {
             if (!empty($map['LlmHistory'])) {
                 $model->llmHistory = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['LlmHistory'] as $item) {
                     $model->llmHistory[$n++] = null !== $item ? llmHistory::fromMap($item) : $item;
                 }

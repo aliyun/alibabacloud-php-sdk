@@ -35,12 +35,10 @@ class options extends Model
     protected $_name = [
         'optionChineseName' => 'OptionChineseName',
         'optionEnglishName' => 'OptionEnglishName',
-        'optionId'          => 'OptionId',
+        'optionId' => 'OptionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

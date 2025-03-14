@@ -43,16 +43,14 @@ class GetDefaultStorageLocationResponseBody extends Model
      */
     public $storageType;
     protected $_name = [
-        'bucket'      => 'Bucket',
-        'path'        => 'Path',
-        'requestId'   => 'RequestId',
-        'status'      => 'Status',
+        'bucket' => 'Bucket',
+        'path' => 'Path',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
         'storageType' => 'StorageType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

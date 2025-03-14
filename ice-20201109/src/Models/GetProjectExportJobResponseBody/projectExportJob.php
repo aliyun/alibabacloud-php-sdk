@@ -63,19 +63,17 @@ class projectExportJob extends Model
      */
     public $userData;
     protected $_name = [
-        'code'         => 'Code',
+        'code' => 'Code',
         'exportResult' => 'ExportResult',
-        'exportType'   => 'ExportType',
-        'jobId'        => 'JobId',
-        'message'      => 'Message',
-        'projectId'    => 'ProjectId',
-        'status'       => 'Status',
-        'userData'     => 'UserData',
+        'exportType' => 'ExportType',
+        'jobId' => 'JobId',
+        'message' => 'Message',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

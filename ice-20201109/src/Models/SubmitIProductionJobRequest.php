@@ -29,6 +29,7 @@ class SubmitIProductionJobRequest extends Model
      *   **AudioMixing**: This algorithm mixes audio streams.
      *
      * This parameter is required.
+     *
      * @example Cover
      *
      * @var string
@@ -39,6 +40,7 @@ class SubmitIProductionJobRequest extends Model
      * @description The input file. The file can be an Object Storage Service (OSS) object or a media asset.
      *
      * This parameter is required.
+     *
      * @var input
      */
     public $input;
@@ -68,6 +70,7 @@ class SubmitIProductionJobRequest extends Model
      * @description The output file. The file can be an OSS object or a media asset.
      *
      * This parameter is required.
+     *
      * @var output
      */
     public $output;
@@ -97,20 +100,18 @@ class SubmitIProductionJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'functionName'   => 'FunctionName',
-        'input'          => 'Input',
-        'jobParams'      => 'JobParams',
-        'modelId'        => 'ModelId',
-        'name'           => 'Name',
-        'output'         => 'Output',
+        'functionName' => 'FunctionName',
+        'input' => 'Input',
+        'jobParams' => 'JobParams',
+        'modelId' => 'ModelId',
+        'name' => 'Name',
+        'output' => 'Output',
         'scheduleConfig' => 'ScheduleConfig',
-        'templateId'     => 'TemplateId',
-        'userData'       => 'UserData',
+        'templateId' => 'TemplateId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

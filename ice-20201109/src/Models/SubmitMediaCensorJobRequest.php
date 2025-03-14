@@ -14,6 +14,7 @@ class SubmitMediaCensorJobRequest extends Model
      * @description The live comments of the video.
      *
      * >  If this parameter is specified, the system checks the live comments specified by this parameter instead of the live comments of the input file specified by Media.
+     *
      * @example hello world
      *
      * @var string
@@ -24,6 +25,7 @@ class SubmitMediaCensorJobRequest extends Model
      * @description The Object Storage Service (OSS) objects that are used as the thumbnails. Specify the thumbnails in a JSON array. A maximum of five thumbnails are supported.
      *
      * >  If this parameter is specified, the system checks the thumbnails specified by this parameter instead of the thumbnails of the input file specified by **Media**.
+     *
      * @example [{"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.jpeg","RoleArn":"acs:ram::1997018457688683:role/AliyunICEDefaultRole"}]
      *
      * @var string
@@ -34,6 +36,7 @@ class SubmitMediaCensorJobRequest extends Model
      * @description The video description, which can be up to 128 bytes in length.
      *
      * >  If this parameter is specified, the system checks the description specified by this parameter instead of the description of the input file specified by Media.
+     *
      * @example example description
      *
      * @var string
@@ -88,6 +91,7 @@ class SubmitMediaCensorJobRequest extends Model
      * @description The video title, which can be up to 64 bytes in length.
      *
      * >  If this parameter is specified, the system checks the title specified by this parameter instead of the title of the input file specified by Media.
+     *
      * @example Hello World
      *
      * @var string
@@ -103,21 +107,19 @@ class SubmitMediaCensorJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'barrages'       => 'Barrages',
-        'coverImages'    => 'CoverImages',
-        'description'    => 'Description',
-        'input'          => 'Input',
-        'notifyUrl'      => 'NotifyUrl',
-        'output'         => 'Output',
+        'barrages' => 'Barrages',
+        'coverImages' => 'CoverImages',
+        'description' => 'Description',
+        'input' => 'Input',
+        'notifyUrl' => 'NotifyUrl',
+        'output' => 'Output',
         'scheduleConfig' => 'ScheduleConfig',
-        'templateId'     => 'TemplateId',
-        'title'          => 'Title',
-        'userData'       => 'UserData',
+        'templateId' => 'TemplateId',
+        'title' => 'Title',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

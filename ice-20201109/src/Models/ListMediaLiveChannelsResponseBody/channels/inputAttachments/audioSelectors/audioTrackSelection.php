@@ -12,6 +12,7 @@ class audioTrackSelection extends Model
      * @description The track ID from within a source.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -21,9 +22,7 @@ class audioTrackSelection extends Model
         'trackId' => 'TrackId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

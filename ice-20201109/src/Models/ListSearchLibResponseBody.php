@@ -52,16 +52,14 @@ class ListSearchLibResponseBody extends Model
      */
     public $total;
     protected $_name = [
-        'code'              => 'Code',
-        'requestId'         => 'RequestId',
+        'code' => 'Code',
+        'requestId' => 'RequestId',
         'searchLibInfoList' => 'SearchLibInfoList',
-        'success'           => 'Success',
-        'total'             => 'Total',
+        'success' => 'Success',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +106,7 @@ class ListSearchLibResponseBody extends Model
         if (isset($map['SearchLibInfoList'])) {
             if (!empty($map['SearchLibInfoList'])) {
                 $model->searchLibInfoList = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['SearchLibInfoList'] as $item) {
                     $model->searchLibInfoList[$n++] = null !== $item ? searchLibInfoList::fromMap($item) : $item;
                 }

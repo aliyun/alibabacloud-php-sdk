@@ -20,7 +20,9 @@ class input extends Model
     /**
      * @description The type of the input file. Valid values:
      *
+     * 1.  OSS: an Object Storage Service (OSS) object.
      * 2.  Media: a media asset.
+     *
      * @example OSS
      *
      * @var string
@@ -28,12 +30,10 @@ class input extends Model
     public $type;
     protected $_name = [
         'media' => 'Media',
-        'type'  => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DescribeMeterImsMpsAiUsageRequest extends Model
      * @description The end of the time range to query. The value is a 10-digit timestamp. The maximum query range is 31 days. The duration between StartTs and EndTs cannot exceed 31 days.
      *
      * This parameter is required.
+     *
      * @example 1656995036
      *
      * @var int
@@ -22,6 +23,7 @@ class DescribeMeterImsMpsAiUsageRequest extends Model
      * @description The time granularity of the query. Valid values: 3600 (hour) and 86400 (day).
      *
      * This parameter is required.
+     *
      * @example 86400
      *
      * @var int
@@ -41,21 +43,20 @@ class DescribeMeterImsMpsAiUsageRequest extends Model
      * @description The beginning of the time range to query. The value is a 10-digit timestamp. You can query data within the last 90 days.
      *
      * This parameter is required.
+     *
      * @example 1654403036
      *
      * @var int
      */
     public $startTs;
     protected $_name = [
-        'endTs'    => 'EndTs',
+        'endTs' => 'EndTs',
         'interval' => 'Interval',
-        'region'   => 'Region',
-        'startTs'  => 'StartTs',
+        'region' => 'Region',
+        'startTs' => 'StartTs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

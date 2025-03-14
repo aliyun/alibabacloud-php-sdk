@@ -13,7 +13,10 @@ class GetMediaInfoRequest extends Model
      *
      *   For a media asset from Object Storage Service (OSS), the URL may have one of the following formats:
      *
+     * http(s)://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 or
+     *
      * oss://example-bucket/example.mp4. The second format indicates that the region in which the OSS bucket of the media asset resides is the same as the region in which OSS is activated.
+     *
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
      *
      * @var string
@@ -53,15 +56,13 @@ class GetMediaInfoRequest extends Model
      */
     public $returnDetailedInfo;
     protected $_name = [
-        'inputURL'           => 'InputURL',
-        'mediaId'            => 'MediaId',
-        'outputType'         => 'OutputType',
+        'inputURL' => 'InputURL',
+        'mediaId' => 'MediaId',
+        'outputType' => 'OutputType',
         'returnDetailedInfo' => 'ReturnDetailedInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

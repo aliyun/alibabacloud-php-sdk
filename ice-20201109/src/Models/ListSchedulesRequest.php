@@ -12,6 +12,7 @@ class ListSchedulesRequest extends Model
      * @description The name of the channel.
      *
      * This parameter is required.
+     *
      * @example MyChannel
      *
      * @var string
@@ -40,21 +41,20 @@ class ListSchedulesRequest extends Model
      * @description The time window of the program schedule.
      *
      * This parameter is required.
+     *
      * @example 14400
      *
      * @var int
      */
     public $windowDurationSeconds;
     protected $_name = [
-        'channelName'           => 'ChannelName',
-        'pageNo'                => 'PageNo',
-        'pageSize'              => 'PageSize',
+        'channelName' => 'ChannelName',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'windowDurationSeconds' => 'WindowDurationSeconds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

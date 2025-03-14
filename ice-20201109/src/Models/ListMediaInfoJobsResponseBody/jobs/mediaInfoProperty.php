@@ -33,13 +33,11 @@ class mediaInfoProperty extends Model
     public $videoStreamInfoList;
     protected $_name = [
         'audioStreamInfoList' => 'AudioStreamInfoList',
-        'fileBasicInfo'       => 'FileBasicInfo',
+        'fileBasicInfo' => 'FileBasicInfo',
         'videoStreamInfoList' => 'VideoStreamInfoList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -80,7 +78,7 @@ class mediaInfoProperty extends Model
         if (isset($map['AudioStreamInfoList'])) {
             if (!empty($map['AudioStreamInfoList'])) {
                 $model->audioStreamInfoList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['AudioStreamInfoList'] as $item) {
                     $model->audioStreamInfoList[$n++] = null !== $item ? audioStreamInfoList::fromMap($item) : $item;
                 }
@@ -92,7 +90,7 @@ class mediaInfoProperty extends Model
         if (isset($map['VideoStreamInfoList'])) {
             if (!empty($map['VideoStreamInfoList'])) {
                 $model->videoStreamInfoList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['VideoStreamInfoList'] as $item) {
                     $model->videoStreamInfoList[$n++] = null !== $item ? videoStreamInfoList::fromMap($item) : $item;
                 }

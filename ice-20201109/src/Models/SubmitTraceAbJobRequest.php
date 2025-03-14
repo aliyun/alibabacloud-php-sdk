@@ -60,17 +60,15 @@ class SubmitTraceAbJobRequest extends Model
     public $userData;
     protected $_name = [
         'cipherBase64ed' => 'CipherBase64ed',
-        'input'          => 'Input',
-        'level'          => 'Level',
-        'output'         => 'Output',
-        'startTime'      => 'StartTime',
-        'totalTime'      => 'TotalTime',
-        'userData'       => 'UserData',
+        'input' => 'Input',
+        'level' => 'Level',
+        'output' => 'Output',
+        'startTime' => 'StartTime',
+        'totalTime' => 'TotalTime',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

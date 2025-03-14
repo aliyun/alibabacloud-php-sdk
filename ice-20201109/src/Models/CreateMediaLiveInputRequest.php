@@ -13,6 +13,7 @@ class CreateMediaLiveInputRequest extends Model
      * @description The input settings. An input can have up to two sources: primary and backup sources.
      *
      * This parameter is required.
+     *
      * @var inputSettings[]
      */
     public $inputSettings;
@@ -21,6 +22,7 @@ class CreateMediaLiveInputRequest extends Model
      * @description The name of the input. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example myinput
      *
      * @var string
@@ -40,21 +42,20 @@ class CreateMediaLiveInputRequest extends Model
      * @description The input type. Valid values: RTMP_PUSH, RTMP_PULL, SRT_PUSH, and SRT_PULL.
      *
      * This parameter is required.
+     *
      * @example RTMP_PUSH
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'inputSettings'    => 'InputSettings',
-        'name'             => 'Name',
+        'inputSettings' => 'InputSettings',
+        'name' => 'Name',
         'securityGroupIds' => 'SecurityGroupIds',
-        'type'             => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +93,7 @@ class CreateMediaLiveInputRequest extends Model
         if (isset($map['InputSettings'])) {
             if (!empty($map['InputSettings'])) {
                 $model->inputSettings = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['InputSettings'] as $item) {
                     $model->inputSettings[$n++] = null !== $item ? inputSettings::fromMap($item) : $item;
                 }

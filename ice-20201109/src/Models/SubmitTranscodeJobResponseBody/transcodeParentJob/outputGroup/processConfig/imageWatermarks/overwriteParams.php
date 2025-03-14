@@ -116,18 +116,16 @@ class overwriteParams extends Model
      */
     public $width;
     protected $_name = [
-        'dx'       => 'Dx',
-        'dy'       => 'Dy',
-        'file'     => 'File',
-        'height'   => 'Height',
+        'dx' => 'Dx',
+        'dy' => 'Dy',
+        'file' => 'File',
+        'height' => 'Height',
         'referPos' => 'ReferPos',
         'timeline' => 'Timeline',
-        'width'    => 'Width',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class BatchGetMediaInfosResponseBody extends Model
     public $requestId;
     protected $_name = [
         'mediaInfos' => 'MediaInfos',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class BatchGetMediaInfosResponseBody extends Model
         if (isset($map['MediaInfos'])) {
             if (!empty($map['MediaInfos'])) {
                 $model->mediaInfos = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['MediaInfos'] as $item) {
                     $model->mediaInfos[$n++] = null !== $item ? mediaInfos::fromMap($item) : $item;
                 }

@@ -65,17 +65,15 @@ class ListMediaLiveChannelsRequest extends Model
      */
     public $states;
     protected $_name = [
-        'keyword'    => 'Keyword',
+        'keyword' => 'Keyword',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'skip'       => 'Skip',
-        'sortOrder'  => 'SortOrder',
-        'states'     => 'States',
+        'nextToken' => 'NextToken',
+        'skip' => 'Skip',
+        'sortOrder' => 'SortOrder',
+        'states' => 'States',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

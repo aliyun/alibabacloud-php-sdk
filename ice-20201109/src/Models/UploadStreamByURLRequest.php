@@ -71,6 +71,7 @@ class UploadStreamByURLRequest extends Model
      * @description The URL of the transcoded stream file.
      *
      * If the URL of the transcoded stream requires authentication, you must specify the authentication parameters in the stream URL and make sure that the URL can be accessed over the Internet.
+     *
      * @example https://example.com/sample-stream.mp4
      *
      * @var string
@@ -86,17 +87,15 @@ class UploadStreamByURLRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'definition'    => 'Definition',
+        'definition' => 'Definition',
         'fileExtension' => 'FileExtension',
-        'HDRType'       => 'HDRType',
-        'mediaId'       => 'MediaId',
-        'streamURL'     => 'StreamURL',
-        'userData'      => 'UserData',
+        'HDRType' => 'HDRType',
+        'mediaId' => 'MediaId',
+        'streamURL' => 'StreamURL',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

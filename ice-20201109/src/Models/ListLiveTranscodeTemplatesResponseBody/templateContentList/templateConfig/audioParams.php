@@ -53,16 +53,14 @@ class audioParams extends Model
      */
     public $samplerate;
     protected $_name = [
-        'bitrate'    => 'Bitrate',
-        'channels'   => 'Channels',
-        'codec'      => 'Codec',
-        'profile'    => 'Profile',
+        'bitrate' => 'Bitrate',
+        'channels' => 'Channels',
+        'codec' => 'Codec',
+        'profile' => 'Profile',
         'samplerate' => 'Samplerate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

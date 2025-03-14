@@ -193,30 +193,28 @@ class snapshotJob extends Model
      */
     public $userData;
     protected $_name = [
-        'async'          => 'Async',
-        'code'           => 'Code',
-        'count'          => 'Count',
-        'createTime'     => 'CreateTime',
-        'finishTime'     => 'FinishTime',
-        'input'          => 'Input',
-        'jobId'          => 'JobId',
-        'message'        => 'Message',
-        'modifiedTime'   => 'ModifiedTime',
-        'name'           => 'Name',
-        'output'         => 'Output',
-        'pipelineId'     => 'PipelineId',
-        'status'         => 'Status',
-        'submitTime'     => 'SubmitTime',
+        'async' => 'Async',
+        'code' => 'Code',
+        'count' => 'Count',
+        'createTime' => 'CreateTime',
+        'finishTime' => 'FinishTime',
+        'input' => 'Input',
+        'jobId' => 'JobId',
+        'message' => 'Message',
+        'modifiedTime' => 'ModifiedTime',
+        'name' => 'Name',
+        'output' => 'Output',
+        'pipelineId' => 'PipelineId',
+        'status' => 'Status',
+        'submitTime' => 'SubmitTime',
         'templateConfig' => 'TemplateConfig',
-        'templateId'     => 'TemplateId',
-        'triggerSource'  => 'TriggerSource',
-        'type'           => 'Type',
-        'userData'       => 'UserData',
+        'templateId' => 'TemplateId',
+        'triggerSource' => 'TriggerSource',
+        'type' => 'Type',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

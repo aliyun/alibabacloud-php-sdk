@@ -23,13 +23,11 @@ class voiceGroups extends Model
      */
     public $voiceList;
     protected $_name = [
-        'type'      => 'Type',
+        'type' => 'Type',
         'voiceList' => 'VoiceList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -64,7 +62,7 @@ class voiceGroups extends Model
         if (isset($map['VoiceList'])) {
             if (!empty($map['VoiceList'])) {
                 $model->voiceList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['VoiceList'] as $item) {
                     $model->voiceList[$n++] = null !== $item ? voiceList::fromMap($item) : $item;
                 }

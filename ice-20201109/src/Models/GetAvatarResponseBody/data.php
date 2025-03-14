@@ -19,9 +19,7 @@ class data extends Model
         'avatar' => 'Avatar',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

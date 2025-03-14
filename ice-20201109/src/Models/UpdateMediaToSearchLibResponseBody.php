@@ -47,15 +47,13 @@ class UpdateMediaToSearchLibResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'mediaId'   => 'MediaId',
+        'code' => 'Code',
+        'mediaId' => 'MediaId',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

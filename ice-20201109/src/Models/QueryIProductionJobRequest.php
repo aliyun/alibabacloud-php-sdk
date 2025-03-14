@@ -19,6 +19,7 @@ class QueryIProductionJobRequest extends Model
      * @description The ID of the intelligent production job.
      *
      * This parameter is required.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -26,12 +27,10 @@ class QueryIProductionJobRequest extends Model
     public $jobId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'jobId'       => 'JobId',
+        'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

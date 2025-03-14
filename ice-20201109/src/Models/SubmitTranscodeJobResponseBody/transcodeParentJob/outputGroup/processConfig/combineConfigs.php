@@ -12,6 +12,7 @@ class combineConfigs extends Model
      * @description The audio stream index.
      *
      * This parameter is required.
+     *
      * @example 0 或 exclude
      *
      * @var string
@@ -40,6 +41,7 @@ class combineConfigs extends Model
      * @description The video stream index.
      *
      * This parameter is required.
+     *
      * @example 0 或 exclude
      *
      * @var string
@@ -47,14 +49,12 @@ class combineConfigs extends Model
     public $videoIndex;
     protected $_name = [
         'audioIndex' => 'AudioIndex',
-        'duration'   => 'Duration',
-        'start'      => 'Start',
+        'duration' => 'Duration',
+        'start' => 'Start',
         'videoIndex' => 'VideoIndex',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

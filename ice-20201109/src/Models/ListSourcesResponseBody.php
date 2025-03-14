@@ -51,16 +51,14 @@ class ListSourcesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'sourceList' => 'SourceList',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -110,7 +108,7 @@ class ListSourcesResponseBody extends Model
         if (isset($map['SourceList'])) {
             if (!empty($map['SourceList'])) {
                 $model->sourceList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['SourceList'] as $item) {
                     $model->sourceList[$n++] = null !== $item ? ChannelAssemblySource::fromMap($item) : $item;
                 }

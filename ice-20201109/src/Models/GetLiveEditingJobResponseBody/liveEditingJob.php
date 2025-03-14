@@ -140,26 +140,24 @@ class liveEditingJob extends Model
      */
     public $userData;
     protected $_name = [
-        'clips'              => 'Clips',
-        'code'               => 'Code',
-        'completeTime'       => 'CompleteTime',
-        'creationTime'       => 'CreationTime',
-        'jobId'              => 'JobId',
-        'liveStreamConfig'   => 'LiveStreamConfig',
-        'mediaId'            => 'MediaId',
+        'clips' => 'Clips',
+        'code' => 'Code',
+        'completeTime' => 'CompleteTime',
+        'creationTime' => 'CreationTime',
+        'jobId' => 'JobId',
+        'liveStreamConfig' => 'LiveStreamConfig',
+        'mediaId' => 'MediaId',
         'mediaProduceConfig' => 'MediaProduceConfig',
-        'mediaURL'           => 'MediaURL',
-        'message'            => 'Message',
-        'modifiedTime'       => 'ModifiedTime',
-        'outputMediaConfig'  => 'OutputMediaConfig',
-        'projectId'          => 'ProjectId',
-        'status'             => 'Status',
-        'userData'           => 'UserData',
+        'mediaURL' => 'MediaURL',
+        'message' => 'Message',
+        'modifiedTime' => 'ModifiedTime',
+        'outputMediaConfig' => 'OutputMediaConfig',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

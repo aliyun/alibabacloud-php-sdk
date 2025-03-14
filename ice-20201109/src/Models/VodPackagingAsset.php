@@ -34,16 +34,14 @@ class VodPackagingAsset extends Model
      */
     public $input;
     protected $_name = [
-        'assetName'  => 'AssetName',
-        'contentId'  => 'ContentId',
+        'assetName' => 'AssetName',
+        'contentId' => 'ContentId',
         'createTime' => 'CreateTime',
-        'groupName'  => 'GroupName',
-        'input'      => 'Input',
+        'groupName' => 'GroupName',
+        'input' => 'Input',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

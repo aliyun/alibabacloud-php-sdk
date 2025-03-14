@@ -75,6 +75,7 @@ class UpdateTemplateRequest extends Model
      *   ProcessFailed: Failed to process the advanced template.
      *
      * >  After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
+     *
      * @example Available
      *
      * @var string
@@ -90,19 +91,17 @@ class UpdateTemplateRequest extends Model
      */
     public $templateId;
     protected $_name = [
-        'config'          => 'Config',
-        'coverUrl'        => 'CoverUrl',
-        'name'            => 'Name',
-        'previewMedia'    => 'PreviewMedia',
+        'config' => 'Config',
+        'coverUrl' => 'CoverUrl',
+        'name' => 'Name',
+        'previewMedia' => 'PreviewMedia',
         'relatedMediaids' => 'RelatedMediaids',
-        'source'          => 'Source',
-        'status'          => 'Status',
-        'templateId'      => 'TemplateId',
+        'source' => 'Source',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

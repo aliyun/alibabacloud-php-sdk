@@ -61,17 +61,15 @@ class ListLiveRecordFilesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'files'      => 'Files',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'sortBy'     => 'SortBy',
+        'files' => 'Files',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'sortBy' => 'SortBy',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -115,7 +113,7 @@ class ListLiveRecordFilesResponseBody extends Model
         if (isset($map['Files'])) {
             if (!empty($map['Files'])) {
                 $model->files = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Files'] as $item) {
                     $model->files[$n++] = null !== $item ? files::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class CreateLivePackageChannelRequest extends Model
      * @description The channel name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
      *
      * This parameter is required.
+     *
      * @example channel-1
      *
      * @var string
@@ -38,6 +39,7 @@ class CreateLivePackageChannelRequest extends Model
      * @description The channel group name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
      *
      * This parameter is required.
+     *
      * @example channel-group-1
      *
      * @var string
@@ -48,6 +50,7 @@ class CreateLivePackageChannelRequest extends Model
      * @description The ingest protocol. Only HLS is supported.
      *
      * This parameter is required.
+     *
      * @example HLS
      *
      * @var string
@@ -58,6 +61,7 @@ class CreateLivePackageChannelRequest extends Model
      * @description The number of M3U8 segments. Valid values: 2 to 100.
      *
      * This parameter is required.
+     *
      * @example 3
      *
      * @var int
@@ -68,24 +72,23 @@ class CreateLivePackageChannelRequest extends Model
      * @description The segment duration. Valid values: 1 to 30.
      *
      * This parameter is required.
+     *
      * @example 6
      *
      * @var int
      */
     public $segmentDuration;
     protected $_name = [
-        'channelName'     => 'ChannelName',
-        'clientToken'     => 'ClientToken',
-        'description'     => 'Description',
-        'groupName'       => 'GroupName',
-        'protocol'        => 'Protocol',
-        'segmentCount'    => 'SegmentCount',
+        'channelName' => 'ChannelName',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'groupName' => 'GroupName',
+        'protocol' => 'Protocol',
+        'segmentCount' => 'SegmentCount',
         'segmentDuration' => 'SegmentDuration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

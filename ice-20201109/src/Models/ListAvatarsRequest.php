@@ -39,13 +39,11 @@ class ListAvatarsRequest extends Model
     public $pageSize;
     protected $_name = [
         'avatarType' => 'AvatarType',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

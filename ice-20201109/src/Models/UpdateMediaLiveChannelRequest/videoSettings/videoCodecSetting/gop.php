@@ -35,14 +35,12 @@ class gop extends Model
      */
     public $gopSizeUnits;
     protected $_name = [
-        'bframesNum'   => 'BframesNum',
-        'gopSize'      => 'GopSize',
+        'bframesNum' => 'BframesNum',
+        'gopSize' => 'GopSize',
         'gopSizeUnits' => 'GopSizeUnits',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

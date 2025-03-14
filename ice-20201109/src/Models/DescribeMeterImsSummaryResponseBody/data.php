@@ -80,19 +80,17 @@ class data extends Model
      */
     public $mpsTranscodeUHDDuration;
     protected $_name = [
-        'editingDuration'         => 'EditingDuration',
-        'liveEditDuration'        => 'LiveEditDuration',
-        'liveRecordDuration'      => 'LiveRecordDuration',
-        'liveSnapshotCount'       => 'LiveSnapshotCount',
-        'liveTranscodeDuration'   => 'LiveTranscodeDuration',
-        'mpsAiDuration'           => 'MpsAiDuration',
-        'mpsTranscodeDuration'    => 'MpsTranscodeDuration',
+        'editingDuration' => 'EditingDuration',
+        'liveEditDuration' => 'LiveEditDuration',
+        'liveRecordDuration' => 'LiveRecordDuration',
+        'liveSnapshotCount' => 'LiveSnapshotCount',
+        'liveTranscodeDuration' => 'LiveTranscodeDuration',
+        'mpsAiDuration' => 'MpsAiDuration',
+        'mpsTranscodeDuration' => 'MpsTranscodeDuration',
         'mpsTranscodeUHDDuration' => 'MpsTranscodeUHDDuration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

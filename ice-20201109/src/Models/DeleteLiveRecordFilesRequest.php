@@ -12,6 +12,7 @@ class DeleteLiveRecordFilesRequest extends Model
      * @description The collection of IDs of recording files.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $recordIds;
@@ -25,13 +26,11 @@ class DeleteLiveRecordFilesRequest extends Model
      */
     public $removeFile;
     protected $_name = [
-        'recordIds'  => 'RecordIds',
+        'recordIds' => 'RecordIds',
         'removeFile' => 'RemoveFile',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

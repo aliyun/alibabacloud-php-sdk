@@ -12,6 +12,7 @@ class UpdateMediaToSearchLibRequest extends Model
      * @description The ID of the media asset.
      *
      * This parameter is required.
+     *
      * @example ****019b82e24b37a1c2958dec38****
      *
      * @var string
@@ -22,6 +23,7 @@ class UpdateMediaToSearchLibRequest extends Model
      * @description The message body.
      *
      * This parameter is required.
+     *
      * @example {}
      *
      * @var string
@@ -37,14 +39,12 @@ class UpdateMediaToSearchLibRequest extends Model
      */
     public $searchLibName;
     protected $_name = [
-        'mediaId'       => 'MediaId',
-        'msgBody'       => 'MsgBody',
+        'mediaId' => 'MediaId',
+        'msgBody' => 'MsgBody',
         'searchLibName' => 'SearchLibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

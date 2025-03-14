@@ -33,13 +33,11 @@ class aiData extends Model
     public $ocrInfo;
     protected $_name = [
         'aiLabelInfo' => 'AiLabelInfo',
-        'asrInfo'     => 'AsrInfo',
-        'ocrInfo'     => 'OcrInfo',
+        'asrInfo' => 'AsrInfo',
+        'ocrInfo' => 'OcrInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -86,7 +84,7 @@ class aiData extends Model
         if (isset($map['AiLabelInfo'])) {
             if (!empty($map['AiLabelInfo'])) {
                 $model->aiLabelInfo = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['AiLabelInfo'] as $item) {
                     $model->aiLabelInfo[$n++] = null !== $item ? aiLabelInfo::fromMap($item) : $item;
                 }
@@ -95,7 +93,7 @@ class aiData extends Model
         if (isset($map['AsrInfo'])) {
             if (!empty($map['AsrInfo'])) {
                 $model->asrInfo = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['AsrInfo'] as $item) {
                     $model->asrInfo[$n++] = null !== $item ? asrInfo::fromMap($item) : $item;
                 }
@@ -104,7 +102,7 @@ class aiData extends Model
         if (isset($map['OcrInfo'])) {
             if (!empty($map['OcrInfo'])) {
                 $model->ocrInfo = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['OcrInfo'] as $item) {
                     $model->ocrInfo[$n++] = null !== $item ? ocrInfo::fromMap($item) : $item;
                 }

@@ -20,9 +20,7 @@ class DeleteVodPackagingConfigurationRequest extends Model
         'configurationName' => 'ConfigurationName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

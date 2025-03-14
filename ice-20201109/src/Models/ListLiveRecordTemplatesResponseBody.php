@@ -66,17 +66,15 @@ class ListLiveRecordTemplatesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNo'             => 'PageNo',
-        'pageSize'           => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'recordTemplateList' => 'RecordTemplateList',
-        'requestId'          => 'RequestId',
-        'sortBy'             => 'SortBy',
-        'totalCount'         => 'TotalCount',
+        'requestId' => 'RequestId',
+        'sortBy' => 'SortBy',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -126,7 +124,7 @@ class ListLiveRecordTemplatesResponseBody extends Model
         if (isset($map['RecordTemplateList'])) {
             if (!empty($map['RecordTemplateList'])) {
                 $model->recordTemplateList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['RecordTemplateList'] as $item) {
                     $model->recordTemplateList[$n++] = null !== $item ? recordTemplateList::fromMap($item) : $item;
                 }

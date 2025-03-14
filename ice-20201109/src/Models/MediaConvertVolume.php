@@ -34,15 +34,13 @@ class MediaConvertVolume extends Model
     public $truePeak;
     protected $_name = [
         'integratedLoudnessTarget' => 'IntegratedLoudnessTarget',
-        'level'                    => 'Level',
-        'loudnessRangeTarget'      => 'LoudnessRangeTarget',
-        'method'                   => 'Method',
-        'truePeak'                 => 'TruePeak',
+        'level' => 'Level',
+        'loudnessRangeTarget' => 'LoudnessRangeTarget',
+        'method' => 'Method',
+        'truePeak' => 'TruePeak',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

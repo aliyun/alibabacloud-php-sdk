@@ -13,6 +13,7 @@ class ListMediaProducingJobsResponseBody extends Model
      * @description The maximum number of entries returned.
      *
      * Default value: 10. Valid values: 1 to 100.
+     *
      * @example 100
      *
      * @var string
@@ -44,15 +45,13 @@ class ListMediaProducingJobsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'maxResults'            => 'MaxResults',
+        'maxResults' => 'MaxResults',
         'mediaProducingJobList' => 'MediaProducingJobList',
-        'nextToken'             => 'NextToken',
-        'requestId'             => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -93,7 +92,7 @@ class ListMediaProducingJobsResponseBody extends Model
         if (isset($map['MediaProducingJobList'])) {
             if (!empty($map['MediaProducingJobList'])) {
                 $model->mediaProducingJobList = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['MediaProducingJobList'] as $item) {
                     $model->mediaProducingJobList[$n++] = null !== $item ? mediaProducingJobList::fromMap($item) : $item;
                 }

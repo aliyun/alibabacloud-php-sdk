@@ -37,14 +37,12 @@ class videoCensorConfig extends Model
      */
     public $videoCensor;
     protected $_name = [
-        'bizType'     => 'BizType',
-        'outputFile'  => 'OutputFile',
+        'bizType' => 'BizType',
+        'outputFile' => 'OutputFile',
         'videoCensor' => 'VideoCensor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

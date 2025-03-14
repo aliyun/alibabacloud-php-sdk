@@ -12,6 +12,7 @@ class UpdateLiveTranscodeJobShrinkRequest extends Model
      * @description The job ID.
      *
      * This parameter is required.
+     *
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -48,16 +49,14 @@ class UpdateLiveTranscodeJobShrinkRequest extends Model
      */
     public $transcodeOutputShrink;
     protected $_name = [
-        'jobId'                 => 'JobId',
-        'name'                  => 'Name',
-        'streamInputShrink'     => 'StreamInput',
-        'timedConfigShrink'     => 'TimedConfig',
+        'jobId' => 'JobId',
+        'name' => 'Name',
+        'streamInputShrink' => 'StreamInput',
+        'timedConfigShrink' => 'TimedConfig',
         'transcodeOutputShrink' => 'TranscodeOutput',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

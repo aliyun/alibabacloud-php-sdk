@@ -11,7 +11,10 @@ class BatchGetMediaInfosRequest extends Model
     /**
      * @description The additional information that you want to query about the media assets. By default, only BasicInfo is returned. The following additional information can be queried:
      *
+     * \\- FileInfo
+     *
      * \\- DynamicMetaData
+     *
      * @example FileInfo,DynamicMetaData
      *
      * @var string
@@ -28,12 +31,10 @@ class BatchGetMediaInfosRequest extends Model
     public $mediaIds;
     protected $_name = [
         'additionType' => 'AdditionType',
-        'mediaIds'     => 'MediaIds',
+        'mediaIds' => 'MediaIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

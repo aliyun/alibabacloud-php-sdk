@@ -33,6 +33,7 @@ class CreateDNADBRequest extends Model
      * @description The name of the media fingerprint library.
      *
      * This parameter is required.
+     *
      * @example example name
      *
      * @var string
@@ -59,18 +60,16 @@ class CreateDNADBRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'description'          => 'Description',
-        'model'                => 'Model',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'description' => 'Description',
+        'model' => 'Model',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
