@@ -47,6 +47,7 @@ class DescribePriceRequest extends Model
      * @description The number of cloud computer shares. Default value: 1.
      *
      * >  This parameter takes effect only if you set `ResourceType` to `DesktopGroup`.
+     *
      * @example 1
      *
      * @var int
@@ -102,6 +103,7 @@ class DescribePriceRequest extends Model
      *   If you set `PeriodUnit` to `Year`, set the value of this parameter to 1, 2, or 3.
      *
      * Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -136,6 +138,7 @@ class DescribePriceRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by EDS.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -206,27 +209,25 @@ class DescribePriceRequest extends Model
      */
     public $userDiskSizeGib;
     protected $_name = [
-        'amount'             => 'Amount',
-        'bandwidth'          => 'Bandwidth',
-        'duration'           => 'Duration',
-        'groupDesktopCount'  => 'GroupDesktopCount',
-        'instanceType'       => 'InstanceType',
+        'amount' => 'Amount',
+        'bandwidth' => 'Bandwidth',
+        'duration' => 'Duration',
+        'groupDesktopCount' => 'GroupDesktopCount',
+        'instanceType' => 'InstanceType',
         'internetChargeType' => 'InternetChargeType',
-        'osType'             => 'OsType',
-        'period'             => 'Period',
-        'periodUnit'         => 'PeriodUnit',
-        'promotionId'        => 'PromotionId',
-        'regionId'           => 'RegionId',
-        'resourceType'       => 'ResourceType',
-        'rootDiskCategory'   => 'RootDiskCategory',
-        'rootDiskSizeGib'    => 'RootDiskSizeGib',
-        'userDiskCategory'   => 'UserDiskCategory',
-        'userDiskSizeGib'    => 'UserDiskSizeGib',
+        'osType' => 'OsType',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'promotionId' => 'PromotionId',
+        'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
+        'rootDiskCategory' => 'RootDiskCategory',
+        'rootDiskSizeGib' => 'RootDiskSizeGib',
+        'userDiskCategory' => 'UserDiskCategory',
+        'userDiskSizeGib' => 'UserDiskSizeGib',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

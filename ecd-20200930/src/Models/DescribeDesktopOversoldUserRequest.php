@@ -43,18 +43,16 @@ class DescribeDesktopOversoldUserRequest extends Model
      */
     public $userGroupId;
     protected $_name = [
-        'clientToken'     => 'ClientToken',
-        'endUserId'       => 'EndUserId',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
+        'clientToken' => 'ClientToken',
+        'endUserId' => 'EndUserId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'oversoldGroupId' => 'OversoldGroupId',
-        'userDesktopIds'  => 'UserDesktopIds',
-        'userGroupId'     => 'UserGroupId',
+        'userDesktopIds' => 'UserDesktopIds',
+        'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

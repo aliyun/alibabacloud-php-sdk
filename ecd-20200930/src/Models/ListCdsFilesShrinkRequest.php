@@ -12,6 +12,7 @@ class ListCdsFilesShrinkRequest extends Model
      * @description The ID of the cloud disk.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+cds-320357****
      *
      * @var string
@@ -66,7 +67,23 @@ class ListCdsFilesShrinkRequest extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * sorts files in descending order based on the time when they are created.
+     *
+     * <!-- -->
+     *
      *   ModifiedTimeAsc
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * sorts files in ascending order based on the time when they are modified.
      *
      * <!-- -->
      *
@@ -74,7 +91,23 @@ class ListCdsFilesShrinkRequest extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * sorts files in descending order based on their names.
+     *
+     * <!-- -->
+     *
      *   SizeAsc
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * sorts files in ascending order based on their sizes.
      *
      * <!-- -->
      *
@@ -82,7 +115,23 @@ class ListCdsFilesShrinkRequest extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * sorts files in descending order based on the time when they are modified.
+     *
+     * <!-- -->
+     *
      *   CreateTimeAsc
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * sorts files in ascending order based on the time when they are created.
      *
      * <!-- -->
      *
@@ -90,9 +139,26 @@ class ListCdsFilesShrinkRequest extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * sorts files in descending order based on their sizes.
+     *
+     * <!-- -->
+     *
      *   NameAsc
      *
      * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * sorts files in ascending order based on their names.
+     *
+     * <!-- -->
+     *
      * @example CreateTimeDesc
      *
      * @var string
@@ -126,30 +192,45 @@ class ListCdsFilesShrinkRequest extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * returns only normal files.
+     *
+     * <!-- -->
+     *
      *   uploading
      *
      * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * returns only the files that are being uploaded.
+     *
+     * <!-- -->
+     *
      * @example available
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'cdsId'         => 'CdsId',
-        'endUserId'     => 'EndUserId',
+        'cdsId' => 'CdsId',
+        'endUserId' => 'EndUserId',
         'fileIdsShrink' => 'FileIds',
-        'groupId'       => 'GroupId',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'orderType'     => 'OrderType',
-        'parentFileId'  => 'ParentFileId',
-        'regionId'      => 'RegionId',
-        'status'        => 'Status',
+        'groupId' => 'GroupId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'orderType' => 'OrderType',
+        'parentFileId' => 'ParentFileId',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,6 +44,7 @@ class ResetDesktopsRequest extends Model
      * @description The billing method.
      *
      * > This parameter is available only when you reset cloud computer pools. If you leave this parameter empty, all cloud computers in the specified cloud computer pool are reset, regardless of how the cloud computers are billed.
+     *
      * @example PrePaid
      *
      * @var string
@@ -54,6 +55,7 @@ class ResetDesktopsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/436773.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -85,25 +87,24 @@ class ResetDesktopsRequest extends Model
      *   3: resets the system disk and the user disk.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
      */
     public $resetType;
     protected $_name = [
-        'desktopGroupId'  => 'DesktopGroupId',
+        'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupIds' => 'DesktopGroupIds',
-        'desktopId'       => 'DesktopId',
-        'imageId'         => 'ImageId',
-        'payType'         => 'PayType',
-        'regionId'        => 'RegionId',
-        'resetScope'      => 'ResetScope',
-        'resetType'       => 'ResetType',
+        'desktopId' => 'DesktopId',
+        'imageId' => 'ImageId',
+        'payType' => 'PayType',
+        'regionId' => 'RegionId',
+        'resetScope' => 'ResetScope',
+        'resetType' => 'ResetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

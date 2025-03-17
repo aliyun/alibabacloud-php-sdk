@@ -12,6 +12,7 @@ class DeletePolicyGroupsRequest extends Model
      * @description The cloud computer policy IDs. You can specify 1 to 100 policies.
      *
      * This parameter is required.
+     *
      * @example pg-gx2x1dhsmthe9****
      *
      * @var string[]
@@ -22,6 +23,7 @@ class DeletePolicyGroupsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by EDS.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -29,12 +31,10 @@ class DeletePolicyGroupsRequest extends Model
     public $regionId;
     protected $_name = [
         'policyGroupId' => 'PolicyGroupId',
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

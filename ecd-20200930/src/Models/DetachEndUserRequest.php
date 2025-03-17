@@ -25,6 +25,7 @@ class DetachEndUserRequest extends Model
      *   1: hardware client.
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var string
@@ -35,6 +36,7 @@ class DetachEndUserRequest extends Model
      * @description The serial number (SN) of the hardware client.
      *
      * This parameter is required.
+     *
      * @example F9E52EDCCB2B****
      *
      * @var string
@@ -54,6 +56,7 @@ class DetachEndUserRequest extends Model
      * @description The ID of the user that you want to unbind from the hardware client.
      *
      * This parameter is required.
+     *
      * @example moli
      *
      * @var string
@@ -69,17 +72,15 @@ class DetachEndUserRequest extends Model
      */
     public $region;
     protected $_name = [
-        'adDomain'    => 'AdDomain',
-        'clientType'  => 'ClientType',
-        'deviceId'    => 'DeviceId',
+        'adDomain' => 'AdDomain',
+        'clientType' => 'ClientType',
+        'deviceId' => 'DeviceId',
         'directoryId' => 'DirectoryId',
-        'endUserId'   => 'EndUserId',
-        'region'      => 'Region',
+        'endUserId' => 'EndUserId',
+        'region' => 'Region',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

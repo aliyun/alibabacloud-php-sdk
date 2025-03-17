@@ -208,6 +208,7 @@ class desktopGroups extends Model
      * @description The keep-alive duration of a session after the session is disconnected. Valid values: 180000 (3 minutes) to 345600000 (4 days). Unit: milliseconds. If you set this parameter to 0, the session is permanently retained after it is disconnected.
      *
      * When a session is disconnected, take note of the following situations: If an end user does not resume the session within the specified duration, the session is closed and all unsaved data is cleared. If the end user resumes the session within the specified duration, the end user can continue to access data of the session.
+     *
      * @example 1000
      *
      * @var int
@@ -298,9 +299,18 @@ class desktopGroups extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Windows
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Windows
      *
      * @var string
@@ -380,9 +390,18 @@ class desktopGroups extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   ASP
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example ASP
      *
      * @var string
@@ -392,7 +411,10 @@ class desktopGroups extends Model
     /**
      * @description The threshold for the ratio of connected sessions. This parameter indicates the condition that triggers auto scaling in a multi-session cloud computer pool. The ratio of connected sessions is calculated by using the following formula:
      *
+     * `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`.
+     *
      * When the specified threshold is reached, new cloud computers are automatically created. When the specified threshold is not reached, idle cloud computers are released.
+     *
      * @example 0.85
      *
      * @var float
@@ -506,59 +528,57 @@ class desktopGroups extends Model
      */
     public $volumeEncryptionKey;
     protected $_name = [
-        'bindAmount'              => 'BindAmount',
-        'buyDesktopsCount'        => 'BuyDesktopsCount',
-        'comments'                => 'Comments',
-        'connectDuration'         => 'ConnectDuration',
-        'countPerStatus'          => 'CountPerStatus',
-        'cpu'                     => 'Cpu',
-        'createTime'              => 'CreateTime',
-        'creator'                 => 'Creator',
-        'dataDiskCategory'        => 'DataDiskCategory',
-        'dataDiskSize'            => 'DataDiskSize',
-        'desktopCount'            => 'DesktopCount',
-        'desktopGroupId'          => 'DesktopGroupId',
-        'desktopGroupName'        => 'DesktopGroupName',
-        'desktopType'             => 'DesktopType',
-        'endUserCount'            => 'EndUserCount',
-        'expiredTime'             => 'ExpiredTime',
-        'gpuCount'                => 'GpuCount',
-        'gpuDriverVersion'        => 'GpuDriverVersion',
-        'gpuSpec'                 => 'GpuSpec',
-        'idleDisconnectDuration'  => 'IdleDisconnectDuration',
-        'imageId'                 => 'ImageId',
-        'keepDuration'            => 'KeepDuration',
-        'loadPolicy'              => 'LoadPolicy',
-        'maxDesktopsCount'        => 'MaxDesktopsCount',
-        'memory'                  => 'Memory',
-        'minDesktopsCount'        => 'MinDesktopsCount',
-        'officeSiteId'            => 'OfficeSiteId',
-        'officeSiteName'          => 'OfficeSiteName',
-        'officeSiteType'          => 'OfficeSiteType',
-        'osType'                  => 'OsType',
-        'ownBundleId'             => 'OwnBundleId',
-        'ownBundleName'           => 'OwnBundleName',
-        'ownType'                 => 'OwnType',
-        'payType'                 => 'PayType',
-        'policyGroupId'           => 'PolicyGroupId',
-        'policyGroupName'         => 'PolicyGroupName',
-        'protocolType'            => 'ProtocolType',
-        'ratioThreshold'          => 'RatioThreshold',
-        'resetType'               => 'ResetType',
-        'status'                  => 'Status',
-        'stopDuration'            => 'StopDuration',
-        'subnetId'                => 'SubnetId',
-        'systemDiskCategory'      => 'SystemDiskCategory',
-        'systemDiskSize'          => 'SystemDiskSize',
-        'tags'                    => 'Tags',
-        'version'                 => 'Version',
+        'bindAmount' => 'BindAmount',
+        'buyDesktopsCount' => 'BuyDesktopsCount',
+        'comments' => 'Comments',
+        'connectDuration' => 'ConnectDuration',
+        'countPerStatus' => 'CountPerStatus',
+        'cpu' => 'Cpu',
+        'createTime' => 'CreateTime',
+        'creator' => 'Creator',
+        'dataDiskCategory' => 'DataDiskCategory',
+        'dataDiskSize' => 'DataDiskSize',
+        'desktopCount' => 'DesktopCount',
+        'desktopGroupId' => 'DesktopGroupId',
+        'desktopGroupName' => 'DesktopGroupName',
+        'desktopType' => 'DesktopType',
+        'endUserCount' => 'EndUserCount',
+        'expiredTime' => 'ExpiredTime',
+        'gpuCount' => 'GpuCount',
+        'gpuDriverVersion' => 'GpuDriverVersion',
+        'gpuSpec' => 'GpuSpec',
+        'idleDisconnectDuration' => 'IdleDisconnectDuration',
+        'imageId' => 'ImageId',
+        'keepDuration' => 'KeepDuration',
+        'loadPolicy' => 'LoadPolicy',
+        'maxDesktopsCount' => 'MaxDesktopsCount',
+        'memory' => 'Memory',
+        'minDesktopsCount' => 'MinDesktopsCount',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
+        'officeSiteType' => 'OfficeSiteType',
+        'osType' => 'OsType',
+        'ownBundleId' => 'OwnBundleId',
+        'ownBundleName' => 'OwnBundleName',
+        'ownType' => 'OwnType',
+        'payType' => 'PayType',
+        'policyGroupId' => 'PolicyGroupId',
+        'policyGroupName' => 'PolicyGroupName',
+        'protocolType' => 'ProtocolType',
+        'ratioThreshold' => 'RatioThreshold',
+        'resetType' => 'ResetType',
+        'status' => 'Status',
+        'stopDuration' => 'StopDuration',
+        'subnetId' => 'SubnetId',
+        'systemDiskCategory' => 'SystemDiskCategory',
+        'systemDiskSize' => 'SystemDiskSize',
+        'tags' => 'Tags',
+        'version' => 'Version',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
-        'volumeEncryptionKey'     => 'VolumeEncryptionKey',
+        'volumeEncryptionKey' => 'VolumeEncryptionKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -746,7 +766,7 @@ class desktopGroups extends Model
         if (isset($map['CountPerStatus'])) {
             if (!empty($map['CountPerStatus'])) {
                 $model->countPerStatus = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['CountPerStatus'] as $item) {
                     $model->countPerStatus[$n++] = null !== $item ? countPerStatus::fromMap($item) : $item;
                 }
@@ -872,7 +892,7 @@ class desktopGroups extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

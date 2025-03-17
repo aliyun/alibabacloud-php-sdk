@@ -44,13 +44,26 @@ class GetCoordinateTicketResponseBody extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Failed
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   Running
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Finished
      *
      * @var string
@@ -66,16 +79,14 @@ class GetCoordinateTicketResponseBody extends Model
      */
     public $ticket;
     protected $_name = [
-        'coId'       => 'CoId',
-        'requestId'  => 'RequestId',
-        'taskId'     => 'TaskId',
+        'coId' => 'CoId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
         'taskStatus' => 'TaskStatus',
-        'ticket'     => 'Ticket',
+        'ticket' => 'Ticket',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

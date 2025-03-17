@@ -19,6 +19,7 @@ class ModifyImagePermissionRequest extends Model
      * @description The IDs of the images.
      *
      * This parameter is required.
+     *
      * @example m-gx2x1dhsmusr2****
      *
      * @var string
@@ -29,6 +30,7 @@ class ModifyImagePermissionRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -42,15 +44,13 @@ class ModifyImagePermissionRequest extends Model
      */
     public $removeAccount;
     protected $_name = [
-        'addAccount'    => 'AddAccount',
-        'imageId'       => 'ImageId',
-        'regionId'      => 'RegionId',
+        'addAccount' => 'AddAccount',
+        'imageId' => 'ImageId',
+        'regionId' => 'RegionId',
         'removeAccount' => 'RemoveAccount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

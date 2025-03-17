@@ -21,6 +21,7 @@ class ModifyPolicyGroupRequest extends Model
      * @description Specifies whether end users have the administrator permissions.
      *
      * >  This parameter is in invitational preview for specific users and not available to the public.
+     *
      * @example deny
      *
      * @var string
@@ -186,6 +187,8 @@ class ModifyPolicyGroupRequest extends Model
     /**
      * @description Specifies whether to allow web client access.
      *
+     * >  We recommend that you specify the ClientType-related parameters to control the Alibaba Cloud Workspace client type for cloud computer connection.``
+     *
      * Valid values:
      *
      *   off
@@ -263,6 +266,8 @@ class ModifyPolicyGroupRequest extends Model
     /**
      * @description Specifies whether to enable network redirection.
      *
+     * >  This parameter is in invitational preview for specific users and not available to the public.
+     *
      * Valid values:
      *
      *   off (default)
@@ -278,6 +283,7 @@ class ModifyPolicyGroupRequest extends Model
      * @description The ID of the cloud computer policy.
      *
      * This parameter is required.
+     *
      * @example pg-gx2x1dhsmthe9****
      *
      * @var string
@@ -286,6 +292,8 @@ class ModifyPolicyGroupRequest extends Model
 
     /**
      * @description The cloud computer preemption feature.
+     *
+     * >  To ensure user experience and data security, when a cloud computer is used by an end user, other end users cannot connect to the cloud computer. By default, this parameter is set to `off`, which cannot be modified.
      *
      * Valid values:
      *
@@ -301,6 +309,7 @@ class ModifyPolicyGroupRequest extends Model
      * @description The usernames that are allowed to connect to the cloud computer in use. You can specify up to five usernames.
      *
      * >  To ensure user experience and data security, other end users cannot connect to the cloud computer that is used by an end user.
+     *
      * @var string[]
      */
     public $preemptLoginUser;
@@ -461,6 +470,7 @@ class ModifyPolicyGroupRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -652,6 +662,7 @@ class ModifyPolicyGroupRequest extends Model
      * @description The number of watermark rows.
      *
      * >  This parameter is not available for public use.
+     *
      * @example 3
      *
      * @var int
@@ -699,6 +710,8 @@ class ModifyPolicyGroupRequest extends Model
     /**
      * @description The watermark content. You can select up to three items as the watermark content. Separate multiple items with commas (,).
      *
+     * >  If you set this parameter to `Custom`, you must specify `WatermarkCustomText`.
+     *
      * Valid values:
      *
      *   EndUserId: the username
@@ -717,78 +730,82 @@ class ModifyPolicyGroupRequest extends Model
     /**
      * @description Specifies whether to provide the AI Assistant function in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace desktop clients (including the Windows client and the macOS client).
      *
+     * > Desktop clients of V7.7 and higher versions required.
+     *
+     * Valid values:
+     *
+     * - off: the AI Aisstant function is not provided.
      * - on: the AI Aisstant function is provided.
+     *
      * @example on
      *
      * @var string
      */
     public $wyAssistant;
     protected $_name = [
-        'adminAccess'                   => 'AdminAccess',
-        'appContentProtection'          => 'AppContentProtection',
-        'authorizeAccessPolicyRule'     => 'AuthorizeAccessPolicyRule',
-        'authorizeSecurityPolicyRule'   => 'AuthorizeSecurityPolicyRule',
-        'cameraRedirect'                => 'CameraRedirect',
-        'clientType'                    => 'ClientType',
-        'clipboard'                     => 'Clipboard',
-        'deviceRedirects'               => 'DeviceRedirects',
-        'deviceRules'                   => 'DeviceRules',
-        'domainList'                    => 'DomainList',
-        'domainResolveRule'             => 'DomainResolveRule',
-        'domainResolveRuleType'         => 'DomainResolveRuleType',
-        'endUserApplyAdminCoordinate'   => 'EndUserApplyAdminCoordinate',
-        'endUserGroupCoordinate'        => 'EndUserGroupCoordinate',
-        'gpuAcceleration'               => 'GpuAcceleration',
-        'html5Access'                   => 'Html5Access',
-        'html5FileTransfer'             => 'Html5FileTransfer',
+        'adminAccess' => 'AdminAccess',
+        'appContentProtection' => 'AppContentProtection',
+        'authorizeAccessPolicyRule' => 'AuthorizeAccessPolicyRule',
+        'authorizeSecurityPolicyRule' => 'AuthorizeSecurityPolicyRule',
+        'cameraRedirect' => 'CameraRedirect',
+        'clientType' => 'ClientType',
+        'clipboard' => 'Clipboard',
+        'deviceRedirects' => 'DeviceRedirects',
+        'deviceRules' => 'DeviceRules',
+        'domainList' => 'DomainList',
+        'domainResolveRule' => 'DomainResolveRule',
+        'domainResolveRuleType' => 'DomainResolveRuleType',
+        'endUserApplyAdminCoordinate' => 'EndUserApplyAdminCoordinate',
+        'endUserGroupCoordinate' => 'EndUserGroupCoordinate',
+        'gpuAcceleration' => 'GpuAcceleration',
+        'html5Access' => 'Html5Access',
+        'html5FileTransfer' => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
-        'localDrive'                    => 'LocalDrive',
-        'maxReconnectTime'              => 'MaxReconnectTime',
-        'name'                          => 'Name',
-        'netRedirect'                   => 'NetRedirect',
-        'policyGroupId'                 => 'PolicyGroupId',
-        'preemptLogin'                  => 'PreemptLogin',
-        'preemptLoginUser'              => 'PreemptLoginUser',
-        'printerRedirection'            => 'PrinterRedirection',
-        'recordContent'                 => 'RecordContent',
-        'recordContentExpires'          => 'RecordContentExpires',
-        'recording'                     => 'Recording',
-        'recordingAudio'                => 'RecordingAudio',
-        'recordingDuration'             => 'RecordingDuration',
-        'recordingEndTime'              => 'RecordingEndTime',
-        'recordingExpires'              => 'RecordingExpires',
-        'recordingFps'                  => 'RecordingFps',
-        'recordingStartTime'            => 'RecordingStartTime',
-        'recordingUserNotify'           => 'RecordingUserNotify',
-        'recordingUserNotifyMessage'    => 'RecordingUserNotifyMessage',
-        'regionId'                      => 'RegionId',
-        'remoteCoordinate'              => 'RemoteCoordinate',
-        'revokeAccessPolicyRule'        => 'RevokeAccessPolicyRule',
-        'revokeSecurityPolicyRule'      => 'RevokeSecurityPolicyRule',
-        'scope'                         => 'Scope',
-        'scopeValue'                    => 'ScopeValue',
-        'usbRedirect'                   => 'UsbRedirect',
-        'usbSupplyRedirectRule'         => 'UsbSupplyRedirectRule',
-        'videoRedirect'                 => 'VideoRedirect',
-        'visualQuality'                 => 'VisualQuality',
-        'watermark'                     => 'Watermark',
-        'watermarkAntiCam'              => 'WatermarkAntiCam',
-        'watermarkColor'                => 'WatermarkColor',
-        'watermarkDegree'               => 'WatermarkDegree',
-        'watermarkFontSize'             => 'WatermarkFontSize',
-        'watermarkFontStyle'            => 'WatermarkFontStyle',
-        'watermarkPower'                => 'WatermarkPower',
-        'watermarkRowAmount'            => 'WatermarkRowAmount',
-        'watermarkSecurity'             => 'WatermarkSecurity',
-        'watermarkTransparency'         => 'WatermarkTransparency',
-        'watermarkTransparencyValue'    => 'WatermarkTransparencyValue',
-        'watermarkType'                 => 'WatermarkType',
-        'wyAssistant'                   => 'WyAssistant',
+        'localDrive' => 'LocalDrive',
+        'maxReconnectTime' => 'MaxReconnectTime',
+        'name' => 'Name',
+        'netRedirect' => 'NetRedirect',
+        'policyGroupId' => 'PolicyGroupId',
+        'preemptLogin' => 'PreemptLogin',
+        'preemptLoginUser' => 'PreemptLoginUser',
+        'printerRedirection' => 'PrinterRedirection',
+        'recordContent' => 'RecordContent',
+        'recordContentExpires' => 'RecordContentExpires',
+        'recording' => 'Recording',
+        'recordingAudio' => 'RecordingAudio',
+        'recordingDuration' => 'RecordingDuration',
+        'recordingEndTime' => 'RecordingEndTime',
+        'recordingExpires' => 'RecordingExpires',
+        'recordingFps' => 'RecordingFps',
+        'recordingStartTime' => 'RecordingStartTime',
+        'recordingUserNotify' => 'RecordingUserNotify',
+        'recordingUserNotifyMessage' => 'RecordingUserNotifyMessage',
+        'regionId' => 'RegionId',
+        'remoteCoordinate' => 'RemoteCoordinate',
+        'revokeAccessPolicyRule' => 'RevokeAccessPolicyRule',
+        'revokeSecurityPolicyRule' => 'RevokeSecurityPolicyRule',
+        'scope' => 'Scope',
+        'scopeValue' => 'ScopeValue',
+        'usbRedirect' => 'UsbRedirect',
+        'usbSupplyRedirectRule' => 'UsbSupplyRedirectRule',
+        'videoRedirect' => 'VideoRedirect',
+        'visualQuality' => 'VisualQuality',
+        'watermark' => 'Watermark',
+        'watermarkAntiCam' => 'WatermarkAntiCam',
+        'watermarkColor' => 'WatermarkColor',
+        'watermarkDegree' => 'WatermarkDegree',
+        'watermarkFontSize' => 'WatermarkFontSize',
+        'watermarkFontStyle' => 'WatermarkFontStyle',
+        'watermarkPower' => 'WatermarkPower',
+        'watermarkRowAmount' => 'WatermarkRowAmount',
+        'watermarkSecurity' => 'WatermarkSecurity',
+        'watermarkTransparency' => 'WatermarkTransparency',
+        'watermarkTransparencyValue' => 'WatermarkTransparencyValue',
+        'watermarkType' => 'WatermarkType',
+        'wyAssistant' => 'WyAssistant',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -1048,7 +1065,7 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['AuthorizeAccessPolicyRule'])) {
             if (!empty($map['AuthorizeAccessPolicyRule'])) {
                 $model->authorizeAccessPolicyRule = [];
-                $n                                = 0;
+                $n = 0;
                 foreach ($map['AuthorizeAccessPolicyRule'] as $item) {
                     $model->authorizeAccessPolicyRule[$n++] = null !== $item ? authorizeAccessPolicyRule::fromMap($item) : $item;
                 }
@@ -1057,7 +1074,7 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['AuthorizeSecurityPolicyRule'])) {
             if (!empty($map['AuthorizeSecurityPolicyRule'])) {
                 $model->authorizeSecurityPolicyRule = [];
-                $n                                  = 0;
+                $n = 0;
                 foreach ($map['AuthorizeSecurityPolicyRule'] as $item) {
                     $model->authorizeSecurityPolicyRule[$n++] = null !== $item ? authorizeSecurityPolicyRule::fromMap($item) : $item;
                 }
@@ -1069,7 +1086,7 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['ClientType'])) {
             if (!empty($map['ClientType'])) {
                 $model->clientType = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ClientType'] as $item) {
                     $model->clientType[$n++] = null !== $item ? clientType::fromMap($item) : $item;
                 }
@@ -1081,7 +1098,7 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['DeviceRedirects'])) {
             if (!empty($map['DeviceRedirects'])) {
                 $model->deviceRedirects = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['DeviceRedirects'] as $item) {
                     $model->deviceRedirects[$n++] = null !== $item ? deviceRedirects::fromMap($item) : $item;
                 }
@@ -1090,7 +1107,7 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['DeviceRules'])) {
             if (!empty($map['DeviceRules'])) {
                 $model->deviceRules = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['DeviceRules'] as $item) {
                     $model->deviceRules[$n++] = null !== $item ? deviceRules::fromMap($item) : $item;
                 }
@@ -1102,7 +1119,7 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['DomainResolveRule'])) {
             if (!empty($map['DomainResolveRule'])) {
                 $model->domainResolveRule = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['DomainResolveRule'] as $item) {
                     $model->domainResolveRule[$n++] = null !== $item ? domainResolveRule::fromMap($item) : $item;
                 }
@@ -1197,7 +1214,7 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['RevokeAccessPolicyRule'])) {
             if (!empty($map['RevokeAccessPolicyRule'])) {
                 $model->revokeAccessPolicyRule = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['RevokeAccessPolicyRule'] as $item) {
                     $model->revokeAccessPolicyRule[$n++] = null !== $item ? revokeAccessPolicyRule::fromMap($item) : $item;
                 }
@@ -1206,7 +1223,7 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['RevokeSecurityPolicyRule'])) {
             if (!empty($map['RevokeSecurityPolicyRule'])) {
                 $model->revokeSecurityPolicyRule = [];
-                $n                               = 0;
+                $n = 0;
                 foreach ($map['RevokeSecurityPolicyRule'] as $item) {
                     $model->revokeSecurityPolicyRule[$n++] = null !== $item ? revokeSecurityPolicyRule::fromMap($item) : $item;
                 }
@@ -1226,7 +1243,7 @@ class ModifyPolicyGroupRequest extends Model
         if (isset($map['UsbSupplyRedirectRule'])) {
             if (!empty($map['UsbSupplyRedirectRule'])) {
                 $model->usbSupplyRedirectRule = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['UsbSupplyRedirectRule'] as $item) {
                     $model->usbSupplyRedirectRule[$n++] = null !== $item ? usbSupplyRedirectRule::fromMap($item) : $item;
                 }

@@ -30,6 +30,7 @@ class CreateBandwidthResourcePackagesRequest extends Model
      * @description The size of the data transfer plan. Valid values: 10 to 1000. Unit: GiB.
      *
      * This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -43,6 +44,7 @@ class CreateBandwidthResourcePackagesRequest extends Model
      *   If `PeriodUnit` is set to `Year`, the valid value of Period is 1.
      *
      * Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -76,24 +78,23 @@ class CreateBandwidthResourcePackagesRequest extends Model
      * @description The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'amount'      => 'Amount',
-        'autoPay'     => 'AutoPay',
+        'amount' => 'Amount',
+        'autoPay' => 'AutoPay',
         'packageSize' => 'PackageSize',
-        'period'      => 'Period',
-        'periodUnit'  => 'PeriodUnit',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

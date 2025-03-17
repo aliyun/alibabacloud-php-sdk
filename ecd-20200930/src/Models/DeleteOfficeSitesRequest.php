@@ -12,6 +12,7 @@ class DeleteOfficeSitesRequest extends Model
      * @description The IDs of the office networks. You can specify 1 to 100 office networks.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+dir-363353****
      *
      * @var string[]
@@ -22,6 +23,7 @@ class DeleteOfficeSitesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -29,12 +31,10 @@ class DeleteOfficeSitesRequest extends Model
     public $regionId;
     protected $_name = [
         'officeSiteId' => 'OfficeSiteId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

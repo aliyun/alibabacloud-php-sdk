@@ -60,6 +60,7 @@ class DescribeFotaPendingDesktopsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -75,18 +76,16 @@ class DescribeFotaPendingDesktopsRequest extends Model
      */
     public $taskUid;
     protected $_name = [
-        'desktopId'    => 'DesktopId',
-        'desktopName'  => 'DesktopName',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'officeSiteId' => 'OfficeSiteId',
-        'regionId'     => 'RegionId',
-        'taskUid'      => 'TaskUid',
+        'regionId' => 'RegionId',
+        'taskUid' => 'TaskUid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

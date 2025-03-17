@@ -21,6 +21,7 @@ class DeleteImagesRequest extends Model
      * @description The image IDs. You can specify 1 to 100 image IDs.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $imageId;
@@ -29,6 +30,7 @@ class DeleteImagesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -36,13 +38,11 @@ class DeleteImagesRequest extends Model
     public $regionId;
     protected $_name = [
         'deleteCascadedBundle' => 'DeleteCascadedBundle',
-        'imageId'              => 'ImageId',
-        'regionId'             => 'RegionId',
+        'imageId' => 'ImageId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

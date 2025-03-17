@@ -26,13 +26,11 @@ class appInstanceGroups extends Model
      */
     public $appInstanceGroupName;
     protected $_name = [
-        'appInstanceGroupId'   => 'AppInstanceGroupId',
+        'appInstanceGroupId' => 'AppInstanceGroupId',
         'appInstanceGroupName' => 'AppInstanceGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

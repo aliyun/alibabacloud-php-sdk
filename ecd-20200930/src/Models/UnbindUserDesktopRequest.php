@@ -39,16 +39,14 @@ class UnbindUserDesktopRequest extends Model
     public $userDesktopIds;
     protected $_name = [
         'desktopAgentIds' => 'DesktopAgentIds',
-        'desktopGroupId'  => 'DesktopGroupId',
-        'desktopIds'      => 'DesktopIds',
-        'force'           => 'Force',
-        'reason'          => 'Reason',
-        'userDesktopIds'  => 'UserDesktopIds',
+        'desktopGroupId' => 'DesktopGroupId',
+        'desktopIds' => 'DesktopIds',
+        'force' => 'Force',
+        'reason' => 'Reason',
+        'userDesktopIds' => 'UserDesktopIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

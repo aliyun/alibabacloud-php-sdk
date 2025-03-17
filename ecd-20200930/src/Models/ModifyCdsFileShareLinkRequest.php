@@ -12,6 +12,7 @@ class ModifyCdsFileShareLinkRequest extends Model
      * @description The ID of the cloud disk.
      *
      * This parameter is required.
+     *
      * @example cn-shanghai+cds-135515****
      *
      * @var string
@@ -36,9 +37,18 @@ class ModifyCdsFileShareLinkRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   true
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -54,9 +64,18 @@ class ModifyCdsFileShareLinkRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -72,9 +91,18 @@ class ModifyCdsFileShareLinkRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   true
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -157,6 +185,7 @@ class ModifyCdsFileShareLinkRequest extends Model
      * @description The ID of the file sharing task.
      *
      * This parameter is required.
+     *
      * @example 7JQX1Fs****
      *
      * @var string
@@ -167,6 +196,7 @@ class ModifyCdsFileShareLinkRequest extends Model
      * @description The name of the file sharing task. If you do not configure this parameter, the sharing task name is the first ID that is returned in the file_id_list value.
      *
      * >  The sharing task name must be 0 to 128 characters in length.
+     *
      * @var string
      */
     public $shareName;
@@ -189,9 +219,18 @@ class ModifyCdsFileShareLinkRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   enabled: The sharing task is valid.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example enabled
      *
      * @var string
@@ -207,29 +246,27 @@ class ModifyCdsFileShareLinkRequest extends Model
      */
     public $videoPreviewCount;
     protected $_name = [
-        'cdsId'             => 'CdsId',
-        'description'       => 'Description',
-        'disableDownload'   => 'DisableDownload',
-        'disablePreview'    => 'DisablePreview',
-        'disableSave'       => 'DisableSave',
-        'downloadCount'     => 'DownloadCount',
-        'downloadLimit'     => 'DownloadLimit',
-        'expiration'        => 'Expiration',
-        'previewCount'      => 'PreviewCount',
-        'previewLimit'      => 'PreviewLimit',
-        'reportCount'       => 'ReportCount',
-        'saveCount'         => 'SaveCount',
-        'saveLimit'         => 'SaveLimit',
-        'shareId'           => 'ShareId',
-        'shareName'         => 'ShareName',
-        'sharePwd'          => 'SharePwd',
-        'status'            => 'Status',
+        'cdsId' => 'CdsId',
+        'description' => 'Description',
+        'disableDownload' => 'DisableDownload',
+        'disablePreview' => 'DisablePreview',
+        'disableSave' => 'DisableSave',
+        'downloadCount' => 'DownloadCount',
+        'downloadLimit' => 'DownloadLimit',
+        'expiration' => 'Expiration',
+        'previewCount' => 'PreviewCount',
+        'previewLimit' => 'PreviewLimit',
+        'reportCount' => 'ReportCount',
+        'saveCount' => 'SaveCount',
+        'saveLimit' => 'SaveLimit',
+        'shareId' => 'ShareId',
+        'shareName' => 'ShareName',
+        'sharePwd' => 'SharePwd',
+        'status' => 'Status',
         'videoPreviewCount' => 'VideoPreviewCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

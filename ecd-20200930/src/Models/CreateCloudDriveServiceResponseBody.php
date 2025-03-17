@@ -81,21 +81,19 @@ class CreateCloudDriveServiceResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'cdsId'               => 'CdsId',
-        'cdsName'             => 'CdsName',
-        'cenId'               => 'CenId',
+        'cdsId' => 'CdsId',
+        'cdsName' => 'CdsName',
+        'cenId' => 'CenId',
         'conflictCdsAndOrder' => 'ConflictCdsAndOrder',
-        'domainName'          => 'DomainName',
-        'errorCode'           => 'ErrorCode',
-        'maxSize'             => 'MaxSize',
-        'officeSiteType'      => 'OfficeSiteType',
-        'orderId'             => 'OrderId',
-        'requestId'           => 'RequestId',
+        'domainName' => 'DomainName',
+        'errorCode' => 'ErrorCode',
+        'maxSize' => 'MaxSize',
+        'officeSiteType' => 'OfficeSiteType',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

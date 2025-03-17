@@ -18,9 +18,18 @@ class ExportDesktopListInfoRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   PrePaid: subscription
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example PostPaid
      *
      * @var string
@@ -52,7 +61,15 @@ class ExportDesktopListInfoRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Starting
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -60,7 +77,15 @@ class ExportDesktopListInfoRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Running
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -68,7 +93,15 @@ class ExportDesktopListInfoRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Expired
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -76,9 +109,18 @@ class ExportDesktopListInfoRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Pending
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Running
      *
      * @var string
@@ -89,6 +131,7 @@ class ExportDesktopListInfoRequest extends Model
      * @description The IDs of the end users of the cloud computer. You can specify 1 to 100 IDs.
      *
      * >  During a specific period of time, only one user can connect to and use the cloud computer.
+     *
      * @var string[]
      */
     public $endUserId;
@@ -120,9 +163,18 @@ class ExportDesktopListInfoRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   en-GB: British English
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example `zh-CN`
      *
      * @var string
@@ -132,7 +184,10 @@ class ExportDesktopListInfoRequest extends Model
     /**
      * @description The number of entries per page.
      *
+     * Maximum value: 100.
+     *
      * Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -170,6 +225,7 @@ class ExportDesktopListInfoRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -192,26 +248,24 @@ class ExportDesktopListInfoRequest extends Model
      */
     public $userName;
     protected $_name = [
-        'chargeType'    => 'ChargeType',
-        'desktopId'     => 'DesktopId',
-        'desktopName'   => 'DesktopName',
+        'chargeType' => 'ChargeType',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
         'desktopStatus' => 'DesktopStatus',
-        'endUserId'     => 'EndUserId',
-        'expiredTime'   => 'ExpiredTime',
-        'groupId'       => 'GroupId',
-        'langType'      => 'LangType',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'officeSiteId'  => 'OfficeSiteId',
+        'endUserId' => 'EndUserId',
+        'expiredTime' => 'ExpiredTime',
+        'groupId' => 'GroupId',
+        'langType' => 'LangType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'officeSiteId' => 'OfficeSiteId',
         'policyGroupId' => 'PolicyGroupId',
-        'regionId'      => 'RegionId',
-        'tag'           => 'Tag',
-        'userName'      => 'UserName',
+        'regionId' => 'RegionId',
+        'tag' => 'Tag',
+        'userName' => 'UserName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -325,7 +379,7 @@ class ExportDesktopListInfoRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

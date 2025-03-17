@@ -20,9 +20,7 @@ class adConnectors extends Model
         'address' => 'Address',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteDirectoriesRequest extends Model
      * @description The directory IDs. You can specify one or more directory IDs.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+dir-gx2x1dhsmu52rd****
      *
      * @var string[]
@@ -22,6 +23,7 @@ class DeleteDirectoriesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -29,12 +31,10 @@ class DeleteDirectoriesRequest extends Model
     public $regionId;
     protected $_name = [
         'directoryId' => 'DirectoryId',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

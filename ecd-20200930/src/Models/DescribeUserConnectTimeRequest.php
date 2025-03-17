@@ -48,19 +48,17 @@ class DescribeUserConnectTimeRequest extends Model
      */
     public $userGroupId;
     protected $_name = [
-        'endTime'         => 'EndTime',
-        'endUserId'       => 'EndUserId',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
+        'endTime' => 'EndTime',
+        'endUserId' => 'EndUserId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'oversoldGroupId' => 'OversoldGroupId',
-        'startTime'       => 'StartTime',
-        'userDesktopId'   => 'UserDesktopId',
-        'userGroupId'     => 'UserGroupId',
+        'startTime' => 'StartTime',
+        'userDesktopId' => 'UserDesktopId',
+        'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

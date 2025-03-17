@@ -16,9 +16,7 @@ class data extends Model
         'oversoldGroupId' => 'OversoldGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

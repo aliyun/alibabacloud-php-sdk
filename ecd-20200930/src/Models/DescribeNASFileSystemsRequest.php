@@ -29,7 +29,10 @@ class DescribeNASFileSystemsRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * Maximum value: 100.
+     *
      * Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -58,23 +61,22 @@ class DescribeNASFileSystemsRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'fileSystemId'           => 'FileSystemId',
+        'fileSystemId' => 'FileSystemId',
         'matchCompatibleProfile' => 'MatchCompatibleProfile',
-        'maxResults'             => 'MaxResults',
-        'nextToken'              => 'NextToken',
-        'officeSiteId'           => 'OfficeSiteId',
-        'regionId'               => 'RegionId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'officeSiteId' => 'OfficeSiteId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -19,6 +19,7 @@ class DescribeDesktopInfoRequest extends Model
      * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -26,12 +27,10 @@ class DescribeDesktopInfoRequest extends Model
     public $regionId;
     protected $_name = [
         'desktopId' => 'DesktopId',
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -97,6 +97,7 @@ class CreateCloudDriveServiceRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -124,28 +125,26 @@ class CreateCloudDriveServiceRequest extends Model
      */
     public $userMaxSize;
     protected $_name = [
-        'autoPay'        => 'AutoPay',
-        'autoRenew'      => 'AutoRenew',
-        'bizType'        => 'BizType',
-        'cdsChargeType'  => 'CdsChargeType',
-        'cenId'          => 'CenId',
-        'domainName'     => 'DomainName',
-        'endUserId'      => 'EndUserId',
-        'maxSize'        => 'MaxSize',
-        'name'           => 'Name',
-        'officeSiteId'   => 'OfficeSiteId',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'bizType' => 'BizType',
+        'cdsChargeType' => 'CdsChargeType',
+        'cenId' => 'CenId',
+        'domainName' => 'DomainName',
+        'endUserId' => 'EndUserId',
+        'maxSize' => 'MaxSize',
+        'name' => 'Name',
+        'officeSiteId' => 'OfficeSiteId',
         'officeSiteType' => 'OfficeSiteType',
-        'period'         => 'Period',
-        'periodUnit'     => 'PeriodUnit',
-        'regionId'       => 'RegionId',
-        'solutionId'     => 'SolutionId',
-        'userCount'      => 'UserCount',
-        'userMaxSize'    => 'UserMaxSize',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'regionId' => 'RegionId',
+        'solutionId' => 'SolutionId',
+        'userCount' => 'UserCount',
+        'userMaxSize' => 'UserMaxSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,14 +23,12 @@ class fileModel extends Model
      */
     public $uploadUrl;
     protected $_name = [
-        'fileId'    => 'FileId',
-        'uploadId'  => 'UploadId',
+        'fileId' => 'FileId',
+        'uploadId' => 'UploadId',
         'uploadUrl' => 'UploadUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

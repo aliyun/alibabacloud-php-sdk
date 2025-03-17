@@ -30,20 +30,19 @@ class GetSpMetadataRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'directoryId'  => 'DirectoryId',
+        'directoryId' => 'DirectoryId',
         'officeSiteId' => 'OfficeSiteId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

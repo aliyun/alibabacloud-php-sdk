@@ -43,15 +43,13 @@ class DescribeOfficeSitesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'nextToken'   => 'NextToken',
+        'nextToken' => 'NextToken',
         'officeSites' => 'OfficeSites',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class DescribeOfficeSitesResponseBody extends Model
         if (isset($map['OfficeSites'])) {
             if (!empty($map['OfficeSites'])) {
                 $model->officeSites = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['OfficeSites'] as $item) {
                     $model->officeSites[$n++] = null !== $item ? officeSites::fromMap($item) : $item;
                 }

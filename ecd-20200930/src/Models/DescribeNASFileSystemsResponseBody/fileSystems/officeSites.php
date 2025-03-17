@@ -26,13 +26,11 @@ class officeSites extends Model
      */
     public $officeSiteName;
     protected $_name = [
-        'officeSiteId'   => 'OfficeSiteId',
+        'officeSiteId' => 'OfficeSiteId',
         'officeSiteName' => 'OfficeSiteName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

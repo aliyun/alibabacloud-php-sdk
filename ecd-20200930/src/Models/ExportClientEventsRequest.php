@@ -30,6 +30,7 @@ class ExportClientEventsRequest extends Model
      * @description The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
      *
      * If you do not specify a value for this parameter, the current time is used.
+     *
      * @example 2022-03-23T07:11:01Z
      *
      * @var string
@@ -57,6 +58,7 @@ class ExportClientEventsRequest extends Model
      *   DESKTOP_STOP: The cloud desktop is stopped.
      *
      * If you do not specify a value for this parameter, events of all types are queried.
+     *
      * @example CLIENT_LOGIN
      *
      * @var string
@@ -77,6 +79,7 @@ class ExportClientEventsRequest extends Model
      *   `en-GB`: English (United Kingdom)
      *
      * Default value: `zh-CN`.
+     *
      * @example zh-CN
      *
      * @var string
@@ -117,6 +120,7 @@ class ExportClientEventsRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -127,29 +131,28 @@ class ExportClientEventsRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
      *
      * If you do not specify a value for this parameter, all events that occurred before the point in time that you specify for `EndTime` are queried.
+     *
      * @example 2022-03-23T04:10:21Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'desktopId'      => 'DesktopId',
-        'desktopName'    => 'DesktopName',
-        'endTime'        => 'EndTime',
-        'endUserId'      => 'EndUserId',
-        'eventType'      => 'EventType',
-        'eventTypes'     => 'EventTypes',
-        'langType'       => 'LangType',
-        'maxResults'     => 'MaxResults',
-        'officeSiteId'   => 'OfficeSiteId',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
+        'endTime' => 'EndTime',
+        'endUserId' => 'EndUserId',
+        'eventType' => 'EventType',
+        'eventTypes' => 'EventTypes',
+        'langType' => 'LangType',
+        'maxResults' => 'MaxResults',
+        'officeSiteId' => 'OfficeSiteId',
         'officeSiteName' => 'OfficeSiteName',
-        'regionId'       => 'RegionId',
-        'startTime'      => 'StartTime',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class GetDesktopGroupDetailRequest extends Model
      * @description The ID of the cloud computer pool.
      *
      * This parameter is required.
+     *
      * @example dg-2i8qxpv6t1a03****
      *
      * @var string
@@ -22,6 +23,7 @@ class GetDesktopGroupDetailRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -29,12 +31,10 @@ class GetDesktopGroupDetailRequest extends Model
     public $regionId;
     protected $_name = [
         'desktopGroupId' => 'DesktopGroupId',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

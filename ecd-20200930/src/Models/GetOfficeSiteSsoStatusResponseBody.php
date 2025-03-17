@@ -30,9 +30,7 @@ class GetOfficeSiteSsoStatusResponseBody extends Model
         'ssoStatus' => 'SsoStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

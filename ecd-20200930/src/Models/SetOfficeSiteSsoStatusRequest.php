@@ -17,9 +17,20 @@ class SetOfficeSiteSsoStatusRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +41,7 @@ class SetOfficeSiteSsoStatusRequest extends Model
      * @description The workspace ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+dir-363353****
      *
      * @var string
@@ -40,20 +52,19 @@ class SetOfficeSiteSsoStatusRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'enableSso'    => 'EnableSso',
+        'enableSso' => 'EnableSso',
         'officeSiteId' => 'OfficeSiteId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

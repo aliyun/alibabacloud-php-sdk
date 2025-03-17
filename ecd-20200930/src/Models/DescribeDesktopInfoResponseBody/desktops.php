@@ -112,21 +112,19 @@ class desktops extends Model
      */
     public $startTime;
     protected $_name = [
-        'connectionStatus'  => 'ConnectionStatus',
+        'connectionStatus' => 'ConnectionStatus',
         'currentAppVersion' => 'CurrentAppVersion',
-        'desktopGroupId'    => 'DesktopGroupId',
-        'desktopId'         => 'DesktopId',
-        'desktopStatus'     => 'DesktopStatus',
-        'managementFlag'    => 'ManagementFlag',
-        'newAppSize'        => 'NewAppSize',
-        'newAppVersion'     => 'NewAppVersion',
-        'releaseNote'       => 'ReleaseNote',
-        'startTime'         => 'StartTime',
+        'desktopGroupId' => 'DesktopGroupId',
+        'desktopId' => 'DesktopId',
+        'desktopStatus' => 'DesktopStatus',
+        'managementFlag' => 'ManagementFlag',
+        'newAppSize' => 'NewAppSize',
+        'newAppVersion' => 'NewAppVersion',
+        'releaseNote' => 'ReleaseNote',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

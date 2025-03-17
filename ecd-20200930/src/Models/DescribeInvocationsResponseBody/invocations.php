@@ -111,20 +111,18 @@ class invocations extends Model
      */
     public $invokeId;
     protected $_name = [
-        'commandContent'            => 'CommandContent',
-        'commandType'               => 'CommandType',
-        'creationTime'              => 'CreationTime',
-        'endUserId'                 => 'EndUserId',
-        'invocationStatus'          => 'InvocationStatus',
-        'invokeDesktopCount'        => 'InvokeDesktopCount',
+        'commandContent' => 'CommandContent',
+        'commandType' => 'CommandType',
+        'creationTime' => 'CreationTime',
+        'endUserId' => 'EndUserId',
+        'invocationStatus' => 'InvocationStatus',
+        'invokeDesktopCount' => 'InvokeDesktopCount',
         'invokeDesktopSucceedCount' => 'InvokeDesktopSucceedCount',
-        'invokeDesktops'            => 'InvokeDesktops',
-        'invokeId'                  => 'InvokeId',
+        'invokeDesktops' => 'InvokeDesktops',
+        'invokeId' => 'InvokeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -198,7 +196,7 @@ class invocations extends Model
         if (isset($map['InvokeDesktops'])) {
             if (!empty($map['InvokeDesktops'])) {
                 $model->invokeDesktops = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['InvokeDesktops'] as $item) {
                     $model->invokeDesktops[$n++] = null !== $item ? invokeDesktops::fromMap($item) : $item;
                 }

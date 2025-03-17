@@ -53,7 +53,15 @@ class data extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Running: The task was running.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -61,9 +69,18 @@ class data extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Succeed: The task succeeded.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Failed
      *
      * @var string
@@ -88,18 +105,16 @@ class data extends Model
      */
     public $url;
     protected $_name = [
-        'asyncTaskId'     => 'AsyncTaskId',
+        'asyncTaskId' => 'AsyncTaskId',
         'consumedProcess' => 'ConsumedProcess',
-        'errCode'         => 'ErrCode',
-        'message'         => 'Message',
-        'status'          => 'Status',
-        'totalProcess'    => 'TotalProcess',
-        'url'             => 'Url',
+        'errCode' => 'ErrCode',
+        'message' => 'Message',
+        'status' => 'Status',
+        'totalProcess' => 'TotalProcess',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

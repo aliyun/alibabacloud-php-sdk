@@ -40,15 +40,13 @@ class CreateDesktopGroupResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'desktopGroupId'  => 'DesktopGroupId',
+        'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupIds' => 'DesktopGroupIds',
-        'orderIds'        => 'OrderIds',
-        'requestId'       => 'RequestId',
+        'orderIds' => 'OrderIds',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

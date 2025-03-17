@@ -201,30 +201,28 @@ class sessions extends Model
      */
     public $totalConnectionTime;
     protected $_name = [
-        'clientIp'                   => 'ClientIp',
-        'clientOS'                   => 'ClientOS',
-        'clientVersion'              => 'ClientVersion',
-        'desktopId'                  => 'DesktopId',
-        'desktopName'                => 'DesktopName',
+        'clientIp' => 'ClientIp',
+        'clientOS' => 'ClientOS',
+        'clientVersion' => 'ClientVersion',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
         'endUserApplyCoordinateTime' => 'EndUserApplyCoordinateTime',
-        'endUserId'                  => 'EndUserId',
-        'latestConnectionTime'       => 'LatestConnectionTime',
-        'officeSiteId'               => 'OfficeSiteId',
-        'officeSiteName'             => 'OfficeSiteName',
-        'osSessionStatus'            => 'OsSessionStatus',
-        'osType'                     => 'OsType',
-        'protocolType'               => 'ProtocolType',
-        'sessionEndTime'             => 'SessionEndTime',
-        'sessionIdleTime'            => 'SessionIdleTime',
-        'sessionStartTime'           => 'SessionStartTime',
-        'sessionStatus'              => 'SessionStatus',
-        'subPayType'                 => 'SubPayType',
-        'totalConnectionTime'        => 'TotalConnectionTime',
+        'endUserId' => 'EndUserId',
+        'latestConnectionTime' => 'LatestConnectionTime',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
+        'osSessionStatus' => 'OsSessionStatus',
+        'osType' => 'OsType',
+        'protocolType' => 'ProtocolType',
+        'sessionEndTime' => 'SessionEndTime',
+        'sessionIdleTime' => 'SessionIdleTime',
+        'sessionStartTime' => 'SessionStartTime',
+        'sessionStatus' => 'SessionStatus',
+        'subPayType' => 'SubPayType',
+        'totalConnectionTime' => 'TotalConnectionTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

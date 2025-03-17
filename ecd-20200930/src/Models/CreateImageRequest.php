@@ -38,7 +38,11 @@ class CreateImageRequest extends Model
     /**
      * @description The disk data that is contained in the custom image.
      *
+     * Valid values:
+     *
+     * - SYSTEM: only contain data from system disks.
      * - ALL: contain data from system disks and user disks. [default]
+     *
      * @example ALL
      *
      * @var string
@@ -67,6 +71,7 @@ class CreateImageRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -90,19 +95,17 @@ class CreateImageRequest extends Model
     public $snapshotIds;
     protected $_name = [
         'autoCleanUserdata' => 'AutoCleanUserdata',
-        'description'       => 'Description',
-        'desktopId'         => 'DesktopId',
-        'diskType'          => 'DiskType',
-        'imageName'         => 'ImageName',
+        'description' => 'Description',
+        'desktopId' => 'DesktopId',
+        'diskType' => 'DiskType',
+        'imageName' => 'ImageName',
         'imageResourceType' => 'ImageResourceType',
-        'regionId'          => 'RegionId',
-        'snapshotId'        => 'SnapshotId',
-        'snapshotIds'       => 'SnapshotIds',
+        'regionId' => 'RegionId',
+        'snapshotId' => 'SnapshotId',
+        'snapshotIds' => 'SnapshotIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

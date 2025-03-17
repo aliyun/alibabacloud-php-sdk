@@ -22,6 +22,7 @@ class UnbindConfigGroupRequest extends Model
      * @description The resources from which you want to unbind the configuration group.
      *
      * This parameter is required.
+     *
      * @var resourceInfos[]
      */
     public $resourceInfos;
@@ -34,20 +35,19 @@ class UnbindConfigGroupRequest extends Model
      *   Timer: the scheduled task type.
      *
      * This parameter is required.
+     *
      * @example Timer
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
         'resourceInfos' => 'ResourceInfos',
-        'type'          => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -85,7 +85,7 @@ class UnbindConfigGroupRequest extends Model
         if (isset($map['ResourceInfos'])) {
             if (!empty($map['ResourceInfos'])) {
                 $model->resourceInfos = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ResourceInfos'] as $item) {
                     $model->resourceInfos[$n++] = null !== $item ? resourceInfos::fromMap($item) : $item;
                 }

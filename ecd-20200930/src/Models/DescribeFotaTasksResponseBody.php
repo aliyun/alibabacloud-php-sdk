@@ -52,16 +52,14 @@ class DescribeFotaTasksResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
+        'code' => 'Code',
         'fotaTasks' => 'FotaTasks',
-        'message'   => 'Message',
+        'message' => 'Message',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +103,7 @@ class DescribeFotaTasksResponseBody extends Model
         if (isset($map['FotaTasks'])) {
             if (!empty($map['FotaTasks'])) {
                 $model->fotaTasks = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['FotaTasks'] as $item) {
                     $model->fotaTasks[$n++] = null !== $item ? fotaTasks::fromMap($item) : $item;
                 }

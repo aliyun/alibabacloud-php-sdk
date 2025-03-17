@@ -26,9 +26,18 @@ class networkPackages extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Normal
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Normal
      *
      * @var string
@@ -99,7 +108,15 @@ class networkPackages extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Released
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -107,9 +124,18 @@ class networkPackages extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Releasing
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example InUse
      *
      * @var string
@@ -196,26 +222,24 @@ class networkPackages extends Model
      */
     public $reservationInternetChargeType;
     protected $_name = [
-        'bandwidth'                     => 'Bandwidth',
-        'businessStatus'                => 'BusinessStatus',
-        'createTime'                    => 'CreateTime',
-        'eipAddresses'                  => 'EipAddresses',
-        'expiredTime'                   => 'ExpiredTime',
-        'internetChargeType'            => 'InternetChargeType',
-        'networkPackageId'              => 'NetworkPackageId',
-        'networkPackageStatus'          => 'NetworkPackageStatus',
-        'officeSiteId'                  => 'OfficeSiteId',
-        'officeSiteName'                => 'OfficeSiteName',
-        'officeSiteVpcType'             => 'OfficeSiteVpcType',
-        'payType'                       => 'PayType',
-        'reservationActiveTime'         => 'ReservationActiveTime',
-        'reservationBandwidth'          => 'ReservationBandwidth',
+        'bandwidth' => 'Bandwidth',
+        'businessStatus' => 'BusinessStatus',
+        'createTime' => 'CreateTime',
+        'eipAddresses' => 'EipAddresses',
+        'expiredTime' => 'ExpiredTime',
+        'internetChargeType' => 'InternetChargeType',
+        'networkPackageId' => 'NetworkPackageId',
+        'networkPackageStatus' => 'NetworkPackageStatus',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
+        'officeSiteVpcType' => 'OfficeSiteVpcType',
+        'payType' => 'PayType',
+        'reservationActiveTime' => 'ReservationActiveTime',
+        'reservationBandwidth' => 'ReservationBandwidth',
         'reservationInternetChargeType' => 'ReservationInternetChargeType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

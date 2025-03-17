@@ -26,13 +26,11 @@ class priceInfo extends Model
      */
     public $refundFee;
     protected $_name = [
-        'currency'  => 'Currency',
+        'currency' => 'Currency',
         'refundFee' => 'RefundFee',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

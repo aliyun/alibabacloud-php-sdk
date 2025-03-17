@@ -20,6 +20,7 @@ class describePolicyGroups extends Model
      * @description Indicates whether end users are granted the administrator permissions.
      *
      * >  This parameter is in invitational preview for specific users and not available to the public.
+     *
      * @example deny
      *
      * @var string
@@ -438,7 +439,13 @@ class describePolicyGroups extends Model
     /**
      * @description Specifies whether to display the restart button in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace mobile clients (including the Android client and the iOS client).
      *
+     * > Mobile clients of V7.4 and higher versions required.
+     *
+     * Valid values:
+     *
+     * - off: not provided.
      * - on: provided.
+     *
      * @example off
      *
      * @var string
@@ -448,7 +455,13 @@ class describePolicyGroups extends Model
     /**
      * @description Specifies whether to display the shut down button in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace mobile clients (including the Android client and the iOS client).
      *
+     * > Mobile clients of V7.4 and higher versions required.
+     *
+     * Valid values:
+     *
+     * - off: not provided.
      * - on: provided.
+     *
      * @example off
      *
      * @var string
@@ -467,6 +480,8 @@ class describePolicyGroups extends Model
     /**
      * @description Indicates whether the network redirection feature is enabled.
      *
+     * >  This parameter is in invitational preview for specific users and not available to the public.
+     *
      * Valid values:
      *
      *   off (default)
@@ -482,6 +497,7 @@ class describePolicyGroups extends Model
      * @description The network redirection rule.
      *
      * >  This parameter is in invitational preview for specific users and not available to the public.
+     *
      * @var netRedirectRule[]
      */
     public $netRedirectRule;
@@ -525,6 +541,8 @@ class describePolicyGroups extends Model
 
     /**
      * @description The cloud computer preemption feature.
+     *
+     * >  To ensure user experience and data security, when a cloud computer is used by an end user, other end users cannot connect to the cloud computer. By default, this parameter is set to `off`, which cannot be modified.
      *
      * Valid values:
      *
@@ -783,6 +801,7 @@ class describePolicyGroups extends Model
      * @description The region of the cloud computer policy.
      *
      * > The value of a region-less policy is `center`.
+     *
      * @example center
      *
      * @var string
@@ -827,7 +846,9 @@ class describePolicyGroups extends Model
     /**
      * @description Specifies whether to provide the Metrics function in the DesktopAssistant. Valid values:
      *
+     * - off: not provided.
      * - on: provided.
+     *
      * @example on
      *
      * @var string
@@ -1056,6 +1077,7 @@ class describePolicyGroups extends Model
      * @description The number of watermark rows.
      *
      * >  This parameter is not available for public use.
+     *
      * @example 5
      *
      * @var int
@@ -1121,119 +1143,123 @@ class describePolicyGroups extends Model
     /**
      * @description Specifies whether to provide the AI Assistant function in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace desktop clients (including the Windows client and the macOS client).
      *
+     * > Desktop clients of V7.7 and higher versions required.
+     *
+     * Valid values:
+     *
+     * - off: the AI Aisstant function is not provided.
      * - on: the AI Aisstant function is provided.
+     *
      * @example on
      *
      * @var string
      */
     public $wyAssistant;
     protected $_name = [
-        'adminAccess'                   => 'AdminAccess',
-        'appContentProtection'          => 'AppContentProtection',
-        'authorizeAccessPolicyRules'    => 'AuthorizeAccessPolicyRules',
-        'authorizeSecurityPolicyRules'  => 'AuthorizeSecurityPolicyRules',
-        'cameraRedirect'                => 'CameraRedirect',
-        'clientTypes'                   => 'ClientTypes',
-        'clipboard'                     => 'Clipboard',
-        'colorEnhancement'              => 'ColorEnhancement',
-        'cpuDownGradeDuration'          => 'CpuDownGradeDuration',
-        'cpuProcessors'                 => 'CpuProcessors',
-        'cpuProtectedMode'              => 'CpuProtectedMode',
-        'cpuRateLimit'                  => 'CpuRateLimit',
-        'cpuSampleDuration'             => 'CpuSampleDuration',
-        'cpuSingleRateLimit'            => 'CpuSingleRateLimit',
-        'desktopCount'                  => 'DesktopCount',
-        'desktopGroupCount'             => 'DesktopGroupCount',
-        'deviceConnectHint'             => 'DeviceConnectHint',
-        'deviceRedirects'               => 'DeviceRedirects',
-        'deviceRules'                   => 'DeviceRules',
-        'displayMode'                   => 'DisplayMode',
-        'domainList'                    => 'DomainList',
-        'domainResolveRule'             => 'DomainResolveRule',
-        'domainResolveRuleType'         => 'DomainResolveRuleType',
-        'edsCount'                      => 'EdsCount',
-        'endUserApplyAdminCoordinate'   => 'EndUserApplyAdminCoordinate',
-        'endUserGroupCoordinate'        => 'EndUserGroupCoordinate',
-        'fileTransfer'                  => 'FileTransfer',
-        'gpuAcceleration'               => 'GpuAcceleration',
-        'html5Access'                   => 'Html5Access',
-        'html5FileTransfer'             => 'Html5FileTransfer',
+        'adminAccess' => 'AdminAccess',
+        'appContentProtection' => 'AppContentProtection',
+        'authorizeAccessPolicyRules' => 'AuthorizeAccessPolicyRules',
+        'authorizeSecurityPolicyRules' => 'AuthorizeSecurityPolicyRules',
+        'cameraRedirect' => 'CameraRedirect',
+        'clientTypes' => 'ClientTypes',
+        'clipboard' => 'Clipboard',
+        'colorEnhancement' => 'ColorEnhancement',
+        'cpuDownGradeDuration' => 'CpuDownGradeDuration',
+        'cpuProcessors' => 'CpuProcessors',
+        'cpuProtectedMode' => 'CpuProtectedMode',
+        'cpuRateLimit' => 'CpuRateLimit',
+        'cpuSampleDuration' => 'CpuSampleDuration',
+        'cpuSingleRateLimit' => 'CpuSingleRateLimit',
+        'desktopCount' => 'DesktopCount',
+        'desktopGroupCount' => 'DesktopGroupCount',
+        'deviceConnectHint' => 'DeviceConnectHint',
+        'deviceRedirects' => 'DeviceRedirects',
+        'deviceRules' => 'DeviceRules',
+        'displayMode' => 'DisplayMode',
+        'domainList' => 'DomainList',
+        'domainResolveRule' => 'DomainResolveRule',
+        'domainResolveRuleType' => 'DomainResolveRuleType',
+        'edsCount' => 'EdsCount',
+        'endUserApplyAdminCoordinate' => 'EndUserApplyAdminCoordinate',
+        'endUserGroupCoordinate' => 'EndUserGroupCoordinate',
+        'fileTransfer' => 'FileTransfer',
+        'gpuAcceleration' => 'GpuAcceleration',
+        'html5Access' => 'Html5Access',
+        'html5FileTransfer' => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
-        'localDrive'                    => 'LocalDrive',
-        'maxReconnectTime'              => 'MaxReconnectTime',
-        'memoryDownGradeDuration'       => 'MemoryDownGradeDuration',
-        'memoryProcessors'              => 'MemoryProcessors',
-        'memoryProtectedMode'           => 'MemoryProtectedMode',
-        'memoryRateLimit'               => 'MemoryRateLimit',
-        'memorySampleDuration'          => 'MemorySampleDuration',
-        'memorySingleRateLimit'         => 'MemorySingleRateLimit',
-        'mobileRestart'                 => 'MobileRestart',
-        'mobileShutdown'                => 'MobileShutdown',
-        'name'                          => 'Name',
-        'netRedirect'                   => 'NetRedirect',
-        'netRedirectRule'               => 'NetRedirectRule',
-        'policyGroupId'                 => 'PolicyGroupId',
-        'policyGroupType'               => 'PolicyGroupType',
-        'policyStatus'                  => 'PolicyStatus',
-        'preemptLogin'                  => 'PreemptLogin',
-        'preemptLoginUsers'             => 'PreemptLoginUsers',
-        'printerRedirection'            => 'PrinterRedirection',
-        'qualityEnhancement'            => 'QualityEnhancement',
-        'recordContent'                 => 'RecordContent',
-        'recordContentExpires'          => 'RecordContentExpires',
-        'recordEventDuration'           => 'RecordEventDuration',
-        'recordEventFilePaths'          => 'RecordEventFilePaths',
-        'recordEventRegisters'          => 'RecordEventRegisters',
-        'recording'                     => 'Recording',
-        'recordingAudio'                => 'RecordingAudio',
-        'recordingDuration'             => 'RecordingDuration',
-        'recordingEndTime'              => 'RecordingEndTime',
-        'recordingExpires'              => 'RecordingExpires',
-        'recordingFps'                  => 'RecordingFps',
-        'recordingStartTime'            => 'RecordingStartTime',
-        'recordingUserNotify'           => 'RecordingUserNotify',
-        'recordingUserNotifyMessage'    => 'RecordingUserNotifyMessage',
-        'remoteCoordinate'              => 'RemoteCoordinate',
-        'resetDesktop'                  => 'ResetDesktop',
-        'resolutionHeight'              => 'ResolutionHeight',
-        'resolutionModel'               => 'ResolutionModel',
-        'resolutionWidth'               => 'ResolutionWidth',
-        'resourceGroupCount'            => 'ResourceGroupCount',
-        'resourceRegionId'              => 'ResourceRegionId',
-        'scope'                         => 'Scope',
-        'scopeValue'                    => 'ScopeValue',
-        'smoothEnhancement'             => 'SmoothEnhancement',
-        'statusMonitor'                 => 'StatusMonitor',
-        'streamingMode'                 => 'StreamingMode',
-        'targetFps'                     => 'TargetFps',
-        'usbRedirect'                   => 'UsbRedirect',
-        'usbSupplyRedirectRule'         => 'UsbSupplyRedirectRule',
-        'videoEncAvgKbps'               => 'VideoEncAvgKbps',
-        'videoEncMaxQP'                 => 'VideoEncMaxQP',
-        'videoEncMinQP'                 => 'VideoEncMinQP',
-        'videoEncPeakKbps'              => 'VideoEncPeakKbps',
-        'videoEncPolicy'                => 'VideoEncPolicy',
-        'videoRedirect'                 => 'VideoRedirect',
-        'visualQuality'                 => 'VisualQuality',
-        'watermark'                     => 'Watermark',
-        'watermarkAntiCam'              => 'WatermarkAntiCam',
-        'watermarkColor'                => 'WatermarkColor',
-        'watermarkCustomText'           => 'WatermarkCustomText',
-        'watermarkDegree'               => 'WatermarkDegree',
-        'watermarkFontSize'             => 'WatermarkFontSize',
-        'watermarkFontStyle'            => 'WatermarkFontStyle',
-        'watermarkPower'                => 'WatermarkPower',
-        'watermarkRowAmount'            => 'WatermarkRowAmount',
-        'watermarkSecurity'             => 'WatermarkSecurity',
-        'watermarkTransparency'         => 'WatermarkTransparency',
-        'watermarkTransparencyValue'    => 'WatermarkTransparencyValue',
-        'watermarkType'                 => 'WatermarkType',
-        'wyAssistant'                   => 'WyAssistant',
+        'localDrive' => 'LocalDrive',
+        'maxReconnectTime' => 'MaxReconnectTime',
+        'memoryDownGradeDuration' => 'MemoryDownGradeDuration',
+        'memoryProcessors' => 'MemoryProcessors',
+        'memoryProtectedMode' => 'MemoryProtectedMode',
+        'memoryRateLimit' => 'MemoryRateLimit',
+        'memorySampleDuration' => 'MemorySampleDuration',
+        'memorySingleRateLimit' => 'MemorySingleRateLimit',
+        'mobileRestart' => 'MobileRestart',
+        'mobileShutdown' => 'MobileShutdown',
+        'name' => 'Name',
+        'netRedirect' => 'NetRedirect',
+        'netRedirectRule' => 'NetRedirectRule',
+        'policyGroupId' => 'PolicyGroupId',
+        'policyGroupType' => 'PolicyGroupType',
+        'policyStatus' => 'PolicyStatus',
+        'preemptLogin' => 'PreemptLogin',
+        'preemptLoginUsers' => 'PreemptLoginUsers',
+        'printerRedirection' => 'PrinterRedirection',
+        'qualityEnhancement' => 'QualityEnhancement',
+        'recordContent' => 'RecordContent',
+        'recordContentExpires' => 'RecordContentExpires',
+        'recordEventDuration' => 'RecordEventDuration',
+        'recordEventFilePaths' => 'RecordEventFilePaths',
+        'recordEventRegisters' => 'RecordEventRegisters',
+        'recording' => 'Recording',
+        'recordingAudio' => 'RecordingAudio',
+        'recordingDuration' => 'RecordingDuration',
+        'recordingEndTime' => 'RecordingEndTime',
+        'recordingExpires' => 'RecordingExpires',
+        'recordingFps' => 'RecordingFps',
+        'recordingStartTime' => 'RecordingStartTime',
+        'recordingUserNotify' => 'RecordingUserNotify',
+        'recordingUserNotifyMessage' => 'RecordingUserNotifyMessage',
+        'remoteCoordinate' => 'RemoteCoordinate',
+        'resetDesktop' => 'ResetDesktop',
+        'resolutionHeight' => 'ResolutionHeight',
+        'resolutionModel' => 'ResolutionModel',
+        'resolutionWidth' => 'ResolutionWidth',
+        'resourceGroupCount' => 'ResourceGroupCount',
+        'resourceRegionId' => 'ResourceRegionId',
+        'scope' => 'Scope',
+        'scopeValue' => 'ScopeValue',
+        'smoothEnhancement' => 'SmoothEnhancement',
+        'statusMonitor' => 'StatusMonitor',
+        'streamingMode' => 'StreamingMode',
+        'targetFps' => 'TargetFps',
+        'usbRedirect' => 'UsbRedirect',
+        'usbSupplyRedirectRule' => 'UsbSupplyRedirectRule',
+        'videoEncAvgKbps' => 'VideoEncAvgKbps',
+        'videoEncMaxQP' => 'VideoEncMaxQP',
+        'videoEncMinQP' => 'VideoEncMinQP',
+        'videoEncPeakKbps' => 'VideoEncPeakKbps',
+        'videoEncPolicy' => 'VideoEncPolicy',
+        'videoRedirect' => 'VideoRedirect',
+        'visualQuality' => 'VisualQuality',
+        'watermark' => 'Watermark',
+        'watermarkAntiCam' => 'WatermarkAntiCam',
+        'watermarkColor' => 'WatermarkColor',
+        'watermarkCustomText' => 'WatermarkCustomText',
+        'watermarkDegree' => 'WatermarkDegree',
+        'watermarkFontSize' => 'WatermarkFontSize',
+        'watermarkFontStyle' => 'WatermarkFontStyle',
+        'watermarkPower' => 'WatermarkPower',
+        'watermarkRowAmount' => 'WatermarkRowAmount',
+        'watermarkSecurity' => 'WatermarkSecurity',
+        'watermarkTransparency' => 'WatermarkTransparency',
+        'watermarkTransparencyValue' => 'WatermarkTransparencyValue',
+        'watermarkType' => 'WatermarkType',
+        'wyAssistant' => 'WyAssistant',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -1610,7 +1636,7 @@ class describePolicyGroups extends Model
         if (isset($map['AuthorizeAccessPolicyRules'])) {
             if (!empty($map['AuthorizeAccessPolicyRules'])) {
                 $model->authorizeAccessPolicyRules = [];
-                $n                                 = 0;
+                $n = 0;
                 foreach ($map['AuthorizeAccessPolicyRules'] as $item) {
                     $model->authorizeAccessPolicyRules[$n++] = null !== $item ? authorizeAccessPolicyRules::fromMap($item) : $item;
                 }
@@ -1619,7 +1645,7 @@ class describePolicyGroups extends Model
         if (isset($map['AuthorizeSecurityPolicyRules'])) {
             if (!empty($map['AuthorizeSecurityPolicyRules'])) {
                 $model->authorizeSecurityPolicyRules = [];
-                $n                                   = 0;
+                $n = 0;
                 foreach ($map['AuthorizeSecurityPolicyRules'] as $item) {
                     $model->authorizeSecurityPolicyRules[$n++] = null !== $item ? authorizeSecurityPolicyRules::fromMap($item) : $item;
                 }
@@ -1631,7 +1657,7 @@ class describePolicyGroups extends Model
         if (isset($map['ClientTypes'])) {
             if (!empty($map['ClientTypes'])) {
                 $model->clientTypes = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ClientTypes'] as $item) {
                     $model->clientTypes[$n++] = null !== $item ? clientTypes::fromMap($item) : $item;
                 }
@@ -1675,7 +1701,7 @@ class describePolicyGroups extends Model
         if (isset($map['DeviceRedirects'])) {
             if (!empty($map['DeviceRedirects'])) {
                 $model->deviceRedirects = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['DeviceRedirects'] as $item) {
                     $model->deviceRedirects[$n++] = null !== $item ? deviceRedirects::fromMap($item) : $item;
                 }
@@ -1684,7 +1710,7 @@ class describePolicyGroups extends Model
         if (isset($map['DeviceRules'])) {
             if (!empty($map['DeviceRules'])) {
                 $model->deviceRules = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['DeviceRules'] as $item) {
                     $model->deviceRules[$n++] = null !== $item ? deviceRules::fromMap($item) : $item;
                 }
@@ -1699,7 +1725,7 @@ class describePolicyGroups extends Model
         if (isset($map['DomainResolveRule'])) {
             if (!empty($map['DomainResolveRule'])) {
                 $model->domainResolveRule = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['DomainResolveRule'] as $item) {
                     $model->domainResolveRule[$n++] = null !== $item ? domainResolveRule::fromMap($item) : $item;
                 }
@@ -1773,7 +1799,7 @@ class describePolicyGroups extends Model
         if (isset($map['NetRedirectRule'])) {
             if (!empty($map['NetRedirectRule'])) {
                 $model->netRedirectRule = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['NetRedirectRule'] as $item) {
                     $model->netRedirectRule[$n++] = null !== $item ? netRedirectRule::fromMap($item) : $item;
                 }
@@ -1895,7 +1921,7 @@ class describePolicyGroups extends Model
         if (isset($map['UsbSupplyRedirectRule'])) {
             if (!empty($map['UsbSupplyRedirectRule'])) {
                 $model->usbSupplyRedirectRule = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['UsbSupplyRedirectRule'] as $item) {
                     $model->usbSupplyRedirectRule[$n++] = null !== $item ? usbSupplyRedirectRule::fromMap($item) : $item;
                 }

@@ -37,9 +37,18 @@ class bundles extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   CUSTOM: custom template
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example SYSTEM
      *
      * @var string
@@ -167,9 +176,18 @@ class bundles extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Windows
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Windows
      *
      * @var string
@@ -185,7 +203,15 @@ class bundles extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Windows Server 2022
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -193,7 +219,15 @@ class bundles extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   CentOS
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -201,9 +235,18 @@ class bundles extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Windows Server 2016
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Windows Server 2019
      *
      * @var string
@@ -278,33 +321,31 @@ class bundles extends Model
      */
     public $volumeEncryptionKey;
     protected $_name = [
-        'bundleId'                => 'BundleId',
-        'bundleName'              => 'BundleName',
-        'bundleType'              => 'BundleType',
-        'creationTime'            => 'CreationTime',
-        'dataDiskCategory'        => 'DataDiskCategory',
-        'description'             => 'Description',
-        'desktopType'             => 'DesktopType',
-        'desktopTypeAttribute'    => 'DesktopTypeAttribute',
-        'desktopTypeFamily'       => 'DesktopTypeFamily',
-        'disks'                   => 'Disks',
-        'imageId'                 => 'ImageId',
-        'imageName'               => 'ImageName',
-        'imageStatus'             => 'ImageStatus',
-        'language'                => 'Language',
-        'osType'                  => 'OsType',
-        'platform'                => 'Platform',
-        'protocolType'            => 'ProtocolType',
-        'sessionType'             => 'SessionType',
-        'stockState'              => 'StockState',
-        'systemDiskCategory'      => 'SystemDiskCategory',
+        'bundleId' => 'BundleId',
+        'bundleName' => 'BundleName',
+        'bundleType' => 'BundleType',
+        'creationTime' => 'CreationTime',
+        'dataDiskCategory' => 'DataDiskCategory',
+        'description' => 'Description',
+        'desktopType' => 'DesktopType',
+        'desktopTypeAttribute' => 'DesktopTypeAttribute',
+        'desktopTypeFamily' => 'DesktopTypeFamily',
+        'disks' => 'Disks',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
+        'imageStatus' => 'ImageStatus',
+        'language' => 'Language',
+        'osType' => 'OsType',
+        'platform' => 'Platform',
+        'protocolType' => 'ProtocolType',
+        'sessionType' => 'SessionType',
+        'stockState' => 'StockState',
+        'systemDiskCategory' => 'SystemDiskCategory',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
-        'volumeEncryptionKey'     => 'VolumeEncryptionKey',
+        'volumeEncryptionKey' => 'VolumeEncryptionKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -423,7 +464,7 @@ class bundles extends Model
         if (isset($map['Disks'])) {
             if (!empty($map['Disks'])) {
                 $model->disks = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Disks'] as $item) {
                     $model->disks[$n++] = null !== $item ? disks::fromMap($item) : $item;
                 }

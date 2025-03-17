@@ -82,17 +82,15 @@ class fotaPendingDesktops extends Model
     public $status;
     protected $_name = [
         'currentAppVersion' => 'CurrentAppVersion',
-        'desktopId'         => 'DesktopId',
-        'desktopName'       => 'DesktopName',
-        'fotaProject'       => 'FotaProject',
-        'officeSiteId'      => 'OfficeSiteId',
-        'sessions'          => 'Sessions',
-        'status'            => 'Status',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
+        'fotaProject' => 'FotaProject',
+        'officeSiteId' => 'OfficeSiteId',
+        'sessions' => 'Sessions',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -154,7 +152,7 @@ class fotaPendingDesktops extends Model
         if (isset($map['Sessions'])) {
             if (!empty($map['Sessions'])) {
                 $model->sessions = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Sessions'] as $item) {
                     $model->sessions[$n++] = null !== $item ? sessions::fromMap($item) : $item;
                 }

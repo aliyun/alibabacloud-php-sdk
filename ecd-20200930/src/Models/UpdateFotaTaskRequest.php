@@ -12,6 +12,7 @@ class UpdateFotaTaskRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -22,6 +23,7 @@ class UpdateFotaTaskRequest extends Model
      * @description The ID of the image update task. You can call the [DescribeFotaTasks](https://help.aliyun.com/document_detail/437001.html) operation to obtain the value of this parameter.
      *
      * This parameter is required.
+     *
      * @example aot-c4khwrp9ocml4****
      *
      * @var string
@@ -42,14 +44,12 @@ class UpdateFotaTaskRequest extends Model
      */
     public $userStatus;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'taskUid'    => 'TaskUid',
+        'regionId' => 'RegionId',
+        'taskUid' => 'TaskUid',
         'userStatus' => 'UserStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

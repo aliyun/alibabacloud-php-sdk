@@ -51,6 +51,7 @@ class DescribeAutoSnapshotPolicyRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,15 +59,13 @@ class DescribeAutoSnapshotPolicyRequest extends Model
     public $regionId;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'policyId'   => 'PolicyId',
+        'nextToken' => 'NextToken',
+        'policyId' => 'PolicyId',
         'policyName' => 'PolicyName',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

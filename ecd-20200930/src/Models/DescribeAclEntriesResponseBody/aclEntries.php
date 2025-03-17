@@ -45,14 +45,12 @@ class aclEntries extends Model
      */
     public $sourceType;
     protected $_name = [
-        'policy'     => 'Policy',
-        'sourceId'   => 'SourceId',
+        'policy' => 'Policy',
+        'sourceId' => 'SourceId',
         'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

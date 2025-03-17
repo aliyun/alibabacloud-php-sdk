@@ -52,16 +52,14 @@ class DescribeUsersInGroupResponseBody extends Model
      */
     public $usersCount;
     protected $_name = [
-        'endUsers'         => 'EndUsers',
-        'nextToken'        => 'NextToken',
+        'endUsers' => 'EndUsers',
+        'nextToken' => 'NextToken',
         'onlineUsersCount' => 'OnlineUsersCount',
-        'requestId'        => 'RequestId',
-        'usersCount'       => 'UsersCount',
+        'requestId' => 'RequestId',
+        'usersCount' => 'UsersCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeUsersInGroupResponseBody extends Model
         if (isset($map['EndUsers'])) {
             if (!empty($map['EndUsers'])) {
                 $model->endUsers = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['EndUsers'] as $item) {
                     $model->endUsers[$n++] = null !== $item ? endUsers::fromMap($item) : $item;
                 }

@@ -13,6 +13,7 @@ class BindConfigGroupRequest extends Model
      * @description The ID of the configuration group.
      *
      * This parameter is required.
+     *
      * @example ccg-0chlk9b65lj8z****
      *
      * @var string
@@ -32,18 +33,17 @@ class BindConfigGroupRequest extends Model
      * @description The resources to which you want to bind the configuration group.
      *
      * This parameter is required.
+     *
      * @var resourceInfos[]
      */
     public $resourceInfos;
     protected $_name = [
-        'groupId'       => 'GroupId',
-        'regionId'      => 'RegionId',
+        'groupId' => 'GroupId',
+        'regionId' => 'RegionId',
         'resourceInfos' => 'ResourceInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -84,7 +84,7 @@ class BindConfigGroupRequest extends Model
         if (isset($map['ResourceInfos'])) {
             if (!empty($map['ResourceInfos'])) {
                 $model->resourceInfos = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ResourceInfos'] as $item) {
                     $model->resourceInfos[$n++] = null !== $item ? resourceInfos::fromMap($item) : $item;
                 }

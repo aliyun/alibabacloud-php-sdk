@@ -71,13 +71,26 @@ class directories extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Internet
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   Any
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Internet
      *
      * @var string
@@ -111,9 +124,18 @@ class directories extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   RAM: RAM directory
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example RAM
      *
      * @var string
@@ -185,6 +207,7 @@ class directories extends Model
      * @description Indicates whether access over the Internet is enabled.
      *
      * >  This parameter is unavailable.
+     *
      * @example false
      *
      * @var bool
@@ -226,6 +249,7 @@ class directories extends Model
     /**
      * @description Indicates whether two-step verification for logons is enabled. This parameter is returned only for directories of convenience account type.\\
      * If two-factor verification is enabled, the system checks whether security risks exist within the logon account when a convenience user logs on to an Alibaba Cloud Workspace client. If risks are detected, the system sends a verification code to the email address that is associated with the account. Then, the convenience user can log on to the client only after the user enters the correct verification code.
+     *
      * @example false
      *
      * @var bool
@@ -259,9 +283,18 @@ class directories extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   REGISTERED
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example REGISTERING
      *
      * @var string
@@ -309,42 +342,40 @@ class directories extends Model
      */
     public $vpcId;
     protected $_name = [
-        'ADConnectors'             => 'ADConnectors',
-        'adHostname'               => 'AdHostname',
-        'backupDCHostname'         => 'BackupDCHostname',
-        'backupDns'                => 'BackupDns',
-        'creationTime'             => 'CreationTime',
-        'customSecurityGroupId'    => 'CustomSecurityGroupId',
-        'desktopAccessType'        => 'DesktopAccessType',
-        'desktopVpcEndpoint'       => 'DesktopVpcEndpoint',
-        'directoryId'              => 'DirectoryId',
-        'directoryType'            => 'DirectoryType',
-        'dnsAddress'               => 'DnsAddress',
-        'dnsUserName'              => 'DnsUserName',
-        'domainName'               => 'DomainName',
-        'domainPassword'           => 'DomainPassword',
-        'domainUserName'           => 'DomainUserName',
-        'enableAdminAccess'        => 'EnableAdminAccess',
+        'ADConnectors' => 'ADConnectors',
+        'adHostname' => 'AdHostname',
+        'backupDCHostname' => 'BackupDCHostname',
+        'backupDns' => 'BackupDns',
+        'creationTime' => 'CreationTime',
+        'customSecurityGroupId' => 'CustomSecurityGroupId',
+        'desktopAccessType' => 'DesktopAccessType',
+        'desktopVpcEndpoint' => 'DesktopVpcEndpoint',
+        'directoryId' => 'DirectoryId',
+        'directoryType' => 'DirectoryType',
+        'dnsAddress' => 'DnsAddress',
+        'dnsUserName' => 'DnsUserName',
+        'domainName' => 'DomainName',
+        'domainPassword' => 'DomainPassword',
+        'domainUserName' => 'DomainUserName',
+        'enableAdminAccess' => 'EnableAdminAccess',
         'enableCrossDesktopAccess' => 'EnableCrossDesktopAccess',
-        'enableInternetAccess'     => 'EnableInternetAccess',
-        'fileSystemIds'            => 'FileSystemIds',
-        'logs'                     => 'Logs',
-        'mfaEnabled'               => 'MfaEnabled',
-        'name'                     => 'Name',
-        'needVerifyLoginRisk'      => 'NeedVerifyLoginRisk',
-        'ouName'                   => 'OuName',
-        'ssoEnabled'               => 'SsoEnabled',
-        'status'                   => 'Status',
-        'subDnsAddress'            => 'SubDnsAddress',
-        'subDomainName'            => 'SubDomainName',
-        'trustPassword'            => 'TrustPassword',
-        'vSwitchIds'               => 'VSwitchIds',
-        'vpcId'                    => 'VpcId',
+        'enableInternetAccess' => 'EnableInternetAccess',
+        'fileSystemIds' => 'FileSystemIds',
+        'logs' => 'Logs',
+        'mfaEnabled' => 'MfaEnabled',
+        'name' => 'Name',
+        'needVerifyLoginRisk' => 'NeedVerifyLoginRisk',
+        'ouName' => 'OuName',
+        'ssoEnabled' => 'SsoEnabled',
+        'status' => 'Status',
+        'subDnsAddress' => 'SubDnsAddress',
+        'subDomainName' => 'SubDomainName',
+        'trustPassword' => 'TrustPassword',
+        'vSwitchIds' => 'VSwitchIds',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -469,7 +500,7 @@ class directories extends Model
         if (isset($map['ADConnectors'])) {
             if (!empty($map['ADConnectors'])) {
                 $model->ADConnectors = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ADConnectors'] as $item) {
                     $model->ADConnectors[$n++] = null !== $item ? ADConnectors::fromMap($item) : $item;
                 }
@@ -536,7 +567,7 @@ class directories extends Model
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Logs'] as $item) {
                     $model->logs[$n++] = null !== $item ? logs::fromMap($item) : $item;
                 }

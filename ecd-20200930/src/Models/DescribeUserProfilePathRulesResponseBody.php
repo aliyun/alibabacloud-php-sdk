@@ -25,13 +25,11 @@ class DescribeUserProfilePathRulesResponseBody extends Model
      */
     public $userProfilePathRule;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'userProfilePathRule' => 'UserProfilePathRule',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

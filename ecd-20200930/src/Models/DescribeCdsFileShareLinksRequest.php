@@ -12,6 +12,7 @@ class DescribeCdsFileShareLinksRequest extends Model
      * @description The ID of the cloud disk.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+cds-532033****
      *
      * @var string
@@ -70,18 +71,16 @@ class DescribeCdsFileShareLinksRequest extends Model
      */
     public $status;
     protected $_name = [
-        'cdsId'      => 'CdsId',
-        'creators'   => 'Creators',
+        'cdsId' => 'CdsId',
+        'creators' => 'Creators',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'shareId'    => 'ShareId',
-        'shareName'  => 'ShareName',
-        'status'     => 'Status',
+        'nextToken' => 'NextToken',
+        'shareId' => 'ShareId',
+        'shareName' => 'ShareName',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

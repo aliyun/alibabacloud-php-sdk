@@ -83,22 +83,20 @@ class DescribeRecordingsRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'desktopId'              => 'DesktopId',
-        'endTime'                => 'EndTime',
-        'maxResults'             => 'MaxResults',
-        'needSignedUrl'          => 'NeedSignedUrl',
-        'nextToken'              => 'NextToken',
-        'policyGroupId'          => 'PolicyGroupId',
-        'regionId'               => 'RegionId',
+        'desktopId' => 'DesktopId',
+        'endTime' => 'EndTime',
+        'maxResults' => 'MaxResults',
+        'needSignedUrl' => 'NeedSignedUrl',
+        'nextToken' => 'NextToken',
+        'policyGroupId' => 'PolicyGroupId',
+        'regionId' => 'RegionId',
         'signedUrlExpireMinutes' => 'SignedUrlExpireMinutes',
-        'standardEndTime'        => 'StandardEndTime',
-        'standardStartTime'      => 'StandardStartTime',
-        'startTime'              => 'StartTime',
+        'standardEndTime' => 'StandardEndTime',
+        'standardStartTime' => 'StandardStartTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -74,7 +74,11 @@ class DescribeDesktopGroupsRequest extends Model
     /**
      * @description Specifies whether the shared group is a multi-cloud computer type.
      *
+     * Valid values:
+     *
+     * - true: a multi-cloud computer type.
      * - false: a single-cloud computer type.
+     *
      * @example true
      *
      * @var bool
@@ -101,6 +105,8 @@ class DescribeDesktopGroupsRequest extends Model
 
     /**
      * @description The type of the cloud computer pool.
+     *
+     * >  This parameter is not publicly available.
      *
      * Valid values:
      *
@@ -164,9 +170,18 @@ class DescribeDesktopGroupsRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Adaptive Streaming Protocol (ASP)
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example ASP
      *
      * @var string
@@ -177,6 +192,7 @@ class DescribeDesktopGroupsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -205,30 +221,28 @@ class DescribeDesktopGroupsRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'bundleId'           => 'BundleId',
-        'desktopGroupId'     => 'DesktopGroupId',
-        'desktopGroupIds'    => 'DesktopGroupIds',
-        'desktopGroupName'   => 'DesktopGroupName',
-        'endUserIds'         => 'EndUserIds',
+        'bundleId' => 'BundleId',
+        'desktopGroupId' => 'DesktopGroupId',
+        'desktopGroupIds' => 'DesktopGroupIds',
+        'desktopGroupName' => 'DesktopGroupName',
+        'endUserIds' => 'EndUserIds',
         'excludedEndUserIds' => 'ExcludedEndUserIds',
-        'imageId'            => 'ImageId',
-        'maxResults'         => 'MaxResults',
-        'multiResource'      => 'MultiResource',
-        'nextToken'          => 'NextToken',
-        'officeSiteId'       => 'OfficeSiteId',
-        'ownType'            => 'OwnType',
-        'period'             => 'Period',
-        'periodUnit'         => 'PeriodUnit',
-        'policyGroupId'      => 'PolicyGroupId',
-        'protocolType'       => 'ProtocolType',
-        'regionId'           => 'RegionId',
-        'status'             => 'Status',
-        'tag'                => 'Tag',
+        'imageId' => 'ImageId',
+        'maxResults' => 'MaxResults',
+        'multiResource' => 'MultiResource',
+        'nextToken' => 'NextToken',
+        'officeSiteId' => 'OfficeSiteId',
+        'ownType' => 'OwnType',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'policyGroupId' => 'PolicyGroupId',
+        'protocolType' => 'ProtocolType',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -375,7 +389,7 @@ class DescribeDesktopGroupsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

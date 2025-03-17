@@ -13,6 +13,7 @@ class ModifyDesktopTimerRequest extends Model
      * @description The IDs of the cloud computers.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $desktopId;
@@ -28,6 +29,7 @@ class ModifyDesktopTimerRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -43,15 +45,13 @@ class ModifyDesktopTimerRequest extends Model
      */
     public $useDesktopTimers;
     protected $_name = [
-        'desktopId'        => 'DesktopId',
-        'desktopTimers'    => 'DesktopTimers',
-        'regionId'         => 'RegionId',
+        'desktopId' => 'DesktopId',
+        'desktopTimers' => 'DesktopTimers',
+        'regionId' => 'RegionId',
         'useDesktopTimers' => 'UseDesktopTimers',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -94,7 +94,7 @@ class ModifyDesktopTimerRequest extends Model
         if (isset($map['DesktopTimers'])) {
             if (!empty($map['DesktopTimers'])) {
                 $model->desktopTimers = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['DesktopTimers'] as $item) {
                     $model->desktopTimers[$n++] = null !== $item ? desktopTimers::fromMap($item) : $item;
                 }

@@ -34,13 +34,11 @@ class ModifyDesktopChargeTypeResponseBody extends Model
     public $requestId;
     protected $_name = [
         'desktopId' => 'DesktopId',
-        'orderId'   => 'OrderId',
+        'orderId' => 'OrderId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

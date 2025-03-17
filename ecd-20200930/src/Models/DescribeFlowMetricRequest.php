@@ -69,18 +69,16 @@ class DescribeFlowMetricRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'instanceId'   => 'InstanceId',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'metricType'   => 'MetricType',
-        'period'       => 'Period',
-        'regionId'     => 'RegionId',
-        'startTime'    => 'StartTime',
+        'metricType' => 'MetricType',
+        'period' => 'Period',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

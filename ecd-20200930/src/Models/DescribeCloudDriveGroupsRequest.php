@@ -12,6 +12,7 @@ class DescribeCloudDriveGroupsRequest extends Model
      * @description The ID of the cloud disk in Cloud Drive Service.
      *
      * This parameter is required.
+     *
      * @example cn-shanghai+cds-135515****
      *
      * @var string
@@ -43,6 +44,7 @@ class DescribeCloudDriveGroupsRequest extends Model
      *   disabled
      *
      * Default value: enabled.
+     *
      * @example enabled
      *
      * @var string
@@ -56,6 +58,7 @@ class DescribeCloudDriveGroupsRequest extends Model
      *   unbound: not increased
      *
      * Default value: null. The default value indicates that all spaces are queried.
+     *
      * @example binding
      *
      * @var string
@@ -85,6 +88,7 @@ class DescribeCloudDriveGroupsRequest extends Model
      *   directory: workspace
      *
      * Default value: null. The default value indicates that all types of teams are queried.
+     *
      * @example org
      *
      * @var string
@@ -116,6 +120,7 @@ class DescribeCloudDriveGroupsRequest extends Model
      * @description The ID of the parent node. If a parent node ID is specified, the subnodes are queried. If you set the value of this parameter to root, the root node is queried.
      *
      * Default value: null. The default value indicates that all nodes are queried.
+     *
      * @example cg-e70ga4ixp30ur****
      *
      * @var string
@@ -126,29 +131,28 @@ class DescribeCloudDriveGroupsRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cdsId'         => 'CdsId',
-        'directoryId'   => 'DirectoryId',
+        'cdsId' => 'CdsId',
+        'directoryId' => 'DirectoryId',
         'directoryName' => 'DirectoryName',
-        'driveStatus'   => 'DriveStatus',
-        'driveType'     => 'DriveType',
-        'groupId'       => 'GroupId',
-        'groupName'     => 'GroupName',
-        'groupType'     => 'GroupType',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
+        'driveStatus' => 'DriveStatus',
+        'driveType' => 'DriveType',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'groupType' => 'GroupType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'parentGroupId' => 'ParentGroupId',
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

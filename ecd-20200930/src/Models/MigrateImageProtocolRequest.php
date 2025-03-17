@@ -12,6 +12,7 @@ class MigrateImageProtocolRequest extends Model
      * @description The image IDs.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $imageId;
@@ -20,6 +21,7 @@ class MigrateImageProtocolRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -35,14 +37,12 @@ class MigrateImageProtocolRequest extends Model
      */
     public $targetProtocolType;
     protected $_name = [
-        'imageId'            => 'ImageId',
-        'regionId'           => 'RegionId',
+        'imageId' => 'ImageId',
+        'regionId' => 'RegionId',
         'targetProtocolType' => 'TargetProtocolType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

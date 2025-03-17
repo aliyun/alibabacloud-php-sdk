@@ -35,14 +35,12 @@ class sessions extends Model
      */
     public $externalUserName;
     protected $_name = [
-        'endUserId'         => 'EndUserId',
+        'endUserId' => 'EndUserId',
         'establishmentTime' => 'EstablishmentTime',
-        'externalUserName'  => 'ExternalUserName',
+        'externalUserName' => 'ExternalUserName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,12 +22,10 @@ class DescribeCloudDrivePermissionsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'cloudDrivePermissionModels' => 'CloudDrivePermissionModels',
-        'requestId'                  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -59,7 +57,7 @@ class DescribeCloudDrivePermissionsResponseBody extends Model
         if (isset($map['CloudDrivePermissionModels'])) {
             if (!empty($map['CloudDrivePermissionModels'])) {
                 $model->cloudDrivePermissionModels = [];
-                $n                                 = 0;
+                $n = 0;
                 foreach ($map['CloudDrivePermissionModels'] as $item) {
                     $model->cloudDrivePermissionModels[$n++] = null !== $item ? cloudDrivePermissionModels::fromMap($item) : $item;
                 }

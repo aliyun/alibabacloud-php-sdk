@@ -29,7 +29,10 @@ class CreateBundleRequest extends Model
     /**
      * @description The instance type of the cloud computers. You can call the [DescribeBundles](https://help.aliyun.com/document_detail/436974.html) operation to query cloud computer templates and obtain the instance types supported by the cloud computers from the `DesktopType` response parameter.
      *
+     * >  If you want the template to use a non-GPU-accelerated image, you can only select a non-GPU-accelerated instance type. If you want the template to use a GPU-accelerated image, you can only select a GPU-accelerated instance type.
+     *
      * This parameter is required.
+     *
      * @example ecd.basic.large
      *
      * @var string
@@ -40,6 +43,7 @@ class CreateBundleRequest extends Model
      * @description The ID of the image.
      *
      * This parameter is required.
+     *
      * @example m-4zfb6zj728hhr****
      *
      * @var string
@@ -64,6 +68,7 @@ class CreateBundleRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -79,7 +84,15 @@ class CreateBundleRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   PL0
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -87,9 +100,18 @@ class CreateBundleRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   PL2
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example PL1
      *
      * @var string
@@ -100,6 +122,7 @@ class CreateBundleRequest extends Model
      * @description The size of the system disk. Unit: GiB. The value of this parameter must be consistent with the system disk size supported by the cloud computer instance type. For more information, see [Overview](https://help.aliyun.com/document_detail/188609.html).
      *
      * This parameter is required.
+     *
      * @example 80
      *
      * @var int
@@ -115,7 +138,15 @@ class CreateBundleRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   PL0
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -123,9 +154,18 @@ class CreateBundleRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   PL2
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example PL1
      *
      * @var string
@@ -136,27 +176,26 @@ class CreateBundleRequest extends Model
      * @description The data disk sizes. You can configure only one data disk.
      *
      * This parameter is required.
+     *
      * @example 70
      *
      * @var int[]
      */
     public $userDiskSizeGib;
     protected $_name = [
-        'bundleName'               => 'BundleName',
-        'description'              => 'Description',
-        'desktopType'              => 'DesktopType',
-        'imageId'                  => 'ImageId',
-        'language'                 => 'Language',
-        'regionId'                 => 'RegionId',
+        'bundleName' => 'BundleName',
+        'description' => 'Description',
+        'desktopType' => 'DesktopType',
+        'imageId' => 'ImageId',
+        'language' => 'Language',
+        'regionId' => 'RegionId',
         'rootDiskPerformanceLevel' => 'RootDiskPerformanceLevel',
-        'rootDiskSizeGib'          => 'RootDiskSizeGib',
+        'rootDiskSizeGib' => 'RootDiskSizeGib',
         'userDiskPerformanceLevel' => 'UserDiskPerformanceLevel',
-        'userDiskSizeGib'          => 'UserDiskSizeGib',
+        'userDiskSizeGib' => 'UserDiskSizeGib',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

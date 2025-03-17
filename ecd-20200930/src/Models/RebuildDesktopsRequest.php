@@ -12,6 +12,7 @@ class RebuildDesktopsRequest extends Model
      * @description The cloud computer IDs. You can specify the IDs of 1 to 20 cloud computers.
      *
      * This parameter is required.
+     *
      * @example ecd-gx2x1dhsmucyy****
      *
      * @var string[]
@@ -73,22 +74,21 @@ class RebuildDesktopsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'desktopId'   => 'DesktopId',
-        'imageId'     => 'ImageId',
-        'language'    => 'Language',
+        'desktopId' => 'DesktopId',
+        'imageId' => 'ImageId',
+        'language' => 'Language',
         'operateType' => 'OperateType',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

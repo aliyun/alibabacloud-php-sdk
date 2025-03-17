@@ -26,12 +26,10 @@ class RebuildDesktopsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'rebuildResults' => 'RebuildResults',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class RebuildDesktopsResponseBody extends Model
         if (isset($map['RebuildResults'])) {
             if (!empty($map['RebuildResults'])) {
                 $model->rebuildResults = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['RebuildResults'] as $item) {
                     $model->rebuildResults[$n++] = null !== $item ? rebuildResults::fromMap($item) : $item;
                 }

@@ -20,20 +20,20 @@ class resourceAmounts extends Model
     /**
      * @description The resource type. Valid values:
      *
+     * - desktop: cloud computers
      * - desktopGroup: shared cloud computers
+     *
      * @example desktop
      *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'amount'       => 'amount',
+        'amount' => 'amount',
         'resourceType' => 'resourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

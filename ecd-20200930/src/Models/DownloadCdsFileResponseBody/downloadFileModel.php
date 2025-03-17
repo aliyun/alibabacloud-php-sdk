@@ -51,18 +51,16 @@ class downloadFileModel extends Model
      */
     public $streamUrl;
     protected $_name = [
-        'downloadType'     => 'DownloadType',
-        'downloadUrl'      => 'DownloadUrl',
+        'downloadType' => 'DownloadType',
+        'downloadUrl' => 'DownloadUrl',
         'expirationSecond' => 'ExpirationSecond',
-        'expirationTime'   => 'ExpirationTime',
-        'fileId'           => 'FileId',
-        'size'             => 'Size',
-        'streamUrl'        => 'StreamUrl',
+        'expirationTime' => 'ExpirationTime',
+        'fileId' => 'FileId',
+        'size' => 'Size',
+        'streamUrl' => 'StreamUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

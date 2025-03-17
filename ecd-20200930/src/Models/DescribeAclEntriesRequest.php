@@ -12,6 +12,7 @@ class DescribeAclEntriesRequest extends Model
      * @description The number of entries per page. Maximum value: 1600.
      *
      * Default value: 1600.
+     *
      * @example 50
      *
      * @var int
@@ -40,6 +41,7 @@ class DescribeAclEntriesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -69,17 +71,15 @@ class DescribeAclEntriesRequest extends Model
      */
     public $sourceType;
     protected $_name = [
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'officeSiteId' => 'OfficeSiteId',
-        'regionId'     => 'RegionId',
-        'sourceId'     => 'SourceId',
-        'sourceType'   => 'SourceType',
+        'regionId' => 'RegionId',
+        'sourceId' => 'SourceId',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

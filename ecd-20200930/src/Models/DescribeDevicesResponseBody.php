@@ -25,13 +25,11 @@ class DescribeDevicesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'devices'   => 'Devices',
+        'devices' => 'Devices',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeDevicesResponseBody extends Model
         if (isset($map['Devices'])) {
             if (!empty($map['Devices'])) {
                 $model->devices = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Devices'] as $item) {
                     $model->devices[$n++] = null !== $item ? devices::fromMap($item) : $item;
                 }

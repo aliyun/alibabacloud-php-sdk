@@ -12,6 +12,7 @@ class DisableDesktopsInGroupRequest extends Model
      * @description The ID of the cloud computer share.
      *
      * This parameter is required.
+     *
      * @example dg-2i8qxpv6t1a03****
      *
      * @var string
@@ -22,6 +23,7 @@ class DisableDesktopsInGroupRequest extends Model
      * @description The IDs of the cloud computers.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $desktopIds;
@@ -30,6 +32,7 @@ class DisableDesktopsInGroupRequest extends Model
      * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,13 +40,11 @@ class DisableDesktopsInGroupRequest extends Model
     public $regionId;
     protected $_name = [
         'desktopGroupId' => 'DesktopGroupId',
-        'desktopIds'     => 'DesktopIds',
-        'regionId'       => 'RegionId',
+        'desktopIds' => 'DesktopIds',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

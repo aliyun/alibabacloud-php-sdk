@@ -43,15 +43,13 @@ class CreateADConnectorDirectoryResponseBody extends Model
      */
     public $trustPassword;
     protected $_name = [
-        'adConnectors'  => 'AdConnectors',
-        'directoryId'   => 'DirectoryId',
-        'requestId'     => 'RequestId',
+        'adConnectors' => 'AdConnectors',
+        'directoryId' => 'DirectoryId',
+        'requestId' => 'RequestId',
         'trustPassword' => 'TrustPassword',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class CreateADConnectorDirectoryResponseBody extends Model
         if (isset($map['AdConnectors'])) {
             if (!empty($map['AdConnectors'])) {
                 $model->adConnectors = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['AdConnectors'] as $item) {
                     $model->adConnectors[$n++] = null !== $item ? adConnectors::fromMap($item) : $item;
                 }

@@ -80,19 +80,17 @@ class processData extends Model
      */
     public $processPath;
     protected $_name = [
-        'applicationName'    => 'ApplicationName',
+        'applicationName' => 'ApplicationName',
         'applicationVersion' => 'ApplicationVersion',
-        'cpuPercent'         => 'CpuPercent',
-        'gpuPercent'         => 'GpuPercent',
-        'iospeed'            => 'Iospeed',
-        'memPercent'         => 'MemPercent',
-        'pid'                => 'Pid',
-        'processPath'        => 'ProcessPath',
+        'cpuPercent' => 'CpuPercent',
+        'gpuPercent' => 'GpuPercent',
+        'iospeed' => 'Iospeed',
+        'memPercent' => 'MemPercent',
+        'pid' => 'Pid',
+        'processPath' => 'ProcessPath',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

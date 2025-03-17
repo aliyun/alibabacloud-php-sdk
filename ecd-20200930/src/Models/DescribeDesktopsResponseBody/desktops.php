@@ -64,13 +64,26 @@ class desktops extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Connected
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   Disconnected
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Disconnected
      *
      * @var string
@@ -495,9 +508,18 @@ class desktops extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   MULTIPLE_SESSION
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example SINGLE_SESSION
      *
      * @var string
@@ -608,73 +630,71 @@ class desktops extends Model
      */
     public $zoneType;
     protected $_name = [
-        'bindAmount'                   => 'BindAmount',
-        'bundleId'                     => 'BundleId',
-        'bundleName'                   => 'BundleName',
-        'chargeType'                   => 'ChargeType',
-        'connectionStatus'             => 'ConnectionStatus',
-        'cpu'                          => 'Cpu',
-        'creationTime'                 => 'CreationTime',
-        'dataDiskCategory'             => 'DataDiskCategory',
-        'dataDiskSize'                 => 'DataDiskSize',
-        'desktopDurationList'          => 'DesktopDurationList',
-        'desktopGroupId'               => 'DesktopGroupId',
-        'desktopId'                    => 'DesktopId',
-        'desktopName'                  => 'DesktopName',
-        'desktopStatus'                => 'DesktopStatus',
-        'desktopType'                  => 'DesktopType',
-        'directoryId'                  => 'DirectoryId',
-        'directoryType'                => 'DirectoryType',
-        'disks'                        => 'Disks',
-        'downgradeQuota'               => 'DowngradeQuota',
-        'downgradedTimes'              => 'DowngradedTimes',
-        'endUserIds'                   => 'EndUserIds',
-        'expiredTime'                  => 'ExpiredTime',
-        'fotaUpdate'                   => 'FotaUpdate',
-        'gpuCategory'                  => 'GpuCategory',
-        'gpuCount'                     => 'GpuCount',
-        'gpuDriverVersion'             => 'GpuDriverVersion',
-        'gpuSpec'                      => 'GpuSpec',
-        'hibernationBeta'              => 'HibernationBeta',
+        'bindAmount' => 'BindAmount',
+        'bundleId' => 'BundleId',
+        'bundleName' => 'BundleName',
+        'chargeType' => 'ChargeType',
+        'connectionStatus' => 'ConnectionStatus',
+        'cpu' => 'Cpu',
+        'creationTime' => 'CreationTime',
+        'dataDiskCategory' => 'DataDiskCategory',
+        'dataDiskSize' => 'DataDiskSize',
+        'desktopDurationList' => 'DesktopDurationList',
+        'desktopGroupId' => 'DesktopGroupId',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
+        'desktopStatus' => 'DesktopStatus',
+        'desktopType' => 'DesktopType',
+        'directoryId' => 'DirectoryId',
+        'directoryType' => 'DirectoryType',
+        'disks' => 'Disks',
+        'downgradeQuota' => 'DowngradeQuota',
+        'downgradedTimes' => 'DowngradedTimes',
+        'endUserIds' => 'EndUserIds',
+        'expiredTime' => 'ExpiredTime',
+        'fotaUpdate' => 'FotaUpdate',
+        'gpuCategory' => 'GpuCategory',
+        'gpuCount' => 'GpuCount',
+        'gpuDriverVersion' => 'GpuDriverVersion',
+        'gpuSpec' => 'GpuSpec',
+        'hibernationBeta' => 'HibernationBeta',
         'hibernationOptionsConfigured' => 'HibernationOptionsConfigured',
-        'hostName'                     => 'HostName',
-        'imageId'                      => 'ImageId',
-        'managementFlag'               => 'ManagementFlag',
-        'managementFlags'              => 'ManagementFlags',
-        'memory'                       => 'Memory',
-        'networkInterfaceId'           => 'NetworkInterfaceId',
-        'networkInterfaceIp'           => 'NetworkInterfaceIp',
-        'officeSiteId'                 => 'OfficeSiteId',
-        'officeSiteName'               => 'OfficeSiteName',
-        'officeSiteType'               => 'OfficeSiteType',
-        'officeSiteVpcType'            => 'OfficeSiteVpcType',
-        'osType'                       => 'OsType',
-        'platform'                     => 'Platform',
-        'policyGroupId'                => 'PolicyGroupId',
-        'policyGroupIdList'            => 'PolicyGroupIdList',
-        'policyGroupName'              => 'PolicyGroupName',
-        'policyGroupNameList'          => 'PolicyGroupNameList',
-        'progress'                     => 'Progress',
-        'protocolType'                 => 'ProtocolType',
-        'resourceGroups'               => 'ResourceGroups',
-        'sessionType'                  => 'SessionType',
-        'sessions'                     => 'Sessions',
-        'snapshotPolicyId'             => 'SnapshotPolicyId',
-        'snapshotPolicyName'           => 'SnapshotPolicyName',
-        'standardStartTime'            => 'StandardStartTime',
-        'startTime'                    => 'StartTime',
-        'supportHibernation'           => 'SupportHibernation',
-        'systemDiskCategory'           => 'SystemDiskCategory',
-        'systemDiskSize'               => 'SystemDiskSize',
-        'tags'                         => 'Tags',
-        'volumeEncryptionEnabled'      => 'VolumeEncryptionEnabled',
-        'volumeEncryptionKey'          => 'VolumeEncryptionKey',
-        'zoneType'                     => 'ZoneType',
+        'hostName' => 'HostName',
+        'imageId' => 'ImageId',
+        'managementFlag' => 'ManagementFlag',
+        'managementFlags' => 'ManagementFlags',
+        'memory' => 'Memory',
+        'networkInterfaceId' => 'NetworkInterfaceId',
+        'networkInterfaceIp' => 'NetworkInterfaceIp',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
+        'officeSiteType' => 'OfficeSiteType',
+        'officeSiteVpcType' => 'OfficeSiteVpcType',
+        'osType' => 'OsType',
+        'platform' => 'Platform',
+        'policyGroupId' => 'PolicyGroupId',
+        'policyGroupIdList' => 'PolicyGroupIdList',
+        'policyGroupName' => 'PolicyGroupName',
+        'policyGroupNameList' => 'PolicyGroupNameList',
+        'progress' => 'Progress',
+        'protocolType' => 'ProtocolType',
+        'resourceGroups' => 'ResourceGroups',
+        'sessionType' => 'SessionType',
+        'sessions' => 'Sessions',
+        'snapshotPolicyId' => 'SnapshotPolicyId',
+        'snapshotPolicyName' => 'SnapshotPolicyName',
+        'standardStartTime' => 'StandardStartTime',
+        'startTime' => 'StartTime',
+        'supportHibernation' => 'SupportHibernation',
+        'systemDiskCategory' => 'SystemDiskCategory',
+        'systemDiskSize' => 'SystemDiskSize',
+        'tags' => 'Tags',
+        'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
+        'volumeEncryptionKey' => 'VolumeEncryptionKey',
+        'zoneType' => 'ZoneType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -937,7 +957,7 @@ class desktops extends Model
         if (isset($map['DesktopDurationList'])) {
             if (!empty($map['DesktopDurationList'])) {
                 $model->desktopDurationList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['DesktopDurationList'] as $item) {
                     $model->desktopDurationList[$n++] = null !== $item ? desktopDurationList::fromMap($item) : $item;
                 }
@@ -967,7 +987,7 @@ class desktops extends Model
         if (isset($map['Disks'])) {
             if (!empty($map['Disks'])) {
                 $model->disks = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Disks'] as $item) {
                     $model->disks[$n++] = null !== $item ? disks::fromMap($item) : $item;
                 }
@@ -1074,7 +1094,7 @@ class desktops extends Model
         if (isset($map['ResourceGroups'])) {
             if (!empty($map['ResourceGroups'])) {
                 $model->resourceGroups = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['ResourceGroups'] as $item) {
                     $model->resourceGroups[$n++] = null !== $item ? resourceGroups::fromMap($item) : $item;
                 }
@@ -1086,7 +1106,7 @@ class desktops extends Model
         if (isset($map['Sessions'])) {
             if (!empty($map['Sessions'])) {
                 $model->sessions = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Sessions'] as $item) {
                     $model->sessions[$n++] = null !== $item ? sessions::fromMap($item) : $item;
                 }
@@ -1116,7 +1136,7 @@ class desktops extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

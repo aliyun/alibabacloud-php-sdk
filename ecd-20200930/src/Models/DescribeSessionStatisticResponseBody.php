@@ -34,14 +34,12 @@ class DescribeSessionStatisticResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'statistic'  => 'Statistic',
+        'requestId' => 'RequestId',
+        'statistic' => 'Statistic',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class DescribeSessionStatisticResponseBody extends Model
         if (isset($map['Statistic'])) {
             if (!empty($map['Statistic'])) {
                 $model->statistic = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Statistic'] as $item) {
                     $model->statistic[$n++] = null !== $item ? statistic::fromMap($item) : $item;
                 }

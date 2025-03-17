@@ -20,13 +20,11 @@ class cloudDrivePermissionModels extends Model
      */
     public $permission;
     protected $_name = [
-        'endUsers'   => 'EndUsers',
+        'endUsers' => 'EndUsers',
         'permission' => 'Permission',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

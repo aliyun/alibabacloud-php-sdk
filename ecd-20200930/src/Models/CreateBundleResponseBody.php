@@ -26,13 +26,11 @@ class CreateBundleResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'bundleId'  => 'BundleId',
+        'bundleId' => 'BundleId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

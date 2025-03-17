@@ -31,6 +31,7 @@ class ListTagResourcesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -54,6 +55,7 @@ class ListTagResourcesRequest extends Model
      * ALIYUN::GWS::INSTANCE: cloud computer.
      *
      * This parameter is required.
+     *
      * @example ALIYUN::GWS::INSTANCE
      *
      * @var string
@@ -67,17 +69,15 @@ class ListTagResourcesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -138,7 +138,7 @@ class ListTagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

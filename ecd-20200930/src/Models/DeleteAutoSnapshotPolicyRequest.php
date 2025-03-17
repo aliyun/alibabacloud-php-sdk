@@ -12,6 +12,7 @@ class DeleteAutoSnapshotPolicyRequest extends Model
      * @description The IDs of the automatic snapshot policies that you want to delete.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $policyId;
@@ -20,6 +21,7 @@ class DeleteAutoSnapshotPolicyRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,9 +32,7 @@ class DeleteAutoSnapshotPolicyRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

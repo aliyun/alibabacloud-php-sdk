@@ -24,11 +24,20 @@ class moveCdsFileModel extends Model
      *
      *   <!-- -->
      *
+     * true
+     *
+     * <!-- -->
+     *
      * <!-- -->
      *
      *   <!-- -->
      *
+     * false
+     *
      * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -45,13 +54,11 @@ class moveCdsFileModel extends Model
     public $fileId;
     protected $_name = [
         'asyncTaskId' => 'AsyncTaskId',
-        'exist'       => 'Exist',
-        'fileId'      => 'FileId',
+        'exist' => 'Exist',
+        'fileId' => 'FileId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

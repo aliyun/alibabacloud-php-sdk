@@ -10,7 +10,12 @@ class RunCommandRequest extends Model
 {
     /**
      * @description The content of the command. The command content can be plaintext or Base64-encoded.\\
+     * The Base64-encoded command content cannot exceed 16 KB in size.
+     *
+     * > If the command content is Base64-encoded, you must set the ContentEncoding parameter to Base64.
+     *
      * This parameter is required.
+     *
      * @example ipconfig
      *
      * @var string
@@ -24,6 +29,7 @@ class RunCommandRequest extends Model
      *   Base64: The command content is Base64-encoded.
      *
      * Default value: PlainText. If the specified value of this parameter is invalid, PlainText is used by default.
+     *
      * @example Base64
      *
      * @var string
@@ -32,7 +38,10 @@ class RunCommandRequest extends Model
 
     /**
      * @description The ID of cloud desktop N. Valid values of N: 1 to 50.\\
+     * If multiple cloud desktops are specified and the command execution succeeds on at least one of the cloud desktops, the operation is considered successful. If multiple cloud desktops are specified and the command execution fails on all the cloud desktops, verify the value of the parameter and try again.
+     *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $desktopId;
@@ -50,6 +59,7 @@ class RunCommandRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -59,6 +69,7 @@ class RunCommandRequest extends Model
     /**
      * @description The timeout period for the command to run. Unit: seconds. Default value: 60.\\
      * A timeout error occurs if the command cannot be run because the process slows down or because a specific module or the Cloud Assistant client does not exist. When a timeout error occurs, the command process is forcibly terminated.
+     *
      * @example 3600
      *
      * @var int
@@ -72,24 +83,23 @@ class RunCommandRequest extends Model
      *   RunPowerShellScript
      *
      * This parameter is required.
+     *
      * @example RunPowerShellScript
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'commandContent'  => 'CommandContent',
+        'commandContent' => 'CommandContent',
         'contentEncoding' => 'ContentEncoding',
-        'desktopId'       => 'DesktopId',
-        'endUserId'       => 'EndUserId',
-        'regionId'        => 'RegionId',
-        'timeout'         => 'Timeout',
-        'type'            => 'Type',
+        'desktopId' => 'DesktopId',
+        'endUserId' => 'EndUserId',
+        'regionId' => 'RegionId',
+        'timeout' => 'Timeout',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

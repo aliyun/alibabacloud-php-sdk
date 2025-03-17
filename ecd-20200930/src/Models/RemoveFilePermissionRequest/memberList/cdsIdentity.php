@@ -12,6 +12,7 @@ class cdsIdentity extends Model
      * @description The user ID or group ID.
      *
      * This parameter is required.
+     *
      * @example 249dsfseee643h33g3dv****
      *
      * @var string
@@ -27,22 +28,39 @@ class cdsIdentity extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * group
+     *
+     * <!-- -->
+     *
      *   IT_User
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * user
+     *
+     * <!-- -->
+     *
      * This parameter is required.
+     *
      * @example IT_User
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

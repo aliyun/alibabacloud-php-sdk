@@ -12,6 +12,7 @@ class DescribeUsersPasswordRequest extends Model
      * @description The ID of the cloud computer.
      *
      * This parameter is required.
+     *
      * @example ecd-gq8u6whi9f6k8****
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeUsersPasswordRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -29,12 +31,10 @@ class DescribeUsersPasswordRequest extends Model
     public $regionId;
     protected $_name = [
         'desktopId' => 'DesktopId',
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

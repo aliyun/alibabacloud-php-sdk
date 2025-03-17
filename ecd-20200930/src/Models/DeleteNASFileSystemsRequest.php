@@ -12,6 +12,7 @@ class DeleteNASFileSystemsRequest extends Model
      * @description The IDs of the NAS file systems that you want to delete.
      *
      * This parameter is required.
+     *
      * @example 04f314****
      *
      * @var string[]
@@ -22,6 +23,7 @@ class DeleteNASFileSystemsRequest extends Model
      * @description The region ID of the NAS file system that you want to delete.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -29,12 +31,10 @@ class DeleteNASFileSystemsRequest extends Model
     public $regionId;
     protected $_name = [
         'fileSystemId' => 'FileSystemId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

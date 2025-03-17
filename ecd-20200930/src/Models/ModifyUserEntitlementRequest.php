@@ -26,6 +26,7 @@ class ModifyUserEntitlementRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -40,14 +41,12 @@ class ModifyUserEntitlementRequest extends Model
     public $revokeDesktopId;
     protected $_name = [
         'authorizeDesktopId' => 'AuthorizeDesktopId',
-        'endUserId'          => 'EndUserId',
-        'regionId'           => 'RegionId',
-        'revokeDesktopId'    => 'RevokeDesktopId',
+        'endUserId' => 'EndUserId',
+        'regionId' => 'RegionId',
+        'revokeDesktopId' => 'RevokeDesktopId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

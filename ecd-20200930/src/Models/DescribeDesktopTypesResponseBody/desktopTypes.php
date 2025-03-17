@@ -123,24 +123,22 @@ class desktopTypes extends Model
      */
     public $systemDiskSize;
     protected $_name = [
-        'cpuCount'           => 'CpuCount',
-        'dataDiskSize'       => 'DataDiskSize',
-        'desktopTypeId'      => 'DesktopTypeId',
-        'desktopTypeStatus'  => 'DesktopTypeStatus',
-        'gpuCount'           => 'GpuCount',
-        'gpuMemory'          => 'GpuMemory',
-        'gpuSpec'            => 'GpuSpec',
+        'cpuCount' => 'CpuCount',
+        'dataDiskSize' => 'DataDiskSize',
+        'desktopTypeId' => 'DesktopTypeId',
+        'desktopTypeStatus' => 'DesktopTypeStatus',
+        'gpuCount' => 'GpuCount',
+        'gpuMemory' => 'GpuMemory',
+        'gpuSpec' => 'GpuSpec',
         'instanceTypeFamily' => 'InstanceTypeFamily',
-        'maxSessionCount'    => 'MaxSessionCount',
-        'memorySize'         => 'MemorySize',
-        'scopes'             => 'Scopes',
-        'stockState'         => 'StockState',
-        'systemDiskSize'     => 'SystemDiskSize',
+        'maxSessionCount' => 'MaxSessionCount',
+        'memorySize' => 'MemorySize',
+        'scopes' => 'Scopes',
+        'stockState' => 'StockState',
+        'systemDiskSize' => 'SystemDiskSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

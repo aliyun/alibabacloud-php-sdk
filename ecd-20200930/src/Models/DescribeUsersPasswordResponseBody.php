@@ -26,12 +26,10 @@ class DescribeUsersPasswordResponseBody extends Model
     public $requestId;
     protected $_name = [
         'desktopUsers' => 'DesktopUsers',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeUsersPasswordResponseBody extends Model
         if (isset($map['DesktopUsers'])) {
             if (!empty($map['DesktopUsers'])) {
                 $model->desktopUsers = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['DesktopUsers'] as $item) {
                     $model->desktopUsers[$n++] = null !== $item ? desktopUsers::fromMap($item) : $item;
                 }

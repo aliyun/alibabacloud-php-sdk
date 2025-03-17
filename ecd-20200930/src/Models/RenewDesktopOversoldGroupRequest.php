@@ -24,13 +24,11 @@ class RenewDesktopOversoldGroupRequest extends Model
     public $periodUnit;
     protected $_name = [
         'oversoldGroupId' => 'OversoldGroupId',
-        'period'          => 'Period',
-        'periodUnit'      => 'PeriodUnit',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

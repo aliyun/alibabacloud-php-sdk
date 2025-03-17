@@ -12,6 +12,7 @@ class WakeupDesktopsRequest extends Model
      * @description The IDs of the cloud computers. You can specify the IDs of 1 to 100 cloud computers.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $desktopId;
@@ -20,6 +21,7 @@ class WakeupDesktopsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -27,12 +29,10 @@ class WakeupDesktopsRequest extends Model
     public $regionId;
     protected $_name = [
         'desktopId' => 'DesktopId',
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,13 +36,11 @@ class desktopUsers extends Model
     public $password;
     protected $_name = [
         'displayName' => 'DisplayName',
-        'endUserId'   => 'EndUserId',
-        'password'    => 'Password',
+        'endUserId' => 'EndUserId',
+        'password' => 'Password',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -70,27 +70,34 @@ class ListCdsFilesResponseBody extends Model
      *
      * <!-- -->
      *
-     *   <!-- -->
+     * <!-- -->
      *
      * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * false
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'       => 'Code',
-        'count'      => 'Count',
+        'code' => 'Code',
+        'count' => 'Count',
         'fileModels' => 'FileModels',
-        'message'    => 'Message',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'message' => 'Message',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -143,7 +150,7 @@ class ListCdsFilesResponseBody extends Model
         if (isset($map['FileModels'])) {
             if (!empty($map['FileModels'])) {
                 $model->fileModels = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['FileModels'] as $item) {
                     $model->fileModels[$n++] = null !== $item ? fileModels::fromMap($item) : $item;
                 }

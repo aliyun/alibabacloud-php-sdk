@@ -21,6 +21,7 @@ class configTimers extends Model
      * @description The CRON expression for the scheduled task.
      *
      * >  The time must be in UTC. For example, for 24:00 (UTC+8), you must set the value to 0 0 16 ? \\* 1,2,3,4,5,6,7.
+     *
      * @example 0 0 16 ? * 1,2,3,4,5,6,7
      *
      * @var string
@@ -117,19 +118,17 @@ class configTimers extends Model
     public $triggerType;
     protected $_name = [
         'allowClientSetting' => 'AllowClientSetting',
-        'cronExpression'     => 'CronExpression',
-        'enforce'            => 'Enforce',
-        'interval'           => 'Interval',
-        'operationType'      => 'OperationType',
-        'processWhitelist'   => 'ProcessWhitelist',
-        'resetType'          => 'ResetType',
-        'timerType'          => 'TimerType',
-        'triggerType'        => 'TriggerType',
+        'cronExpression' => 'CronExpression',
+        'enforce' => 'Enforce',
+        'interval' => 'Interval',
+        'operationType' => 'OperationType',
+        'processWhitelist' => 'ProcessWhitelist',
+        'resetType' => 'ResetType',
+        'timerType' => 'TimerType',
+        'triggerType' => 'TriggerType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

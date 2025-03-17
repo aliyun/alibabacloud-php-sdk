@@ -27,6 +27,7 @@ class ModifyTimerGroupRequest extends Model
      * @description The ID of the configuration group.
      *
      * This parameter is required.
+     *
      * @example cg-i1ruuudp92qpj****
      *
      * @var string
@@ -50,15 +51,13 @@ class ModifyTimerGroupRequest extends Model
     public $regionId;
     protected $_name = [
         'configTimers' => 'ConfigTimers',
-        'description'  => 'Description',
-        'groupId'      => 'GroupId',
-        'name'         => 'Name',
-        'regionId'     => 'RegionId',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -99,7 +98,7 @@ class ModifyTimerGroupRequest extends Model
         if (isset($map['ConfigTimers'])) {
             if (!empty($map['ConfigTimers'])) {
                 $model->configTimers = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ConfigTimers'] as $item) {
                     $model->configTimers[$n++] = null !== $item ? configTimers::fromMap($item) : $item;
                 }

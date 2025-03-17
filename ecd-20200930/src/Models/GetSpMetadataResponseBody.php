@@ -24,13 +24,11 @@ class GetSpMetadataResponseBody extends Model
      */
     public $spMetadata;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'spMetadata' => 'SpMetadata',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

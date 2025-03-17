@@ -93,20 +93,18 @@ class DescribeConfigGroupRequest extends Model
      */
     public $type;
     protected $_name = [
-        'groupId'     => 'GroupId',
-        'groupIds'    => 'GroupIds',
-        'name'        => 'Name',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'groupId' => 'GroupId',
+        'groupIds' => 'GroupIds',
+        'name' => 'Name',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'productType' => 'ProductType',
-        'regionId'    => 'RegionId',
-        'statuses'    => 'Statuses',
-        'type'        => 'Type',
+        'regionId' => 'RegionId',
+        'statuses' => 'Statuses',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

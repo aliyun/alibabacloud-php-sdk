@@ -12,6 +12,7 @@ class ModifyUserToDesktopGroupRequest extends Model
      * @description The ID of the cloud computer pool whose end users you want to change.
      *
      * This parameter is required.
+     *
      * @example dg-2i8qxpv6t1a03****
      *
      * @var string
@@ -22,6 +23,7 @@ class ModifyUserToDesktopGroupRequest extends Model
      * @description The IDs of the end users that you want to add. You can configure 1 to 500 IDs.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $newEndUserIds;
@@ -30,6 +32,7 @@ class ModifyUserToDesktopGroupRequest extends Model
      * @description The IDs of the end users that you want to remove. You can configure 1 to 500 IDs.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $oldEndUserIds;
@@ -38,6 +41,7 @@ class ModifyUserToDesktopGroupRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -45,14 +49,12 @@ class ModifyUserToDesktopGroupRequest extends Model
     public $regionId;
     protected $_name = [
         'desktopGroupId' => 'DesktopGroupId',
-        'newEndUserIds'  => 'NewEndUserIds',
-        'oldEndUserIds'  => 'OldEndUserIds',
-        'regionId'       => 'RegionId',
+        'newEndUserIds' => 'NewEndUserIds',
+        'oldEndUserIds' => 'OldEndUserIds',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

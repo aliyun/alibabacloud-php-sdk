@@ -193,7 +193,9 @@ class fileSystems extends Model
     /**
      * @description The storage type of the NAS file system. Valid values:
      *
+     * - Upm: UPM NAS
      * - ShareNas: Shared NAS
+     *
      * @example Upm
      *
      * @var string
@@ -231,33 +233,31 @@ class fileSystems extends Model
     public $zoneId;
     protected $_name = [
         'allowOperateUserDrive' => 'AllowOperateUserDrive',
-        'appInstanceGroups'     => 'AppInstanceGroups',
-        'capacity'              => 'Capacity',
-        'createTime'            => 'CreateTime',
-        'description'           => 'Description',
-        'desktopGroups'         => 'DesktopGroups',
-        'encryptionEnabled'     => 'EncryptionEnabled',
-        'fileSystemId'          => 'FileSystemId',
-        'fileSystemName'        => 'FileSystemName',
-        'fileSystemStatus'      => 'FileSystemStatus',
-        'fileSystemType'        => 'FileSystemType',
-        'meteredSize'           => 'MeteredSize',
-        'mountTargetDomain'     => 'MountTargetDomain',
-        'mountTargetStatus'     => 'MountTargetStatus',
-        'officeSiteId'          => 'OfficeSiteId',
-        'officeSiteName'        => 'OfficeSiteName',
-        'officeSites'           => 'OfficeSites',
-        'profileCompatible'     => 'ProfileCompatible',
-        'regionId'              => 'RegionId',
-        'scene'                 => 'Scene',
-        'storageType'           => 'StorageType',
-        'supportAcl'            => 'SupportAcl',
-        'zoneId'                => 'ZoneId',
+        'appInstanceGroups' => 'AppInstanceGroups',
+        'capacity' => 'Capacity',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'desktopGroups' => 'DesktopGroups',
+        'encryptionEnabled' => 'EncryptionEnabled',
+        'fileSystemId' => 'FileSystemId',
+        'fileSystemName' => 'FileSystemName',
+        'fileSystemStatus' => 'FileSystemStatus',
+        'fileSystemType' => 'FileSystemType',
+        'meteredSize' => 'MeteredSize',
+        'mountTargetDomain' => 'MountTargetDomain',
+        'mountTargetStatus' => 'MountTargetStatus',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
+        'officeSites' => 'OfficeSites',
+        'profileCompatible' => 'ProfileCompatible',
+        'regionId' => 'RegionId',
+        'scene' => 'Scene',
+        'storageType' => 'StorageType',
+        'supportAcl' => 'SupportAcl',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -367,7 +367,7 @@ class fileSystems extends Model
         if (isset($map['AppInstanceGroups'])) {
             if (!empty($map['AppInstanceGroups'])) {
                 $model->appInstanceGroups = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['AppInstanceGroups'] as $item) {
                     $model->appInstanceGroups[$n++] = null !== $item ? appInstanceGroups::fromMap($item) : $item;
                 }
@@ -385,7 +385,7 @@ class fileSystems extends Model
         if (isset($map['DesktopGroups'])) {
             if (!empty($map['DesktopGroups'])) {
                 $model->desktopGroups = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['DesktopGroups'] as $item) {
                     $model->desktopGroups[$n++] = null !== $item ? desktopGroups::fromMap($item) : $item;
                 }
@@ -424,7 +424,7 @@ class fileSystems extends Model
         if (isset($map['OfficeSites'])) {
             if (!empty($map['OfficeSites'])) {
                 $model->officeSites = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['OfficeSites'] as $item) {
                     $model->officeSites[$n++] = null !== $item ? officeSites::fromMap($item) : $item;
                 }

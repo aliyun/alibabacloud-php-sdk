@@ -57,6 +57,7 @@ class officeSites extends Model
     /**
      * @description The maximum public bandwidth value. Valid values: 0 to 1000.\\
      * If you leave this parameter empty or set this parameter to 0, Internet access is not enabled.
+     *
      * @example 10
      *
      * @var int
@@ -140,6 +141,8 @@ class officeSites extends Model
 
     /**
      * @description The method that is used to connect cloud computers that reside in the office network from Alibaba Cloud Workspace clients.
+     *
+     * >  The VPC connection depends on Alibaba Cloud PrivateLink. You can use Alibaba Cloud PrivateLink for free. When you set this parameter to `VPC` or `Any`, PrivateLink is automatically activated.
      *
      * Valid values:
      *
@@ -322,7 +325,9 @@ class officeSites extends Model
     /**
      * @description The network version. App Streaming is supported by the new version. Valid values:
      *
+     * - DEFAULT: the legacy version
      * - NM: the new version
+     *
      * @example NM
      *
      * @var string
@@ -563,67 +568,65 @@ class officeSites extends Model
      */
     public $vpcType;
     protected $_name = [
-        'ADConnectors'             => 'ADConnectors',
-        'acceleratorId'            => 'AcceleratorId',
-        'adHostname'               => 'AdHostname',
-        'backupDCHostname'         => 'BackupDCHostname',
-        'backupDns'                => 'BackupDns',
-        'bandwidth'                => 'Bandwidth',
-        'cenAttachStatus'          => 'CenAttachStatus',
-        'cenId'                    => 'CenId',
-        'cidrBlock'                => 'CidrBlock',
-        'cloudBoxOfficeSite'       => 'CloudBoxOfficeSite',
-        'creationTime'             => 'CreationTime',
-        'customAccessPoint'        => 'CustomAccessPoint',
-        'customDnsAddress'         => 'CustomDnsAddress',
-        'customSecurityGroupId'    => 'CustomSecurityGroupId',
-        'desktopAccessType'        => 'DesktopAccessType',
-        'desktopCount'             => 'DesktopCount',
-        'desktopVpcEndpoint'       => 'DesktopVpcEndpoint',
-        'dnsAddress'               => 'DnsAddress',
-        'dnsUserName'              => 'DnsUserName',
-        'domainName'               => 'DomainName',
-        'domainPassword'           => 'DomainPassword',
-        'domainUserName'           => 'DomainUserName',
-        'enableAdminAccess'        => 'EnableAdminAccess',
+        'ADConnectors' => 'ADConnectors',
+        'acceleratorId' => 'AcceleratorId',
+        'adHostname' => 'AdHostname',
+        'backupDCHostname' => 'BackupDCHostname',
+        'backupDns' => 'BackupDns',
+        'bandwidth' => 'Bandwidth',
+        'cenAttachStatus' => 'CenAttachStatus',
+        'cenId' => 'CenId',
+        'cidrBlock' => 'CidrBlock',
+        'cloudBoxOfficeSite' => 'CloudBoxOfficeSite',
+        'creationTime' => 'CreationTime',
+        'customAccessPoint' => 'CustomAccessPoint',
+        'customDnsAddress' => 'CustomDnsAddress',
+        'customSecurityGroupId' => 'CustomSecurityGroupId',
+        'desktopAccessType' => 'DesktopAccessType',
+        'desktopCount' => 'DesktopCount',
+        'desktopVpcEndpoint' => 'DesktopVpcEndpoint',
+        'dnsAddress' => 'DnsAddress',
+        'dnsUserName' => 'DnsUserName',
+        'domainName' => 'DomainName',
+        'domainPassword' => 'DomainPassword',
+        'domainUserName' => 'DomainUserName',
+        'enableAdminAccess' => 'EnableAdminAccess',
         'enableCrossDesktopAccess' => 'EnableCrossDesktopAccess',
-        'enableInternetAccess'     => 'EnableInternetAccess',
-        'enableServiceRoute'       => 'EnableServiceRoute',
-        'fileSystemIds'            => 'FileSystemIds',
-        'logs'                     => 'Logs',
-        'mfaEnabled'               => 'MfaEnabled',
-        'name'                     => 'Name',
-        'needVerifyLoginRisk'      => 'NeedVerifyLoginRisk',
-        'needVerifyZeroDevice'     => 'NeedVerifyZeroDevice',
-        'networkPackageId'         => 'NetworkPackageId',
-        'nmVersion'                => 'NmVersion',
-        'officeSiteId'             => 'OfficeSiteId',
-        'officeSiteType'           => 'OfficeSiteType',
-        'ouName'                   => 'OuName',
-        'protocolType'             => 'ProtocolType',
-        'rdsLicenseAddress'        => 'RdsLicenseAddress',
-        'rdsLicenseDomainName'     => 'RdsLicenseDomainName',
-        'rdsLicenseStatus'         => 'RdsLicenseStatus',
-        'resourceAmounts'          => 'ResourceAmounts',
-        'securityProtection'       => 'SecurityProtection',
-        'ssoEnabled'               => 'SsoEnabled',
-        'ssoType'                  => 'SsoType',
-        'status'                   => 'Status',
-        'subDnsAddress'            => 'SubDnsAddress',
-        'subDomainName'            => 'SubDomainName',
-        'subnetMode'               => 'SubnetMode',
-        'totalEdsCount'            => 'TotalEdsCount',
-        'totalEdsCountForGroup'    => 'TotalEdsCountForGroup',
-        'totalResourceAmount'      => 'TotalResourceAmount',
-        'trustPassword'            => 'TrustPassword',
-        'vSwitchIds'               => 'VSwitchIds',
-        'vpcId'                    => 'VpcId',
-        'vpcType'                  => 'VpcType',
+        'enableInternetAccess' => 'EnableInternetAccess',
+        'enableServiceRoute' => 'EnableServiceRoute',
+        'fileSystemIds' => 'FileSystemIds',
+        'logs' => 'Logs',
+        'mfaEnabled' => 'MfaEnabled',
+        'name' => 'Name',
+        'needVerifyLoginRisk' => 'NeedVerifyLoginRisk',
+        'needVerifyZeroDevice' => 'NeedVerifyZeroDevice',
+        'networkPackageId' => 'NetworkPackageId',
+        'nmVersion' => 'NmVersion',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteType' => 'OfficeSiteType',
+        'ouName' => 'OuName',
+        'protocolType' => 'ProtocolType',
+        'rdsLicenseAddress' => 'RdsLicenseAddress',
+        'rdsLicenseDomainName' => 'RdsLicenseDomainName',
+        'rdsLicenseStatus' => 'RdsLicenseStatus',
+        'resourceAmounts' => 'ResourceAmounts',
+        'securityProtection' => 'SecurityProtection',
+        'ssoEnabled' => 'SsoEnabled',
+        'ssoType' => 'SsoType',
+        'status' => 'Status',
+        'subDnsAddress' => 'SubDnsAddress',
+        'subDomainName' => 'SubDomainName',
+        'subnetMode' => 'SubnetMode',
+        'totalEdsCount' => 'TotalEdsCount',
+        'totalEdsCountForGroup' => 'TotalEdsCountForGroup',
+        'totalResourceAmount' => 'TotalResourceAmount',
+        'trustPassword' => 'TrustPassword',
+        'vSwitchIds' => 'VSwitchIds',
+        'vpcId' => 'VpcId',
+        'vpcType' => 'VpcType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -829,7 +832,7 @@ class officeSites extends Model
         if (isset($map['ADConnectors'])) {
             if (!empty($map['ADConnectors'])) {
                 $model->ADConnectors = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ADConnectors'] as $item) {
                     $model->ADConnectors[$n++] = null !== $item ? ADConnectors::fromMap($item) : $item;
                 }
@@ -922,7 +925,7 @@ class officeSites extends Model
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Logs'] as $item) {
                     $model->logs[$n++] = null !== $item ? logs::fromMap($item) : $item;
                 }
@@ -970,7 +973,7 @@ class officeSites extends Model
         if (isset($map['ResourceAmounts'])) {
             if (!empty($map['ResourceAmounts'])) {
                 $model->resourceAmounts = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['ResourceAmounts'] as $item) {
                     $model->resourceAmounts[$n++] = null !== $item ? resourceAmounts::fromMap($item) : $item;
                 }

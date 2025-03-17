@@ -21,6 +21,7 @@ class ModifyImageAttributeRequest extends Model
      * @description The image ID.
      *
      * This parameter is required.
+     *
      * @example m-2g65ljy3ynrdq****
      *
      * @var string
@@ -40,6 +41,7 @@ class ModifyImageAttributeRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -47,14 +49,12 @@ class ModifyImageAttributeRequest extends Model
     public $regionId;
     protected $_name = [
         'description' => 'Description',
-        'imageId'     => 'ImageId',
-        'name'        => 'Name',
-        'regionId'    => 'RegionId',
+        'imageId' => 'ImageId',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

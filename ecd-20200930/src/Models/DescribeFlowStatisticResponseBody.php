@@ -34,14 +34,12 @@ class DescribeFlowStatisticResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'desktopCount'         => 'DesktopCount',
+        'desktopCount' => 'DesktopCount',
         'desktopFlowStatistic' => 'DesktopFlowStatistic',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class DescribeFlowStatisticResponseBody extends Model
         if (isset($map['DesktopFlowStatistic'])) {
             if (!empty($map['DesktopFlowStatistic'])) {
                 $model->desktopFlowStatistic = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['DesktopFlowStatistic'] as $item) {
                     $model->desktopFlowStatistic[$n++] = null !== $item ? desktopFlowStatistic::fromMap($item) : $item;
                 }

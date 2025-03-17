@@ -54,15 +54,13 @@ class users extends Model
     public $phone;
     protected $_name = [
         'assignedDesktopNumber' => 'AssignedDesktopNumber',
-        'displayName'           => 'DisplayName',
-        'email'                 => 'Email',
-        'endUser'               => 'EndUser',
-        'phone'                 => 'Phone',
+        'displayName' => 'DisplayName',
+        'email' => 'Email',
+        'endUser' => 'EndUser',
+        'phone' => 'Phone',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

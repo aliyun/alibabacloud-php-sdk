@@ -12,6 +12,7 @@ class ModifyDesktopsPolicyGroupRequest extends Model
      * @description The cloud computer IDs. You can specify one or more cloud computers IDs. The value is a JSON array.
      *
      * This parameter is required.
+     *
      * @example ecd-ia2zw38bi6cm7****
      *
      * @var string[]
@@ -22,6 +23,7 @@ class ModifyDesktopsPolicyGroupRequest extends Model
      * @description The ID of the cloud computer policy that you want to associate with cloud computers.
      *
      * >  If the `PolicyGroupIds` parameter is used, ignore the current parameter.
+     *
      * @example pg-gx2x1dhsmthe9****
      *
      * @var string
@@ -32,6 +34,7 @@ class ModifyDesktopsPolicyGroupRequest extends Model
      * @description The IDs of the cloud computer policies that you want to associate with cloud computers.
      *
      * >  You can specify up to one cloud computer policy that takes effect globally, and up to four cloud computer policies that apply to specific IP addresses. If you specify more than one cloud computer policy that takes effect globally, only the policy first associate with the cloud computer can take effect.
+     *
      * @var string[]
      */
     public $policyGroupIds;
@@ -40,21 +43,20 @@ class ModifyDesktopsPolicyGroupRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'desktopId'      => 'DesktopId',
-        'policyGroupId'  => 'PolicyGroupId',
+        'desktopId' => 'DesktopId',
+        'policyGroupId' => 'PolicyGroupId',
         'policyGroupIds' => 'PolicyGroupIds',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

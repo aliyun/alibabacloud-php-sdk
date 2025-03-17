@@ -53,16 +53,14 @@ class CreateNASFileSystemResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'fileSystemId'      => 'FileSystemId',
-        'fileSystemName'    => 'FileSystemName',
+        'fileSystemId' => 'FileSystemId',
+        'fileSystemName' => 'FileSystemName',
         'mountTargetDomain' => 'MountTargetDomain',
-        'officeSiteId'      => 'OfficeSiteId',
-        'requestId'         => 'RequestId',
+        'officeSiteId' => 'OfficeSiteId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

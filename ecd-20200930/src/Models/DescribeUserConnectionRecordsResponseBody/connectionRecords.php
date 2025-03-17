@@ -62,17 +62,15 @@ class connectionRecords extends Model
      */
     public $desktopName;
     protected $_name = [
-        'connectDuration'    => 'ConnectDuration',
-        'connectEndTime'     => 'ConnectEndTime',
-        'connectStartTime'   => 'ConnectStartTime',
+        'connectDuration' => 'ConnectDuration',
+        'connectEndTime' => 'ConnectEndTime',
+        'connectStartTime' => 'ConnectStartTime',
         'connectionRecordId' => 'ConnectionRecordId',
-        'desktopId'          => 'DesktopId',
-        'desktopName'        => 'DesktopName',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

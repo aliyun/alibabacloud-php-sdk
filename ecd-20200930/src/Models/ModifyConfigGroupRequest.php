@@ -21,6 +21,7 @@ class ModifyConfigGroupRequest extends Model
      * @description The ID of the configuration group.
      *
      * This parameter is required.
+     *
      * @example cg-i1ruuudp92qpj****
      *
      * @var string
@@ -46,14 +47,12 @@ class ModifyConfigGroupRequest extends Model
     public $regionId;
     protected $_name = [
         'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'name'        => 'Name',
-        'regionId'    => 'RegionId',
+        'groupId' => 'GroupId',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

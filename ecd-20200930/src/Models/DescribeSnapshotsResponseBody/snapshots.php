@@ -100,9 +100,18 @@ class snapshots extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   ASP: in-house Adaptive Streaming Protocol (ASP)
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example ASP
      *
      * @var string
@@ -113,6 +122,7 @@ class snapshots extends Model
      * @description The remaining time that is required to complete the snapshot creation. Unit: seconds.
      *
      * >  When the `Status` value is `PROGRESSING`, the `RemainTime` value is `-1`. A value of -1 indicates that the system is calculating the remaining time.
+     *
      * @example 30
      *
      * @var int
@@ -164,9 +174,18 @@ class snapshots extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   USER: manual snapshot
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example USER
      *
      * @var string
@@ -191,9 +210,18 @@ class snapshots extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DATA: data disk
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example SYSTEM
      *
      * @var string
@@ -209,13 +237,26 @@ class snapshots extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   FAILED: The snapshot fails to be created.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   ACCOMPLISHED: The snapshot is created.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example ACCOMPLISHED
      *
      * @var string
@@ -240,31 +281,29 @@ class snapshots extends Model
      */
     public $volumeEncryptionKey;
     protected $_name = [
-        'creationTime'            => 'CreationTime',
-        'creator'                 => 'Creator',
-        'deletionTime'            => 'DeletionTime',
-        'description'             => 'Description',
-        'desktopId'               => 'DesktopId',
-        'desktopName'             => 'DesktopName',
-        'desktopStatus'           => 'DesktopStatus',
-        'progress'                => 'Progress',
-        'protocolType'            => 'ProtocolType',
-        'remainTime'              => 'RemainTime',
-        'restorePointId'          => 'RestorePointId',
-        'restorePointName'        => 'RestorePointName',
-        'snapshotId'              => 'SnapshotId',
-        'snapshotName'            => 'SnapshotName',
-        'snapshotType'            => 'SnapshotType',
-        'sourceDiskSize'          => 'SourceDiskSize',
-        'sourceDiskType'          => 'SourceDiskType',
-        'status'                  => 'Status',
+        'creationTime' => 'CreationTime',
+        'creator' => 'Creator',
+        'deletionTime' => 'DeletionTime',
+        'description' => 'Description',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
+        'desktopStatus' => 'DesktopStatus',
+        'progress' => 'Progress',
+        'protocolType' => 'ProtocolType',
+        'remainTime' => 'RemainTime',
+        'restorePointId' => 'RestorePointId',
+        'restorePointName' => 'RestorePointName',
+        'snapshotId' => 'SnapshotId',
+        'snapshotName' => 'SnapshotName',
+        'snapshotType' => 'SnapshotType',
+        'sourceDiskSize' => 'SourceDiskSize',
+        'sourceDiskType' => 'SourceDiskType',
+        'status' => 'Status',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
-        'volumeEncryptionKey'     => 'VolumeEncryptionKey',
+        'volumeEncryptionKey' => 'VolumeEncryptionKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

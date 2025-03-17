@@ -35,13 +35,11 @@ class DescribeAclEntriesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'aclEntries' => 'AclEntries',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeAclEntriesResponseBody extends Model
         if (isset($map['AclEntries'])) {
             if (!empty($map['AclEntries'])) {
                 $model->aclEntries = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['AclEntries'] as $item) {
                     $model->aclEntries[$n++] = null !== $item ? aclEntries::fromMap($item) : $item;
                 }

@@ -68,23 +68,21 @@ class desktopDurationList extends Model
      */
     public $usedDuration;
     protected $_name = [
-        'orderInstanceId'       => 'OrderInstanceId',
-        'packageCreationTime'   => 'PackageCreationTime',
-        'packageExpiredTime'    => 'PackageExpiredTime',
-        'packageId'             => 'PackageId',
-        'packageStatus'         => 'PackageStatus',
-        'packageType'           => 'PackageType',
+        'orderInstanceId' => 'OrderInstanceId',
+        'packageCreationTime' => 'PackageCreationTime',
+        'packageExpiredTime' => 'PackageExpiredTime',
+        'packageId' => 'PackageId',
+        'packageStatus' => 'PackageStatus',
+        'packageType' => 'PackageType',
         'packageUsedUpStrategy' => 'PackageUsedUpStrategy',
-        'periodEndTime'         => 'PeriodEndTime',
-        'periodStartTime'       => 'PeriodStartTime',
-        'postPaidLimitFee'      => 'PostPaidLimitFee',
-        'totalDuration'         => 'TotalDuration',
-        'usedDuration'          => 'UsedDuration',
+        'periodEndTime' => 'PeriodEndTime',
+        'periodStartTime' => 'PeriodStartTime',
+        'postPaidLimitFee' => 'PostPaidLimitFee',
+        'totalDuration' => 'TotalDuration',
+        'usedDuration' => 'UsedDuration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

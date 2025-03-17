@@ -12,6 +12,7 @@ class DeleteSnapshotRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -22,19 +23,18 @@ class DeleteSnapshotRequest extends Model
      * @description The snapshot IDs. You can specify 1 to 100 IDs.
      *
      * This parameter is required.
+     *
      * @example s-2ze81owrnv9pity4****
      *
      * @var string[]
      */
     public $snapshotId;
     protected $_name = [
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
         'snapshotId' => 'SnapshotId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

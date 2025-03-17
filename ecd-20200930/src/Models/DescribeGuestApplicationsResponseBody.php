@@ -26,12 +26,10 @@ class DescribeGuestApplicationsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'applications' => 'Applications',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeGuestApplicationsResponseBody extends Model
         if (isset($map['Applications'])) {
             if (!empty($map['Applications'])) {
                 $model->applications = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['Applications'] as $item) {
                     $model->applications[$n++] = null !== $item ? applications::fromMap($item) : $item;
                 }

@@ -59,6 +59,7 @@ class DescribePolicyGroupsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -81,18 +82,16 @@ class DescribePolicyGroupsRequest extends Model
     public $scope;
     protected $_name = [
         'externalPolicyGroupIds' => 'ExternalPolicyGroupIds',
-        'maxResults'             => 'MaxResults',
-        'nextToken'              => 'NextToken',
-        'pageNumber'             => 'PageNumber',
-        'pageSize'               => 'PageSize',
-        'policyGroupId'          => 'PolicyGroupId',
-        'regionId'               => 'RegionId',
-        'scope'                  => 'Scope',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'policyGroupId' => 'PolicyGroupId',
+        'regionId' => 'RegionId',
+        'scope' => 'Scope',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

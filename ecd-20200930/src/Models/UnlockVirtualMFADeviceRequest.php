@@ -12,6 +12,7 @@ class UnlockVirtualMFADeviceRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -21,20 +22,21 @@ class UnlockVirtualMFADeviceRequest extends Model
     /**
      * @description The serial number of the virtual MFA device, which is a unique identifier.
      *
+     * You can call the [DescribeVirtualMFADevices](https://help.aliyun.com/document_detail/206210.html) operation to query the serial number of the virtual MFA device bound to Active Directory (AD) users.
+     *
      * This parameter is required.
+     *
      * @example a25f297f-f2e1-4a44-bbf1-5f48a6e5****
      *
      * @var string
      */
     public $serialNumber;
     protected $_name = [
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
         'serialNumber' => 'SerialNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

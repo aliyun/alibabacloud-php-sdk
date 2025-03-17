@@ -103,30 +103,28 @@ class data extends Model
      */
     public $systemDiskSize;
     protected $_name = [
-        'concurrenceCount'       => 'ConcurrenceCount',
-        'curConcurrenceCount'    => 'CurConcurrenceCount',
-        'dataDiskSize'           => 'DataDiskSize',
-        'description'            => 'Description',
-        'desktopType'            => 'DesktopType',
-        'directoryId'            => 'DirectoryId',
-        'expireTime'             => 'ExpireTime',
+        'concurrenceCount' => 'ConcurrenceCount',
+        'curConcurrenceCount' => 'CurConcurrenceCount',
+        'dataDiskSize' => 'DataDiskSize',
+        'description' => 'Description',
+        'desktopType' => 'DesktopType',
+        'directoryId' => 'DirectoryId',
+        'expireTime' => 'ExpireTime',
         'idleDisconnectDuration' => 'IdleDisconnectDuration',
-        'imageId'                => 'ImageId',
-        'keepDuration'           => 'KeepDuration',
-        'name'                   => 'Name',
-        'oversoldGroupId'        => 'OversoldGroupId',
-        'oversoldUserCount'      => 'OversoldUserCount',
-        'oversoldWarn'           => 'OversoldWarn',
-        'policyGroupId'          => 'PolicyGroupId',
-        'saleStatus'             => 'SaleStatus',
-        'status'                 => 'Status',
-        'stopDuration'           => 'StopDuration',
-        'systemDiskSize'         => 'SystemDiskSize',
+        'imageId' => 'ImageId',
+        'keepDuration' => 'KeepDuration',
+        'name' => 'Name',
+        'oversoldGroupId' => 'OversoldGroupId',
+        'oversoldUserCount' => 'OversoldUserCount',
+        'oversoldWarn' => 'OversoldWarn',
+        'policyGroupId' => 'PolicyGroupId',
+        'saleStatus' => 'SaleStatus',
+        'status' => 'Status',
+        'stopDuration' => 'StopDuration',
+        'systemDiskSize' => 'SystemDiskSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

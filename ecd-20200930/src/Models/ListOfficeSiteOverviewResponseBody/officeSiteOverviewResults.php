@@ -53,7 +53,15 @@ class officeSiteOverviewResults extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   REGISTERING
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -61,7 +69,15 @@ class officeSiteOverviewResults extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   NEEDCONFIGTRUST
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -69,7 +85,15 @@ class officeSiteOverviewResults extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   CONFIGTRUSTFAILED
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -77,13 +101,26 @@ class officeSiteOverviewResults extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   CONFIGTRUSTING
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   NEEDCONFIGUSER
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example REGISTERED
      *
      * @var string
@@ -168,24 +205,22 @@ class officeSiteOverviewResults extends Model
      */
     public $willExpiredEdsCountForGroup;
     protected $_name = [
-        'hasExpiredEdsCount'          => 'HasExpiredEdsCount',
-        'hasExpiredEdsCountForGroup'  => 'HasExpiredEdsCountForGroup',
-        'officeSiteId'                => 'OfficeSiteId',
-        'officeSiteName'              => 'OfficeSiteName',
-        'officeSiteStatus'            => 'OfficeSiteStatus',
-        'regionId'                    => 'RegionId',
-        'runningEdsCount'             => 'RunningEdsCount',
-        'runningEdsCountForGroup'     => 'RunningEdsCountForGroup',
-        'totalEdsCount'               => 'TotalEdsCount',
-        'totalEdsCountForGroup'       => 'TotalEdsCountForGroup',
-        'vpcType'                     => 'VpcType',
-        'willExpiredEdsCount'         => 'WillExpiredEdsCount',
+        'hasExpiredEdsCount' => 'HasExpiredEdsCount',
+        'hasExpiredEdsCountForGroup' => 'HasExpiredEdsCountForGroup',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
+        'officeSiteStatus' => 'OfficeSiteStatus',
+        'regionId' => 'RegionId',
+        'runningEdsCount' => 'RunningEdsCount',
+        'runningEdsCountForGroup' => 'RunningEdsCountForGroup',
+        'totalEdsCount' => 'TotalEdsCount',
+        'totalEdsCountForGroup' => 'TotalEdsCountForGroup',
+        'vpcType' => 'VpcType',
+        'willExpiredEdsCount' => 'WillExpiredEdsCount',
         'willExpiredEdsCountForGroup' => 'WillExpiredEdsCountForGroup',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,6 +30,7 @@ class scaleTimerInfos extends Model
      * @description The keep-alive duration of a session after the session is disconnected. Unit: milliseconds. Valid values: 180000 (3 minutes) to 345600000 (4 days). A value of 0 indicates that the session always keeps alive.
      *
      * If a session is disconnected by the end user or accidentally due to a factor and the end user does not re-establish a connection with the session within the keep-alive duration, the session expires and unsaved data is deleted. If the end user successfully re-establishes a connection with the session within the keep-alive duration, the end user returns to the session and can still access the original data.
+     *
      * @example 1000
      *
      * @var int
@@ -71,7 +72,10 @@ class scaleTimerInfos extends Model
     /**
      * @description The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session cloud computer pool. Formula:
      *
+     * `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`.
+     *
      * When the specified threshold is reached, new cloud computers are automatically created. When the specified threshold is not reached, idle cloud computers are released.
+     *
      * @example 0.9
      *
      * @var float
@@ -87,7 +91,15 @@ class scaleTimerInfos extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   normal
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -95,28 +107,35 @@ class scaleTimerInfos extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   rise
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example rise
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'buyResAmount'   => 'BuyResAmount',
-        'cron'           => 'Cron',
-        'keepDuration'   => 'KeepDuration',
-        'loadPolicy'     => 'LoadPolicy',
-        'maxResAmount'   => 'MaxResAmount',
-        'minResAmount'   => 'MinResAmount',
+        'buyResAmount' => 'BuyResAmount',
+        'cron' => 'Cron',
+        'keepDuration' => 'KeepDuration',
+        'loadPolicy' => 'LoadPolicy',
+        'maxResAmount' => 'MaxResAmount',
+        'minResAmount' => 'MinResAmount',
         'ratioThreshold' => 'RatioThreshold',
-        'type'           => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

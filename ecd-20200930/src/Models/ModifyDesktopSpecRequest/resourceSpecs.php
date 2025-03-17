@@ -35,14 +35,12 @@ class resourceSpecs extends Model
      */
     public $userDiskSizeGib;
     protected $_name = [
-        'desktopId'       => 'DesktopId',
+        'desktopId' => 'DesktopId',
         'rootDiskSizeGib' => 'RootDiskSizeGib',
         'userDiskSizeGib' => 'UserDiskSizeGib',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

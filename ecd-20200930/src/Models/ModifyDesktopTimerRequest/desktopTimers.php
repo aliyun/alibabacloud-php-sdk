@@ -21,6 +21,7 @@ class desktopTimers extends Model
      * @description The cron expression of the schedule.
      *
      * > The time must be in UTC. For example, for 24:00 (UTC+8), you must set the value to 0 0 16 ? \\* 1,2,3,4,5,6,7
+     *
      * @example 0 0 16 ? * 1,2,3,4,5,6,7
      *
      * @var string
@@ -36,9 +37,18 @@ class desktopTimers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false: does not forcibly execute the scheduled task.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example true
      *
      * @var bool
@@ -63,9 +73,18 @@ class desktopTimers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Shutdown: stops the cloud computers.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Shutdown
      *
      * @var string
@@ -81,9 +100,18 @@ class desktopTimers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   RESET_TYPE_BOTH: resets data and user disks.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example RESET_TYPE_SYSTEM
      *
      * @var string
@@ -99,7 +127,15 @@ class desktopTimers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   LogoutShutdown: Stops the cloud computers when end users log out Alibaba Cloud Workspace clients.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -107,7 +143,15 @@ class desktopTimers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   TimerBoot: Starts the cloud computers on schedule.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -115,7 +159,15 @@ class desktopTimers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   LoginAutoConnect: automatically connects to the cloud computers when end users log on to Alibaba Cloud Workspace clients.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -123,7 +175,15 @@ class desktopTimers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   TimerShutdown: Stops the cloud computers on schedule.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -131,9 +191,18 @@ class desktopTimers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   TimerReboot: Restarts the cloud computers on schedule.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example TimerBoot
      *
      * @var string
@@ -141,17 +210,15 @@ class desktopTimers extends Model
     public $timerType;
     protected $_name = [
         'allowClientSetting' => 'AllowClientSetting',
-        'cronExpression'     => 'CronExpression',
-        'enforce'            => 'Enforce',
-        'interval'           => 'Interval',
-        'operationType'      => 'OperationType',
-        'resetType'          => 'ResetType',
-        'timerType'          => 'TimerType',
+        'cronExpression' => 'CronExpression',
+        'enforce' => 'Enforce',
+        'interval' => 'Interval',
+        'operationType' => 'OperationType',
+        'resetType' => 'ResetType',
+        'timerType' => 'TimerType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

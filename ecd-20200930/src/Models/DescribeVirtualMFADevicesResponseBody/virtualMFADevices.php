@@ -80,13 +80,26 @@ class virtualMFADevices extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   UNBOUND
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   NORMAL
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example NORMAL
      *
      * @var string
@@ -94,18 +107,16 @@ class virtualMFADevices extends Model
     public $status;
     protected $_name = [
         'consecutiveFails' => 'ConsecutiveFails',
-        'directoryId'      => 'DirectoryId',
-        'endUserId'        => 'EndUserId',
-        'gmtEnabled'       => 'GmtEnabled',
-        'gmtUnlock'        => 'GmtUnlock',
-        'officeSiteId'     => 'OfficeSiteId',
-        'serialNumber'     => 'SerialNumber',
-        'status'           => 'status',
+        'directoryId' => 'DirectoryId',
+        'endUserId' => 'EndUserId',
+        'gmtEnabled' => 'GmtEnabled',
+        'gmtUnlock' => 'GmtUnlock',
+        'officeSiteId' => 'OfficeSiteId',
+        'serialNumber' => 'SerialNumber',
+        'status' => 'status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

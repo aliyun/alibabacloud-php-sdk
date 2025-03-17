@@ -197,9 +197,18 @@ class events extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   AD_CONNECTOR: enterprise AD account
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example SIMPLE
      *
      * @var string
@@ -227,34 +236,32 @@ class events extends Model
      */
     public $status;
     protected $_name = [
-        'aliUid'           => 'AliUid',
-        'bytesReceived'    => 'BytesReceived',
-        'bytesSend'        => 'BytesSend',
-        'clientIp'         => 'ClientIp',
-        'clientOS'         => 'ClientOS',
-        'clientVersion'    => 'ClientVersion',
-        'description'      => 'Description',
-        'desktopGroupId'   => 'DesktopGroupId',
+        'aliUid' => 'AliUid',
+        'bytesReceived' => 'BytesReceived',
+        'bytesSend' => 'BytesSend',
+        'clientIp' => 'ClientIp',
+        'clientOS' => 'ClientOS',
+        'clientVersion' => 'ClientVersion',
+        'description' => 'Description',
+        'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupName' => 'DesktopGroupName',
-        'desktopId'        => 'DesktopId',
-        'desktopIp'        => 'DesktopIp',
-        'desktopName'      => 'DesktopName',
-        'directoryId'      => 'DirectoryId',
-        'directoryType'    => 'DirectoryType',
-        'endUserId'        => 'EndUserId',
-        'eventId'          => 'EventId',
-        'eventTime'        => 'EventTime',
-        'eventType'        => 'EventType',
-        'officeSiteId'     => 'OfficeSiteId',
-        'officeSiteName'   => 'OfficeSiteName',
-        'officeSiteType'   => 'OfficeSiteType',
-        'regionId'         => 'RegionId',
-        'status'           => 'Status',
+        'desktopId' => 'DesktopId',
+        'desktopIp' => 'DesktopIp',
+        'desktopName' => 'DesktopName',
+        'directoryId' => 'DirectoryId',
+        'directoryType' => 'DirectoryType',
+        'endUserId' => 'EndUserId',
+        'eventId' => 'EventId',
+        'eventTime' => 'EventTime',
+        'eventType' => 'EventType',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
+        'officeSiteType' => 'OfficeSiteType',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

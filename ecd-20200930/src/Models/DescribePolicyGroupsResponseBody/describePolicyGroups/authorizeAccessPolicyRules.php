@@ -26,13 +26,11 @@ class authorizeAccessPolicyRules extends Model
      */
     public $description;
     protected $_name = [
-        'cidrIp'      => 'CidrIp',
+        'cidrIp' => 'CidrIp',
         'description' => 'Description',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

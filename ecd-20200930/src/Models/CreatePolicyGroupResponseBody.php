@@ -27,12 +27,10 @@ class CreatePolicyGroupResponseBody extends Model
     public $requestId;
     protected $_name = [
         'policyGroupId' => 'PolicyGroupId',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,18 @@ class CopyCdsFileRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +39,7 @@ class CopyCdsFileRequest extends Model
      * @description The ID of the cloud disk.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+cds-352282****
      *
      * @var string
@@ -49,6 +59,7 @@ class CopyCdsFileRequest extends Model
      * @description The file ID. You can call the CreateCdsFile operation to query the file ID.
      *
      * This parameter is required.
+     *
      * @example 640985a0ca2f71f489d2497682ca0bf468de****
      *
      * @var string
@@ -57,7 +68,9 @@ class CopyCdsFileRequest extends Model
 
     /**
      * @description 目标复制文件所在的个人空间ID（即UserId，您可以在DescribeCloudDriveUsers接口返回的报文中获取。）或者目标复制文件所在的团队空间ID（即GroupId，您可以在DescribeCloudDriveGroups接口返回的报文中获取。）
+     * > FileReceiverId和FileReceiverType都为空时，默认复制到文件所在的个人空间。
      * >
+     *
      * @example user02
      *
      * @var string
@@ -82,6 +95,7 @@ class CopyCdsFileRequest extends Model
      * @description The ID of the parent folder of the folder to which you want to copy the file. If you want to copy the file to the root directory, set this parameter to root.
      *
      * This parameter is required.
+     *
      * @example root
      *
      * @var string
@@ -92,26 +106,25 @@ class CopyCdsFileRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'autoRename'       => 'AutoRename',
-        'cdsId'            => 'CdsId',
-        'endUserId'        => 'EndUserId',
-        'fileId'           => 'FileId',
-        'fileReceiverId'   => 'FileReceiverId',
+        'autoRename' => 'AutoRename',
+        'cdsId' => 'CdsId',
+        'endUserId' => 'EndUserId',
+        'fileId' => 'FileId',
+        'fileReceiverId' => 'FileReceiverId',
         'fileReceiverType' => 'FileReceiverType',
-        'groupId'          => 'GroupId',
-        'parentFolderId'   => 'ParentFolderId',
-        'regionId'         => 'RegionId',
+        'groupId' => 'GroupId',
+        'parentFolderId' => 'ParentFolderId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

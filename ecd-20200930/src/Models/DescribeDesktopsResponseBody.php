@@ -61,17 +61,15 @@ class DescribeDesktopsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'desktops'   => 'Desktops',
-        'nextToken'  => 'NextToken',
+        'desktops' => 'Desktops',
+        'nextToken' => 'NextToken',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -115,7 +113,7 @@ class DescribeDesktopsResponseBody extends Model
         if (isset($map['Desktops'])) {
             if (!empty($map['Desktops'])) {
                 $model->desktops = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Desktops'] as $item) {
                     $model->desktops[$n++] = null !== $item ? desktops::fromMap($item) : $item;
                 }

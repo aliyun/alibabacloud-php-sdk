@@ -65,9 +65,18 @@ class CreateDesktopsShrinkRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   PrePaid: subscription
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example PrePaid
      *
      * @var string
@@ -112,9 +121,18 @@ class CreateDesktopsShrinkRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   False
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -145,6 +163,11 @@ class CreateDesktopsShrinkRequest extends Model
      * @var string[]
      */
     public $endUserId;
+
+    /**
+     * @var string
+     */
+    public $extendInfo;
 
     /**
      * @description The ID of the cloud computer pool.
@@ -228,6 +251,7 @@ class CreateDesktopsShrinkRequest extends Model
      * @description The ID of the policy.
      *
      * This parameter is required.
+     *
      * @example system-all-enabled-policy
      *
      * @var string
@@ -247,6 +271,7 @@ class CreateDesktopsShrinkRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -299,15 +324,28 @@ class CreateDesktopsShrinkRequest extends Model
     /**
      * @description How the cloud computers are assigned.
      *
+     * >  If you do not specify the `EndUserId` parameter, the cloud computers are not assigned to end users after the cloud computers are created.
+     *
      * Default value: ALL. Valid values:
      *
      *   ALL: If you specify the EndUserId parameter, the cloud computers are assigned to all specified end users after the cloud computers are created.
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   PER_USER: If you specify the EndUserId parameter, the cloud computers are evenly assigned to the specified end users after the cloud computers are created.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * In this case, you must make sure that the value of the Amount parameter can be divided by the N value of the EndUserId.N parameter that you specify.
+     *
+     * <!-- -->
+     *
      * @example ALL
      *
      * @var string
@@ -357,44 +395,43 @@ class CreateDesktopsShrinkRequest extends Model
      */
     public $vpcId;
     protected $_name = [
-        'amount'                  => 'Amount',
-        'autoPay'                 => 'AutoPay',
-        'autoRenew'               => 'AutoRenew',
-        'bundleId'                => 'BundleId',
-        'bundleModels'            => 'BundleModels',
-        'chargeType'              => 'ChargeType',
+        'amount' => 'Amount',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'bundleId' => 'BundleId',
+        'bundleModels' => 'BundleModels',
+        'chargeType' => 'ChargeType',
         'desktopAttachmentShrink' => 'DesktopAttachment',
-        'desktopMemberIp'         => 'DesktopMemberIp',
-        'desktopName'             => 'DesktopName',
-        'desktopNameSuffix'       => 'DesktopNameSuffix',
-        'desktopTimers'           => 'DesktopTimers',
-        'directoryId'             => 'DirectoryId',
-        'endUserId'               => 'EndUserId',
-        'groupId'                 => 'GroupId',
-        'hostname'                => 'Hostname',
-        'monthDesktopSetting'     => 'MonthDesktopSetting',
-        'officeSiteId'            => 'OfficeSiteId',
-        'period'                  => 'Period',
-        'periodUnit'              => 'PeriodUnit',
-        'policyGroupId'           => 'PolicyGroupId',
-        'promotionId'             => 'PromotionId',
-        'regionId'                => 'RegionId',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'savingPlanId'            => 'SavingPlanId',
-        'snapshotPolicyId'        => 'SnapshotPolicyId',
-        'tag'                     => 'Tag',
-        'timerGroupId'            => 'TimerGroupId',
-        'userAssignMode'          => 'UserAssignMode',
-        'userCommands'            => 'UserCommands',
-        'userName'                => 'UserName',
+        'desktopMemberIp' => 'DesktopMemberIp',
+        'desktopName' => 'DesktopName',
+        'desktopNameSuffix' => 'DesktopNameSuffix',
+        'desktopTimers' => 'DesktopTimers',
+        'directoryId' => 'DirectoryId',
+        'endUserId' => 'EndUserId',
+        'extendInfo' => 'ExtendInfo',
+        'groupId' => 'GroupId',
+        'hostname' => 'Hostname',
+        'monthDesktopSetting' => 'MonthDesktopSetting',
+        'officeSiteId' => 'OfficeSiteId',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'policyGroupId' => 'PolicyGroupId',
+        'promotionId' => 'PromotionId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'savingPlanId' => 'SavingPlanId',
+        'snapshotPolicyId' => 'SnapshotPolicyId',
+        'tag' => 'Tag',
+        'timerGroupId' => 'TimerGroupId',
+        'userAssignMode' => 'UserAssignMode',
+        'userCommands' => 'UserCommands',
+        'userName' => 'UserName',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
-        'volumeEncryptionKey'     => 'VolumeEncryptionKey',
-        'vpcId'                   => 'VpcId',
+        'volumeEncryptionKey' => 'VolumeEncryptionKey',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -449,6 +486,9 @@ class CreateDesktopsShrinkRequest extends Model
         }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+        if (null !== $this->extendInfo) {
+            $res['ExtendInfo'] = $this->extendInfo;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -549,7 +589,7 @@ class CreateDesktopsShrinkRequest extends Model
         if (isset($map['BundleModels'])) {
             if (!empty($map['BundleModels'])) {
                 $model->bundleModels = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['BundleModels'] as $item) {
                     $model->bundleModels[$n++] = null !== $item ? bundleModels::fromMap($item) : $item;
                 }
@@ -573,7 +613,7 @@ class CreateDesktopsShrinkRequest extends Model
         if (isset($map['DesktopTimers'])) {
             if (!empty($map['DesktopTimers'])) {
                 $model->desktopTimers = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['DesktopTimers'] as $item) {
                     $model->desktopTimers[$n++] = null !== $item ? desktopTimers::fromMap($item) : $item;
                 }
@@ -586,6 +626,9 @@ class CreateDesktopsShrinkRequest extends Model
             if (!empty($map['EndUserId'])) {
                 $model->endUserId = $map['EndUserId'];
             }
+        }
+        if (isset($map['ExtendInfo'])) {
+            $model->extendInfo = $map['ExtendInfo'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -626,7 +669,7 @@ class CreateDesktopsShrinkRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
@@ -641,7 +684,7 @@ class CreateDesktopsShrinkRequest extends Model
         if (isset($map['UserCommands'])) {
             if (!empty($map['UserCommands'])) {
                 $model->userCommands = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['UserCommands'] as $item) {
                     $model->userCommands[$n++] = null !== $item ? userCommands::fromMap($item) : $item;
                 }

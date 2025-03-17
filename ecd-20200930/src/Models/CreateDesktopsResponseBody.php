@@ -19,6 +19,7 @@ class CreateDesktopsResponseBody extends Model
      * @description The ID of the order.
      *
      * > This parameter is returned only when you set the ChargeType parameter to PrePaid.
+     *
      * @example 123456789
      *
      * @var string
@@ -35,13 +36,11 @@ class CreateDesktopsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'desktopId' => 'DesktopId',
-        'orderId'   => 'OrderId',
+        'orderId' => 'OrderId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class authorizeAccessPolicyRule extends Model
      * @description The client CIDR block from which end users can connect to cloud computers. The value is an IPv4 CIDR block.
      *
      * This parameter is required.
+     *
      * @example 47.100.XX.XX/16
      *
      * @var string
@@ -27,13 +28,11 @@ class authorizeAccessPolicyRule extends Model
      */
     public $description;
     protected $_name = [
-        'cidrIp'      => 'CidrIp',
+        'cidrIp' => 'CidrIp',
         'description' => 'Description',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

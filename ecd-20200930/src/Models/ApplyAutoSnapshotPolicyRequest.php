@@ -12,6 +12,7 @@ class ApplyAutoSnapshotPolicyRequest extends Model
      * @description The IDs of the cloud computers. You can specify 1 to 20 IDs.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $desktopId;
@@ -20,6 +21,7 @@ class ApplyAutoSnapshotPolicyRequest extends Model
      * @description The ID of the automatic snapshot policy.
      *
      * This parameter is required.
+     *
      * @example sp-ejtum8j5tfcw7****
      *
      * @var string
@@ -30,6 +32,7 @@ class ApplyAutoSnapshotPolicyRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,13 +40,11 @@ class ApplyAutoSnapshotPolicyRequest extends Model
     public $regionId;
     protected $_name = [
         'desktopId' => 'DesktopId',
-        'policyId'  => 'PolicyId',
-        'regionId'  => 'RegionId',
+        'policyId' => 'PolicyId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

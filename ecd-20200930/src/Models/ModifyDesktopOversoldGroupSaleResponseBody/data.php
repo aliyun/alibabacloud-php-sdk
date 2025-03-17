@@ -18,13 +18,11 @@ class data extends Model
      */
     public $oversoldGroupId;
     protected $_name = [
-        'orderId'         => 'OrderId',
+        'orderId' => 'OrderId',
         'oversoldGroupId' => 'OversoldGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

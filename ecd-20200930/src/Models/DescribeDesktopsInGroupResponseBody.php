@@ -13,6 +13,7 @@ class DescribeDesktopsInGroupResponseBody extends Model
     /**
      * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      * If NextToken is empty, no next page exists.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string
@@ -105,22 +106,20 @@ class DescribeDesktopsInGroupResponseBody extends Model
      */
     public $stoppedPrePaidDesktopsCount;
     protected $_name = [
-        'nextToken'                   => 'NextToken',
-        'onlinePrePaidDesktopsCount'  => 'OnlinePrePaidDesktopsCount',
-        'paidDesktops'                => 'PaidDesktops',
-        'paidDesktopsCount'           => 'PaidDesktopsCount',
-        'postPaidDesktops'            => 'PostPaidDesktops',
-        'postPaidDesktopsCount'       => 'PostPaidDesktopsCount',
+        'nextToken' => 'NextToken',
+        'onlinePrePaidDesktopsCount' => 'OnlinePrePaidDesktopsCount',
+        'paidDesktops' => 'PaidDesktops',
+        'paidDesktopsCount' => 'PaidDesktopsCount',
+        'postPaidDesktops' => 'PostPaidDesktops',
+        'postPaidDesktopsCount' => 'PostPaidDesktopsCount',
         'postPaidDesktopsTotalAmount' => 'PostPaidDesktopsTotalAmount',
-        'requestId'                   => 'RequestId',
+        'requestId' => 'RequestId',
         'runningPrePaidDesktopsCount' => 'RunningPrePaidDesktopsCount',
-        'stopedPrePaidDesktopsCount'  => 'StopedPrePaidDesktopsCount',
+        'stopedPrePaidDesktopsCount' => 'StopedPrePaidDesktopsCount',
         'stoppedPrePaidDesktopsCount' => 'StoppedPrePaidDesktopsCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -191,7 +190,7 @@ class DescribeDesktopsInGroupResponseBody extends Model
         if (isset($map['PaidDesktops'])) {
             if (!empty($map['PaidDesktops'])) {
                 $model->paidDesktops = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PaidDesktops'] as $item) {
                     $model->paidDesktops[$n++] = null !== $item ? paidDesktops::fromMap($item) : $item;
                 }
@@ -203,7 +202,7 @@ class DescribeDesktopsInGroupResponseBody extends Model
         if (isset($map['PostPaidDesktops'])) {
             if (!empty($map['PostPaidDesktops'])) {
                 $model->postPaidDesktops = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['PostPaidDesktops'] as $item) {
                     $model->postPaidDesktops[$n++] = null !== $item ? postPaidDesktops::fromMap($item) : $item;
                 }

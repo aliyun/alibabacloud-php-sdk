@@ -89,18 +89,16 @@ class coordinateFlowModels extends Model
      */
     public $resourceName;
     protected $_name = [
-        'coId'             => 'CoId',
+        'coId' => 'CoId',
         'coordinateStatus' => 'CoordinateStatus',
         'coordinateTicket' => 'CoordinateTicket',
-        'initiatorType'    => 'InitiatorType',
-        'ownerUserId'      => 'OwnerUserId',
-        'resourceId'       => 'ResourceId',
-        'resourceName'     => 'ResourceName',
+        'initiatorType' => 'InitiatorType',
+        'ownerUserId' => 'OwnerUserId',
+        'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

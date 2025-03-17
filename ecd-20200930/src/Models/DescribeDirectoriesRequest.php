@@ -44,7 +44,10 @@ class DescribeDirectoriesRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * Maximum value: 100.
+     *
      * Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -64,6 +67,7 @@ class DescribeDirectoriesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -79,7 +83,15 @@ class DescribeDirectoriesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DEREGISTERING: The directory is being deregistered.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -87,7 +99,15 @@ class DescribeDirectoriesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   NEEDCONFIGTRUST: A trust relationship needs to be configured for the directory.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -95,7 +115,15 @@ class DescribeDirectoriesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DEREGISTERED: The directory is deregistered.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -103,31 +131,42 @@ class DescribeDirectoriesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   CONFIGTRUSTING: A trust relationship is being configured.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   NEEDCONFIGUSER: Users need to be configured for the directory.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example REGISTERED
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'directoryId'     => 'DirectoryId',
+        'directoryId' => 'DirectoryId',
         'directoryStatus' => 'DirectoryStatus',
-        'directoryType'   => 'DirectoryType',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'regionId'        => 'RegionId',
-        'status'          => 'Status',
+        'directoryType' => 'DirectoryType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,14 +34,12 @@ class ListOfficeSiteOverviewResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'nextToken'                 => 'NextToken',
+        'nextToken' => 'NextToken',
         'officeSiteOverviewResults' => 'OfficeSiteOverviewResults',
-        'requestId'                 => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class ListOfficeSiteOverviewResponseBody extends Model
         if (isset($map['OfficeSiteOverviewResults'])) {
             if (!empty($map['OfficeSiteOverviewResults'])) {
                 $model->officeSiteOverviewResults = [];
-                $n                                = 0;
+                $n = 0;
                 foreach ($map['OfficeSiteOverviewResults'] as $item) {
                     $model->officeSiteOverviewResults[$n++] = null !== $item ? officeSiteOverviewResults::fromMap($item) : $item;
                 }

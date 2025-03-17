@@ -53,16 +53,14 @@ class promotions extends Model
      */
     public $selected;
     protected $_name = [
-        'optionCode'    => 'OptionCode',
+        'optionCode' => 'OptionCode',
         'promotionDesc' => 'PromotionDesc',
-        'promotionId'   => 'PromotionId',
+        'promotionId' => 'PromotionId',
         'promotionName' => 'PromotionName',
-        'selected'      => 'Selected',
+        'selected' => 'Selected',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

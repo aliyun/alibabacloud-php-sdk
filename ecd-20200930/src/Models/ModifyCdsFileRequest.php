@@ -12,6 +12,7 @@ class ModifyCdsFileRequest extends Model
      * @description The cloud disk ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+cds-64326*****
      *
      * @var string
@@ -27,13 +28,38 @@ class ModifyCdsFileRequest extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * refuses to create a file that has the same name as the file in the cloud.
+     *
+     * <!-- -->
+     *
      *   auto_rename
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * automatically renames a file if the file has the same name as another file. By default, the current point in time is appended. Example: xxx20060102_150405.
      *
      * <!-- -->
      *
      *   ignore
      *
      * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * allows files with the same name.
+     *
+     * <!-- -->
+     *
      * @example ignore
      *
      * @var string
@@ -53,6 +79,7 @@ class ModifyCdsFileRequest extends Model
      * @description The file ID.
      *
      * This parameter is required.
+     *
      * @example 6333e553a133ce21e6f747cf948bb9ef95d7****
      *
      * @var string
@@ -63,6 +90,7 @@ class ModifyCdsFileRequest extends Model
      * @description The file name.
      *
      * This parameter is required.
+     *
      * @example test.txt
      *
      * @var string
@@ -82,24 +110,23 @@ class ModifyCdsFileRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cdsId'          => 'CdsId',
+        'cdsId' => 'CdsId',
         'conflictPolicy' => 'ConflictPolicy',
-        'endUserId'      => 'EndUserId',
-        'fileId'         => 'FileId',
-        'fileName'       => 'FileName',
-        'groupId'        => 'GroupId',
-        'regionId'       => 'RegionId',
+        'endUserId' => 'EndUserId',
+        'fileId' => 'FileId',
+        'fileName' => 'FileName',
+        'groupId' => 'GroupId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -16,9 +16,7 @@ class data extends Model
         'price' => 'Price',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

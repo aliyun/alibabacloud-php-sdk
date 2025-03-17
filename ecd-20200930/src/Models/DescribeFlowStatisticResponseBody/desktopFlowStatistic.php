@@ -44,15 +44,13 @@ class desktopFlowStatistic extends Model
      */
     public $flowRank;
     protected $_name = [
-        'desktopId'   => 'DesktopId',
+        'desktopId' => 'DesktopId',
         'desktopName' => 'DesktopName',
-        'flowIn'      => 'FlowIn',
-        'flowRank'    => 'FlowRank',
+        'flowIn' => 'FlowIn',
+        'flowRank' => 'FlowRank',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

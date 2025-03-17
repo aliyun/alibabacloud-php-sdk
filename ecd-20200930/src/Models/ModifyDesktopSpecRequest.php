@@ -18,9 +18,22 @@ class ModifyDesktopSpecRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * Make sure that you have sufficient balance in your Alibaba Cloud account. Otherwise, an exception occurs on your order.
+     *
+     * <!-- -->
+     *
      *   false: disables the auto-payment feature. In this case, an order is generated, and no payment is automatically made.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * You can log on to the Elastic Desktop Service console and complete the payment based on the order ID on the Orders page.
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -40,6 +53,7 @@ class ModifyDesktopSpecRequest extends Model
      * @description The destination instance type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the instance types supported by cloud computers.
      *
      * This parameter is required.
+     *
      * @example eds.general.2c8g
      *
      * @var string
@@ -59,6 +73,7 @@ class ModifyDesktopSpecRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -76,6 +91,7 @@ class ModifyDesktopSpecRequest extends Model
      * @description The resource type.
      *
      * > This parameter is optional for non-subscribed cloud computers.
+     *
      * @example DesktopMonthPackage
      *
      * @var string
@@ -100,7 +116,15 @@ class ModifyDesktopSpecRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   PL0
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -108,9 +132,18 @@ class ModifyDesktopSpecRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   PL2
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example PL0
      *
      * @var string
@@ -129,21 +162,19 @@ class ModifyDesktopSpecRequest extends Model
      */
     public $userDiskSizeGib;
     protected $_name = [
-        'autoPay'                  => 'AutoPay',
-        'desktopId'                => 'DesktopId',
-        'desktopType'              => 'DesktopType',
-        'promotionId'              => 'PromotionId',
-        'regionId'                 => 'RegionId',
-        'resourceSpecs'            => 'ResourceSpecs',
-        'resourceType'             => 'ResourceType',
-        'rootDiskSizeGib'          => 'RootDiskSizeGib',
+        'autoPay' => 'AutoPay',
+        'desktopId' => 'DesktopId',
+        'desktopType' => 'DesktopType',
+        'promotionId' => 'PromotionId',
+        'regionId' => 'RegionId',
+        'resourceSpecs' => 'ResourceSpecs',
+        'resourceType' => 'ResourceType',
+        'rootDiskSizeGib' => 'RootDiskSizeGib',
         'userDiskPerformanceLevel' => 'UserDiskPerformanceLevel',
-        'userDiskSizeGib'          => 'UserDiskSizeGib',
+        'userDiskSizeGib' => 'UserDiskSizeGib',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -214,7 +245,7 @@ class ModifyDesktopSpecRequest extends Model
         if (isset($map['ResourceSpecs'])) {
             if (!empty($map['ResourceSpecs'])) {
                 $model->resourceSpecs = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ResourceSpecs'] as $item) {
                     $model->resourceSpecs[$n++] = null !== $item ? resourceSpecs::fromMap($item) : $item;
                 }

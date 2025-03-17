@@ -37,13 +37,11 @@ class deviceRedirects extends Model
      */
     public $redirectType;
     protected $_name = [
-        'deviceType'   => 'DeviceType',
+        'deviceType' => 'DeviceType',
         'redirectType' => 'RedirectType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

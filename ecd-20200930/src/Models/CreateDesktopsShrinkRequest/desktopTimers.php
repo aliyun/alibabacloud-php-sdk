@@ -21,6 +21,7 @@ class desktopTimers extends Model
      * @description The cron expression for the scheduled task.
      *
      * >  The time must be in UTC. For example, for 24:00 (UTC+8), you must set the value to 0 0 16 ? \\* 1,2,3,4,5,6,7
+     *
      * @example 0 40 7 ? * 1,2,3,4,5,6,7
      *
      * @var string
@@ -36,9 +37,18 @@ class desktopTimers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false: does not forcibly execute the scheduled task.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example True
      *
      * @var bool
@@ -63,9 +73,18 @@ class desktopTimers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Shutdown: stops the cloud computers.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Shutdown
      *
      * @var string
@@ -81,9 +100,18 @@ class desktopTimers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   RESET_TYPE_BOTH: resets the system disks and data disks.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example RESET_TYPE_SYSTEM
      *
      * @var string
@@ -100,17 +128,15 @@ class desktopTimers extends Model
     public $timerType;
     protected $_name = [
         'allowClientSetting' => 'AllowClientSetting',
-        'cronExpression'     => 'CronExpression',
-        'enforce'            => 'Enforce',
-        'interval'           => 'Interval',
-        'operationType'      => 'OperationType',
-        'resetType'          => 'ResetType',
-        'timerType'          => 'TimerType',
+        'cronExpression' => 'CronExpression',
+        'enforce' => 'Enforce',
+        'interval' => 'Interval',
+        'operationType' => 'OperationType',
+        'resetType' => 'ResetType',
+        'timerType' => 'TimerType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

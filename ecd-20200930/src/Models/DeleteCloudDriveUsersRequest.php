@@ -31,14 +31,12 @@ class DeleteCloudDriveUsersRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'cdsId'     => 'CdsId',
+        'cdsId' => 'CdsId',
         'endUserId' => 'EndUserId',
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

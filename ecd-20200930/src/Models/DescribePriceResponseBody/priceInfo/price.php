@@ -68,18 +68,16 @@ class price extends Model
      */
     public $tradePrice;
     protected $_name = [
-        'currency'      => 'Currency',
+        'currency' => 'Currency',
         'discountPrice' => 'DiscountPrice',
-        'orderLines'    => 'OrderLines',
+        'orderLines' => 'OrderLines',
         'originalPrice' => 'OriginalPrice',
-        'promotions'    => 'Promotions',
-        'spPrice'       => 'SpPrice',
-        'tradePrice'    => 'TradePrice',
+        'promotions' => 'Promotions',
+        'spPrice' => 'SpPrice',
+        'tradePrice' => 'TradePrice',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -138,7 +136,7 @@ class price extends Model
         if (isset($map['Promotions'])) {
             if (!empty($map['Promotions'])) {
                 $model->promotions = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Promotions'] as $item) {
                     $model->promotions[$n++] = null !== $item ? promotions::fromMap($item) : $item;
                 }

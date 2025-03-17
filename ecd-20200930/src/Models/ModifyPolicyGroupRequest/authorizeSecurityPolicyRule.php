@@ -66,6 +66,7 @@ class authorizeSecurityPolicyRule extends Model
      *   If the IpProtocol parameter is set to ALL, set the value to -1/-1.
      *
      * For more information about the common ports applied in EDS, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+     *
      * @example 22/22
      *
      * @var string
@@ -95,18 +96,16 @@ class authorizeSecurityPolicyRule extends Model
      */
     public $type;
     protected $_name = [
-        'cidrIp'      => 'CidrIp',
+        'cidrIp' => 'CidrIp',
         'description' => 'Description',
-        'ipProtocol'  => 'IpProtocol',
-        'policy'      => 'Policy',
-        'portRange'   => 'PortRange',
-        'priority'    => 'Priority',
-        'type'        => 'Type',
+        'ipProtocol' => 'IpProtocol',
+        'policy' => 'Policy',
+        'portRange' => 'PortRange',
+        'priority' => 'Priority',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

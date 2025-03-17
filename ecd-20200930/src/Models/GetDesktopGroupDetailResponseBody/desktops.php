@@ -203,6 +203,7 @@ class desktops extends Model
      * @description The amount of time to retain a session after it is disconnected. Unit: milliseconds. Valid values: 180000 to 345600000. That is, the session can be retained for 3 to 5760 minutes (4 days). If you specify the value to 0, the session is permanently retained.
      *
      * When a session is disconnected, take note of the following situations: If an end user does not resume the session within the specified duration, the session is closed and all unsaved data is cleared. If the end user resumes the session within the specified duration, the end user can still access data of the session.
+     *
      * @example 180000
      *
      * @var int
@@ -393,7 +394,10 @@ class desktops extends Model
     /**
      * @description The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session cloud computer pool. To calculate the ratio of connected sessions, use the following formula:
      *
+     * `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`
+     *
      * If the ratio of connected sessions is greater than the specified value, new cloud computers are created. If the ratio of connected sessions is smaller than the specified value, idle cloud computers are deleted.
+     *
      * @example 0.6
      *
      * @var float
@@ -503,61 +507,59 @@ class desktops extends Model
      */
     public $version;
     protected $_name = [
-        'allowAutoSetup'         => 'AllowAutoSetup',
-        'allowBufferCount'       => 'AllowBufferCount',
-        'bindAmount'             => 'BindAmount',
-        'buyDesktopsCount'       => 'BuyDesktopsCount',
-        'comments'               => 'Comments',
-        'connectDuration'        => 'ConnectDuration',
-        'cpu'                    => 'Cpu',
-        'creationTime'           => 'CreationTime',
-        'creator'                => 'Creator',
-        'dataDiskCategory'       => 'DataDiskCategory',
-        'dataDiskSize'           => 'DataDiskSize',
-        'desktopGroupId'         => 'DesktopGroupId',
-        'desktopGroupName'       => 'DesktopGroupName',
-        'directoryId'            => 'DirectoryId',
-        'directoryType'          => 'DirectoryType',
-        'expiredTime'            => 'ExpiredTime',
-        'gpuCount'               => 'GpuCount',
-        'gpuSpec'                => 'GpuSpec',
+        'allowAutoSetup' => 'AllowAutoSetup',
+        'allowBufferCount' => 'AllowBufferCount',
+        'bindAmount' => 'BindAmount',
+        'buyDesktopsCount' => 'BuyDesktopsCount',
+        'comments' => 'Comments',
+        'connectDuration' => 'ConnectDuration',
+        'cpu' => 'Cpu',
+        'creationTime' => 'CreationTime',
+        'creator' => 'Creator',
+        'dataDiskCategory' => 'DataDiskCategory',
+        'dataDiskSize' => 'DataDiskSize',
+        'desktopGroupId' => 'DesktopGroupId',
+        'desktopGroupName' => 'DesktopGroupName',
+        'directoryId' => 'DirectoryId',
+        'directoryType' => 'DirectoryType',
+        'expiredTime' => 'ExpiredTime',
+        'gpuCount' => 'GpuCount',
+        'gpuSpec' => 'GpuSpec',
         'idleDisconnectDuration' => 'IdleDisconnectDuration',
-        'imageId'                => 'ImageId',
-        'keepDuration'           => 'KeepDuration',
-        'loadPolicy'             => 'LoadPolicy',
-        'maxDesktopsCount'       => 'MaxDesktopsCount',
-        'memory'                 => 'Memory',
-        'minDesktopsCount'       => 'MinDesktopsCount',
-        'nasFileSystemID'        => 'NasFileSystemID',
-        'nasFileSystemName'      => 'NasFileSystemName',
-        'officeSiteId'           => 'OfficeSiteId',
-        'officeSiteName'         => 'OfficeSiteName',
-        'officeSiteType'         => 'OfficeSiteType',
-        'ownBundleId'            => 'OwnBundleId',
-        'ownBundleName'          => 'OwnBundleName',
-        'ownType'                => 'OwnType',
-        'payType'                => 'PayType',
-        'policyGroupId'          => 'PolicyGroupId',
-        'policyGroupIds'         => 'PolicyGroupIds',
-        'policyGroupName'        => 'PolicyGroupName',
-        'policyGroupNames'       => 'PolicyGroupNames',
-        'profileFollowSwitch'    => 'ProfileFollowSwitch',
-        'ratioThreshold'         => 'RatioThreshold',
-        'resType'                => 'ResType',
-        'resetType'              => 'ResetType',
-        'scaleTimerInfos'        => 'ScaleTimerInfos',
-        'status'                 => 'Status',
-        'stopDuration'           => 'StopDuration',
-        'systemDiskCategory'     => 'SystemDiskCategory',
-        'systemDiskSize'         => 'SystemDiskSize',
-        'timerInfos'             => 'TimerInfos',
-        'timingStrategyInfo'     => 'TimingStrategyInfo',
-        'version'                => 'Version',
+        'imageId' => 'ImageId',
+        'keepDuration' => 'KeepDuration',
+        'loadPolicy' => 'LoadPolicy',
+        'maxDesktopsCount' => 'MaxDesktopsCount',
+        'memory' => 'Memory',
+        'minDesktopsCount' => 'MinDesktopsCount',
+        'nasFileSystemID' => 'NasFileSystemID',
+        'nasFileSystemName' => 'NasFileSystemName',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
+        'officeSiteType' => 'OfficeSiteType',
+        'ownBundleId' => 'OwnBundleId',
+        'ownBundleName' => 'OwnBundleName',
+        'ownType' => 'OwnType',
+        'payType' => 'PayType',
+        'policyGroupId' => 'PolicyGroupId',
+        'policyGroupIds' => 'PolicyGroupIds',
+        'policyGroupName' => 'PolicyGroupName',
+        'policyGroupNames' => 'PolicyGroupNames',
+        'profileFollowSwitch' => 'ProfileFollowSwitch',
+        'ratioThreshold' => 'RatioThreshold',
+        'resType' => 'ResType',
+        'resetType' => 'ResetType',
+        'scaleTimerInfos' => 'ScaleTimerInfos',
+        'status' => 'Status',
+        'stopDuration' => 'StopDuration',
+        'systemDiskCategory' => 'SystemDiskCategory',
+        'systemDiskSize' => 'SystemDiskSize',
+        'timerInfos' => 'TimerInfos',
+        'timingStrategyInfo' => 'TimingStrategyInfo',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -869,7 +871,7 @@ class desktops extends Model
         if (isset($map['ScaleTimerInfos'])) {
             if (!empty($map['ScaleTimerInfos'])) {
                 $model->scaleTimerInfos = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['ScaleTimerInfos'] as $item) {
                     $model->scaleTimerInfos[$n++] = null !== $item ? scaleTimerInfos::fromMap($item) : $item;
                 }
@@ -890,7 +892,7 @@ class desktops extends Model
         if (isset($map['TimerInfos'])) {
             if (!empty($map['TimerInfos'])) {
                 $model->timerInfos = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['TimerInfos'] as $item) {
                     $model->timerInfos[$n++] = null !== $item ? timerInfos::fromMap($item) : $item;
                 }

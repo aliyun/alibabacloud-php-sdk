@@ -12,6 +12,7 @@ class DeleteCloudDriveGroupsRequest extends Model
      * @description The ID of the cloud disk in Cloud Drive Service.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+cds-532033****
      *
      * @var string
@@ -29,20 +30,19 @@ class DeleteCloudDriveGroupsRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cdsId'    => 'CdsId',
-        'groupId'  => 'GroupId',
+        'cdsId' => 'CdsId',
+        'groupId' => 'GroupId',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

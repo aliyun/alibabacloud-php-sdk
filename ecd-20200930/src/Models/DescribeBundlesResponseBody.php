@@ -34,14 +34,12 @@ class DescribeBundlesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'bundles'   => 'Bundles',
+        'bundles' => 'Bundles',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeBundlesResponseBody extends Model
         if (isset($map['Bundles'])) {
             if (!empty($map['Bundles'])) {
                 $model->bundles = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Bundles'] as $item) {
                     $model->bundles[$n++] = null !== $item ? bundles::fromMap($item) : $item;
                 }

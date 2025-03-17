@@ -24,13 +24,11 @@ class UnbindConfigGroupResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'groupIds'  => 'GroupIds',
+        'groupIds' => 'GroupIds',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

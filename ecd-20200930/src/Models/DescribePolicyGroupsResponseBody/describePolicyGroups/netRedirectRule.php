@@ -45,14 +45,12 @@ class netRedirectRule extends Model
      */
     public $ruleType;
     protected $_name = [
-        'domain'   => 'Domain',
-        'policy'   => 'Policy',
+        'domain' => 'Domain',
+        'policy' => 'Policy',
         'ruleType' => 'RuleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

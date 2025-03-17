@@ -47,9 +47,15 @@ class DescribeDesktopTypesRequest extends Model
     /**
      * @description The IDs of the instance types of cloud computers.
      *
+     * >  If the values of the `InstanceTypeFamily` and `DesktopTypeId` parameters are empty, all instance types of cloud computers are queried.
+     *
      * Valid values:
      *
      *   eds.hf.4c8g
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -57,7 +63,15 @@ class DescribeDesktopTypesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   ecd.advanced.large
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -65,7 +79,15 @@ class DescribeDesktopTypesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   ecd.graphics.2xlarge
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -73,7 +95,15 @@ class DescribeDesktopTypesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   eds.hf.12c24g
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -81,7 +111,15 @@ class DescribeDesktopTypesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   eds.general.16c32g
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -89,7 +127,15 @@ class DescribeDesktopTypesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   eds.graphics.16c1t4
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -97,7 +143,15 @@ class DescribeDesktopTypesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   ecd.performance.2xlarge
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -105,7 +159,15 @@ class DescribeDesktopTypesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   eds.general.2c2g
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -113,7 +175,15 @@ class DescribeDesktopTypesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   eds.graphics.24c1t4
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -121,13 +191,26 @@ class DescribeDesktopTypesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   eds.general.4c16g
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   eds.general.2c8g
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example ecd.graphics.xlarge
      *
      * @var string
@@ -153,7 +236,11 @@ class DescribeDesktopTypesRequest extends Model
     /**
      * @description The type of the pre-installed GPU driver. Valid values:
      *
+     * - T4
+     * - A10
+     * - G28
      * - G39
+     *
      * @example A10
      *
      * @var string
@@ -172,9 +259,15 @@ class DescribeDesktopTypesRequest extends Model
     /**
      * @description The name of the instance family.
      *
+     * >  If the values of the `InstanceTypeFamily` and `DesktopTypeId` parameters are empty, all instance families of cloud computers are queried.
+     *
      * Valid values:
      *
      *   ecd.advanced
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -182,7 +275,15 @@ class DescribeDesktopTypesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   ecd.basic
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -190,7 +291,15 @@ class DescribeDesktopTypesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   ecd.graphics
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -198,9 +307,18 @@ class DescribeDesktopTypesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   ecd.performance
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example ecd.graphics
      *
      * @var string
@@ -219,7 +337,9 @@ class DescribeDesktopTypesRequest extends Model
     /**
      * @description The sort criterion. If left empty, the entries will be in descending order based on the creation time. Valid values:
      *
+     * - Memory: sort by memory size
      * - Cpu: sort by number of CPU cores
+     *
      * @example Memory
      *
      * @var string
@@ -239,6 +359,7 @@ class DescribeDesktopTypesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -248,7 +369,9 @@ class DescribeDesktopTypesRequest extends Model
     /**
      * @description The sales mode. Valid values:
      *
+     * - MonthPackage: monthly subscription
      * - FastBuy: fast buy
+     *
      * @example FastBuy
      *
      * @var string
@@ -258,7 +381,9 @@ class DescribeDesktopTypesRequest extends Model
     /**
      * @description The sort order. Valid values:
      *
+     * - ASC: in ascending order [default]
      * - DESC: in descending order
+     *
      * @example ASC
      *
      * @var string
@@ -283,29 +408,27 @@ class DescribeDesktopTypesRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'appliedScope'            => 'AppliedScope',
-        'cpuCount'                => 'CpuCount',
+        'appliedScope' => 'AppliedScope',
+        'cpuCount' => 'CpuCount',
         'desktopGroupIdForModify' => 'DesktopGroupIdForModify',
-        'desktopIdForModify'      => 'DesktopIdForModify',
-        'desktopTypeId'           => 'DesktopTypeId',
-        'desktopTypeIdList'       => 'DesktopTypeIdList',
-        'gpuCount'                => 'GpuCount',
-        'gpuDriverType'           => 'GpuDriverType',
-        'gpuMemory'               => 'GpuMemory',
-        'instanceTypeFamily'      => 'InstanceTypeFamily',
-        'memorySize'              => 'MemorySize',
-        'orderBy'                 => 'OrderBy',
-        'orderType'               => 'OrderType',
-        'regionId'                => 'RegionId',
-        'scope'                   => 'Scope',
-        'sortType'                => 'SortType',
-        'supportMinSessionCount'  => 'SupportMinSessionCount',
-        'zoneId'                  => 'ZoneId',
+        'desktopIdForModify' => 'DesktopIdForModify',
+        'desktopTypeId' => 'DesktopTypeId',
+        'desktopTypeIdList' => 'DesktopTypeIdList',
+        'gpuCount' => 'GpuCount',
+        'gpuDriverType' => 'GpuDriverType',
+        'gpuMemory' => 'GpuMemory',
+        'instanceTypeFamily' => 'InstanceTypeFamily',
+        'memorySize' => 'MemorySize',
+        'orderBy' => 'OrderBy',
+        'orderType' => 'OrderType',
+        'regionId' => 'RegionId',
+        'scope' => 'Scope',
+        'sortType' => 'SortType',
+        'supportMinSessionCount' => 'SupportMinSessionCount',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -133,36 +133,34 @@ class CdsFileShareLinkModel extends Model
      */
     public $videoPreviewCount;
     protected $_name = [
-        'accessCount'       => 'AccessCount',
-        'createTime'        => 'CreateTime',
-        'creator'           => 'Creator',
-        'description'       => 'Description',
-        'disableDownload'   => 'DisableDownload',
-        'disablePreview'    => 'DisablePreview',
-        'disableSave'       => 'DisableSave',
-        'downloadCount'     => 'DownloadCount',
-        'downloadLimit'     => 'DownloadLimit',
-        'driveId'           => 'DriveId',
-        'expiration'        => 'Expiration',
-        'expired'           => 'Expired',
-        'fileIds'           => 'FileIds',
-        'modifiyTime'       => 'ModifiyTime',
-        'previewCount'      => 'PreviewCount',
-        'previewLimit'      => 'PreviewLimit',
-        'reportCount'       => 'ReportCount',
-        'saveCount'         => 'SaveCount',
-        'saveLimit'         => 'SaveLimit',
-        'shareId'           => 'ShareId',
-        'shareLink'         => 'ShareLink',
-        'shareName'         => 'ShareName',
-        'sharePwd'          => 'SharePwd',
-        'status'            => 'Status',
+        'accessCount' => 'AccessCount',
+        'createTime' => 'CreateTime',
+        'creator' => 'Creator',
+        'description' => 'Description',
+        'disableDownload' => 'DisableDownload',
+        'disablePreview' => 'DisablePreview',
+        'disableSave' => 'DisableSave',
+        'downloadCount' => 'DownloadCount',
+        'downloadLimit' => 'DownloadLimit',
+        'driveId' => 'DriveId',
+        'expiration' => 'Expiration',
+        'expired' => 'Expired',
+        'fileIds' => 'FileIds',
+        'modifiyTime' => 'ModifiyTime',
+        'previewCount' => 'PreviewCount',
+        'previewLimit' => 'PreviewLimit',
+        'reportCount' => 'ReportCount',
+        'saveCount' => 'SaveCount',
+        'saveLimit' => 'SaveLimit',
+        'shareId' => 'ShareId',
+        'shareLink' => 'ShareLink',
+        'shareName' => 'ShareName',
+        'sharePwd' => 'SharePwd',
+        'status' => 'Status',
         'videoPreviewCount' => 'VideoPreviewCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

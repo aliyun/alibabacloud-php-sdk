@@ -43,18 +43,16 @@ class DescribePriceForCreateDesktopOversoldGroupRequest extends Model
      */
     public $systemDiskSize;
     protected $_name = [
-        'concurrenceCount'  => 'ConcurrenceCount',
-        'dataDiskSize'      => 'DataDiskSize',
-        'desktopType'       => 'DesktopType',
+        'concurrenceCount' => 'ConcurrenceCount',
+        'dataDiskSize' => 'DataDiskSize',
+        'desktopType' => 'DesktopType',
         'oversoldUserCount' => 'OversoldUserCount',
-        'period'            => 'Period',
-        'periodUnit'        => 'PeriodUnit',
-        'systemDiskSize'    => 'SystemDiskSize',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'systemDiskSize' => 'SystemDiskSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

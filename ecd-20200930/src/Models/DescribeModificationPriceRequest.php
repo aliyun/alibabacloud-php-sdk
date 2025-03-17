@@ -59,18 +59,16 @@ class DescribeModificationPriceRequest extends Model
      */
     public $userDiskSizeGib;
     protected $_name = [
-        'bandwidth'       => 'Bandwidth',
-        'instanceId'      => 'InstanceId',
-        'instanceType'    => 'InstanceType',
-        'regionId'        => 'RegionId',
-        'resourceType'    => 'ResourceType',
+        'bandwidth' => 'Bandwidth',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
         'rootDiskSizeGib' => 'RootDiskSizeGib',
         'userDiskSizeGib' => 'UserDiskSizeGib',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

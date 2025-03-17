@@ -44,15 +44,13 @@ class desktopTypeAttribute extends Model
      */
     public $memorySize;
     protected $_name = [
-        'cpuCount'   => 'CpuCount',
-        'gpuCount'   => 'GpuCount',
-        'gpuSpec'    => 'GpuSpec',
+        'cpuCount' => 'CpuCount',
+        'gpuCount' => 'GpuCount',
+        'gpuSpec' => 'GpuSpec',
         'memorySize' => 'MemorySize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

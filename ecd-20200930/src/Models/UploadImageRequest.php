@@ -63,6 +63,7 @@ class UploadImageRequest extends Model
      * @description The name of the image. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * This parameter is required.
+     *
      * @example Win10_Test
      *
      * @var string
@@ -76,7 +77,10 @@ class UploadImageRequest extends Model
      *   Aliyun: The license that is allocated by an official Alibaba Cloud channel and is specified by `Platform` is used for the operating system distribution.
      *   BYOL: The license that comes with the source operating system is used. When you use the BYOL mode, make sure that your license key is supported by Alibaba Cloud.
      *
+     * Default value: Auto.
+     *
      * >  Windows 10 cannot be activated by Alibaba Cloud. Set the `LicenseType` to BYOL for Windows 10.
+     *
      * @example Auto
      *
      * @var string
@@ -92,9 +96,18 @@ class UploadImageRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Windows
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Windows
      *
      * @var string
@@ -105,6 +118,7 @@ class UploadImageRequest extends Model
      * @description The object path of the image file in Object Storage Service (OSS).
      *
      * This parameter is required.
+     *
      * @example https://ossbucket:endpoint/object
      *
      * @var string
@@ -128,6 +142,7 @@ class UploadImageRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -138,29 +153,28 @@ class UploadImageRequest extends Model
      * @description The size of the system disk. Unit: GB.
      *
      * > The size of the system disk cannot be smaller than the size of the image.
+     *
      * @example 80
      *
      * @var string
      */
     public $systemDiskSize;
     protected $_name = [
-        'dataDiskSize'        => 'DataDiskSize',
-        'description'         => 'Description',
+        'dataDiskSize' => 'DataDiskSize',
+        'description' => 'Description',
         'enableSecurityCheck' => 'EnableSecurityCheck',
-        'gpuCategory'         => 'GpuCategory',
-        'gpuDriverType'       => 'GpuDriverType',
-        'imageName'           => 'ImageName',
-        'licenseType'         => 'LicenseType',
-        'osType'              => 'OsType',
-        'ossObjectPath'       => 'OssObjectPath',
-        'protocolType'        => 'ProtocolType',
-        'regionId'            => 'RegionId',
-        'systemDiskSize'      => 'SystemDiskSize',
+        'gpuCategory' => 'GpuCategory',
+        'gpuDriverType' => 'GpuDriverType',
+        'imageName' => 'ImageName',
+        'licenseType' => 'LicenseType',
+        'osType' => 'OsType',
+        'ossObjectPath' => 'OssObjectPath',
+        'protocolType' => 'ProtocolType',
+        'regionId' => 'RegionId',
+        'systemDiskSize' => 'SystemDiskSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

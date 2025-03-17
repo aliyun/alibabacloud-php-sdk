@@ -15,6 +15,7 @@ class SendVerifyCodeRequest extends Model
      *   CenOwnerId: the ID of the Alibaba Cloud account to which the CEN instance belongs.
      *
      * >  If you own the CEN instance, skip this parameter. If you do not own the CEN instance, specify the ID of the Alibaba Cloud account that owns the CEN instance.
+     *
      * @example {"cenOwnerId": 1234567890******,"cenId": "cen-3weq30r6t0s7t4****"}
      *
      * @var string
@@ -25,6 +26,7 @@ class SendVerifyCodeRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,20 +41,19 @@ class SendVerifyCodeRequest extends Model
      *   eds_cenID_securityverification: Use the verification code to verify the CEN instance.
      *
      * This parameter is required.
+     *
      * @example eds_cenID_securityverification
      *
      * @var string
      */
     public $verifyCodeAction;
     protected $_name = [
-        'extraInfo'        => 'ExtraInfo',
-        'regionId'         => 'RegionId',
+        'extraInfo' => 'ExtraInfo',
+        'regionId' => 'RegionId',
         'verifyCodeAction' => 'VerifyCodeAction',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

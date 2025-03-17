@@ -84,18 +84,16 @@ class bundleModels extends Model
      */
     public $volumeEncryptionKey;
     protected $_name = [
-        'amount'                  => 'Amount',
-        'bundleId'                => 'BundleId',
-        'desktopName'             => 'DesktopName',
-        'endUserIds'              => 'EndUserIds',
-        'hostname'                => 'Hostname',
+        'amount' => 'Amount',
+        'bundleId' => 'BundleId',
+        'desktopName' => 'DesktopName',
+        'endUserIds' => 'EndUserIds',
+        'hostname' => 'Hostname',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
-        'volumeEncryptionKey'     => 'VolumeEncryptionKey',
+        'volumeEncryptionKey' => 'VolumeEncryptionKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

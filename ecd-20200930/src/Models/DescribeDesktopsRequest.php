@@ -99,6 +99,7 @@ class DescribeDesktopsRequest extends Model
      * @description The authorized users of the cloud computer. You can specify the IDs of 1 to 100 users.
      *
      * >  During a specific period of time, only one user can connect to and use the cloud computer.
+     *
      * @example alice
      *
      * @var string[]
@@ -195,7 +196,11 @@ class DescribeDesktopsRequest extends Model
     /**
      * @description Specifies whether the shared group is a multi-cloud computer type.
      *
+     * Valid values:
+     *
+     * - true: a multi-cloud computer type.
      * - false: a single-cloud computer type.
+     *
      * @example false
      *
      * @var bool
@@ -313,6 +318,7 @@ class DescribeDesktopsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -369,47 +375,45 @@ class DescribeDesktopsRequest extends Model
      */
     public $userName;
     protected $_name = [
-        'chargeType'         => 'ChargeType',
-        'desktopGroupId'     => 'DesktopGroupId',
-        'desktopId'          => 'DesktopId',
-        'desktopName'        => 'DesktopName',
-        'desktopStatus'      => 'DesktopStatus',
-        'desktopStatusList'  => 'DesktopStatusList',
-        'desktopType'        => 'DesktopType',
-        'directoryId'        => 'DirectoryId',
-        'endUserId'          => 'EndUserId',
-        'excludedEndUserId'  => 'ExcludedEndUserId',
-        'expiredTime'        => 'ExpiredTime',
-        'fillResourceGroup'  => 'FillResourceGroup',
+        'chargeType' => 'ChargeType',
+        'desktopGroupId' => 'DesktopGroupId',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
+        'desktopStatus' => 'DesktopStatus',
+        'desktopStatusList' => 'DesktopStatusList',
+        'desktopType' => 'DesktopType',
+        'directoryId' => 'DirectoryId',
+        'endUserId' => 'EndUserId',
+        'excludedEndUserId' => 'ExcludedEndUserId',
+        'expiredTime' => 'ExpiredTime',
+        'fillResourceGroup' => 'FillResourceGroup',
         'filterDesktopGroup' => 'FilterDesktopGroup',
         'gpuInstanceGroupId' => 'GpuInstanceGroupId',
-        'groupId'            => 'GroupId',
-        'imageId'            => 'ImageId',
-        'managementFlag'     => 'ManagementFlag',
-        'maxResults'         => 'MaxResults',
-        'multiResource'      => 'MultiResource',
-        'nextToken'          => 'NextToken',
-        'officeSiteId'       => 'OfficeSiteId',
-        'officeSiteName'     => 'OfficeSiteName',
-        'onlyDesktopGroup'   => 'OnlyDesktopGroup',
-        'osTypes'            => 'OsTypes',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'policyGroupId'      => 'PolicyGroupId',
-        'protocolType'       => 'ProtocolType',
-        'qosRuleId'          => 'QosRuleId',
-        'queryFotaUpdate'    => 'QueryFotaUpdate',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'snapshotPolicyId'   => 'SnapshotPolicyId',
-        'subPayType'         => 'SubPayType',
-        'tag'                => 'Tag',
-        'userName'           => 'UserName',
+        'groupId' => 'GroupId',
+        'imageId' => 'ImageId',
+        'managementFlag' => 'ManagementFlag',
+        'maxResults' => 'MaxResults',
+        'multiResource' => 'MultiResource',
+        'nextToken' => 'NextToken',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
+        'onlyDesktopGroup' => 'OnlyDesktopGroup',
+        'osTypes' => 'OsTypes',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'policyGroupId' => 'PolicyGroupId',
+        'protocolType' => 'ProtocolType',
+        'qosRuleId' => 'QosRuleId',
+        'queryFotaUpdate' => 'QueryFotaUpdate',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'snapshotPolicyId' => 'SnapshotPolicyId',
+        'subPayType' => 'SubPayType',
+        'tag' => 'Tag',
+        'userName' => 'UserName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -657,7 +661,7 @@ class DescribeDesktopsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

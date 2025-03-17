@@ -12,6 +12,7 @@ class VerifyCenRequest extends Model
      * @description The ID of the CEN instance.
      *
      * This parameter is required.
+     *
      * @example cen-3gwy16dojz1m65****
      *
      * @var string
@@ -34,6 +35,7 @@ class VerifyCenRequest extends Model
      * @description The IPv4 CIDR block of the associated office network.
      *
      * This parameter is required.
+     *
      * @example 47.100.XX.XX
      *
      * @var string
@@ -44,6 +46,7 @@ class VerifyCenRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -59,16 +62,14 @@ class VerifyCenRequest extends Model
      */
     public $verifyCode;
     protected $_name = [
-        'cenId'      => 'CenId',
+        'cenId' => 'CenId',
         'cenOwnerId' => 'CenOwnerId',
-        'cidrBlock'  => 'CidrBlock',
-        'regionId'   => 'RegionId',
+        'cidrBlock' => 'CidrBlock',
+        'regionId' => 'RegionId',
         'verifyCode' => 'VerifyCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

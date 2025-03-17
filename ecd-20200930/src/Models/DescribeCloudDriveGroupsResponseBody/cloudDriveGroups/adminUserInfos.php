@@ -43,18 +43,16 @@ class adminUserInfos extends Model
      */
     public $remark;
     protected $_name = [
-        'email'        => 'Email',
-        'endUserId'    => 'EndUserId',
-        'jobNumber'    => 'JobNumber',
-        'nickName'     => 'NickName',
-        'phone'        => 'Phone',
+        'email' => 'Email',
+        'endUserId' => 'EndUserId',
+        'jobNumber' => 'JobNumber',
+        'nickName' => 'NickName',
+        'phone' => 'Phone',
         'realNickName' => 'RealNickName',
-        'remark'       => 'Remark',
+        'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

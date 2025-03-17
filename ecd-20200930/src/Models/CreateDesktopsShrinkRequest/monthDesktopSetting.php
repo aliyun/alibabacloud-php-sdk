@@ -35,14 +35,12 @@ class monthDesktopSetting extends Model
      */
     public $useDuration;
     protected $_name = [
-        'buyerId'     => 'BuyerId',
-        'desktopId'   => 'DesktopId',
+        'buyerId' => 'BuyerId',
+        'desktopId' => 'DesktopId',
         'useDuration' => 'UseDuration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

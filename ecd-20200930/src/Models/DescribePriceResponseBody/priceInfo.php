@@ -43,14 +43,12 @@ class priceInfo extends Model
     public $rules;
     protected $_name = [
         'freeCdsQuota' => 'FreeCdsQuota',
-        'freeCdsSize'  => 'FreeCdsSize',
-        'price'        => 'Price',
-        'rules'        => 'Rules',
+        'freeCdsSize' => 'FreeCdsSize',
+        'price' => 'Price',
+        'rules' => 'Rules',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -97,7 +95,7 @@ class priceInfo extends Model
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Rules'] as $item) {
                     $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }

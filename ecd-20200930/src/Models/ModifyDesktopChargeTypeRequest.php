@@ -26,9 +26,18 @@ class ModifyDesktopChargeTypeRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   PrePaid: changes the billing method from pay-as-you-go to subscription.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example PrePaid
      *
      * @var string
@@ -39,6 +48,7 @@ class ModifyDesktopChargeTypeRequest extends Model
      * @description The IDs of the cloud computers. You can specify 1 to 20 IDs.
      *
      * This parameter is required.
+     *
      * @example ecd-gx2x1dhsmucyy****
      *
      * @var string[]
@@ -80,6 +90,7 @@ class ModifyDesktopChargeTypeRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -95,19 +106,17 @@ class ModifyDesktopChargeTypeRequest extends Model
      */
     public $useDuration;
     protected $_name = [
-        'autoPay'     => 'AutoPay',
-        'chargeType'  => 'ChargeType',
-        'desktopId'   => 'DesktopId',
-        'period'      => 'Period',
-        'periodUnit'  => 'PeriodUnit',
+        'autoPay' => 'AutoPay',
+        'chargeType' => 'ChargeType',
+        'desktopId' => 'DesktopId',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
         'useDuration' => 'UseDuration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -50,27 +50,34 @@ class MoveCdsFileResponseBody extends Model
      *
      *   <!-- -->
      *
+     * true
+     *
+     * <!-- -->
+     *
      * <!-- -->
      *
      *   <!-- -->
      *
+     * false
+     *
      * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'             => 'Code',
-        'message'          => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'moveCdsFileModel' => 'MoveCdsFileModel',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

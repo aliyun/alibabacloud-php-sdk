@@ -43,15 +43,13 @@ class DescribeDirectoriesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'adHostname'  => 'AdHostname',
+        'adHostname' => 'AdHostname',
         'directories' => 'Directories',
-        'nextToken'   => 'NextToken',
-        'requestId'   => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class DescribeDirectoriesResponseBody extends Model
         if (isset($map['Directories'])) {
             if (!empty($map['Directories'])) {
                 $model->directories = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['Directories'] as $item) {
                     $model->directories[$n++] = null !== $item ? directories::fromMap($item) : $item;
                 }

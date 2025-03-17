@@ -21,6 +21,7 @@ class ListDirectoryUsersRequest extends Model
      * @description The ID of the AD directory.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+dir-jedbpr4sl9l37****
      *
      * @var string
@@ -48,7 +49,10 @@ class ListDirectoryUsersRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * Valid values: 1 to 100.
+     *
      * Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -77,6 +81,7 @@ class ListDirectoryUsersRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -86,27 +91,29 @@ class ListDirectoryUsersRequest extends Model
     /**
      * @description The sort type.
      *
+     * Valide values:
+     *
+     * - asc: cloud computers assigned to users on bottom
      * - desc: cloud computers assigned to users on top
+     *
      * @example asc
      *
      * @var string
      */
     public $sortType;
     protected $_name = [
-        'assignedInfo'        => 'AssignedInfo',
-        'directoryId'         => 'DirectoryId',
-        'filter'              => 'Filter',
+        'assignedInfo' => 'AssignedInfo',
+        'directoryId' => 'DirectoryId',
+        'filter' => 'Filter',
         'includeAssignedUser' => 'IncludeAssignedUser',
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'OUPath'              => 'OUPath',
-        'regionId'            => 'RegionId',
-        'sortType'            => 'SortType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'OUPath' => 'OUPath',
+        'regionId' => 'RegionId',
+        'sortType' => 'SortType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,9 +30,7 @@ class sessions extends Model
         'endUserId' => 'EndUserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

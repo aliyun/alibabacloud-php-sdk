@@ -80,9 +80,18 @@ class autoSnapshotPolicies extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Normal: The automatic snapshot policy is normal.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Normal
      *
      * @var string
@@ -93,26 +102,25 @@ class autoSnapshotPolicies extends Model
      * @description The points in time at which the auto snapshots were created.
      *
      * The parameter values are a JSON array. Example: `["0", "1", ... "23"]`. A maximum of 24 points in time are returned. The points in time are separated with commas (,).
+     *
      * @example ["17","18"]
      *
      * @var string
      */
     public $timePoints;
     protected $_name = [
-        'creationTime'   => 'CreationTime',
+        'creationTime' => 'CreationTime',
         'cronExpression' => 'CronExpression',
-        'desktopNum'     => 'DesktopNum',
-        'policyId'       => 'PolicyId',
-        'policyName'     => 'PolicyName',
-        'regionId'       => 'RegionId',
-        'retentionDays'  => 'RetentionDays',
-        'status'         => 'Status',
-        'timePoints'     => 'TimePoints',
+        'desktopNum' => 'DesktopNum',
+        'policyId' => 'PolicyId',
+        'policyName' => 'PolicyName',
+        'regionId' => 'RegionId',
+        'retentionDays' => 'RetentionDays',
+        'status' => 'Status',
+        'timePoints' => 'TimePoints',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

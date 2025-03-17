@@ -12,6 +12,7 @@ class resourceCandidates extends Model
      * @description The ID of the Alibaba Cloud account to which the current cloud desktop belongs.
      *
      * This parameter is required.
+     *
      * @example 130247021517****
      *
      * @var int
@@ -31,6 +32,7 @@ class resourceCandidates extends Model
      * @description The ID of the cloud desktop.
      *
      * This parameter is required.
+     *
      * @example ecd-08zhejm3h7ilr****
      *
      * @var string
@@ -41,6 +43,7 @@ class resourceCandidates extends Model
      * @description The name of the cloud desktop.
      *
      * This parameter is required.
+     *
      * @example TestDesktop
      *
      * @var string
@@ -60,6 +63,7 @@ class resourceCandidates extends Model
      * @description The region where the resource resides.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -73,25 +77,30 @@ class resourceCandidates extends Model
      *
      *   The value CLOUD_DESKTOP specifies that the resource is a cloud desktop.
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * This parameter is required.
+     *
      * @example CLOUD_DESKTOP
      *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'ownerAliUid'        => 'OwnerAliUid',
-        'ownerEndUserId'     => 'OwnerEndUserId',
-        'resourceId'         => 'ResourceId',
-        'resourceName'       => 'ResourceName',
+        'ownerAliUid' => 'OwnerAliUid',
+        'ownerEndUserId' => 'OwnerEndUserId',
+        'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
         'resourceProperties' => 'ResourceProperties',
-        'resourceRegionId'   => 'ResourceRegionId',
-        'resourceType'       => 'ResourceType',
+        'resourceRegionId' => 'ResourceRegionId',
+        'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class SetDesktopGroupTimerStatusRequest extends Model
      * @description The ID of the cloud computer pool.
      *
      * This parameter is required.
+     *
      * @example dg-fgxsniu6at****
      *
      * @var string
@@ -22,6 +23,7 @@ class SetDesktopGroupTimerStatusRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -55,6 +57,7 @@ class SetDesktopGroupTimerStatusRequest extends Model
      *   4: scheduled restart
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -62,14 +65,12 @@ class SetDesktopGroupTimerStatusRequest extends Model
     public $timerType;
     protected $_name = [
         'desktopGroupId' => 'DesktopGroupId',
-        'regionId'       => 'RegionId',
-        'status'         => 'Status',
-        'timerType'      => 'TimerType',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'timerType' => 'TimerType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

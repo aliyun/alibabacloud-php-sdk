@@ -34,14 +34,12 @@ class DescribeVirtualMFADevicesResponseBody extends Model
      */
     public $virtualMFADevices;
     protected $_name = [
-        'nextToken'         => 'NextToken',
-        'requestId'         => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'virtualMFADevices' => 'VirtualMFADevices',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class DescribeVirtualMFADevicesResponseBody extends Model
         if (isset($map['VirtualMFADevices'])) {
             if (!empty($map['VirtualMFADevices'])) {
                 $model->virtualMFADevices = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['VirtualMFADevices'] as $item) {
                     $model->virtualMFADevices[$n++] = null !== $item ? virtualMFADevices::fromMap($item) : $item;
                 }

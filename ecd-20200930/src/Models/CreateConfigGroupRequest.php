@@ -29,6 +29,7 @@ class CreateConfigGroupRequest extends Model
      * @description The name of the configuration group.
      *
      * This parameter is required.
+     *
      * @example ScheduledTask
      *
      * @var string
@@ -43,6 +44,7 @@ class CreateConfigGroupRequest extends Model
      *   CLOUD_DESKTOP: the cloud computer service.
      *
      * This parameter is required.
+     *
      * @example CLOUD_DESKTOP
      *
      * @var string
@@ -66,6 +68,7 @@ class CreateConfigGroupRequest extends Model
      *   Timer: the scheduled task type.
      *
      * This parameter is required.
+     *
      * @example Timer
      *
      * @var string
@@ -73,16 +76,14 @@ class CreateConfigGroupRequest extends Model
     public $type;
     protected $_name = [
         'configTimers' => 'ConfigTimers',
-        'description'  => 'Description',
-        'name'         => 'Name',
-        'productType'  => 'ProductType',
-        'regionId'     => 'RegionId',
-        'type'         => 'Type',
+        'description' => 'Description',
+        'name' => 'Name',
+        'productType' => 'ProductType',
+        'regionId' => 'RegionId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -126,7 +127,7 @@ class CreateConfigGroupRequest extends Model
         if (isset($map['ConfigTimers'])) {
             if (!empty($map['ConfigTimers'])) {
                 $model->configTimers = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ConfigTimers'] as $item) {
                     $model->configTimers[$n++] = null !== $item ? configTimers::fromMap($item) : $item;
                 }

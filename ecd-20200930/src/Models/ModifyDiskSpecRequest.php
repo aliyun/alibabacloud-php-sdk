@@ -29,6 +29,7 @@ class ModifyDiskSpecRequest extends Model
      * @description The ID of the cloud computer.
      *
      * This parameter is required.
+     *
      * @example ecd-2yjhqxo1monxxxxxx
      *
      * @var string
@@ -48,6 +49,7 @@ class ModifyDiskSpecRequest extends Model
      * @description The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -91,18 +93,16 @@ class ModifyDiskSpecRequest extends Model
      */
     public $userDiskPerformanceLevel;
     protected $_name = [
-        'autoPay'                  => 'AutoPay',
-        'desktopId'                => 'DesktopId',
-        'promotionId'              => 'PromotionId',
-        'regionId'                 => 'RegionId',
-        'resellerOwnerUid'         => 'ResellerOwnerUid',
+        'autoPay' => 'AutoPay',
+        'desktopId' => 'DesktopId',
+        'promotionId' => 'PromotionId',
+        'regionId' => 'RegionId',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
         'rootDiskPerformanceLevel' => 'RootDiskPerformanceLevel',
         'userDiskPerformanceLevel' => 'UserDiskPerformanceLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

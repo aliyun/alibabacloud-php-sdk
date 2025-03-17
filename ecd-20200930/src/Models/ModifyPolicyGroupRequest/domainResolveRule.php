@@ -41,13 +41,11 @@ class domainResolveRule extends Model
     public $policy;
     protected $_name = [
         'description' => 'Description',
-        'domain'      => 'Domain',
-        'policy'      => 'Policy',
+        'domain' => 'Domain',
+        'policy' => 'Policy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

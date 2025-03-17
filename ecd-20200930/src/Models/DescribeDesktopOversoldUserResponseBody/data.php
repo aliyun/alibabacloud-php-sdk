@@ -28,15 +28,13 @@ class data extends Model
      */
     public $userGroupId;
     protected $_name = [
-        'endUserId'       => 'EndUserId',
+        'endUserId' => 'EndUserId',
         'oversoldGroupId' => 'OversoldGroupId',
-        'userDesktopId'   => 'UserDesktopId',
-        'userGroupId'     => 'UserGroupId',
+        'userDesktopId' => 'UserDesktopId',
+        'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

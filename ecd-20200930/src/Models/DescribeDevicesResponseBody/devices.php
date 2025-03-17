@@ -25,13 +25,11 @@ class devices extends Model
      */
     public $endUserList;
     protected $_name = [
-        'deviceId'    => 'DeviceId',
+        'deviceId' => 'DeviceId',
         'endUserList' => 'EndUserList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class devices extends Model
         if (isset($map['EndUserList'])) {
             if (!empty($map['EndUserList'])) {
                 $model->endUserList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['EndUserList'] as $item) {
                     $model->endUserList[$n++] = null !== $item ? endUserList::fromMap($item) : $item;
                 }

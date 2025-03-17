@@ -52,16 +52,14 @@ class DescribeFotaPendingDesktopsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'                => 'Code',
+        'code' => 'Code',
         'fotaPendingDesktops' => 'FotaPendingDesktops',
-        'message'             => 'Message',
-        'nextToken'           => 'NextToken',
-        'requestId'           => 'RequestId',
+        'message' => 'Message',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +103,7 @@ class DescribeFotaPendingDesktopsResponseBody extends Model
         if (isset($map['FotaPendingDesktops'])) {
             if (!empty($map['FotaPendingDesktops'])) {
                 $model->fotaPendingDesktops = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['FotaPendingDesktops'] as $item) {
                     $model->fotaPendingDesktops[$n++] = null !== $item ? fotaPendingDesktops::fromMap($item) : $item;
                 }

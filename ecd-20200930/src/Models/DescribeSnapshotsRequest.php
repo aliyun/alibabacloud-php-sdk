@@ -69,6 +69,7 @@ class DescribeSnapshotsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -102,13 +103,26 @@ class DescribeSnapshotsRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   auto: automatic snapshots
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   user: manual snapshots
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example user
      *
      * @var string
@@ -118,15 +132,26 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @description The type of the disk for which the snapshot is created.
      *
+     * >  The value of this parameter is not case-sensitive.
+     *
      * Valid values:
      *
      *   Data: data disk
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   System: system disk
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example system
      *
      * @var string
@@ -142,23 +167,21 @@ class DescribeSnapshotsRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'creator'        => 'Creator',
-        'desktopId'      => 'DesktopId',
-        'desktopName'    => 'DesktopName',
-        'endTime'        => 'EndTime',
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'regionId'       => 'RegionId',
-        'snapshotId'     => 'SnapshotId',
-        'snapshotName'   => 'SnapshotName',
-        'snapshotType'   => 'SnapshotType',
+        'creator' => 'Creator',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
+        'endTime' => 'EndTime',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'snapshotId' => 'SnapshotId',
+        'snapshotName' => 'SnapshotName',
+        'snapshotType' => 'SnapshotType',
         'sourceDiskType' => 'SourceDiskType',
-        'startTime'      => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

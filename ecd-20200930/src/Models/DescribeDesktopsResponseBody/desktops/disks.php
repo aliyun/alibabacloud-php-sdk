@@ -48,9 +48,18 @@ class disks extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DATA: data disk
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example SYSTEM
      *
      * @var string
@@ -59,6 +68,8 @@ class disks extends Model
 
     /**
      * @description The performance level (PL) of the disk when an enterprise SSD (ESSD) is used.
+     *
+     * For more information about the differences among enterprise SSDs (ESSDs) at different PLs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      *
      * Valid values:
      *
@@ -73,16 +84,14 @@ class disks extends Model
      */
     public $performanceLevel;
     protected $_name = [
-        'diskCategory'     => 'DiskCategory',
-        'diskId'           => 'DiskId',
-        'diskSize'         => 'DiskSize',
-        'diskType'         => 'DiskType',
+        'diskCategory' => 'DiskCategory',
+        'diskId' => 'DiskId',
+        'diskSize' => 'DiskSize',
+        'diskType' => 'DiskType',
         'performanceLevel' => 'PerformanceLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,12 +21,10 @@ class rules extends Model
     public $ruleId;
     protected $_name = [
         'description' => 'Description',
-        'ruleId'      => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DissociateNetworkPackageRequest extends Model
      * @description The ID of the premium bandwidth plan. You can call the [DescribeNetworkPackages](https://help.aliyun.com/document_detail/216079.html) operation to obtain the ID.
      *
      * This parameter is required.
+     *
      * @example np-*********
      *
      * @var string
@@ -22,6 +23,7 @@ class DissociateNetworkPackageRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -29,12 +31,10 @@ class DissociateNetworkPackageRequest extends Model
     public $regionId;
     protected $_name = [
         'networkPackageId' => 'NetworkPackageId',
-        'regionId'         => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

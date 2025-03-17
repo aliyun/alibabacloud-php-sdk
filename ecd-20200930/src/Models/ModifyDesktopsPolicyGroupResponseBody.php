@@ -26,12 +26,10 @@ class ModifyDesktopsPolicyGroupResponseBody extends Model
     public $requestId;
     protected $_name = [
         'modifyResults' => 'ModifyResults',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ModifyDesktopsPolicyGroupResponseBody extends Model
         if (isset($map['ModifyResults'])) {
             if (!empty($map['ModifyResults'])) {
                 $model->modifyResults = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ModifyResults'] as $item) {
                     $model->modifyResults[$n++] = null !== $item ? modifyResults::fromMap($item) : $item;
                 }

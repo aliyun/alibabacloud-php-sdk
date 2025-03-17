@@ -26,9 +26,18 @@ class userCommands extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   PlainText: does not encode the command content.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Base64
      *
      * @var string
@@ -44,27 +53,38 @@ class userCommands extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   RunShellScript: shell commands (applicable to Linux cloud computers).
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   RunBatScript: batch commands (applicable to Windows cloud computers).
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example RunPowerShellScript
      *
      * @var string
      */
     public $contentType;
     protected $_name = [
-        'content'         => 'Content',
+        'content' => 'Content',
         'contentEncoding' => 'ContentEncoding',
-        'contentType'     => 'ContentType',
+        'contentType' => 'ContentType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

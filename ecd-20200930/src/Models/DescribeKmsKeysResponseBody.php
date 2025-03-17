@@ -43,15 +43,13 @@ class DescribeKmsKeysResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'authorizeStatus'  => 'AuthorizeStatus',
-        'keys'             => 'Keys',
+        'authorizeStatus' => 'AuthorizeStatus',
+        'keys' => 'Keys',
         'kmsServiceStatus' => 'KmsServiceStatus',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class DescribeKmsKeysResponseBody extends Model
         if (isset($map['Keys'])) {
             if (!empty($map['Keys'])) {
                 $model->keys = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Keys'] as $item) {
                     $model->keys[$n++] = null !== $item ? keys::fromMap($item) : $item;
                 }

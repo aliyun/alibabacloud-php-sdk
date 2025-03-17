@@ -43,15 +43,13 @@ class DescribeDesktopGroupSessionsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
-        'sessions'   => 'Sessions',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'sessions' => 'Sessions',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -95,7 +93,7 @@ class DescribeDesktopGroupSessionsResponseBody extends Model
         if (isset($map['Sessions'])) {
             if (!empty($map['Sessions'])) {
                 $model->sessions = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Sessions'] as $item) {
                     $model->sessions[$n++] = null !== $item ? sessions::fromMap($item) : $item;
                 }

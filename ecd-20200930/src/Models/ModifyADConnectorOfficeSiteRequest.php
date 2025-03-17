@@ -66,6 +66,7 @@ class ModifyADConnectorOfficeSiteRequest extends Model
      * @description The username of the domain administrator. The username can be up to 64 characters in length.
      *
      * > Specify the value of the sAMAccountName parameter instead of the value of the userPrincipalName parameter as the username.
+     *
      * @example Administrator
      *
      * @var string
@@ -81,9 +82,18 @@ class ModifyADConnectorOfficeSiteRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -103,6 +113,7 @@ class ModifyADConnectorOfficeSiteRequest extends Model
      * @description The office network ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+dir-363353****
      *
      * @var string
@@ -122,6 +133,7 @@ class ModifyADConnectorOfficeSiteRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -146,25 +158,23 @@ class ModifyADConnectorOfficeSiteRequest extends Model
      */
     public $subDomainName;
     protected $_name = [
-        'adHostname'          => 'AdHostname',
-        'backupDCHostname'    => 'BackupDCHostname',
-        'backupDns'           => 'BackupDns',
-        'dnsAddress'          => 'DnsAddress',
-        'domainName'          => 'DomainName',
-        'domainPassword'      => 'DomainPassword',
-        'domainUserName'      => 'DomainUserName',
-        'mfaEnabled'          => 'MfaEnabled',
-        'OUName'              => 'OUName',
-        'officeSiteId'        => 'OfficeSiteId',
-        'officeSiteName'      => 'OfficeSiteName',
-        'regionId'            => 'RegionId',
+        'adHostname' => 'AdHostname',
+        'backupDCHostname' => 'BackupDCHostname',
+        'backupDns' => 'BackupDns',
+        'dnsAddress' => 'DnsAddress',
+        'domainName' => 'DomainName',
+        'domainPassword' => 'DomainPassword',
+        'domainUserName' => 'DomainUserName',
+        'mfaEnabled' => 'MfaEnabled',
+        'OUName' => 'OUName',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
+        'regionId' => 'RegionId',
         'subDomainDnsAddress' => 'SubDomainDnsAddress',
-        'subDomainName'       => 'SubDomainName',
+        'subDomainName' => 'SubDomainName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

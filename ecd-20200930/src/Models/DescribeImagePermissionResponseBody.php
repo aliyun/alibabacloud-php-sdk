@@ -24,13 +24,11 @@ class DescribeImagePermissionResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'aliUids'   => 'AliUids',
+        'aliUids' => 'AliUids',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,11 @@ class DescribeUsersInGroupRequest extends Model
     /**
      * @description The status of the desktop connection for the end user.
      *
+     * Valid values:
+     *
+     * - 0: Disconnected.
      * - 1: Connected.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,7 @@ class DescribeUsersInGroupRequest extends Model
      * @description The ID of the cloud computer pool.
      *
      * This parameter is required.
+     *
      * @example dg-8ttn55ujj8nj8****
      *
      * @var string
@@ -92,9 +97,18 @@ class DescribeUsersInGroupRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -105,27 +119,26 @@ class DescribeUsersInGroupRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'connectState'    => 'ConnectState',
-        'desktopGroupId'  => 'DesktopGroupId',
-        'endUserId'       => 'EndUserId',
-        'endUserIds'      => 'EndUserIds',
-        'filter'          => 'Filter',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'orgId'           => 'OrgId',
+        'connectState' => 'ConnectState',
+        'desktopGroupId' => 'DesktopGroupId',
+        'endUserId' => 'EndUserId',
+        'endUserIds' => 'EndUserIds',
+        'filter' => 'Filter',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'orgId' => 'OrgId',
         'queryUserDetail' => 'QueryUserDetail',
-        'regionId'        => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

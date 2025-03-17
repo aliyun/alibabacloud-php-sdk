@@ -21,6 +21,7 @@ class ModifyAutoSnapshotPolicyRequest extends Model
      * @description The ID of the automatic snapshot policy.
      *
      * This parameter is required.
+     *
      * @example sp-itcmrhqt01tdo****
      *
      * @var string
@@ -40,6 +41,7 @@ class ModifyAutoSnapshotPolicyRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -56,15 +58,13 @@ class ModifyAutoSnapshotPolicyRequest extends Model
     public $retentionDays;
     protected $_name = [
         'cronExpression' => 'CronExpression',
-        'policyId'       => 'PolicyId',
-        'policyName'     => 'PolicyName',
-        'regionId'       => 'RegionId',
-        'retentionDays'  => 'RetentionDays',
+        'policyId' => 'PolicyId',
+        'policyName' => 'PolicyName',
+        'regionId' => 'RegionId',
+        'retentionDays' => 'RetentionDays',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

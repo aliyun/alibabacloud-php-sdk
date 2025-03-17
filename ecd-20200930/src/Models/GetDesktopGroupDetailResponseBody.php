@@ -25,13 +25,11 @@ class GetDesktopGroupDetailResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'desktops'  => 'Desktops',
+        'desktops' => 'Desktops',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

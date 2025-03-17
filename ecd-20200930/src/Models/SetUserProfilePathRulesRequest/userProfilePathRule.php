@@ -24,13 +24,11 @@ class userProfilePathRule extends Model
      */
     public $whitePaths;
     protected $_name = [
-        'blackPath'  => 'BlackPath',
+        'blackPath' => 'BlackPath',
         'whitePaths' => 'WhitePaths',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -65,7 +63,7 @@ class userProfilePathRule extends Model
         if (isset($map['WhitePaths'])) {
             if (!empty($map['WhitePaths'])) {
                 $model->whitePaths = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['WhitePaths'] as $item) {
                     $model->whitePaths[$n++] = null !== $item ? whitePaths::fromMap($item) : $item;
                 }

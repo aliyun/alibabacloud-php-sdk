@@ -29,10 +29,16 @@ class GetConnectionTicketResponseBody extends Model
     /**
      * @description The credential that is returned to connect to the cloud computer. Before you use the credential, you must Base64 decode the content of the credential, save the credential as an xxx.ica file, and then open the file. Python sample code:
      *
+     * import base64
      * response = {
      * "Ticket": "W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********",
      * "RequestId": "1CBAFFAB-B697-4049-A9B1-67E1FC5F****",
+     * }
+     * f = open (\\"xxx.ica\\", \\"w\\")
+     * out = base64.b64decode(response[\\"Ticket\\"])
+     * f.write(out)
      * f.close()
+     *
      * @example W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********
      *
      * @var string
@@ -66,13 +72,26 @@ class GetConnectionTicketResponseBody extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   RUNNING: The credential is being obtained.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   FINISHED: The credential is obtained.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example FINISHED
      *
      * @var string
@@ -88,18 +107,16 @@ class GetConnectionTicketResponseBody extends Model
      */
     public $ticket;
     protected $_name = [
-        'desktopId'   => 'DesktopId',
-        'requestId'   => 'RequestId',
-        'taskCode'    => 'TaskCode',
-        'taskId'      => 'TaskId',
+        'desktopId' => 'DesktopId',
+        'requestId' => 'RequestId',
+        'taskCode' => 'TaskCode',
+        'taskId' => 'TaskId',
         'taskMessage' => 'TaskMessage',
-        'taskStatus'  => 'TaskStatus',
-        'ticket'      => 'Ticket',
+        'taskStatus' => 'TaskStatus',
+        'ticket' => 'Ticket',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

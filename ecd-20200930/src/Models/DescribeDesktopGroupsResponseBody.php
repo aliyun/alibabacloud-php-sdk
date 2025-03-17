@@ -35,13 +35,11 @@ class DescribeDesktopGroupsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'desktopGroups' => 'DesktopGroups',
-        'nextToken'     => 'NextToken',
-        'requestId'     => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeDesktopGroupsResponseBody extends Model
         if (isset($map['DesktopGroups'])) {
             if (!empty($map['DesktopGroups'])) {
                 $model->desktopGroups = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['DesktopGroups'] as $item) {
                     $model->desktopGroups[$n++] = null !== $item ? desktopGroups::fromMap($item) : $item;
                 }

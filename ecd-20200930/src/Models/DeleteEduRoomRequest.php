@@ -23,12 +23,10 @@ class DeleteEduRoomRequest extends Model
     public $regionId;
     protected $_name = [
         'eduRoomId' => 'EduRoomId',
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

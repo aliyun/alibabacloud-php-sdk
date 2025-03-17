@@ -35,13 +35,11 @@ class DescribeInvocationsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'invocations' => 'Invocations',
-        'nextToken'   => 'NextToken',
-        'requestId'   => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeInvocationsResponseBody extends Model
         if (isset($map['Invocations'])) {
             if (!empty($map['Invocations'])) {
                 $model->invocations = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['Invocations'] as $item) {
                     $model->invocations[$n++] = null !== $item ? invocations::fromMap($item) : $item;
                 }

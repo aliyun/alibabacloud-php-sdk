@@ -28,13 +28,11 @@ class headers extends Model
     public $headerName;
     protected $_name = [
         'displayType' => 'DisplayType',
-        'headerKey'   => 'HeaderKey',
-        'headerName'  => 'HeaderName',
+        'headerKey' => 'HeaderKey',
+        'headerName' => 'HeaderName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

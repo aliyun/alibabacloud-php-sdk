@@ -40,6 +40,7 @@ class RenewDesktopGroupRequest extends Model
      * @description The ID of the cloud computer pool.
      *
      * This parameter is required.
+     *
      * @example dg-7724r1jitbjzc****
      *
      * @var string
@@ -53,6 +54,7 @@ class RenewDesktopGroupRequest extends Model
      *   Valid values if you set the `PeriodUnit` parameter to `Year`: 1, 2, 3, 4, and 5
      *
      * Default value: 1
+     *
      * @example 1
      *
      * @var int
@@ -77,23 +79,22 @@ class RenewDesktopGroupRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'autoPay'        => 'AutoPay',
-        'autoRenew'      => 'AutoRenew',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
         'desktopGroupId' => 'DesktopGroupId',
-        'period'         => 'Period',
-        'periodUnit'     => 'PeriodUnit',
-        'regionId'       => 'RegionId',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class StopDesktopsRequest extends Model
      * @description The IDs of the cloud computers. You can specify 1 to 20 IDs.
      *
      * This parameter is required.
+     *
      * @example ecd-7w78ozhjcwa3u****
      *
      * @var string[]
@@ -22,6 +23,7 @@ class StopDesktopsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,23 +39,30 @@ class StopDesktopsRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   KeepCharging: After the cloud computer is stopped, the system does not reclaim resources to prevent insufficient resources and startup failures. You are still charged for the resources.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example StopCharging
      *
      * @var string
      */
     public $stoppedMode;
     protected $_name = [
-        'desktopId'   => 'DesktopId',
-        'regionId'    => 'RegionId',
+        'desktopId' => 'DesktopId',
+        'regionId' => 'RegionId',
         'stoppedMode' => 'StoppedMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

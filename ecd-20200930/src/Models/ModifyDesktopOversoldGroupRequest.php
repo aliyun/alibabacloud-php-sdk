@@ -63,22 +63,20 @@ class ModifyDesktopOversoldGroupRequest extends Model
      */
     public $stopDuration;
     protected $_name = [
-        'concurrenceCount'       => 'ConcurrenceCount',
-        'description'            => 'Description',
+        'concurrenceCount' => 'ConcurrenceCount',
+        'description' => 'Description',
         'idleDisconnectDuration' => 'IdleDisconnectDuration',
-        'imageId'                => 'ImageId',
-        'keepDuration'           => 'KeepDuration',
-        'name'                   => 'Name',
-        'oversoldGroupId'        => 'OversoldGroupId',
-        'oversoldUserCount'      => 'OversoldUserCount',
-        'oversoldWarn'           => 'OversoldWarn',
-        'policyGroupId'          => 'PolicyGroupId',
-        'stopDuration'           => 'StopDuration',
+        'imageId' => 'ImageId',
+        'keepDuration' => 'KeepDuration',
+        'name' => 'Name',
+        'oversoldGroupId' => 'OversoldGroupId',
+        'oversoldUserCount' => 'OversoldUserCount',
+        'oversoldWarn' => 'OversoldWarn',
+        'policyGroupId' => 'PolicyGroupId',
+        'stopDuration' => 'StopDuration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -81,17 +81,15 @@ class deviceRules extends Model
      */
     public $redirectType;
     protected $_name = [
-        'deviceName'   => 'DeviceName',
-        'devicePid'    => 'DevicePid',
-        'deviceType'   => 'DeviceType',
-        'deviceVid'    => 'DeviceVid',
-        'optCommand'   => 'OptCommand',
+        'deviceName' => 'DeviceName',
+        'devicePid' => 'DevicePid',
+        'deviceType' => 'DeviceType',
+        'deviceVid' => 'DeviceVid',
+        'optCommand' => 'OptCommand',
         'redirectType' => 'RedirectType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

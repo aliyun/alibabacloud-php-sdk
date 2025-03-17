@@ -30,6 +30,7 @@ class scaleTimerInfos extends Model
      * @description The duration that is retained after the session is disconnected. Unit: milliseconds. Valid values: 180000 to 345600000. That is, the session can be retained for 3 to 5760 minutes (4 days). If you specify the value to 0, the session is permanently retained.
      *
      * When a session is disconnected, take note of the following situations: If an end user does not resume the session within the specified duration, the session is closed and all unsaved data is cleared. If the end user resumes the session within the specified duration, the end user can still access data of the session.
+     *
      * @example 600000
      *
      * @var int
@@ -71,7 +72,10 @@ class scaleTimerInfos extends Model
     /**
      * @description The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session cloud computer pool. To calculate the ratio of connected sessions, use the following formula:
      *
+     * `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`
+     *
      * If the ratio of connected sessions is greater than the specified value, new cloud computers are created. If the ratio of connected sessions is smaller than the specified value, idle cloud computers are deleted.
+     *
      * @example 0.5
      *
      * @var float
@@ -94,19 +98,17 @@ class scaleTimerInfos extends Model
      */
     public $type;
     protected $_name = [
-        'buyResAmount'   => 'BuyResAmount',
-        'cron'           => 'Cron',
-        'keepDuration'   => 'KeepDuration',
-        'loadPolicy'     => 'LoadPolicy',
-        'maxResAmount'   => 'MaxResAmount',
-        'minResAmount'   => 'MinResAmount',
+        'buyResAmount' => 'BuyResAmount',
+        'cron' => 'Cron',
+        'keepDuration' => 'KeepDuration',
+        'loadPolicy' => 'LoadPolicy',
+        'maxResAmount' => 'MaxResAmount',
+        'minResAmount' => 'MinResAmount',
         'ratioThreshold' => 'RatioThreshold',
-        'type'           => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

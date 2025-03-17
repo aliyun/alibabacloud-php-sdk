@@ -48,22 +48,21 @@ class DescribeVirtualMFADevicesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'endUserId'    => 'EndUserId',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
+        'endUserId' => 'EndUserId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'officeSiteId' => 'OfficeSiteId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

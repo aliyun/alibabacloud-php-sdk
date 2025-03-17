@@ -50,15 +50,13 @@ class logs extends Model
      */
     public $timeStamp;
     protected $_name = [
-        'level'     => 'Level',
-        'message'   => 'Message',
-        'step'      => 'Step',
+        'level' => 'Level',
+        'message' => 'Message',
+        'step' => 'Step',
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

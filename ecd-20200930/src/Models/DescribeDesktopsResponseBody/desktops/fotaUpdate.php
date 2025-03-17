@@ -63,16 +63,14 @@ class fotaUpdate extends Model
     public $size;
     protected $_name = [
         'currentAppVersion' => 'CurrentAppVersion',
-        'newAppVersion'     => 'NewAppVersion',
-        'releaseNote'       => 'ReleaseNote',
-        'releaseNoteEn'     => 'ReleaseNoteEn',
-        'releaseNoteJp'     => 'ReleaseNoteJp',
-        'size'              => 'Size',
+        'newAppVersion' => 'NewAppVersion',
+        'releaseNote' => 'ReleaseNote',
+        'releaseNoteEn' => 'ReleaseNoteEn',
+        'releaseNoteJp' => 'ReleaseNoteJp',
+        'size' => 'Size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

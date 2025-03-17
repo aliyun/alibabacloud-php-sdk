@@ -197,32 +197,30 @@ class fileModels extends Model
      */
     public $thumbnail;
     protected $_name = [
-        'category'      => 'Category',
-        'contentType'   => 'ContentType',
-        'createTime'    => 'CreateTime',
-        'creator'       => 'Creator',
-        'description'   => 'Description',
-        'downloadUrl'   => 'DownloadUrl',
+        'category' => 'Category',
+        'contentType' => 'ContentType',
+        'createTime' => 'CreateTime',
+        'creator' => 'Creator',
+        'description' => 'Description',
+        'downloadUrl' => 'DownloadUrl',
         'fileExtension' => 'FileExtension',
-        'fileId'        => 'FileId',
-        'filePath'      => 'FilePath',
-        'fileType'      => 'FileType',
-        'md5'           => 'Md5',
-        'modifiedTime'  => 'ModifiedTime',
-        'modifier'      => 'Modifier',
-        'name'          => 'Name',
-        'openTime'      => 'OpenTime',
+        'fileId' => 'FileId',
+        'filePath' => 'FilePath',
+        'fileType' => 'FileType',
+        'md5' => 'Md5',
+        'modifiedTime' => 'ModifiedTime',
+        'modifier' => 'Modifier',
+        'name' => 'Name',
+        'openTime' => 'OpenTime',
         'openTimeStamp' => 'OpenTimeStamp',
-        'parentId'      => 'ParentId',
-        'regionId'      => 'RegionId',
-        'sha1'          => 'Sha1',
-        'size'          => 'Size',
-        'thumbnail'     => 'Thumbnail',
+        'parentId' => 'ParentId',
+        'regionId' => 'RegionId',
+        'sha1' => 'Sha1',
+        'size' => 'Size',
+        'thumbnail' => 'Thumbnail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

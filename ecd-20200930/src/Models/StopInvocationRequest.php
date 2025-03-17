@@ -21,6 +21,7 @@ class StopInvocationRequest extends Model
      * @description The ID of the execution.
      *
      * This parameter is required.
+     *
      * @example t-7d2a745b412b4601b2d47f6a768d****
      *
      * @var string
@@ -31,6 +32,7 @@ class StopInvocationRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -38,13 +40,11 @@ class StopInvocationRequest extends Model
     public $regionId;
     protected $_name = [
         'desktopId' => 'DesktopId',
-        'invokeId'  => 'InvokeId',
-        'regionId'  => 'RegionId',
+        'invokeId' => 'InvokeId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

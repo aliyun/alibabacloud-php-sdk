@@ -35,13 +35,11 @@ class ListUserAdOrganizationUnitsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'nextToken' => 'NextToken',
-        'OUNames'   => 'OUNames',
+        'OUNames' => 'OUNames',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class ListUserAdOrganizationUnitsResponseBody extends Model
         if (isset($map['OUNames'])) {
             if (!empty($map['OUNames'])) {
                 $model->OUNames = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['OUNames'] as $item) {
                     $model->OUNames[$n++] = null !== $item ? OUNames::fromMap($item) : $item;
                 }

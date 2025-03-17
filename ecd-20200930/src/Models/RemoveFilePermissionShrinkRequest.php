@@ -12,6 +12,7 @@ class RemoveFilePermissionShrinkRequest extends Model
      * @description The ID of the cloud disk in Cloud Drive Service.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+cds-066224****
      *
      * @var string
@@ -31,6 +32,7 @@ class RemoveFilePermissionShrinkRequest extends Model
      * @description The file ID. The ID is a unique identifier for the file.
      *
      * This parameter is required.
+     *
      * @example 6333e553a133ce21e6f747cf948bb9ef95d7****
      *
      * @var string
@@ -48,6 +50,7 @@ class RemoveFilePermissionShrinkRequest extends Model
      * @description The users that you want to authorize.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $memberListShrink;
@@ -56,23 +59,22 @@ class RemoveFilePermissionShrinkRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cdsId'            => 'CdsId',
-        'endUserId'        => 'EndUserId',
-        'fileId'           => 'FileId',
-        'groupId'          => 'GroupId',
+        'cdsId' => 'CdsId',
+        'endUserId' => 'EndUserId',
+        'fileId' => 'FileId',
+        'groupId' => 'GroupId',
         'memberListShrink' => 'MemberList',
-        'regionId'         => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

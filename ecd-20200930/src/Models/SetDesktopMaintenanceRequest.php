@@ -34,13 +34,11 @@ class SetDesktopMaintenanceRequest extends Model
     public $regionId;
     protected $_name = [
         'desktopIds' => 'DesktopIds',
-        'mode'       => 'Mode',
-        'regionId'   => 'RegionId',
+        'mode' => 'Mode',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

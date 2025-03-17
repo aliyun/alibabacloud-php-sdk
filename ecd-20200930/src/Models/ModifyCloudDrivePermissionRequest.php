@@ -12,6 +12,7 @@ class ModifyCloudDrivePermissionRequest extends Model
      * @description The ID of the cloud disk in Cloud Drive Service.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+cds-60911*****
      *
      * @var string
@@ -41,22 +42,21 @@ class ModifyCloudDrivePermissionRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cdsId'                        => 'CdsId',
-        'downloadEndUserIds'           => 'DownloadEndUserIds',
-        'downloadUploadEndUserIds'     => 'DownloadUploadEndUserIds',
+        'cdsId' => 'CdsId',
+        'downloadEndUserIds' => 'DownloadEndUserIds',
+        'downloadUploadEndUserIds' => 'DownloadUploadEndUserIds',
         'noDownloadNoUploadEndUserIds' => 'NoDownloadNoUploadEndUserIds',
-        'regionId'                     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

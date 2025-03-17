@@ -21,6 +21,7 @@ class SetUserProfilePathRulesShrinkRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -43,28 +44,39 @@ class SetUserProfilePathRulesShrinkRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DesktopGroup
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   Default
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example DesktopGroup
      *
      * @var string
      */
     public $userProfileRuleType;
     protected $_name = [
-        'desktopGroupId'            => 'DesktopGroupId',
-        'regionId'                  => 'RegionId',
+        'desktopGroupId' => 'DesktopGroupId',
+        'regionId' => 'RegionId',
         'userProfilePathRuleShrink' => 'UserProfilePathRule',
-        'userProfileRuleType'       => 'UserProfileRuleType',
+        'userProfileRuleType' => 'UserProfileRuleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

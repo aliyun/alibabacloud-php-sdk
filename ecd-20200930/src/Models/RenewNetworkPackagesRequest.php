@@ -17,9 +17,22 @@ class RenewNetworkPackagesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * Make sure that your account has sufficient balance. Otherwise, no order is generated.
+     *
+     * <!-- -->
+     *
      *   false: disables the auto-payment feature. In this case, an order is generated but you need to make the payment manually.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * To make the payment, log on to the Elastic Desktop Service console, go to the Orders page, and find the order based on the order ID.
+     *
+     * <!-- -->
+     *
      * @example true
      *
      * @var bool
@@ -35,6 +48,7 @@ class RenewNetworkPackagesRequest extends Model
      * @description The IDs of premium bandwidth plans. You can specify up to 100 IDs.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $networkPackageId;
@@ -59,6 +73,7 @@ class RenewNetworkPackagesRequest extends Model
      *   Year
      *
      * Default value: Month.
+     *
      * @example Month
      *
      * @var string
@@ -78,24 +93,23 @@ class RenewNetworkPackagesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'autoPay'          => 'AutoPay',
-        'autoRenew'        => 'AutoRenew',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
         'networkPackageId' => 'NetworkPackageId',
-        'period'           => 'Period',
-        'periodUnit'       => 'PeriodUnit',
-        'promotionId'      => 'PromotionId',
-        'regionId'         => 'RegionId',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'promotionId' => 'PromotionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

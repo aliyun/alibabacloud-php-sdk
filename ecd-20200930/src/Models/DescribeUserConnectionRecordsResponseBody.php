@@ -35,13 +35,11 @@ class DescribeUserConnectionRecordsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'connectionRecords' => 'ConnectionRecords',
-        'nextToken'         => 'NextToken',
-        'requestId'         => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeUserConnectionRecordsResponseBody extends Model
         if (isset($map['ConnectionRecords'])) {
             if (!empty($map['ConnectionRecords'])) {
                 $model->connectionRecords = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['ConnectionRecords'] as $item) {
                     $model->connectionRecords[$n++] = null !== $item ? connectionRecords::fromMap($item) : $item;
                 }

@@ -11,6 +11,7 @@ class DescribeCensRequest extends Model
     /**
      * @description The page number.\\
      * Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -20,6 +21,7 @@ class DescribeCensRequest extends Model
     /**
      * @description The number of entries per page.\\
      * Default value: 50.
+     *
      * @example 50
      *
      * @var int
@@ -30,6 +32,7 @@ class DescribeCensRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,13 +40,11 @@ class DescribeCensRequest extends Model
     public $regionId;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -37,6 +37,7 @@ class AddUserToDesktopGroupRequest extends Model
      * @description The regular users to whom you want to assign the desktop group.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $endUserIds;
@@ -45,22 +46,21 @@ class AddUserToDesktopGroupRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'     => 'ClientToken',
-        'desktopGroupId'  => 'DesktopGroupId',
+        'clientToken' => 'ClientToken',
+        'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupIds' => 'DesktopGroupIds',
-        'endUserIds'      => 'EndUserIds',
-        'regionId'        => 'RegionId',
+        'endUserIds' => 'EndUserIds',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

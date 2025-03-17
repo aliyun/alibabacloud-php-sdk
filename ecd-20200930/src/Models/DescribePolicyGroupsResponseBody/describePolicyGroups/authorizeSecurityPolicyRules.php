@@ -89,18 +89,16 @@ class authorizeSecurityPolicyRules extends Model
      */
     public $type;
     protected $_name = [
-        'cidrIp'      => 'CidrIp',
+        'cidrIp' => 'CidrIp',
         'description' => 'Description',
-        'ipProtocol'  => 'IpProtocol',
-        'policy'      => 'Policy',
-        'portRange'   => 'PortRange',
-        'priority'    => 'Priority',
-        'type'        => 'Type',
+        'ipProtocol' => 'IpProtocol',
+        'policy' => 'Policy',
+        'portRange' => 'PortRange',
+        'priority' => 'Priority',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

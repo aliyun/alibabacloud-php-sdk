@@ -12,6 +12,7 @@ class DescribeRefundPriceRequest extends Model
      * @description ID of cloud computer N. Valid values of N: 1 to 20.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $desktopId;
@@ -34,20 +35,19 @@ class DescribeRefundPriceRequest extends Model
      * @description The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'desktopId'  => 'DesktopId',
+        'desktopId' => 'DesktopId',
         'refundType' => 'RefundType',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

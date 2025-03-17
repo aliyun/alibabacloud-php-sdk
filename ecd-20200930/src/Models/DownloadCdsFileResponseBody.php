@@ -36,14 +36,12 @@ class DownloadCdsFileResponseBody extends Model
     public $success;
     protected $_name = [
         'downloadFileModel' => 'DownloadFileModel',
-        'message'           => 'Message',
-        'requestId'         => 'RequestId',
-        'success'           => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

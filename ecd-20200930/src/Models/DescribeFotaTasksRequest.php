@@ -56,6 +56,7 @@ class DescribeFotaTasksRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -84,17 +85,15 @@ class DescribeFotaTasksRequest extends Model
     public $userStatus;
     protected $_name = [
         'fotaStatus' => 'FotaStatus',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
-        'taskUid'    => 'TaskUid',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'taskUid' => 'TaskUid',
         'userStatus' => 'UserStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

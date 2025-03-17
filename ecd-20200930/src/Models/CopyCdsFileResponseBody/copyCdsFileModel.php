@@ -27,12 +27,10 @@ class copyCdsFileModel extends Model
     public $fileId;
     protected $_name = [
         'asyncTaskId' => 'AsyncTaskId',
-        'fileId'      => 'FileId',
+        'fileId' => 'FileId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

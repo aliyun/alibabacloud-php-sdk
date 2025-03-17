@@ -23,14 +23,12 @@ class DescribePriceForModifyDesktopOversoldGroupSaleRequest extends Model
      */
     public $oversoldUserCount;
     protected $_name = [
-        'concurrenceCount'  => 'ConcurrenceCount',
-        'oversoldGroupId'   => 'OversoldGroupId',
+        'concurrenceCount' => 'ConcurrenceCount',
+        'oversoldGroupId' => 'OversoldGroupId',
         'oversoldUserCount' => 'OversoldUserCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

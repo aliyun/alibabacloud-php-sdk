@@ -13,6 +13,7 @@ class memberList extends Model
      * @description The permission information.
      *
      * This parameter is required.
+     *
      * @var cdsIdentity
      */
     public $cdsIdentity;
@@ -26,7 +27,23 @@ class memberList extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * the role that has the permissions to edit files but cannot share files
+     *
+     * <!-- -->
+     *
      *   SystemFileUploaderAndDownloaderWithShareLink
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * the role that has the permissions to upload, download, and share files
      *
      * <!-- -->
      *
@@ -34,7 +51,23 @@ class memberList extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * the role that has the permissions to download files
+     *
+     * <!-- -->
+     *
      *   SystemFileEditorWithoutDelete
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * the role that has the permissions to edit files but cannot delete files
      *
      * <!-- -->
      *
@@ -42,7 +75,23 @@ class memberList extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * the role that has the permissions to collaborate with others
+     *
+     * <!-- -->
+     *
      *   SystemFileDownloaderWithShareLink
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * the role that has the permissions to download and share files
      *
      * <!-- -->
      *
@@ -50,7 +99,23 @@ class memberList extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * the role that has the permissions to preview or upload files
+     *
+     * <!-- -->
+     *
      *   SystemFileViewer
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * the role that has the permissions to preview files
      *
      * <!-- -->
      *
@@ -58,7 +123,23 @@ class memberList extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * the role that has the permissions to edit files
+     *
+     * <!-- -->
+     *
      *   SystemFileUploaderWithShareLink
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * the role that has the permissions to upload or share files
      *
      * <!-- -->
      *
@@ -66,13 +147,40 @@ class memberList extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * the role that has the permission to upload files
+     *
+     * <!-- -->
+     *
      *   SystemFileUploaderAndDownloader
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * the role that has the permissions to upload or download files
      *
      * <!-- -->
      *
      *   SystemFileMetaViewer
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * the role that has the permissions to view files
+     *
+     * <!-- -->
+     *
      * This parameter is required.
+     *
      * @example SystemFileUploaderAndDownloader
      *
      * @var string
@@ -80,12 +188,10 @@ class memberList extends Model
     public $roleId;
     protected $_name = [
         'cdsIdentity' => 'CdsIdentity',
-        'roleId'      => 'RoleId',
+        'roleId' => 'RoleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

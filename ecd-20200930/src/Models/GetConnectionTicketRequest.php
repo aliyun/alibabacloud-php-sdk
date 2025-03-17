@@ -15,7 +15,21 @@ class GetConnectionTicketRequest extends Model
      *   appParameter: the startup arguments of the application. Example: `"meetingid 000 meetingname aaa"`. Separate multiple arguments with spaces. Type of the parameter value: string.
      *
      * @example {
+     * "startApplication": {
+     * "startApplicationList": [
+     * {
+     * "sessionName": "",
+     * "appList": [
+     * {
+     * "appPath": "C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe",
+     * "appParameter": "www.example.com www.example1.com"
      * }
+     * ]
+     * }
+     * ]
+     * }
+     * }
+     *
      * @var string
      */
     public $commandContent;
@@ -56,6 +70,7 @@ class GetConnectionTicketRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -90,21 +105,19 @@ class GetConnectionTicketRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'commandContent'       => 'CommandContent',
-        'desktopId'            => 'DesktopId',
-        'endUserId'            => 'EndUserId',
-        'ownerId'              => 'OwnerId',
-        'password'             => 'Password',
-        'regionId'             => 'RegionId',
+        'commandContent' => 'CommandContent',
+        'desktopId' => 'DesktopId',
+        'endUserId' => 'EndUserId',
+        'ownerId' => 'OwnerId',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'taskId'               => 'TaskId',
-        'uuid'                 => 'Uuid',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'taskId' => 'TaskId',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,13 +17,26 @@ class paidDesktops extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Connected
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   Disconnected
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Connected
      *
      * @var string
@@ -57,7 +70,15 @@ class paidDesktops extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Starting
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -65,7 +86,15 @@ class paidDesktops extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Running
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -73,7 +102,15 @@ class paidDesktops extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Expired
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -81,9 +118,18 @@ class paidDesktops extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Pending
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Running
      *
      * @var string
@@ -99,9 +145,18 @@ class paidDesktops extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DATA: data disk
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example SYSTEM
      *
      * @var string
@@ -185,9 +240,18 @@ class paidDesktops extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   NoFlag: No flags are attached to the cloud computer.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example NoFlag
      *
      * @var string
@@ -219,9 +283,18 @@ class paidDesktops extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Windows
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Windows
      *
      * @var string
@@ -246,9 +319,18 @@ class paidDesktops extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   ASP: Adaptive Streaming Protocol (ASP) protocol provided by Alibaba Cloud
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example ASP
      *
      * @var string
@@ -274,31 +356,29 @@ class paidDesktops extends Model
     public $systemDiskSize;
     protected $_name = [
         'connectionStatus' => 'ConnectionStatus',
-        'desktopId'        => 'DesktopId',
-        'desktopName'      => 'DesktopName',
-        'desktopStatus'    => 'DesktopStatus',
-        'diskType'         => 'DiskType',
-        'endUserId'        => 'EndUserId',
-        'endUserIds'       => 'EndUserIds',
-        'endUserName'      => 'EndUserName',
-        'endUserNames'     => 'EndUserNames',
-        'fotaVersion'      => 'FotaVersion',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
+        'desktopStatus' => 'DesktopStatus',
+        'diskType' => 'DiskType',
+        'endUserId' => 'EndUserId',
+        'endUserIds' => 'EndUserIds',
+        'endUserName' => 'EndUserName',
+        'endUserNames' => 'EndUserNames',
+        'fotaVersion' => 'FotaVersion',
         'gpuDriverVersion' => 'GpuDriverVersion',
-        'imageId'          => 'ImageId',
-        'imageName'        => 'ImageName',
-        'managementFlag'   => 'ManagementFlag',
-        'managementFlags'  => 'ManagementFlags',
-        'memberEniIp'      => 'MemberEniIp',
-        'osType'           => 'OsType',
-        'primaryEniIp'     => 'PrimaryEniIp',
-        'protocolType'     => 'ProtocolType',
-        'resetTime'        => 'ResetTime',
-        'systemDiskSize'   => 'SystemDiskSize',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
+        'managementFlag' => 'ManagementFlag',
+        'managementFlags' => 'ManagementFlags',
+        'memberEniIp' => 'MemberEniIp',
+        'osType' => 'OsType',
+        'primaryEniIp' => 'PrimaryEniIp',
+        'protocolType' => 'ProtocolType',
+        'resetTime' => 'ResetTime',
+        'systemDiskSize' => 'SystemDiskSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -88,27 +88,25 @@ class CreateDesktopOversoldGroupRequest extends Model
      */
     public $systemDiskSize;
     protected $_name = [
-        'concurrenceCount'       => 'ConcurrenceCount',
-        'dataDiskSize'           => 'DataDiskSize',
-        'description'            => 'Description',
-        'desktopType'            => 'DesktopType',
-        'directoryId'            => 'DirectoryId',
+        'concurrenceCount' => 'ConcurrenceCount',
+        'dataDiskSize' => 'DataDiskSize',
+        'description' => 'Description',
+        'desktopType' => 'DesktopType',
+        'directoryId' => 'DirectoryId',
         'idleDisconnectDuration' => 'IdleDisconnectDuration',
-        'imageId'                => 'ImageId',
-        'keepDuration'           => 'KeepDuration',
-        'name'                   => 'Name',
-        'oversoldUserCount'      => 'OversoldUserCount',
-        'oversoldWarn'           => 'OversoldWarn',
-        'period'                 => 'Period',
-        'periodUnit'             => 'PeriodUnit',
-        'policyGroupId'          => 'PolicyGroupId',
-        'stopDuration'           => 'StopDuration',
-        'systemDiskSize'         => 'SystemDiskSize',
+        'imageId' => 'ImageId',
+        'keepDuration' => 'KeepDuration',
+        'name' => 'Name',
+        'oversoldUserCount' => 'OversoldUserCount',
+        'oversoldWarn' => 'OversoldWarn',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'policyGroupId' => 'PolicyGroupId',
+        'stopDuration' => 'StopDuration',
+        'systemDiskSize' => 'SystemDiskSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

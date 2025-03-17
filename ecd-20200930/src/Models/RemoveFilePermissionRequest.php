@@ -13,6 +13,7 @@ class RemoveFilePermissionRequest extends Model
      * @description The ID of the cloud disk in Cloud Drive Service.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+cds-066224****
      *
      * @var string
@@ -32,6 +33,7 @@ class RemoveFilePermissionRequest extends Model
      * @description The file ID. The ID is a unique identifier for the file.
      *
      * This parameter is required.
+     *
      * @example 6333e553a133ce21e6f747cf948bb9ef95d7****
      *
      * @var string
@@ -49,6 +51,7 @@ class RemoveFilePermissionRequest extends Model
      * @description The users that you want to authorize.
      *
      * This parameter is required.
+     *
      * @var memberList[]
      */
     public $memberList;
@@ -57,23 +60,22 @@ class RemoveFilePermissionRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cdsId'      => 'CdsId',
-        'endUserId'  => 'EndUserId',
-        'fileId'     => 'FileId',
-        'groupId'    => 'GroupId',
+        'cdsId' => 'CdsId',
+        'endUserId' => 'EndUserId',
+        'fileId' => 'FileId',
+        'groupId' => 'GroupId',
         'memberList' => 'MemberList',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -129,7 +131,7 @@ class RemoveFilePermissionRequest extends Model
         if (isset($map['MemberList'])) {
             if (!empty($map['MemberList'])) {
                 $model->memberList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['MemberList'] as $item) {
                     $model->memberList[$n++] = null !== $item ? memberList::fromMap($item) : $item;
                 }

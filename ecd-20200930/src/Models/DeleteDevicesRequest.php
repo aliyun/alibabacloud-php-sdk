@@ -17,6 +17,7 @@ class DeleteDevicesRequest extends Model
      *   2: software client.
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -27,6 +28,7 @@ class DeleteDevicesRequest extends Model
      * @description The IDs of the devices. You can specify up to 200 IDs.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $deviceIds;
@@ -40,6 +42,7 @@ class DeleteDevicesRequest extends Model
      *   1: forcefully delete the device.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -56,14 +59,12 @@ class DeleteDevicesRequest extends Model
     public $regionId;
     protected $_name = [
         'clientType' => 'ClientType',
-        'deviceIds'  => 'DeviceIds',
-        'force'      => 'Force',
-        'regionId'   => 'RegionId',
+        'deviceIds' => 'DeviceIds',
+        'force' => 'Force',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

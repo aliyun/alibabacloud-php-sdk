@@ -21,6 +21,7 @@ class DescribeRegionsRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -28,12 +29,10 @@ class DescribeRegionsRequest extends Model
     public $regionId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

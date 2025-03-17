@@ -44,14 +44,12 @@ class DescribeImageModifiedRecordsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'imageModifiedRecords' => 'ImageModifiedRecords',
-        'nextToken'            => 'NextToken',
-        'requestId'            => 'RequestId',
-        'totalCount'           => 'TotalCount',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class DescribeImageModifiedRecordsResponseBody extends Model
         if (isset($map['ImageModifiedRecords'])) {
             if (!empty($map['ImageModifiedRecords'])) {
                 $model->imageModifiedRecords = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['ImageModifiedRecords'] as $item) {
                     $model->imageModifiedRecords[$n++] = null !== $item ? imageModifiedRecords::fromMap($item) : $item;
                 }

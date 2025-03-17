@@ -13,6 +13,7 @@ class SetDesktopGroupScaleTimerRequest extends Model
      * @description The ID of the cloud computer pool.
      *
      * This parameter is required.
+     *
      * @example dg-2i8qxpv6t1a03****
      *
      * @var string
@@ -23,6 +24,7 @@ class SetDesktopGroupScaleTimerRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -36,14 +38,12 @@ class SetDesktopGroupScaleTimerRequest extends Model
      */
     public $scaleTimerInfos;
     protected $_name = [
-        'desktopGroupId'  => 'DesktopGroupId',
-        'regionId'        => 'RegionId',
+        'desktopGroupId' => 'DesktopGroupId',
+        'regionId' => 'RegionId',
         'scaleTimerInfos' => 'ScaleTimerInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -84,7 +84,7 @@ class SetDesktopGroupScaleTimerRequest extends Model
         if (isset($map['ScaleTimerInfos'])) {
             if (!empty($map['ScaleTimerInfos'])) {
                 $model->scaleTimerInfos = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['ScaleTimerInfos'] as $item) {
                     $model->scaleTimerInfos[$n++] = null !== $item ? scaleTimerInfos::fromMap($item) : $item;
                 }

@@ -52,16 +52,14 @@ class DescribeCensResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'cens'       => 'Cens',
+        'cens' => 'Cens',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeCensResponseBody extends Model
         if (isset($map['Cens'])) {
             if (!empty($map['Cens'])) {
                 $model->cens = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Cens'] as $item) {
                     $model->cens[$n++] = null !== $item ? cens::fromMap($item) : $item;
                 }

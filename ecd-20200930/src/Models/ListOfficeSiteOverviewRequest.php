@@ -66,6 +66,7 @@ class ListOfficeSiteOverviewRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -73,16 +74,14 @@ class ListOfficeSiteOverviewRequest extends Model
     public $regionId;
     protected $_name = [
         'forceRefresh' => 'ForceRefresh',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'officeSiteId' => 'OfficeSiteId',
-        'queryRange'   => 'QueryRange',
-        'regionId'     => 'RegionId',
+        'queryRange' => 'QueryRange',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

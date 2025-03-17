@@ -42,9 +42,26 @@ class ModifyCloudDriveUsersRequest extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * unavailable
+     *
+     * <!-- -->
+     *
      *   enabled
      *
      * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * available
+     *
+     * <!-- -->
+     *
      * @example enabled
      *
      * @var string
@@ -60,16 +77,14 @@ class ModifyCloudDriveUsersRequest extends Model
      */
     public $userMaxSize;
     protected $_name = [
-        'cdsId'       => 'CdsId',
-        'endUserId'   => 'EndUserId',
-        'regionId'    => 'RegionId',
-        'status'      => 'Status',
+        'cdsId' => 'CdsId',
+        'endUserId' => 'EndUserId',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
         'userMaxSize' => 'UserMaxSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

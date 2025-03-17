@@ -74,21 +74,19 @@ class recordings extends Model
      */
     public $startTime;
     protected $_name = [
-        'desktopId'     => 'DesktopId',
-        'desktopName'   => 'DesktopName',
-        'endTime'       => 'EndTime',
-        'endUserIds'    => 'EndUserIds',
-        'filePath'      => 'FilePath',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
+        'endTime' => 'EndTime',
+        'endUserIds' => 'EndUserIds',
+        'filePath' => 'FilePath',
         'policyGroupId' => 'PolicyGroupId',
         'recordingSize' => 'RecordingSize',
         'recordingType' => 'RecordingType',
-        'signedUrl'     => 'SignedUrl',
-        'startTime'     => 'StartTime',
+        'signedUrl' => 'SignedUrl',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

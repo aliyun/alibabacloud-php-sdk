@@ -21,6 +21,7 @@ class SetDesktopGroupTimerRequest extends Model
      * @description The ID of the cloud computer pool.
      *
      * This parameter is required.
+     *
      * @example dg-dbdkfmh883****
      *
      * @var string
@@ -40,6 +41,7 @@ class SetDesktopGroupTimerRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -49,7 +51,13 @@ class SetDesktopGroupTimerRequest extends Model
     /**
      * @description The type of the disk that you want to reset.
      *
+     * Valid values:
+     *
+     * - does not reset disks.
+     * - resets only the system disk.
+     * - resets only the user disk.
      * - resets the system disk and the user disk.
+     *
      * @example 1
      *
      * @var int
@@ -67,6 +75,7 @@ class SetDesktopGroupTimerRequest extends Model
      *   4: scheduled restart
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -75,15 +84,13 @@ class SetDesktopGroupTimerRequest extends Model
     protected $_name = [
         'cronExpression' => 'CronExpression',
         'desktopGroupId' => 'DesktopGroupId',
-        'force'          => 'Force',
-        'regionId'       => 'RegionId',
-        'resetType'      => 'ResetType',
-        'timerType'      => 'TimerType',
+        'force' => 'Force',
+        'regionId' => 'RegionId',
+        'resetType' => 'ResetType',
+        'timerType' => 'TimerType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

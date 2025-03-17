@@ -70,17 +70,15 @@ class imageModifiedRecords extends Model
      */
     public $updateTime;
     protected $_name = [
-        'imageId'      => 'ImageId',
-        'imageName'    => 'ImageName',
-        'newImageId'   => 'NewImageId',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
+        'newImageId' => 'NewImageId',
         'newImageName' => 'NewImageName',
-        'status'       => 'Status',
-        'updateTime'   => 'UpdateTime',
+        'status' => 'Status',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

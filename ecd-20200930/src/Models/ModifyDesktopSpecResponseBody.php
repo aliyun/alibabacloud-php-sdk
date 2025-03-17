@@ -33,14 +33,12 @@ class ModifyDesktopSpecResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'orderId'   => 'OrderId',
-        'orderIds'  => 'OrderIds',
+        'orderId' => 'OrderId',
+        'orderIds' => 'OrderIds',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

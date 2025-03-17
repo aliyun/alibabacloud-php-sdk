@@ -36,13 +36,11 @@ class OUNames extends Model
     public $officeSiteId;
     protected $_name = [
         'displayOUName' => 'DisplayOUName',
-        'OUName'        => 'OUName',
-        'officeSiteId'  => 'OfficeSiteId',
+        'OUName' => 'OUName',
+        'officeSiteId' => 'OfficeSiteId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

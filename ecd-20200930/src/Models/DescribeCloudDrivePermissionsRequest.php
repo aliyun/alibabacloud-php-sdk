@@ -26,13 +26,11 @@ class DescribeCloudDrivePermissionsRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'cdsId'    => 'CdsId',
+        'cdsId' => 'CdsId',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

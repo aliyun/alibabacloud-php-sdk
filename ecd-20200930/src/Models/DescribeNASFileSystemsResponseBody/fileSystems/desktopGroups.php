@@ -26,13 +26,11 @@ class desktopGroups extends Model
      */
     public $desktopGroupName;
     protected $_name = [
-        'desktopGroupId'   => 'DesktopGroupId',
+        'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupName' => 'DesktopGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

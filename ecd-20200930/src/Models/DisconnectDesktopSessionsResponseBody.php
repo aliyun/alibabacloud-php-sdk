@@ -26,12 +26,10 @@ class DisconnectDesktopSessionsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'invalidSessions' => 'InvalidSessions',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DisconnectDesktopSessionsResponseBody extends Model
         if (isset($map['InvalidSessions'])) {
             if (!empty($map['InvalidSessions'])) {
                 $model->invalidSessions = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['InvalidSessions'] as $item) {
                     $model->invalidSessions[$n++] = null !== $item ? invalidSessions::fromMap($item) : $item;
                 }

@@ -11,6 +11,8 @@ class ModifyOfficeSiteAttributeRequest extends Model
     /**
      * @description The method to connect to cloud computers from Alibaba Cloud Workspace clients.
      *
+     * >  VPC connection relies on the Alibaba Cloud PrivateLink service. You can use PrivateLink for free. When you set this parameter to `VPC` or `Any`, the system automatically activates PrivateLink.
+     *
      * Valid values:
      *
      *   INTERNET (default): allows end users to connect to cloud computers over the Internet.
@@ -59,6 +61,7 @@ class ModifyOfficeSiteAttributeRequest extends Model
      * @description The office network ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+dir-882398****
      *
      * @var string
@@ -68,6 +71,7 @@ class ModifyOfficeSiteAttributeRequest extends Model
     /**
      * @description The office network name. The name must be 2 to 255 characters in length. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.\\
      * This parameter is empty by default.
+     *
      * @example test
      *
      * @var string
@@ -78,24 +82,23 @@ class ModifyOfficeSiteAttributeRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'desktopAccessType'    => 'DesktopAccessType',
-        'enableAdminAccess'    => 'EnableAdminAccess',
-        'needVerifyLoginRisk'  => 'NeedVerifyLoginRisk',
+        'desktopAccessType' => 'DesktopAccessType',
+        'enableAdminAccess' => 'EnableAdminAccess',
+        'needVerifyLoginRisk' => 'NeedVerifyLoginRisk',
         'needVerifyZeroDevice' => 'NeedVerifyZeroDevice',
-        'officeSiteId'         => 'OfficeSiteId',
-        'officeSiteName'       => 'OfficeSiteName',
-        'regionId'             => 'RegionId',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

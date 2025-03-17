@@ -65,17 +65,15 @@ class DescribeSessionStatisticRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'        => 'EndTime',
-        'officeSiteId'   => 'OfficeSiteId',
-        'period'         => 'Period',
-        'regionId'       => 'RegionId',
+        'endTime' => 'EndTime',
+        'officeSiteId' => 'OfficeSiteId',
+        'period' => 'Period',
+        'regionId' => 'RegionId',
         'searchRegionId' => 'SearchRegionId',
-        'startTime'      => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

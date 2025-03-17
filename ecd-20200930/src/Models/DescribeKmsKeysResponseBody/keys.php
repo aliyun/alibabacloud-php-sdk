@@ -45,14 +45,12 @@ class keys extends Model
     public $type;
     protected $_name = [
         'alias' => 'Alias',
-        'arn'   => 'Arn',
+        'arn' => 'Arn',
         'keyId' => 'KeyId',
-        'type'  => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

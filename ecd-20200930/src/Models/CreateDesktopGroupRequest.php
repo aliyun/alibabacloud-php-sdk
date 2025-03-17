@@ -13,6 +13,7 @@ class CreateDesktopGroupRequest extends Model
      * @description The types of the users.
      *
      * >  This parameter is not publicly available.
+     *
      * @example Alice
      *
      * @var bool
@@ -40,6 +41,7 @@ class CreateDesktopGroupRequest extends Model
      *   N: reserves N cloud computers (1≤ N ≤ 100).
      *
      * >  Setting this parameter to 0 means no cloud computers will be reserved in the shared group. In this case, the system must create, start, and assign cloud computers to end users upon request, which can be time-consuming. To improve user experience, we recommend that you reserve a specific number of cloud computers.
+     *
      * @example 1
      *
      * @var int
@@ -73,6 +75,7 @@ class CreateDesktopGroupRequest extends Model
      * @description The number of concurrent sessions of the multi-session shared group.
      *
      * >  This parameter is not publicly available.
+     *
      * @example 1
      *
      * @var int
@@ -107,6 +110,7 @@ class CreateDesktopGroupRequest extends Model
      *   PrePaid: subscription.
      *
      * This parameter is required.
+     *
      * @example PrePaid
      *
      * @var string
@@ -115,6 +119,8 @@ class CreateDesktopGroupRequest extends Model
 
     /**
      * @description The type of the cloud computers in the shared group.
+     *
+     * >  This parameter is not publicly available.
      *
      * Valid values:
      *
@@ -189,6 +195,7 @@ class CreateDesktopGroupRequest extends Model
      *   If the selected plan includes a standard SSD, the data disk size must be at least 20 GB.
      *
      * Default value: 0.
+     *
      * @example 80
      *
      * @var int
@@ -242,6 +249,7 @@ class CreateDesktopGroupRequest extends Model
      * @description The ID of the directory.
      *
      * >  This parameter is not publicly available.
+     *
      * @example hide
      *
      * @var string
@@ -268,6 +276,7 @@ class CreateDesktopGroupRequest extends Model
      * @description The ID of the File Storage NAS (NAS) file system for the user data roaming feature.
      *
      * >  This parameter is not publicly available.
+     *
      * @example 04f314****
      *
      * @var string
@@ -315,7 +324,10 @@ class CreateDesktopGroupRequest extends Model
     /**
      * @description The duration after which a session is terminated if no keyboard or mouse activity is detected. When an end user connects to a cloud computer, a session is initiated. If no input from the keyboard or mouse is detected within this specified timeframe, the session is automatically closed. Unit: milliseconds. Valid values: 360000 to 3600000 (6 minutes to 60 minutes)
      *
+     * The system prompts end users to save their data 30 seconds before a session is disconnected. To avoid data loss, end users must save their session data upon receiving the prompt.
+     *
      * >  This parameter is suitable only for cloud computers whose image version is v1.0.2 or later.
+     *
      * @example 300000
      *
      * @var int
@@ -335,6 +347,7 @@ class CreateDesktopGroupRequest extends Model
      * @description The duration for which each session remains active after disconnection. Valid values: 180000 (3 minutes) to 345600000 (4 days). Unit: milliseconds. If you set this parameter to 0, the session is permanently retained after disconnection.
      *
      * When a session is disconnected, take note of the following items: 1. If the end user does not resume the session within the specified duration, the session will close, and all unsaved data will be cleared. 2. If the end user resumes the session within the specified duration, the session data will remain accessible for continued use.
+     *
      * @example 6000
      *
      * @var int
@@ -343,6 +356,8 @@ class CreateDesktopGroupRequest extends Model
 
     /**
      * @description The load balancing policy of the multi-session shared group.
+     *
+     * >  This parameter is not publicly available.
      *
      * Valid values:
      *
@@ -391,6 +406,7 @@ class CreateDesktopGroupRequest extends Model
      * @description The ID of the office network.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+os-c5cy7q578s8jc****
      *
      * @var string
@@ -399,6 +415,8 @@ class CreateDesktopGroupRequest extends Model
 
     /**
      * @description The session type of the shared group.
+     *
+     * >  This parameter is not publicly available.
      *
      * Valid values:
      *
@@ -448,6 +466,7 @@ class CreateDesktopGroupRequest extends Model
      * @description The ID of the policy.
      *
      * This parameter is required.
+     *
      * @example pg-9c2d6t2dwflqr****
      *
      * @var string
@@ -458,6 +477,7 @@ class CreateDesktopGroupRequest extends Model
      * @description Specifies whether to enable user data roaming.
      *
      * >  This parameter is not publicly available.
+     *
      * @example false
      *
      * @var bool
@@ -476,7 +496,12 @@ class CreateDesktopGroupRequest extends Model
     /**
      * @description The threshold for the ratio of connected sessions. This parameter defines the condition that activates automatic scaling of cloud computers in a multi-session shared group. The ratio of connected sessions is calculated by using the following formula:
      *
+     * `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`.
+     *
+     * If the connected session ratio exceeds the specified threshold, new cloud computers are provisioned. If the ratio falls below the threshold, idle cloud computers are deleted.
+     *
      * >  This parameter is not publicly available.
+     *
      * @example 0.5
      *
      * @var float
@@ -487,6 +512,7 @@ class CreateDesktopGroupRequest extends Model
      * @description The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -513,6 +539,7 @@ class CreateDesktopGroupRequest extends Model
      * @description The ID of the scaling policy.
      *
      * >  This parameter is not publicly available.
+     *
      * @example hide
      *
      * @var string
@@ -583,6 +610,7 @@ class CreateDesktopGroupRequest extends Model
      * @description The size of the system disk. Unit: GiB.
      *
      * >  The system disk must be at least as large as the image.
+     *
      * @example 80
      *
      * @var int
@@ -627,73 +655,72 @@ class CreateDesktopGroupRequest extends Model
      * @description The ID of the virtual private cloud (VPC).
      *
      * >  This parameter is not publicly available.
+     *
      * @example hide
      *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'allClassifyUsers'        => 'AllClassifyUsers',
-        'allowAutoSetup'          => 'AllowAutoSetup',
-        'allowBufferCount'        => 'AllowBufferCount',
-        'autoPay'                 => 'AutoPay',
-        'autoRenew'               => 'AutoRenew',
-        'bindAmount'              => 'BindAmount',
-        'bundleId'                => 'BundleId',
-        'buyDesktopsCount'        => 'BuyDesktopsCount',
-        'chargeType'              => 'ChargeType',
-        'classify'                => 'Classify',
-        'clientToken'             => 'ClientToken',
-        'comments'                => 'Comments',
-        'connectDuration'         => 'ConnectDuration',
-        'dataDiskCategory'        => 'DataDiskCategory',
-        'dataDiskPerLevel'        => 'DataDiskPerLevel',
-        'dataDiskSize'            => 'DataDiskSize',
+        'allClassifyUsers' => 'AllClassifyUsers',
+        'allowAutoSetup' => 'AllowAutoSetup',
+        'allowBufferCount' => 'AllowBufferCount',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'bindAmount' => 'BindAmount',
+        'bundleId' => 'BundleId',
+        'buyDesktopsCount' => 'BuyDesktopsCount',
+        'chargeType' => 'ChargeType',
+        'classify' => 'Classify',
+        'clientToken' => 'ClientToken',
+        'comments' => 'Comments',
+        'connectDuration' => 'ConnectDuration',
+        'dataDiskCategory' => 'DataDiskCategory',
+        'dataDiskPerLevel' => 'DataDiskPerLevel',
+        'dataDiskSize' => 'DataDiskSize',
         'defaultInitDesktopCount' => 'DefaultInitDesktopCount',
-        'defaultLanguage'         => 'DefaultLanguage',
-        'desktopGroupName'        => 'DesktopGroupName',
-        'desktopType'             => 'DesktopType',
-        'directoryId'             => 'DirectoryId',
-        'endUserIds'              => 'EndUserIds',
-        'exclusiveType'           => 'ExclusiveType',
-        'fileSystemId'            => 'FileSystemId',
-        'groupAmount'             => 'GroupAmount',
-        'groupVersion'            => 'GroupVersion',
-        'hostname'                => 'Hostname',
-        'idleDisconnectDuration'  => 'IdleDisconnectDuration',
-        'imageId'                 => 'ImageId',
-        'keepDuration'            => 'KeepDuration',
-        'loadPolicy'              => 'LoadPolicy',
-        'maxDesktopsCount'        => 'MaxDesktopsCount',
-        'minDesktopsCount'        => 'MinDesktopsCount',
-        'multiResource'           => 'MultiResource',
-        'officeSiteId'            => 'OfficeSiteId',
-        'ownType'                 => 'OwnType',
-        'period'                  => 'Period',
-        'periodUnit'              => 'PeriodUnit',
-        'policyGroupId'           => 'PolicyGroupId',
-        'profileFollowSwitch'     => 'ProfileFollowSwitch',
-        'promotionId'             => 'PromotionId',
-        'ratioThreshold'          => 'RatioThreshold',
-        'regionId'                => 'RegionId',
-        'resetType'               => 'ResetType',
-        'scaleStrategyId'         => 'ScaleStrategyId',
-        'sessionType'             => 'SessionType',
-        'snapshotPolicyId'        => 'SnapshotPolicyId',
-        'stopDuration'            => 'StopDuration',
-        'systemDiskCategory'      => 'SystemDiskCategory',
-        'systemDiskPerLevel'      => 'SystemDiskPerLevel',
-        'systemDiskSize'          => 'SystemDiskSize',
-        'tag'                     => 'Tag',
-        'timerGroupId'            => 'TimerGroupId',
+        'defaultLanguage' => 'DefaultLanguage',
+        'desktopGroupName' => 'DesktopGroupName',
+        'desktopType' => 'DesktopType',
+        'directoryId' => 'DirectoryId',
+        'endUserIds' => 'EndUserIds',
+        'exclusiveType' => 'ExclusiveType',
+        'fileSystemId' => 'FileSystemId',
+        'groupAmount' => 'GroupAmount',
+        'groupVersion' => 'GroupVersion',
+        'hostname' => 'Hostname',
+        'idleDisconnectDuration' => 'IdleDisconnectDuration',
+        'imageId' => 'ImageId',
+        'keepDuration' => 'KeepDuration',
+        'loadPolicy' => 'LoadPolicy',
+        'maxDesktopsCount' => 'MaxDesktopsCount',
+        'minDesktopsCount' => 'MinDesktopsCount',
+        'multiResource' => 'MultiResource',
+        'officeSiteId' => 'OfficeSiteId',
+        'ownType' => 'OwnType',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'policyGroupId' => 'PolicyGroupId',
+        'profileFollowSwitch' => 'ProfileFollowSwitch',
+        'promotionId' => 'PromotionId',
+        'ratioThreshold' => 'RatioThreshold',
+        'regionId' => 'RegionId',
+        'resetType' => 'ResetType',
+        'scaleStrategyId' => 'ScaleStrategyId',
+        'sessionType' => 'SessionType',
+        'snapshotPolicyId' => 'SnapshotPolicyId',
+        'stopDuration' => 'StopDuration',
+        'systemDiskCategory' => 'SystemDiskCategory',
+        'systemDiskPerLevel' => 'SystemDiskPerLevel',
+        'systemDiskSize' => 'SystemDiskSize',
+        'tag' => 'Tag',
+        'timerGroupId' => 'TimerGroupId',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
-        'volumeEncryptionKey'     => 'VolumeEncryptionKey',
-        'vpcId'                   => 'VpcId',
+        'volumeEncryptionKey' => 'VolumeEncryptionKey',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -1042,7 +1069,7 @@ class CreateDesktopGroupRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

@@ -31,14 +31,12 @@ class ModifyOfficeSiteDnsInfoRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'dnsAddress'   => 'DnsAddress',
+        'dnsAddress' => 'DnsAddress',
         'officeSiteId' => 'OfficeSiteId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

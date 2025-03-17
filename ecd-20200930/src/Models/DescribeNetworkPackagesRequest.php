@@ -57,6 +57,7 @@ class DescribeNetworkPackagesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -64,15 +65,13 @@ class DescribeNetworkPackagesRequest extends Model
     public $regionId;
     protected $_name = [
         'internetChargeType' => 'InternetChargeType',
-        'maxResults'         => 'MaxResults',
-        'networkPackageId'   => 'NetworkPackageId',
-        'nextToken'          => 'NextToken',
-        'regionId'           => 'RegionId',
+        'maxResults' => 'MaxResults',
+        'networkPackageId' => 'NetworkPackageId',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

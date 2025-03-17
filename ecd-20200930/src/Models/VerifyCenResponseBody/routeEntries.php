@@ -50,14 +50,12 @@ class routeEntries extends Model
     public $status;
     protected $_name = [
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'nextHopInstanceId'    => 'NextHopInstanceId',
-        'regionId'             => 'RegionId',
-        'status'               => 'Status',
+        'nextHopInstanceId' => 'NextHopInstanceId',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

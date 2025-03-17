@@ -35,9 +35,18 @@ class DescribeImagesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -128,9 +137,18 @@ class DescribeImagesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Windows
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Windows
      *
      * @var string
@@ -155,6 +173,7 @@ class DescribeImagesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -171,25 +190,23 @@ class DescribeImagesRequest extends Model
     public $sessionType;
     protected $_name = [
         'desktopInstanceType' => 'DesktopInstanceType',
-        'fotaVersion'         => 'FotaVersion',
-        'gpuCategory'         => 'GpuCategory',
-        'gpuDriverVersion'    => 'GpuDriverVersion',
-        'imageId'             => 'ImageId',
-        'imageName'           => 'ImageName',
-        'imageStatus'         => 'ImageStatus',
-        'imageType'           => 'ImageType',
-        'languageType'        => 'LanguageType',
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'osType'              => 'OsType',
-        'protocolType'        => 'ProtocolType',
-        'regionId'            => 'RegionId',
-        'sessionType'         => 'SessionType',
+        'fotaVersion' => 'FotaVersion',
+        'gpuCategory' => 'GpuCategory',
+        'gpuDriverVersion' => 'GpuDriverVersion',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
+        'imageStatus' => 'ImageStatus',
+        'imageType' => 'ImageType',
+        'languageType' => 'LanguageType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'osType' => 'OsType',
+        'protocolType' => 'ProtocolType',
+        'regionId' => 'RegionId',
+        'sessionType' => 'SessionType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -55,18 +55,16 @@ class cloudDriveUsers extends Model
      */
     public $userName;
     protected $_name = [
-        'driveId'   => 'DriveId',
+        'driveId' => 'DriveId',
         'endUserId' => 'EndUserId',
-        'status'    => 'Status',
+        'status' => 'Status',
         'totalSize' => 'TotalSize',
-        'usedSize'  => 'UsedSize',
-        'userId'    => 'UserId',
-        'userName'  => 'UserName',
+        'usedSize' => 'UsedSize',
+        'userId' => 'UserId',
+        'userName' => 'UserName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

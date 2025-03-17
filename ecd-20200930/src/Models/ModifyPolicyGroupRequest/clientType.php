@@ -11,6 +11,8 @@ class clientType extends Model
     /**
      * @description The type of the Alibaba Cloud Workspace client.
      *
+     * >  If you do not specify the `ClientType` parameter, all types of the client are allowed by default.
+     *
      * Valid values:
      *
      *   html5: web client
@@ -28,6 +30,8 @@ class clientType extends Model
     /**
      * @description Specifies whether to allow end users to use a specific type of the client to connect to cloud computers.
      *
+     * >  If you do not specify the `ClientType` parameter, all types of the client are allowed by default.
+     *
      * Valid values:
      *
      *   off
@@ -40,12 +44,10 @@ class clientType extends Model
     public $status;
     protected $_name = [
         'clientType' => 'ClientType',
-        'status'     => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

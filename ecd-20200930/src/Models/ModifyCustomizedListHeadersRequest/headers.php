@@ -12,6 +12,7 @@ class headers extends Model
      * @description The display type of the header.
      *
      * > For the desktop_id_name and office_site_id_name head keys, set the value of this parameter to required. For other header keys, set the value of this parameter to display or hide based on your requirements.
+     *
      * @example display
      *
      * @var string
@@ -21,9 +22,15 @@ class headers extends Model
     /**
      * @description The key of the header.
      *
+     * > All header keys of the list must be specified.
+     *
      * Valid values:
      *
      *   desktop_id_name: the IDs and names of the cloud computers.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -31,7 +38,15 @@ class headers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   office_site_type: the office network types of the cloud computers.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -39,7 +54,15 @@ class headers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   ip: the IP addresses of the cloud computers.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -47,7 +70,15 @@ class headers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   monitor: the monitoring information of the cloud computers.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -55,7 +86,15 @@ class headers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   encryption: indicates whether the cloud computers are encrypted.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -63,7 +102,15 @@ class headers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   pay_type: the billing methods of the cloud computers.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -71,7 +118,15 @@ class headers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   hostname: the hostnames of the cloud computers.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -79,9 +134,18 @@ class headers extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   current_user: the current end users of the cloud computers.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example pay_type
      *
      * @var string
@@ -89,12 +153,10 @@ class headers extends Model
     public $headerKey;
     protected $_name = [
         'displayType' => 'DisplayType',
-        'headerKey'   => 'HeaderKey',
+        'headerKey' => 'HeaderKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

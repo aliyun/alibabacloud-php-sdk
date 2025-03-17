@@ -81,18 +81,16 @@ class usbSupplyRedirectRule extends Model
      */
     public $vendorId;
     protected $_name = [
-        'description'     => 'Description',
-        'deviceClass'     => 'DeviceClass',
-        'deviceSubclass'  => 'DeviceSubclass',
-        'productId'       => 'ProductId',
+        'description' => 'Description',
+        'deviceClass' => 'DeviceClass',
+        'deviceSubclass' => 'DeviceSubclass',
+        'productId' => 'ProductId',
         'usbRedirectType' => 'UsbRedirectType',
-        'usbRuleType'     => 'UsbRuleType',
-        'vendorId'        => 'VendorId',
+        'usbRuleType' => 'UsbRuleType',
+        'vendorId' => 'VendorId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

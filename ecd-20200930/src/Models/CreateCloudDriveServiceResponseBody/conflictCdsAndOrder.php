@@ -20,13 +20,11 @@ class conflictCdsAndOrder extends Model
      */
     public $conflictOrder;
     protected $_name = [
-        'conflictCds'   => 'ConflictCds',
+        'conflictCds' => 'ConflictCds',
         'conflictOrder' => 'ConflictOrder',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -64,7 +62,7 @@ class conflictCdsAndOrder extends Model
         if (isset($map['ConflictCds'])) {
             if (!empty($map['ConflictCds'])) {
                 $model->conflictCds = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ConflictCds'] as $item) {
                     $model->conflictCds[$n++] = null !== $item ? conflictCds::fromMap($item) : $item;
                 }
@@ -73,7 +71,7 @@ class conflictCdsAndOrder extends Model
         if (isset($map['ConflictOrder'])) {
             if (!empty($map['ConflictOrder'])) {
                 $model->conflictOrder = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ConflictOrder'] as $item) {
                     $model->conflictOrder[$n++] = null !== $item ? conflictOrder::fromMap($item) : $item;
                 }

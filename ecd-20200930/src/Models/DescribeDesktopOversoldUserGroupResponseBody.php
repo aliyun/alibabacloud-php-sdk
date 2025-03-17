@@ -29,15 +29,13 @@ class DescribeDesktopOversoldUserGroupResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'count'     => 'Count',
-        'data'      => 'Data',
+        'count' => 'Count',
+        'data' => 'Data',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class DescribeDesktopOversoldUserGroupResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Data'] as $item) {
                     $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }

@@ -49,17 +49,15 @@ class DescribePolicyGroupsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'count'                => 'Count',
+        'count' => 'Count',
         'describePolicyGroups' => 'DescribePolicyGroups',
-        'nextToken'            => 'NextToken',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'requestId'            => 'RequestId',
+        'nextToken' => 'NextToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -106,7 +104,7 @@ class DescribePolicyGroupsResponseBody extends Model
         if (isset($map['DescribePolicyGroups'])) {
             if (!empty($map['DescribePolicyGroups'])) {
                 $model->describePolicyGroups = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['DescribePolicyGroups'] as $item) {
                     $model->describePolicyGroups[$n++] = null !== $item ? describePolicyGroups::fromMap($item) : $item;
                 }

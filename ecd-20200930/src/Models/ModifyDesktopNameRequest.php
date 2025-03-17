@@ -12,6 +12,7 @@ class ModifyDesktopNameRequest extends Model
      * @description The ID of the cloud computer.
      *
      * This parameter is required.
+     *
      * @example ecd-gx2x1dhsmucyy****
      *
      * @var string
@@ -26,6 +27,7 @@ class ModifyDesktopNameRequest extends Model
      *   The name can only contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -36,20 +38,19 @@ class ModifyDesktopNameRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'desktopId'      => 'DesktopId',
+        'desktopId' => 'DesktopId',
         'newDesktopName' => 'NewDesktopName',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

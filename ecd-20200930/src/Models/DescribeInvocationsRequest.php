@@ -27,6 +27,7 @@ class DescribeInvocationsRequest extends Model
      *   Base64
      *
      * Default value: Base64.
+     *
      * @example PlainText
      *
      * @var string
@@ -61,7 +62,11 @@ class DescribeInvocationsRequest extends Model
     /**
      * @description Specifies whether to return the execution results of all cloud computers if the command is executed on multiple cloud computers.
      *
+     * Valid values:
+     *
+     * - true: returned.
      * - false: not returned.
+     *
      * @example false
      *
      * @var bool
@@ -75,6 +80,7 @@ class DescribeInvocationsRequest extends Model
      *   false: does not return command outputs.
      *
      * Default value: false.
+     *
      * @example false
      *
      * @var bool
@@ -100,6 +106,7 @@ class DescribeInvocationsRequest extends Model
      *   Stopped: The execution is stopped.
      *
      * Default value: Running.
+     *
      * @example Finished
      *
      * @var string
@@ -131,29 +138,28 @@ class DescribeInvocationsRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'commandType'           => 'CommandType',
-        'contentEncoding'       => 'ContentEncoding',
-        'desktopId'             => 'DesktopId',
-        'desktopIds'            => 'DesktopIds',
-        'endUserId'             => 'EndUserId',
+        'commandType' => 'CommandType',
+        'contentEncoding' => 'ContentEncoding',
+        'desktopId' => 'DesktopId',
+        'desktopIds' => 'DesktopIds',
+        'endUserId' => 'EndUserId',
         'includeInvokeDesktops' => 'IncludeInvokeDesktops',
-        'includeOutput'         => 'IncludeOutput',
-        'invokeId'              => 'InvokeId',
-        'invokeStatus'          => 'InvokeStatus',
-        'maxResults'            => 'MaxResults',
-        'nextToken'             => 'NextToken',
-        'regionId'              => 'RegionId',
+        'includeOutput' => 'IncludeOutput',
+        'invokeId' => 'InvokeId',
+        'invokeStatus' => 'InvokeStatus',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

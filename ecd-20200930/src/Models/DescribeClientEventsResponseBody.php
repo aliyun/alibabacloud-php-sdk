@@ -34,14 +34,12 @@ class DescribeClientEventsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'events'    => 'Events',
+        'events' => 'Events',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeClientEventsResponseBody extends Model
         if (isset($map['Events'])) {
             if (!empty($map['Events'])) {
                 $model->events = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Events'] as $item) {
                     $model->events[$n++] = null !== $item ? events::fromMap($item) : $item;
                 }

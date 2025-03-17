@@ -21,6 +21,7 @@ class CopyImageRequest extends Model
      * @description The name of the new image. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * This parameter is required.
+     *
      * @example Office_Shanghai
      *
      * @var string
@@ -31,6 +32,7 @@ class CopyImageRequest extends Model
      * @description The ID of the destination region. The ID must be different from the current region ID of the image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-shenzhen
      *
      * @var string
@@ -41,6 +43,7 @@ class CopyImageRequest extends Model
      * @description The ID of the image that is copied to the destination region.
      *
      * This parameter is required.
+     *
      * @example m-gx2x1dhsmusr2****
      *
      * @var string
@@ -51,6 +54,7 @@ class CopyImageRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,15 +62,13 @@ class CopyImageRequest extends Model
     public $regionId;
     protected $_name = [
         'destinationDescription' => 'DestinationDescription',
-        'destinationImageName'   => 'DestinationImageName',
-        'destinationRegionId'    => 'DestinationRegionId',
-        'imageId'                => 'ImageId',
-        'regionId'               => 'RegionId',
+        'destinationImageName' => 'DestinationImageName',
+        'destinationRegionId' => 'DestinationRegionId',
+        'imageId' => 'ImageId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,13 +26,11 @@ class UploadImageResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'imageId'   => 'ImageId',
+        'imageId' => 'ImageId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

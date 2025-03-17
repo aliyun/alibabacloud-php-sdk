@@ -28,15 +28,13 @@ class DescribeDesktopOversoldUserGroupRequest extends Model
      */
     public $userGroupIds;
     protected $_name = [
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'oversoldGroupId' => 'OversoldGroupId',
-        'userGroupIds'    => 'UserGroupIds',
+        'userGroupIds' => 'UserGroupIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

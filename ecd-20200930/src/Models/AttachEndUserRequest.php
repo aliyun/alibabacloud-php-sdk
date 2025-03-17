@@ -25,6 +25,7 @@ class AttachEndUserRequest extends Model
      *   1: hardware client.
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -35,6 +36,7 @@ class AttachEndUserRequest extends Model
      * @description The serial number (SN) of the hardware client.
      *
      * This parameter is required.
+     *
      * @example 111810122200F0C24CF7F1BF-*05AY****
      *
      * @var string
@@ -54,6 +56,7 @@ class AttachEndUserRequest extends Model
      * @description The ID of the user that you want to bind to the hardware client.
      *
      * This parameter is required.
+     *
      * @example moli
      *
      * @var string
@@ -83,18 +86,16 @@ class AttachEndUserRequest extends Model
      */
     public $userType;
     protected $_name = [
-        'adDomain'    => 'AdDomain',
-        'clientType'  => 'ClientType',
-        'deviceId'    => 'DeviceId',
+        'adDomain' => 'AdDomain',
+        'clientType' => 'ClientType',
+        'deviceId' => 'DeviceId',
         'directoryId' => 'DirectoryId',
-        'endUserId'   => 'EndUserId',
-        'regionId'    => 'RegionId',
-        'userType'    => 'UserType',
+        'endUserId' => 'EndUserId',
+        'regionId' => 'RegionId',
+        'userType' => 'UserType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -27,12 +27,10 @@ class CreateSimpleOfficeSiteResponseBody extends Model
     public $requestId;
     protected $_name = [
         'officeSiteId' => 'OfficeSiteId',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

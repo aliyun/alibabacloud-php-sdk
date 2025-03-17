@@ -21,6 +21,7 @@ class CreateAndBindNasFileSystemRequest extends Model
      * @description The ID of the desktop group.
      *
      * This parameter is required.
+     *
      * @example dg-fh0vdzyh6rdc*****
      *
      * @var string
@@ -35,6 +36,7 @@ class CreateAndBindNasFileSystemRequest extends Model
      *   2: encrypts data in the NAS file system by using a KMS-managed key. `If` you set FileSystemType`  to  `extreme`, you can use a KMS-managed key to encrypt data in a NAS file system.`
      *
      * Default value: 0.
+     *
      * @example 0
      *
      * @var int
@@ -52,6 +54,7 @@ class CreateAndBindNasFileSystemRequest extends Model
      * @description The name of the NAS file system.
      *
      * This parameter is required.
+     *
      * @example szy-asp-upm-test
      *
      * @var string
@@ -62,6 +65,7 @@ class CreateAndBindNasFileSystemRequest extends Model
      * @description The ID of the workspace.
      *
      * This parameter is required.
+     *
      * @example cn-beijing+dir-15657*****
      *
      * @var string
@@ -72,6 +76,7 @@ class CreateAndBindNasFileSystemRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -84,26 +89,27 @@ class CreateAndBindNasFileSystemRequest extends Model
      *   Capacity
      *   Performance
      *
+     * Default value: Capacity.
+     *
      * This parameter is required.
+     *
      * @example Capacity
      *
      * @var string
      */
     public $storageType;
     protected $_name = [
-        'description'    => 'Description',
+        'description' => 'Description',
         'desktopGroupId' => 'DesktopGroupId',
-        'encryptType'    => 'EncryptType',
-        'endUserIds'     => 'EndUserIds',
+        'encryptType' => 'EncryptType',
+        'endUserIds' => 'EndUserIds',
         'fileSystemName' => 'FileSystemName',
-        'officeSiteId'   => 'OfficeSiteId',
-        'regionId'       => 'RegionId',
-        'storageType'    => 'StorageType',
+        'officeSiteId' => 'OfficeSiteId',
+        'regionId' => 'RegionId',
+        'storageType' => 'StorageType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

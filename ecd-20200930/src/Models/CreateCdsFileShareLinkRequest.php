@@ -12,6 +12,7 @@ class CreateCdsFileShareLinkRequest extends Model
      * @description The ID of the cloud disk.
      *
      * This parameter is required.
+     *
      * @example cn-shanghai+cds-135515****
      *
      * @var string
@@ -32,11 +33,32 @@ class CreateCdsFileShareLinkRequest extends Model
      *
      *   true
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * prohibits file download
+     *
+     * <!-- -->
+     *
      * .
      *
      *   false
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * allows file download
+     *
+     * <!-- -->
+     *
      * .
+     *
      * @example false
      *
      * @var bool
@@ -50,11 +72,32 @@ class CreateCdsFileShareLinkRequest extends Model
      *
      *   true
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * prohibits file preview
+     *
+     * <!-- -->
+     *
      * .
      *
      *   false
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * allows file preview
+     *
+     * <!-- -->
+     *
      * .
+     *
      * @example false
      *
      * @var bool
@@ -68,11 +111,32 @@ class CreateCdsFileShareLinkRequest extends Model
      *
      *   true
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * prohibits file dump
+     *
+     * <!-- -->
+     *
      * .
      *
      *   false
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * allows file dump
+     *
+     * <!-- -->
+     *
      * .
+     *
      * @example false
      *
      * @var bool
@@ -154,25 +218,23 @@ class CreateCdsFileShareLinkRequest extends Model
      */
     public $sharePwd;
     protected $_name = [
-        'cdsId'           => 'CdsId',
-        'description'     => 'Description',
+        'cdsId' => 'CdsId',
+        'description' => 'Description',
         'disableDownload' => 'DisableDownload',
-        'disablePreview'  => 'DisablePreview',
-        'disableSave'     => 'DisableSave',
-        'downloadLimit'   => 'DownloadLimit',
-        'endUserId'       => 'EndUserId',
-        'expiration'      => 'Expiration',
-        'fileIds'         => 'FileIds',
-        'groupId'         => 'GroupId',
-        'previewLimit'    => 'PreviewLimit',
-        'saveLimit'       => 'SaveLimit',
-        'shareName'       => 'ShareName',
-        'sharePwd'        => 'SharePwd',
+        'disablePreview' => 'DisablePreview',
+        'disableSave' => 'DisableSave',
+        'downloadLimit' => 'DownloadLimit',
+        'endUserId' => 'EndUserId',
+        'expiration' => 'Expiration',
+        'fileIds' => 'FileIds',
+        'groupId' => 'GroupId',
+        'previewLimit' => 'PreviewLimit',
+        'saveLimit' => 'SaveLimit',
+        'shareName' => 'ShareName',
+        'sharePwd' => 'SharePwd',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

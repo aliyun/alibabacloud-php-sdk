@@ -97,20 +97,18 @@ class data extends Model
      */
     public $type;
     protected $_name = [
-        'bindCount'    => 'BindCount',
+        'bindCount' => 'BindCount',
         'bindCountMap' => 'BindCountMap',
         'configTimers' => 'ConfigTimers',
-        'description'  => 'Description',
-        'groupId'      => 'GroupId',
-        'name'         => 'Name',
-        'productType'  => 'ProductType',
-        'status'       => 'Status',
-        'type'         => 'Type',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'name' => 'Name',
+        'productType' => 'ProductType',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -169,7 +167,7 @@ class data extends Model
         if (isset($map['ConfigTimers'])) {
             if (!empty($map['ConfigTimers'])) {
                 $model->configTimers = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ConfigTimers'] as $item) {
                     $model->configTimers[$n++] = null !== $item ? configTimers::fromMap($item) : $item;
                 }

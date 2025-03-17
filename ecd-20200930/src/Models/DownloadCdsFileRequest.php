@@ -45,16 +45,14 @@ class DownloadCdsFileRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'cdsId'     => 'CdsId',
+        'cdsId' => 'CdsId',
         'endUserId' => 'EndUserId',
-        'fileId'    => 'FileId',
-        'groupId'   => 'GroupId',
-        'regionId'  => 'RegionId',
+        'fileId' => 'FileId',
+        'groupId' => 'GroupId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

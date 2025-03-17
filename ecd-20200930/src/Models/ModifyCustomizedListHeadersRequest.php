@@ -24,6 +24,11 @@ class ModifyCustomizedListHeadersRequest extends Model
      *   desktop: cloud computer
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example desktop
      *
      * @var string
@@ -34,20 +39,19 @@ class ModifyCustomizedListHeadersRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'headers'  => 'Headers',
+        'headers' => 'Headers',
         'listType' => 'ListType',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +86,7 @@ class ModifyCustomizedListHeadersRequest extends Model
         if (isset($map['Headers'])) {
             if (!empty($map['Headers'])) {
                 $model->headers = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Headers'] as $item) {
                     $model->headers[$n++] = null !== $item ? headers::fromMap($item) : $item;
                 }

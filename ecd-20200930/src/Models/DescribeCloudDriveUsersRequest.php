@@ -47,16 +47,14 @@ class DescribeCloudDriveUsersRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'cdsId'      => 'CdsId',
-        'endUserId'  => 'EndUserId',
+        'cdsId' => 'CdsId',
+        'endUserId' => 'EndUserId',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

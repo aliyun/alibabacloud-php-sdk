@@ -29,6 +29,7 @@ class ModifyDesktopGroupRequest extends Model
      *   N: allows the system to reserve N cloud computers (1≤ N ≤ 100).
      *
      * >  If you set this parameter to 0, the system must create and start cloud computers and then assign the cloud computers to end users when the end users request cloud computers. This process is time-consuming. To improve user experience, we recommend that you reserve a specific number of cloud computers.
+     *
      * @example 1
      *
      * @var int
@@ -39,6 +40,7 @@ class ModifyDesktopGroupRequest extends Model
      * @description The number of concurrent sessions that is allowed for each cloud computer in a multi-session cloud computer pool.
      *
      * >  This parameter is unavailable.
+     *
      * @example 1
      *
      * @var int
@@ -58,15 +60,26 @@ class ModifyDesktopGroupRequest extends Model
     /**
      * @description The role that uses the cloud computer pool.
      *
+     * >  This parameter is unavailable.
+     *
      * Valid values:
      *
      *   teacher
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   student
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example teacher
      *
      * @var string
@@ -95,6 +108,7 @@ class ModifyDesktopGroupRequest extends Model
      * @description The ID of the cloud computer pool.
      *
      * This parameter is required.
+     *
      * @example dg-2i8qxpv6t1a03****
      *
      * @var string
@@ -123,6 +137,7 @@ class ModifyDesktopGroupRequest extends Model
      * @description The ID of the File Storage NAS (NAS) file system for the user data roaming feature.
      *
      * >  This parameter is unavailable.
+     *
      * @example 04f314****
      *
      * @var string
@@ -132,7 +147,10 @@ class ModifyDesktopGroupRequest extends Model
     /**
      * @description After an end user connects to a cloud computer, the session is established. If the system does not detect inputs from the keyboard or mouse within the specified period of time, the session is closed. Unit: milliseconds. Valid values: 360000 to 3600000 (6 minutes to 60 minutes)
      *
+     * End users can receive a prompt to save data before sessions are disconnected. The system sends the prompt 30 seconds before the specified period of time is reached. To prevent data loss, end users must save the data of the sessions.
+     *
      * >  This parameter is suitable only for cloud computers whose image version is v1.0.2 or later.
+     *
      * @example 120000
      *
      * @var int
@@ -152,6 +170,7 @@ class ModifyDesktopGroupRequest extends Model
      * @description The retention period of a session after it is disconnected. Unit: milliseconds. Valid values: 180000 to 345600000. That is, the session can be retained for 3 to 5,760 minutes (4 days) after it is disconnected. If you set this parameter to 0, the session is permanently retained after it is disconnected.
      *
      * When a session is disconnected, take note of the following situations: If an end user does not resume the session within the specified duration, the session is closed and all unsaved data is cleared. If the end user resumes the session within the specified duration, the end user can continue to access data of the session.
+     *
      * @example 1000
      *
      * @var int
@@ -160,6 +179,8 @@ class ModifyDesktopGroupRequest extends Model
 
     /**
      * @description The load balancing policy of the multi-session cloud computer pool.
+     *
+     * >  This parameter is unavailable.
      *
      * Valid values:
      *
@@ -219,6 +240,7 @@ class ModifyDesktopGroupRequest extends Model
      * @description Specifies whether to enable user data roaming.
      *
      * >  This parameter is unavailable.
+     *
      * @example false
      *
      * @var bool
@@ -228,7 +250,12 @@ class ModifyDesktopGroupRequest extends Model
     /**
      * @description The threshold for the ratio of connected sessions. This parameter indicates the condition that triggers auto scaling in a multi-session cloud computer pool. The ratio of connected sessions IS calculated by using the following formula:
      *
+     * `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`
+     *
+     * If the ratio of connected sessions is greater than the specified value, new cloud computers are created. If the ratio of connected sessions is smaller than the specified value, idle cloud computers are deleted.
+     *
      * >  This parameter is unavailable.
+     *
      * @example 0.5
      *
      * @var float
@@ -239,6 +266,7 @@ class ModifyDesktopGroupRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -268,6 +296,7 @@ class ModifyDesktopGroupRequest extends Model
      * @description The ID of the scaling policy group.
      *
      * >  This parameter is unavailable.
+     *
      * @example s-kakowkdl****
      *
      * @var string
@@ -283,37 +312,35 @@ class ModifyDesktopGroupRequest extends Model
      */
     public $stopDuration;
     protected $_name = [
-        'allowAutoSetup'         => 'AllowAutoSetup',
-        'allowBufferCount'       => 'AllowBufferCount',
-        'bindAmount'             => 'BindAmount',
-        'buyDesktopsCount'       => 'BuyDesktopsCount',
-        'classify'               => 'Classify',
-        'comments'               => 'Comments',
-        'connectDuration'        => 'ConnectDuration',
-        'desktopGroupId'         => 'DesktopGroupId',
-        'desktopGroupName'       => 'DesktopGroupName',
-        'disableSessionConfig'   => 'DisableSessionConfig',
-        'fileSystemId'           => 'FileSystemId',
+        'allowAutoSetup' => 'AllowAutoSetup',
+        'allowBufferCount' => 'AllowBufferCount',
+        'bindAmount' => 'BindAmount',
+        'buyDesktopsCount' => 'BuyDesktopsCount',
+        'classify' => 'Classify',
+        'comments' => 'Comments',
+        'connectDuration' => 'ConnectDuration',
+        'desktopGroupId' => 'DesktopGroupId',
+        'desktopGroupName' => 'DesktopGroupName',
+        'disableSessionConfig' => 'DisableSessionConfig',
+        'fileSystemId' => 'FileSystemId',
         'idleDisconnectDuration' => 'IdleDisconnectDuration',
-        'imageId'                => 'ImageId',
-        'keepDuration'           => 'KeepDuration',
-        'loadPolicy'             => 'LoadPolicy',
-        'maxDesktopsCount'       => 'MaxDesktopsCount',
-        'minDesktopsCount'       => 'MinDesktopsCount',
-        'ownBundleId'            => 'OwnBundleId',
-        'policyGroupId'          => 'PolicyGroupId',
-        'policyGroupIds'         => 'PolicyGroupIds',
-        'profileFollowSwitch'    => 'ProfileFollowSwitch',
-        'ratioThreshold'         => 'RatioThreshold',
-        'regionId'               => 'RegionId',
-        'resetType'              => 'ResetType',
-        'scaleStrategyId'        => 'ScaleStrategyId',
-        'stopDuration'           => 'StopDuration',
+        'imageId' => 'ImageId',
+        'keepDuration' => 'KeepDuration',
+        'loadPolicy' => 'LoadPolicy',
+        'maxDesktopsCount' => 'MaxDesktopsCount',
+        'minDesktopsCount' => 'MinDesktopsCount',
+        'ownBundleId' => 'OwnBundleId',
+        'policyGroupId' => 'PolicyGroupId',
+        'policyGroupIds' => 'PolicyGroupIds',
+        'profileFollowSwitch' => 'ProfileFollowSwitch',
+        'ratioThreshold' => 'RatioThreshold',
+        'regionId' => 'RegionId',
+        'resetType' => 'ResetType',
+        'scaleStrategyId' => 'ScaleStrategyId',
+        'stopDuration' => 'StopDuration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,6 +17,7 @@ class AddDevicesRequest extends Model
      *   2: software client.
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -27,6 +28,7 @@ class AddDevicesRequest extends Model
      * @description The IDs of the devices. You can specify up to 200 IDs.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $deviceIds;
@@ -41,13 +43,11 @@ class AddDevicesRequest extends Model
     public $regionId;
     protected $_name = [
         'clientType' => 'ClientType',
-        'deviceIds'  => 'DeviceIds',
-        'regionId'   => 'RegionId',
+        'deviceIds' => 'DeviceIds',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -50,15 +50,13 @@ class VerifyCenResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'cidrBlocks'   => 'CidrBlocks',
-        'requestId'    => 'RequestId',
+        'cidrBlocks' => 'CidrBlocks',
+        'requestId' => 'RequestId',
         'routeEntries' => 'RouteEntries',
-        'status'       => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -104,7 +102,7 @@ class VerifyCenResponseBody extends Model
         if (isset($map['RouteEntries'])) {
             if (!empty($map['RouteEntries'])) {
                 $model->routeEntries = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['RouteEntries'] as $item) {
                     $model->routeEntries[$n++] = null !== $item ? routeEntries::fromMap($item) : $item;
                 }

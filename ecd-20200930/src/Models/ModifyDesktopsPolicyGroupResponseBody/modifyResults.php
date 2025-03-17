@@ -35,14 +35,12 @@ class modifyResults extends Model
      */
     public $message;
     protected $_name = [
-        'code'      => 'Code',
+        'code' => 'Code',
         'desktopId' => 'DesktopId',
-        'message'   => 'Message',
+        'message' => 'Message',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

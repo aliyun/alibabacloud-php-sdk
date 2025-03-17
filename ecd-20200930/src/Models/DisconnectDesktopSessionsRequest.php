@@ -22,6 +22,7 @@ class DisconnectDesktopSessionsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +33,7 @@ class DisconnectDesktopSessionsRequest extends Model
      * @description The session details.
      *
      * This parameter is required.
+     *
      * @var sessions[]
      */
     public $sessions;
@@ -41,9 +43,7 @@ class DisconnectDesktopSessionsRequest extends Model
         'sessions' => 'Sessions',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -84,7 +84,7 @@ class DisconnectDesktopSessionsRequest extends Model
         if (isset($map['Sessions'])) {
             if (!empty($map['Sessions'])) {
                 $model->sessions = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Sessions'] as $item) {
                     $model->sessions[$n++] = null !== $item ? sessions::fromMap($item) : $item;
                 }

@@ -49,15 +49,13 @@ class endUserList extends Model
      */
     public $userType;
     protected $_name = [
-        'adDomain'    => 'AdDomain',
+        'adDomain' => 'AdDomain',
         'directoryId' => 'DirectoryId',
-        'endUserId'   => 'EndUserId',
-        'userType'    => 'UserType',
+        'endUserId' => 'EndUserId',
+        'userType' => 'UserType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

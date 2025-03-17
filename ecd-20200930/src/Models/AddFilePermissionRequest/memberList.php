@@ -13,6 +13,7 @@ class memberList extends Model
      * @description The user of the cloud disk.
      *
      * This parameter is required.
+     *
      * @var cdsIdentity
      */
     public $cdsIdentity;
@@ -55,21 +56,20 @@ class memberList extends Model
      * SystemFileMetaViewer
      *
      * This parameter is required.
+     *
      * @example SystemFileUploaderAndDownloader
      *
      * @var string
      */
     public $roleId;
     protected $_name = [
-        'cdsIdentity'        => 'CdsIdentity',
+        'cdsIdentity' => 'CdsIdentity',
         'disinheritSubGroup' => 'DisinheritSubGroup',
-        'expireTime'         => 'ExpireTime',
-        'roleId'             => 'RoleId',
+        'expireTime' => 'ExpireTime',
+        'roleId' => 'RoleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -116,19 +116,17 @@ class configTimers extends Model
     public $triggerType;
     protected $_name = [
         'allowClientSetting' => 'AllowClientSetting',
-        'cronExpression'     => 'CronExpression',
-        'enforce'            => 'Enforce',
-        'interval'           => 'Interval',
-        'operationType'      => 'OperationType',
-        'processWhitelist'   => 'ProcessWhitelist',
-        'resetType'          => 'ResetType',
-        'timerType'          => 'TimerType',
-        'triggerType'        => 'TriggerType',
+        'cronExpression' => 'CronExpression',
+        'enforce' => 'Enforce',
+        'interval' => 'Interval',
+        'operationType' => 'OperationType',
+        'processWhitelist' => 'ProcessWhitelist',
+        'resetType' => 'ResetType',
+        'timerType' => 'TimerType',
+        'triggerType' => 'TriggerType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

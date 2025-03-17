@@ -12,6 +12,7 @@ class ModifyCloudDriveGroupsRequest extends Model
      * @description The ID of the cloud disk in Cloud Drive Service.
      *
      * This parameter is required.
+     *
      * @example cn-shanghai+cds-135515****
      *
      * @var string
@@ -29,6 +30,7 @@ class ModifyCloudDriveGroupsRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +44,7 @@ class ModifyCloudDriveGroupsRequest extends Model
      *   disabled
      *
      * Default value: enabled.
+     *
      * @example disabled
      *
      * @var string
@@ -57,16 +60,14 @@ class ModifyCloudDriveGroupsRequest extends Model
      */
     public $totalSize;
     protected $_name = [
-        'cdsId'     => 'CdsId',
-        'groupId'   => 'GroupId',
-        'regionId'  => 'RegionId',
-        'status'    => 'Status',
+        'cdsId' => 'CdsId',
+        'groupId' => 'GroupId',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
         'totalSize' => 'TotalSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

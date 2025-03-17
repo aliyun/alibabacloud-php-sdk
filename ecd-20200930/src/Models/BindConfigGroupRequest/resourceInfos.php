@@ -53,15 +53,13 @@ class resourceInfos extends Model
      */
     public $resourceType;
     protected $_name = [
-        'productType'      => 'ProductType',
-        'resourceId'       => 'ResourceId',
+        'productType' => 'ProductType',
+        'resourceId' => 'ResourceId',
         'resourceRegionId' => 'ResourceRegionId',
-        'resourceType'     => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

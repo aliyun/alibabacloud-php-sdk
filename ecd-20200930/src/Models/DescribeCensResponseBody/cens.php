@@ -40,11 +40,18 @@ class cens extends Model
     /**
      * @description The IPv6 level.
      *
+     * >  IPv6 is not supported.
+     *
      * Valid value:
      *
      *   DISABLED
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example DISABLED
      *
      * @var string
@@ -89,13 +96,26 @@ class cens extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Active
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   Deleting
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Active
      *
      * @var string
@@ -109,20 +129,18 @@ class cens extends Model
      */
     public $tags;
     protected $_name = [
-        'cenId'           => 'CenId',
-        'creationTime'    => 'CreationTime',
-        'description'     => 'Description',
-        'ipv6Level'       => 'Ipv6Level',
-        'name'            => 'Name',
-        'packageIds'      => 'PackageIds',
+        'cenId' => 'CenId',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'ipv6Level' => 'Ipv6Level',
+        'name' => 'Name',
+        'packageIds' => 'PackageIds',
         'protectionLevel' => 'ProtectionLevel',
-        'status'          => 'Status',
-        'tags'            => 'Tags',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -196,7 +214,7 @@ class cens extends Model
         if (isset($map['PackageIds'])) {
             if (!empty($map['PackageIds'])) {
                 $model->packageIds = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['PackageIds'] as $item) {
                     $model->packageIds[$n++] = null !== $item ? packageIds::fromMap($item) : $item;
                 }
@@ -211,7 +229,7 @@ class cens extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

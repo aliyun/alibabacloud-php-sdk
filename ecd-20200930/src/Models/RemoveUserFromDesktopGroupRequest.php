@@ -28,6 +28,7 @@ class RemoveUserFromDesktopGroupRequest extends Model
      * @description The IDs of the authorized users that you want to remove.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $endUserIds;
@@ -36,21 +37,20 @@ class RemoveUserFromDesktopGroupRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'desktopGroupId'  => 'DesktopGroupId',
+        'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupIds' => 'DesktopGroupIds',
-        'endUserIds'      => 'EndUserIds',
-        'regionId'        => 'RegionId',
+        'endUserIds' => 'EndUserIds',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

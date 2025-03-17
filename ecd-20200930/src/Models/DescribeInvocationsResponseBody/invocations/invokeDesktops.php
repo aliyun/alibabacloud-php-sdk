@@ -167,25 +167,23 @@ class invokeDesktops extends Model
      */
     public $updateTime;
     protected $_name = [
-        'creationTime'     => 'CreationTime',
-        'desktopId'        => 'DesktopId',
-        'desktopName'      => 'DesktopName',
-        'dropped'          => 'Dropped',
-        'errorCode'        => 'ErrorCode',
-        'errorInfo'        => 'ErrorInfo',
-        'exitCode'         => 'ExitCode',
-        'finishTime'       => 'FinishTime',
+        'creationTime' => 'CreationTime',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
+        'dropped' => 'Dropped',
+        'errorCode' => 'ErrorCode',
+        'errorInfo' => 'ErrorInfo',
+        'exitCode' => 'ExitCode',
+        'finishTime' => 'FinishTime',
         'invocationStatus' => 'InvocationStatus',
-        'output'           => 'Output',
-        'repeats'          => 'Repeats',
-        'startTime'        => 'StartTime',
-        'stopTime'         => 'StopTime',
-        'updateTime'       => 'UpdateTime',
+        'output' => 'Output',
+        'repeats' => 'Repeats',
+        'startTime' => 'StartTime',
+        'stopTime' => 'StopTime',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

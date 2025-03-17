@@ -35,13 +35,11 @@ class DescribeNASFileSystemsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'fileSystems' => 'FileSystems',
-        'nextToken'   => 'NextToken',
-        'requestId'   => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeNASFileSystemsResponseBody extends Model
         if (isset($map['FileSystems'])) {
             if (!empty($map['FileSystems'])) {
                 $model->fileSystems = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['FileSystems'] as $item) {
                     $model->fileSystems[$n++] = null !== $item ? fileSystems::fromMap($item) : $item;
                 }

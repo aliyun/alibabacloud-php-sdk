@@ -35,13 +35,11 @@ class DescribeAutoSnapshotPolicyResponseBody extends Model
     public $requestId;
     protected $_name = [
         'autoSnapshotPolicies' => 'AutoSnapshotPolicies',
-        'nextToken'            => 'NextToken',
-        'requestId'            => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeAutoSnapshotPolicyResponseBody extends Model
         if (isset($map['AutoSnapshotPolicies'])) {
             if (!empty($map['AutoSnapshotPolicies'])) {
                 $model->autoSnapshotPolicies = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['AutoSnapshotPolicies'] as $item) {
                     $model->autoSnapshotPolicies[$n++] = null !== $item ? autoSnapshotPolicies::fromMap($item) : $item;
                 }

@@ -25,12 +25,10 @@ class ListFilePermissionResponseBody extends Model
     public $requestId;
     protected $_name = [
         'filePermissions' => 'FilePermissions',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -62,7 +60,7 @@ class ListFilePermissionResponseBody extends Model
         if (isset($map['FilePermissions'])) {
             if (!empty($map['FilePermissions'])) {
                 $model->filePermissions = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['FilePermissions'] as $item) {
                     $model->filePermissions[$n++] = null !== $item ? FilePermissionMember::fromMap($item) : $item;
                 }

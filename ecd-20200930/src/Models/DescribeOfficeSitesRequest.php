@@ -47,9 +47,18 @@ class DescribeOfficeSitesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   AD_CONNECTOR: enterprise Active Directory (AD) account
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example SIMPLE
      *
      * @var string
@@ -60,6 +69,7 @@ class DescribeOfficeSitesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -89,7 +99,15 @@ class DescribeOfficeSitesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DEREGISTERING: The office network is being deregistered.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -97,7 +115,15 @@ class DescribeOfficeSitesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   NEEDCONFIGTRUST: A trust relationship is required for the office network.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -105,7 +131,15 @@ class DescribeOfficeSitesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DEREGISTERED: The office network is deregistered.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -113,31 +147,42 @@ class DescribeOfficeSitesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   CONFIGTRUSTING: A trust relationship is being configured for the office network.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   NEEDCONFIGUSER: Users are required for the office network.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example REGISTERED
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'maxResults'         => 'MaxResults',
-        'nextToken'          => 'NextToken',
-        'officeSiteId'       => 'OfficeSiteId',
-        'officeSiteType'     => 'OfficeSiteType',
-        'regionId'           => 'RegionId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteType' => 'OfficeSiteType',
+        'regionId' => 'RegionId',
         'securityProtection' => 'SecurityProtection',
-        'status'             => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

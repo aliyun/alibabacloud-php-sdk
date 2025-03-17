@@ -80,9 +80,18 @@ class images extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   CUSTOM
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example SYSTEM
      *
      * @var string
@@ -116,7 +125,15 @@ class images extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Windows Server 2022
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -124,7 +141,15 @@ class images extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   CentOS
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -132,13 +157,26 @@ class images extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   SQL Server 2016
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   Windows 10
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Windows Server 2019
      *
      * @var string
@@ -210,13 +248,26 @@ class images extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Available
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   CreateFailed
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Available
      *
      * @var string
@@ -257,32 +308,30 @@ class images extends Model
      */
     public $volumeEncryptionKey;
     protected $_name = [
-        'appVersion'              => 'AppVersion',
-        'creationTime'            => 'CreationTime',
-        'dataDiskSize'            => 'DataDiskSize',
-        'description'             => 'Description',
-        'gpuCategory'             => 'GpuCategory',
-        'gpuDriverVersion'        => 'GpuDriverVersion',
-        'imageId'                 => 'ImageId',
-        'imageType'               => 'ImageType',
-        'name'                    => 'Name',
-        'osType'                  => 'OsType',
-        'platform'                => 'Platform',
-        'progress'                => 'Progress',
-        'protocolType'            => 'ProtocolType',
-        'sessionType'             => 'SessionType',
-        'sharedCount'             => 'SharedCount',
-        'size'                    => 'Size',
-        'status'                  => 'Status',
-        'supportedLanguages'      => 'SupportedLanguages',
-        'updateTime'              => 'UpdateTime',
+        'appVersion' => 'AppVersion',
+        'creationTime' => 'CreationTime',
+        'dataDiskSize' => 'DataDiskSize',
+        'description' => 'Description',
+        'gpuCategory' => 'GpuCategory',
+        'gpuDriverVersion' => 'GpuDriverVersion',
+        'imageId' => 'ImageId',
+        'imageType' => 'ImageType',
+        'name' => 'Name',
+        'osType' => 'OsType',
+        'platform' => 'Platform',
+        'progress' => 'Progress',
+        'protocolType' => 'ProtocolType',
+        'sessionType' => 'SessionType',
+        'sharedCount' => 'SharedCount',
+        'size' => 'Size',
+        'status' => 'Status',
+        'supportedLanguages' => 'SupportedLanguages',
+        'updateTime' => 'UpdateTime',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
-        'volumeEncryptionKey'     => 'VolumeEncryptionKey',
+        'volumeEncryptionKey' => 'VolumeEncryptionKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

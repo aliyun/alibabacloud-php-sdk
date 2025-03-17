@@ -40,12 +40,10 @@ class clientTypes extends Model
     public $status;
     protected $_name = [
         'clientType' => 'ClientType',
-        'status'     => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

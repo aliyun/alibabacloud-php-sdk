@@ -13,6 +13,7 @@ class TagResourcesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +24,7 @@ class TagResourcesRequest extends Model
      * @description The resource IDs, which are cloud computer IDs. You can specify 1 to 50 IDs.
      *
      * This parameter is required.
+     *
      * @example ecd-ia2zw38bi6cm7****
      *
      * @var string[]
@@ -37,6 +39,7 @@ class TagResourcesRequest extends Model
      * ALIYUN::GWS::INSTANCE: cloud computer.
      *
      * This parameter is required.
+     *
      * @example ALIYUN::GWS::INSTANCE
      *
      * @var string
@@ -47,19 +50,18 @@ class TagResourcesRequest extends Model
      * @description The tags that you want to add to the cloud computers. You can specify 1 to 20 tags.
      *
      * This parameter is required.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +110,7 @@ class TagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

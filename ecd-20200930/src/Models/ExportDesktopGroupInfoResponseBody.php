@@ -38,12 +38,10 @@ class ExportDesktopGroupInfoResponseBody extends Model
     public $url;
     protected $_name = [
         'requestId' => 'RequestId',
-        'url'       => 'Url',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

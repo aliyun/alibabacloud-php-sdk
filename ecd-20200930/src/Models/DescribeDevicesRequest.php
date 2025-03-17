@@ -26,6 +26,7 @@ class DescribeDevicesRequest extends Model
      *   2: software client.
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var string
@@ -100,20 +101,18 @@ class DescribeDevicesRequest extends Model
      */
     public $userType;
     protected $_name = [
-        'adDomain'    => 'AdDomain',
-        'clientType'  => 'ClientType',
-        'deviceId'    => 'DeviceId',
+        'adDomain' => 'AdDomain',
+        'clientType' => 'ClientType',
+        'deviceId' => 'DeviceId',
         'directoryId' => 'DirectoryId',
-        'endUserId'   => 'EndUserId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'region'      => 'Region',
-        'userType'    => 'UserType',
+        'endUserId' => 'EndUserId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'region' => 'Region',
+        'userType' => 'UserType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

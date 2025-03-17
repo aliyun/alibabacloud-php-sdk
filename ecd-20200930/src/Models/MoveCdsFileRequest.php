@@ -24,19 +24,44 @@ class MoveCdsFileRequest extends Model
      *
      *   <!-- -->
      *
+     * refuse
+     *
+     * <!-- -->
+     *
+     * : If you want to create a file that uses the same name as an existing file in the cloud, the system denies your request and returns the details of the existing file.
+     *
      * <!-- -->
      *
      *   <!-- -->
      *
+     * auto_rename
+     *
+     * <!-- -->
+     *
+     * : If you want to create a file that uses the same name as an existing file in the cloud, the system renames the file that you want to create by appending the current time point.
+     *
      * <!-- -->
      *
      *   <!-- -->
      *
+     * ignore
+     *
+     * <!-- -->
+     *
+     * : The system allows you to create a file that uses the same name as an existing file in the cloud.
+     *
      * <!-- -->
      *
      *   <!-- -->
      *
+     * over_write
+     *
      * <!-- -->
+     *
+     * : After you create a file that uses the same name as an existing file in the cloud, the new file overwrites the existing file.
+     *
+     * <!-- -->
+     *
      * @example ignore
      *
      * @var string
@@ -81,24 +106,23 @@ class MoveCdsFileRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cdsId'          => 'CdsId',
+        'cdsId' => 'CdsId',
         'conflictPolicy' => 'ConflictPolicy',
-        'endUserId'      => 'EndUserId',
-        'fileId'         => 'FileId',
-        'groupId'        => 'GroupId',
+        'endUserId' => 'EndUserId',
+        'fileId' => 'FileId',
+        'groupId' => 'GroupId',
         'parentFolderId' => 'ParentFolderId',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

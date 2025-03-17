@@ -20,9 +20,7 @@ class packageIds extends Model
         'packageId' => 'PackageId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

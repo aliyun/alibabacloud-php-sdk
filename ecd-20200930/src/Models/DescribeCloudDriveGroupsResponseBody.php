@@ -53,15 +53,13 @@ class DescribeCloudDriveGroupsResponseBody extends Model
     public $success;
     protected $_name = [
         'cloudDriveGroups' => 'CloudDriveGroups',
-        'count'            => 'Count',
-        'nextToken'        => 'NextToken',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'count' => 'Count',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeCloudDriveGroupsResponseBody extends Model
         if (isset($map['CloudDriveGroups'])) {
             if (!empty($map['CloudDriveGroups'])) {
                 $model->cloudDriveGroups = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['CloudDriveGroups'] as $item) {
                     $model->cloudDriveGroups[$n++] = null !== $item ? cloudDriveGroups::fromMap($item) : $item;
                 }

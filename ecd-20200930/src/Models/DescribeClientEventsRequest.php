@@ -47,6 +47,7 @@ class DescribeClientEventsRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.\\
      * If you do not specify a value for this parameter, the current time is used.
+     *
      * @example 2020-11-31T06:32:31Z
      *
      * @var string
@@ -71,7 +72,15 @@ class DescribeClientEventsRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   GET_LITE_CONNECTION_TICKET: End users obtain the credential for reconnecting to the cloud desktop upon disconnection.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -79,7 +88,15 @@ class DescribeClientEventsRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   GET_CONNECTION_TICKET: End users request to connect to the cloud desktop.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -87,7 +104,15 @@ class DescribeClientEventsRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DESKTOP_REBOOT: End users restart the cloud desktop.
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -95,9 +120,18 @@ class DescribeClientEventsRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DESKTOP_START: End users start the cloud desktop.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example DESKTOP_DISCONNECT
      *
      * @var string
@@ -114,6 +148,7 @@ class DescribeClientEventsRequest extends Model
     /**
      * @description The number of entries per page.\\
      * Default value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -151,6 +186,7 @@ class DescribeClientEventsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -160,31 +196,30 @@ class DescribeClientEventsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.\\
      * If you do not specify a value for this parameter, all events that occurred before the point in time that you specify for `EndTime` are queried.
+     *
      * @example 2020-11-30T06:32:31Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'desktopId'      => 'DesktopId',
-        'desktopIp'      => 'DesktopIp',
-        'desktopName'    => 'DesktopName',
-        'directoryId'    => 'DirectoryId',
-        'endTime'        => 'EndTime',
-        'endUserId'      => 'EndUserId',
-        'eventType'      => 'EventType',
-        'eventTypes'     => 'EventTypes',
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'officeSiteId'   => 'OfficeSiteId',
+        'desktopId' => 'DesktopId',
+        'desktopIp' => 'DesktopIp',
+        'desktopName' => 'DesktopName',
+        'directoryId' => 'DirectoryId',
+        'endTime' => 'EndTime',
+        'endUserId' => 'EndUserId',
+        'eventType' => 'EventType',
+        'eventTypes' => 'EventTypes',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'officeSiteId' => 'OfficeSiteId',
         'officeSiteName' => 'OfficeSiteName',
-        'regionId'       => 'RegionId',
-        'startTime'      => 'StartTime',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

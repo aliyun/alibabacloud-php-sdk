@@ -17,13 +17,26 @@ class CreateRAMDirectoryRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Internet (default)
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   Any
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Internet
      *
      * @var string
@@ -34,6 +47,7 @@ class CreateRAMDirectoryRequest extends Model
      * @description The directory name. The name must be 2 to 255 characters in length. It must start with a letter but cannot start with `http://` or `https://`. The name can contain digits, colons (:), underscores (_), and hyphens (-).
      *
      * This parameter is required.
+     *
      * @example testDirectoryName
      *
      * @var string
@@ -47,11 +61,22 @@ class CreateRAMDirectoryRequest extends Model
      *
      *   <!-- -->
      *
+     * true
+     *
+     * <!-- -->
+     *
+     * (default)
+     *
      * <!-- -->
      *
      *   <!-- -->
      *
+     * false
+     *
      * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example true
      *
      * @var bool
@@ -67,9 +92,18 @@ class CreateRAMDirectoryRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -80,6 +114,7 @@ class CreateRAMDirectoryRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -90,21 +125,20 @@ class CreateRAMDirectoryRequest extends Model
      * @description The vSwitch IDs. You can configure only one vSwitch.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $vSwitchId;
     protected $_name = [
-        'desktopAccessType'    => 'DesktopAccessType',
-        'directoryName'        => 'DirectoryName',
-        'enableAdminAccess'    => 'EnableAdminAccess',
+        'desktopAccessType' => 'DesktopAccessType',
+        'directoryName' => 'DirectoryName',
+        'enableAdminAccess' => 'EnableAdminAccess',
         'enableInternetAccess' => 'EnableInternetAccess',
-        'regionId'             => 'RegionId',
-        'vSwitchId'            => 'VSwitchId',
+        'regionId' => 'RegionId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

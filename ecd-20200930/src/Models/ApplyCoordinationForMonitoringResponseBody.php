@@ -26,12 +26,10 @@ class ApplyCoordinationForMonitoringResponseBody extends Model
     public $requestId;
     protected $_name = [
         'coordinateFlowModels' => 'CoordinateFlowModels',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ApplyCoordinationForMonitoringResponseBody extends Model
         if (isset($map['CoordinateFlowModels'])) {
             if (!empty($map['CoordinateFlowModels'])) {
                 $model->coordinateFlowModels = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['CoordinateFlowModels'] as $item) {
                     $model->coordinateFlowModels[$n++] = null !== $item ? coordinateFlowModels::fromMap($item) : $item;
                 }

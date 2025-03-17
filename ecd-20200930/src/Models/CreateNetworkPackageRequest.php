@@ -17,9 +17,22 @@ class CreateNetworkPackageRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * Make sure that your account has sufficient balance. Otherwise, no order is generated.
+     *
+     * <!-- -->
+     *
      *   false: disables the auto-payment feature. In this case, an order is generated but you need to make the payment manually.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * To make the payment, log on to the Elastic Desktop Service console, go to the Orders page, and find the order based on the order ID.
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -35,9 +48,18 @@ class CreateNetworkPackageRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -52,6 +74,7 @@ class CreateNetworkPackageRequest extends Model
      *   Valid values if the premium bandwidth plan is a pay-as-you-go plan that charges by fixed bandwidth (PayByBandwidth): 2 to 1000.
      *
      * This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -80,6 +103,7 @@ class CreateNetworkPackageRequest extends Model
      * @description The office network ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+dir-363353****
      *
      * @var string
@@ -108,6 +132,7 @@ class CreateNetworkPackageRequest extends Model
      *   Valid values when the `PeriodUnit` parameter is set to `Year`: 1, 2, and 3
      *
      * Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -123,13 +148,26 @@ class CreateNetworkPackageRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Year
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   Week
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Month
      *
      * @var string
@@ -149,27 +187,26 @@ class CreateNetworkPackageRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'autoPay'            => 'AutoPay',
-        'autoRenew'          => 'AutoRenew',
-        'bandwidth'          => 'Bandwidth',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'bandwidth' => 'Bandwidth',
         'internetChargeType' => 'InternetChargeType',
-        'officeSiteId'       => 'OfficeSiteId',
-        'payType'            => 'PayType',
-        'period'             => 'Period',
-        'periodUnit'         => 'PeriodUnit',
-        'promotionId'        => 'PromotionId',
-        'regionId'           => 'RegionId',
+        'officeSiteId' => 'OfficeSiteId',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'promotionId' => 'PromotionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

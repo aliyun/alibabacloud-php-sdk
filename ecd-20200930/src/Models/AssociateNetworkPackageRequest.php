@@ -12,6 +12,7 @@ class AssociateNetworkPackageRequest extends Model
      * @description The ID of the premium bandwidth plan.
      *
      * This parameter is required.
+     *
      * @example np-e0iodl3yzb62q****
      *
      * @var string
@@ -22,6 +23,7 @@ class AssociateNetworkPackageRequest extends Model
      * @description The ID of the office network. You can call the [DescribeNetworkPackages](https://help.aliyun.com/document_detail/216079.html) to obtain the ID of the office network to which a premium bandwidth plan is bound.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+dir-*********
      *
      * @var string
@@ -32,6 +34,7 @@ class AssociateNetworkPackageRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,13 +42,11 @@ class AssociateNetworkPackageRequest extends Model
     public $regionId;
     protected $_name = [
         'networkPackageId' => 'NetworkPackageId',
-        'officeSiteId'     => 'OfficeSiteId',
-        'regionId'         => 'RegionId',
+        'officeSiteId' => 'OfficeSiteId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

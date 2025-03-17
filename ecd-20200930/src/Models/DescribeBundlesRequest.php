@@ -26,9 +26,18 @@ class DescribeBundlesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   CUSTOM: custom template
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example SYSTEM
      *
      * @var string
@@ -86,9 +95,18 @@ class DescribeBundlesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -130,7 +148,10 @@ class DescribeBundlesRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * Maximum value: 100.
+     *
      * Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -164,9 +185,18 @@ class DescribeBundlesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Windows
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Windows
      *
      * @var string
@@ -191,6 +221,7 @@ class DescribeBundlesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -218,7 +249,9 @@ class DescribeBundlesRequest extends Model
     /**
      * @description The type of the session. Valide values:
      *
+     * - SingleSession
      * - MultipleSession
+     *
      * @example SingleSession
      *
      * @var string
@@ -243,32 +276,30 @@ class DescribeBundlesRequest extends Model
      */
     public $volumeEncryptionEnabled;
     protected $_name = [
-        'bundleId'                => 'BundleId',
-        'bundleType'              => 'BundleType',
-        'checkStock'              => 'CheckStock',
-        'cpuCount'                => 'CpuCount',
-        'desktopTypeFamily'       => 'DesktopTypeFamily',
-        'fotaChannel'             => 'FotaChannel',
-        'fromDesktopGroup'        => 'FromDesktopGroup',
-        'gpuCount'                => 'GpuCount',
-        'gpuDriverType'           => 'GpuDriverType',
-        'imageId'                 => 'ImageId',
-        'maxResults'              => 'MaxResults',
-        'memorySize'              => 'MemorySize',
-        'nextToken'               => 'NextToken',
-        'osType'                  => 'OsType',
-        'protocolType'            => 'ProtocolType',
-        'regionId'                => 'RegionId',
-        'scope'                   => 'Scope',
-        'selectedBundle'          => 'SelectedBundle',
-        'sessionType'             => 'SessionType',
-        'supportMultiSession'     => 'SupportMultiSession',
+        'bundleId' => 'BundleId',
+        'bundleType' => 'BundleType',
+        'checkStock' => 'CheckStock',
+        'cpuCount' => 'CpuCount',
+        'desktopTypeFamily' => 'DesktopTypeFamily',
+        'fotaChannel' => 'FotaChannel',
+        'fromDesktopGroup' => 'FromDesktopGroup',
+        'gpuCount' => 'GpuCount',
+        'gpuDriverType' => 'GpuDriverType',
+        'imageId' => 'ImageId',
+        'maxResults' => 'MaxResults',
+        'memorySize' => 'MemorySize',
+        'nextToken' => 'NextToken',
+        'osType' => 'OsType',
+        'protocolType' => 'ProtocolType',
+        'regionId' => 'RegionId',
+        'scope' => 'Scope',
+        'selectedBundle' => 'SelectedBundle',
+        'sessionType' => 'SessionType',
+        'supportMultiSession' => 'SupportMultiSession',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

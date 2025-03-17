@@ -35,6 +35,7 @@ class RenewDesktopsRequest extends Model
      * @description The cloud computer IDs. You can only renew monthly subscription cloud computers.
      *
      * This parameter is required.
+     *
      * @example ecd-ia2zw38bi6cm7****
      *
      * @var string[]
@@ -48,6 +49,7 @@ class RenewDesktopsRequest extends Model
      *   Valid values if you set the `PeriodUnit` parameter to `Year`: 1, 2, 3, 4, 5, and 6
      *
      * Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -63,9 +65,18 @@ class RenewDesktopsRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Year
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Month
      *
      * @var string
@@ -85,6 +96,7 @@ class RenewDesktopsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -100,19 +112,17 @@ class RenewDesktopsRequest extends Model
      */
     public $resourceType;
     protected $_name = [
-        'autoPay'      => 'AutoPay',
-        'autoRenew'    => 'AutoRenew',
-        'desktopId'    => 'DesktopId',
-        'period'       => 'Period',
-        'periodUnit'   => 'PeriodUnit',
-        'promotionId'  => 'PromotionId',
-        'regionId'     => 'RegionId',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'desktopId' => 'DesktopId',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'promotionId' => 'PromotionId',
+        'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class GetOfficeSiteSsoStatusRequest extends Model
      * @description The workspace ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+dir-363353****
      *
      * @var string
@@ -22,6 +23,7 @@ class GetOfficeSiteSsoStatusRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -29,12 +31,10 @@ class GetOfficeSiteSsoStatusRequest extends Model
     public $regionId;
     protected $_name = [
         'officeSiteId' => 'OfficeSiteId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

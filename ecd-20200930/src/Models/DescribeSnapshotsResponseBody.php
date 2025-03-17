@@ -39,9 +39,7 @@ class DescribeSnapshotsResponseBody extends Model
         'snapshots' => 'Snapshots',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class DescribeSnapshotsResponseBody extends Model
         if (isset($map['Snapshots'])) {
             if (!empty($map['Snapshots'])) {
                 $model->snapshots = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Snapshots'] as $item) {
                     $model->snapshots[$n++] = null !== $item ? snapshots::fromMap($item) : $item;
                 }

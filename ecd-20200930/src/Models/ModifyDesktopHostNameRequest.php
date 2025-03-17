@@ -12,6 +12,7 @@ class ModifyDesktopHostNameRequest extends Model
      * @description The ID of the cloud computer.
      *
      * This parameter is required.
+     *
      * @example ecd-gx2x1dhsmucyy****
      *
      * @var string
@@ -25,6 +26,7 @@ class ModifyDesktopHostNameRequest extends Model
      *   The hostname can contain only letters, digits, and hyphens (-). The hostname cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
      *
      * This parameter is required.
+     *
      * @example NewName
      *
      * @var string
@@ -35,20 +37,19 @@ class ModifyDesktopHostNameRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'desktopId'   => 'DesktopId',
+        'desktopId' => 'DesktopId',
         'newHostName' => 'NewHostName',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

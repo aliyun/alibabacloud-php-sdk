@@ -12,6 +12,7 @@ class GetCoordinateTicketRequest extends Model
      * @description The ID of the stream collaboration. You can obtain the value of this parameter based on the value of `Coid` that is returned by the `ApplyCoordinationForMonitoring` operation.
      *
      * This parameter is required.
+     *
      * @example co-0sot77uale3****
      *
      * @var string
@@ -31,6 +32,7 @@ class GetCoordinateTicketRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/436773.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -53,23 +55,32 @@ class GetCoordinateTicketRequest extends Model
      *
      *   The value of
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
+     * TENANT_ADMIN
+     *
+     * <!-- -->
+     *
+     * specifies an administrator.
+     *
      * This parameter is required.
+     *
      * @example TENANT_ADMIN
      *
      * @var string
      */
     public $userType;
     protected $_name = [
-        'coId'      => 'CoId',
+        'coId' => 'CoId',
         'endUserId' => 'EndUserId',
-        'regionId'  => 'RegionId',
-        'taskId'    => 'TaskId',
-        'userType'  => 'UserType',
+        'regionId' => 'RegionId',
+        'taskId' => 'TaskId',
+        'userType' => 'UserType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

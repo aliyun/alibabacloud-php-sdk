@@ -12,6 +12,7 @@ class DescribeTimerGroupRequest extends Model
      * @description The ID of the configuration group.
      *
      * This parameter is required.
+     *
      * @example cg-hs3i1w39o68ma****
      *
      * @var string
@@ -27,13 +28,11 @@ class DescribeTimerGroupRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'groupId'  => 'GroupId',
+        'groupId' => 'GroupId',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

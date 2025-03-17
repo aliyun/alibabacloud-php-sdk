@@ -33,16 +33,14 @@ class ModifyDesktopOversoldUserGroupRequest extends Model
      */
     public $userGroupId;
     protected $_name = [
-        'imageId'         => 'ImageId',
-        'name'            => 'Name',
+        'imageId' => 'ImageId',
+        'name' => 'Name',
         'oversoldGroupId' => 'OversoldGroupId',
-        'policyGroupId'   => 'PolicyGroupId',
-        'userGroupId'     => 'UserGroupId',
+        'policyGroupId' => 'PolicyGroupId',
+        'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

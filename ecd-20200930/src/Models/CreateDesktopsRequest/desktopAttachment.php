@@ -23,7 +23,9 @@ class desktopAttachment extends Model
     /**
      * @description The performance level of the data disk. Valid values:
      *
+     * - PL0 (default)
      * - PL1
+     *
      * @example PL0
      *
      * @var string
@@ -42,7 +44,11 @@ class desktopAttachment extends Model
     /**
      * @description The default display language:
      *
+     * - zh-CN: Simplified Chinese
+     * - zh-HK: Traditional Chinese
+     * - en-US: English
      * - ja-JP: Japanese
+     *
      * @example zh-CN
      *
      * @var string
@@ -82,7 +88,9 @@ class desktopAttachment extends Model
     /**
      * @description The performance level of the system disk. Valid values:
      *
+     * - PL0 (default)
      * - PL1
+     *
      * @example PL0
      *
      * @var string
@@ -98,20 +106,18 @@ class desktopAttachment extends Model
      */
     public $systemDiskSize;
     protected $_name = [
-        'dataDiskCategory'   => 'DataDiskCategory',
-        'dataDiskPerLevel'   => 'DataDiskPerLevel',
-        'dataDiskSize'       => 'DataDiskSize',
-        'defaultLanguage'    => 'DefaultLanguage',
-        'desktopType'        => 'DesktopType',
-        'imageId'            => 'ImageId',
+        'dataDiskCategory' => 'DataDiskCategory',
+        'dataDiskPerLevel' => 'DataDiskPerLevel',
+        'dataDiskSize' => 'DataDiskSize',
+        'defaultLanguage' => 'DefaultLanguage',
+        'desktopType' => 'DesktopType',
+        'imageId' => 'ImageId',
         'systemDiskCategory' => 'SystemDiskCategory',
         'systemDiskPerLevel' => 'SystemDiskPerLevel',
-        'systemDiskSize'     => 'SystemDiskSize',
+        'systemDiskSize' => 'SystemDiskSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,7 +17,15 @@ class disks extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   PL0
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -25,9 +33,18 @@ class disks extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   PL2
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example PL0
      *
      * @var string
@@ -52,9 +69,18 @@ class disks extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DATA: data disk
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example SYSTEM
      *
      * @var string
@@ -62,13 +88,11 @@ class disks extends Model
     public $diskType;
     protected $_name = [
         'diskPerformanceLevel' => 'DiskPerformanceLevel',
-        'diskSize'             => 'DiskSize',
-        'diskType'             => 'DiskType',
+        'diskSize' => 'DiskSize',
+        'diskType' => 'DiskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

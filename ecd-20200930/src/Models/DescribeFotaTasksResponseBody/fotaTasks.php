@@ -94,20 +94,18 @@ class fotaTasks extends Model
      */
     public $taskUid;
     protected $_name = [
-        'appVersion'              => 'AppVersion',
-        'fotaProject'             => 'FotaProject',
+        'appVersion' => 'AppVersion',
+        'fotaProject' => 'FotaProject',
         'pendingCustomImageCount' => 'PendingCustomImageCount',
-        'pendingDesktopCount'     => 'PendingDesktopCount',
-        'publishTime'             => 'PublishTime',
-        'releaseNote'             => 'ReleaseNote',
-        'size'                    => 'Size',
-        'status'                  => 'Status',
-        'taskUid'                 => 'TaskUid',
+        'pendingDesktopCount' => 'PendingDesktopCount',
+        'publishTime' => 'PublishTime',
+        'releaseNote' => 'ReleaseNote',
+        'size' => 'Size',
+        'status' => 'Status',
+        'taskUid' => 'TaskUid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

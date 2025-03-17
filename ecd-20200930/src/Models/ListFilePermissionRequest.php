@@ -12,6 +12,7 @@ class ListFilePermissionRequest extends Model
      * @description The ID of the cloud disk.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+cds-346063****
      *
      * @var string
@@ -31,6 +32,7 @@ class ListFilePermissionRequest extends Model
      * @description The ID of the shared file.
      *
      * This parameter is required.
+     *
      * @example 6333e553a133ce21e6f747cf948bb9ef95d7****
      *
      * @var string
@@ -48,22 +50,21 @@ class ListFilePermissionRequest extends Model
      * @description The region ID of the cloud disk. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cdsId'     => 'CdsId',
+        'cdsId' => 'CdsId',
         'endUserId' => 'EndUserId',
-        'fileId'    => 'FileId',
-        'groupId'   => 'GroupId',
-        'regionId'  => 'RegionId',
+        'fileId' => 'FileId',
+        'groupId' => 'GroupId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

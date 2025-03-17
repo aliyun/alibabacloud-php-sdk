@@ -25,13 +25,11 @@ class DescribeDesktopInfoResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'desktops'  => 'Desktops',
+        'desktops' => 'Desktops',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeDesktopInfoResponseBody extends Model
         if (isset($map['Desktops'])) {
             if (!empty($map['Desktops'])) {
                 $model->desktops = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Desktops'] as $item) {
                     $model->desktops[$n++] = null !== $item ? desktops::fromMap($item) : $item;
                 }

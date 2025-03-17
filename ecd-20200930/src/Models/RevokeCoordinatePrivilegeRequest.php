@@ -12,6 +12,7 @@ class RevokeCoordinatePrivilegeRequest extends Model
      * @description The ID of the stream coordination task.
      *
      * This parameter is required.
+     *
      * @example co-fqsm6e8ee75w61fp9
      *
      * @var string
@@ -31,6 +32,7 @@ class RevokeCoordinatePrivilegeRequest extends Model
      * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -40,7 +42,10 @@ class RevokeCoordinatePrivilegeRequest extends Model
     /**
      * @description The type of user who requires the coordinate permissions.
      *
+     * Set the value to TENANT_ADMIN. Only tenant administrators can be granted with the coordinate permissions.
+     *
      * This parameter is required.
+     *
      * @example TENANT_ADMIN
      *
      * @var string
@@ -56,16 +61,14 @@ class RevokeCoordinatePrivilegeRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'coId'      => 'CoId',
+        'coId' => 'CoId',
         'endUserId' => 'EndUserId',
-        'regionId'  => 'RegionId',
-        'userType'  => 'UserType',
-        'uuid'      => 'Uuid',
+        'regionId' => 'RegionId',
+        'userType' => 'UserType',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

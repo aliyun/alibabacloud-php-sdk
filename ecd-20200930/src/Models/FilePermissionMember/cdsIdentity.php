@@ -22,13 +22,11 @@ class cdsIdentity extends Model
      */
     public $type;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

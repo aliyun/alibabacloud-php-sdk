@@ -76,9 +76,18 @@ class DescribeDesktopGroupSessionsRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Disconnected
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Connected
      *
      * @var string
@@ -94,19 +103,17 @@ class DescribeDesktopGroupSessionsRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'endUserId'     => 'EndUserId',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'ownType'       => 'OwnType',
-        'regionId'      => 'RegionId',
+        'endTime' => 'EndTime',
+        'endUserId' => 'EndUserId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownType' => 'OwnType',
+        'regionId' => 'RegionId',
         'sessionStatus' => 'SessionStatus',
-        'startTime'     => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

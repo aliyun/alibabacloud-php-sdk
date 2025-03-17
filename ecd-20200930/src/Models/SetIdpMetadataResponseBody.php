@@ -27,12 +27,10 @@ class SetIdpMetadataResponseBody extends Model
     public $requestId;
     protected $_name = [
         'idpEntityId' => 'IdpEntityId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

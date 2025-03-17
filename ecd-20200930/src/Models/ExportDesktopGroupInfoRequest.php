@@ -68,7 +68,10 @@ class ExportDesktopGroupInfoRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * Maximum value: 100.
+     *
      * Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -106,6 +109,7 @@ class ExportDesktopGroupInfoRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -119,23 +123,21 @@ class ExportDesktopGroupInfoRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'chargeType'       => 'ChargeType',
-        'desktopGroupId'   => 'DesktopGroupId',
+        'chargeType' => 'ChargeType',
+        'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupName' => 'DesktopGroupName',
-        'endUserId'        => 'EndUserId',
-        'expiredTime'      => 'ExpiredTime',
-        'langType'         => 'LangType',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'officeSiteId'     => 'OfficeSiteId',
-        'policyGroupId'    => 'PolicyGroupId',
-        'regionId'         => 'RegionId',
-        'tag'              => 'Tag',
+        'endUserId' => 'EndUserId',
+        'expiredTime' => 'ExpiredTime',
+        'langType' => 'LangType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'officeSiteId' => 'OfficeSiteId',
+        'policyGroupId' => 'PolicyGroupId',
+        'regionId' => 'RegionId',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -234,7 +236,7 @@ class ExportDesktopGroupInfoRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

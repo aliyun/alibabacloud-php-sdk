@@ -34,23 +34,30 @@ class userProfilePathRule extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Default
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Default
      *
      * @var string
      */
     public $userProfileRuleType;
     protected $_name = [
-        'desktopGroupId'      => 'DesktopGroupId',
-        'rules'               => 'Rules',
+        'desktopGroupId' => 'DesktopGroupId',
+        'rules' => 'Rules',
         'userProfileRuleType' => 'UserProfileRuleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -88,7 +95,7 @@ class userProfilePathRule extends Model
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Rules'] as $item) {
                     $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }

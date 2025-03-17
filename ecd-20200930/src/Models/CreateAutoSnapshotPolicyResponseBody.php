@@ -26,13 +26,11 @@ class CreateAutoSnapshotPolicyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'policyId'  => 'PolicyId',
+        'policyId' => 'PolicyId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

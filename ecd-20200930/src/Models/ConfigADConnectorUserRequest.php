@@ -12,6 +12,7 @@ class ConfigADConnectorUserRequest extends Model
      * @description The password of the AD user that has the permissions to join computers to domains.
      *
      * This parameter is required.
+     *
      * @example testPassword
      *
      * @var string
@@ -21,7 +22,10 @@ class ConfigADConnectorUserRequest extends Model
     /**
      * @description The username of the AD user that has the permissions to join computers to domains.
      *
+     * After the username is configured, the cloud desktops in the same AD workspace are joined to the specified OU.
+     *
      * This parameter is required.
+     *
      * @example Administrator
      *
      * @var string
@@ -41,6 +45,7 @@ class ConfigADConnectorUserRequest extends Model
      * @description The ID of the AD workspace.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+dir-778418****
      *
      * @var string
@@ -51,6 +56,7 @@ class ConfigADConnectorUserRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -59,14 +65,12 @@ class ConfigADConnectorUserRequest extends Model
     protected $_name = [
         'domainPassword' => 'DomainPassword',
         'domainUserName' => 'DomainUserName',
-        'OUName'         => 'OUName',
-        'officeSiteId'   => 'OfficeSiteId',
-        'regionId'       => 'RegionId',
+        'OUName' => 'OUName',
+        'officeSiteId' => 'OfficeSiteId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

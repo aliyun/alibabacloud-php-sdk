@@ -178,9 +178,18 @@ class sessions extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Disconnected
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Connected
      *
      * @var string
@@ -196,30 +205,28 @@ class sessions extends Model
      */
     public $totalConnectionDuration;
     protected $_name = [
-        'clientIp'                   => 'ClientIp',
-        'clientOS'                   => 'ClientOS',
-        'clientVersion'              => 'ClientVersion',
-        'desktopGroupId'             => 'DesktopGroupId',
-        'desktopGroupName'           => 'DesktopGroupName',
-        'desktopId'                  => 'DesktopId',
+        'clientIp' => 'ClientIp',
+        'clientOS' => 'ClientOS',
+        'clientVersion' => 'ClientVersion',
+        'desktopGroupId' => 'DesktopGroupId',
+        'desktopGroupName' => 'DesktopGroupName',
+        'desktopId' => 'DesktopId',
         'endUserApplyCoordinateTime' => 'EndUserApplyCoordinateTime',
-        'endUserId'                  => 'EndUserId',
-        'lastSessionEndTime'         => 'LastSessionEndTime',
-        'lastSessionStartTime'       => 'LastSessionStartTime',
-        'latestConnectionTime'       => 'LatestConnectionTime',
-        'officeSiteId'               => 'OfficeSiteId',
-        'officeSiteName'             => 'OfficeSiteName',
-        'osType'                     => 'OsType',
-        'ownType'                    => 'OwnType',
-        'protocolType'               => 'ProtocolType',
-        'sessionIdleTime'            => 'SessionIdleTime',
-        'sessionStatus'              => 'SessionStatus',
-        'totalConnectionDuration'    => 'TotalConnectionDuration',
+        'endUserId' => 'EndUserId',
+        'lastSessionEndTime' => 'LastSessionEndTime',
+        'lastSessionStartTime' => 'LastSessionStartTime',
+        'latestConnectionTime' => 'LatestConnectionTime',
+        'officeSiteId' => 'OfficeSiteId',
+        'officeSiteName' => 'OfficeSiteName',
+        'osType' => 'OsType',
+        'ownType' => 'OwnType',
+        'protocolType' => 'ProtocolType',
+        'sessionIdleTime' => 'SessionIdleTime',
+        'sessionStatus' => 'SessionStatus',
+        'totalConnectionDuration' => 'TotalConnectionDuration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

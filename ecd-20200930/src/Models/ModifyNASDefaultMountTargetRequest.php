@@ -12,6 +12,7 @@ class ModifyNASDefaultMountTargetRequest extends Model
      * @description The ID of the NAS file system.
      *
      * This parameter is required.
+     *
      * @example 04f314****
      *
      * @var string
@@ -22,6 +23,7 @@ class ModifyNASDefaultMountTargetRequest extends Model
      * @description The domain name of the mount target.
      *
      * This parameter is required.
+     *
      * @example 0bf744****-xo***.cn-hangzhou.nas.aliyuncs.com
      *
      * @var string
@@ -32,20 +34,19 @@ class ModifyNASDefaultMountTargetRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'fileSystemId'      => 'FileSystemId',
+        'fileSystemId' => 'FileSystemId',
         'mountTargetDomain' => 'MountTargetDomain',
-        'regionId'          => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

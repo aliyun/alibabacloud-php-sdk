@@ -38,17 +38,15 @@ class data extends Model
      */
     public $userGroupId;
     protected $_name = [
-        'endConnectTime'   => 'EndConnectTime',
-        'endUserId'        => 'EndUserId',
-        'oversoldGroupId'  => 'OversoldGroupId',
+        'endConnectTime' => 'EndConnectTime',
+        'endUserId' => 'EndUserId',
+        'oversoldGroupId' => 'OversoldGroupId',
         'startConnectTime' => 'StartConnectTime',
-        'userDesktopId'    => 'UserDesktopId',
-        'userGroupId'      => 'UserGroupId',
+        'userDesktopId' => 'UserDesktopId',
+        'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

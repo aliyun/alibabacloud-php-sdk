@@ -50,17 +50,15 @@ class DescribeRenewalPriceRequest extends Model
      */
     public $resourceType;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'instanceIds'  => 'InstanceIds',
-        'period'       => 'Period',
-        'periodUnit'   => 'PeriodUnit',
-        'regionId'     => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'instanceIds' => 'InstanceIds',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

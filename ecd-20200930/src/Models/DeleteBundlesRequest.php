@@ -12,6 +12,7 @@ class DeleteBundlesRequest extends Model
      * @description The IDs of the cloud computer templates. You can specify 1 to 100 IDs.
      *
      * This parameter is required.
+     *
      * @example b-cezrnfgecbich****
      *
      * @var string[]
@@ -22,6 +23,7 @@ class DeleteBundlesRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -32,9 +34,7 @@ class DeleteBundlesRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

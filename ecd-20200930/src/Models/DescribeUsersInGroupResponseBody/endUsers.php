@@ -133,24 +133,22 @@ class endUsers extends Model
      */
     public $userSetPropertiesModels;
     protected $_name = [
-        'connectionStatus'        => 'ConnectionStatus',
-        'desktopId'               => 'DesktopId',
-        'desktopName'             => 'DesktopName',
-        'displayName'             => 'DisplayName',
-        'endUserEmail'            => 'EndUserEmail',
-        'endUserId'               => 'EndUserId',
-        'endUserName'             => 'EndUserName',
-        'endUserPhone'            => 'EndUserPhone',
-        'endUserRemark'           => 'EndUserRemark',
-        'endUserType'             => 'EndUserType',
-        'externalInfo'            => 'ExternalInfo',
-        'userDesktopId'           => 'UserDesktopId',
+        'connectionStatus' => 'ConnectionStatus',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
+        'displayName' => 'DisplayName',
+        'endUserEmail' => 'EndUserEmail',
+        'endUserId' => 'EndUserId',
+        'endUserName' => 'EndUserName',
+        'endUserPhone' => 'EndUserPhone',
+        'endUserRemark' => 'EndUserRemark',
+        'endUserType' => 'EndUserType',
+        'externalInfo' => 'ExternalInfo',
+        'userDesktopId' => 'UserDesktopId',
         'userSetPropertiesModels' => 'UserSetPropertiesModels',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -251,7 +249,7 @@ class endUsers extends Model
         if (isset($map['UserSetPropertiesModels'])) {
             if (!empty($map['UserSetPropertiesModels'])) {
                 $model->userSetPropertiesModels = [];
-                $n                              = 0;
+                $n = 0;
                 foreach ($map['UserSetPropertiesModels'] as $item) {
                     $model->userSetPropertiesModels[$n++] = null !== $item ? userSetPropertiesModels::fromMap($item) : $item;
                 }

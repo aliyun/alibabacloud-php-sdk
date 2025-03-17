@@ -28,15 +28,13 @@ class AddUserToDesktopOversoldUserGroupRequest extends Model
      */
     public $userGroupId;
     protected $_name = [
-        'addUserAmount'   => 'AddUserAmount',
-        'endUserId'       => 'EndUserId',
+        'addUserAmount' => 'AddUserAmount',
+        'endUserId' => 'EndUserId',
         'oversoldGroupId' => 'OversoldGroupId',
-        'userGroupId'     => 'UserGroupId',
+        'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

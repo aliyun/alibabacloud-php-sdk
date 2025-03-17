@@ -21,6 +21,7 @@ class CreateSimpleOfficeSiteRequest extends Model
      * @description The Cloud Enterprise Network (CEN) instance ID.
      *
      * >  If you want end users to connect to cloud computers from Alibaba Cloud Workspace clients over VPCs, you can attach the office network to a CEN instance. The CEN instance is the one that connects to your on-premises network over VPN Gateway or Express Connect.
+     *
      * @example cen-3gwy16dojz1m65****
      *
      * @var string
@@ -30,7 +31,9 @@ class CreateSimpleOfficeSiteRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account to which the Cloud Enterprise Network (CEN) instance belongs.
      *
+     * - If you do not specify the CenId parameter, or the CEN instance that is specified by the CenId parameter belongs to the current Alibaba Cloud account, skip this parameter.
      * - If you specify the CenId parameter and the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, enter the ID of the Alibaba Cloud account.
+     *
      * @example 118272523431****
      *
      * @var int
@@ -59,9 +62,18 @@ class CreateSimpleOfficeSiteRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -72,6 +84,7 @@ class CreateSimpleOfficeSiteRequest extends Model
      * @description The method to connect to cloud computers from Alibaba Cloud Workspace clients.
      *
      * >  The VPC connection depends on Alibaba Cloud PrivateLink. You can use PrivateLink for free. When you set this parameter to VPC or Any, PrivateLink is automatically activated.````
+     *
      * @example Internet
      *
      * @var string
@@ -101,9 +114,18 @@ class CreateSimpleOfficeSiteRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false (default)
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
@@ -132,6 +154,7 @@ class CreateSimpleOfficeSiteRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -168,25 +191,23 @@ class CreateSimpleOfficeSiteRequest extends Model
      */
     public $vpcType;
     protected $_name = [
-        'bandwidth'            => 'Bandwidth',
-        'cenId'                => 'CenId',
-        'cenOwnerId'           => 'CenOwnerId',
-        'cidrBlock'            => 'CidrBlock',
-        'cloudBoxOfficeSite'   => 'CloudBoxOfficeSite',
-        'desktopAccessType'    => 'DesktopAccessType',
-        'enableAdminAccess'    => 'EnableAdminAccess',
+        'bandwidth' => 'Bandwidth',
+        'cenId' => 'CenId',
+        'cenOwnerId' => 'CenOwnerId',
+        'cidrBlock' => 'CidrBlock',
+        'cloudBoxOfficeSite' => 'CloudBoxOfficeSite',
+        'desktopAccessType' => 'DesktopAccessType',
+        'enableAdminAccess' => 'EnableAdminAccess',
         'enableInternetAccess' => 'EnableInternetAccess',
         'needVerifyZeroDevice' => 'NeedVerifyZeroDevice',
-        'officeSiteName'       => 'OfficeSiteName',
-        'regionId'             => 'RegionId',
-        'vSwitchId'            => 'VSwitchId',
-        'verifyCode'           => 'VerifyCode',
-        'vpcType'              => 'VpcType',
+        'officeSiteName' => 'OfficeSiteName',
+        'regionId' => 'RegionId',
+        'vSwitchId' => 'VSwitchId',
+        'verifyCode' => 'VerifyCode',
+        'vpcType' => 'VpcType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

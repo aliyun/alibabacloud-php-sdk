@@ -76,16 +76,14 @@ class ADConnectors extends Model
     public $vSwitchId;
     protected $_name = [
         'ADConnectorAddress' => 'ADConnectorAddress',
-        'connectorStatus'    => 'ConnectorStatus',
+        'connectorStatus' => 'ConnectorStatus',
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'specification'      => 'Specification',
-        'trustKey'           => 'TrustKey',
-        'vSwitchId'          => 'VSwitchId',
+        'specification' => 'Specification',
+        'trustKey' => 'TrustKey',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

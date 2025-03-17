@@ -23,14 +23,12 @@ class conflictOrder extends Model
      */
     public $regionId;
     protected $_name = [
-        'cdsId'    => 'CdsId',
-        'orderId'  => 'OrderId',
+        'cdsId' => 'CdsId',
+        'orderId' => 'OrderId',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

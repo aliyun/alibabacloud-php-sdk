@@ -91,6 +91,7 @@ class DescribeDesktopSessionsRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -136,24 +137,22 @@ class DescribeDesktopSessionsRequest extends Model
      */
     public $subPayType;
     protected $_name = [
-        'checkOsSession'  => 'CheckOsSession',
-        'desktopId'       => 'DesktopId',
-        'desktopName'     => 'DesktopName',
-        'endTime'         => 'EndTime',
-        'endUserId'       => 'EndUserId',
+        'checkOsSession' => 'CheckOsSession',
+        'desktopId' => 'DesktopId',
+        'desktopName' => 'DesktopName',
+        'endTime' => 'EndTime',
+        'endUserId' => 'EndUserId',
         'endUserIdFilter' => 'EndUserIdFilter',
-        'officeSiteId'    => 'OfficeSiteId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
-        'sessionStatus'   => 'SessionStatus',
-        'startTime'       => 'StartTime',
-        'subPayType'      => 'SubPayType',
+        'officeSiteId' => 'OfficeSiteId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'sessionStatus' => 'SessionStatus',
+        'startTime' => 'StartTime',
+        'subPayType' => 'SubPayType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

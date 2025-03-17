@@ -106,22 +106,20 @@ class applications extends Model
      */
     public $status;
     protected $_name = [
-        'applicationName'    => 'ApplicationName',
+        'applicationName' => 'ApplicationName',
         'applicationVersion' => 'ApplicationVersion',
-        'cpuPercent'         => 'CpuPercent',
-        'gpuPercent'         => 'GpuPercent',
-        'iconUrl'            => 'IconUrl',
-        'ioSpeed'            => 'IoSpeed',
-        'memPercent'         => 'MemPercent',
-        'pid'                => 'Pid',
-        'processData'        => 'ProcessData',
-        'processPath'        => 'ProcessPath',
-        'status'             => 'Status',
+        'cpuPercent' => 'CpuPercent',
+        'gpuPercent' => 'GpuPercent',
+        'iconUrl' => 'IconUrl',
+        'ioSpeed' => 'IoSpeed',
+        'memPercent' => 'MemPercent',
+        'pid' => 'Pid',
+        'processData' => 'ProcessData',
+        'processPath' => 'ProcessPath',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -204,7 +202,7 @@ class applications extends Model
         if (isset($map['ProcessData'])) {
             if (!empty($map['ProcessData'])) {
                 $model->processData = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ProcessData'] as $item) {
                     $model->processData[$n++] = null !== $item ? processData::fromMap($item) : $item;
                 }

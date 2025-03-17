@@ -12,6 +12,7 @@ class ClonePolicyGroupRequest extends Model
      * @description The name of the cloud computer policy that you want to create.
      *
      * This parameter is required.
+     *
      * @example testPolicyGroupName
      *
      * @var string
@@ -22,6 +23,7 @@ class ClonePolicyGroupRequest extends Model
      * @description The ID of the destination cloud computer policy that you want to clone.
      *
      * This parameter is required.
+     *
      * @example pg-gx2x1dhsmthe9****
      *
      * @var string
@@ -32,20 +34,19 @@ class ClonePolicyGroupRequest extends Model
      * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'name'          => 'Name',
+        'name' => 'Name',
         'policyGroupId' => 'PolicyGroupId',
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

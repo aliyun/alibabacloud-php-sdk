@@ -21,13 +21,11 @@ class DescribeCustomizedListHeadersResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'headers'   => 'Headers',
+        'headers' => 'Headers',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -59,7 +57,7 @@ class DescribeCustomizedListHeadersResponseBody extends Model
         if (isset($map['Headers'])) {
             if (!empty($map['Headers'])) {
                 $model->headers = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Headers'] as $item) {
                     $model->headers[$n++] = null !== $item ? headers::fromMap($item) : $item;
                 }

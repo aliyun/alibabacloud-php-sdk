@@ -22,6 +22,7 @@ class SetUserProfilePathRulesRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,28 +45,39 @@ class SetUserProfilePathRulesRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DesktopGroup
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   Default
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example DesktopGroup
      *
      * @var string
      */
     public $userProfileRuleType;
     protected $_name = [
-        'desktopGroupId'      => 'DesktopGroupId',
-        'regionId'            => 'RegionId',
+        'desktopGroupId' => 'DesktopGroupId',
+        'regionId' => 'RegionId',
         'userProfilePathRule' => 'UserProfilePathRule',
         'userProfileRuleType' => 'UserProfileRuleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -109,7 +121,7 @@ class SetUserProfilePathRulesRequest extends Model
         if (isset($map['UserProfilePathRule'])) {
             if (!empty($map['UserProfilePathRule'])) {
                 $model->userProfilePathRule = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['UserProfilePathRule'] as $item) {
                     $model->userProfilePathRule[$n++] = null !== $item ? userProfilePathRule::fromMap($item) : $item;
                 }

@@ -81,6 +81,7 @@ class cloudDriveGroups extends Model
      *   disabled
      *
      * Default value: enabled.
+     *
      * @example enabled
      *
      * @var string
@@ -105,23 +106,21 @@ class cloudDriveGroups extends Model
      */
     public $usedSize;
     protected $_name = [
-        'adminUserIds'   => 'AdminUserIds',
+        'adminUserIds' => 'AdminUserIds',
         'adminUserInfos' => 'AdminUserInfos',
-        'createTime'     => 'CreateTime',
-        'directoryId'    => 'DirectoryId',
-        'driveId'        => 'DriveId',
-        'groupId'        => 'GroupId',
-        'groupName'      => 'GroupName',
-        'orgId'          => 'OrgId',
+        'createTime' => 'CreateTime',
+        'directoryId' => 'DirectoryId',
+        'driveId' => 'DriveId',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'orgId' => 'OrgId',
         'recycleBinSize' => 'RecycleBinSize',
-        'status'         => 'Status',
-        'totalSize'      => 'TotalSize',
-        'usedSize'       => 'UsedSize',
+        'status' => 'Status',
+        'totalSize' => 'TotalSize',
+        'usedSize' => 'UsedSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -186,7 +185,7 @@ class cloudDriveGroups extends Model
         if (isset($map['AdminUserInfos'])) {
             if (!empty($map['AdminUserInfos'])) {
                 $model->adminUserInfos = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['AdminUserInfos'] as $item) {
                     $model->adminUserInfos[$n++] = null !== $item ? adminUserInfos::fromMap($item) : $item;
                 }

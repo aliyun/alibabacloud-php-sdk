@@ -12,6 +12,7 @@ class CreateCloudDriveUsersRequest extends Model
      * @description The ID of the cloud disk.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+cds-352282****
      *
      * @var string
@@ -22,6 +23,7 @@ class CreateCloudDriveUsersRequest extends Model
      * @description The IDs of the end users.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $endUserId;
@@ -30,6 +32,7 @@ class CreateCloudDriveUsersRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -40,21 +43,20 @@ class CreateCloudDriveUsersRequest extends Model
      * @description The maximum storage space of an end user. Unit: bytes.
      *
      * This parameter is required.
+     *
      * @example 1024
      *
      * @var int
      */
     public $userMaxSize;
     protected $_name = [
-        'cdsId'       => 'CdsId',
-        'endUserId'   => 'EndUserId',
-        'regionId'    => 'RegionId',
+        'cdsId' => 'CdsId',
+        'endUserId' => 'EndUserId',
+        'regionId' => 'RegionId',
         'userMaxSize' => 'UserMaxSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

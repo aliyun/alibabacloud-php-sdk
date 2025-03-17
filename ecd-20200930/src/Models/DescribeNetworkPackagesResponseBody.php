@@ -35,13 +35,11 @@ class DescribeNetworkPackagesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'networkPackages' => 'NetworkPackages',
-        'nextToken'       => 'NextToken',
-        'requestId'       => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeNetworkPackagesResponseBody extends Model
         if (isset($map['NetworkPackages'])) {
             if (!empty($map['NetworkPackages'])) {
                 $model->networkPackages = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['NetworkPackages'] as $item) {
                     $model->networkPackages[$n++] = null !== $item ? networkPackages::fromMap($item) : $item;
                 }

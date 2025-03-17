@@ -58,14 +58,12 @@ class timerInfos extends Model
     public $timerType;
     protected $_name = [
         'cronExpression' => 'CronExpression',
-        'forced'         => 'Forced',
-        'status'         => 'Status',
-        'timerType'      => 'TimerType',
+        'forced' => 'Forced',
+        'status' => 'Status',
+        'timerType' => 'TimerType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class CancelCdsFileShareLinkRequest extends Model
      * @description The ID of the cloud disk.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou+cds-352282****
      *
      * @var string
@@ -22,19 +23,18 @@ class CancelCdsFileShareLinkRequest extends Model
      * @description The ID of the file sharing task.
      *
      * This parameter is required.
+     *
      * @example 7JQX1Fsw****
      *
      * @var string
      */
     public $shareId;
     protected $_name = [
-        'cdsId'   => 'CdsId',
+        'cdsId' => 'CdsId',
         'shareId' => 'ShareId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

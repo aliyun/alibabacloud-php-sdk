@@ -26,13 +26,11 @@ class statistic extends Model
      */
     public $timePoint;
     protected $_name = [
-        'count'     => 'Count',
+        'count' => 'Count',
         'timePoint' => 'TimePoint',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
