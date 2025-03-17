@@ -1,16 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceAttributeResponseBody\data;
 
@@ -19,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class multiZones extends Model
 {
     /**
-     * @description 交换机ID数组。
+     * @description The vSwitch IDs.
      *
      * @var string[]
      */
     public $vSwitchIds;
 
     /**
-     * @description 可用区ID。
+     * @description The zone ID.
      *
      * @example cn-hangzhou-h
      *
@@ -38,7 +28,7 @@ class multiZones extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate(): void {}
+    public function validate() {}
 
     public function toMap()
     {

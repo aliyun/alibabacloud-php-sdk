@@ -1,16 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models;
 
@@ -39,6 +29,11 @@ class DeleteEndpointRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var string
+     */
+    public $DBInstanceNetType;
+
+    /**
      * @description The region ID.
      *
      * @example cn-hangzhou
@@ -49,10 +44,11 @@ class DeleteEndpointRequest extends Model
     protected $_name = [
         'connectionString' => 'ConnectionString',
         'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceNetType' => 'DBInstanceNetType',
         'regionId' => 'RegionId',
     ];
 
-    public function validate(): void {}
+    public function validate() {}
 
     public function toMap()
     {
@@ -62,6 +58,9 @@ class DeleteEndpointRequest extends Model
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->DBInstanceNetType) {
+            $res['DBInstanceNetType'] = $this->DBInstanceNetType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -83,6 +82,9 @@ class DeleteEndpointRequest extends Model
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DBInstanceNetType'])) {
+            $model->DBInstanceNetType = $map['DBInstanceNetType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

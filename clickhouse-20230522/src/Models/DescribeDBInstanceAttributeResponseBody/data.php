@@ -1,16 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstanceAttributeResponseBody;
 
@@ -40,10 +30,7 @@ class data extends Model
     public $bid;
 
     /**
-     * @description The billing method. Valid values:
-     *
-     *   Prepaid: subscription
-     *   PostPaid: pay-as-you-go
+     * @description The billing method. Enterprise Edition clusters use the pay-as-you-go billing method.
      *
      * @example PrePaid
      *
@@ -79,12 +66,12 @@ class data extends Model
     public $deletionProtection;
 
     /**
-     * @description 集群可用区部署状态，支持single_az和multi_az两种类型。
+     * @description The deployment mode of the cluster. Valid values: single_az and multi_az.
      *
-     * - single_az：server部署到主可用区ZoneId。
-     * - multi_az：server部署到多可用区MultiZones。
+     *   single_az: indicates that the server nodes are deployed in the primary zone. The ID of the primary zone is specified by the ZoneID parameter.
+     *   multi_az: indicates that the server nodes are deployed in multiple zones. The information about the zones is specified by the MultiZones parameter.
      *
-     * keeper始终部署到多可用区MultiZones。
+     * The keeper nodes are deployed in multiple zones.
      *
      * @example single_az
      *
@@ -194,7 +181,7 @@ class data extends Model
     public $maintainStartTime;
 
     /**
-     * @description 多可用信息。
+     * @description The information about the zones.
      *
      * @var multiZones[]
      */
@@ -347,7 +334,7 @@ class data extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate(): void {}
+    public function validate() {}
 
     public function toMap()
     {
