@@ -20,6 +20,7 @@ class videoTimeline extends Model
      * @description The one or more OSS objects that are generated as the output snapshots.
      *
      * > In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg`, `output00002-****.jpg`, and so on.
+     *
      * @example output{Count}.jpg
      *
      * @var string
@@ -36,13 +37,11 @@ class videoTimeline extends Model
     public $timestamp;
     protected $_name = [
         'censorResults' => 'CensorResults',
-        'object'        => 'Object',
-        'timestamp'     => 'Timestamp',
+        'object' => 'Object',
+        'timestamp' => 'Timestamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -51,6 +51,7 @@ class SearchWaterMarkTemplateResponseBody extends Model
      *   Text: a text watermark.
      *
      * >  Only watermarks of the **Image** types are supported.
+     *
      * @example 1
      *
      * @var int
@@ -67,16 +68,14 @@ class SearchWaterMarkTemplateResponseBody extends Model
      */
     public $waterMarkTemplateList;
     protected $_name = [
-        'pageNumber'            => 'PageNumber',
-        'pageSize'              => 'PageSize',
-        'requestId'             => 'RequestId',
-        'totalCount'            => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'waterMarkTemplateList' => 'WaterMarkTemplateList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

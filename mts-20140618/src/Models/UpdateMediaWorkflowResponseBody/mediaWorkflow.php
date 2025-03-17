@@ -51,13 +51,38 @@ class mediaWorkflow extends Model
      * @description The topology of the media workflow.
      *
      * @example {
+     * "Activities": {
+     * "Act-Start": {
      * "Parameters": {
      * "PipelineId": "130266f58161436a80bf07cb12c8****",
      * "InputFile": "{\\"Bucket\\": \\"example-bucket-****\\",\\"Location\\": \\"cn-shanghai\\"}"
+     * },
+     * "Type": "Start"
+     * },
+     * "Act-Report": {
+     * "Parameters": {},
+     * "Type": "Report"
+     * },
+     * "Act-Transcode-M3U8": {
      * "Parameters": {
      * "Outputs": "[{\\"Object\\":\\"transcode/{ObjectPrefix}{FileName}\\",\\"TemplateId\\": \\"957d1719ee85ed6527b90cf62726****\\"}]",
      * "OutputBucket": "example-bucket-****",
+     * "OutputLocation": "cn-shanghai"
+     * },
+     * "Type": "Transcode"
      * }
+     * },
+     * "Dependencies": {
+     * "Act-Start": [
+     * "Act-Transcode-M3U8"
+     * ],
+     * "Act-Report": [],
+     * "Act-Transcode-M3U8": [
+     * "Act-Report"
+     * ]
+     * }
+     * }
+     *
      * @var string
      */
     public $topology;
@@ -74,17 +99,15 @@ class mediaWorkflow extends Model
      */
     public $triggerMode;
     protected $_name = [
-        'creationTime'    => 'CreationTime',
+        'creationTime' => 'CreationTime',
         'mediaWorkflowId' => 'MediaWorkflowId',
-        'name'            => 'Name',
-        'state'           => 'State',
-        'topology'        => 'Topology',
-        'triggerMode'     => 'TriggerMode',
+        'name' => 'Name',
+        'state' => 'State',
+        'topology' => 'Topology',
+        'triggerMode' => 'TriggerMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

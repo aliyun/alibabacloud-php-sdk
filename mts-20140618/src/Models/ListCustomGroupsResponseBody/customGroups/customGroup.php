@@ -26,13 +26,11 @@ class customGroup extends Model
     public $customGroupName;
     protected $_name = [
         'customGroupDescription' => 'CustomGroupDescription',
-        'customGroupId'          => 'CustomGroupId',
-        'customGroupName'        => 'CustomGroupName',
+        'customGroupId' => 'CustomGroupId',
+        'customGroupName' => 'CustomGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

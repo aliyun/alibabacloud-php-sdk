@@ -32,14 +32,12 @@ class muxConfig extends Model
      */
     public $webp;
     protected $_name = [
-        'gif'     => 'Gif',
+        'gif' => 'Gif',
         'segment' => 'Segment',
-        'webp'    => 'Webp',
+        'webp' => 'Webp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

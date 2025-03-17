@@ -12,6 +12,7 @@ class UpdateMediaPublishStateRequest extends Model
      * @description The ID of the media file whose publishing status you want to update. You can obtain the ID of a media file from the response of the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation. Alternatively, perform the following operations in the ApsaraVideo Media Processing (MPS) console: In the left-side navigation pane, choose **Media Management** > **Media List**. Find the required video and click **Manage**. The ID of the video is displayed on the Basics tab.
      *
      * This parameter is required.
+     *
      * @example 3e6149d5a8c944c09b1a8d2dc3e4****
      *
      * @var string
@@ -50,17 +51,15 @@ class UpdateMediaPublishStateRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'mediaId'              => 'MediaId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'publish'              => 'Publish',
+        'mediaId' => 'MediaId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'publish' => 'Publish',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

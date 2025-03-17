@@ -92,18 +92,16 @@ class audio extends Model
      */
     public $samplerate;
     protected $_name = [
-        'bitrate'    => 'Bitrate',
-        'channels'   => 'Channels',
-        'codec'      => 'Codec',
-        'profile'    => 'Profile',
-        'qscale'     => 'Qscale',
-        'remove'     => 'Remove',
+        'bitrate' => 'Bitrate',
+        'channels' => 'Channels',
+        'codec' => 'Codec',
+        'profile' => 'Profile',
+        'qscale' => 'Qscale',
+        'remove' => 'Remove',
         'samplerate' => 'Samplerate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class subtitleStreamList extends Model
         'subtitleStream' => 'SubtitleStream',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class subtitleStreamList extends Model
         if (isset($map['SubtitleStream'])) {
             if (!empty($map['SubtitleStream'])) {
                 $model->subtitleStream = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['SubtitleStream'] as $item) {
                     $model->subtitleStream[$n++] = null !== $item ? subtitleStream::fromMap($item) : $item;
                 }

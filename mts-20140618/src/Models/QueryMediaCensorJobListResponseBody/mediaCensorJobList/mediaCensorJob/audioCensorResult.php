@@ -18,13 +18,11 @@ class audioCensorResult extends Model
      */
     public $suggestion;
     protected $_name = [
-        'label'      => 'Label',
+        'label' => 'Label',
         'suggestion' => 'Suggestion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

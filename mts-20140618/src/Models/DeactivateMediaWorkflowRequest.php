@@ -12,6 +12,7 @@ class DeactivateMediaWorkflowRequest extends Model
      * @description The ID of the media workflow that is deactivated.
      *
      * This parameter is required.
+     *
      * @example 93ab850b4f6f44eab54b6e9181d4****
      *
      * @var string
@@ -38,16 +39,14 @@ class DeactivateMediaWorkflowRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'mediaWorkflowId'      => 'MediaWorkflowId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'mediaWorkflowId' => 'MediaWorkflowId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

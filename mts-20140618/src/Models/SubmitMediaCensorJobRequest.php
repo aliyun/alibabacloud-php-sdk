@@ -25,11 +25,7 @@ class SubmitMediaCensorJobRequest extends Model
      *   Location: the OSS region. The OSS region must be the same as the region in which your MPS service is activated.
      *
      *   Object: the OSS object to be moderated.
-     *
-     **
-     *
      **Note**The name of the object cannot start with a forward slash (/). Otherwise, the operation fails to be called.
-     *
      * @example [{"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.jpeg"}]
      *
      * @var string
@@ -60,11 +56,7 @@ class SubmitMediaCensorJobRequest extends Model
      *   Location: the OSS region. The OSS region must be the same as the region in which your MPS service is activated.
      *
      *   Object: the OSS object to be moderated.
-     *
-     **
-     *
      **Note**The name of the object cannot start with a forward slash (/). Otherwise, the operation fails to be called.
-     *
      * @example {"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.flv"}
      *
      * @var string
@@ -85,6 +77,7 @@ class SubmitMediaCensorJobRequest extends Model
      * @description The ID of the MPS queue. This ID can be used to associate the job with a notification method. To view the ID of the MPS queue, you can log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane. An empty string ("") indicates that the default MPS queue is used to run the job. By default, an MPS queue can process a maximum of 10 concurrent content moderation jobs. To increase the limit, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.12246746.top-nav.ditem-sub.35da7bbcitpQnr#/ticket/createIndex).
      *
      * > MPS queues are automatically created by the system. For more information about how to query and update MPS queues, see the [UpdatePipeline](https://help.aliyun.com/document_detail/188374.html) topic.
+     *
      * @example b22c173cced04565b1f38f1ecc39****
      *
      * @var string
@@ -145,31 +138,32 @@ class SubmitMediaCensorJobRequest extends Model
      *   logo: special logo detection
      *   audio: audio anti-spam
      *
+     * > If the input file contains audio tracks and the audio moderation scenario is specified, the audio tracks are moderated. If the input file does not contain audio tracks, you do not need to specify the audio moderation scenario.
+     *
      * This parameter is required.
+     *
      * @example {"Scenes" : ["porn"], "OutputFile":{"Bucket": "example-001","Location": "oss-cn-hangzhou","Object": "test/example-{Count}.jpg"},"SaveType" : "abnormal","BizType":"common"}
      *
      * @var string
      */
     public $videoCensorConfig;
     protected $_name = [
-        'barrages'             => 'Barrages',
-        'coverImages'          => 'CoverImages',
-        'description'          => 'Description',
-        'externalUrl'          => 'ExternalUrl',
-        'input'                => 'Input',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pipelineId'           => 'PipelineId',
+        'barrages' => 'Barrages',
+        'coverImages' => 'CoverImages',
+        'description' => 'Description',
+        'externalUrl' => 'ExternalUrl',
+        'input' => 'Input',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pipelineId' => 'PipelineId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'title'                => 'Title',
-        'userData'             => 'UserData',
-        'videoCensorConfig'    => 'VideoCensorConfig',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'title' => 'Title',
+        'userData' => 'UserData',
+        'videoCensorConfig' => 'VideoCensorConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

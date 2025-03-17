@@ -17,9 +17,7 @@ class pipelineList extends Model
         'pipeline' => 'Pipeline',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class pipelineList extends Model
         if (isset($map['Pipeline'])) {
             if (!empty($map['Pipeline'])) {
                 $model->pipeline = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Pipeline'] as $item) {
                     $model->pipeline[$n++] = null !== $item ? pipeline::fromMap($item) : $item;
                 }

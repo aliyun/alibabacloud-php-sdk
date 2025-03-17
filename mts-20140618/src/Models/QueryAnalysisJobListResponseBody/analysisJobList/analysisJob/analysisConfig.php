@@ -25,12 +25,10 @@ class analysisConfig extends Model
     public $qualityControl;
     protected $_name = [
         'propertiesControl' => 'PropertiesControl',
-        'qualityControl'    => 'QualityControl',
+        'qualityControl' => 'QualityControl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

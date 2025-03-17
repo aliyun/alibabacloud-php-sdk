@@ -17,9 +17,7 @@ class fpShotFileList extends Model
         'fpShotFile' => 'FpShotFile',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class fpShotFileList extends Model
         if (isset($map['FpShotFile'])) {
             if (!empty($map['FpShotFile'])) {
                 $model->fpShotFile = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['FpShotFile'] as $item) {
                     $model->fpShotFile[$n++] = null !== $item ? fpShotFile::fromMap($item) : $item;
                 }

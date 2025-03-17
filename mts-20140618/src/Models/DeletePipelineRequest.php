@@ -22,6 +22,7 @@ class DeletePipelineRequest extends Model
      * @description The ID of the MPS queue that you want to delete. To obtain the ID of the MPS queue, you can log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane.
      *
      * This parameter is required.
+     *
      * @example d1ce4d3efcb549419193f50f1fcd****
      *
      * @var string
@@ -38,16 +39,14 @@ class DeletePipelineRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pipelineId'           => 'PipelineId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pipelineId' => 'PipelineId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

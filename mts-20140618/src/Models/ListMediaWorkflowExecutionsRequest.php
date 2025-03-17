@@ -73,20 +73,18 @@ class ListMediaWorkflowExecutionsRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'inputFileURL'         => 'InputFileURL',
-        'maximumPageSize'      => 'MaximumPageSize',
-        'mediaWorkflowId'      => 'MediaWorkflowId',
-        'mediaWorkflowName'    => 'MediaWorkflowName',
-        'nextPageToken'        => 'NextPageToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'inputFileURL' => 'InputFileURL',
+        'maximumPageSize' => 'MaximumPageSize',
+        'mediaWorkflowId' => 'MediaWorkflowId',
+        'mediaWorkflowName' => 'MediaWorkflowName',
+        'nextPageToken' => 'NextPageToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

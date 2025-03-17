@@ -80,19 +80,17 @@ class multiSpeedInfo extends Model
      */
     public $timeCost;
     protected $_name = [
-        'code'            => 'Code',
+        'code' => 'Code',
         'downgradePolicy' => 'DowngradePolicy',
-        'duration'        => 'Duration',
-        'enable'          => 'Enable',
-        'message'         => 'Message',
-        'realSpeed'       => 'RealSpeed',
-        'settingSpeed'    => 'SettingSpeed',
-        'timeCost'        => 'TimeCost',
+        'duration' => 'Duration',
+        'enable' => 'Enable',
+        'message' => 'Message',
+        'realSpeed' => 'RealSpeed',
+        'settingSpeed' => 'SettingSpeed',
+        'timeCost' => 'TimeCost',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

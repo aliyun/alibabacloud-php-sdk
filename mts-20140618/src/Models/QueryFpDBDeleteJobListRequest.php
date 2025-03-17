@@ -37,16 +37,14 @@ class QueryFpDBDeleteJobListRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'jobIds'               => 'JobIds',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'jobIds' => 'JobIds',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

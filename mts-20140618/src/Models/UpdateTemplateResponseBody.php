@@ -26,12 +26,10 @@ class UpdateTemplateResponseBody extends Model
     public $template;
     protected $_name = [
         'requestId' => 'RequestId',
-        'template'  => 'Template',
+        'template' => 'Template',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

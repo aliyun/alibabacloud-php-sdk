@@ -23,7 +23,10 @@ class SubmitMediaInfoJobRequest extends Model
     /**
      * @description The information about the input media file. The value is a JSON string. You must perform the following operations to add the OSS bucket in which the input media file is stored as a media bucket: Log on to the **MPS console**, choose **Workflows** > **Media Buckets** in the left-side navigation pane, and then click **Add Bucket**. After you add the OSS bucket as a media bucket, you must perform URL encoding for the OSS object. For example, `{"Bucket":"example-bucket","Location":"example-location","Object":"example%2Fexample.flv"}` indicates the `example-bucket.example-location.aliyuncs.com/example/example.flv` file.
      *
+     * > The OSS bucket must reside in the same region as your MPS service.
+     *
      * This parameter is required.
+     *
      * @example {"Bucket":"example-bucket","Location":"example-location","Object":"example%2Fexample.flv"}
      *
      * @var string
@@ -71,19 +74,17 @@ class SubmitMediaInfoJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'async'                => 'Async',
-        'input'                => 'Input',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pipelineId'           => 'PipelineId',
+        'async' => 'Async',
+        'input' => 'Input',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pipelineId' => 'PipelineId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'userData'             => 'UserData',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

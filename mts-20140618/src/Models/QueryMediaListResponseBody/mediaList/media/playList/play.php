@@ -118,23 +118,21 @@ class play extends Model
      */
     public $width;
     protected $_name = [
-        'activityName'      => 'ActivityName',
-        'bitrate'           => 'Bitrate',
-        'duration'          => 'Duration',
-        'encryption'        => 'Encryption',
-        'file'              => 'File',
-        'format'            => 'Format',
-        'fps'               => 'Fps',
-        'height'            => 'Height',
-        'mediaWorkflowId'   => 'MediaWorkflowId',
+        'activityName' => 'ActivityName',
+        'bitrate' => 'Bitrate',
+        'duration' => 'Duration',
+        'encryption' => 'Encryption',
+        'file' => 'File',
+        'format' => 'Format',
+        'fps' => 'Fps',
+        'height' => 'Height',
+        'mediaWorkflowId' => 'MediaWorkflowId',
         'mediaWorkflowName' => 'MediaWorkflowName',
-        'size'              => 'Size',
-        'width'             => 'Width',
+        'size' => 'Size',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,14 +34,12 @@ class textFpShot extends Model
      */
     public $textFpShotSlices;
     protected $_name = [
-        'primaryKey'       => 'PrimaryKey',
-        'similarity'       => 'Similarity',
+        'primaryKey' => 'PrimaryKey',
+        'similarity' => 'Similarity',
         'textFpShotSlices' => 'TextFpShotSlices',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,12 +25,10 @@ class subtitleConfig extends Model
     public $subtitleList;
     protected $_name = [
         'extSubtitleList' => 'ExtSubtitleList',
-        'subtitleList'    => 'SubtitleList',
+        'subtitleList' => 'SubtitleList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

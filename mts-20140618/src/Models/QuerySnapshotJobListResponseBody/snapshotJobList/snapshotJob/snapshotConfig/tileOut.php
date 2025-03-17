@@ -97,20 +97,18 @@ class tileOut extends Model
      */
     public $padding;
     protected $_name = [
-        'cellHeight'    => 'CellHeight',
-        'cellSelStep'   => 'CellSelStep',
-        'cellWidth'     => 'CellWidth',
-        'color'         => 'Color',
-        'columns'       => 'Columns',
+        'cellHeight' => 'CellHeight',
+        'cellSelStep' => 'CellSelStep',
+        'cellWidth' => 'CellWidth',
+        'color' => 'Color',
+        'columns' => 'Columns',
         'isKeepCellPic' => 'IsKeepCellPic',
-        'lines'         => 'Lines',
-        'margin'        => 'Margin',
-        'padding'       => 'Padding',
+        'lines' => 'Lines',
+        'margin' => 'Margin',
+        'padding' => 'Padding',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -40,14 +40,12 @@ class digiWaterMark extends Model
      */
     public $type;
     protected $_name = [
-        'alpha'     => 'Alpha',
+        'alpha' => 'Alpha',
         'inputFile' => 'InputFile',
-        'type'      => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -53,16 +53,14 @@ class mediaWorkflow extends Model
      */
     public $topology;
     protected $_name = [
-        'creationTime'    => 'CreationTime',
+        'creationTime' => 'CreationTime',
         'mediaWorkflowId' => 'MediaWorkflowId',
-        'name'            => 'Name',
-        'state'           => 'State',
-        'topology'        => 'Topology',
+        'name' => 'Name',
+        'state' => 'State',
+        'topology' => 'Topology',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

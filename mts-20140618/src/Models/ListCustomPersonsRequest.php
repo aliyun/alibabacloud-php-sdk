@@ -12,6 +12,7 @@ class ListCustomPersonsRequest extends Model
      * @description The ID of the figure library about which you want to query information. The ID is used to uniquely identify a custom figure library. Make sure that the ID is unique. If you do not specify this parameter, the operation returns all the custom figure libraries. The ID can be up to 120 characters in length and is not case-sensitive.
      *
      * > You cannot specify the ID of the system figure library for this parameter.
+     *
      * @example CategoryId-****
      *
      * @var string
@@ -47,17 +48,15 @@ class ListCustomPersonsRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'categoryId'           => 'CategoryId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'personId'             => 'PersonId',
+        'categoryId' => 'CategoryId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'personId' => 'PersonId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class audioStreamList extends Model
         'audioStream' => 'AudioStream',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class audioStreamList extends Model
         if (isset($map['AudioStream'])) {
             if (!empty($map['AudioStream'])) {
                 $model->audioStream = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['AudioStream'] as $item) {
                     $model->audioStream[$n++] = null !== $item ? audioStream::fromMap($item) : $item;
                 }

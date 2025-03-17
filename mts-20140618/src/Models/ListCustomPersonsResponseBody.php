@@ -26,12 +26,10 @@ class ListCustomPersonsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'categories' => 'Categories',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class BindOutputBucketRequest extends Model
      * @description The name of the Object Storage Service (OSS) bucket that you want to bind. The name can be up to 64 bytes in size and can contain letters, digits, and hyphens (-). The name cannot start with a special character.
      *
      * This parameter is required.
+     *
      * @example example-bucket-****
      *
      * @var string
@@ -38,16 +39,14 @@ class BindOutputBucketRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'bucket'               => 'Bucket',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'bucket' => 'Bucket',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

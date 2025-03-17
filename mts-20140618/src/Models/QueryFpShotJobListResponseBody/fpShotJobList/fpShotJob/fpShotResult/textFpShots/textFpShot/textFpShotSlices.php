@@ -17,9 +17,7 @@ class textFpShotSlices extends Model
         'textFpShotSlice' => 'TextFpShotSlice',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class textFpShotSlices extends Model
         if (isset($map['TextFpShotSlice'])) {
             if (!empty($map['TextFpShotSlice'])) {
                 $model->textFpShotSlice = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['TextFpShotSlice'] as $item) {
                     $model->textFpShotSlice[$n++] = null !== $item ? textFpShotSlice::fromMap($item) : $item;
                 }

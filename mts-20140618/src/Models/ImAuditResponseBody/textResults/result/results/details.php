@@ -36,13 +36,11 @@ class details extends Model
      */
     public $contexts;
     protected $_name = [
-        'label'    => 'Label',
+        'label' => 'Label',
         'contexts' => 'contexts',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -77,7 +75,7 @@ class details extends Model
         if (isset($map['contexts'])) {
             if (!empty($map['contexts'])) {
                 $model->contexts = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['contexts'] as $item) {
                     $model->contexts[$n++] = null !== $item ? contexts::fromMap($item) : $item;
                 }

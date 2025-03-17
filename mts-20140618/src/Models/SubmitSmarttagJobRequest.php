@@ -111,26 +111,24 @@ class SubmitSmarttagJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'content'              => 'Content',
-        'contentAddr'          => 'ContentAddr',
-        'contentType'          => 'ContentType',
-        'input'                => 'Input',
-        'notifyUrl'            => 'NotifyUrl',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'params'               => 'Params',
-        'pipelineId'           => 'PipelineId',
-        'priority'             => 'Priority',
+        'content' => 'Content',
+        'contentAddr' => 'ContentAddr',
+        'contentType' => 'ContentType',
+        'input' => 'Input',
+        'notifyUrl' => 'NotifyUrl',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'params' => 'Params',
+        'pipelineId' => 'PipelineId',
+        'priority' => 'Priority',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'templateId'           => 'TemplateId',
-        'title'                => 'Title',
-        'userData'             => 'UserData',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'templateId' => 'TemplateId',
+        'title' => 'Title',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

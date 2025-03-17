@@ -19,9 +19,7 @@ class clip extends Model
         'timeSpan' => 'TimeSpan',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

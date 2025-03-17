@@ -62,6 +62,7 @@ class activity extends Model
      * @description The name of the method.
      *
      * > The name of each method in a media workflow is unique.
+     *
      * @example Start
      *
      * @var string
@@ -86,6 +87,7 @@ class activity extends Model
      *   Skipped: The method is skipped.
      *
      * > For example, after the analysis is complete, the transcode method is called and high-definition and standard-definition transcoding jobs are created. The system determines whether to run the jobs based on the analysis result. If the resolution of the input video is low, the high-definition transcoding job may be skipped.
+     *
      * @example Running
      *
      * @var string
@@ -101,20 +103,18 @@ class activity extends Model
      */
     public $type;
     protected $_name = [
-        'code'             => 'Code',
-        'endTime'          => 'EndTime',
-        'jobId'            => 'JobId',
+        'code' => 'Code',
+        'endTime' => 'EndTime',
+        'jobId' => 'JobId',
         'MNSMessageResult' => 'MNSMessageResult',
-        'message'          => 'Message',
-        'name'             => 'Name',
-        'startTime'        => 'StartTime',
-        'state'            => 'State',
-        'type'             => 'Type',
+        'message' => 'Message',
+        'name' => 'Name',
+        'startTime' => 'StartTime',
+        'state' => 'State',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

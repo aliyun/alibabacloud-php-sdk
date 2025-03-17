@@ -62,6 +62,16 @@ class AddSmarttagTemplateRequest extends Model
     public $knowledgeConfig;
 
     /**
+     * @var string
+     */
+    public $labelCustomCategoryIds;
+
+    /**
+     * @var string
+     */
+    public $labelCustomParamsConfig;
+
+    /**
      * @example hmi
      *
      * @var string
@@ -127,28 +137,28 @@ class AddSmarttagTemplateRequest extends Model
      */
     public $templateName;
     protected $_name = [
-        'analyseTypes'           => 'AnalyseTypes',
-        'faceCategoryIds'        => 'FaceCategoryIds',
+        'analyseTypes' => 'AnalyseTypes',
+        'faceCategoryIds' => 'FaceCategoryIds',
         'faceCustomParamsConfig' => 'FaceCustomParamsConfig',
-        'industry'               => 'Industry',
-        'isDefault'              => 'IsDefault',
-        'keywordConfig'          => 'KeywordConfig',
-        'knowledgeConfig'        => 'KnowledgeConfig',
-        'labelType'              => 'LabelType',
-        'labelVersion'           => 'LabelVersion',
-        'landmarkGroupIds'       => 'LandmarkGroupIds',
-        'objectGroupIds'         => 'ObjectGroupIds',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'scene'                  => 'Scene',
-        'templateName'           => 'TemplateName',
+        'industry' => 'Industry',
+        'isDefault' => 'IsDefault',
+        'keywordConfig' => 'KeywordConfig',
+        'knowledgeConfig' => 'KnowledgeConfig',
+        'labelCustomCategoryIds' => 'LabelCustomCategoryIds',
+        'labelCustomParamsConfig' => 'LabelCustomParamsConfig',
+        'labelType' => 'LabelType',
+        'labelVersion' => 'LabelVersion',
+        'landmarkGroupIds' => 'LandmarkGroupIds',
+        'objectGroupIds' => 'ObjectGroupIds',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'scene' => 'Scene',
+        'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -173,6 +183,12 @@ class AddSmarttagTemplateRequest extends Model
         }
         if (null !== $this->knowledgeConfig) {
             $res['KnowledgeConfig'] = $this->knowledgeConfig;
+        }
+        if (null !== $this->labelCustomCategoryIds) {
+            $res['LabelCustomCategoryIds'] = $this->labelCustomCategoryIds;
+        }
+        if (null !== $this->labelCustomParamsConfig) {
+            $res['LabelCustomParamsConfig'] = $this->labelCustomParamsConfig;
         }
         if (null !== $this->labelType) {
             $res['LabelType'] = $this->labelType;
@@ -236,6 +252,12 @@ class AddSmarttagTemplateRequest extends Model
         }
         if (isset($map['KnowledgeConfig'])) {
             $model->knowledgeConfig = $map['KnowledgeConfig'];
+        }
+        if (isset($map['LabelCustomCategoryIds'])) {
+            $model->labelCustomCategoryIds = $map['LabelCustomCategoryIds'];
+        }
+        if (isset($map['LabelCustomParamsConfig'])) {
+            $model->labelCustomParamsConfig = $map['LabelCustomParamsConfig'];
         }
         if (isset($map['LabelType'])) {
             $model->labelType = $map['LabelType'];

@@ -19,6 +19,7 @@ class snapshotConfig extends Model
      *   **intra**: I-frames (keyframes).
      *
      * > If the FrameType parameter is set to intra in the request, only keyframes are captured. If no keyframe is found at the specified point in time, the keyframe closest to the specified point in time is captured. Keyframes are captured faster than normal frames if the same snapshot rules are applied.
+     *
      * @example intra
      *
      * @var string
@@ -100,21 +101,19 @@ class snapshotConfig extends Model
      */
     public $width;
     protected $_name = [
-        'frameType'      => 'FrameType',
-        'height'         => 'Height',
-        'interval'       => 'Interval',
-        'num'            => 'Num',
-        'outputFile'     => 'OutputFile',
-        'tileOut'        => 'TileOut',
+        'frameType' => 'FrameType',
+        'height' => 'Height',
+        'interval' => 'Interval',
+        'num' => 'Num',
+        'outputFile' => 'OutputFile',
+        'tileOut' => 'TileOut',
         'tileOutputFile' => 'TileOutputFile',
-        'time'           => 'Time',
-        'timeArray'      => 'TimeArray',
-        'width'          => 'Width',
+        'time' => 'Time',
+        'timeArray' => 'TimeArray',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

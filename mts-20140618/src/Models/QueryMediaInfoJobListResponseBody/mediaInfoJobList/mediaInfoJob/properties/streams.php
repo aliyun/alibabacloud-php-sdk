@@ -32,14 +32,12 @@ class streams extends Model
      */
     public $videoStreamList;
     protected $_name = [
-        'audioStreamList'    => 'AudioStreamList',
+        'audioStreamList' => 'AudioStreamList',
         'subtitleStreamList' => 'SubtitleStreamList',
-        'videoStreamList'    => 'VideoStreamList',
+        'videoStreamList' => 'VideoStreamList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

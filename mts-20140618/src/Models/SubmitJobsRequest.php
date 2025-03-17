@@ -18,6 +18,7 @@ class SubmitJobsRequest extends Model
      *   The OSS bucket must reside in the same region as your MPS service.
      *
      * This parameter is required.
+     *
      * @example a/b/c/test-cn.srt
      *
      * @var string
@@ -30,6 +31,7 @@ class SubmitJobsRequest extends Model
      *   For more information about the term bucket, see [Terms](https://help.aliyun.com/document_detail/31827.html).
      *
      * This parameter is required.
+     *
      * @example exampleBucket
      *
      * @var string
@@ -54,6 +56,7 @@ class SubmitJobsRequest extends Model
      *   Specify the value in a JSON array of Output objects. You can specify up to 30 Output objects.
      *
      * This parameter is required.
+     *
      * @example [{"OutputObject":"exampleOutput.mp4","TemplateId":"6181666213ab41b9bc21da8ff5ff****","WaterMarks":[{"InputFile":{"Bucket":"exampleBucket","Location":"oss-cn-hangzhou","Object":"image_01.png"},"WaterMarkTemplateId":"9b772ce2740d4d55876d8b542d47****"}],"UserData":"testid-001"}]
      *
      * @var string
@@ -77,6 +80,7 @@ class SubmitJobsRequest extends Model
      *   If you want to receive asynchronous message notifications, associate an MNS queue or topic with the MPS queue. For more information, see [Receive notifications](https://help.aliyun.com/document_detail/42618.html).
      *
      * This parameter is required.
+     *
      * @example dd3dae411e704030b921e52698e5****
      *
      * @var string
@@ -93,20 +97,18 @@ class SubmitJobsRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'input'                => 'Input',
-        'outputBucket'         => 'OutputBucket',
-        'outputLocation'       => 'OutputLocation',
-        'outputs'              => 'Outputs',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pipelineId'           => 'PipelineId',
+        'input' => 'Input',
+        'outputBucket' => 'OutputBucket',
+        'outputLocation' => 'OutputLocation',
+        'outputs' => 'Outputs',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pipelineId' => 'PipelineId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

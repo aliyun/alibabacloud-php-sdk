@@ -33,14 +33,12 @@ class QueryJobListResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'jobList'        => 'JobList',
+        'jobList' => 'JobList',
         'nonExistJobIds' => 'NonExistJobIds',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

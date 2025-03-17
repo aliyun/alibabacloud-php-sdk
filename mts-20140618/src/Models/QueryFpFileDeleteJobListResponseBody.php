@@ -34,13 +34,11 @@ class QueryFpFileDeleteJobListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'fpFileDeleteJobList' => 'FpFileDeleteJobList',
-        'nonExistIds'         => 'NonExistIds',
-        'requestId'           => 'RequestId',
+        'nonExistIds' => 'NonExistIds',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

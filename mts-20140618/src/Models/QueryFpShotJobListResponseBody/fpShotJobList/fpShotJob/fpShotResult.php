@@ -33,13 +33,11 @@ class fpShotResult extends Model
     public $textFpShots;
     protected $_name = [
         'audioFpShots' => 'AudioFpShots',
-        'fpShots'      => 'FpShots',
-        'textFpShots'  => 'TextFpShots',
+        'fpShots' => 'FpShots',
+        'textFpShots' => 'TextFpShots',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

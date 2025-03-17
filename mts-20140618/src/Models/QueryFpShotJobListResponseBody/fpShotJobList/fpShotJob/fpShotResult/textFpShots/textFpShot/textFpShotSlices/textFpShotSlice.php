@@ -44,14 +44,12 @@ class textFpShotSlice extends Model
     public $similarity;
     protected $_name = [
         'duplicationText' => 'DuplicationText',
-        'inputFragment'   => 'InputFragment',
-        'inputText'       => 'InputText',
-        'similarity'      => 'Similarity',
+        'inputFragment' => 'InputFragment',
+        'inputText' => 'InputText',
+        'similarity' => 'Similarity',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

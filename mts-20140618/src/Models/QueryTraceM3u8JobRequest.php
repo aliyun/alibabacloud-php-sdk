@@ -43,16 +43,14 @@ class QueryTraceM3u8JobRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'createTimeEnd'   => 'CreateTimeEnd',
+        'createTimeEnd' => 'CreateTimeEnd',
         'createTimeStart' => 'CreateTimeStart',
-        'jobId'           => 'JobId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'jobId' => 'JobId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

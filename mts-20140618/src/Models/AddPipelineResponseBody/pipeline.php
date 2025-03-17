@@ -82,19 +82,17 @@ class pipeline extends Model
      */
     public $state;
     protected $_name = [
-        'id'            => 'Id',
-        'name'          => 'Name',
-        'notifyConfig'  => 'NotifyConfig',
+        'id' => 'Id',
+        'name' => 'Name',
+        'notifyConfig' => 'NotifyConfig',
         'quotaAllocate' => 'QuotaAllocate',
-        'role'          => 'Role',
-        'speed'         => 'Speed',
-        'speedLevel'    => 'SpeedLevel',
-        'state'         => 'State',
+        'role' => 'Role',
+        'speed' => 'Speed',
+        'speedLevel' => 'SpeedLevel',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

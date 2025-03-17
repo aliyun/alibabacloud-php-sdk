@@ -44,15 +44,13 @@ class SubmitCopyrightExtractJobRequest extends Model
     public $userData;
     protected $_name = [
         'callBack' => 'CallBack',
-        'input'    => 'Input',
-        'params'   => 'Params',
-        'url'      => 'Url',
+        'input' => 'Input',
+        'params' => 'Params',
+        'url' => 'Url',
         'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

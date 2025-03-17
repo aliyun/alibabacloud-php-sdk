@@ -33,13 +33,11 @@ class volume extends Model
      */
     public $method;
     protected $_name = [
-        'level'  => 'Level',
+        'level' => 'Level',
         'method' => 'Method',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

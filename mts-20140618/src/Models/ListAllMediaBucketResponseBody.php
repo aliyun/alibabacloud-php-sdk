@@ -35,13 +35,11 @@ class ListAllMediaBucketResponseBody extends Model
     public $requestId;
     protected $_name = [
         'mediaBucketList' => 'MediaBucketList',
-        'nextPageToken'   => 'NextPageToken',
-        'requestId'       => 'RequestId',
+        'nextPageToken' => 'NextPageToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -32,13 +32,11 @@ class TS extends Model
      */
     public $sizeSupport;
     protected $_name = [
-        'md5Support'  => 'Md5Support',
+        'md5Support' => 'Md5Support',
         'sizeSupport' => 'SizeSupport',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

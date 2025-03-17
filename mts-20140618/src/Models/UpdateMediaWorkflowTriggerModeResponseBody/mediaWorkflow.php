@@ -68,17 +68,15 @@ class mediaWorkflow extends Model
      */
     public $triggerMode;
     protected $_name = [
-        'creationTime'    => 'CreationTime',
+        'creationTime' => 'CreationTime',
         'mediaWorkflowId' => 'MediaWorkflowId',
-        'name'            => 'Name',
-        'state'           => 'State',
-        'topology'        => 'Topology',
-        'triggerMode'     => 'TriggerMode',
+        'name' => 'Name',
+        'state' => 'State',
+        'topology' => 'Topology',
+        'triggerMode' => 'TriggerMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

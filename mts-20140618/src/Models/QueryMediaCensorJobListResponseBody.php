@@ -43,14 +43,12 @@ class QueryMediaCensorJobListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'mediaCensorJobList' => 'MediaCensorJobList',
-        'nextPageToken'      => 'NextPageToken',
-        'nonExistIds'        => 'NonExistIds',
-        'requestId'          => 'RequestId',
+        'nextPageToken' => 'NextPageToken',
+        'nonExistIds' => 'NonExistIds',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -70,21 +70,19 @@ class TagCustomPersonRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'categoryDescription'  => 'CategoryDescription',
-        'categoryId'           => 'CategoryId',
-        'categoryName'         => 'CategoryName',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'personDescription'    => 'PersonDescription',
-        'personId'             => 'PersonId',
-        'personName'           => 'PersonName',
+        'categoryDescription' => 'CategoryDescription',
+        'categoryId' => 'CategoryId',
+        'categoryName' => 'CategoryName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'personDescription' => 'PersonDescription',
+        'personId' => 'PersonId',
+        'personName' => 'PersonName',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

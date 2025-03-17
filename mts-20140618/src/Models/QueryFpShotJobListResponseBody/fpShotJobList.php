@@ -17,9 +17,7 @@ class fpShotJobList extends Model
         'fpShotJob' => 'FpShotJob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class fpShotJobList extends Model
         if (isset($map['FpShotJob'])) {
             if (!empty($map['FpShotJob'])) {
                 $model->fpShotJob = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['FpShotJob'] as $item) {
                     $model->fpShotJob[$n++] = null !== $item ? fpShotJob::fromMap($item) : $item;
                 }

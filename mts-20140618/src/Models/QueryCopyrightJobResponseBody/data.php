@@ -92,23 +92,21 @@ class data extends Model
      */
     public $userId;
     protected $_name = [
-        'callback'    => 'Callback',
-        'gmtCreate'   => 'GmtCreate',
+        'callback' => 'Callback',
+        'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
-        'input'       => 'Input',
-        'jobId'       => 'JobId',
-        'level'       => 'Level',
-        'message'     => 'Message',
-        'output'      => 'Output',
-        'result'      => 'Result',
-        'status'      => 'Status',
-        'userData'    => 'UserData',
-        'userId'      => 'UserId',
+        'input' => 'Input',
+        'jobId' => 'JobId',
+        'level' => 'Level',
+        'message' => 'Message',
+        'output' => 'Output',
+        'result' => 'Result',
+        'status' => 'Status',
+        'userData' => 'UserData',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

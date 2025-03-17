@@ -12,6 +12,7 @@ class AddPipelineRequest extends Model
      * @description The name of the MPS queue. The name can be up to 128 bytes in size.
      *
      * This parameter is required.
+     *
      * @example test-pipeline
      *
      * @var string
@@ -66,6 +67,7 @@ class AddPipelineRequest extends Model
      *   **AIVideoTag**: MPS queue for video tagging. The supported regions are China (Shanghai), China (Beijing), and China (Hangzhou).
      *
      * Default value: **Standard**.
+     *
      * @example Standard
      *
      * @var string
@@ -81,20 +83,18 @@ class AddPipelineRequest extends Model
      */
     public $speedLevel;
     protected $_name = [
-        'name'                 => 'Name',
-        'notifyConfig'         => 'NotifyConfig',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'name' => 'Name',
+        'notifyConfig' => 'NotifyConfig',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'role'                 => 'Role',
-        'speed'                => 'Speed',
-        'speedLevel'           => 'SpeedLevel',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'role' => 'Role',
+        'speed' => 'Speed',
+        'speedLevel' => 'SpeedLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

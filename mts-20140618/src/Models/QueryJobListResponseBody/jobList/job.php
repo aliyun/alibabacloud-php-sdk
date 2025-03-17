@@ -119,23 +119,21 @@ class job extends Model
      */
     public $submitTime;
     protected $_name = [
-        'code'             => 'Code',
-        'creationTime'     => 'CreationTime',
-        'finishTime'       => 'FinishTime',
-        'input'            => 'Input',
-        'jobId'            => 'JobId',
+        'code' => 'Code',
+        'creationTime' => 'CreationTime',
+        'finishTime' => 'FinishTime',
+        'input' => 'Input',
+        'jobId' => 'JobId',
         'MNSMessageResult' => 'MNSMessageResult',
-        'message'          => 'Message',
-        'output'           => 'Output',
-        'percent'          => 'Percent',
-        'pipelineId'       => 'PipelineId',
-        'state'            => 'State',
-        'submitTime'       => 'SubmitTime',
+        'message' => 'Message',
+        'output' => 'Output',
+        'percent' => 'Percent',
+        'pipelineId' => 'PipelineId',
+        'state' => 'State',
+        'submitTime' => 'SubmitTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -20,9 +20,7 @@ class segment extends Model
         'duration' => 'Duration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

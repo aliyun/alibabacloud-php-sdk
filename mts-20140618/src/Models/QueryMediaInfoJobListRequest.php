@@ -17,6 +17,7 @@ class QueryMediaInfoJobListRequest extends Model
      * >  If you do not specify the JobIds parameter, the **InvalidParameter** error code is returned.
      *
      * This parameter is required.
+     *
      * @example 23ca1d184c0e4341e5b665e2a12****
      *
      * @var string
@@ -43,16 +44,14 @@ class QueryMediaInfoJobListRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'mediaInfoJobIds'      => 'MediaInfoJobIds',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'mediaInfoJobIds' => 'MediaInfoJobIds',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

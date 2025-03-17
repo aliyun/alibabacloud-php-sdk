@@ -17,6 +17,7 @@ class UpdatePipelineRequest extends Model
      * @description The new name of the MPS queue. The value can contain letters, digits, and special characters such as hyphens (-) and can be up to 128 bytes in size. The value cannot start with a special character.
      *
      * This parameter is required.
+     *
      * @example example-pipeline-****
      *
      * @var string
@@ -46,6 +47,7 @@ class UpdatePipelineRequest extends Model
      * @description The ID of the MPS queue that you want to update. To view the MPS queue ID, log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane.
      *
      * This parameter is required.
+     *
      * @example d1ce4d3efcb549419193f50f1fcd****
      *
      * @var string
@@ -78,27 +80,26 @@ class UpdatePipelineRequest extends Model
      *   **Paused**: The MPS queue is paused. Jobs in the MPS queue cannot be scheduled or run by MPS, and all jobs remain in the Submitted state. Jobs that are running will not be affected.
      *
      * This parameter is required.
+     *
      * @example Paused
      *
      * @var string
      */
     public $state;
     protected $_name = [
-        'extendConfig'         => 'ExtendConfig',
-        'name'                 => 'Name',
-        'notifyConfig'         => 'NotifyConfig',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pipelineId'           => 'PipelineId',
+        'extendConfig' => 'ExtendConfig',
+        'name' => 'Name',
+        'notifyConfig' => 'NotifyConfig',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pipelineId' => 'PipelineId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'role'                 => 'Role',
-        'state'                => 'State',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'role' => 'Role',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -15,6 +15,7 @@ class DeleteCustomGroupRequest extends Model
      *   object: custom objects.
      *
      * This parameter is required.
+     *
      * @example landmark
      *
      * @var string
@@ -25,6 +26,7 @@ class DeleteCustomGroupRequest extends Model
      * @description The ID of the custom image library.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -51,17 +53,15 @@ class DeleteCustomGroupRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'algorithm'            => 'Algorithm',
-        'customGroupId'        => 'CustomGroupId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'algorithm' => 'Algorithm',
+        'customGroupId' => 'CustomGroupId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

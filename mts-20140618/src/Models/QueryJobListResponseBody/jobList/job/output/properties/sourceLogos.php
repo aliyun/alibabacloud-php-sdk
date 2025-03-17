@@ -17,9 +17,7 @@ class sourceLogos extends Model
         'sourceLogo' => 'SourceLogo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class sourceLogos extends Model
         if (isset($map['SourceLogo'])) {
             if (!empty($map['SourceLogo'])) {
                 $model->sourceLogo = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['SourceLogo'] as $item) {
                     $model->sourceLogo[$n++] = null !== $item ? sourceLogo::fromMap($item) : $item;
                 }

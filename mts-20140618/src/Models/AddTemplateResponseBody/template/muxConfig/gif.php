@@ -44,15 +44,13 @@ class gif extends Model
      */
     public $loop;
     protected $_name = [
-        'ditherMode'      => 'DitherMode',
-        'finalDelay'      => 'FinalDelay',
+        'ditherMode' => 'DitherMode',
+        'finalDelay' => 'FinalDelay',
         'isCustomPalette' => 'IsCustomPalette',
-        'loop'            => 'Loop',
+        'loop' => 'Loop',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,13 +34,11 @@ class fpShotSlice extends Model
     public $similarity;
     protected $_name = [
         'duplication' => 'Duplication',
-        'input'       => 'Input',
-        'similarity'  => 'Similarity',
+        'input' => 'Input',
+        'similarity' => 'Similarity',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

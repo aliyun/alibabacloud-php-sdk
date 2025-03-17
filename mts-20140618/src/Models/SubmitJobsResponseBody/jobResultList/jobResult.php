@@ -46,15 +46,13 @@ class jobResult extends Model
      */
     public $success;
     protected $_name = [
-        'code'    => 'Code',
-        'job'     => 'Job',
+        'code' => 'Code',
+        'job' => 'Job',
         'message' => 'Message',
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

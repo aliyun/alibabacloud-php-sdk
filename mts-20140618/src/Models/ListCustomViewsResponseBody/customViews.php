@@ -17,9 +17,7 @@ class customViews extends Model
         'customView' => 'CustomView',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class customViews extends Model
         if (isset($map['CustomView'])) {
             if (!empty($map['CustomView'])) {
                 $model->customView = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['CustomView'] as $item) {
                     $model->customView[$n++] = null !== $item ? customView::fromMap($item) : $item;
                 }

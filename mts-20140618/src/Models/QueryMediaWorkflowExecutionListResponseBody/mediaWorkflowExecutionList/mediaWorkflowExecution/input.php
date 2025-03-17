@@ -26,12 +26,10 @@ class input extends Model
     public $userData;
     protected $_name = [
         'inputFile' => 'InputFile',
-        'userData'  => 'UserData',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

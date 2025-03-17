@@ -44,15 +44,13 @@ class ratioRefer extends Model
      */
     public $width;
     protected $_name = [
-        'dx'     => 'Dx',
-        'dy'     => 'Dy',
+        'dx' => 'Dx',
+        'dy' => 'Dy',
         'height' => 'Height',
-        'width'  => 'Width',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -53,15 +53,13 @@ class sfaceData extends Model
     public $y;
     protected $_name = [
         'faces' => 'faces',
-        'h'     => 'h',
-        'w'     => 'w',
-        'x'     => 'x',
-        'y'     => 'y',
+        'h' => 'h',
+        'w' => 'w',
+        'x' => 'x',
+        'y' => 'y',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class sfaceData extends Model
         if (isset($map['faces'])) {
             if (!empty($map['faces'])) {
                 $model->faces = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['faces'] as $item) {
                     $model->faces[$n++] = null !== $item ? faces::fromMap($item) : $item;
                 }

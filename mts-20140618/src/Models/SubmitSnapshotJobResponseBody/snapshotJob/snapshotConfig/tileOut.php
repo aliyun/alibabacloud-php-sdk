@@ -42,6 +42,7 @@ class tileOut extends Model
      *   You can set the Color parameter to a **color keyword** or **random** in the request.
      *
      * > If you want to set the background color to black, you can specify the color keyword in one of the following three formats: Black, black, and #000000.
+     *
      * @example black
      *
      * @var string
@@ -103,20 +104,18 @@ class tileOut extends Model
      */
     public $padding;
     protected $_name = [
-        'cellHeight'    => 'CellHeight',
-        'cellSelStep'   => 'CellSelStep',
-        'cellWidth'     => 'CellWidth',
-        'color'         => 'Color',
-        'columns'       => 'Columns',
+        'cellHeight' => 'CellHeight',
+        'cellSelStep' => 'CellSelStep',
+        'cellWidth' => 'CellWidth',
+        'color' => 'Color',
+        'columns' => 'Columns',
         'isKeepCellPic' => 'IsKeepCellPic',
-        'lines'         => 'Lines',
-        'margin'        => 'Margin',
-        'padding'       => 'Padding',
+        'lines' => 'Lines',
+        'margin' => 'Margin',
+        'padding' => 'Padding',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,13 +26,11 @@ class DeleteWaterMarkTemplateResponseBody extends Model
      */
     public $waterMarkTemplateId;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'waterMarkTemplateId' => 'WaterMarkTemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

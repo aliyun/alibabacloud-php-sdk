@@ -67,7 +67,12 @@ class volume extends Model
     /**
      * @description The volume adjustment coefficient.
      *
+     * This parameter takes effect only if the value of Method is adaptive.
+     *
+     * Valid values: [0,1].
+     *
      * Default value: 0.9.
+     *
      * @example 0.9
      *
      * @var string
@@ -89,16 +94,14 @@ class volume extends Model
     public $truePeak;
     protected $_name = [
         'integratedLoudnessTarget' => 'IntegratedLoudnessTarget',
-        'level'                    => 'Level',
-        'loudnessRangeTarget'      => 'LoudnessRangeTarget',
-        'method'                   => 'Method',
-        'peakLevel'                => 'PeakLevel',
-        'truePeak'                 => 'TruePeak',
+        'level' => 'Level',
+        'loudnessRangeTarget' => 'LoudnessRangeTarget',
+        'method' => 'Method',
+        'peakLevel' => 'PeakLevel',
+        'truePeak' => 'TruePeak',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

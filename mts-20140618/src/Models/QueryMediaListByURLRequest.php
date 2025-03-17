@@ -15,6 +15,7 @@ class QueryMediaListByURLRequest extends Model
      *   Only OSS HTTP URLs are supported. Alibaba Cloud CDN URLs and HTTPS URLs are not supported.
      *
      * This parameter is required.
+     *
      * @example http://example-bucket-****.oss-cn-shanghai.aliyuncs.com/example.mp4
      *
      * @var string
@@ -29,6 +30,7 @@ class QueryMediaListByURLRequest extends Model
      *   Default value: **false**.
      *
      * > To obtain detailed information about the media files, set this parameter to true.
+     *
      * @example true
      *
      * @var bool
@@ -91,20 +93,18 @@ class QueryMediaListByURLRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'fileURLs'             => 'FileURLs',
-        'includeMediaInfo'     => 'IncludeMediaInfo',
-        'includePlayList'      => 'IncludePlayList',
-        'includeSnapshotList'  => 'IncludeSnapshotList',
-        'includeSummaryList'   => 'IncludeSummaryList',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'fileURLs' => 'FileURLs',
+        'includeMediaInfo' => 'IncludeMediaInfo',
+        'includePlayList' => 'IncludePlayList',
+        'includeSnapshotList' => 'IncludeSnapshotList',
+        'includeSummaryList' => 'IncludeSummaryList',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

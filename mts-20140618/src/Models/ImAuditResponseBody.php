@@ -52,15 +52,13 @@ class ImAuditResponseBody extends Model
     public $textResults;
     protected $_name = [
         'imageQuotaExceed' => 'ImageQuotaExceed',
-        'imageResults'     => 'ImageResults',
-        'requestId'        => 'RequestId',
-        'textQuotaExceed'  => 'TextQuotaExceed',
-        'textResults'      => 'TextResults',
+        'imageResults' => 'ImageResults',
+        'requestId' => 'RequestId',
+        'textQuotaExceed' => 'TextQuotaExceed',
+        'textResults' => 'TextResults',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

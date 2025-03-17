@@ -19,9 +19,7 @@ class m3U8NonStandardSupport extends Model
         'TS' => 'TS',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

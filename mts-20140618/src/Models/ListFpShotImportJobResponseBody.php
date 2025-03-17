@@ -33,13 +33,11 @@ class ListFpShotImportJobResponseBody extends Model
     public $requestId;
     protected $_name = [
         'fpShotImportJobList' => 'FpShotImportJobList',
-        'nonExistIds'         => 'NonExistIds',
-        'requestId'           => 'RequestId',
+        'nonExistIds' => 'NonExistIds',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -74,7 +72,7 @@ class ListFpShotImportJobResponseBody extends Model
         if (isset($map['FpShotImportJobList'])) {
             if (!empty($map['FpShotImportJobList'])) {
                 $model->fpShotImportJobList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['FpShotImportJobList'] as $item) {
                     $model->fpShotImportJobList[$n++] = null !== $item ? fpShotImportJobList::fromMap($item) : $item;
                 }

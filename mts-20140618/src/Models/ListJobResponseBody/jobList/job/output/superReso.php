@@ -23,9 +23,7 @@ class superReso extends Model
         'isHalfSample' => 'IsHalfSample',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

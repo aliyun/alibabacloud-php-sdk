@@ -18,9 +18,7 @@ class data extends Model
         'trace' => 'Trace',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

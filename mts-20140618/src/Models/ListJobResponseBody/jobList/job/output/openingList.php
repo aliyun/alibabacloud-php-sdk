@@ -17,9 +17,7 @@ class openingList extends Model
         'opening' => 'Opening',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class openingList extends Model
         if (isset($map['Opening'])) {
             if (!empty($map['Opening'])) {
                 $model->opening = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Opening'] as $item) {
                     $model->opening[$n++] = null !== $item ? opening::fromMap($item) : $item;
                 }

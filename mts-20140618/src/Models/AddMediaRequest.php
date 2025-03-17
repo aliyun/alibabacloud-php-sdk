@@ -49,6 +49,7 @@ class AddMediaRequest extends Model
      *   The URL complies with RFC 2396 and is encoded in UTF-8. For more information, see [URL encoding](https://help.aliyun.com/document_detail/423796.html).
      *
      * This parameter is required.
+     *
      * @example http://bucket.oss-cn-hangzhou.aliyuncs.com/A/B/C/test.mp4
      *
      * @var string
@@ -147,25 +148,23 @@ class AddMediaRequest extends Model
      */
     public $title;
     protected $_name = [
-        'cateId'                => 'CateId',
-        'coverURL'              => 'CoverURL',
-        'description'           => 'Description',
-        'fileURL'               => 'FileURL',
-        'inputUnbind'           => 'InputUnbind',
-        'mediaWorkflowId'       => 'MediaWorkflowId',
+        'cateId' => 'CateId',
+        'coverURL' => 'CoverURL',
+        'description' => 'Description',
+        'fileURL' => 'FileURL',
+        'inputUnbind' => 'InputUnbind',
+        'mediaWorkflowId' => 'MediaWorkflowId',
         'mediaWorkflowUserData' => 'MediaWorkflowUserData',
-        'overrideParams'        => 'OverrideParams',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'tags'                  => 'Tags',
-        'title'                 => 'Title',
+        'overrideParams' => 'OverrideParams',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tags' => 'Tags',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

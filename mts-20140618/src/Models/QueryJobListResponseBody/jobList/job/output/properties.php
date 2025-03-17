@@ -95,21 +95,19 @@ class properties extends Model
      */
     public $width;
     protected $_name = [
-        'bitrate'     => 'Bitrate',
-        'duration'    => 'Duration',
-        'fileFormat'  => 'FileFormat',
-        'fileSize'    => 'FileSize',
-        'format'      => 'Format',
-        'fps'         => 'Fps',
-        'height'      => 'Height',
+        'bitrate' => 'Bitrate',
+        'duration' => 'Duration',
+        'fileFormat' => 'FileFormat',
+        'fileSize' => 'FileSize',
+        'format' => 'Format',
+        'fps' => 'Fps',
+        'height' => 'Height',
         'sourceLogos' => 'SourceLogos',
-        'streams'     => 'Streams',
-        'width'       => 'Width',
+        'streams' => 'Streams',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

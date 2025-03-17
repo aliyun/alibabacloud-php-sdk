@@ -53,13 +53,11 @@ class merge extends Model
     protected $_name = [
         'duration' => 'Duration',
         'mergeURL' => 'MergeURL',
-        'roleArn'  => 'RoleArn',
-        'start'    => 'Start',
+        'roleArn' => 'RoleArn',
+        'start' => 'Start',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

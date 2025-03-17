@@ -17,9 +17,7 @@ class audioFpShots extends Model
         'fpShot' => 'FpShot',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class audioFpShots extends Model
         if (isset($map['FpShot'])) {
             if (!empty($map['FpShot'])) {
                 $model->fpShot = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['FpShot'] as $item) {
                     $model->fpShot[$n++] = null !== $item ? fpShot::fromMap($item) : $item;
                 }

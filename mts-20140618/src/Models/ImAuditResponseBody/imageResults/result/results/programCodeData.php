@@ -50,9 +50,7 @@ class programCodeData extends Model
         'y' => 'y',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

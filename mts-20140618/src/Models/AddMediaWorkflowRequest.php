@@ -17,6 +17,7 @@ class AddMediaWorkflowRequest extends Model
      *   The value must be encoded in the UTF-8 format.
      *
      * This parameter is required.
+     *
      * @example mediaworkflow-example
      *
      * @var string
@@ -46,7 +47,10 @@ class AddMediaWorkflowRequest extends Model
     /**
      * @description The topology of the media workflow. The value must be a JSON object that contains the activities and activity dependencies. For more information, see the **Sample topology** section of this topic.
      *
+     * >  The Object Storage Service (OSS) bucket must reside in the same region as your MPS service.
+     *
      * This parameter is required.
+     *
      * @var string
      */
     public $topology;
@@ -63,18 +67,16 @@ class AddMediaWorkflowRequest extends Model
      */
     public $triggerMode;
     protected $_name = [
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'topology'             => 'Topology',
-        'triggerMode'          => 'TriggerMode',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'topology' => 'Topology',
+        'triggerMode' => 'TriggerMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class faces extends Model
         'face' => 'Face',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class faces extends Model
         if (isset($map['Face'])) {
             if (!empty($map['Face'])) {
                 $model->face = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Face'] as $item) {
                     $model->face[$n++] = null !== $item ? face::fromMap($item) : $item;
                 }

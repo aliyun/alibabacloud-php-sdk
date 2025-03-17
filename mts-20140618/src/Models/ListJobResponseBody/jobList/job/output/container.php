@@ -28,9 +28,7 @@ class container extends Model
         'format' => 'Format',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

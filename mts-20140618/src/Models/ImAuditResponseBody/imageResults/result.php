@@ -22,6 +22,7 @@ class result extends Model
      * @description The ID of the moderated object.
      *
      * >  If you set the dataId parameter in the moderation request, the dataId parameter is returned in the response.
+     *
      * @example uuid-1234-1234-1234
      *
      * @var string
@@ -69,18 +70,16 @@ class result extends Model
      */
     public $url;
     protected $_name = [
-        'code'    => 'code',
-        'dataId'  => 'dataId',
-        'extras'  => 'extras',
-        'msg'     => 'msg',
+        'code' => 'code',
+        'dataId' => 'dataId',
+        'extras' => 'extras',
+        'msg' => 'msg',
         'results' => 'results',
-        'taskId'  => 'taskId',
-        'url'     => 'url',
+        'taskId' => 'taskId',
+        'url' => 'url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -139,7 +138,7 @@ class result extends Model
         if (isset($map['results'])) {
             if (!empty($map['results'])) {
                 $model->results = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['results'] as $item) {
                     $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }

@@ -29,14 +29,12 @@ class customEntity extends Model
      */
     public $customEntityName;
     protected $_name = [
-        'customEntityId'   => 'CustomEntityId',
+        'customEntityId' => 'CustomEntityId',
         'customEntityInfo' => 'CustomEntityInfo',
         'customEntityName' => 'CustomEntityName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

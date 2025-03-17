@@ -44,17 +44,15 @@ class QuerySmarttagJobRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'jobId'                => 'JobId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'params'               => 'Params',
+        'jobId' => 'JobId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'params' => 'Params',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

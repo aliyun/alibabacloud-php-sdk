@@ -17,9 +17,7 @@ class customEntities extends Model
         'customEntity' => 'CustomEntity',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class customEntities extends Model
         if (isset($map['CustomEntity'])) {
             if (!empty($map['CustomEntity'])) {
                 $model->customEntity = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['CustomEntity'] as $item) {
                     $model->customEntity[$n++] = null !== $item ? customEntity::fromMap($item) : $item;
                 }

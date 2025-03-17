@@ -27,12 +27,10 @@ class file extends Model
     public $URL;
     protected $_name = [
         'state' => 'State',
-        'URL'   => 'URL',
+        'URL' => 'URL',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

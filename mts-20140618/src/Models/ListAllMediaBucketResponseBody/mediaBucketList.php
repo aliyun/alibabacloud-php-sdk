@@ -17,9 +17,7 @@ class mediaBucketList extends Model
         'mediaBucket' => 'MediaBucket',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class mediaBucketList extends Model
         if (isset($map['MediaBucket'])) {
             if (!empty($map['MediaBucket'])) {
                 $model->mediaBucket = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['MediaBucket'] as $item) {
                     $model->mediaBucket[$n++] = null !== $item ? mediaBucket::fromMap($item) : $item;
                 }

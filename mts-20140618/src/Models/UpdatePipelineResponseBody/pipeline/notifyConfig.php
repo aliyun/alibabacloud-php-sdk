@@ -44,15 +44,13 @@ class notifyConfig extends Model
      */
     public $topic;
     protected $_name = [
-        'mqTag'     => 'MqTag',
-        'mqTopic'   => 'MqTopic',
+        'mqTag' => 'MqTag',
+        'mqTopic' => 'MqTopic',
         'queueName' => 'QueueName',
-        'topic'     => 'Topic',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

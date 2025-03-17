@@ -35,14 +35,12 @@ class networkCost extends Model
      */
     public $preloadTime;
     protected $_name = [
-        'avgBitrate'    => 'AvgBitrate',
+        'avgBitrate' => 'AvgBitrate',
         'costBandwidth' => 'CostBandwidth',
-        'preloadTime'   => 'PreloadTime',
+        'preloadTime' => 'PreloadTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

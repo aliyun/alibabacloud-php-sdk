@@ -37,15 +37,13 @@ class QueryCopyrightExtractJobResponseBody extends Model
      */
     public $statusCode;
     protected $_name = [
-        'data'       => 'Data',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
+        'data' => 'Data',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
         'statusCode' => 'StatusCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

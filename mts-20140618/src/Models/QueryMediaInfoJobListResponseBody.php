@@ -33,14 +33,12 @@ class QueryMediaInfoJobListResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'mediaInfoJobList'        => 'MediaInfoJobList',
+        'mediaInfoJobList' => 'MediaInfoJobList',
         'nonExistMediaInfoJobIds' => 'NonExistMediaInfoJobIds',
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

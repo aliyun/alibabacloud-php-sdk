@@ -120,23 +120,21 @@ class fpShotImportJobList extends Model
      */
     public $userData;
     protected $_name = [
-        'code'           => 'Code',
-        'createTime'     => 'CreateTime',
-        'finishTime'     => 'FinishTime',
-        'fpDBId'         => 'FpDBId',
+        'code' => 'Code',
+        'createTime' => 'CreateTime',
+        'finishTime' => 'FinishTime',
+        'fpDBId' => 'FpDBId',
         'fpImportConfig' => 'FpImportConfig',
-        'id'             => 'Id',
-        'input'          => 'Input',
-        'message'        => 'Message',
-        'pipelineId'     => 'PipelineId',
+        'id' => 'Id',
+        'input' => 'Input',
+        'message' => 'Message',
+        'pipelineId' => 'PipelineId',
         'processMessage' => 'ProcessMessage',
-        'status'         => 'Status',
-        'userData'       => 'UserData',
+        'status' => 'Status',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

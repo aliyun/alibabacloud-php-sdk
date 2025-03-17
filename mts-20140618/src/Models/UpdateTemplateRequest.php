@@ -42,7 +42,10 @@ class UpdateTemplateRequest extends Model
      *   Audio formats: MP3, MP4, OGG, FLAC, and M4A
      *   Images formats: GIF and WebP
      *
+     * For more information, see the [Container](https://help.aliyun.com/document_detail/29253.html) parameter of the "Parameter details" topic.
+     *
      * This parameter is required.
+     *
      * @example MPS-example
      *
      * @var string
@@ -73,6 +76,7 @@ class UpdateTemplateRequest extends Model
      * @description The name of the template. The name can be up to 128 bytes in length.
      *
      * This parameter is required.
+     *
      * @example 16f01ad6175e4230ac42bb5182cd****
      *
      * @var string
@@ -97,22 +101,20 @@ class UpdateTemplateRequest extends Model
      */
     public $video;
     protected $_name = [
-        'audio'                => 'Audio',
-        'container'            => 'Container',
-        'muxConfig'            => 'MuxConfig',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'audio' => 'Audio',
+        'container' => 'Container',
+        'muxConfig' => 'MuxConfig',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'templateId'           => 'TemplateId',
-        'transConfig'          => 'TransConfig',
-        'video'                => 'Video',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'templateId' => 'TemplateId',
+        'transConfig' => 'TransConfig',
+        'video' => 'Video',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

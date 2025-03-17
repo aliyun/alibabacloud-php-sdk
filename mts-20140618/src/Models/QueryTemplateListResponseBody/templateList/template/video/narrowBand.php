@@ -35,14 +35,12 @@ class narrowBand extends Model
      */
     public $version;
     protected $_name = [
-        'abrmax'      => 'Abrmax',
+        'abrmax' => 'Abrmax',
         'maxAbrRatio' => 'MaxAbrRatio',
-        'version'     => 'Version',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class mediaWorkflowList extends Model
         'mediaWorkflow' => 'MediaWorkflow',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class mediaWorkflowList extends Model
         if (isset($map['MediaWorkflow'])) {
             if (!empty($map['MediaWorkflow'])) {
                 $model->mediaWorkflow = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['MediaWorkflow'] as $item) {
                     $model->mediaWorkflow[$n++] = null !== $item ? mediaWorkflow::fromMap($item) : $item;
                 }

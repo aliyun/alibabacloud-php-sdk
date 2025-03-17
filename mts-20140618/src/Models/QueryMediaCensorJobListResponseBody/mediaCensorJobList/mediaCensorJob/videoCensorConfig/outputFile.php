@@ -30,20 +30,19 @@ class outputFile extends Model
      * @description The one or more OSS objects that are generated as the output snapshots.
      *
      * > In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg, output00002-****.jpg`, and so on.
+     *
      * @example output{Count}.jpg
      *
      * @var string
      */
     public $object;
     protected $_name = [
-        'bucket'   => 'Bucket',
+        'bucket' => 'Bucket',
         'location' => 'Location',
-        'object'   => 'Object',
+        'object' => 'Object',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

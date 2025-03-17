@@ -224,31 +224,29 @@ class video extends Model
      */
     public $width;
     protected $_name = [
-        'bitrate'      => 'Bitrate',
-        'bitrateBnd'   => 'BitrateBnd',
-        'bufsize'      => 'Bufsize',
-        'codec'        => 'Codec',
-        'crf'          => 'Crf',
-        'crop'         => 'Crop',
-        'degrain'      => 'Degrain',
-        'fps'          => 'Fps',
-        'gop'          => 'Gop',
-        'height'       => 'Height',
-        'maxFps'       => 'MaxFps',
-        'maxrate'      => 'Maxrate',
-        'pad'          => 'Pad',
-        'pixFmt'       => 'PixFmt',
-        'preset'       => 'Preset',
-        'profile'      => 'Profile',
-        'qscale'       => 'Qscale',
+        'bitrate' => 'Bitrate',
+        'bitrateBnd' => 'BitrateBnd',
+        'bufsize' => 'Bufsize',
+        'codec' => 'Codec',
+        'crf' => 'Crf',
+        'crop' => 'Crop',
+        'degrain' => 'Degrain',
+        'fps' => 'Fps',
+        'gop' => 'Gop',
+        'height' => 'Height',
+        'maxFps' => 'MaxFps',
+        'maxrate' => 'Maxrate',
+        'pad' => 'Pad',
+        'pixFmt' => 'PixFmt',
+        'preset' => 'Preset',
+        'profile' => 'Profile',
+        'qscale' => 'Qscale',
         'resoPriority' => 'ResoPriority',
-        'scanMode'     => 'ScanMode',
-        'width'        => 'Width',
+        'scanMode' => 'ScanMode',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

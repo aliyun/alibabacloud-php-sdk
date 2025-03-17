@@ -83,18 +83,16 @@ class tailSlate extends Model
      */
     public $width;
     protected $_name = [
-        'bgColor'       => 'BgColor',
+        'bgColor' => 'BgColor',
         'blendDuration' => 'BlendDuration',
-        'height'        => 'Height',
-        'isMergeAudio'  => 'IsMergeAudio',
-        'start'         => 'Start',
-        'tailUrl'       => 'TailUrl',
-        'width'         => 'Width',
+        'height' => 'Height',
+        'isMergeAudio' => 'IsMergeAudio',
+        'start' => 'Start',
+        'tailUrl' => 'TailUrl',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class jobResultList extends Model
         'jobResult' => 'JobResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class jobResultList extends Model
         if (isset($map['JobResult'])) {
             if (!empty($map['JobResult'])) {
                 $model->jobResult = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['JobResult'] as $item) {
                     $model->jobResult[$n++] = null !== $item ? jobResult::fromMap($item) : $item;
                 }

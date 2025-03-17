@@ -73,20 +73,18 @@ class SubmitTraceAbJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'callBack'       => 'CallBack',
+        'callBack' => 'CallBack',
         'cipherBase64ed' => 'CipherBase64ed',
-        'input'          => 'Input',
-        'level'          => 'Level',
-        'output'         => 'Output',
-        'startTime'      => 'StartTime',
-        'totalTime'      => 'TotalTime',
-        'url'            => 'Url',
-        'userData'       => 'UserData',
+        'input' => 'Input',
+        'level' => 'Level',
+        'output' => 'Output',
+        'startTime' => 'StartTime',
+        'totalTime' => 'TotalTime',
+        'url' => 'Url',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,12 +23,10 @@ class customView extends Model
     public $imageUrl;
     protected $_name = [
         'customViewId' => 'CustomViewId',
-        'imageUrl'     => 'ImageUrl',
+        'imageUrl' => 'ImageUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

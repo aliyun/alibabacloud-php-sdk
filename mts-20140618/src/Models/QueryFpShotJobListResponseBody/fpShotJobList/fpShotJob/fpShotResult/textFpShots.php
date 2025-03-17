@@ -17,9 +17,7 @@ class textFpShots extends Model
         'textFpShot' => 'TextFpShot',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class textFpShots extends Model
         if (isset($map['TextFpShot'])) {
             if (!empty($map['TextFpShot'])) {
                 $model->textFpShot = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['TextFpShot'] as $item) {
                     $model->textFpShot[$n++] = null !== $item ? textFpShot::fromMap($item) : $item;
                 }

@@ -27,12 +27,10 @@ class frames extends Model
     public $url;
     protected $_name = [
         'rate' => 'rate',
-        'url'  => 'url',
+        'url' => 'url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

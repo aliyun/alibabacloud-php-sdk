@@ -20,9 +20,7 @@ class hintWordsInfo extends Model
         'context' => 'context',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

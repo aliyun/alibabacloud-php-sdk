@@ -23,6 +23,7 @@ class UpdateMediaCategoryRequest extends Model
      * > To obtain the ID of a media file, you can call the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation. Alternatively, perform the following operations in the ApsaraVideo Media Processing (MPS) console: In the left-side navigation pane, choose **Media Management > Media List**. Find the required video and click **Manage** in the Actions column. The ID of the video is displayed on the Basics tab.
      *
      * This parameter is required.
+     *
      * @example 3e1cd21131a94525be55acf65888****
      *
      * @var string
@@ -49,17 +50,15 @@ class UpdateMediaCategoryRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'cateId'               => 'CateId',
-        'mediaId'              => 'MediaId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'cateId' => 'CateId',
+        'mediaId' => 'MediaId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -35,14 +35,12 @@ class inputFile extends Model
      */
     public $object;
     protected $_name = [
-        'bucket'   => 'Bucket',
+        'bucket' => 'Bucket',
         'location' => 'Location',
-        'object'   => 'Object',
+        'object' => 'Object',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

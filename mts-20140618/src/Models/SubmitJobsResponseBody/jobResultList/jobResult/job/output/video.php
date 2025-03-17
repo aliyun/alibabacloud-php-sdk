@@ -155,11 +155,7 @@ class video extends Model
      *   The default pixel format can be **yuv420p** or the pixel format of the input file.
      *
      *   Valid values: standard pixel formats such as **yuv420p** and **yuvj420p**.
-     *
-     **
-     *
      **Note** If a non-standard pixel format such as yuvj420p(pc, bt470bg/bt470bg/smpte170m) is used, compatibility with the pixel format must be configured. Otherwise, the transcoding job fails.
-     *
      * @example yuvj420p
      *
      * @var string
@@ -246,31 +242,29 @@ class video extends Model
      */
     public $width;
     protected $_name = [
-        'bitrate'      => 'Bitrate',
-        'bitrateBnd'   => 'BitrateBnd',
-        'bufsize'      => 'Bufsize',
-        'codec'        => 'Codec',
-        'crf'          => 'Crf',
-        'crop'         => 'Crop',
-        'degrain'      => 'Degrain',
-        'fps'          => 'Fps',
-        'gop'          => 'Gop',
-        'height'       => 'Height',
-        'maxFps'       => 'MaxFps',
-        'maxrate'      => 'Maxrate',
-        'pad'          => 'Pad',
-        'pixFmt'       => 'PixFmt',
-        'preset'       => 'Preset',
-        'profile'      => 'Profile',
-        'qscale'       => 'Qscale',
+        'bitrate' => 'Bitrate',
+        'bitrateBnd' => 'BitrateBnd',
+        'bufsize' => 'Bufsize',
+        'codec' => 'Codec',
+        'crf' => 'Crf',
+        'crop' => 'Crop',
+        'degrain' => 'Degrain',
+        'fps' => 'Fps',
+        'gop' => 'Gop',
+        'height' => 'Height',
+        'maxFps' => 'MaxFps',
+        'maxrate' => 'Maxrate',
+        'pad' => 'Pad',
+        'pixFmt' => 'PixFmt',
+        'preset' => 'Preset',
+        'profile' => 'Profile',
+        'qscale' => 'Qscale',
         'resoPriority' => 'ResoPriority',
-        'scanMode'     => 'ScanMode',
-        'width'        => 'Width',
+        'scanMode' => 'ScanMode',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

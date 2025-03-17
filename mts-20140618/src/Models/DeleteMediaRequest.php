@@ -14,6 +14,7 @@ class DeleteMediaRequest extends Model
      * > You can obtain the ID of the media file from the response parameters of the [AddMedia](https://help.aliyun.com/document_detail/44458.html) operation. Alternatively, you can log on to the MPS console. In the left-side navigation pane, choose **Media Management** > **Media List**. Find the required video and click **Manage** in the Actions column. The ID of the video is displayed on the Basics tab.
      *
      * This parameter is required.
+     *
      * @example 3e1cd21131a94525be55acf65888****,3e6149d5a8c944c09b1a8d2dc3e4****
      *
      * @var string
@@ -40,16 +41,14 @@ class DeleteMediaRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'mediaIds'             => 'MediaIds',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'mediaIds' => 'MediaIds',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

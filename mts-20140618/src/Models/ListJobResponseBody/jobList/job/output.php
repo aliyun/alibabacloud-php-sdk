@@ -240,37 +240,35 @@ class output extends Model
      */
     public $waterMarkList;
     protected $_name = [
-        'audio'                  => 'Audio',
-        'audioStreamMap'         => 'AudioStreamMap',
-        'clip'                   => 'Clip',
-        'container'              => 'Container',
-        'deWatermark'            => 'DeWatermark',
-        'encryption'             => 'Encryption',
+        'audio' => 'Audio',
+        'audioStreamMap' => 'AudioStreamMap',
+        'clip' => 'Clip',
+        'container' => 'Container',
+        'deWatermark' => 'DeWatermark',
+        'encryption' => 'Encryption',
         'm3U8NonStandardSupport' => 'M3U8NonStandardSupport',
-        'mergeConfigUrl'         => 'MergeConfigUrl',
-        'mergeList'              => 'MergeList',
-        'muxConfig'              => 'MuxConfig',
-        'openingList'            => 'OpeningList',
-        'outSubtitleList'        => 'OutSubtitleList',
-        'outputFile'             => 'OutputFile',
-        'priority'               => 'Priority',
-        'properties'             => 'Properties',
-        'rotate'                 => 'Rotate',
-        'subtitleConfig'         => 'SubtitleConfig',
-        'superReso'              => 'SuperReso',
-        'tailSlateList'          => 'TailSlateList',
-        'templateId'             => 'TemplateId',
-        'transConfig'            => 'TransConfig',
-        'userData'               => 'UserData',
-        'video'                  => 'Video',
-        'videoStreamMap'         => 'VideoStreamMap',
-        'waterMarkConfigUrl'     => 'WaterMarkConfigUrl',
-        'waterMarkList'          => 'WaterMarkList',
+        'mergeConfigUrl' => 'MergeConfigUrl',
+        'mergeList' => 'MergeList',
+        'muxConfig' => 'MuxConfig',
+        'openingList' => 'OpeningList',
+        'outSubtitleList' => 'OutSubtitleList',
+        'outputFile' => 'OutputFile',
+        'priority' => 'Priority',
+        'properties' => 'Properties',
+        'rotate' => 'Rotate',
+        'subtitleConfig' => 'SubtitleConfig',
+        'superReso' => 'SuperReso',
+        'tailSlateList' => 'TailSlateList',
+        'templateId' => 'TemplateId',
+        'transConfig' => 'TransConfig',
+        'userData' => 'UserData',
+        'video' => 'Video',
+        'videoStreamMap' => 'VideoStreamMap',
+        'waterMarkConfigUrl' => 'WaterMarkConfigUrl',
+        'waterMarkList' => 'WaterMarkList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class snapshotJobList extends Model
         'snapshotJob' => 'SnapshotJob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class snapshotJobList extends Model
         if (isset($map['SnapshotJob'])) {
             if (!empty($map['SnapshotJob'])) {
                 $model->snapshotJob = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['SnapshotJob'] as $item) {
                     $model->snapshotJob[$n++] = null !== $item ? snapshotJob::fromMap($item) : $item;
                 }

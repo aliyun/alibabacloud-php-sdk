@@ -25,13 +25,11 @@ class AddWaterMarkTemplateResponseBody extends Model
      */
     public $waterMarkTemplate;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'waterMarkTemplate' => 'WaterMarkTemplate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

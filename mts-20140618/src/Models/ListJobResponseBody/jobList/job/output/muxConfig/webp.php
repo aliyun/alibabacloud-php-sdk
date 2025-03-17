@@ -20,9 +20,7 @@ class webp extends Model
         'loop' => 'Loop',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

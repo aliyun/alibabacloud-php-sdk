@@ -32,22 +32,21 @@ class DeleteWaterMarkTemplateRequest extends Model
      * @description The ID of the watermark template that you want to delete. To obtain the template ID, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Global Settings** > **Watermark Templates** in the left-side navigation pane.
      *
      * This parameter is required.
+     *
      * @example 3780bd69b2b74540bc7b1096f564****
      *
      * @var string
      */
     public $waterMarkTemplateId;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'waterMarkTemplateId'  => 'WaterMarkTemplateId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'waterMarkTemplateId' => 'WaterMarkTemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

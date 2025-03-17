@@ -28,15 +28,13 @@ class audioDetailResult extends Model
      */
     public $text;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'label'     => 'Label',
+        'endTime' => 'EndTime',
+        'label' => 'Label',
         'startTime' => 'StartTime',
-        'text'      => 'Text',
+        'text' => 'Text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -16,9 +16,7 @@ class nonExistRunIds extends Model
         'runId' => 'RunId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -214,34 +214,32 @@ class videoStream extends Model
      */
     public $width;
     protected $_name = [
-        'avgFPS'         => 'AvgFPS',
-        'bitrate'        => 'Bitrate',
-        'codecLongName'  => 'CodecLongName',
-        'codecName'      => 'CodecName',
-        'codecTag'       => 'CodecTag',
+        'avgFPS' => 'AvgFPS',
+        'bitrate' => 'Bitrate',
+        'codecLongName' => 'CodecLongName',
+        'codecName' => 'CodecName',
+        'codecTag' => 'CodecTag',
         'codecTagString' => 'CodecTagString',
-        'codecTimeBase'  => 'CodecTimeBase',
-        'dar'            => 'Dar',
-        'duration'       => 'Duration',
-        'fps'            => 'Fps',
-        'hasBFrames'     => 'HasBFrames',
-        'height'         => 'Height',
-        'index'          => 'Index',
-        'lang'           => 'Lang',
-        'level'          => 'Level',
-        'networkCost'    => 'NetworkCost',
-        'numFrames'      => 'NumFrames',
-        'pixFmt'         => 'PixFmt',
-        'profile'        => 'Profile',
-        'sar'            => 'Sar',
-        'startTime'      => 'StartTime',
-        'timebase'       => 'Timebase',
-        'width'          => 'Width',
+        'codecTimeBase' => 'CodecTimeBase',
+        'dar' => 'Dar',
+        'duration' => 'Duration',
+        'fps' => 'Fps',
+        'hasBFrames' => 'HasBFrames',
+        'height' => 'Height',
+        'index' => 'Index',
+        'lang' => 'Lang',
+        'level' => 'Level',
+        'networkCost' => 'NetworkCost',
+        'numFrames' => 'NumFrames',
+        'pixFmt' => 'PixFmt',
+        'profile' => 'Profile',
+        'sar' => 'Sar',
+        'startTime' => 'StartTime',
+        'timebase' => 'Timebase',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

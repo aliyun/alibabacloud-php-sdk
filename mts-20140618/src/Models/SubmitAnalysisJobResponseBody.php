@@ -26,12 +26,10 @@ class SubmitAnalysisJobResponseBody extends Model
     public $requestId;
     protected $_name = [
         'analysisJob' => 'AnalysisJob',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

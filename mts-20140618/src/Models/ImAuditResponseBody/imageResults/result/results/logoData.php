@@ -62,17 +62,15 @@ class logoData extends Model
      */
     public $y;
     protected $_name = [
-        'h'    => 'h',
+        'h' => 'h',
         'name' => 'name',
         'type' => 'type',
-        'w'    => 'w',
-        'x'    => 'x',
-        'y'    => 'y',
+        'w' => 'w',
+        'x' => 'x',
+        'y' => 'y',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

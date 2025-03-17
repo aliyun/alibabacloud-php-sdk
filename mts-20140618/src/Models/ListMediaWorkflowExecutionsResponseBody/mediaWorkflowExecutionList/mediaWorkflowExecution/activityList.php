@@ -17,9 +17,7 @@ class activityList extends Model
         'activity' => 'Activity',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class activityList extends Model
         if (isset($map['Activity'])) {
             if (!empty($map['Activity'])) {
                 $model->activity = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Activity'] as $item) {
                     $model->activity[$n++] = null !== $item ? activity::fromMap($item) : $item;
                 }

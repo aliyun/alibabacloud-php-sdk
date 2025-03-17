@@ -17,9 +17,7 @@ class fpShotDBList extends Model
         'fpShotDB' => 'FpShotDB',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class fpShotDBList extends Model
         if (isset($map['FpShotDB'])) {
             if (!empty($map['FpShotDB'])) {
                 $model->fpShotDB = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['FpShotDB'] as $item) {
                     $model->fpShotDB[$n++] = null !== $item ? fpShotDB::fromMap($item) : $item;
                 }

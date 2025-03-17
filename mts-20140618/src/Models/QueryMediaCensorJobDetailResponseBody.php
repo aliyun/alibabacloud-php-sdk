@@ -26,12 +26,10 @@ class QueryMediaCensorJobDetailResponseBody extends Model
     public $requestId;
     protected $_name = [
         'mediaCensorJobDetail' => 'MediaCensorJobDetail',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

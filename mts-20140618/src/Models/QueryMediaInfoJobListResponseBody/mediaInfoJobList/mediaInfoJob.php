@@ -108,22 +108,20 @@ class mediaInfoJob extends Model
      */
     public $userData;
     protected $_name = [
-        'async'            => 'Async',
-        'code'             => 'Code',
-        'creationTime'     => 'CreationTime',
-        'input'            => 'Input',
-        'jobId'            => 'JobId',
+        'async' => 'Async',
+        'code' => 'Code',
+        'creationTime' => 'CreationTime',
+        'input' => 'Input',
+        'jobId' => 'JobId',
         'MNSMessageResult' => 'MNSMessageResult',
-        'message'          => 'Message',
-        'pipelineId'       => 'PipelineId',
-        'properties'       => 'Properties',
-        'state'            => 'State',
-        'userData'         => 'UserData',
+        'message' => 'Message',
+        'pipelineId' => 'PipelineId',
+        'properties' => 'Properties',
+        'state' => 'State',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

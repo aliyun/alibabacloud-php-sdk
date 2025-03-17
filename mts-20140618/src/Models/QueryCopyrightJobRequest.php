@@ -50,17 +50,15 @@ class QueryCopyrightJobRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'createTimeEnd'   => 'CreateTimeEnd',
+        'createTimeEnd' => 'CreateTimeEnd',
         'createTimeStart' => 'CreateTimeStart',
-        'jobId'           => 'JobId',
-        'level'           => 'Level',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'jobId' => 'JobId',
+        'level' => 'Level',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

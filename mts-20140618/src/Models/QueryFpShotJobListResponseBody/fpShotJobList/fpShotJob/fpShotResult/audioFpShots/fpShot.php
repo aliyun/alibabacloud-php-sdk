@@ -35,13 +35,11 @@ class fpShot extends Model
     public $similarity;
     protected $_name = [
         'fpShotSlices' => 'FpShotSlices',
-        'primaryKey'   => 'PrimaryKey',
-        'similarity'   => 'Similarity',
+        'primaryKey' => 'PrimaryKey',
+        'similarity' => 'Similarity',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

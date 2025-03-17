@@ -21,6 +21,7 @@ class SubmitFpFileDeleteJobRequest extends Model
      * @description The ID of the media fingerprint library. You can obtain the library ID from the response parameters of the [CreateFpShotDB](https://help.aliyun.com/document_detail/170149.html) operation.
      *
      * This parameter is required.
+     *
      * @example 88c6ca184c0e432bbf5b665e2a15****
      *
      * @var string
@@ -50,6 +51,7 @@ class SubmitFpFileDeleteJobRequest extends Model
      * @description The primary keys of the files to be deleted. Separate multiple primary keys with commas (,). You can delete up to 200 primary keys at a time. You can obtain the primary keys of media files from the response parameters of the [ListFpShotFiles](https://help.aliyun.com/document_detail/209266.html) operation.
      *
      * >  This parameter is available only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
+     *
      * @example 24e0fba7188fae707e146esa54****
      *
      * @var string
@@ -75,20 +77,18 @@ class SubmitFpFileDeleteJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'fileIds'              => 'FileIds',
-        'fpDBId'               => 'FpDBId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pipelineId'           => 'PipelineId',
-        'primaryKeys'          => 'PrimaryKeys',
+        'fileIds' => 'FileIds',
+        'fpDBId' => 'FpDBId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pipelineId' => 'PipelineId',
+        'primaryKeys' => 'PrimaryKeys',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'userData'             => 'UserData',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

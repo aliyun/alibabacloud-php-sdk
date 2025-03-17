@@ -11,7 +11,14 @@ class volume extends Model
     /**
      * @description The output volume.
      *
+     * This parameter takes effect only when the value of Method is dynamic.
+     *
+     * Unit: dB.
+     *
+     * Valid values: [-70,-5].
+     *
      * Default value: -6.
+     *
      * @example -6
      *
      * @var string
@@ -33,7 +40,14 @@ class volume extends Model
     /**
      * @description The range of the volume relative to the output volume.
      *
+     * This parameter takes effect only when the value of Method is dynamic.
+     *
+     * Unit: dB.
+     *
+     * Valid values: [1,20].
+     *
      * Default value: 8.
+     *
      * @example 8
      *
      * @var string
@@ -56,7 +70,12 @@ class volume extends Model
     /**
      * @description The volume adjustment coefficient.
      *
+     * This parameter takes effect only when the value of Method is adaptive.
+     *
+     * Valid values: [0,1].
+     *
      * Default value: 0.9.
+     *
      * @example 0.9
      *
      * @var string
@@ -66,7 +85,14 @@ class volume extends Model
     /**
      * @description The peak volume.
      *
+     * This parameter takes effect only when the value of Method is dynamic.
+     *
+     * Unit: dB.
+     *
+     * Valid values: [-9,0].
+     *
      * Default value: -1.
+     *
      * @example 0
      *
      * @var string
@@ -74,16 +100,14 @@ class volume extends Model
     public $truePeak;
     protected $_name = [
         'integratedLoudnessTarget' => 'IntegratedLoudnessTarget',
-        'level'                    => 'Level',
-        'loudnessRangeTarget'      => 'LoudnessRangeTarget',
-        'method'                   => 'Method',
-        'peakLevel'                => 'PeakLevel',
-        'truePeak'                 => 'TruePeak',
+        'level' => 'Level',
+        'loudnessRangeTarget' => 'LoudnessRangeTarget',
+        'method' => 'Method',
+        'peakLevel' => 'PeakLevel',
+        'truePeak' => 'TruePeak',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

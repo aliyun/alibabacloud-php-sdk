@@ -55,16 +55,14 @@ class summary extends Model
      */
     public $type;
     protected $_name = [
-        'activityName'      => 'ActivityName',
-        'file'              => 'File',
-        'mediaWorkflowId'   => 'MediaWorkflowId',
+        'activityName' => 'ActivityName',
+        'file' => 'File',
+        'mediaWorkflowId' => 'MediaWorkflowId',
         'mediaWorkflowName' => 'MediaWorkflowName',
-        'type'              => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

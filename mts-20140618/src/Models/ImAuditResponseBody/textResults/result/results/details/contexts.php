@@ -59,16 +59,14 @@ class contexts extends Model
      */
     public $ruleType;
     protected $_name = [
-        'context'   => 'context',
-        'libCode'   => 'libCode',
-        'libName'   => 'libName',
+        'context' => 'context',
+        'libCode' => 'libCode',
+        'libName' => 'libName',
         'positions' => 'positions',
-        'ruleType'  => 'ruleType',
+        'ruleType' => 'ruleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

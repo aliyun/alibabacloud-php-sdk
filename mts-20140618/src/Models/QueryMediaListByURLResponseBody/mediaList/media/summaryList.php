@@ -17,9 +17,7 @@ class summaryList extends Model
         'summary' => 'Summary',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class summaryList extends Model
         if (isset($map['Summary'])) {
             if (!empty($map['Summary'])) {
                 $model->summary = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Summary'] as $item) {
                     $model->summary[$n++] = null !== $item ? summary::fromMap($item) : $item;
                 }

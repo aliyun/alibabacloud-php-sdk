@@ -71,6 +71,7 @@ class audio extends Model
      *   Default value: 44100.
      *
      * >  If the video container format is FLV and the audio codec is MP3, the value of this parameter cannot be 32000, 48000, or 96000. If the audio codec is MP3, the value of this parameter cannot be 96000.
+     *
      * @example 44100
      *
      * @var string
@@ -84,18 +85,16 @@ class audio extends Model
      */
     public $volume;
     protected $_name = [
-        'bitrate'    => 'Bitrate',
-        'channels'   => 'Channels',
-        'codec'      => 'Codec',
-        'profile'    => 'Profile',
-        'qscale'     => 'Qscale',
+        'bitrate' => 'Bitrate',
+        'channels' => 'Channels',
+        'codec' => 'Codec',
+        'profile' => 'Profile',
+        'qscale' => 'Qscale',
         'samplerate' => 'Samplerate',
-        'volume'     => 'Volume',
+        'volume' => 'Volume',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

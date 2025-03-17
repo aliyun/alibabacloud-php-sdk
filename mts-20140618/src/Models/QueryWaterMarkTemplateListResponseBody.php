@@ -33,14 +33,12 @@ class QueryWaterMarkTemplateListResponseBody extends Model
      */
     public $waterMarkTemplateList;
     protected $_name = [
-        'nonExistWids'          => 'NonExistWids',
-        'requestId'             => 'RequestId',
+        'nonExistWids' => 'NonExistWids',
+        'requestId' => 'RequestId',
         'waterMarkTemplateList' => 'WaterMarkTemplateList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

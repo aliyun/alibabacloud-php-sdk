@@ -12,6 +12,7 @@ class ListFpShotFilesRequest extends Model
      * @description The end of the time range to query. The media files to be returned must be stored before the specified end time. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
      *
      * > This parameter is available only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
+     *
      * @example 2022-09-08T23:32:56Z
      *
      * @var string
@@ -22,6 +23,7 @@ class ListFpShotFilesRequest extends Model
      * @description The ID of the media fingerprint library whose files you want to query. You can obtain the library ID from the response parameters of the [CreateFpShotDB](https://help.aliyun.com/document_detail/170149.html) operation.
      *
      * This parameter is required.
+     *
      * @example 2288c6ca184c0e47098a5b665e2a12****
      *
      * @var string
@@ -70,26 +72,25 @@ class ListFpShotFilesRequest extends Model
      * @description The beginning of the time range to query. The media files to be returned must be stored after the specified start time. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
      *
      * > This parameter is available only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
+     *
      * @example 2022-09-01T00:00:28Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'              => 'EndTime',
-        'fpDBId'               => 'FpDBId',
-        'nextPageToken'        => 'NextPageToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageSize'             => 'PageSize',
+        'endTime' => 'EndTime',
+        'fpDBId' => 'FpDBId',
+        'nextPageToken' => 'NextPageToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'startTime'            => 'StartTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

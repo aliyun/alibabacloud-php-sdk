@@ -25,13 +25,11 @@ class UpdateMediaResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'media'     => 'Media',
+        'media' => 'Media',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

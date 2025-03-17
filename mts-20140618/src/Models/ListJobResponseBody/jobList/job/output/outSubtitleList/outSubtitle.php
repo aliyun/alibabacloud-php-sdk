@@ -46,15 +46,13 @@ class outSubtitle extends Model
      */
     public $success;
     protected $_name = [
-        'map'             => 'Map',
-        'message'         => 'Message',
+        'map' => 'Map',
+        'message' => 'Message',
         'outSubtitleFile' => 'OutSubtitleFile',
-        'success'         => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

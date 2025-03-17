@@ -38,14 +38,12 @@ class mediaBucket extends Model
      */
     public $type;
     protected $_name = [
-        'bucket'  => 'Bucket',
+        'bucket' => 'Bucket',
         'referer' => 'Referer',
-        'type'    => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

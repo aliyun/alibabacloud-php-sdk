@@ -71,20 +71,18 @@ class data extends Model
      */
     public $userId;
     protected $_name = [
-        'gmtCreate'   => 'GmtCreate',
+        'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
-        'jobId'       => 'JobId',
-        'mediaId'     => 'MediaId',
-        'output'      => 'Output',
-        'status'      => 'Status',
-        'trace'       => 'Trace',
-        'userData'    => 'UserData',
-        'userId'      => 'UserId',
+        'jobId' => 'JobId',
+        'mediaId' => 'MediaId',
+        'output' => 'Output',
+        'status' => 'Status',
+        'trace' => 'Trace',
+        'userData' => 'UserData',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

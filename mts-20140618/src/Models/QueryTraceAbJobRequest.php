@@ -22,13 +22,11 @@ class QueryTraceAbJobRequest extends Model
      */
     public $mediaId;
     protected $_name = [
-        'jobId'   => 'JobId',
+        'jobId' => 'JobId',
         'mediaId' => 'MediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

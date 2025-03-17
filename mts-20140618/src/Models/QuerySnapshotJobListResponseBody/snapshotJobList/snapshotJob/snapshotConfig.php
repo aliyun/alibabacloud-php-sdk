@@ -46,6 +46,7 @@ class snapshotConfig extends Model
      * - **Snapshoting**: The job is being processed.
      * - **Success**: The job was successfully processed.
      * - **Fail**: The job failed.
+     *
      * @example 10
      *
      * @var string
@@ -99,21 +100,19 @@ class snapshotConfig extends Model
      */
     public $width;
     protected $_name = [
-        'frameType'      => 'FrameType',
-        'height'         => 'Height',
-        'interval'       => 'Interval',
-        'num'            => 'Num',
-        'outputFile'     => 'OutputFile',
-        'tileOut'        => 'TileOut',
+        'frameType' => 'FrameType',
+        'height' => 'Height',
+        'interval' => 'Interval',
+        'num' => 'Num',
+        'outputFile' => 'OutputFile',
+        'tileOut' => 'TileOut',
         'tileOutputFile' => 'TileOutputFile',
-        'time'           => 'Time',
-        'timeArray'      => 'TimeArray',
-        'width'          => 'Width',
+        'time' => 'Time',
+        'timeArray' => 'TimeArray',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

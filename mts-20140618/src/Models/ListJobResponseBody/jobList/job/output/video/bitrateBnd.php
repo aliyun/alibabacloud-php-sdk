@@ -30,9 +30,7 @@ class bitrateBnd extends Model
         'min' => 'Min',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

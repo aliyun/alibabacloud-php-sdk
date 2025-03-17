@@ -129,24 +129,22 @@ class analysisJob extends Model
      */
     public $userData;
     protected $_name = [
-        'analysisConfig'   => 'AnalysisConfig',
-        'code'             => 'Code',
-        'creationTime'     => 'CreationTime',
-        'id'               => 'Id',
-        'inputFile'        => 'InputFile',
+        'analysisConfig' => 'AnalysisConfig',
+        'code' => 'Code',
+        'creationTime' => 'CreationTime',
+        'id' => 'Id',
+        'inputFile' => 'InputFile',
         'MNSMessageResult' => 'MNSMessageResult',
-        'message'          => 'Message',
-        'percent'          => 'Percent',
-        'pipelineId'       => 'PipelineId',
-        'priority'         => 'Priority',
-        'state'            => 'State',
-        'templateList'     => 'TemplateList',
-        'userData'         => 'UserData',
+        'message' => 'Message',
+        'percent' => 'Percent',
+        'pipelineId' => 'PipelineId',
+        'priority' => 'Priority',
+        'state' => 'State',
+        'templateList' => 'TemplateList',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

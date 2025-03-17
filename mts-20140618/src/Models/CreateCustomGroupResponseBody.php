@@ -23,12 +23,10 @@ class CreateCustomGroupResponseBody extends Model
     public $requestId;
     protected $_name = [
         'customGroupId' => 'CustomGroupId',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class tailSlateList extends Model
         'tailSlate' => 'TailSlate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class tailSlateList extends Model
         if (isset($map['TailSlate'])) {
             if (!empty($map['TailSlate'])) {
                 $model->tailSlate = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['TailSlate'] as $item) {
                     $model->tailSlate[$n++] = null !== $item ? tailSlate::fromMap($item) : $item;
                 }

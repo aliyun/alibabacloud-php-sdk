@@ -24,9 +24,7 @@ class transConfig extends Model
         'transMode' => 'TransMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

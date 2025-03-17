@@ -36,13 +36,16 @@ class RegisterCustomViewRequest extends Model
     public $customGroupId;
 
     /**
-     * @description This parameter is required.
-     *
      * @example http://``127.66.**.**``/image.jpeg
      *
      * @var string
      */
     public $imageUrl;
+
+    /**
+     * @var string
+     */
+    public $labelPrompt;
 
     /**
      * @var string
@@ -64,19 +67,18 @@ class RegisterCustomViewRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'algorithm'            => 'Algorithm',
-        'customEntityId'       => 'CustomEntityId',
-        'customGroupId'        => 'CustomGroupId',
-        'imageUrl'             => 'ImageUrl',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'algorithm' => 'Algorithm',
+        'customEntityId' => 'CustomEntityId',
+        'customGroupId' => 'CustomGroupId',
+        'imageUrl' => 'ImageUrl',
+        'labelPrompt' => 'LabelPrompt',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,6 +94,9 @@ class RegisterCustomViewRequest extends Model
         }
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
+        }
+        if (null !== $this->labelPrompt) {
+            $res['LabelPrompt'] = $this->labelPrompt;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -128,6 +133,9 @@ class RegisterCustomViewRequest extends Model
         }
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
+        }
+        if (isset($map['LabelPrompt'])) {
+            $model->labelPrompt = $map['LabelPrompt'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

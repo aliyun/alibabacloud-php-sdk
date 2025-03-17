@@ -107,6 +107,7 @@ class waterMarkTemplate extends Model
      *   Text: a text watermark.
      *
      * > Only watermarks of the **Image** type are supported.
+     *
      * @example Image
      *
      * @var string
@@ -122,22 +123,20 @@ class waterMarkTemplate extends Model
      */
     public $width;
     protected $_name = [
-        'dx'         => 'Dx',
-        'dy'         => 'Dy',
-        'height'     => 'Height',
-        'id'         => 'Id',
-        'name'       => 'Name',
+        'dx' => 'Dx',
+        'dy' => 'Dy',
+        'height' => 'Height',
+        'id' => 'Id',
+        'name' => 'Name',
         'ratioRefer' => 'RatioRefer',
-        'referPos'   => 'ReferPos',
-        'state'      => 'State',
-        'timeline'   => 'Timeline',
-        'type'       => 'Type',
-        'width'      => 'Width',
+        'referPos' => 'ReferPos',
+        'state' => 'State',
+        'timeline' => 'Timeline',
+        'type' => 'Type',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

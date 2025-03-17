@@ -38,21 +38,20 @@ class fpShotFile extends Model
      * @description The time when the media fingerprint file was stored. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
      *
      * > This parameter is available only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
+     *
      * @example 2022-09-08T23:32:56Z
      *
      * @var string
      */
     public $storeTime;
     protected $_name = [
-        'fileId'     => 'FileId',
-        'inputFile'  => 'InputFile',
+        'fileId' => 'FileId',
+        'inputFile' => 'InputFile',
         'primaryKey' => 'PrimaryKey',
-        'storeTime'  => 'StoreTime',
+        'storeTime' => 'StoreTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

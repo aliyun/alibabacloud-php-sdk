@@ -20,7 +20,10 @@ class SubmitAnalysisJobRequest extends Model
     /**
      * @description The input information about the preset template analysis job to be submitted. The value must be a JSON object. You must log on to the Object Storage Service (OSS) console to grant the read permissions on the specified OSS bucket to MPS. For more information, see the "Input" section of the [Parameter details](https://help.aliyun.com/document_detail/29253.html) topic.
      *
+     * > The OSS bucket must reside in the same region as your MPS service.
+     *
      * This parameter is required.
+     *
      * @example {"Bucket":"example-bucket","Location":"oss-cn-hangzhou","Object":"example.flv"}
      *
      * @var string
@@ -41,6 +44,7 @@ class SubmitAnalysisJobRequest extends Model
      * @description The ID of the MPS queue to which the job is submitted. To view the ID of the MPS queue, log on to the **MPS console** and choose **Global Settings** > **Pipelines** in the left-side navigation pane. If you want to enable asynchronous notifications, make sure that the MPS queue is bound to a Message Service (MNS) topic.
      *
      * This parameter is required.
+     *
      * @example bb558c1cc25b45309aab5be44d19****
      *
      * @var string
@@ -78,20 +82,18 @@ class SubmitAnalysisJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'analysisConfig'       => 'AnalysisConfig',
-        'input'                => 'Input',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pipelineId'           => 'PipelineId',
-        'priority'             => 'Priority',
+        'analysisConfig' => 'AnalysisConfig',
+        'input' => 'Input',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pipelineId' => 'PipelineId',
+        'priority' => 'Priority',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'userData'             => 'UserData',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

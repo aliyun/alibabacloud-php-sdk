@@ -80,19 +80,17 @@ class format extends Model
      */
     public $startTime;
     protected $_name = [
-        'bitrate'        => 'Bitrate',
-        'duration'       => 'Duration',
+        'bitrate' => 'Bitrate',
+        'duration' => 'Duration',
         'formatLongName' => 'FormatLongName',
-        'formatName'     => 'FormatName',
-        'numPrograms'    => 'NumPrograms',
-        'numStreams'     => 'NumStreams',
-        'size'           => 'Size',
-        'startTime'      => 'StartTime',
+        'formatName' => 'FormatName',
+        'numPrograms' => 'NumPrograms',
+        'numStreams' => 'NumStreams',
+        'size' => 'Size',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

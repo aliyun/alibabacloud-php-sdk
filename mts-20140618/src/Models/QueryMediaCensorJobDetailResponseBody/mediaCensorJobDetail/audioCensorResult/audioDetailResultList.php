@@ -17,9 +17,7 @@ class audioDetailResultList extends Model
         'audioDetailResult' => 'AudioDetailResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class audioDetailResultList extends Model
         if (isset($map['AudioDetailResult'])) {
             if (!empty($map['AudioDetailResult'])) {
                 $model->audioDetailResult = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['AudioDetailResult'] as $item) {
                     $model->audioDetailResult[$n++] = null !== $item ? audioDetailResult::fromMap($item) : $item;
                 }

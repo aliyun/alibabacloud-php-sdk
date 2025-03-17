@@ -17,9 +17,7 @@ class mediaCensorJobList extends Model
         'mediaCensorJob' => 'MediaCensorJob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class mediaCensorJobList extends Model
         if (isset($map['MediaCensorJob'])) {
             if (!empty($map['MediaCensorJob'])) {
                 $model->mediaCensorJob = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['MediaCensorJob'] as $item) {
                     $model->mediaCensorJob[$n++] = null !== $item ? mediaCensorJob::fromMap($item) : $item;
                 }

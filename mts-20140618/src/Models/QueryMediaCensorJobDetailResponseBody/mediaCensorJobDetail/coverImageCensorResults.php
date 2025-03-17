@@ -17,9 +17,7 @@ class coverImageCensorResults extends Model
         'coverImageCensorResult' => 'CoverImageCensorResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class coverImageCensorResults extends Model
         if (isset($map['CoverImageCensorResult'])) {
             if (!empty($map['CoverImageCensorResult'])) {
                 $model->coverImageCensorResult = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['CoverImageCensorResult'] as $item) {
                     $model->coverImageCensorResult[$n++] = null !== $item ? coverImageCensorResult::fromMap($item) : $item;
                 }

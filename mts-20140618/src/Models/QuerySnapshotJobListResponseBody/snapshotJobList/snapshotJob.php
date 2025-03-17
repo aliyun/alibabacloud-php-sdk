@@ -13,8 +13,6 @@ class snapshotJob extends Model
 {
     /**
      * @description You can call this operation to query up to 10 snapshot jobs at a time.
-     *
-     *
      * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
      * @example InvalidParameter
      *
@@ -115,23 +113,21 @@ class snapshotJob extends Model
      */
     public $userData;
     protected $_name = [
-        'code'             => 'Code',
-        'count'            => 'Count',
-        'creationTime'     => 'CreationTime',
-        'id'               => 'Id',
-        'input'            => 'Input',
+        'code' => 'Code',
+        'count' => 'Count',
+        'creationTime' => 'CreationTime',
+        'id' => 'Id',
+        'input' => 'Input',
         'MNSMessageResult' => 'MNSMessageResult',
-        'message'          => 'Message',
-        'pipelineId'       => 'PipelineId',
-        'snapshotConfig'   => 'SnapshotConfig',
-        'state'            => 'State',
-        'tileCount'        => 'TileCount',
-        'userData'         => 'UserData',
+        'message' => 'Message',
+        'pipelineId' => 'PipelineId',
+        'snapshotConfig' => 'SnapshotConfig',
+        'state' => 'State',
+        'tileCount' => 'TileCount',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -39,6 +39,7 @@ class CreateFpShotDBRequest extends Model
      * @description The name of the media fingerprint library.
      *
      * This parameter is required.
+     *
      * @example example name
      *
      * @var string
@@ -65,19 +66,17 @@ class CreateFpShotDBRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'config'               => 'Config',
-        'description'          => 'Description',
-        'modelId'              => 'ModelId',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'config' => 'Config',
+        'description' => 'Description',
+        'modelId' => 'ModelId',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

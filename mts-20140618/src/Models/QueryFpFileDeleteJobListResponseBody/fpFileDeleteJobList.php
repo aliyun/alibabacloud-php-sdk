@@ -17,9 +17,7 @@ class fpFileDeleteJobList extends Model
         'fpFileDeleteJob' => 'FpFileDeleteJob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class fpFileDeleteJobList extends Model
         if (isset($map['FpFileDeleteJob'])) {
             if (!empty($map['FpFileDeleteJob'])) {
                 $model->fpFileDeleteJob = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['FpFileDeleteJob'] as $item) {
                     $model->fpFileDeleteJob[$n++] = null !== $item ? fpFileDeleteJob::fromMap($item) : $item;
                 }

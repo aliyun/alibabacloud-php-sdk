@@ -12,6 +12,7 @@ class DeleteMediaWorkflowRequest extends Model
      * @description The ID of the media workflow that you want to delete. To obtain the ID of the media workflow, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Workflow Settings** in the left-side navigation pane.
      *
      * This parameter is required.
+     *
      * @example 93ab850b4f6f44eab54b6e9181d4****
      *
      * @var string
@@ -38,16 +39,14 @@ class DeleteMediaWorkflowRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'mediaWorkflowId'      => 'MediaWorkflowId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'mediaWorkflowId' => 'MediaWorkflowId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,13 +30,11 @@ class SubmitImageCopyrightRequest extends Model
     public $params;
     protected $_name = [
         'message' => 'Message',
-        'output'  => 'Output',
-        'params'  => 'Params',
+        'output' => 'Output',
+        'params' => 'Params',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

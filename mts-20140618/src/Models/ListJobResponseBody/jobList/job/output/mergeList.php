@@ -17,9 +17,7 @@ class mergeList extends Model
         'merge' => 'Merge',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class mergeList extends Model
         if (isset($map['Merge'])) {
             if (!empty($map['Merge'])) {
                 $model->merge = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Merge'] as $item) {
                     $model->merge[$n++] = null !== $item ? merge::fromMap($item) : $item;
                 }

@@ -51,6 +51,7 @@ class video extends Model
      * @description The constant rate factor. Default value if the video codec is set to H.264: **23**. Default value if the video codec is set to H.265: **26**.
      *
      * > If this parameter is specified, the setting of the Bitrate parameter becomes invalid.
+     *
      * @example 15
      *
      * @var string
@@ -124,6 +125,7 @@ class video extends Model
      *   **false**: The auto-rotate screen feature is disabled.
      *
      * > If this feature is enabled, the width of the output video corresponds to the long side of the input video, which is the height of the input video in portrait mode. The height of the output video corresponds to the short side of the input video, which is the width of the input video in portrait mode.
+     *
      * @example false
      *
      * @var string
@@ -183,6 +185,7 @@ class video extends Model
      *   **slower**
      *
      * > This parameter is valid only if the Codec parameter is set to H.264.
+     *
      * @example fast
      *
      * @var string
@@ -197,7 +200,10 @@ class video extends Model
      *   **high**: suitable for high-definition devices
      *   Default value: **high**.
      *
+     * If multiple definitions are available, we recommend that you set this parameter to baseline for the lowest definition to ensure normal playback on low-end devices. Set this parameter to main or high for other definitions.
+     *
      * > This parameter is valid only if the Codec parameter is set to H.264.
+     *
      * @example high
      *
      * @var string
@@ -259,35 +265,33 @@ class video extends Model
      */
     public $width;
     protected $_name = [
-        'bitrate'       => 'Bitrate',
-        'bitrateBnd'    => 'BitrateBnd',
-        'bufsize'       => 'Bufsize',
-        'codec'         => 'Codec',
-        'crf'           => 'Crf',
-        'crop'          => 'Crop',
-        'degrain'       => 'Degrain',
-        'fps'           => 'Fps',
-        'gop'           => 'Gop',
-        'hdr2sdr'       => 'Hdr2sdr',
-        'height'        => 'Height',
+        'bitrate' => 'Bitrate',
+        'bitrateBnd' => 'BitrateBnd',
+        'bufsize' => 'Bufsize',
+        'codec' => 'Codec',
+        'crf' => 'Crf',
+        'crop' => 'Crop',
+        'degrain' => 'Degrain',
+        'fps' => 'Fps',
+        'gop' => 'Gop',
+        'hdr2sdr' => 'Hdr2sdr',
+        'height' => 'Height',
         'longShortMode' => 'LongShortMode',
-        'maxFps'        => 'MaxFps',
-        'maxrate'       => 'Maxrate',
-        'narrowBand'    => 'NarrowBand',
-        'pad'           => 'Pad',
-        'pixFmt'        => 'PixFmt',
-        'preset'        => 'Preset',
-        'profile'       => 'Profile',
-        'qscale'        => 'Qscale',
-        'remove'        => 'Remove',
-        'resoPriority'  => 'ResoPriority',
-        'scanMode'      => 'ScanMode',
-        'width'         => 'Width',
+        'maxFps' => 'MaxFps',
+        'maxrate' => 'Maxrate',
+        'narrowBand' => 'NarrowBand',
+        'pad' => 'Pad',
+        'pixFmt' => 'PixFmt',
+        'preset' => 'Preset',
+        'profile' => 'Profile',
+        'qscale' => 'Qscale',
+        'remove' => 'Remove',
+        'resoPriority' => 'ResoPriority',
+        'scanMode' => 'ScanMode',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

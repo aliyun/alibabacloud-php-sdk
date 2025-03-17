@@ -12,6 +12,7 @@ class UnbindOutputBucketRequest extends Model
      * @description The ID of the request.
      *
      * This parameter is required.
+     *
      * @example example-bucket-****
      *
      * @var string
@@ -38,16 +39,14 @@ class UnbindOutputBucketRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'bucket'               => 'Bucket',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'bucket' => 'Bucket',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

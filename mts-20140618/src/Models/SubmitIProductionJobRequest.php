@@ -93,24 +93,22 @@ class SubmitIProductionJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'functionName'         => 'FunctionName',
-        'input'                => 'Input',
-        'jobParams'            => 'JobParams',
-        'modelId'              => 'ModelId',
-        'notifyUrl'            => 'NotifyUrl',
-        'output'               => 'Output',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pipelineId'           => 'PipelineId',
+        'functionName' => 'FunctionName',
+        'input' => 'Input',
+        'jobParams' => 'JobParams',
+        'modelId' => 'ModelId',
+        'notifyUrl' => 'NotifyUrl',
+        'output' => 'Output',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pipelineId' => 'PipelineId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'scheduleParams'       => 'ScheduleParams',
-        'userData'             => 'UserData',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'scheduleParams' => 'ScheduleParams',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

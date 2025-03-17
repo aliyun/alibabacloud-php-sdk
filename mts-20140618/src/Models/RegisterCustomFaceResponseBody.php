@@ -26,13 +26,11 @@ class RegisterCustomFaceResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'faceId'    => 'FaceId',
+        'faceId' => 'FaceId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

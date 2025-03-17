@@ -107,22 +107,20 @@ class job extends Model
      */
     public $state;
     protected $_name = [
-        'code'             => 'Code',
-        'creationTime'     => 'CreationTime',
-        'finishTime'       => 'FinishTime',
-        'input'            => 'Input',
-        'jobId'            => 'JobId',
+        'code' => 'Code',
+        'creationTime' => 'CreationTime',
+        'finishTime' => 'FinishTime',
+        'input' => 'Input',
+        'jobId' => 'JobId',
         'MNSMessageResult' => 'MNSMessageResult',
-        'message'          => 'Message',
-        'output'           => 'Output',
-        'percent'          => 'Percent',
-        'pipelineId'       => 'PipelineId',
-        'state'            => 'State',
+        'message' => 'Message',
+        'output' => 'Output',
+        'percent' => 'Percent',
+        'pipelineId' => 'PipelineId',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

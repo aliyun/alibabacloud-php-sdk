@@ -12,6 +12,7 @@ class UpdateMediaWorkflowTriggerModeRequest extends Model
      * @description The ID of the media workflow that you want to update. To obtain the ID of the media workflow, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Workflow Settings** in the left-side navigation pane.
      *
      * This parameter is required.
+     *
      * @example e00732b977da427d9177a4dee646****
      *
      * @var string
@@ -45,23 +46,22 @@ class UpdateMediaWorkflowTriggerModeRequest extends Model
      *   **NotInAuto**: does not automatically trigger the media workflow.
      *
      * This parameter is required.
+     *
      * @example NotInAuto
      *
      * @var string
      */
     public $triggerMode;
     protected $_name = [
-        'mediaWorkflowId'      => 'MediaWorkflowId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'mediaWorkflowId' => 'MediaWorkflowId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'triggerMode'          => 'TriggerMode',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'triggerMode' => 'TriggerMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ImportFpShotJobRequest extends Model
      * @description The ID of the text fingerprint library to which the text file is imported. You can specify only one job of importing text files to a text fingerprint library at a time. You can obtain the library ID from the response parameters of the [CreateFpShotDB](https://help.aliyun.com/document_detail/170149.html) operation.
      *
      * This parameter is required.
+     *
      * @example 88c6ca184c0e47098a5b665e2a12****
      *
      * @var string
@@ -25,6 +26,7 @@ class ImportFpShotJobRequest extends Model
      *   **onlysave**: The fingerprints of the text file are saved to the text fingerprint library.
      *
      * This parameter is required.
+     *
      * @example {"SaveType":"onlysave"}
      *
      * @var string
@@ -34,7 +36,10 @@ class ImportFpShotJobRequest extends Model
     /**
      * @description The Object Storage Service (OSS) URL of the text file to be imported to the text fingerprint library. The value must be a JSON object. Example: {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example.flv"}.
      *
+     * > The OSS bucket must reside in the same region as your MPS service.
+     *
      * This parameter is required.
+     *
      * @example {“Bucket”:”example-bucket”,“Location”:”oss-cn-shanghai”,“Object”:”example.txt”}
      *
      * @var string
@@ -77,20 +82,18 @@ class ImportFpShotJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'fpDBId'               => 'FpDBId',
-        'fpImportConfig'       => 'FpImportConfig',
-        'input'                => 'Input',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pipelineId'           => 'PipelineId',
+        'fpDBId' => 'FpDBId',
+        'fpImportConfig' => 'FpImportConfig',
+        'input' => 'Input',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pipelineId' => 'PipelineId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'userData'             => 'UserData',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

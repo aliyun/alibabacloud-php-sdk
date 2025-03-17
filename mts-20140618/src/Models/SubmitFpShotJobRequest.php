@@ -12,11 +12,13 @@ class SubmitFpShotJobRequest extends Model
      * @description The configurations of the media fingerprint analysis job. The value is a JSON object. For more information, see the "FpShotConfig" section of the [Parameter details](https://help.aliyun.com/document_detail/93568.html) topic.
      *
      * This parameter is required.
+     *
      * @example {
      * "PrimaryKey": "12345****",
      * "SaveType": "save",
      * "FpDBId": "417f2ada5999daf****"
      * }
+     *
      * @var string
      */
     public $fpShotConfig;
@@ -24,7 +26,10 @@ class SubmitFpShotJobRequest extends Model
     /**
      * @description The OSS URL of the job input. The value is a JSON object. You can query the OSS URL in the OSS or MPS console.
      *
+     * > The OSS bucket must reside in the same region as your MPS service.
+     *
      * This parameter is required.
+     *
      * @example {"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.flv"}
      *
      * @var string
@@ -69,19 +74,17 @@ class SubmitFpShotJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'fpShotConfig'         => 'FpShotConfig',
-        'input'                => 'Input',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pipelineId'           => 'PipelineId',
+        'fpShotConfig' => 'FpShotConfig',
+        'input' => 'Input',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pipelineId' => 'PipelineId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'userData'             => 'UserData',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

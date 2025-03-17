@@ -29,13 +29,11 @@ class propertiesControl extends Model
      */
     public $deinterlace;
     protected $_name = [
-        'crop'        => 'Crop',
+        'crop' => 'Crop',
         'deinterlace' => 'Deinterlace',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

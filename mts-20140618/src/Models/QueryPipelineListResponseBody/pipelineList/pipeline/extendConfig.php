@@ -23,14 +23,12 @@ class extendConfig extends Model
      */
     public $multiSpeedDowngradePolicy;
     protected $_name = [
-        'isBoostNew'                => 'IsBoostNew',
-        'maxMultiSpeed'             => 'MaxMultiSpeed',
+        'isBoostNew' => 'IsBoostNew',
+        'maxMultiSpeed' => 'MaxMultiSpeed',
         'multiSpeedDowngradePolicy' => 'MultiSpeedDowngradePolicy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

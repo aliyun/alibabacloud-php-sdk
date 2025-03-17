@@ -34,13 +34,11 @@ class QueryMediaWorkflowExecutionListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'mediaWorkflowExecutionList' => 'MediaWorkflowExecutionList',
-        'nonExistRunIds'             => 'NonExistRunIds',
-        'requestId'                  => 'RequestId',
+        'nonExistRunIds' => 'NonExistRunIds',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

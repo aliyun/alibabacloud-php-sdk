@@ -59,15 +59,13 @@ class fpShotDB extends Model
     public $status;
     protected $_name = [
         'description' => 'Description',
-        'fpDBId'      => 'FpDBId',
-        'modelId'     => 'ModelId',
-        'name'        => 'Name',
-        'status'      => 'Status',
+        'fpDBId' => 'FpDBId',
+        'modelId' => 'ModelId',
+        'name' => 'Name',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

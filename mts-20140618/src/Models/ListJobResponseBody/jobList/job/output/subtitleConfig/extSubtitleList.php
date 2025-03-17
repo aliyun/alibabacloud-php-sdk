@@ -17,9 +17,7 @@ class extSubtitleList extends Model
         'extSubtitle' => 'ExtSubtitle',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class extSubtitleList extends Model
         if (isset($map['ExtSubtitle'])) {
             if (!empty($map['ExtSubtitle'])) {
                 $model->extSubtitle = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ExtSubtitle'] as $item) {
                     $model->extSubtitle[$n++] = null !== $item ? extSubtitle::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class AddTemplateRequest extends Model
      * @description The audio stream settings. The value must be a JSON object. For more information, see [Audio](https://help.aliyun.com/document_detail/29253.html).
      *
      * > If you do not specify this parameter, output files do not contain audio streams. This parameter is required if you want to retain the audio streams.
+     *
      * @example {"Codec":"H.264","Samplerate":"44100","Bitrate":"500","Channels":"2"}
      *
      * @var string
@@ -54,6 +55,7 @@ class AddTemplateRequest extends Model
      * @description The name of the transcoding template. The name can be up to 128 bytes in length.
      *
      * This parameter is required.
+     *
      * @example mps-example
      *
      * @var string
@@ -93,27 +95,26 @@ class AddTemplateRequest extends Model
      * @description The video stream settings. The value must be a JSON object. For more information, see [Video](https://help.aliyun.com/document_detail/29253.html).
      *
      * > If you do not specify this parameter, output files do not contain video streams. This parameter is required if you want to retain the video streams.
+     *
      * @example {"Codec":"H.264","Profile":"high","Bitrate":"500","Crf":"15","Width":"256","Height":"800","Fps":"25","Gop":"10s"}
      *
      * @var string
      */
     public $video;
     protected $_name = [
-        'audio'                => 'Audio',
-        'container'            => 'Container',
-        'muxConfig'            => 'MuxConfig',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'audio' => 'Audio',
+        'container' => 'Container',
+        'muxConfig' => 'MuxConfig',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'transConfig'          => 'TransConfig',
-        'video'                => 'Video',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'transConfig' => 'TransConfig',
+        'video' => 'Video',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

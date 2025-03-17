@@ -32,22 +32,21 @@ class QueryTemplateListRequest extends Model
      * @description The response parameters.
      *
      * This parameter is required.
+     *
      * @example 16f01ad6175e4230ac42bb5182cd****,88c6ca184c0e424d5w5b665e2a12****
      *
      * @var string
      */
     public $templateIds;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'templateIds'          => 'TemplateIds',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'templateIds' => 'TemplateIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

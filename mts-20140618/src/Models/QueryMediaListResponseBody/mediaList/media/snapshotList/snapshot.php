@@ -57,23 +57,22 @@ class snapshot extends Model
      *
      * - **Single**
      * - **Sequence**
+     *
      * @example Sequence
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'activityName'      => 'ActivityName',
-        'count'             => 'Count',
-        'file'              => 'File',
-        'mediaWorkflowId'   => 'MediaWorkflowId',
+        'activityName' => 'ActivityName',
+        'count' => 'Count',
+        'file' => 'File',
+        'mediaWorkflowId' => 'MediaWorkflowId',
         'mediaWorkflowName' => 'MediaWorkflowName',
-        'type'              => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

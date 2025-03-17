@@ -17,9 +17,7 @@ class videoStreamList extends Model
         'videoStream' => 'VideoStream',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class videoStreamList extends Model
         if (isset($map['VideoStream'])) {
             if (!empty($map['VideoStream'])) {
                 $model->videoStream = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['VideoStream'] as $item) {
                     $model->videoStream[$n++] = null !== $item ? videoStream::fromMap($item) : $item;
                 }

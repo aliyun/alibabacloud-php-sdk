@@ -62,17 +62,15 @@ class encryption extends Model
      */
     public $type;
     protected $_name = [
-        'id'      => 'Id',
-        'key'     => 'Key',
+        'id' => 'Id',
+        'key' => 'Key',
         'keyType' => 'KeyType',
-        'keyUri'  => 'KeyUri',
+        'keyUri' => 'KeyUri',
         'skipCnt' => 'SkipCnt',
-        'type'    => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

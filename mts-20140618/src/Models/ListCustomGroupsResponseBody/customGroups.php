@@ -17,9 +17,7 @@ class customGroups extends Model
         'customGroup' => 'CustomGroup',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class customGroups extends Model
         if (isset($map['CustomGroup'])) {
             if (!empty($map['CustomGroup'])) {
                 $model->customGroup = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['CustomGroup'] as $item) {
                     $model->customGroup[$n++] = null !== $item ? customGroup::fromMap($item) : $item;
                 }

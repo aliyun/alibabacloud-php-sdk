@@ -20,9 +20,7 @@ class sourceLogo extends Model
         'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

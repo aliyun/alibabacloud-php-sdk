@@ -90,6 +90,7 @@ class template extends Model
      *   other
      *
      * > Keyword tags of all the categories are returned in one of the following scenarios: The KeywordConfig parameter is not specified or the Keyword field is invalid because it is not a JSON string, or the KeywordConfig parameter does not contain the type field or the type field is invalid.
+     *
      * @example { "type": "name,location,organization,other" }
      *
      * @var string
@@ -218,25 +219,23 @@ class template extends Model
      */
     public $templateName;
     protected $_name = [
-        'analyseTypes'           => 'AnalyseTypes',
-        'faceCategoryIds'        => 'FaceCategoryIds',
+        'analyseTypes' => 'AnalyseTypes',
+        'faceCategoryIds' => 'FaceCategoryIds',
         'faceCustomParamsConfig' => 'FaceCustomParamsConfig',
-        'industry'               => 'Industry',
-        'isDefault'              => 'IsDefault',
-        'keywordConfig'          => 'KeywordConfig',
-        'knowledgeConfig'        => 'KnowledgeConfig',
-        'labelType'              => 'LabelType',
-        'labelVersion'           => 'LabelVersion',
-        'landmarkGroupIds'       => 'LandmarkGroupIds',
-        'objectGroupIds'         => 'ObjectGroupIds',
-        'scene'                  => 'Scene',
-        'templateId'             => 'TemplateId',
-        'templateName'           => 'TemplateName',
+        'industry' => 'Industry',
+        'isDefault' => 'IsDefault',
+        'keywordConfig' => 'KeywordConfig',
+        'knowledgeConfig' => 'KnowledgeConfig',
+        'labelType' => 'LabelType',
+        'labelVersion' => 'LabelVersion',
+        'landmarkGroupIds' => 'LandmarkGroupIds',
+        'objectGroupIds' => 'ObjectGroupIds',
+        'scene' => 'Scene',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

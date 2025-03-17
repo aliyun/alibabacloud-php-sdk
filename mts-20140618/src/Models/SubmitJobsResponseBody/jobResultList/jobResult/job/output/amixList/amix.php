@@ -60,16 +60,14 @@ class amix extends Model
      */
     public $start;
     protected $_name = [
-        'amixURL'    => 'AmixURL',
-        'duration'   => 'Duration',
-        'map'        => 'Map',
+        'amixURL' => 'AmixURL',
+        'duration' => 'Duration',
+        'map' => 'Map',
         'mixDurMode' => 'MixDurMode',
-        'start'      => 'Start',
+        'start' => 'Start',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

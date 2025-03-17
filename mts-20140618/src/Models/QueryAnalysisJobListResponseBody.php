@@ -38,14 +38,12 @@ class QueryAnalysisJobListResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'analysisJobList'        => 'AnalysisJobList',
+        'analysisJobList' => 'AnalysisJobList',
         'nonExistAnalysisJobIds' => 'NonExistAnalysisJobIds',
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -35,12 +35,10 @@ class QueryPipelineListResponseBody extends Model
     protected $_name = [
         'nonExistPids' => 'NonExistPids',
         'pipelineList' => 'PipelineList',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -57,6 +57,7 @@ class transConfig extends Model
      *   Default value: **false**.
      *
      * > If this feature is enabled and the system detects that the resolution of the output file is higher than that of the input file based on the width or height, the resolution of the input file is retained after transcoding.
+     *
      * @example true
      *
      * @var string
@@ -71,6 +72,7 @@ class transConfig extends Model
      *   Default value: **false**.
      *
      * > If this feature is enabled and the system detects that the resolution of the output file is higher than that of the input file based on the width or height, an error that indicates a transcoding failure is returned.
+     *
      * @example true
      *
      * @var string
@@ -85,6 +87,7 @@ class transConfig extends Model
      *   Default value: **false**.
      *
      * > If this feature is enabled and the system detects that the video bitrate of the output file is greater than that of the input file, the video bitrate of the input file is retained after transcoding.
+     *
      * @example true
      *
      * @var string
@@ -118,19 +121,17 @@ class transConfig extends Model
      */
     public $transMode;
     protected $_name = [
-        'adjDarMethod'            => 'AdjDarMethod',
-        'isCheckAudioBitrate'     => 'IsCheckAudioBitrate',
+        'adjDarMethod' => 'AdjDarMethod',
+        'isCheckAudioBitrate' => 'IsCheckAudioBitrate',
         'isCheckAudioBitrateFail' => 'IsCheckAudioBitrateFail',
-        'isCheckReso'             => 'IsCheckReso',
-        'isCheckResoFail'         => 'IsCheckResoFail',
-        'isCheckVideoBitrate'     => 'IsCheckVideoBitrate',
+        'isCheckReso' => 'IsCheckReso',
+        'isCheckResoFail' => 'IsCheckResoFail',
+        'isCheckVideoBitrate' => 'IsCheckVideoBitrate',
         'isCheckVideoBitrateFail' => 'IsCheckVideoBitrateFail',
-        'transMode'               => 'TransMode',
+        'transMode' => 'TransMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

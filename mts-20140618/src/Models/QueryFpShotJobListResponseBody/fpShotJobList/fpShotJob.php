@@ -32,6 +32,7 @@ class fpShotJob extends Model
     /**
      * @description The length of the input file.
      * Unit: seconds.
+     *
      * @example 5
      *
      * @var int
@@ -136,25 +137,23 @@ class fpShotJob extends Model
      */
     public $userData;
     protected $_name = [
-        'code'         => 'Code',
+        'code' => 'Code',
         'creationTime' => 'CreationTime',
-        'duration'     => 'Duration',
-        'fileId'       => 'FileId',
-        'finishTime'   => 'FinishTime',
+        'duration' => 'Duration',
+        'fileId' => 'FileId',
+        'finishTime' => 'FinishTime',
         'fpShotConfig' => 'FpShotConfig',
         'fpShotResult' => 'FpShotResult',
-        'id'           => 'Id',
-        'input'        => 'Input',
-        'inputFile'    => 'InputFile',
-        'message'      => 'Message',
-        'pipelineId'   => 'PipelineId',
-        'state'        => 'State',
-        'userData'     => 'UserData',
+        'id' => 'Id',
+        'input' => 'Input',
+        'inputFile' => 'InputFile',
+        'message' => 'Message',
+        'pipelineId' => 'PipelineId',
+        'state' => 'State',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

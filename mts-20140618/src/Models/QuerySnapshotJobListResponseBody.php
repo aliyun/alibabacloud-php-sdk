@@ -45,15 +45,13 @@ class QuerySnapshotJobListResponseBody extends Model
      */
     public $snapshotJobList;
     protected $_name = [
-        'nextPageToken'          => 'NextPageToken',
+        'nextPageToken' => 'NextPageToken',
         'nonExistSnapshotJobIds' => 'NonExistSnapshotJobIds',
-        'requestId'              => 'RequestId',
-        'snapshotJobList'        => 'SnapshotJobList',
+        'requestId' => 'RequestId',
+        'snapshotJobList' => 'SnapshotJobList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

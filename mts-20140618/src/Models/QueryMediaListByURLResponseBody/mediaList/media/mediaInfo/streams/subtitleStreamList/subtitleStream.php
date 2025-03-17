@@ -27,12 +27,10 @@ class subtitleStream extends Model
     public $lang;
     protected $_name = [
         'index' => 'Index',
-        'lang'  => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

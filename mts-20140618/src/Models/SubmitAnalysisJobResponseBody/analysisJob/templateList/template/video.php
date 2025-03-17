@@ -174,27 +174,25 @@ class video extends Model
      */
     public $width;
     protected $_name = [
-        'bitrate'    => 'Bitrate',
+        'bitrate' => 'Bitrate',
         'bitrateBnd' => 'BitrateBnd',
-        'bufsize'    => 'Bufsize',
-        'codec'      => 'Codec',
-        'crf'        => 'Crf',
-        'degrain'    => 'Degrain',
-        'fps'        => 'Fps',
-        'gop'        => 'Gop',
-        'height'     => 'Height',
-        'maxrate'    => 'Maxrate',
-        'pixFmt'     => 'PixFmt',
-        'preset'     => 'Preset',
-        'profile'    => 'Profile',
-        'qscale'     => 'Qscale',
-        'scanMode'   => 'ScanMode',
-        'width'      => 'Width',
+        'bufsize' => 'Bufsize',
+        'codec' => 'Codec',
+        'crf' => 'Crf',
+        'degrain' => 'Degrain',
+        'fps' => 'Fps',
+        'gop' => 'Gop',
+        'height' => 'Height',
+        'maxrate' => 'Maxrate',
+        'pixFmt' => 'PixFmt',
+        'preset' => 'Preset',
+        'profile' => 'Profile',
+        'qscale' => 'Qscale',
+        'scanMode' => 'ScanMode',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

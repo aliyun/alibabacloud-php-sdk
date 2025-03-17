@@ -48,6 +48,7 @@ class UpdateMediaRequest extends Model
      * @description The ID of the media file whose basic information you want to update. To obtain the ID of the media file, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Media Management** > **Media List** in the left-side navigation pane.
      *
      * This parameter is required.
+     *
      * @example 3e1cd21131a94525be55acf65888****
      *
      * @var string
@@ -99,21 +100,19 @@ class UpdateMediaRequest extends Model
      */
     public $title;
     protected $_name = [
-        'cateId'               => 'CateId',
-        'coverURL'             => 'CoverURL',
-        'description'          => 'Description',
-        'mediaId'              => 'MediaId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'cateId' => 'CateId',
+        'coverURL' => 'CoverURL',
+        'description' => 'Description',
+        'mediaId' => 'MediaId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tags'                 => 'Tags',
-        'title'                => 'Title',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tags' => 'Tags',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

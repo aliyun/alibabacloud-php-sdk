@@ -33,12 +33,10 @@ class timeSpan extends Model
     public $seek;
     protected $_name = [
         'duration' => 'Duration',
-        'seek'     => 'Seek',
+        'seek' => 'Seek',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

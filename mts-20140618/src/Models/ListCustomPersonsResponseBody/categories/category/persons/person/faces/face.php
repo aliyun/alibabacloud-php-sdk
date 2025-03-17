@@ -26,13 +26,11 @@ class face extends Model
      */
     public $imageUrl;
     protected $_name = [
-        'faceId'   => 'FaceId',
+        'faceId' => 'FaceId',
         'imageUrl' => 'ImageUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

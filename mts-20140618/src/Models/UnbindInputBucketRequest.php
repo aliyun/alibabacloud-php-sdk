@@ -12,6 +12,7 @@ class UnbindInputBucketRequest extends Model
      * @description The name of the input media bucket to be unbound. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Media Buckets** in the left-side navigation pane. Alternatively, you can log on to the **Object Storage Service (OSS) console** and click **Historical Paths**.
      *
      * This parameter is required.
+     *
      * @example example-bucket-****
      *
      * @var string
@@ -47,17 +48,15 @@ class UnbindInputBucketRequest extends Model
      */
     public $roleArn;
     protected $_name = [
-        'bucket'               => 'Bucket',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'bucket' => 'Bucket',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'roleArn'              => 'RoleArn',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'roleArn' => 'RoleArn',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -29,6 +29,7 @@ class fpShot extends Model
      * @description The overall similarity of the input video against video files that have similar fingerprints to the input video in the video fingerprint library.
      *
      * >  The overall similarity is the average value of the similarities of the input video clips with the clips of the video that has a similar fingerprint. If multiple video files that have similar fingerprints to the input video exist in the video fingerprint library, the similarities of the input video against multiple similar video clips are returned.
+     *
      * @example 0.8914769887924194
      *
      * @var string
@@ -36,13 +37,11 @@ class fpShot extends Model
     public $similarity;
     protected $_name = [
         'fpShotSlices' => 'FpShotSlices',
-        'primaryKey'   => 'PrimaryKey',
-        'similarity'   => 'Similarity',
+        'primaryKey' => 'PrimaryKey',
+        'similarity' => 'Similarity',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

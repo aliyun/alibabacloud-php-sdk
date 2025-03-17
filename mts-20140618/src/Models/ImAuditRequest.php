@@ -65,24 +65,23 @@ class ImAuditRequest extends Model
      *   antispam: text anti-spam (valid only for text)
      *
      * This parameter is required.
+     *
      * @example ["porn","terrorism","ad"]
      *
      * @var string
      */
     public $scenes;
     protected $_name = [
-        'bizType'              => 'BizType',
-        'contents'             => 'Contents',
-        'images'               => 'Images',
-        'ownerId'              => 'OwnerId',
+        'bizType' => 'BizType',
+        'contents' => 'Contents',
+        'images' => 'Images',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'scenes'               => 'Scenes',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'scenes' => 'Scenes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -55,18 +55,16 @@ class DeleteCustomEntityRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'algorithm'            => 'Algorithm',
-        'customEntityId'       => 'CustomEntityId',
-        'customGroupId'        => 'CustomGroupId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'algorithm' => 'Algorithm',
+        'customEntityId' => 'CustomEntityId',
+        'customGroupId' => 'CustomGroupId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

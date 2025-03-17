@@ -17,9 +17,7 @@ class amixList extends Model
         'amix' => 'Amix',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class amixList extends Model
         if (isset($map['Amix'])) {
             if (!empty($map['Amix'])) {
                 $model->amix = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Amix'] as $item) {
                     $model->amix[$n++] = null !== $item ? amix::fromMap($item) : $item;
                 }

@@ -13,6 +13,7 @@ class file extends Model
      *
      * - **Normal**: The file is normal.
      * - **Deleted**: The file is deleted.
+     *
      * @example Normal
      *
      * @var string
@@ -29,12 +30,10 @@ class file extends Model
     public $URL;
     protected $_name = [
         'state' => 'State',
-        'URL'   => 'URL',
+        'URL' => 'URL',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

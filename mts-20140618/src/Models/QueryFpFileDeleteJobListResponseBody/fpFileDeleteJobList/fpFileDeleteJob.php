@@ -103,21 +103,19 @@ class fpFileDeleteJob extends Model
      */
     public $userData;
     protected $_name = [
-        'code'         => 'Code',
+        'code' => 'Code',
         'creationTime' => 'CreationTime',
-        'fileIds'      => 'FileIds',
-        'finishTime'   => 'FinishTime',
-        'fpDBId'       => 'FpDBId',
-        'id'           => 'Id',
-        'message'      => 'Message',
-        'pipelineId'   => 'PipelineId',
-        'status'       => 'Status',
-        'userData'     => 'UserData',
+        'fileIds' => 'FileIds',
+        'finishTime' => 'FinishTime',
+        'fpDBId' => 'FpDBId',
+        'id' => 'Id',
+        'message' => 'Message',
+        'pipelineId' => 'PipelineId',
+        'status' => 'Status',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

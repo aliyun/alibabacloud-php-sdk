@@ -57,15 +57,13 @@ class opening extends Model
      */
     public $openUrl;
     protected $_name = [
-        'height'  => 'Height',
-        'start'   => 'Start',
-        'width'   => 'Width',
+        'height' => 'Height',
+        'start' => 'Start',
+        'width' => 'Width',
         'openUrl' => 'openUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -39,7 +39,9 @@ class SearchTemplateRequest extends Model
     /**
      * @description The size of each page set during the result paging query.
      *
+     * - Upper limit: 100.
      * - Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -70,19 +72,17 @@ class SearchTemplateRequest extends Model
      */
     public $state;
     protected $_name = [
-        'namePrefix'           => 'NamePrefix',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
+        'namePrefix' => 'NamePrefix',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'state'                => 'State',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

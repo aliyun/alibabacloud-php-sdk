@@ -12,7 +12,10 @@ class mediaWorkflow extends Model
      * @description *   After you deactivate a media workflow, you can modify the workflow information.
      *   After you delete or deactivate a media workflow, the workflow cannot be used. In this case, the workflow is not automatically triggered when you upload a file to the bucket specified by the workflow.
      *
+     * ## Limits on QPS
+     *
      * You can call this operation up to 100 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limits](https://www.alibabacloud.com/help/en/apsaravideo-for-media-processing/latest/qps-limit).
+     *
      * @example 2016-04-01T05:29:37Z
      *
      * @var string
@@ -55,16 +58,14 @@ class mediaWorkflow extends Model
      */
     public $topology;
     protected $_name = [
-        'creationTime'    => 'CreationTime',
+        'creationTime' => 'CreationTime',
         'mediaWorkflowId' => 'MediaWorkflowId',
-        'name'            => 'Name',
-        'state'           => 'State',
-        'topology'        => 'Topology',
+        'name' => 'Name',
+        'state' => 'State',
+        'topology' => 'Topology',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -270,35 +270,33 @@ class video extends Model
      */
     public $width;
     protected $_name = [
-        'bitrate'       => 'Bitrate',
-        'bitrateBnd'    => 'BitrateBnd',
-        'bufsize'       => 'Bufsize',
-        'codec'         => 'Codec',
-        'crf'           => 'Crf',
-        'crop'          => 'Crop',
-        'degrain'       => 'Degrain',
-        'fps'           => 'Fps',
-        'gop'           => 'Gop',
-        'hdr2sdr'       => 'Hdr2sdr',
-        'height'        => 'Height',
+        'bitrate' => 'Bitrate',
+        'bitrateBnd' => 'BitrateBnd',
+        'bufsize' => 'Bufsize',
+        'codec' => 'Codec',
+        'crf' => 'Crf',
+        'crop' => 'Crop',
+        'degrain' => 'Degrain',
+        'fps' => 'Fps',
+        'gop' => 'Gop',
+        'hdr2sdr' => 'Hdr2sdr',
+        'height' => 'Height',
         'longShortMode' => 'LongShortMode',
-        'maxFps'        => 'MaxFps',
-        'maxrate'       => 'Maxrate',
-        'narrowBand'    => 'NarrowBand',
-        'pad'           => 'Pad',
-        'pixFmt'        => 'PixFmt',
-        'preset'        => 'Preset',
-        'profile'       => 'Profile',
-        'qscale'        => 'Qscale',
-        'remove'        => 'Remove',
-        'resoPriority'  => 'ResoPriority',
-        'scanMode'      => 'ScanMode',
-        'width'         => 'Width',
+        'maxFps' => 'MaxFps',
+        'maxrate' => 'Maxrate',
+        'narrowBand' => 'NarrowBand',
+        'pad' => 'Pad',
+        'pixFmt' => 'PixFmt',
+        'preset' => 'Preset',
+        'profile' => 'Profile',
+        'qscale' => 'Qscale',
+        'remove' => 'Remove',
+        'resoPriority' => 'ResoPriority',
+        'scanMode' => 'ScanMode',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

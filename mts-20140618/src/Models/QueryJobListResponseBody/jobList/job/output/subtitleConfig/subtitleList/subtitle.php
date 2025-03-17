@@ -20,9 +20,7 @@ class subtitle extends Model
         'map' => 'Map',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class videoTimelines extends Model
         'videoTimeline' => 'VideoTimeline',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class videoTimelines extends Model
         if (isset($map['VideoTimeline'])) {
             if (!empty($map['VideoTimeline'])) {
                 $model->videoTimeline = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['VideoTimeline'] as $item) {
                     $model->videoTimeline[$n++] = null !== $item ? videoTimeline::fromMap($item) : $item;
                 }

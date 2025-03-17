@@ -12,6 +12,7 @@ class QueryMediaCensorJobDetailRequest extends Model
      * @description The ID of the content moderation job. You can obtain the job ID from the response parameters of the [SubmitMediaCensorJob](https://help.aliyun.com/document_detail/91774.html) operation.
      *
      * This parameter is required.
+     *
      * @example 2288c6ca184c0e47098a5b665e2a12****
      *
      * @var string
@@ -59,18 +60,16 @@ class QueryMediaCensorJobDetailRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'jobId'                => 'JobId',
-        'maximumPageSize'      => 'MaximumPageSize',
-        'nextPageToken'        => 'NextPageToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'jobId' => 'JobId',
+        'maximumPageSize' => 'MaximumPageSize',
+        'nextPageToken' => 'NextPageToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

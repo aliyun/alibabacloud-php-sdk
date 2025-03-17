@@ -127,19 +127,17 @@ class waterMark extends Model
      */
     public $width;
     protected $_name = [
-        'dx'                  => 'Dx',
-        'dy'                  => 'Dy',
-        'height'              => 'Height',
-        'inputFile'           => 'InputFile',
-        'referPos'            => 'ReferPos',
-        'type'                => 'Type',
+        'dx' => 'Dx',
+        'dy' => 'Dy',
+        'height' => 'Height',
+        'inputFile' => 'InputFile',
+        'referPos' => 'ReferPos',
+        'type' => 'Type',
         'waterMarkTemplateId' => 'WaterMarkTemplateId',
-        'width'               => 'Width',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

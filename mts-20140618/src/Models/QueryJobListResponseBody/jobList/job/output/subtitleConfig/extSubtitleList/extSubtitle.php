@@ -16,6 +16,7 @@ class extSubtitle extends Model
      *   Default value: **auto**.
      *
      * >  If the value of CharEnc is auto, the detected character set may not be the actual character set. We recommend that you set this parameter to another value.
+     *
      * @example auto
      *
      * @var string
@@ -41,14 +42,12 @@ class extSubtitle extends Model
      */
     public $input;
     protected $_name = [
-        'charEnc'  => 'CharEnc',
+        'charEnc' => 'CharEnc',
         'fontName' => 'FontName',
-        'input'    => 'Input',
+        'input' => 'Input',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

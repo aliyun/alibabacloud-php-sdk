@@ -24,13 +24,11 @@ class mediaInfo extends Model
      */
     public $streams;
     protected $_name = [
-        'format'  => 'Format',
+        'format' => 'Format',
         'streams' => 'Streams',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

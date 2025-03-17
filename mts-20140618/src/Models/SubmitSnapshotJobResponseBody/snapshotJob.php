@@ -118,23 +118,21 @@ class snapshotJob extends Model
      */
     public $userData;
     protected $_name = [
-        'code'             => 'Code',
-        'count'            => 'Count',
-        'creationTime'     => 'CreationTime',
-        'id'               => 'Id',
-        'input'            => 'Input',
+        'code' => 'Code',
+        'count' => 'Count',
+        'creationTime' => 'CreationTime',
+        'id' => 'Id',
+        'input' => 'Input',
         'MNSMessageResult' => 'MNSMessageResult',
-        'message'          => 'Message',
-        'pipelineId'       => 'PipelineId',
-        'snapshotConfig'   => 'SnapshotConfig',
-        'state'            => 'State',
-        'tileCount'        => 'TileCount',
-        'userData'         => 'UserData',
+        'message' => 'Message',
+        'pipelineId' => 'PipelineId',
+        'snapshotConfig' => 'SnapshotConfig',
+        'state' => 'State',
+        'tileCount' => 'TileCount',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

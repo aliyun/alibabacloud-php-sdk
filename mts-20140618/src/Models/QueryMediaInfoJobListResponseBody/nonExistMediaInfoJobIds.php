@@ -16,9 +16,7 @@ class nonExistMediaInfoJobIds extends Model
         'string' => 'String',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

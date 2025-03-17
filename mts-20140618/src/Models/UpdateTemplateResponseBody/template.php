@@ -84,19 +84,17 @@ class template extends Model
      */
     public $video;
     protected $_name = [
-        'audio'       => 'Audio',
-        'container'   => 'Container',
-        'id'          => 'Id',
-        'muxConfig'   => 'MuxConfig',
-        'name'        => 'Name',
-        'state'       => 'State',
+        'audio' => 'Audio',
+        'container' => 'Container',
+        'id' => 'Id',
+        'muxConfig' => 'MuxConfig',
+        'name' => 'Name',
+        'state' => 'State',
         'transConfig' => 'TransConfig',
-        'video'       => 'Video',
+        'video' => 'Video',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

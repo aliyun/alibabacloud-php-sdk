@@ -174,29 +174,27 @@ class media extends Model
      */
     public $width;
     protected $_name = [
-        'bitrate'      => 'Bitrate',
-        'cateId'       => 'CateId',
-        'censorState'  => 'CensorState',
-        'coverURL'     => 'CoverURL',
+        'bitrate' => 'Bitrate',
+        'cateId' => 'CateId',
+        'censorState' => 'CensorState',
+        'coverURL' => 'CoverURL',
         'creationTime' => 'CreationTime',
-        'description'  => 'Description',
-        'duration'     => 'Duration',
-        'file'         => 'File',
-        'format'       => 'Format',
-        'fps'          => 'Fps',
-        'height'       => 'Height',
-        'mediaId'      => 'MediaId',
+        'description' => 'Description',
+        'duration' => 'Duration',
+        'file' => 'File',
+        'format' => 'Format',
+        'fps' => 'Fps',
+        'height' => 'Height',
+        'mediaId' => 'MediaId',
         'publishState' => 'PublishState',
-        'runIdList'    => 'RunIdList',
-        'size'         => 'Size',
-        'tags'         => 'Tags',
-        'title'        => 'Title',
-        'width'        => 'Width',
+        'runIdList' => 'RunIdList',
+        'size' => 'Size',
+        'tags' => 'Tags',
+        'title' => 'Title',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -38,6 +38,7 @@ class output extends Model
      * @description The audio configurations.
      *
      * >  If this parameter is specified in the request, the corresponding configurations in the specified transcoding template are overwritten.
+     *
      * @var audio
      */
     public $audio;
@@ -210,6 +211,7 @@ class output extends Model
      * @description The general transcoding configurations.
      *
      * >  If this parameter is specified in the request, the corresponding parameter in the specified transcoding template are overwritten.
+     *
      * @var transConfig
      */
     public $transConfig;
@@ -227,6 +229,7 @@ class output extends Model
      * @description The video configurations.
      *
      * >  If this parameter is specified, **AliyunVideoCodec** in the template specified by **TemplateId** is overwritten.
+     *
      * @var video
      */
     public $video;
@@ -257,43 +260,42 @@ class output extends Model
      * @description The watermarks.
      *
      * >  If watermarks are truncated or fail to be generated, check whether the text watermarks that you add contain special characters. If the text watermarks contain special characters, you must escape the special characters before you add the watermarks. Alternatively, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.12246746.top-nav.dticket.68797bbcm8H408#/ticket/add/?productId=1232) to contact Alibaba Cloud customer service for compatibility processing.
+     *
      * @var waterMarkList
      */
     public $waterMarkList;
     protected $_name = [
-        'amixList'               => 'AmixList',
-        'audio'                  => 'Audio',
-        'audioStreamMap'         => 'AudioStreamMap',
-        'clip'                   => 'Clip',
-        'container'              => 'Container',
-        'deWatermark'            => 'DeWatermark',
-        'digiWaterMark'          => 'DigiWaterMark',
-        'encryption'             => 'Encryption',
+        'amixList' => 'AmixList',
+        'audio' => 'Audio',
+        'audioStreamMap' => 'AudioStreamMap',
+        'clip' => 'Clip',
+        'container' => 'Container',
+        'deWatermark' => 'DeWatermark',
+        'digiWaterMark' => 'DigiWaterMark',
+        'encryption' => 'Encryption',
         'm3U8NonStandardSupport' => 'M3U8NonStandardSupport',
-        'mergeConfigUrl'         => 'MergeConfigUrl',
-        'mergeList'              => 'MergeList',
-        'muxConfig'              => 'MuxConfig',
-        'openingList'            => 'OpeningList',
-        'outSubtitleList'        => 'OutSubtitleList',
-        'outputFile'             => 'OutputFile',
-        'priority'               => 'Priority',
-        'properties'             => 'Properties',
-        'rotate'                 => 'Rotate',
-        'subtitleConfig'         => 'SubtitleConfig',
-        'superReso'              => 'SuperReso',
-        'tailSlateList'          => 'TailSlateList',
-        'templateId'             => 'TemplateId',
-        'transConfig'            => 'TransConfig',
-        'userData'               => 'UserData',
-        'video'                  => 'Video',
-        'videoStreamMap'         => 'VideoStreamMap',
-        'waterMarkConfigUrl'     => 'WaterMarkConfigUrl',
-        'waterMarkList'          => 'WaterMarkList',
+        'mergeConfigUrl' => 'MergeConfigUrl',
+        'mergeList' => 'MergeList',
+        'muxConfig' => 'MuxConfig',
+        'openingList' => 'OpeningList',
+        'outSubtitleList' => 'OutSubtitleList',
+        'outputFile' => 'OutputFile',
+        'priority' => 'Priority',
+        'properties' => 'Properties',
+        'rotate' => 'Rotate',
+        'subtitleConfig' => 'SubtitleConfig',
+        'superReso' => 'SuperReso',
+        'tailSlateList' => 'TailSlateList',
+        'templateId' => 'TemplateId',
+        'transConfig' => 'TransConfig',
+        'userData' => 'UserData',
+        'video' => 'Video',
+        'videoStreamMap' => 'VideoStreamMap',
+        'waterMarkConfigUrl' => 'WaterMarkConfigUrl',
+        'waterMarkList' => 'WaterMarkList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

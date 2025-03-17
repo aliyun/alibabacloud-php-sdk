@@ -41,6 +41,7 @@ class results extends Model
      * @description The score of the confidence level. Valid values: 0 to 100. A greater value indicates a higher confidence level. If a value of pass is returned for the suggestion parameter, a higher confidence level indicates a higher probability that the content is normal. If a value of review or block is returned for the suggestion parameter, a higher confidence level indicates a higher probability that the content contains violations.
      *
      * >  This score is for reference only. We strongly recommend that you do not use this score in your business. We recommend that you use the values that are returned for the suggestion, label, and sublabel parameters to determine whether the content contains violations. The sublabel parameter is returned by some operations.
+     *
      * @example 99.90
      *
      * @var float
@@ -69,16 +70,14 @@ class results extends Model
      */
     public $suggestion;
     protected $_name = [
-        'details'    => 'details',
-        'label'      => 'label',
-        'rate'       => 'rate',
-        'scene'      => 'scene',
+        'details' => 'details',
+        'label' => 'label',
+        'rate' => 'rate',
+        'scene' => 'scene',
         'suggestion' => 'suggestion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -119,7 +118,7 @@ class results extends Model
         if (isset($map['details'])) {
             if (!empty($map['details'])) {
                 $model->details = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['details'] as $item) {
                     $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }

@@ -29,14 +29,12 @@ class SubmitIProductionJobResponseBody extends Model
      */
     public $result;
     protected $_name = [
-        'jobId'     => 'JobId',
+        'jobId' => 'JobId',
         'requestId' => 'RequestId',
-        'result'    => 'Result',
+        'result' => 'Result',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

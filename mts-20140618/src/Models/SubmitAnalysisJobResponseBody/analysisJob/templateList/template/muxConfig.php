@@ -24,13 +24,11 @@ class muxConfig extends Model
      */
     public $segment;
     protected $_name = [
-        'gif'     => 'Gif',
+        'gif' => 'Gif',
         'segment' => 'Segment',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

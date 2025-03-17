@@ -86,19 +86,17 @@ class mediaWorkflowExecution extends Model
      */
     public $state;
     protected $_name = [
-        'activityList'    => 'ActivityList',
-        'creationTime'    => 'CreationTime',
-        'input'           => 'Input',
-        'mediaId'         => 'MediaId',
+        'activityList' => 'ActivityList',
+        'creationTime' => 'CreationTime',
+        'input' => 'Input',
+        'mediaId' => 'MediaId',
         'mediaWorkflowId' => 'MediaWorkflowId',
-        'name'            => 'Name',
-        'runId'           => 'RunId',
-        'state'           => 'State',
+        'name' => 'Name',
+        'runId' => 'RunId',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

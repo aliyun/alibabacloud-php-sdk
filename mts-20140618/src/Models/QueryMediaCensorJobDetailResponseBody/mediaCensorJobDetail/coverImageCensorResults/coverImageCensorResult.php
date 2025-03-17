@@ -43,15 +43,13 @@ class coverImageCensorResult extends Model
      */
     public $results;
     protected $_name = [
-        'bucket'   => 'Bucket',
+        'bucket' => 'Bucket',
         'location' => 'Location',
-        'object'   => 'Object',
-        'results'  => 'Results',
+        'object' => 'Object',
+        'results' => 'Results',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -16,9 +16,7 @@ class nonExistMediaWorkflowIds extends Model
         'mediaWorkflowId' => 'MediaWorkflowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

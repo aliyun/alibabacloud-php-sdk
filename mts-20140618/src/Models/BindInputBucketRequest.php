@@ -11,7 +11,10 @@ class BindInputBucketRequest extends Model
     /**
      * @description The name of the input media bucket to be bound. The name can be up to 64 bytes in size. To obtain the media bucket name, you can log on to the **ApsaraVideo Media Processing (MPS) console** and choose **Workflows** > **Media Buckets** in the left-side navigation pane.
      *
+     * > The bucket name can contain lowercase letters, digits, and hyphens (-), and cannot start or end with a hyphen (-).
+     *
      * This parameter is required.
+     *
      * @example example-bucket-****
      *
      * @var string
@@ -47,17 +50,15 @@ class BindInputBucketRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'bucket'               => 'Bucket',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'referer'              => 'Referer',
+        'bucket' => 'Bucket',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'referer' => 'Referer',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

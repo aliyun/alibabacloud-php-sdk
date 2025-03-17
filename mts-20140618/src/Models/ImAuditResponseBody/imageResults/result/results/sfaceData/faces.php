@@ -37,12 +37,10 @@ class faces extends Model
     protected $_name = [
         'idid' => 'idid',
         'name' => 'name',
-        're'   => 're',
+        're' => 're',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

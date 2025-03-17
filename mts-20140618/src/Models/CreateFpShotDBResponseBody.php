@@ -25,13 +25,11 @@ class CreateFpShotDBResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'fpShotDB'  => 'FpShotDB',
+        'fpShotDB' => 'FpShotDB',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -39,14 +39,12 @@ class fpShotConfig extends Model
      */
     public $saveType;
     protected $_name = [
-        'fpDBId'     => 'FpDBId',
+        'fpDBId' => 'FpDBId',
         'primaryKey' => 'PrimaryKey',
-        'saveType'   => 'SaveType',
+        'saveType' => 'SaveType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

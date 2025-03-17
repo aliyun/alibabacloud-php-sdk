@@ -26,12 +26,10 @@ class DeleteMediaWorkflowResponseBody extends Model
     public $requestId;
     protected $_name = [
         'mediaWorkflow' => 'MediaWorkflow',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

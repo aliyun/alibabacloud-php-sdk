@@ -145,6 +145,7 @@ class media extends Model
      * - **UnPublish**: The media file has not been published, and the playback permission on the OSS object is Private.
      * - **Published**: The media file has been published, and the playback permission on the OSS object is Default.
      * - **Deleted**: The media file has been deleted.
+     *
      * @example Published
      *
      * @var string
@@ -206,33 +207,31 @@ class media extends Model
      */
     public $width;
     protected $_name = [
-        'bitrate'      => 'Bitrate',
-        'cateId'       => 'CateId',
-        'censorState'  => 'CensorState',
-        'coverURL'     => 'CoverURL',
+        'bitrate' => 'Bitrate',
+        'cateId' => 'CateId',
+        'censorState' => 'CensorState',
+        'coverURL' => 'CoverURL',
         'creationTime' => 'CreationTime',
-        'description'  => 'Description',
-        'duration'     => 'Duration',
-        'file'         => 'File',
-        'format'       => 'Format',
-        'fps'          => 'Fps',
-        'height'       => 'Height',
-        'mediaId'      => 'MediaId',
-        'mediaInfo'    => 'MediaInfo',
-        'playList'     => 'PlayList',
+        'description' => 'Description',
+        'duration' => 'Duration',
+        'file' => 'File',
+        'format' => 'Format',
+        'fps' => 'Fps',
+        'height' => 'Height',
+        'mediaId' => 'MediaId',
+        'mediaInfo' => 'MediaInfo',
+        'playList' => 'PlayList',
         'publishState' => 'PublishState',
-        'runIdList'    => 'RunIdList',
-        'size'         => 'Size',
+        'runIdList' => 'RunIdList',
+        'size' => 'Size',
         'snapshotList' => 'SnapshotList',
-        'summaryList'  => 'SummaryList',
-        'tags'         => 'Tags',
-        'title'        => 'Title',
-        'width'        => 'Width',
+        'summaryList' => 'SummaryList',
+        'tags' => 'Tags',
+        'title' => 'Title',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

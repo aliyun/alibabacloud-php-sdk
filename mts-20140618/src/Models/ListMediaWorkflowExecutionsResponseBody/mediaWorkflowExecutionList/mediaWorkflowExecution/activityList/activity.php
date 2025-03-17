@@ -62,6 +62,7 @@ class activity extends Model
      * @description The name of the media workflow activity.
      *
      * > The name of an activity in a media workflow is unique.
+     *
      * @example Act-2
      *
      * @var string
@@ -86,6 +87,7 @@ class activity extends Model
      *   **Success**: The activity was successfully executed.
      *
      * > For example, the high-definition and standard-definition transcoding activities are to be run after the analysis activity is complete. The system determines the activity to run based on the analysis result. If the definition of the input video content is insufficient, the high-definition transcoding activity may be skipped.
+     *
      * @example Success
      *
      * @var string
@@ -101,20 +103,18 @@ class activity extends Model
      */
     public $type;
     protected $_name = [
-        'code'             => 'Code',
-        'endTime'          => 'EndTime',
-        'jobId'            => 'JobId',
+        'code' => 'Code',
+        'endTime' => 'EndTime',
+        'jobId' => 'JobId',
         'MNSMessageResult' => 'MNSMessageResult',
-        'message'          => 'Message',
-        'name'             => 'Name',
-        'startTime'        => 'StartTime',
-        'state'            => 'State',
-        'type'             => 'Type',
+        'message' => 'Message',
+        'name' => 'Name',
+        'startTime' => 'StartTime',
+        'state' => 'State',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

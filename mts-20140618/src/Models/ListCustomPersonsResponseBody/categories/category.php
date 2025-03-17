@@ -44,14 +44,12 @@ class category extends Model
     public $persons;
     protected $_name = [
         'categoryDescription' => 'CategoryDescription',
-        'categoryId'          => 'CategoryId',
-        'categoryName'        => 'CategoryName',
-        'persons'             => 'Persons',
+        'categoryId' => 'CategoryId',
+        'categoryName' => 'CategoryName',
+        'persons' => 'Persons',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,13 +34,11 @@ class ListFpShotDBResponseBody extends Model
     public $requestId;
     protected $_name = [
         'fpShotDBList' => 'FpShotDBList',
-        'nonExistIds'  => 'NonExistIds',
-        'requestId'    => 'RequestId',
+        'nonExistIds' => 'NonExistIds',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

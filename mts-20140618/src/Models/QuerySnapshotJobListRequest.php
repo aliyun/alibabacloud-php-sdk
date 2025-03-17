@@ -97,22 +97,20 @@ class QuerySnapshotJobListRequest extends Model
      */
     public $state;
     protected $_name = [
-        'endOfJobCreatedTimeRange'   => 'EndOfJobCreatedTimeRange',
-        'maximumPageSize'            => 'MaximumPageSize',
-        'nextPageToken'              => 'NextPageToken',
-        'ownerAccount'               => 'OwnerAccount',
-        'ownerId'                    => 'OwnerId',
-        'pipelineId'                 => 'PipelineId',
-        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
-        'resourceOwnerId'            => 'ResourceOwnerId',
-        'snapshotJobIds'             => 'SnapshotJobIds',
+        'endOfJobCreatedTimeRange' => 'EndOfJobCreatedTimeRange',
+        'maximumPageSize' => 'MaximumPageSize',
+        'nextPageToken' => 'NextPageToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pipelineId' => 'PipelineId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'snapshotJobIds' => 'SnapshotJobIds',
         'startOfJobCreatedTimeRange' => 'StartOfJobCreatedTimeRange',
-        'state'                      => 'State',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

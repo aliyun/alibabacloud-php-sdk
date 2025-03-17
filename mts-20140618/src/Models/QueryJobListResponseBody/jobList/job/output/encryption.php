@@ -30,6 +30,7 @@ class encryption extends Model
      * @description The key encryption method. Valid values: Base64 and KMS.
      *
      * >  For example, if the key is `encryptionkey128`, the key can be encrypted as `Base64("encryptionkey128")` or `KMS(Base64("encryptionkey128")` depending on the encryption method used.
+     *
      * @example Base64
      *
      * @var string
@@ -63,17 +64,15 @@ class encryption extends Model
      */
     public $type;
     protected $_name = [
-        'id'      => 'Id',
-        'key'     => 'Key',
+        'id' => 'Id',
+        'key' => 'Key',
         'keyType' => 'KeyType',
-        'keyUri'  => 'KeyUri',
+        'keyUri' => 'KeyUri',
         'skipCnt' => 'SkipCnt',
-        'type'    => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

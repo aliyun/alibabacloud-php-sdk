@@ -128,29 +128,27 @@ class UpdateSmarttagTemplateRequest extends Model
      */
     public $templateName;
     protected $_name = [
-        'analyseTypes'           => 'AnalyseTypes',
-        'faceCategoryIds'        => 'FaceCategoryIds',
+        'analyseTypes' => 'AnalyseTypes',
+        'faceCategoryIds' => 'FaceCategoryIds',
         'faceCustomParamsConfig' => 'FaceCustomParamsConfig',
-        'industry'               => 'Industry',
-        'isDefault'              => 'IsDefault',
-        'keywordConfig'          => 'KeywordConfig',
-        'knowledgeConfig'        => 'KnowledgeConfig',
-        'labelType'              => 'LabelType',
-        'labelVersion'           => 'LabelVersion',
-        'landmarkGroupIds'       => 'LandmarkGroupIds',
-        'objectGroupIds'         => 'ObjectGroupIds',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'scene'                  => 'Scene',
-        'templateId'             => 'TemplateId',
-        'templateName'           => 'TemplateName',
+        'industry' => 'Industry',
+        'isDefault' => 'IsDefault',
+        'keywordConfig' => 'KeywordConfig',
+        'knowledgeConfig' => 'KnowledgeConfig',
+        'labelType' => 'LabelType',
+        'labelVersion' => 'LabelVersion',
+        'landmarkGroupIds' => 'LandmarkGroupIds',
+        'objectGroupIds' => 'ObjectGroupIds',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'scene' => 'Scene',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

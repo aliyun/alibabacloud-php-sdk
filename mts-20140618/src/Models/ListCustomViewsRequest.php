@@ -73,20 +73,18 @@ class ListCustomViewsRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'algorithm'            => 'Algorithm',
-        'customEntityId'       => 'CustomEntityId',
-        'customGroupId'        => 'CustomGroupId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
+        'algorithm' => 'Algorithm',
+        'customEntityId' => 'CustomEntityId',
+        'customGroupId' => 'CustomGroupId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -43,15 +43,13 @@ class person extends Model
      */
     public $personName;
     protected $_name = [
-        'faces'             => 'Faces',
+        'faces' => 'Faces',
         'personDescription' => 'PersonDescription',
-        'personId'          => 'PersonId',
-        'personName'        => 'PersonName',
+        'personId' => 'PersonId',
+        'personName' => 'PersonName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

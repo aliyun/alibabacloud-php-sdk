@@ -12,6 +12,7 @@ class crop extends Model
      * @description The height of the video image after the margins are cropped out.
      *
      * >  This parameter is invalid if the Mode parameter is set to Auto or None.
+     *
      * @example 8
      *
      * @var string
@@ -22,6 +23,7 @@ class crop extends Model
      * @description The left margin to be cropped out.
      *
      * >  This parameter is invalid if the Mode parameter is set to Auto or None.
+     *
      * @example 8
      *
      * @var string
@@ -46,6 +48,7 @@ class crop extends Model
      * @description The top margin to be cropped out.
      *
      * >  This parameter is invalid if the Mode parameter is set to Auto or None.
+     *
      * @example 8
      *
      * @var string
@@ -56,6 +59,7 @@ class crop extends Model
      * @description The width of the video image after the margins are cropped out.
      *
      * >  This parameter is invalid if the Mode parameter is set to Auto or None.
+     *
      * @example 8
      *
      * @var string
@@ -63,15 +67,13 @@ class crop extends Model
     public $width;
     protected $_name = [
         'height' => 'Height',
-        'left'   => 'Left',
-        'mode'   => 'Mode',
-        'top'    => 'Top',
-        'width'  => 'Width',
+        'left' => 'Left',
+        'mode' => 'Mode',
+        'top' => 'Top',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

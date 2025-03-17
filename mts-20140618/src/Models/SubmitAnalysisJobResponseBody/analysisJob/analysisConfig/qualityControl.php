@@ -31,12 +31,10 @@ class qualityControl extends Model
     public $rateQuality;
     protected $_name = [
         'methodStreaming' => 'MethodStreaming',
-        'rateQuality'     => 'RateQuality',
+        'rateQuality' => 'RateQuality',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -13,6 +13,7 @@ class videoCensorConfig extends Model
      * @description The moderation template. Default value: common. The default value indicates that the default template is used.
      *
      * > If the moderation template is not specified, the default value common is returned. If a custom moderation template that is created by submitting a ticket is specified, a user ID is returned.
+     *
      * @example common
      *
      * @var string
@@ -38,14 +39,12 @@ class videoCensorConfig extends Model
      */
     public $videoCensor;
     protected $_name = [
-        'bizType'     => 'BizType',
-        'outputFile'  => 'OutputFile',
+        'bizType' => 'BizType',
+        'outputFile' => 'OutputFile',
         'videoCensor' => 'VideoCensor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

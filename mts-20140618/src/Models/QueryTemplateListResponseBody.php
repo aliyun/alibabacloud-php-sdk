@@ -34,13 +34,11 @@ class QueryTemplateListResponseBody extends Model
     public $templateList;
     protected $_name = [
         'nonExistTids' => 'NonExistTids',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'templateList' => 'TemplateList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

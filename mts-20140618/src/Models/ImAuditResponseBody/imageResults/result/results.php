@@ -84,6 +84,7 @@ class results extends Model
      * @description The score of the confidence level. Valid values: 0 to 100. A greater value indicates a higher confidence level. If a value of pass is returned for the suggestion parameter, a higher confidence level indicates a higher probability that the content is normal. If a value of review or block is returned for the suggestion parameter, a higher confidence level indicates a higher probability that the content contains violations.
      *
      * >  This score is for reference only. We strongly recommend that you do not use this score in your business. We recommend that you use the values that are returned for the suggestion, label, and sublabel parameters to determine whether the content contains violations. The sublabel parameter is returned by some operations.
+     *
      * @example 91.54
      *
      * @var float
@@ -175,23 +176,21 @@ class results extends Model
      */
     public $sfaceData;
     protected $_name = [
-        'label'           => 'Label',
-        'rate'            => 'Rate',
-        'scene'           => 'Scene',
-        'suggestion'      => 'Suggestion',
-        'frames'          => 'frames',
-        'hintWordsInfo'   => 'hintWordsInfo',
-        'logoData'        => 'logoData',
-        'ocrData'         => 'ocrData',
+        'label' => 'Label',
+        'rate' => 'Rate',
+        'scene' => 'Scene',
+        'suggestion' => 'Suggestion',
+        'frames' => 'frames',
+        'hintWordsInfo' => 'hintWordsInfo',
+        'logoData' => 'logoData',
+        'ocrData' => 'ocrData',
         'programCodeData' => 'programCodeData',
-        'qrcodeData'      => 'qrcodeData',
+        'qrcodeData' => 'qrcodeData',
         'qrcodeLocations' => 'qrcodeLocations',
-        'sfaceData'       => 'sfaceData',
+        'sfaceData' => 'sfaceData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -295,7 +294,7 @@ class results extends Model
         if (isset($map['frames'])) {
             if (!empty($map['frames'])) {
                 $model->frames = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['frames'] as $item) {
                     $model->frames[$n++] = null !== $item ? frames::fromMap($item) : $item;
                 }
@@ -304,7 +303,7 @@ class results extends Model
         if (isset($map['hintWordsInfo'])) {
             if (!empty($map['hintWordsInfo'])) {
                 $model->hintWordsInfo = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['hintWordsInfo'] as $item) {
                     $model->hintWordsInfo[$n++] = null !== $item ? hintWordsInfo::fromMap($item) : $item;
                 }
@@ -313,7 +312,7 @@ class results extends Model
         if (isset($map['logoData'])) {
             if (!empty($map['logoData'])) {
                 $model->logoData = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['logoData'] as $item) {
                     $model->logoData[$n++] = null !== $item ? logoData::fromMap($item) : $item;
                 }
@@ -327,7 +326,7 @@ class results extends Model
         if (isset($map['programCodeData'])) {
             if (!empty($map['programCodeData'])) {
                 $model->programCodeData = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['programCodeData'] as $item) {
                     $model->programCodeData[$n++] = null !== $item ? programCodeData::fromMap($item) : $item;
                 }
@@ -341,7 +340,7 @@ class results extends Model
         if (isset($map['qrcodeLocations'])) {
             if (!empty($map['qrcodeLocations'])) {
                 $model->qrcodeLocations = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['qrcodeLocations'] as $item) {
                     $model->qrcodeLocations[$n++] = null !== $item ? qrcodeLocations::fromMap($item) : $item;
                 }
@@ -350,7 +349,7 @@ class results extends Model
         if (isset($map['sfaceData'])) {
             if (!empty($map['sfaceData'])) {
                 $model->sfaceData = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['sfaceData'] as $item) {
                     $model->sfaceData[$n++] = null !== $item ? sfaceData::fromMap($item) : $item;
                 }

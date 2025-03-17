@@ -33,14 +33,12 @@ class QueryMediaListByURLResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'mediaList'        => 'MediaList',
+        'mediaList' => 'MediaList',
         'nonExistFileURLs' => 'NonExistFileURLs',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

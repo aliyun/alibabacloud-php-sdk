@@ -44,15 +44,13 @@ class outputFile extends Model
      */
     public $roleArn;
     protected $_name = [
-        'bucket'   => 'Bucket',
+        'bucket' => 'Bucket',
         'location' => 'Location',
-        'object'   => 'Object',
-        'roleArn'  => 'RoleArn',
+        'object' => 'Object',
+        'roleArn' => 'RoleArn',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

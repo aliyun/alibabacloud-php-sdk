@@ -101,21 +101,19 @@ class subtitleStream extends Model
      */
     public $timebase;
     protected $_name = [
-        'codecLongName'  => 'CodecLongName',
-        'codecName'      => 'CodecName',
-        'codecTag'       => 'CodecTag',
+        'codecLongName' => 'CodecLongName',
+        'codecName' => 'CodecName',
+        'codecTag' => 'CodecTag',
         'codecTagString' => 'CodecTagString',
-        'codecTimeBase'  => 'CodecTimeBase',
-        'duration'       => 'Duration',
-        'index'          => 'Index',
-        'lang'           => 'Lang',
-        'startTime'      => 'StartTime',
-        'timebase'       => 'Timebase',
+        'codecTimeBase' => 'CodecTimeBase',
+        'duration' => 'Duration',
+        'index' => 'Index',
+        'lang' => 'Lang',
+        'startTime' => 'StartTime',
+        'timebase' => 'Timebase',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,6 +25,7 @@ class SubmitFpDBDeleteJobRequest extends Model
      * @description The ID of the media fingerprint library. You can obtain the library ID from the response parameters of the [CreateFpShotDB](https://help.aliyun.com/document_detail/170149.html) operation.
      *
      * This parameter is required.
+     *
      * @example 88c6ca184c0e47098a5b665e2a12****
      *
      * @var string
@@ -69,19 +70,17 @@ class SubmitFpDBDeleteJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'delType'              => 'DelType',
-        'fpDBId'               => 'FpDBId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pipelineId'           => 'PipelineId',
+        'delType' => 'DelType',
+        'fpDBId' => 'FpDBId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pipelineId' => 'PipelineId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'userData'             => 'UserData',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

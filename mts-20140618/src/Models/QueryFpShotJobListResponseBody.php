@@ -44,13 +44,11 @@ class QueryFpShotJobListResponseBody extends Model
     protected $_name = [
         'fpShotJobList' => 'FpShotJobList',
         'nextPageToken' => 'NextPageToken',
-        'nonExistIds'   => 'NonExistIds',
-        'requestId'     => 'RequestId',
+        'nonExistIds' => 'NonExistIds',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

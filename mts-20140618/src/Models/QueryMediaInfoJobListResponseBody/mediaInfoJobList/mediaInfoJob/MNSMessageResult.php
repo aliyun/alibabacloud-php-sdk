@@ -35,14 +35,12 @@ class MNSMessageResult extends Model
      */
     public $messageId;
     protected $_name = [
-        'errorCode'    => 'ErrorCode',
+        'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
-        'messageId'    => 'MessageId',
+        'messageId' => 'MessageId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

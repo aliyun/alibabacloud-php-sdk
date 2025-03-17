@@ -49,18 +49,16 @@ class CreateCustomGroupRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'algorithm'              => 'Algorithm',
+        'algorithm' => 'Algorithm',
         'customGroupDescription' => 'CustomGroupDescription',
-        'customGroupName'        => 'CustomGroupName',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'customGroupName' => 'CustomGroupName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

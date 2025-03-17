@@ -27,12 +27,10 @@ class gif extends Model
     public $loop;
     protected $_name = [
         'finalDelay' => 'FinalDelay',
-        'loop'       => 'Loop',
+        'loop' => 'Loop',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

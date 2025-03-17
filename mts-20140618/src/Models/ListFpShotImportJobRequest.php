@@ -12,6 +12,7 @@ class ListFpShotImportJobRequest extends Model
      * @description The job IDs. You can obtain the job IDs from the response to the [ImportFpShotJob](https://help.aliyun.com/document_detail/312262.html) operation. You can specify a maximum of 10 job IDs in a request. Separate multiple job IDs with commas (,).
      *
      * This parameter is required.
+     *
      * @example 88c6ca184c0e47098a5b665e2a12****,c074b118ace44395a02063a5ab94****
      *
      * @var string
@@ -38,16 +39,14 @@ class ListFpShotImportJobRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'jobIds'               => 'JobIds',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'jobIds' => 'JobIds',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

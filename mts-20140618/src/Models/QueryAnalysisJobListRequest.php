@@ -12,6 +12,7 @@ class QueryAnalysisJobListRequest extends Model
      * @description The template analysis job ID list.
      *
      * This parameter is required.
+     *
      * @example bb558c1cc25b45309aab5be44d19****
      *
      * @var string
@@ -38,16 +39,14 @@ class QueryAnalysisJobListRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'analysisJobIds'       => 'AnalysisJobIds',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'analysisJobIds' => 'AnalysisJobIds',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

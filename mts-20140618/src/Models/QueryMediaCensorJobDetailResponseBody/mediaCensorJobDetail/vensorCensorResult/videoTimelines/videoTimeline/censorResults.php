@@ -17,9 +17,7 @@ class censorResults extends Model
         'censorResult' => 'CensorResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class censorResults extends Model
         if (isset($map['CensorResult'])) {
             if (!empty($map['CensorResult'])) {
                 $model->censorResult = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['CensorResult'] as $item) {
                     $model->censorResult[$n++] = null !== $item ? censorResult::fromMap($item) : $item;
                 }

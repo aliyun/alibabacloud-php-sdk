@@ -53,16 +53,14 @@ class qrcodeLocations extends Model
      */
     public $y;
     protected $_name = [
-        'h'      => 'h',
+        'h' => 'h',
         'qrcode' => 'qrcode',
-        'w'      => 'w',
-        'x'      => 'x',
-        'y'      => 'y',
+        'w' => 'w',
+        'x' => 'x',
+        'y' => 'y',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
