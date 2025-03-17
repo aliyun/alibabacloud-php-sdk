@@ -34,13 +34,11 @@ class TextModerationPlusRequest extends Model
      */
     public $serviceParameters;
     protected $_name = [
-        'service'           => 'Service',
+        'service' => 'Service',
         'serviceParameters' => 'ServiceParameters',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

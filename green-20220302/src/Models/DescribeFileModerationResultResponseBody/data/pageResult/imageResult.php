@@ -53,14 +53,12 @@ class imageResult extends Model
     protected $_name = [
         'description' => 'Description',
         'labelResult' => 'LabelResult',
-        'location'    => 'Location',
-        'riskLevel'   => 'RiskLevel',
-        'service'     => 'Service',
+        'location' => 'Location',
+        'riskLevel' => 'RiskLevel',
+        'service' => 'Service',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -104,7 +102,7 @@ class imageResult extends Model
         if (isset($map['LabelResult'])) {
             if (!empty($map['LabelResult'])) {
                 $model->labelResult = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['LabelResult'] as $item) {
                     $model->labelResult[$n++] = null !== $item ? labelResult::fromMap($item) : $item;
                 }

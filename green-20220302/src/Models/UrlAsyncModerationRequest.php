@@ -24,17 +24,16 @@ class UrlAsyncModerationRequest extends Model
      * "url": "https://help.aliyun.com/",
      * "dataId": "url123******"
      * }
+     *
      * @var string
      */
     public $serviceParameters;
     protected $_name = [
-        'service'           => 'Service',
+        'service' => 'Service',
         'serviceParameters' => 'ServiceParameters',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

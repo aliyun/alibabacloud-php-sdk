@@ -20,7 +20,12 @@ class hairstyle extends Model
     /**
      * @description The hairstyle recognition result. Valid values:
      *
+     * - Bald: bald head.
+     *
+     * - Long: Long hair.
+     *
      * - Short: Short hair.
+     *
      * @example Short
      *
      * @var string
@@ -28,12 +33,10 @@ class hairstyle extends Model
     public $value;
     protected $_name = [
         'confidence' => 'Confidence',
-        'value'      => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

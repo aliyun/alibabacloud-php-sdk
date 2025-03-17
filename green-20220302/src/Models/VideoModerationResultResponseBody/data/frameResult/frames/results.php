@@ -54,17 +54,15 @@ class results extends Model
      */
     public $textInImage;
     protected $_name = [
-        'customImage'  => 'CustomImage',
-        'logoData'     => 'LogoData',
+        'customImage' => 'CustomImage',
+        'logoData' => 'LogoData',
         'publicFigure' => 'PublicFigure',
-        'result'       => 'Result',
-        'service'      => 'Service',
-        'textInImage'  => 'TextInImage',
+        'result' => 'Result',
+        'service' => 'Service',
+        'textInImage' => 'TextInImage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -126,7 +124,7 @@ class results extends Model
         if (isset($map['CustomImage'])) {
             if (!empty($map['CustomImage'])) {
                 $model->customImage = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['CustomImage'] as $item) {
                     $model->customImage[$n++] = null !== $item ? customImage::fromMap($item) : $item;
                 }
@@ -135,7 +133,7 @@ class results extends Model
         if (isset($map['LogoData'])) {
             if (!empty($map['LogoData'])) {
                 $model->logoData = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['LogoData'] as $item) {
                     $model->logoData[$n++] = null !== $item ? logoData::fromMap($item) : $item;
                 }
@@ -144,7 +142,7 @@ class results extends Model
         if (isset($map['PublicFigure'])) {
             if (!empty($map['PublicFigure'])) {
                 $model->publicFigure = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PublicFigure'] as $item) {
                     $model->publicFigure[$n++] = null !== $item ? publicFigure::fromMap($item) : $item;
                 }
@@ -153,7 +151,7 @@ class results extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }

@@ -27,12 +27,10 @@ class customImage extends Model
     public $libId;
     protected $_name = [
         'imageId' => 'ImageId',
-        'libId'   => 'LibId',
+        'libId' => 'LibId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

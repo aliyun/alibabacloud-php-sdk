@@ -85,20 +85,18 @@ class textResult extends Model
      */
     public $textSegment;
     protected $_name = [
-        'description'  => 'Description',
+        'description' => 'Description',
         'descriptions' => 'Descriptions',
-        'labels'       => 'Labels',
-        'riskLevel'    => 'RiskLevel',
-        'riskTips'     => 'RiskTips',
-        'riskWords'    => 'RiskWords',
-        'service'      => 'Service',
-        'text'         => 'Text',
-        'textSegment'  => 'TextSegment',
+        'labels' => 'Labels',
+        'riskLevel' => 'RiskLevel',
+        'riskTips' => 'RiskTips',
+        'riskWords' => 'RiskWords',
+        'service' => 'Service',
+        'text' => 'Text',
+        'textSegment' => 'TextSegment',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

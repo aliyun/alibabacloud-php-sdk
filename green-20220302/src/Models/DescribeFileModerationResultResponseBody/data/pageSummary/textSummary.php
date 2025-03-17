@@ -25,13 +25,11 @@ class textSummary extends Model
      */
     public $textLabels;
     protected $_name = [
-        'riskLevel'  => 'RiskLevel',
+        'riskLevel' => 'RiskLevel',
         'textLabels' => 'TextLabels',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class textSummary extends Model
         if (isset($map['TextLabels'])) {
             if (!empty($map['TextLabels'])) {
                 $model->textLabels = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['TextLabels'] as $item) {
                     $model->textLabels[$n++] = null !== $item ? textLabels::fromMap($item) : $item;
                 }

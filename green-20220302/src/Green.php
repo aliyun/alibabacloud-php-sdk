@@ -59,25 +59,25 @@ class Green extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-1'        => 'green.ap-southeast-1.aliyuncs.com',
-            'ap-south-1'            => 'green.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'        => 'green.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3'        => 'green.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5'        => 'green.ap-southeast-1.aliyuncs.com',
-            'cn-chengdu'            => 'green.aliyuncs.com',
-            'cn-hongkong'           => 'green.aliyuncs.com',
-            'cn-huhehaote'          => 'green.aliyuncs.com',
-            'cn-qingdao'            => 'green.aliyuncs.com',
-            'cn-zhangjiakou'        => 'green.aliyuncs.com',
-            'eu-central-1'          => 'green.ap-southeast-1.aliyuncs.com',
-            'eu-west-1'             => 'green.ap-southeast-1.aliyuncs.com',
-            'me-east-1'             => 'green.ap-southeast-1.aliyuncs.com',
-            'us-east-1'             => 'green.ap-southeast-1.aliyuncs.com',
-            'cn-hangzhou-finance'   => 'green.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-1' => 'green.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'green.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'green.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'green.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'green.ap-southeast-1.aliyuncs.com',
+            'cn-chengdu' => 'green.aliyuncs.com',
+            'cn-hongkong' => 'green.aliyuncs.com',
+            'cn-huhehaote' => 'green.aliyuncs.com',
+            'cn-qingdao' => 'green.aliyuncs.com',
+            'cn-zhangjiakou' => 'green.aliyuncs.com',
+            'eu-central-1' => 'green.ap-southeast-1.aliyuncs.com',
+            'eu-west-1' => 'green.ap-southeast-1.aliyuncs.com',
+            'me-east-1' => 'green.ap-southeast-1.aliyuncs.com',
+            'us-east-1' => 'green.ap-southeast-1.aliyuncs.com',
+            'cn-hangzhou-finance' => 'green.aliyuncs.com',
             'cn-shenzhen-finance-1' => 'green.aliyuncs.com',
             'cn-shanghai-finance-1' => 'green.aliyuncs.com',
-            'cn-north-2-gov-1'      => 'green.aliyuncs.com',
+            'cn-north-2-gov-1' => 'green.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('green', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -128,15 +128,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFileModerationResult',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFileModerationResult',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeFileModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -181,15 +181,15 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeImageModerationResult',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeImageModerationResult',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeImageModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -237,15 +237,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeImageResultExt',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeImageResultExt',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeImageResultExtResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -277,17 +277,17 @@ class Green extends OpenApiClient
      */
     public function describeUploadTokenWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeUploadToken',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUploadToken',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeUploadTokenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -331,15 +331,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUrlModerationResult',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUrlModerationResult',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeUrlModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -388,15 +388,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FileModeration',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FileModeration',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return FileModerationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -441,15 +441,15 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ImageAsyncModeration',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImageAsyncModeration',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ImageAsyncModerationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -494,15 +494,15 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ImageBatchModeration',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImageBatchModeration',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ImageBatchModerationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -549,15 +549,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ImageModeration',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImageModeration',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ImageModerationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -616,15 +616,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ManualCallback',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ManualCallback',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ManualCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -669,15 +669,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ManualModeration',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ManualModeration',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ManualModerationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -719,15 +719,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ManualModerationResult',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ManualModerationResult',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ManualModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -772,15 +772,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TextModeration',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TextModeration',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TextModerationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -827,15 +827,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TextModerationPlus',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TextModerationPlus',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TextModerationPlusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -882,15 +882,15 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UrlAsyncModeration',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UrlAsyncModeration',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UrlAsyncModerationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -935,15 +935,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'VideoModeration',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VideoModeration',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return VideoModerationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -988,15 +988,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'VideoModerationCancel',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VideoModerationCancel',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return VideoModerationCancelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1043,15 +1043,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'VideoModerationResult',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VideoModerationResult',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return VideoModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1098,15 +1098,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'VoiceModeration',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VoiceModeration',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return VoiceModerationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1151,15 +1151,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'VoiceModerationCancel',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VoiceModerationCancel',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return VoiceModerationCancelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1204,15 +1204,15 @@ class Green extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'VoiceModerationResult',
-            'version'     => '2022-03-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VoiceModerationResult',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return VoiceModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));

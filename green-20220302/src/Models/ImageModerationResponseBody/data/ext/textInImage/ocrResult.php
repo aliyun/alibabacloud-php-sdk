@@ -26,12 +26,10 @@ class ocrResult extends Model
     public $text;
     protected $_name = [
         'location' => 'Location',
-        'text'     => 'Text',
+        'text' => 'Text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

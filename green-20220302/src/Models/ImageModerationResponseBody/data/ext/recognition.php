@@ -27,12 +27,10 @@ class recognition extends Model
     public $confidence;
     protected $_name = [
         'classification' => 'Classification',
-        'confidence'     => 'Confidence',
+        'confidence' => 'Confidence',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

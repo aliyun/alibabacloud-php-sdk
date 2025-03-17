@@ -52,15 +52,13 @@ class pageResult extends Model
     public $textUrl;
     protected $_name = [
         'imageResult' => 'ImageResult',
-        'imageUrl'    => 'ImageUrl',
-        'pageNum'     => 'PageNum',
-        'textResult'  => 'TextResult',
-        'textUrl'     => 'TextUrl',
+        'imageUrl' => 'ImageUrl',
+        'pageNum' => 'PageNum',
+        'textResult' => 'TextResult',
+        'textUrl' => 'TextUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -107,7 +105,7 @@ class pageResult extends Model
         if (isset($map['ImageResult'])) {
             if (!empty($map['ImageResult'])) {
                 $model->imageResult = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ImageResult'] as $item) {
                     $model->imageResult[$n++] = null !== $item ? imageResult::fromMap($item) : $item;
                 }
@@ -122,7 +120,7 @@ class pageResult extends Model
         if (isset($map['TextResult'])) {
             if (!empty($map['TextResult'])) {
                 $model->textResult = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['TextResult'] as $item) {
                     $model->textResult[$n++] = null !== $item ? textResult::fromMap($item) : $item;
                 }

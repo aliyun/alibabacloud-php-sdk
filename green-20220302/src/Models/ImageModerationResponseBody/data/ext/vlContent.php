@@ -20,9 +20,7 @@ class vlContent extends Model
         'outputText' => 'OutputText',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

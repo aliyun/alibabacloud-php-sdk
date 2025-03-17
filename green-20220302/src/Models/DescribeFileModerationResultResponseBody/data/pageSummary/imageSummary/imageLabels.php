@@ -36,13 +36,11 @@ class imageLabels extends Model
     public $labelSum;
     protected $_name = [
         'description' => 'Description',
-        'label'       => 'Label',
-        'labelSum'    => 'LabelSum',
+        'label' => 'Label',
+        'labelSum' => 'LabelSum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,11 @@ class ImageBatchModerationRequest extends Model
     /**
      * @description The types of detection supported by the enhanced image review, separated by English commas. Values:
      *
+     * - baselineCheck：General Baseline Detection
+     * - baselineCheck_pro：General Baseline Detection_Pro Edition
+     * - tonalityImprove：Content governance monitoring
      * - aigcCheck：AIGC image detection
+     *
      * @example baselineCheck,tonalityImprove
      *
      * @var string
@@ -25,17 +29,16 @@ class ImageBatchModerationRequest extends Model
      * "imageUrl": "https://img.alicdn.com/tfs/TB1U4r9AeH2gK0jSZJnXXaT1FXa-2880-480.png",
      * "dataId": "img123****"
      * }
+     *
      * @var string
      */
     public $serviceParameters;
     protected $_name = [
-        'service'           => 'Service',
+        'service' => 'Service',
         'serviceParameters' => 'ServiceParameters',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

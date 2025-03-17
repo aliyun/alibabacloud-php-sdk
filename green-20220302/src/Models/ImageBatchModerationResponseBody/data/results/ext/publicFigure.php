@@ -34,14 +34,12 @@ class publicFigure extends Model
      */
     public $location;
     protected $_name = [
-        'figureId'   => 'FigureId',
+        'figureId' => 'FigureId',
         'figureName' => 'FigureName',
-        'location'   => 'Location',
+        'location' => 'Location',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class publicFigure extends Model
         if (isset($map['Location'])) {
             if (!empty($map['Location'])) {
                 $model->location = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Location'] as $item) {
                     $model->location[$n++] = null !== $item ? location::fromMap($item) : $item;
                 }

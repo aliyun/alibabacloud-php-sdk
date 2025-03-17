@@ -42,15 +42,13 @@ class frameResult extends Model
      */
     public $riskLevel;
     protected $_name = [
-        'frameNum'      => 'FrameNum',
+        'frameNum' => 'FrameNum',
         'frameSummarys' => 'FrameSummarys',
-        'frames'        => 'Frames',
-        'riskLevel'     => 'RiskLevel',
+        'frames' => 'Frames',
+        'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -97,7 +95,7 @@ class frameResult extends Model
         if (isset($map['FrameSummarys'])) {
             if (!empty($map['FrameSummarys'])) {
                 $model->frameSummarys = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['FrameSummarys'] as $item) {
                     $model->frameSummarys[$n++] = null !== $item ? frameSummarys::fromMap($item) : $item;
                 }
@@ -106,7 +104,7 @@ class frameResult extends Model
         if (isset($map['Frames'])) {
             if (!empty($map['Frames'])) {
                 $model->frames = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Frames'] as $item) {
                     $model->frames[$n++] = null !== $item ? frames::fromMap($item) : $item;
                 }

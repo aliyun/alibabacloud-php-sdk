@@ -48,17 +48,15 @@ class ManualCallbackRequest extends Model
      */
     public $reqId;
     protected $_name = [
-        'channel'  => 'Channel',
+        'channel' => 'Channel',
         'checksum' => 'Checksum',
-        'code'     => 'Code',
-        'data'     => 'Data',
-        'msg'      => 'Msg',
-        'reqId'    => 'ReqId',
+        'code' => 'Code',
+        'data' => 'Data',
+        'msg' => 'Msg',
+        'reqId' => 'ReqId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

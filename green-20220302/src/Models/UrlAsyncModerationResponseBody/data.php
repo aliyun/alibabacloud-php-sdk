@@ -27,12 +27,10 @@ class data extends Model
     public $reqId;
     protected $_name = [
         'dataId' => 'DataId',
-        'reqId'  => 'ReqId',
+        'reqId' => 'ReqId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

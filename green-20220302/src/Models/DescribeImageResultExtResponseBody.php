@@ -43,15 +43,13 @@ class DescribeImageResultExtResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'msg'       => 'Msg',
+        'code' => 'Code',
+        'data' => 'Data',
+        'msg' => 'Msg',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

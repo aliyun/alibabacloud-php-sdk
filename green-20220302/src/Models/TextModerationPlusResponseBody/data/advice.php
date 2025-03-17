@@ -35,14 +35,12 @@ class advice extends Model
      */
     public $hitLibName;
     protected $_name = [
-        'answer'     => 'Answer',
-        'hitLabel'   => 'HitLabel',
+        'answer' => 'Answer',
+        'hitLabel' => 'HitLabel',
         'hitLibName' => 'HitLibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

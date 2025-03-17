@@ -60,17 +60,15 @@ class data extends Model
      */
     public $url;
     protected $_name = [
-        'dataId'      => 'DataId',
-        'docType'     => 'DocType',
-        'pageResult'  => 'PageResult',
+        'dataId' => 'DataId',
+        'docType' => 'DocType',
+        'pageResult' => 'PageResult',
         'pageSummary' => 'PageSummary',
-        'riskLevel'   => 'RiskLevel',
-        'url'         => 'Url',
+        'riskLevel' => 'RiskLevel',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -120,7 +118,7 @@ class data extends Model
         if (isset($map['PageResult'])) {
             if (!empty($map['PageResult'])) {
                 $model->pageResult = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['PageResult'] as $item) {
                     $model->pageResult[$n++] = null !== $item ? pageResult::fromMap($item) : $item;
                 }

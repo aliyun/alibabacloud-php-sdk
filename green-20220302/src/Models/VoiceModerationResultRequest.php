@@ -21,19 +21,18 @@ class VoiceModerationResultRequest extends Model
      * @description The parameters of API requests that are sent from API Gateway to the backend service.
      *
      * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
+     *
      * @example {"taskId":"xxxxx-xxxx"}
      *
      * @var string
      */
     public $serviceParameters;
     protected $_name = [
-        'service'           => 'Service',
+        'service' => 'Service',
         'serviceParameters' => 'ServiceParameters',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

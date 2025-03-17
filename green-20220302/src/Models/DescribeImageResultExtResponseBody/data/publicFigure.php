@@ -20,9 +20,7 @@ class publicFigure extends Model
         'figureId' => 'FigureId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -27,12 +27,10 @@ class DescribeImageResultExtRequest extends Model
     public $reqId;
     protected $_name = [
         'infoType' => 'InfoType',
-        'reqId'    => 'ReqId',
+        'reqId' => 'ReqId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -72,19 +72,17 @@ class ext extends Model
      */
     public $vlContent;
     protected $_name = [
-        'customImage'  => 'CustomImage',
-        'faceData'     => 'FaceData',
-        'logoData'     => 'LogoData',
-        'ocrResult'    => 'OcrResult',
+        'customImage' => 'CustomImage',
+        'faceData' => 'FaceData',
+        'logoData' => 'LogoData',
+        'ocrResult' => 'OcrResult',
         'publicFigure' => 'PublicFigure',
-        'recognition'  => 'Recognition',
-        'textInImage'  => 'TextInImage',
-        'vlContent'    => 'VlContent',
+        'recognition' => 'Recognition',
+        'textInImage' => 'TextInImage',
+        'vlContent' => 'VlContent',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -164,7 +162,7 @@ class ext extends Model
         if (isset($map['CustomImage'])) {
             if (!empty($map['CustomImage'])) {
                 $model->customImage = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['CustomImage'] as $item) {
                     $model->customImage[$n++] = null !== $item ? customImage::fromMap($item) : $item;
                 }
@@ -173,7 +171,7 @@ class ext extends Model
         if (isset($map['FaceData'])) {
             if (!empty($map['FaceData'])) {
                 $model->faceData = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['FaceData'] as $item) {
                     $model->faceData[$n++] = null !== $item ? faceData::fromMap($item) : $item;
                 }
@@ -182,7 +180,7 @@ class ext extends Model
         if (isset($map['LogoData'])) {
             if (!empty($map['LogoData'])) {
                 $model->logoData = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['LogoData'] as $item) {
                     $model->logoData[$n++] = null !== $item ? logoData::fromMap($item) : $item;
                 }
@@ -191,7 +189,7 @@ class ext extends Model
         if (isset($map['OcrResult'])) {
             if (!empty($map['OcrResult'])) {
                 $model->ocrResult = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['OcrResult'] as $item) {
                     $model->ocrResult[$n++] = null !== $item ? ocrResult::fromMap($item) : $item;
                 }
@@ -200,7 +198,7 @@ class ext extends Model
         if (isset($map['PublicFigure'])) {
             if (!empty($map['PublicFigure'])) {
                 $model->publicFigure = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PublicFigure'] as $item) {
                     $model->publicFigure[$n++] = null !== $item ? publicFigure::fromMap($item) : $item;
                 }
@@ -209,7 +207,7 @@ class ext extends Model
         if (isset($map['Recognition'])) {
             if (!empty($map['Recognition'])) {
                 $model->recognition = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['Recognition'] as $item) {
                     $model->recognition[$n++] = null !== $item ? recognition::fromMap($item) : $item;
                 }

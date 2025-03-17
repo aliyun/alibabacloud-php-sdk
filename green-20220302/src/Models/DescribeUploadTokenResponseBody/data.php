@@ -80,19 +80,17 @@ class data extends Model
      */
     public $securityToken;
     protected $_name = [
-        'accessKeyId'         => 'AccessKeyId',
-        'accessKeySecret'     => 'AccessKeySecret',
-        'bucketName'          => 'BucketName',
-        'expiration'          => 'Expiration',
-        'fileNamePrefix'      => 'FileNamePrefix',
+        'accessKeyId' => 'AccessKeyId',
+        'accessKeySecret' => 'AccessKeySecret',
+        'bucketName' => 'BucketName',
+        'expiration' => 'Expiration',
+        'fileNamePrefix' => 'FileNamePrefix',
         'ossInternalEndPoint' => 'OssInternalEndPoint',
         'ossInternetEndPoint' => 'OssInternetEndPoint',
-        'securityToken'       => 'SecurityToken',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

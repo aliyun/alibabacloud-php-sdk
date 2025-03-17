@@ -20,7 +20,10 @@ class gender extends Model
     /**
      * @description The gender recognition result. Valid values:
      *
+     * - Male
+     *
      * - FeMale
+     *
      * @example FeMale
      *
      * @var string
@@ -28,12 +31,10 @@ class gender extends Model
     public $value;
     protected $_name = [
         'confidence' => 'Confidence',
-        'value'      => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

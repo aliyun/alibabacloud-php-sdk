@@ -52,16 +52,14 @@ class frames extends Model
      */
     public $timestamp;
     protected $_name = [
-        'offset'    => 'Offset',
-        'results'   => 'Results',
+        'offset' => 'Offset',
+        'results' => 'Results',
         'riskLevel' => 'RiskLevel',
-        'tempUrl'   => 'TempUrl',
+        'tempUrl' => 'TempUrl',
         'timestamp' => 'Timestamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +103,7 @@ class frames extends Model
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Results'] as $item) {
                     $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }

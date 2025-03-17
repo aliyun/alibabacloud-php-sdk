@@ -35,14 +35,12 @@ class extraInfo extends Model
      */
     public $siteType;
     protected $_name = [
-        'icpNo'    => 'IcpNo',
-        'icpType'  => 'IcpType',
+        'icpNo' => 'IcpNo',
+        'icpType' => 'IcpType',
         'siteType' => 'SiteType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

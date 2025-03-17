@@ -27,12 +27,10 @@ class bang extends Model
     public $value;
     protected $_name = [
         'confidence' => 'Confidence',
-        'value'      => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

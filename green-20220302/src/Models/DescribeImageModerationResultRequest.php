@@ -20,9 +20,7 @@ class DescribeImageModerationResultRequest extends Model
         'reqId' => 'ReqId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

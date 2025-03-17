@@ -34,13 +34,11 @@ class pageSummary extends Model
     public $textSummary;
     protected $_name = [
         'imageSummary' => 'ImageSummary',
-        'pageSum'      => 'PageSum',
-        'textSummary'  => 'TextSummary',
+        'pageSum' => 'PageSum',
+        'textSummary' => 'TextSummary',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,13 +36,11 @@ class customTexts extends Model
     public $libName;
     protected $_name = [
         'keyWords' => 'KeyWords',
-        'libId'    => 'LibId',
-        'libName'  => 'LibName',
+        'libId' => 'LibId',
+        'libName' => 'LibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -61,17 +61,15 @@ class data extends Model
      */
     public $url;
     protected $_name = [
-        'dataId'       => 'DataId',
-        'liveId'       => 'LiveId',
-        'riskLevel'    => 'RiskLevel',
+        'dataId' => 'DataId',
+        'liveId' => 'LiveId',
+        'riskLevel' => 'RiskLevel',
         'sliceDetails' => 'SliceDetails',
-        'taskId'       => 'TaskId',
-        'url'          => 'Url',
+        'taskId' => 'TaskId',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -124,7 +122,7 @@ class data extends Model
         if (isset($map['SliceDetails'])) {
             if (!empty($map['SliceDetails'])) {
                 $model->sliceDetails = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['SliceDetails'] as $item) {
                     $model->sliceDetails[$n++] = null !== $item ? sliceDetails::fromMap($item) : $item;
                 }

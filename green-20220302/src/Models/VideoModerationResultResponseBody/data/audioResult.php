@@ -34,13 +34,11 @@ class audioResult extends Model
     public $sliceDetails;
     protected $_name = [
         'audioSummarys' => 'AudioSummarys',
-        'riskLevel'     => 'RiskLevel',
-        'sliceDetails'  => 'SliceDetails',
+        'riskLevel' => 'RiskLevel',
+        'sliceDetails' => 'SliceDetails',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class audioResult extends Model
         if (isset($map['AudioSummarys'])) {
             if (!empty($map['AudioSummarys'])) {
                 $model->audioSummarys = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['AudioSummarys'] as $item) {
                     $model->audioSummarys[$n++] = null !== $item ? audioSummarys::fromMap($item) : $item;
                 }
@@ -93,7 +91,7 @@ class audioResult extends Model
         if (isset($map['SliceDetails'])) {
             if (!empty($map['SliceDetails'])) {
                 $model->sliceDetails = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['SliceDetails'] as $item) {
                     $model->sliceDetails[$n++] = null !== $item ? sliceDetails::fromMap($item) : $item;
                 }

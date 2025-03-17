@@ -52,16 +52,14 @@ class result extends Model
      */
     public $riskWords;
     protected $_name = [
-        'confidence'    => 'Confidence',
+        'confidence' => 'Confidence',
         'customizedHit' => 'CustomizedHit',
-        'description'   => 'Description',
-        'label'         => 'Label',
-        'riskWords'     => 'RiskWords',
+        'description' => 'Description',
+        'label' => 'Label',
+        'riskWords' => 'RiskWords',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +103,7 @@ class result extends Model
         if (isset($map['CustomizedHit'])) {
             if (!empty($map['CustomizedHit'])) {
                 $model->customizedHit = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['CustomizedHit'] as $item) {
                     $model->customizedHit[$n++] = null !== $item ? customizedHit::fromMap($item) : $item;
                 }

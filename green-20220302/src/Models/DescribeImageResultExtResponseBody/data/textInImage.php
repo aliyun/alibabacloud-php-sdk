@@ -31,13 +31,11 @@ class textInImage extends Model
     public $riskWords;
     protected $_name = [
         'customTexts' => 'CustomTexts',
-        'ocrDatas'    => 'OcrDatas',
-        'riskWords'   => 'RiskWords',
+        'ocrDatas' => 'OcrDatas',
+        'riskWords' => 'RiskWords',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -72,7 +70,7 @@ class textInImage extends Model
         if (isset($map['CustomTexts'])) {
             if (!empty($map['CustomTexts'])) {
                 $model->customTexts = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['CustomTexts'] as $item) {
                     $model->customTexts[$n++] = null !== $item ? customTexts::fromMap($item) : $item;
                 }

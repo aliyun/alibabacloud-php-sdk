@@ -20,7 +20,10 @@ class hat extends Model
     /**
      * @description The recognition result of whether to wear the hat. Valid values:
      *
+     * - Wear: Wear a hat.
+     *
      * - None: No hat.
+     *
      * @example Wear
      *
      * @var string
@@ -28,12 +31,10 @@ class hat extends Model
     public $value;
     protected $_name = [
         'confidence' => 'Confidence',
-        'value'      => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

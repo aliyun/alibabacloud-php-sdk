@@ -31,14 +31,12 @@ class ManualCallbackResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

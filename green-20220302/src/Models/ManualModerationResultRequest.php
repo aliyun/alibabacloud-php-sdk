@@ -18,9 +18,7 @@ class ManualModerationResultRequest extends Model
         'serviceParameters' => 'ServiceParameters',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

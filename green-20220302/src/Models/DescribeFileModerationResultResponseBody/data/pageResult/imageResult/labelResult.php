@@ -35,14 +35,12 @@ class labelResult extends Model
      */
     public $label;
     protected $_name = [
-        'confidence'  => 'Confidence',
+        'confidence' => 'Confidence',
         'description' => 'Description',
-        'label'       => 'Label',
+        'label' => 'Label',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

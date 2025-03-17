@@ -14,6 +14,7 @@ class data extends Model
      * @description The ID of the moderated object.
      *
      * >  If you specify the dataId parameter in the request, the value of the dataId parameter is returned in the response.
+     *
      * @example fb5ffab1-993b-449f-b8d6-b97d5e3331f2
      *
      * @var string
@@ -43,15 +44,13 @@ class data extends Model
      */
     public $riskLevel;
     protected $_name = [
-        'dataId'    => 'DataId',
-        'ext'       => 'Ext',
-        'result'    => 'Result',
+        'dataId' => 'DataId',
+        'ext' => 'Ext',
+        'result' => 'Result',
         'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -95,7 +94,7 @@ class data extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }

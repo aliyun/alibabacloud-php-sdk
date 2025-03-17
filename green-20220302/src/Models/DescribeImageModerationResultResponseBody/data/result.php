@@ -34,15 +34,19 @@ class result extends Model
      * @var string
      */
     public $label;
+
+    /**
+     * @var string
+     */
+    public $riskLevel;
     protected $_name = [
-        'confidence'  => 'Confidence',
+        'confidence' => 'Confidence',
         'description' => 'Description',
-        'label'       => 'Label',
+        'label' => 'Label',
+        'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -55,6 +59,9 @@ class result extends Model
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
 
         return $res;
@@ -76,6 +83,9 @@ class result extends Model
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
 
         return $model;

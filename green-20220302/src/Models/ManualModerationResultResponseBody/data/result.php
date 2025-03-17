@@ -21,12 +21,10 @@ class result extends Model
     public $label;
     protected $_name = [
         'description' => 'Description',
-        'label'       => 'Label',
+        'label' => 'Label',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

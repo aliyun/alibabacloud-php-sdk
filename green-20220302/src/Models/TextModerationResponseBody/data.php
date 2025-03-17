@@ -54,17 +54,15 @@ class data extends Model
      */
     public $reason;
     protected $_name = [
-        'accountId'    => 'accountId',
-        'dataId'       => 'dataId',
+        'accountId' => 'accountId',
+        'dataId' => 'dataId',
         'descriptions' => 'descriptions',
-        'deviceId'     => 'deviceId',
-        'labels'       => 'labels',
-        'reason'       => 'reason',
+        'deviceId' => 'deviceId',
+        'labels' => 'labels',
+        'reason' => 'reason',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

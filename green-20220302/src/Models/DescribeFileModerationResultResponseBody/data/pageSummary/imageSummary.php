@@ -26,12 +26,10 @@ class imageSummary extends Model
     public $riskLevel;
     protected $_name = [
         'imageLabels' => 'ImageLabels',
-        'riskLevel'   => 'RiskLevel',
+        'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class imageSummary extends Model
         if (isset($map['ImageLabels'])) {
             if (!empty($map['ImageLabels'])) {
                 $model->imageLabels = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ImageLabels'] as $item) {
                     $model->imageLabels[$n++] = null !== $item ? imageLabels::fromMap($item) : $item;
                 }

@@ -11,6 +11,7 @@ class quality extends Model
     /**
      * @description The blur of the face image. Valid values: 0 to 100. The higher the score, the more fuzzy it is.
      * Recommended values: 0 to 25.
+     *
      * @example 5.88
      *
      * @var float
@@ -29,6 +30,7 @@ class quality extends Model
     /**
      * @description The head-up or head-down angle of the face.
      * Recommended values:-30 to 30.
+     *
      * @example 5.88
      *
      * @var float
@@ -38,6 +40,7 @@ class quality extends Model
     /**
      * @description The plane rotation angle of the face.
      * Recommended values:-30 to 30.
+     *
      * @example 5.18
      *
      * @var float
@@ -47,22 +50,21 @@ class quality extends Model
     /**
      * @description The left and right shaking angle of the human face.
      * Recommended values:-30 to 30.
+     *
      * @example 5.18
      *
      * @var float
      */
     public $yaw;
     protected $_name = [
-        'blur'      => 'Blur',
+        'blur' => 'Blur',
         'integrity' => 'Integrity',
-        'pitch'     => 'Pitch',
-        'roll'      => 'Roll',
-        'yaw'       => 'Yaw',
+        'pitch' => 'Pitch',
+        'roll' => 'Roll',
+        'yaw' => 'Yaw',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

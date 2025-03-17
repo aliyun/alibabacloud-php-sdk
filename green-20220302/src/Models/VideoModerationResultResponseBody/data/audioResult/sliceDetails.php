@@ -121,24 +121,22 @@ class sliceDetails extends Model
      */
     public $url;
     protected $_name = [
-        'descriptions'   => 'Descriptions',
-        'endTime'        => 'EndTime',
-        'endTimestamp'   => 'EndTimestamp',
-        'extend'         => 'Extend',
-        'labels'         => 'Labels',
-        'riskLevel'      => 'RiskLevel',
-        'riskTips'       => 'RiskTips',
-        'riskWords'      => 'RiskWords',
-        'score'          => 'Score',
-        'startTime'      => 'StartTime',
+        'descriptions' => 'Descriptions',
+        'endTime' => 'EndTime',
+        'endTimestamp' => 'EndTimestamp',
+        'extend' => 'Extend',
+        'labels' => 'Labels',
+        'riskLevel' => 'RiskLevel',
+        'riskTips' => 'RiskTips',
+        'riskWords' => 'RiskWords',
+        'score' => 'Score',
+        'startTime' => 'StartTime',
         'startTimestamp' => 'StartTimestamp',
-        'text'           => 'Text',
-        'url'            => 'Url',
+        'text' => 'Text',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

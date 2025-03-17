@@ -35,15 +35,13 @@ class data extends Model
      */
     public $taskId;
     protected $_name = [
-        'dataId'    => 'DataId',
-        'result'    => 'Result',
+        'dataId' => 'DataId',
+        'result' => 'Result',
         'riskLevel' => 'RiskLevel',
-        'taskId'    => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -84,7 +82,7 @@ class data extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }

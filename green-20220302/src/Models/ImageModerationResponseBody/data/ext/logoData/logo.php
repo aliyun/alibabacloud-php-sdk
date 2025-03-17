@@ -36,13 +36,11 @@ class logo extends Model
     public $name;
     protected $_name = [
         'confidence' => 'Confidence',
-        'label'      => 'Label',
-        'name'       => 'Name',
+        'label' => 'Label',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

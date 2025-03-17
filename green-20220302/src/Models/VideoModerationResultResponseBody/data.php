@@ -61,16 +61,14 @@ class data extends Model
     public $taskId;
     protected $_name = [
         'audioResult' => 'AudioResult',
-        'dataId'      => 'DataId',
+        'dataId' => 'DataId',
         'frameResult' => 'FrameResult',
-        'liveId'      => 'LiveId',
-        'riskLevel'   => 'RiskLevel',
-        'taskId'      => 'TaskId',
+        'liveId' => 'LiveId',
+        'riskLevel' => 'RiskLevel',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

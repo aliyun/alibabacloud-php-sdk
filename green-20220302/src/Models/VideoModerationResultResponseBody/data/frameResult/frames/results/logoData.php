@@ -21,12 +21,10 @@ class logoData extends Model
     public $logo;
     protected $_name = [
         'location' => 'Location',
-        'logo'     => 'Logo',
+        'logo' => 'Logo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -61,7 +59,7 @@ class logoData extends Model
         if (isset($map['Logo'])) {
             if (!empty($map['Logo'])) {
                 $model->logo = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Logo'] as $item) {
                     $model->logo[$n++] = null !== $item ? logo::fromMap($item) : $item;
                 }

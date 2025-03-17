@@ -32,13 +32,11 @@ class textInImage extends Model
     public $riskWord;
     protected $_name = [
         'customText' => 'CustomText',
-        'ocrResult'  => 'OcrResult',
-        'riskWord'   => 'RiskWord',
+        'ocrResult' => 'OcrResult',
+        'riskWord' => 'RiskWord',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class textInImage extends Model
         if (isset($map['CustomText'])) {
             if (!empty($map['CustomText'])) {
                 $model->customText = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['CustomText'] as $item) {
                     $model->customText[$n++] = null !== $item ? customText::fromMap($item) : $item;
                 }
@@ -88,7 +86,7 @@ class textInImage extends Model
         if (isset($map['OcrResult'])) {
             if (!empty($map['OcrResult'])) {
                 $model->ocrResult = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['OcrResult'] as $item) {
                     $model->ocrResult[$n++] = null !== $item ? ocrResult::fromMap($item) : $item;
                 }

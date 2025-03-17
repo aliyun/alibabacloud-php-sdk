@@ -42,7 +42,12 @@ class faceData extends Model
     /**
      * @description The recognition result of whether to wear glasses.
      *
+     * - None: No glasses.
+     *
+     * - Wear: Wear glasses.
+     *
      * - Sunglass: Wear sunglasses.
+     *
      * @example Common
      *
      * @var string
@@ -100,22 +105,20 @@ class faceData extends Model
      */
     public $smile;
     protected $_name = [
-        'age'       => 'Age',
-        'bang'      => 'Bang',
-        'gender'    => 'Gender',
-        'glasses'   => 'Glasses',
+        'age' => 'Age',
+        'bang' => 'Bang',
+        'gender' => 'Gender',
+        'glasses' => 'Glasses',
         'hairstyle' => 'Hairstyle',
-        'hat'       => 'Hat',
-        'location'  => 'Location',
-        'mask'      => 'Mask',
-        'mustache'  => 'Mustache',
-        'quality'   => 'Quality',
-        'smile'     => 'Smile',
+        'hat' => 'Hat',
+        'location' => 'Location',
+        'mask' => 'Mask',
+        'mustache' => 'Mustache',
+        'quality' => 'Quality',
+        'smile' => 'Smile',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

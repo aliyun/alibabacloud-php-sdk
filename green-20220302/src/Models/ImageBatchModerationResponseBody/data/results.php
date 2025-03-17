@@ -42,15 +42,13 @@ class results extends Model
      */
     public $service;
     protected $_name = [
-        'ext'       => 'Ext',
-        'result'    => 'Result',
+        'ext' => 'Ext',
+        'result' => 'Result',
         'riskLevel' => 'RiskLevel',
-        'service'   => 'Service',
+        'service' => 'Service',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -91,7 +89,7 @@ class results extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }

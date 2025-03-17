@@ -47,16 +47,14 @@ class data extends Model
      */
     public $score;
     protected $_name = [
-        'advice'    => 'Advice',
-        'dataId'    => 'DataId',
-        'result'    => 'Result',
+        'advice' => 'Advice',
+        'dataId' => 'DataId',
+        'result' => 'Result',
         'riskLevel' => 'RiskLevel',
-        'score'     => 'Score',
+        'score' => 'Score',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,7 +101,7 @@ class data extends Model
         if (isset($map['Advice'])) {
             if (!empty($map['Advice'])) {
                 $model->advice = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Advice'] as $item) {
                     $model->advice[$n++] = null !== $item ? advice::fromMap($item) : $item;
                 }
@@ -115,7 +113,7 @@ class data extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }

@@ -27,12 +27,10 @@ class customizedHit extends Model
     public $libName;
     protected $_name = [
         'keyWords' => 'KeyWords',
-        'libName'  => 'LibName',
+        'libName' => 'LibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

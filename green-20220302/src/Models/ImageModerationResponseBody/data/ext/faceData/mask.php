@@ -20,7 +20,10 @@ class mask extends Model
     /**
      * @description The recognition result of whether to wear a mask. Valid values:
      *
+     * - Wear a mask.
+     *
      * - None: No mask.
+     *
      * @example Wear
      *
      * @var string
@@ -28,12 +31,10 @@ class mask extends Model
     public $value;
     protected $_name = [
         'confidence' => 'Confidence',
-        'value'      => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

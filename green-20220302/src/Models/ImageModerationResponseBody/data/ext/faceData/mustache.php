@@ -20,7 +20,10 @@ class mustache extends Model
     /**
      * @description The identification result of whether there is a beard.Valid values:
      *
+     * - Has:have a beard.
+     *
      * - None:No beard.
+     *
      * @example Has
      *
      * @var string
@@ -28,12 +31,10 @@ class mustache extends Model
     public $value;
     protected $_name = [
         'confidence' => 'Confidence',
-        'value'      => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
