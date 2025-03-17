@@ -1,16 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101;
 
@@ -2999,6 +2989,9 @@ class Dmsenterprise extends OpenApiClient
         }
         if (!Utils::isUnset($request->modelOption)) {
             $query['ModelOption'] = $request->modelOption;
+        }
+        if (!Utils::isUnset($request->natGatewayOption)) {
+            $query['NatGatewayOption'] = $request->natGatewayOption;
         }
         if (!Utils::isUnset($request->ossPath)) {
             $query['OssPath'] = $request->ossPath;
@@ -10918,11 +10911,11 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->searchKey)) {
             $query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->sessionToken)) {
-            $query['SessionToken'] = $request->sessionToken;
-        }
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
