@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Docmindapi\V20220711\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetDocumentCompareResultRequest extends Model
 {
@@ -16,12 +16,9 @@ class GetDocumentCompareResultRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +28,11 @@ class GetDocumentCompareResultRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDocumentCompareResultRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
