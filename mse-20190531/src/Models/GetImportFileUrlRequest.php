@@ -4,53 +4,71 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetImportFileUrlRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
+
     /**
+     * @description The file type.
+     *
+     * @example application/zip
+     *
      * @var string
      */
     public $contentType;
+
     /**
+     * @description The ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example mse_prepaid_public_cn-7pp2b****
+     *
      * @var string
      */
     public $instanceId;
+
     /**
+     * @description The ID of the namespace.
+     *
+     * @example 12788f73-9848-4388-98f1-507778f2****
+     *
      * @var string
      */
     public $namespaceId;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'contentType'    => 'ContentType',
-        'instanceId'     => 'InstanceId',
-        'namespaceId'    => 'NamespaceId',
+        'contentType' => 'ContentType',
+        'instanceId' => 'InstanceId',
+        'namespaceId' => 'NamespaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
@@ -58,26 +76,23 @@ class GetImportFileUrlRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetImportFileUrlRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }

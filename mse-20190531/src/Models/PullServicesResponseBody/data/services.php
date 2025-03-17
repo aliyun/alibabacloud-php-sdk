@@ -4,80 +4,88 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\PullServicesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class services extends Model
 {
     /**
+     * @description The name of the group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
+
     /**
+     * @description The name of the service.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The namespace.
+     *
+     * @example public
+     *
      * @var string
      */
     public $namespace;
+
     /**
+     * @description The ID of the service source.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $sourceId;
+
     /**
      * @var int[]
      */
     public $sourceIdList;
+
     /**
+     * @description The type of the service source.
+     *
+     * @example MSE
+     *
      * @var string
      */
     public $sourceType;
     protected $_name = [
-        'groupName'    => 'GroupName',
-        'name'         => 'Name',
-        'namespace'    => 'Namespace',
-        'sourceId'     => 'SourceId',
+        'groupName' => 'GroupName',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'sourceId' => 'SourceId',
         'sourceIdList' => 'SourceIdList',
-        'sourceType'   => 'SourceType',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->sourceIdList)) {
-            Model::validateArray($this->sourceIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
         }
-
         if (null !== $this->sourceIdList) {
-            if (\is_array($this->sourceIdList)) {
-                $res['SourceIdList'] = [];
-                $n1                  = 0;
-                foreach ($this->sourceIdList as $item1) {
-                    $res['SourceIdList'][$n1++] = $item1;
-                }
-            }
+            $res['SourceIdList'] = $this->sourceIdList;
         }
-
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
@@ -85,40 +93,31 @@ class services extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return services
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
         }
-
         if (isset($map['SourceIdList'])) {
             if (!empty($map['SourceIdList'])) {
-                $model->sourceIdList = [];
-                $n1                  = 0;
-                foreach ($map['SourceIdList'] as $item1) {
-                    $model->sourceIdList[$n1++] = $item1;
-                }
+                $model->sourceIdList = $map['SourceIdList'];
             }
         }
-
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }

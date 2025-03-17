@@ -4,71 +4,62 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteRetryRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class retryJSON extends Model
 {
     /**
+     * @description The number of retries.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $attempts;
+
     /**
+     * @description The HTTP status codes.
+     *
      * @var string[]
      */
     public $httpCodes;
+
     /**
+     * @description The retry conditions.
+     *
      * @var string[]
      */
     public $retryOn;
+
     /**
+     * @description The status of the policy.
+     *
+     * @example off
+     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'attempts'  => 'Attempts',
+        'attempts' => 'Attempts',
         'httpCodes' => 'HttpCodes',
-        'retryOn'   => 'RetryOn',
-        'status'    => 'Status',
+        'retryOn' => 'RetryOn',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->httpCodes)) {
-            Model::validateArray($this->httpCodes);
-        }
-        if (\is_array($this->retryOn)) {
-            Model::validateArray($this->retryOn);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->attempts) {
             $res['Attempts'] = $this->attempts;
         }
-
         if (null !== $this->httpCodes) {
-            if (\is_array($this->httpCodes)) {
-                $res['HttpCodes'] = [];
-                $n1               = 0;
-                foreach ($this->httpCodes as $item1) {
-                    $res['HttpCodes'][$n1++] = $item1;
-                }
-            }
+            $res['HttpCodes'] = $this->httpCodes;
         }
-
         if (null !== $this->retryOn) {
-            if (\is_array($this->retryOn)) {
-                $res['RetryOn'] = [];
-                $n1             = 0;
-                foreach ($this->retryOn as $item1) {
-                    $res['RetryOn'][$n1++] = $item1;
-                }
-            }
+            $res['RetryOn'] = $this->retryOn;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -76,38 +67,27 @@ class retryJSON extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return retryJSON
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attempts'])) {
             $model->attempts = $map['Attempts'];
         }
-
         if (isset($map['HttpCodes'])) {
             if (!empty($map['HttpCodes'])) {
-                $model->httpCodes = [];
-                $n1               = 0;
-                foreach ($map['HttpCodes'] as $item1) {
-                    $model->httpCodes[$n1++] = $item1;
-                }
+                $model->httpCodes = $map['HttpCodes'];
             }
         }
-
         if (isset($map['RetryOn'])) {
             if (!empty($map['RetryOn'])) {
-                $model->retryOn = [];
-                $n1             = 0;
-                foreach ($map['RetryOn'] as $item1) {
-                    $model->retryOn[$n1++] = $item1;
-                }
+                $model->retryOn = $map['RetryOn'];
             }
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

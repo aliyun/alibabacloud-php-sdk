@@ -4,65 +4,82 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateGatewayServiceTrafficPolicyRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   **zh-CN** (default): Chinese
+     *   **en-US**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
+
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 429
+     *
      * @var int
      */
     public $gatewayId;
+
     /**
+     * @description The traffic policy of the gateway.
+     *
+     * This parameter is required.
+     *
      * @var TrafficPolicy
      */
     public $gatewayTrafficPolicy;
+
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-75c5036c083e4f89ba8ef9fafff2e902
+     *
      * @var string
      */
     public $gatewayUniqueId;
+
     /**
+     * @description The ID of the service.
+     *
+     * @example 411
+     *
      * @var int
      */
     public $serviceId;
     protected $_name = [
-        'acceptLanguage'       => 'AcceptLanguage',
-        'gatewayId'            => 'GatewayId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'gatewayId' => 'GatewayId',
         'gatewayTrafficPolicy' => 'GatewayTrafficPolicy',
-        'gatewayUniqueId'      => 'GatewayUniqueId',
-        'serviceId'            => 'ServiceId',
+        'gatewayUniqueId' => 'GatewayUniqueId',
+        'serviceId' => 'ServiceId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->gatewayTrafficPolicy) {
-            $this->gatewayTrafficPolicy->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
-
         if (null !== $this->gatewayTrafficPolicy) {
-            $res['GatewayTrafficPolicy'] = null !== $this->gatewayTrafficPolicy ? $this->gatewayTrafficPolicy->toArray($noStream) : $this->gatewayTrafficPolicy;
+            $res['GatewayTrafficPolicy'] = null !== $this->gatewayTrafficPolicy ? $this->gatewayTrafficPolicy->toMap() : null;
         }
-
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
-
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
@@ -70,30 +87,26 @@ class UpdateGatewayServiceTrafficPolicyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateGatewayServiceTrafficPolicyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
-
         if (isset($map['GatewayTrafficPolicy'])) {
             $model->gatewayTrafficPolicy = TrafficPolicy::fromMap($map['GatewayTrafficPolicy']);
         }
-
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
-
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }

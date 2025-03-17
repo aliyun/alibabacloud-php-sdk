@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\QueryNamespaceResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The name of the namespace.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
+
     /**
+     * @description The region to which the namespace belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
     protected $_name = [
         'namespace' => 'Namespace',
-        'region'    => 'Region',
+        'region' => 'Region',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -40,18 +45,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

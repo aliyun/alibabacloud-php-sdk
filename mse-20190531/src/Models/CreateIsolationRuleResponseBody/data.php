@@ -4,98 +4,111 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\CreateIsolationRuleResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example hpn9ac29kz@e31a4b871******
+     *
      * @var string
      */
     public $appId;
+
     /**
+     * @example spring-cloud-a
+     *
      * @var string
      */
     public $appName;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $limitApp;
+
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;
+
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @example /a
+     *
      * @var string
      */
     public $resource;
+
     /**
+     * @example 3
+     *
      * @var float
      */
     public $threshold;
     protected $_name = [
-        'appId'     => 'AppId',
-        'appName'   => 'AppName',
-        'enable'    => 'Enable',
-        'id'        => 'Id',
-        'limitApp'  => 'LimitApp',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'enable' => 'Enable',
+        'id' => 'Id',
+        'limitApp' => 'LimitApp',
         'namespace' => 'Namespace',
-        'regionId'  => 'RegionId',
-        'resource'  => 'Resource',
+        'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'threshold' => 'Threshold',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->limitApp) {
             $res['LimitApp'] = $this->limitApp;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
         }
-
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
@@ -103,46 +116,38 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['LimitApp'])) {
             $model->limitApp = $map['LimitApp'];
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
         }
-
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }

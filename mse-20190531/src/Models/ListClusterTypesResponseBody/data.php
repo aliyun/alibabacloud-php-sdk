@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterTypesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -12,27 +12,28 @@ class data extends Model
      * @var string
      */
     public $code;
+
     /**
+     * @description The type of the MSE engine that can be activated.
+     *
+     * @example Zookeeper
+     *
      * @var string
      */
     public $showName;
     protected $_name = [
-        'code'     => 'Code',
+        'code' => 'Code',
         'showName' => 'ShowName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->showName) {
             $res['ShowName'] = $this->showName;
         }
@@ -40,18 +41,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['ShowName'])) {
             $model->showName = $map['ShowName'];
         }

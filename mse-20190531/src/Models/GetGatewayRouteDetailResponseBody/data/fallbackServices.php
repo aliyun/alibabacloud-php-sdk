@@ -4,107 +4,144 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class fallbackServices extends Model
 {
     /**
+     * @description The protocol type.
+     *
+     * @example DUBBO
+     *
      * @var string
      */
     public $agreementType;
+
     /**
+     * @description The name of the group to which the service belongs.
+     *
+     * @example test
+     *
      * @var string
      */
     public $groupName;
+
     /**
+     * @description The name.
+     *
+     * @example name
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The namespace to which the service belongs.
+     *
+     * @example namespace
+     *
      * @var string
      */
     public $namespace;
+
     /**
+     * @description The weight in the form of a percentage value.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $percent;
+
     /**
+     * @description The service ID.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $serviceId;
+
     /**
+     * @description The service name.
+     *
+     * @example name
+     *
      * @var string
      */
     public $serviceName;
+
     /**
+     * @description The port number of the service.
+     *
+     * @example 8848
+     *
      * @var int
      */
     public $servicePort;
+
     /**
+     * @description The source type of the service.
+     *
+     * @example MSE
+     *
      * @var string
      */
     public $sourceType;
+
     /**
+     * @description The service version.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $version;
     protected $_name = [
         'agreementType' => 'AgreementType',
-        'groupName'     => 'GroupName',
-        'name'          => 'Name',
-        'namespace'     => 'Namespace',
-        'percent'       => 'Percent',
-        'serviceId'     => 'ServiceId',
-        'serviceName'   => 'ServiceName',
-        'servicePort'   => 'ServicePort',
-        'sourceType'    => 'SourceType',
-        'version'       => 'Version',
+        'groupName' => 'GroupName',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'percent' => 'Percent',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'servicePort' => 'ServicePort',
+        'sourceType' => 'SourceType',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agreementType) {
             $res['AgreementType'] = $this->agreementType;
         }
-
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-
         if (null !== $this->percent) {
             $res['Percent'] = $this->percent;
         }
-
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
-
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
-
         if (null !== $this->servicePort) {
             $res['ServicePort'] = $this->servicePort;
         }
-
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
-
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -112,50 +149,41 @@ class fallbackServices extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return fallbackServices
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgreementType'])) {
             $model->agreementType = $map['AgreementType'];
         }
-
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-
         if (isset($map['Percent'])) {
             $model->percent = $map['Percent'];
         }
-
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
-
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
-
         if (isset($map['ServicePort'])) {
             $model->servicePort = $map['ServicePort'];
         }
-
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
-
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

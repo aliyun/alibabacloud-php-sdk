@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\SelectGatewaySlbResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The ID of the SLB instance.
+     *
+     * @example lb-bp14lqiw5n96hq2****
+     *
      * @var string
      */
     public $slbId;
+
     /**
+     * @description The name of the SLB instance.
+     *
+     * @example MseGatewaySlb-gw
+     *
      * @var string
      */
     public $slbName;
     protected $_name = [
-        'slbId'   => 'SlbId',
+        'slbId' => 'SlbId',
         'slbName' => 'SlbName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->slbId) {
             $res['SlbId'] = $this->slbId;
         }
-
         if (null !== $this->slbName) {
             $res['SlbName'] = $this->slbName;
         }
@@ -40,18 +45,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SlbId'])) {
             $model->slbId = $map['SlbId'];
         }
-
         if (isset($map['SlbName'])) {
             $model->slbName = $map['SlbName'];
         }

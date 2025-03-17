@@ -4,179 +4,169 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteOnAuthResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteOnAuthResponseBody\data\routePredicates;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The domain ID.
+     *
+     * @example 235
+     *
      * @var int
      */
     public $domainId;
+
     /**
+     * @description The domain IDs.
+     *
      * @var int[]
      */
     public $domainIdList;
+
     /**
+     * @description The domain name.
+     *
+     * @example 123.com
+     *
      * @var string
      */
     public $domainName;
+
     /**
+     * @description The domain names.
+     *
      * @var string[]
      */
     public $domainNameList;
+
     /**
+     * @description The gateway ID.
+     *
+     * @example 399
+     *
      * @var string
      */
     public $gatewayId;
+
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-7ea3da97b96543e19f6c597c****
+     *
      * @var string
      */
     public $gatewayUniqueId;
+
     /**
+     * @description The route ID.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The name of the route.
+     *
+     * @example ceshi
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The information about route matching.
+     *
      * @var routePredicates
      */
     public $routePredicates;
     protected $_name = [
-        'domainId'        => 'DomainId',
-        'domainIdList'    => 'DomainIdList',
-        'domainName'      => 'DomainName',
-        'domainNameList'  => 'DomainNameList',
-        'gatewayId'       => 'GatewayId',
+        'domainId' => 'DomainId',
+        'domainIdList' => 'DomainIdList',
+        'domainName' => 'DomainName',
+        'domainNameList' => 'DomainNameList',
+        'gatewayId' => 'GatewayId',
         'gatewayUniqueId' => 'GatewayUniqueId',
-        'id'              => 'Id',
-        'name'            => 'Name',
+        'id' => 'Id',
+        'name' => 'Name',
         'routePredicates' => 'RoutePredicates',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->domainIdList)) {
-            Model::validateArray($this->domainIdList);
-        }
-        if (\is_array($this->domainNameList)) {
-            Model::validateArray($this->domainNameList);
-        }
-        if (null !== $this->routePredicates) {
-            $this->routePredicates->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
         }
-
         if (null !== $this->domainIdList) {
-            if (\is_array($this->domainIdList)) {
-                $res['DomainIdList'] = [];
-                $n1                  = 0;
-                foreach ($this->domainIdList as $item1) {
-                    $res['DomainIdList'][$n1++] = $item1;
-                }
-            }
+            $res['DomainIdList'] = $this->domainIdList;
         }
-
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-
         if (null !== $this->domainNameList) {
-            if (\is_array($this->domainNameList)) {
-                $res['DomainNameList'] = [];
-                $n1                    = 0;
-                foreach ($this->domainNameList as $item1) {
-                    $res['DomainNameList'][$n1++] = $item1;
-                }
-            }
+            $res['DomainNameList'] = $this->domainNameList;
         }
-
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
-
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->routePredicates) {
-            $res['RoutePredicates'] = null !== $this->routePredicates ? $this->routePredicates->toArray($noStream) : $this->routePredicates;
+            $res['RoutePredicates'] = null !== $this->routePredicates ? $this->routePredicates->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
         }
-
         if (isset($map['DomainIdList'])) {
             if (!empty($map['DomainIdList'])) {
-                $model->domainIdList = [];
-                $n1                  = 0;
-                foreach ($map['DomainIdList'] as $item1) {
-                    $model->domainIdList[$n1++] = $item1;
-                }
+                $model->domainIdList = $map['DomainIdList'];
             }
         }
-
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-
         if (isset($map['DomainNameList'])) {
             if (!empty($map['DomainNameList'])) {
-                $model->domainNameList = [];
-                $n1                    = 0;
-                foreach ($map['DomainNameList'] as $item1) {
-                    $model->domainNameList[$n1++] = $item1;
-                }
+                $model->domainNameList = $map['DomainNameList'];
             }
         }
-
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
-
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['RoutePredicates'])) {
             $model->routePredicates = routePredicates::fromMap($map['RoutePredicates']);
         }

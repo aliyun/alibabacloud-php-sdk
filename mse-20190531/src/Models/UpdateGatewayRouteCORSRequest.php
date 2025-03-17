@@ -4,66 +4,82 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteCORSRequest\corsJSON;
+use AlibabaCloud\Tea\Model;
 
 class UpdateGatewayRouteCORSRequest extends Model
 {
     /**
+     * @description The language of the response. In compliance with [RFC 7231](https://tools.ietf.org/html/rfc7231), the backend service must return a response based on the language used by the user.
+     *
+     *   No default value.
+     *   zh-CN: Chinese
+     *   en-US: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
+
     /**
+     * @description The information about the CORS policy.
+     *
      * @var corsJSON
      */
     public $corsJSON;
+
     /**
+     * @description The ID of the gateway.
+     *
+     * @example 85
+     *
      * @var int
      */
     public $gatewayId;
+
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-f70a6ddf2f0941a2bb997b2d16028f37
+     *
      * @var string
      */
     public $gatewayUniqueId;
+
     /**
+     * @description The ID of the associated record.
+     *
+     * @example 55
+     *
      * @var int
      */
     public $id;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
-        'corsJSON'        => 'CorsJSON',
-        'gatewayId'       => 'GatewayId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'corsJSON' => 'CorsJSON',
+        'gatewayId' => 'GatewayId',
         'gatewayUniqueId' => 'GatewayUniqueId',
-        'id'              => 'Id',
+        'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->corsJSON) {
-            $this->corsJSON->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->corsJSON) {
-            $res['CorsJSON'] = null !== $this->corsJSON ? $this->corsJSON->toArray($noStream) : $this->corsJSON;
+            $res['CorsJSON'] = null !== $this->corsJSON ? $this->corsJSON->toMap() : null;
         }
-
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
-
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -71,30 +87,26 @@ class UpdateGatewayRouteCORSRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateGatewayRouteCORSRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['CorsJSON'])) {
             $model->corsJSON = corsJSON::fromMap($map['CorsJSON']);
         }
-
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
-
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

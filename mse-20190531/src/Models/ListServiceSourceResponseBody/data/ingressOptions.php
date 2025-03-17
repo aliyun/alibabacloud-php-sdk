@@ -4,53 +4,66 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListServiceSourceResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ingressOptions extends Model
 {
     /**
+     * @description Indicates whether Ingresses are enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableIngress;
+
     /**
+     * @description Indicates whether the Ingress status is updated.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableStatus;
+
     /**
+     * @description The Ingress class.
+     *
+     * @example com.test.xxx
+     *
      * @var string
      */
     public $ingressClass;
+
     /**
+     * @description The namespace that you want to monitor.
+     *
+     * @example default
+     *
      * @var string
      */
     public $watchNamespace;
     protected $_name = [
-        'enableIngress'  => 'EnableIngress',
-        'enableStatus'   => 'EnableStatus',
-        'ingressClass'   => 'IngressClass',
+        'enableIngress' => 'EnableIngress',
+        'enableStatus' => 'EnableStatus',
+        'ingressClass' => 'IngressClass',
         'watchNamespace' => 'WatchNamespace',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enableIngress) {
             $res['EnableIngress'] = $this->enableIngress;
         }
-
         if (null !== $this->enableStatus) {
             $res['EnableStatus'] = $this->enableStatus;
         }
-
         if (null !== $this->ingressClass) {
             $res['IngressClass'] = $this->ingressClass;
         }
-
         if (null !== $this->watchNamespace) {
             $res['WatchNamespace'] = $this->watchNamespace;
         }
@@ -58,26 +71,23 @@ class ingressOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ingressOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableIngress'])) {
             $model->enableIngress = $map['EnableIngress'];
         }
-
         if (isset($map['EnableStatus'])) {
             $model->enableStatus = $map['EnableStatus'];
         }
-
         if (isset($map['IngressClass'])) {
             $model->ingressClass = $map['IngressClass'];
         }
-
         if (isset($map['WatchNamespace'])) {
             $model->watchNamespace = $map['WatchNamespace'];
         }

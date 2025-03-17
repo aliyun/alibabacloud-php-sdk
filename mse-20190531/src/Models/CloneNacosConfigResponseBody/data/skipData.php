@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class skipData extends Model
 {
     /**
+     * @description Data ID.
+     *
+     * @example test.yaml
+     *
      * @var string
      */
     public $dataId;
+
     /**
+     * @description Group ID.
+     *
+     * @example public
+     *
      * @var string
      */
     public $group;
     protected $_name = [
         'dataId' => 'DataId',
-        'group'  => 'Group',
+        'group' => 'Group',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
-
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
@@ -40,18 +45,17 @@ class skipData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return skipData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
-
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }

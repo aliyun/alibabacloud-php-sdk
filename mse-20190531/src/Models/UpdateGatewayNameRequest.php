@@ -4,44 +4,56 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateGatewayNameRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
+
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-1cef54brvecdb419fb264d4f9b8c
+     *
      * @var string
      */
     public $gatewayUniqueId;
+
     /**
+     * @description The name of the gateway.
+     *
+     * @example demo-test
+     *
      * @var string
      */
     public $name;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
+        'acceptLanguage' => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
-        'name'            => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -49,22 +61,20 @@ class UpdateGatewayNameRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateGatewayNameRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

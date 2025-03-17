@@ -4,120 +4,142 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsServiceClustersResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsServiceClustersResponseBody\data\appDetail;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsServiceClustersResponseBody\data\clusters;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The information about the associated application for which Microservices Governance is enabled when the Source parameter is set to governance.
+     *
      * @var appDetail
      */
     public $appDetail;
+
     /**
+     * @description The cluster information.
+     *
      * @var clusters[]
      */
     public $clusters;
+
     /**
+     * @description Indicates whether the service is a temporary service. Valid values:
+     *
+     *   `true`: yes
+     *   `false`: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ephemeral;
+
     /**
+     * @description The service group to which the service belongs.
+     *
+     * @example DEFAULT_GROUP
+     *
      * @var string
      */
     public $groupName;
+
     /**
+     * @description The metadata of the service.
+     *
+     * @example 111
+     *
      * @var mixed[]
      */
     public $metadata;
+
     /**
+     * @description The name of the service.
+     *
+     * @example nacos.test.3
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The protection threshold.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $protectThreshold;
+
     /**
+     * @description The election mode.
+     *
+     * @example none
+     *
      * @var string
      */
     public $selectorType;
+
     /**
+     * @description The source type of the service. Valid values:
+     *
+     *   console: The service was registered in the console.
+     *   sdk: The service was registered by using the SDK.
+     *   governance: The service was registered on Microservices Governance.
+     *
+     * @example console
+     *
      * @var string
      */
     public $source;
     protected $_name = [
-        'appDetail'        => 'AppDetail',
-        'clusters'         => 'Clusters',
-        'ephemeral'        => 'Ephemeral',
-        'groupName'        => 'GroupName',
-        'metadata'         => 'Metadata',
-        'name'             => 'Name',
+        'appDetail' => 'AppDetail',
+        'clusters' => 'Clusters',
+        'ephemeral' => 'Ephemeral',
+        'groupName' => 'GroupName',
+        'metadata' => 'Metadata',
+        'name' => 'Name',
         'protectThreshold' => 'ProtectThreshold',
-        'selectorType'     => 'SelectorType',
-        'source'           => 'Source',
+        'selectorType' => 'SelectorType',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->appDetail) {
-            $this->appDetail->validate();
-        }
-        if (\is_array($this->clusters)) {
-            Model::validateArray($this->clusters);
-        }
-        if (\is_array($this->metadata)) {
-            Model::validateArray($this->metadata);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appDetail) {
-            $res['AppDetail'] = null !== $this->appDetail ? $this->appDetail->toArray($noStream) : $this->appDetail;
+            $res['AppDetail'] = null !== $this->appDetail ? $this->appDetail->toMap() : null;
         }
-
         if (null !== $this->clusters) {
-            if (\is_array($this->clusters)) {
-                $res['Clusters'] = [];
-                $n1              = 0;
-                foreach ($this->clusters as $item1) {
-                    $res['Clusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Clusters'] = [];
+            if (null !== $this->clusters && \is_array($this->clusters)) {
+                $n = 0;
+                foreach ($this->clusters as $item) {
+                    $res['Clusters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->ephemeral) {
             $res['Ephemeral'] = $this->ephemeral;
         }
-
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-
         if (null !== $this->metadata) {
-            if (\is_array($this->metadata)) {
-                $res['Metadata'] = [];
-                foreach ($this->metadata as $key1 => $value1) {
-                    $res['Metadata'][$key1] = $value1;
-                }
-            }
+            $res['Metadata'] = $this->metadata;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->protectThreshold) {
             $res['ProtectThreshold'] = $this->protectThreshold;
         }
-
         if (null !== $this->selectorType) {
             $res['SelectorType'] = $this->selectorType;
         }
-
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -125,57 +147,44 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppDetail'])) {
             $model->appDetail = appDetail::fromMap($map['AppDetail']);
         }
-
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
                 $model->clusters = [];
-                $n1              = 0;
-                foreach ($map['Clusters'] as $item1) {
-                    $model->clusters[$n1++] = clusters::fromMap($item1);
+                $n = 0;
+                foreach ($map['Clusters'] as $item) {
+                    $model->clusters[$n++] = null !== $item ? clusters::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Ephemeral'])) {
             $model->ephemeral = $map['Ephemeral'];
         }
-
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-
         if (isset($map['Metadata'])) {
-            if (!empty($map['Metadata'])) {
-                $model->metadata = [];
-                foreach ($map['Metadata'] as $key1 => $value1) {
-                    $model->metadata[$key1] = $value1;
-                }
-            }
+            $model->metadata = $map['Metadata'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ProtectThreshold'])) {
             $model->protectThreshold = $map['ProtectThreshold'];
         }
-
         if (isset($map['SelectorType'])) {
             $model->selectorType = $map['SelectorType'];
         }
-
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }

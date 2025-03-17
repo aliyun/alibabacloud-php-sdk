@@ -4,147 +4,140 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListSentinelBlockFallbackDefinitionsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example spring-cloud-a
+     *
      * @var string
      */
     public $appName;
+
     /**
+     * @description Behavior  detail.
+     *
+     * @example {"webRespStatusCode":429,"webRespMessage":"test","webFallbackMode":0,"webRespContentType":0}
+     *
      * @var mixed[]
      */
     public $fallbackBehavior;
+
     /**
+     * @description Behavior Id
+     *
+     * @example 12
+     *
      * @var string
      */
     public $id;
+
     /**
+     * @description The name of the behavior.
+     *
+     * @example defaultFallback
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The name of the Microservices namespace.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
+
     /**
+     * @description Behavior classification.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $resourceClassification;
+
     /**
+     * @description Resource information bound to the behavior.
+     *
+     * @example {"/params/{hot}":[1]}
+     *
      * @var mixed[]
      */
     public $targetMap;
     protected $_name = [
-        'appName'                => 'AppName',
-        'fallbackBehavior'       => 'FallbackBehavior',
-        'id'                     => 'Id',
-        'name'                   => 'Name',
-        'namespace'              => 'Namespace',
+        'appName' => 'AppName',
+        'fallbackBehavior' => 'FallbackBehavior',
+        'id' => 'Id',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
         'resourceClassification' => 'ResourceClassification',
-        'targetMap'              => 'TargetMap',
+        'targetMap' => 'TargetMap',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->fallbackBehavior)) {
-            Model::validateArray($this->fallbackBehavior);
-        }
-        if (\is_array($this->targetMap)) {
-            Model::validateArray($this->targetMap);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-
         if (null !== $this->fallbackBehavior) {
-            if (\is_array($this->fallbackBehavior)) {
-                $res['FallbackBehavior'] = [];
-                foreach ($this->fallbackBehavior as $key1 => $value1) {
-                    $res['FallbackBehavior'][$key1] = $value1;
-                }
-            }
+            $res['FallbackBehavior'] = $this->fallbackBehavior;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-
         if (null !== $this->resourceClassification) {
             $res['ResourceClassification'] = $this->resourceClassification;
         }
-
         if (null !== $this->targetMap) {
-            if (\is_array($this->targetMap)) {
-                $res['TargetMap'] = [];
-                foreach ($this->targetMap as $key1 => $value1) {
-                    $res['TargetMap'][$key1] = $value1;
-                }
-            }
+            $res['TargetMap'] = $this->targetMap;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-
         if (isset($map['FallbackBehavior'])) {
-            if (!empty($map['FallbackBehavior'])) {
-                $model->fallbackBehavior = [];
-                foreach ($map['FallbackBehavior'] as $key1 => $value1) {
-                    $model->fallbackBehavior[$key1] = $value1;
-                }
-            }
+            $model->fallbackBehavior = $map['FallbackBehavior'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-
         if (isset($map['ResourceClassification'])) {
             $model->resourceClassification = $map['ResourceClassification'];
         }
-
         if (isset($map['TargetMap'])) {
-            if (!empty($map['TargetMap'])) {
-                $model->targetMap = [];
-                foreach ($map['TargetMap'] as $key1 => $value1) {
-                    $model->targetMap[$key1] = $value1;
-                }
-            }
+            $model->targetMap = $map['TargetMap'];
         }
 
         return $model;

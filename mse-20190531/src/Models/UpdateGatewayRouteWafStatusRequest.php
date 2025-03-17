@@ -4,53 +4,69 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateGatewayRouteWafStatusRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
+
     /**
+     * @description Specifies whether to activate Web Application Firewall (WAF).
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableWaf;
+
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-86575c0bc9f04ecfbacb92b8e392****
+     *
      * @var string
      */
     public $gatewayUniqueId;
+
     /**
+     * @description The ID of the route.
+     *
+     * @example 645
+     *
      * @var int
      */
     public $routeId;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
-        'enableWaf'       => 'EnableWaf',
+        'acceptLanguage' => 'AcceptLanguage',
+        'enableWaf' => 'EnableWaf',
         'gatewayUniqueId' => 'GatewayUniqueId',
-        'routeId'         => 'RouteId',
+        'routeId' => 'RouteId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->enableWaf) {
             $res['EnableWaf'] = $this->enableWaf;
         }
-
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
-
         if (null !== $this->routeId) {
             $res['RouteId'] = $this->routeId;
         }
@@ -58,26 +74,23 @@ class UpdateGatewayRouteWafStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateGatewayRouteWafStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['EnableWaf'])) {
             $model->enableWaf = $map['EnableWaf'];
         }
-
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
-
         if (isset($map['RouteId'])) {
             $model->routeId = $map['RouteId'];
         }

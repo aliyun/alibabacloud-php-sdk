@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteOnAuthResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteOnAuthResponseBody\data\routePredicates\pathPredicates;
+use AlibabaCloud\Tea\Model;
 
 class routePredicates extends Model
 {
     /**
+     * @description The information about route matching.
+     *
      * @var pathPredicates
      */
     public $pathPredicates;
@@ -17,29 +19,23 @@ class routePredicates extends Model
         'pathPredicates' => 'PathPredicates',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->pathPredicates) {
-            $this->pathPredicates->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pathPredicates) {
-            $res['PathPredicates'] = null !== $this->pathPredicates ? $this->pathPredicates->toArray($noStream) : $this->pathPredicates;
+            $res['PathPredicates'] = null !== $this->pathPredicates ? $this->pathPredicates->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return routePredicates
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

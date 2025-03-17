@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\QueryConfigResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class nacosRunningEnv extends Model
 {
     /**
+     * @description Indicates whether empty list protection is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $emptyProtect;
@@ -16,12 +20,9 @@ class nacosRunningEnv extends Model
         'emptyProtect' => 'emptyProtect',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->emptyProtect) {
@@ -31,11 +32,11 @@ class nacosRunningEnv extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return nacosRunningEnv
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

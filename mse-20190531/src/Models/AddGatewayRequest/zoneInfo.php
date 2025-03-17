@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class zoneInfo extends Model
 {
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-bp*****
+     *
      * @var string
      */
     public $vSwitchId;
+
     /**
+     * @description The zone ID.
+     *
+     * @example cn-shenzhen-e
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'vSwitchId' => 'VSwitchId',
-        'zoneId'    => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -40,18 +45,17 @@ class zoneInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return zoneInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
