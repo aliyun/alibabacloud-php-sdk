@@ -1,3 +1,9 @@
+2025-03-18 Version: 1.22.1
+- Update API RunSearchGeneration: update param AgentContext.
+- Update API RunSearchSimilarArticles: update param ChatConfig.
+- Update API RunSearchSimilarArticles: update response param.
+
+
 2025-03-13 Version: 1.23.0
 - Support API RunDocWashing.
 - Update API GetHotTopicBroadcast: update param StepForCustomSummaryStyleConfig.

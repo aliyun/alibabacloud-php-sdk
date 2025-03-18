@@ -1,16 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchSimilarArticlesResponseBody\payload\output;
 
@@ -18,6 +8,11 @@ use AlibabaCloud\Tea\Model;
 
 class articles extends Model
 {
+    /**
+     * @var string
+     */
+    public $docId;
+
     /**
      * @example a26c2c1
      *
@@ -63,6 +58,7 @@ class articles extends Model
      */
     public $url;
     protected $_name = [
+        'docId' => 'DocId',
         'docUuid' => 'DocUuid',
         'pubTime' => 'PubTime',
         'searchSourceName' => 'SearchSourceName',
@@ -72,11 +68,14 @@ class articles extends Model
         'url' => 'Url',
     ];
 
-    public function validate(): void {}
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->docId) {
+            $res['DocId'] = $this->docId;
+        }
         if (null !== $this->docUuid) {
             $res['DocUuid'] = $this->docUuid;
         }
@@ -110,6 +109,9 @@ class articles extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DocId'])) {
+            $model->docId = $map['DocId'];
+        }
         if (isset($map['DocUuid'])) {
             $model->docUuid = $map['DocUuid'];
         }
