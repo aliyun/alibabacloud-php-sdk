@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $option;
+
+    /**
      * @example bar
      *
      * @var string
      */
     public $plotType;
+
+    /**
+     * @var bool
+     */
+    public $stack;
 
     /**
      * @var string[]
@@ -25,7 +35,9 @@ class data extends Model
      */
     public $yAxis;
     protected $_name = [
+        'option' => 'option',
         'plotType' => 'plotType',
+        'stack' => 'stack',
         'xAxis' => 'xAxis',
         'yAxis' => 'yAxis',
     ];
@@ -35,8 +47,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->option) {
+            $res['option'] = $this->option;
+        }
         if (null !== $this->plotType) {
             $res['plotType'] = $this->plotType;
+        }
+        if (null !== $this->stack) {
+            $res['stack'] = $this->stack;
         }
         if (null !== $this->xAxis) {
             $res['xAxis'] = $this->xAxis;
@@ -56,8 +74,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['option'])) {
+            $model->option = $map['option'];
+        }
         if (isset($map['plotType'])) {
             $model->plotType = $map['plotType'];
+        }
+        if (isset($map['stack'])) {
+            $model->stack = $map['stack'];
         }
         if (isset($map['xAxis'])) {
             if (!empty($map['xAxis'])) {
