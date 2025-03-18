@@ -11,6 +11,8 @@ class SetUserPrimaryOrganizationalUnitHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Bearer xxxx
      *
      * @var string
@@ -20,9 +22,7 @@ class SetUserPrimaryOrganizationalUnitHeaders extends Model
         'authorization' => 'Authorization',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

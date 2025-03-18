@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class organizationalUnits extends Model
 {
     /**
+     * @description The ID of the organizational unit.
+     *
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class organizationalUnits extends Model
     public $organizationalUnitId;
 
     /**
+     * @description The name of the organizational unit.
+     *
      * @example name001
      *
      * @var string
@@ -23,20 +27,20 @@ class organizationalUnits extends Model
     public $organizationalUnitName;
 
     /**
+     * @description Indicates whether the organizational unit is the primary organizational unit.
+     *
      * @example true
      *
      * @var bool
      */
     public $primary;
     protected $_name = [
-        'organizationalUnitId'   => 'organizationalUnitId',
+        'organizationalUnitId' => 'organizationalUnitId',
         'organizationalUnitName' => 'organizationalUnitName',
-        'primary'                => 'primary',
+        'primary' => 'primary',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

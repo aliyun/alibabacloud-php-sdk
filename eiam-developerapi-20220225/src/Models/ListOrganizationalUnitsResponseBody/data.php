@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the organizational unit was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1652083425923
      *
      * @var int
@@ -16,13 +18,17 @@ class data extends Model
     public $createTime;
 
     /**
-     * @example xxxxx
+     * @description The description of the organizational unit.
+     *
+     * @example test organizational unit
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The instance ID.
+     *
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -30,6 +36,10 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The external ID of the organizational unit. The external ID can be used to map external data to the data of the organizational unit in EIAM of Identity as a Service (IDaaS). By default, the external ID is the organizational unit ID.
+     *
+     * Note: For organizational units with the same source type and source ID, each organizational unit has a unique external ID.
+     *
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string
@@ -37,6 +47,8 @@ class data extends Model
     public $organizationalUnitExternalId;
 
     /**
+     * @description The ID of the organizational unit.
+     *
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string
@@ -44,6 +56,8 @@ class data extends Model
     public $organizationalUnitId;
 
     /**
+     * @description The name of the organizational unit.
+     *
      * @example name001
      *
      * @var string
@@ -51,6 +65,10 @@ class data extends Model
     public $organizationalUnitName;
 
     /**
+     * @description The source ID of the organizational unit.
+     *
+     * If the organizational unit was created in IDaaS, its source ID is the ID of the IDaaS instance. If the organizational unit was imported, its source ID is the enterprise ID in the source. For example, if the organizational unit was imported from DingTalk, its source ID is the corpId value of the enterprise in DingTalk.
+     *
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -58,6 +76,13 @@ class data extends Model
     public $organizationalUnitSourceId;
 
     /**
+     * @description The source type of the organizational unit. Valid values:
+     *
+     *   build_in: The organizational unit was created in IDaaS.
+     *   ding_talk: The organizational unit was imported from DingTalk.
+     *   ad: The organizational unit was imported from Microsoft Active Directory (AD).
+     *   ldap: The organizational unit was imported from a Lightweight Directory Access Protocol (LDAP) service.
+     *
      * @example build_in
      *
      * @var string
@@ -65,6 +90,8 @@ class data extends Model
     public $organizationalUnitSourceType;
 
     /**
+     * @description The ID of the parent organizational unit.
+     *
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string
@@ -72,27 +99,27 @@ class data extends Model
     public $parentId;
 
     /**
+     * @description The time when the organizational unit was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1652083425923
      *
      * @var int
      */
     public $updateTime;
     protected $_name = [
-        'createTime'                   => 'createTime',
-        'description'                  => 'description',
-        'instanceId'                   => 'instanceId',
+        'createTime' => 'createTime',
+        'description' => 'description',
+        'instanceId' => 'instanceId',
         'organizationalUnitExternalId' => 'organizationalUnitExternalId',
-        'organizationalUnitId'         => 'organizationalUnitId',
-        'organizationalUnitName'       => 'organizationalUnitName',
-        'organizationalUnitSourceId'   => 'organizationalUnitSourceId',
+        'organizationalUnitId' => 'organizationalUnitId',
+        'organizationalUnitName' => 'organizationalUnitName',
+        'organizationalUnitSourceId' => 'organizationalUnitSourceId',
         'organizationalUnitSourceType' => 'organizationalUnitSourceType',
-        'parentId'                     => 'parentId',
-        'updateTime'                   => 'updateTime',
+        'parentId' => 'parentId',
+        'updateTime' => 'updateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

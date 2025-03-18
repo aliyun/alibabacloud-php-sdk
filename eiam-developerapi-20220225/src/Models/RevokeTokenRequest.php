@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RevokeTokenRequest extends Model
 {
     /**
+     * @description The client ID.
+     *
      * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class RevokeTokenRequest extends Model
     public $clientId;
 
     /**
+     * @description The client secret.
+     *
      * @example CSEHDcHcrUKHw1CuxkJEHPveWRXBGqVqRsxxxx
      *
      * @var string
@@ -23,6 +27,10 @@ class RevokeTokenRequest extends Model
     public $clientSecret;
 
     /**
+     * @description The token to be revoked.
+     *
+     * This parameter is required.
+     *
      * @example ATxxxx
      *
      * @var string
@@ -30,21 +38,21 @@ class RevokeTokenRequest extends Model
     public $token;
 
     /**
+     * @description The type of the token. Valid values: access_token refresh_token
+     *
      * @example access_token
      *
      * @var string
      */
     public $tokenTypeHint;
     protected $_name = [
-        'clientId'      => 'client_id',
-        'clientSecret'  => 'client_secret',
-        'token'         => 'token',
+        'clientId' => 'client_id',
+        'clientSecret' => 'client_secret',
+        'token' => 'token',
         'tokenTypeHint' => 'token_type_hint',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

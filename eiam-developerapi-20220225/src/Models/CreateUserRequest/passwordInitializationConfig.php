@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class passwordInitializationConfig extends Model
 {
     /**
+     * @description Password  forced update
+     *
      * @example enabled
      *
      * @var string
@@ -16,6 +18,8 @@ class passwordInitializationConfig extends Model
     public $passwordForcedUpdateStatus;
 
     /**
+     * @description Password policy
+     *
      * @example global
      *
      * @var string
@@ -23,6 +27,8 @@ class passwordInitializationConfig extends Model
     public $passwordInitializationPolicyPriority;
 
     /**
+     * @description Password Initialization Type
+     *
      * @example random
      *
      * @var string
@@ -30,21 +36,21 @@ class passwordInitializationConfig extends Model
     public $passwordInitializationType;
 
     /**
+     * @description User Notification Channels
+     *
      * @example sms
      *
      * @var string[]
      */
     public $userNotificationChannels;
     protected $_name = [
-        'passwordForcedUpdateStatus'           => 'passwordForcedUpdateStatus',
+        'passwordForcedUpdateStatus' => 'passwordForcedUpdateStatus',
         'passwordInitializationPolicyPriority' => 'passwordInitializationPolicyPriority',
-        'passwordInitializationType'           => 'passwordInitializationType',
-        'userNotificationChannels'             => 'userNotificationChannels',
+        'passwordInitializationType' => 'passwordInitializationType',
+        'userNotificationChannels' => 'userNotificationChannels',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

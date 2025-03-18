@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customFields extends Model
 {
     /**
+     * @description Field name
+     *
      * @example age
      *
      * @var string
@@ -16,19 +18,19 @@ class customFields extends Model
     public $fieldName;
 
     /**
+     * @description Filed value
+     *
      * @example fieldValue_001
      *
      * @var string
      */
     public $fieldValue;
     protected $_name = [
-        'fieldName'  => 'fieldName',
+        'fieldName' => 'fieldName',
         'fieldValue' => 'fieldValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

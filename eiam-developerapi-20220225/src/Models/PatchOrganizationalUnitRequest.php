@@ -9,26 +9,28 @@ use AlibabaCloud\Tea\Model;
 class PatchOrganizationalUnitRequest extends Model
 {
     /**
-     * @example 机构描述
+     * @description The description of the organizational unit.
+     *
+     * @example test organizational unit
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the organizational unit.
+     *
      * @example name001
      *
      * @var string
      */
     public $organizationalUnitName;
     protected $_name = [
-        'description'            => 'description',
+        'description' => 'description',
         'organizationalUnitName' => 'organizationalUnitName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

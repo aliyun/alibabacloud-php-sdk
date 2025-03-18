@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListUsersRequest extends Model
 {
     /**
+     * @description The ID of the organizational unit.
+     *
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class ListUsersRequest extends Model
     public $organizationalUnitId;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListUsersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20. Valid values: 1 to 100.
+     *
      * @example 20
      *
      * @var int
@@ -30,13 +36,11 @@ class ListUsersRequest extends Model
     public $pageSize;
     protected $_name = [
         'organizationalUnitId' => 'organizationalUnitId',
-        'pageNumber'           => 'pageNumber',
-        'pageSize'             => 'pageSize',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

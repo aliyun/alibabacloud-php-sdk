@@ -6,15 +6,23 @@ namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\AddUsersToGroupHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\AddUsersToGroupRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\AddUsersToGroupResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\AddUserToOrganizationalUnitsHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\AddUserToOrganizationalUnitsRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\AddUserToOrganizationalUnitsResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateGroupHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateGroupRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateGroupResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateOrganizationalUnitHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateUserHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateUserResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\DeleteGroupHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\DeleteGroupResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\DeleteOrganizationalUnitHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\DeleteOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\DeleteUserHeaders;
@@ -29,6 +37,8 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateTokenRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GenerateTokenResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetApplicationProvisioningScopeHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetApplicationProvisioningScopeResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetGroupHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetGroupResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOrganizationalUnitHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOrganizationalUnitIdByExternalIdHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetOrganizationalUnitIdByExternalIdRequest;
@@ -50,14 +60,26 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserIdByUsernameRespon
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserInfoHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserInfoResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListGroupsForUserHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListGroupsForUserRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListGroupsForUserResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListGroupsHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListGroupsRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListGroupsResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListOrganizationalUnitParentIdsHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListOrganizationalUnitParentIdsResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListOrganizationalUnitsHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListOrganizationalUnitsRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListOrganizationalUnitsResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListUsersForGroupHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListUsersForGroupRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListUsersForGroupResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListUsersHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\ListUsersResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchGroupResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchOrganizationalUnitHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchOrganizationalUnitResponse;
@@ -67,6 +89,9 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchUserResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUserFromOrganizationalUnitsHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUserFromOrganizationalUnitsRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUserFromOrganizationalUnitsResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUsersFromGroupHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUsersFromGroupRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUsersFromGroupResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RevokeTokenRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RevokeTokenResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\SetUserPrimaryOrganizationalUnitHeaders;
@@ -87,7 +112,7 @@ class Eiamdeveloperapi extends OpenApiClient
     {
         parent::__construct($config);
         $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = '';
+        $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eiam-developerapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -116,14 +141,16 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary 将账户加入多个组织
+     *  *
      * @param string                              $instanceId
      * @param string                              $applicationId
      * @param string                              $userId
-     * @param AddUserToOrganizationalUnitsRequest $request
-     * @param AddUserToOrganizationalUnitsHeaders $headers
-     * @param RuntimeOptions                      $runtime
+     * @param AddUserToOrganizationalUnitsRequest $request       AddUserToOrganizationalUnitsRequest
+     * @param AddUserToOrganizationalUnitsHeaders $headers       AddUserToOrganizationalUnitsHeaders
+     * @param RuntimeOptions                      $runtime       runtime options for this request RuntimeOptions
      *
-     * @return AddUserToOrganizationalUnitsResponse
+     * @return AddUserToOrganizationalUnitsResponse AddUserToOrganizationalUnitsResponse
      */
     public function addUserToOrganizationalUnitsWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime)
     {
@@ -141,30 +168,35 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddUserToOrganizationalUnits',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/addUserToOrganizationalUnits',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'AddUserToOrganizationalUnits',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/addUserToOrganizationalUnits',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddUserToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddUserToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddUserToOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary 将账户加入多个组织
+     *  *
      * @param string                              $instanceId
      * @param string                              $applicationId
      * @param string                              $userId
-     * @param AddUserToOrganizationalUnitsRequest $request
+     * @param AddUserToOrganizationalUnitsRequest $request       AddUserToOrganizationalUnitsRequest
      *
-     * @return AddUserToOrganizationalUnitsResponse
+     * @return AddUserToOrganizationalUnitsResponse AddUserToOrganizationalUnitsResponse
      */
     public function addUserToOrganizationalUnits($instanceId, $applicationId, $userId, $request)
     {
@@ -175,13 +207,148 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary 为指定组批量关联账户
+     *  *
+     * @param string                 $instanceId
+     * @param string                 $applicationId
+     * @param string                 $groupId
+     * @param AddUsersToGroupRequest $request       AddUsersToGroupRequest
+     * @param AddUsersToGroupHeaders $headers       AddUsersToGroupHeaders
+     * @param RuntimeOptions         $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return AddUsersToGroupResponse AddUsersToGroupResponse
+     */
+    public function addUsersToGroupWithOptions($instanceId, $applicationId, $groupId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->userIds)) {
+            $body['userIds'] = $request->userIds;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddUsersToGroup',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/actions/addUsersToGroup',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddUsersToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return AddUsersToGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 为指定组批量关联账户
+     *  *
+     * @param string                 $instanceId
+     * @param string                 $applicationId
+     * @param string                 $groupId
+     * @param AddUsersToGroupRequest $request       AddUsersToGroupRequest
+     *
+     * @return AddUsersToGroupResponse AddUsersToGroupResponse
+     */
+    public function addUsersToGroup($instanceId, $applicationId, $groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddUsersToGroupHeaders([]);
+
+        return $this->addUsersToGroupWithOptions($instanceId, $applicationId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建一个EIAM组
+     *  *
+     * @param string             $instanceId
+     * @param string             $applicationId
+     * @param CreateGroupRequest $request       CreateGroupRequest
+     * @param CreateGroupHeaders $headers       CreateGroupHeaders
+     * @param RuntimeOptions     $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return CreateGroupResponse CreateGroupResponse
+     */
+    public function createGroupWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupExternalId)) {
+            $body['groupExternalId'] = $request->groupExternalId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $body['groupName'] = $request->groupName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGroup',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/groups',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建一个EIAM组
+     *  *
+     * @param string             $instanceId
+     * @param string             $applicationId
+     * @param CreateGroupRequest $request       CreateGroupRequest
+     *
+     * @return CreateGroupResponse CreateGroupResponse
+     */
+    public function createGroup($instanceId, $applicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateGroupHeaders([]);
+
+        return $this->createGroupWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Creates an organizational unit.
+     *  *
      * @param string                          $instanceId
      * @param string                          $applicationId
-     * @param CreateOrganizationalUnitRequest $request
-     * @param CreateOrganizationalUnitHeaders $headers
-     * @param RuntimeOptions                  $runtime
+     * @param CreateOrganizationalUnitRequest $request       CreateOrganizationalUnitRequest
+     * @param CreateOrganizationalUnitHeaders $headers       CreateOrganizationalUnitHeaders
+     * @param RuntimeOptions                  $runtime       runtime options for this request RuntimeOptions
      *
-     * @return CreateOrganizationalUnitResponse
+     * @return CreateOrganizationalUnitResponse CreateOrganizationalUnitResponse
      */
     public function createOrganizationalUnitWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
@@ -208,29 +375,34 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateOrganizationalUnit',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'CreateOrganizationalUnit',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Creates an organizational unit.
+     *  *
      * @param string                          $instanceId
      * @param string                          $applicationId
-     * @param CreateOrganizationalUnitRequest $request
+     * @param CreateOrganizationalUnitRequest $request       CreateOrganizationalUnitRequest
      *
-     * @return CreateOrganizationalUnitResponse
+     * @return CreateOrganizationalUnitResponse CreateOrganizationalUnitResponse
      */
     public function createOrganizationalUnit($instanceId, $applicationId, $request)
     {
@@ -241,13 +413,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Creates an Employee Identity and Access Management (EIAM) account in an organizational unit.
+     *  *
      * @param string            $instanceId
      * @param string            $applicationId
-     * @param CreateUserRequest $request
-     * @param CreateUserHeaders $headers
-     * @param RuntimeOptions    $runtime
+     * @param CreateUserRequest $request       CreateUserRequest
+     * @param CreateUserHeaders $headers       CreateUserHeaders
+     * @param RuntimeOptions    $runtime       runtime options for this request RuntimeOptions
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUserWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
@@ -301,29 +475,34 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateUser',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'CreateUser',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Creates an Employee Identity and Access Management (EIAM) account in an organizational unit.
+     *  *
      * @param string            $instanceId
      * @param string            $applicationId
-     * @param CreateUserRequest $request
+     * @param CreateUserRequest $request       CreateUserRequest
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUser($instanceId, $applicationId, $request)
     {
@@ -334,13 +513,73 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary 删除指定组
+     *  *
+     * @param string             $instanceId
+     * @param string             $applicationId
+     * @param string             $groupId
+     * @param DeleteGroupHeaders $headers       DeleteGroupHeaders
+     * @param RuntimeOptions     $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return DeleteGroupResponse DeleteGroupResponse
+     */
+    public function deleteGroupWithOptions($instanceId, $applicationId, $groupId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteGroup',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
+            'method' => 'DELETE',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除指定组
+     *  *
+     * @param string $instanceId
+     * @param string $applicationId
+     * @param string $groupId
+     *
+     * @return DeleteGroupResponse DeleteGroupResponse
+     */
+    public function deleteGroup($instanceId, $applicationId, $groupId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteGroupHeaders([]);
+
+        return $this->deleteGroupWithOptions($instanceId, $applicationId, $groupId, $headers, $runtime);
+    }
+
+    /**
+     * @summary Deletes an organizational unit.
+     *  *
      * @param string                          $instanceId
      * @param string                          $applicationId
      * @param string                          $organizationalUnitId
-     * @param DeleteOrganizationalUnitHeaders $headers
-     * @param RuntimeOptions                  $runtime
+     * @param DeleteOrganizationalUnitHeaders $headers              DeleteOrganizationalUnitHeaders
+     * @param RuntimeOptions                  $runtime              runtime options for this request RuntimeOptions
      *
-     * @return DeleteOrganizationalUnitResponse
+     * @return DeleteOrganizationalUnitResponse DeleteOrganizationalUnitResponse
      */
     public function deleteOrganizationalUnitWithOptions($instanceId, $applicationId, $organizationalUnitId, $headers, $runtime)
     {
@@ -355,26 +594,31 @@ class Eiamdeveloperapi extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteOrganizationalUnit',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/' . OpenApiUtilClient::getEncodeParam($organizationalUnitId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'DeleteOrganizationalUnit',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/' . OpenApiUtilClient::getEncodeParam($organizationalUnitId) . '',
+            'method' => 'DELETE',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Deletes an organizational unit.
+     *  *
      * @param string $instanceId
      * @param string $applicationId
      * @param string $organizationalUnitId
      *
-     * @return DeleteOrganizationalUnitResponse
+     * @return DeleteOrganizationalUnitResponse DeleteOrganizationalUnitResponse
      */
     public function deleteOrganizationalUnit($instanceId, $applicationId, $organizationalUnitId)
     {
@@ -385,13 +629,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Deletes an Employee Identity and Access Management (EIAM) account.
+     *  *
      * @param string            $instanceId
      * @param string            $applicationId
      * @param string            $userId
-     * @param DeleteUserHeaders $headers
-     * @param RuntimeOptions    $runtime
+     * @param DeleteUserHeaders $headers       DeleteUserHeaders
+     * @param RuntimeOptions    $runtime       runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime)
     {
@@ -406,26 +652,31 @@ class Eiamdeveloperapi extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DeleteUser',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'DeleteUser',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '',
+            'method' => 'DELETE',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Deletes an Employee Identity and Access Management (EIAM) account.
+     *  *
      * @param string $instanceId
      * @param string $applicationId
      * @param string $userId
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($instanceId, $applicationId, $userId)
     {
@@ -436,13 +687,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Disables an Employee Identity and Access Management (EIAM) account.
+     *  *
      * @param string             $instanceId
      * @param string             $applicationId
      * @param string             $userId
-     * @param DisableUserHeaders $headers
-     * @param RuntimeOptions     $runtime
+     * @param DisableUserHeaders $headers       DisableUserHeaders
+     * @param RuntimeOptions     $runtime       runtime options for this request RuntimeOptions
      *
-     * @return DisableUserResponse
+     * @return DisableUserResponse DisableUserResponse
      */
     public function disableUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime)
     {
@@ -457,26 +710,31 @@ class Eiamdeveloperapi extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'DisableUser',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/disable',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'DisableUser',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/disable',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DisableUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Disables an Employee Identity and Access Management (EIAM) account.
+     *  *
      * @param string $instanceId
      * @param string $applicationId
      * @param string $userId
      *
-     * @return DisableUserResponse
+     * @return DisableUserResponse DisableUserResponse
      */
     public function disableUser($instanceId, $applicationId, $userId)
     {
@@ -487,13 +745,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Enables an Employee Identity and Access Management (EIAM) account.
+     *  *
      * @param string            $instanceId
      * @param string            $applicationId
      * @param string            $userId
-     * @param EnableUserHeaders $headers
-     * @param RuntimeOptions    $runtime
+     * @param EnableUserHeaders $headers       EnableUserHeaders
+     * @param RuntimeOptions    $runtime       runtime options for this request RuntimeOptions
      *
-     * @return EnableUserResponse
+     * @return EnableUserResponse EnableUserResponse
      */
     public function enableUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime)
     {
@@ -508,26 +768,31 @@ class Eiamdeveloperapi extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'EnableUser',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/enable',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'EnableUser',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/enable',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EnableUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Enables an Employee Identity and Access Management (EIAM) account.
+     *  *
      * @param string $instanceId
      * @param string $applicationId
      * @param string $userId
      *
-     * @return EnableUserResponse
+     * @return EnableUserResponse EnableUserResponse
      */
     public function enableUser($instanceId, $applicationId, $userId)
     {
@@ -538,13 +803,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Generates a device code.
+     *  *
      * @param string                    $instanceId
      * @param string                    $applicationId
-     * @param GenerateDeviceCodeRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param GenerateDeviceCodeRequest $request       GenerateDeviceCodeRequest
+     * @param string[]                  $headers       map
+     * @param RuntimeOptions            $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GenerateDeviceCodeResponse
+     * @return GenerateDeviceCodeResponse GenerateDeviceCodeResponse
      */
     public function generateDeviceCodeWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
@@ -555,29 +822,34 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateDeviceCode',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/oauth2/device/code',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'GenerateDeviceCode',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/oauth2/device/code',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GenerateDeviceCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateDeviceCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateDeviceCodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Generates a device code.
+     *  *
      * @param string                    $instanceId
      * @param string                    $applicationId
-     * @param GenerateDeviceCodeRequest $request
+     * @param GenerateDeviceCodeRequest $request       GenerateDeviceCodeRequest
      *
-     * @return GenerateDeviceCodeResponse
+     * @return GenerateDeviceCodeResponse GenerateDeviceCodeResponse
      */
     public function generateDeviceCode($instanceId, $applicationId, $request)
     {
@@ -588,13 +860,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Generates a token for accessing an application in an instance.
+     *  *
+     * @description >
+     * *   The following authorization types are supported: authorization code, device code, refresh token, and client credentials.
+     *  *
      * @param string               $instanceId
      * @param string               $applicationId
-     * @param GenerateTokenRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param GenerateTokenRequest $request       GenerateTokenRequest
+     * @param string[]             $headers       map
+     * @param RuntimeOptions       $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GenerateTokenResponse
+     * @return GenerateTokenResponse GenerateTokenResponse
      */
     public function generateTokenWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
@@ -638,29 +915,37 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateToken',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/oauth2/token',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'GenerateToken',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/oauth2/token',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GenerateTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Generates a token for accessing an application in an instance.
+     *  *
+     * @description >
+     * *   The following authorization types are supported: authorization code, device code, refresh token, and client credentials.
+     *  *
      * @param string               $instanceId
      * @param string               $applicationId
-     * @param GenerateTokenRequest $request
+     * @param GenerateTokenRequest $request       GenerateTokenRequest
      *
-     * @return GenerateTokenResponse
+     * @return GenerateTokenResponse GenerateTokenResponse
      */
     public function generateToken($instanceId, $applicationId, $request)
     {
@@ -671,12 +956,17 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the synchronization scope of an application in an instance.
+     *  *
+     * @description >
+     * *   You can go to the Applications page in the IDaaS console to set the synchronization scope. After an application is created, the application has the permission to call this operation by default.
+     *  *
      * @param string                                 $instanceId
      * @param string                                 $applicationId
-     * @param GetApplicationProvisioningScopeHeaders $headers
-     * @param RuntimeOptions                         $runtime
+     * @param GetApplicationProvisioningScopeHeaders $headers       GetApplicationProvisioningScopeHeaders
+     * @param RuntimeOptions                         $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetApplicationProvisioningScopeResponse
+     * @return GetApplicationProvisioningScopeResponse GetApplicationProvisioningScopeResponse
      */
     public function getApplicationProvisioningScopeWithOptions($instanceId, $applicationId, $headers, $runtime)
     {
@@ -691,25 +981,33 @@ class Eiamdeveloperapi extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetApplicationProvisioningScope',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/provisioningScope',
-            'method'      => 'GET',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'GetApplicationProvisioningScope',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/provisioningScope',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetApplicationProvisioningScopeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Queries the synchronization scope of an application in an instance.
+     *  *
+     * @description >
+     * *   You can go to the Applications page in the IDaaS console to set the synchronization scope. After an application is created, the application has the permission to call this operation by default.
+     *  *
      * @param string $instanceId
      * @param string $applicationId
      *
-     * @return GetApplicationProvisioningScopeResponse
+     * @return GetApplicationProvisioningScopeResponse GetApplicationProvisioningScopeResponse
      */
     public function getApplicationProvisioningScope($instanceId, $applicationId)
     {
@@ -720,13 +1018,73 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary 查询一个EIAM组信息
+     *  *
+     * @param string          $instanceId
+     * @param string          $applicationId
+     * @param string          $groupId
+     * @param GetGroupHeaders $headers       GetGroupHeaders
+     * @param RuntimeOptions  $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return GetGroupResponse GetGroupResponse
+     */
+    public function getGroupWithOptions($instanceId, $applicationId, $groupId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action' => 'GetGroup',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询一个EIAM组信息
+     *  *
+     * @param string $instanceId
+     * @param string $applicationId
+     * @param string $groupId
+     *
+     * @return GetGroupResponse GetGroupResponse
+     */
+    public function getGroup($instanceId, $applicationId, $groupId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetGroupHeaders([]);
+
+        return $this->getGroupWithOptions($instanceId, $applicationId, $groupId, $headers, $runtime);
+    }
+
+    /**
+     * @summary Queries the information of an organizational unit.
+     *  *
      * @param string                       $instanceId
      * @param string                       $applicationId
      * @param string                       $organizationalUnitId
-     * @param GetOrganizationalUnitHeaders $headers
-     * @param RuntimeOptions               $runtime
+     * @param GetOrganizationalUnitHeaders $headers              GetOrganizationalUnitHeaders
+     * @param RuntimeOptions               $runtime              runtime options for this request RuntimeOptions
      *
-     * @return GetOrganizationalUnitResponse
+     * @return GetOrganizationalUnitResponse GetOrganizationalUnitResponse
      */
     public function getOrganizationalUnitWithOptions($instanceId, $applicationId, $organizationalUnitId, $headers, $runtime)
     {
@@ -741,26 +1099,31 @@ class Eiamdeveloperapi extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetOrganizationalUnit',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/' . OpenApiUtilClient::getEncodeParam($organizationalUnitId) . '',
-            'method'      => 'GET',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'GetOrganizationalUnit',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/' . OpenApiUtilClient::getEncodeParam($organizationalUnitId) . '',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Queries the information of an organizational unit.
+     *  *
      * @param string $instanceId
      * @param string $applicationId
      * @param string $organizationalUnitId
      *
-     * @return GetOrganizationalUnitResponse
+     * @return GetOrganizationalUnitResponse GetOrganizationalUnitResponse
      */
     public function getOrganizationalUnit($instanceId, $applicationId, $organizationalUnitId)
     {
@@ -771,13 +1134,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Obtains the ID of an organizational unit based on the external ID
+     *  *
      * @param string                                     $instanceId
      * @param string                                     $applicationId
-     * @param GetOrganizationalUnitIdByExternalIdRequest $request
-     * @param GetOrganizationalUnitIdByExternalIdHeaders $headers
-     * @param RuntimeOptions                             $runtime
+     * @param GetOrganizationalUnitIdByExternalIdRequest $request       GetOrganizationalUnitIdByExternalIdRequest
+     * @param GetOrganizationalUnitIdByExternalIdHeaders $headers       GetOrganizationalUnitIdByExternalIdHeaders
+     * @param RuntimeOptions                             $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetOrganizationalUnitIdByExternalIdResponse
+     * @return GetOrganizationalUnitIdByExternalIdResponse GetOrganizationalUnitIdByExternalIdResponse
      */
     public function getOrganizationalUnitIdByExternalIdWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
@@ -801,29 +1166,34 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetOrganizationalUnitIdByExternalId',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/_/actions/getOrganizationalUnitIdByExternalId',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'GetOrganizationalUnitIdByExternalId',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/_/actions/getOrganizationalUnitIdByExternalId',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetOrganizationalUnitIdByExternalIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOrganizationalUnitIdByExternalIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOrganizationalUnitIdByExternalIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Obtains the ID of an organizational unit based on the external ID
+     *  *
      * @param string                                     $instanceId
      * @param string                                     $applicationId
-     * @param GetOrganizationalUnitIdByExternalIdRequest $request
+     * @param GetOrganizationalUnitIdByExternalIdRequest $request       GetOrganizationalUnitIdByExternalIdRequest
      *
-     * @return GetOrganizationalUnitIdByExternalIdResponse
+     * @return GetOrganizationalUnitIdByExternalIdResponse GetOrganizationalUnitIdByExternalIdResponse
      */
     public function getOrganizationalUnitIdByExternalId($instanceId, $applicationId, $request)
     {
@@ -834,13 +1204,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information of an Employee Identity and Access Management (EIAM) account.
+     *  *
      * @param string         $instanceId
      * @param string         $applicationId
      * @param string         $userId
-     * @param GetUserHeaders $headers
-     * @param RuntimeOptions $runtime
+     * @param GetUserHeaders $headers       GetUserHeaders
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime)
     {
@@ -855,26 +1227,31 @@ class Eiamdeveloperapi extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetUser',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '',
-            'method'      => 'GET',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'GetUser',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Queries the information of an Employee Identity and Access Management (EIAM) account.
+     *  *
      * @param string $instanceId
      * @param string $applicationId
      * @param string $userId
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUser($instanceId, $applicationId, $userId)
     {
@@ -885,13 +1262,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the ID of an Employee Identity and Access Management (EIAM) account by email address.
+     *  *
      * @param string                  $instanceId
      * @param string                  $applicationId
-     * @param GetUserIdByEmailRequest $request
-     * @param GetUserIdByEmailHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @param GetUserIdByEmailRequest $request       GetUserIdByEmailRequest
+     * @param GetUserIdByEmailHeaders $headers       GetUserIdByEmailHeaders
+     * @param RuntimeOptions          $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetUserIdByEmailResponse
+     * @return GetUserIdByEmailResponse GetUserIdByEmailResponse
      */
     public function getUserIdByEmailWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
@@ -909,29 +1288,34 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUserIdByEmail',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/_/actions/getUserIdByEmail',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'GetUserIdByEmail',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/_/actions/getUserIdByEmail',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUserIdByEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserIdByEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserIdByEmailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Queries the ID of an Employee Identity and Access Management (EIAM) account by email address.
+     *  *
      * @param string                  $instanceId
      * @param string                  $applicationId
-     * @param GetUserIdByEmailRequest $request
+     * @param GetUserIdByEmailRequest $request       GetUserIdByEmailRequest
      *
-     * @return GetUserIdByEmailResponse
+     * @return GetUserIdByEmailResponse GetUserIdByEmailResponse
      */
     public function getUserIdByEmail($instanceId, $applicationId, $request)
     {
@@ -942,13 +1326,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the ID of an Employee Identity and Access Management (EIAM) account based on the mobile number.
+     *  *
      * @param string                        $instanceId
      * @param string                        $applicationId
-     * @param GetUserIdByPhoneNumberRequest $request
-     * @param GetUserIdByPhoneNumberHeaders $headers
-     * @param RuntimeOptions                $runtime
+     * @param GetUserIdByPhoneNumberRequest $request       GetUserIdByPhoneNumberRequest
+     * @param GetUserIdByPhoneNumberHeaders $headers       GetUserIdByPhoneNumberHeaders
+     * @param RuntimeOptions                $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetUserIdByPhoneNumberResponse
+     * @return GetUserIdByPhoneNumberResponse GetUserIdByPhoneNumberResponse
      */
     public function getUserIdByPhoneNumberWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
@@ -966,29 +1352,34 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUserIdByPhoneNumber',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/_/actions/getUserIdByPhoneNumber',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'GetUserIdByPhoneNumber',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/_/actions/getUserIdByPhoneNumber',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUserIdByPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserIdByPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserIdByPhoneNumberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Queries the ID of an Employee Identity and Access Management (EIAM) account based on the mobile number.
+     *  *
      * @param string                        $instanceId
      * @param string                        $applicationId
-     * @param GetUserIdByPhoneNumberRequest $request
+     * @param GetUserIdByPhoneNumberRequest $request       GetUserIdByPhoneNumberRequest
      *
-     * @return GetUserIdByPhoneNumberResponse
+     * @return GetUserIdByPhoneNumberResponse GetUserIdByPhoneNumberResponse
      */
     public function getUserIdByPhoneNumber($instanceId, $applicationId, $request)
     {
@@ -999,13 +1390,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the ID of an Employee Identity and Access Management (EIAM) account based on the external ID.
+     *  *
      * @param string                           $instanceId
      * @param string                           $applicationId
-     * @param GetUserIdByUserExternalIdRequest $request
-     * @param GetUserIdByUserExternalIdHeaders $headers
-     * @param RuntimeOptions                   $runtime
+     * @param GetUserIdByUserExternalIdRequest $request       GetUserIdByUserExternalIdRequest
+     * @param GetUserIdByUserExternalIdHeaders $headers       GetUserIdByUserExternalIdHeaders
+     * @param RuntimeOptions                   $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetUserIdByUserExternalIdResponse
+     * @return GetUserIdByUserExternalIdResponse GetUserIdByUserExternalIdResponse
      */
     public function getUserIdByUserExternalIdWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
@@ -1029,29 +1422,34 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUserIdByUserExternalId',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/_/actions/getUserIdByExternalId',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'GetUserIdByUserExternalId',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/_/actions/getUserIdByExternalId',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUserIdByUserExternalIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserIdByUserExternalIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserIdByUserExternalIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Queries the ID of an Employee Identity and Access Management (EIAM) account based on the external ID.
+     *  *
      * @param string                           $instanceId
      * @param string                           $applicationId
-     * @param GetUserIdByUserExternalIdRequest $request
+     * @param GetUserIdByUserExternalIdRequest $request       GetUserIdByUserExternalIdRequest
      *
-     * @return GetUserIdByUserExternalIdResponse
+     * @return GetUserIdByUserExternalIdResponse GetUserIdByUserExternalIdResponse
      */
     public function getUserIdByUserExternalId($instanceId, $applicationId, $request)
     {
@@ -1062,13 +1460,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the ID of an Employee Identity and Access Management (EIAM) account based on the username.
+     *  *
      * @param string                     $instanceId
      * @param string                     $applicationId
-     * @param GetUserIdByUsernameRequest $request
-     * @param GetUserIdByUsernameHeaders $headers
-     * @param RuntimeOptions             $runtime
+     * @param GetUserIdByUsernameRequest $request       GetUserIdByUsernameRequest
+     * @param GetUserIdByUsernameHeaders $headers       GetUserIdByUsernameHeaders
+     * @param RuntimeOptions             $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetUserIdByUsernameResponse
+     * @return GetUserIdByUsernameResponse GetUserIdByUsernameResponse
      */
     public function getUserIdByUsernameWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
@@ -1086,29 +1486,34 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUserIdByUsername',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/_/actions/getUserIdByUsername',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'GetUserIdByUsername',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/_/actions/getUserIdByUsername',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUserIdByUsernameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserIdByUsernameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserIdByUsernameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Queries the ID of an Employee Identity and Access Management (EIAM) account based on the username.
+     *  *
      * @param string                     $instanceId
      * @param string                     $applicationId
-     * @param GetUserIdByUsernameRequest $request
+     * @param GetUserIdByUsernameRequest $request       GetUserIdByUsernameRequest
      *
-     * @return GetUserIdByUsernameResponse
+     * @return GetUserIdByUsernameResponse GetUserIdByUsernameResponse
      */
     public function getUserIdByUsername($instanceId, $applicationId, $request)
     {
@@ -1119,12 +1524,14 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information of a user by using the user token.
+     *  *
      * @param string             $instanceId
      * @param string             $applicationId
-     * @param GetUserInfoHeaders $headers
-     * @param RuntimeOptions     $runtime
+     * @param GetUserInfoHeaders $headers       GetUserInfoHeaders
+     * @param RuntimeOptions     $runtime       runtime options for this request RuntimeOptions
      *
-     * @return GetUserInfoResponse
+     * @return GetUserInfoResponse GetUserInfoResponse
      */
     public function getUserInfoWithOptions($instanceId, $applicationId, $headers, $runtime)
     {
@@ -1139,25 +1546,30 @@ class Eiamdeveloperapi extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'GetUserInfo',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/oauth2/userinfo',
-            'method'      => 'GET',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'GetUserInfo',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/oauth2/userinfo',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Queries the information of a user by using the user token.
+     *  *
      * @param string $instanceId
      * @param string $applicationId
      *
-     * @return GetUserInfoResponse
+     * @return GetUserInfoResponse GetUserInfoResponse
      */
     public function getUserInfo($instanceId, $applicationId)
     {
@@ -1168,13 +1580,154 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary 查询组列表
+     *  *
+     * @param string            $instanceId
+     * @param string            $applicationId
+     * @param ListGroupsRequest $request       ListGroupsRequest
+     * @param ListGroupsHeaders $headers       ListGroupsHeaders
+     * @param RuntimeOptions    $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return ListGroupsResponse ListGroupsResponse
+     */
+    public function listGroupsWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupNameStartWith)) {
+            $query['groupNameStartWith'] = $request->groupNameStartWith;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGroups',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/groups',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询组列表
+     *  *
+     * @param string            $instanceId
+     * @param string            $applicationId
+     * @param ListGroupsRequest $request       ListGroupsRequest
+     *
+     * @return ListGroupsResponse ListGroupsResponse
+     */
+    public function listGroups($instanceId, $applicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListGroupsHeaders([]);
+
+        return $this->listGroupsWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取账户关联组列表
+     *  *
+     * @param string                   $instanceId
+     * @param string                   $applicationId
+     * @param string                   $userId
+     * @param ListGroupsForUserRequest $request       ListGroupsForUserRequest
+     * @param ListGroupsForUserHeaders $headers       ListGroupsForUserHeaders
+     * @param RuntimeOptions           $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return ListGroupsForUserResponse ListGroupsForUserResponse
+     */
+    public function listGroupsForUserWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGroupsForUser',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/listGroupsForUser',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListGroupsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListGroupsForUserResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取账户关联组列表
+     *  *
+     * @param string                   $instanceId
+     * @param string                   $applicationId
+     * @param string                   $userId
+     * @param ListGroupsForUserRequest $request       ListGroupsForUserRequest
+     *
+     * @return ListGroupsForUserResponse ListGroupsForUserResponse
+     */
+    public function listGroupsForUser($instanceId, $applicationId, $userId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListGroupsForUserHeaders([]);
+
+        return $this->listGroupsForUserWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Queries the information of all the parent organizational units of an organizational unit.
+     *  *
      * @param string                                 $instanceId
      * @param string                                 $applicationId
      * @param string                                 $organizationalUnitId
-     * @param ListOrganizationalUnitParentIdsHeaders $headers
-     * @param RuntimeOptions                         $runtime
+     * @param ListOrganizationalUnitParentIdsHeaders $headers              ListOrganizationalUnitParentIdsHeaders
+     * @param RuntimeOptions                         $runtime              runtime options for this request RuntimeOptions
      *
-     * @return ListOrganizationalUnitParentIdsResponse
+     * @return ListOrganizationalUnitParentIdsResponse ListOrganizationalUnitParentIdsResponse
      */
     public function listOrganizationalUnitParentIdsWithOptions($instanceId, $applicationId, $organizationalUnitId, $headers, $runtime)
     {
@@ -1189,26 +1742,31 @@ class Eiamdeveloperapi extends OpenApiClient
             'headers' => $realHeaders,
         ]);
         $params = new Params([
-            'action'      => 'ListOrganizationalUnitParentIds',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/' . OpenApiUtilClient::getEncodeParam($organizationalUnitId) . '/parentIds',
-            'method'      => 'GET',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'ListOrganizationalUnitParentIds',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/' . OpenApiUtilClient::getEncodeParam($organizationalUnitId) . '/parentIds',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListOrganizationalUnitParentIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOrganizationalUnitParentIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOrganizationalUnitParentIdsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Queries the information of all the parent organizational units of an organizational unit.
+     *  *
      * @param string $instanceId
      * @param string $applicationId
      * @param string $organizationalUnitId
      *
-     * @return ListOrganizationalUnitParentIdsResponse
+     * @return ListOrganizationalUnitParentIdsResponse ListOrganizationalUnitParentIdsResponse
      */
     public function listOrganizationalUnitParentIds($instanceId, $applicationId, $organizationalUnitId)
     {
@@ -1219,13 +1777,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information of Employee Identity and Access Management (EIAM) organizational units by page.
+     *  *
      * @param string                         $instanceId
      * @param string                         $applicationId
-     * @param ListOrganizationalUnitsRequest $request
-     * @param ListOrganizationalUnitsHeaders $headers
-     * @param RuntimeOptions                 $runtime
+     * @param ListOrganizationalUnitsRequest $request       ListOrganizationalUnitsRequest
+     * @param ListOrganizationalUnitsHeaders $headers       ListOrganizationalUnitsHeaders
+     * @param RuntimeOptions                 $runtime       runtime options for this request RuntimeOptions
      *
-     * @return ListOrganizationalUnitsResponse
+     * @return ListOrganizationalUnitsResponse ListOrganizationalUnitsResponse
      */
     public function listOrganizationalUnitsWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
@@ -1249,29 +1809,34 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOrganizationalUnits',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits',
-            'method'      => 'GET',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'ListOrganizationalUnits',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Queries the information of Employee Identity and Access Management (EIAM) organizational units by page.
+     *  *
      * @param string                         $instanceId
      * @param string                         $applicationId
-     * @param ListOrganizationalUnitsRequest $request
+     * @param ListOrganizationalUnitsRequest $request       ListOrganizationalUnitsRequest
      *
-     * @return ListOrganizationalUnitsResponse
+     * @return ListOrganizationalUnitsResponse ListOrganizationalUnitsResponse
      */
     public function listOrganizationalUnits($instanceId, $applicationId, $request)
     {
@@ -1282,13 +1847,15 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information of Employee Identity and Access Management (EIAM) accounts by page.
+     *  *
      * @param string           $instanceId
      * @param string           $applicationId
-     * @param ListUsersRequest $request
-     * @param ListUsersHeaders $headers
-     * @param RuntimeOptions   $runtime
+     * @param ListUsersRequest $request       ListUsersRequest
+     * @param ListUsersHeaders $headers       ListUsersHeaders
+     * @param RuntimeOptions   $runtime       runtime options for this request RuntimeOptions
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
@@ -1312,29 +1879,34 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUsers',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users',
-            'method'      => 'GET',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'ListUsers',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Queries the information of Employee Identity and Access Management (EIAM) accounts by page.
+     *  *
      * @param string           $instanceId
      * @param string           $applicationId
-     * @param ListUsersRequest $request
+     * @param ListUsersRequest $request       ListUsersRequest
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($instanceId, $applicationId, $request)
     {
@@ -1345,14 +1917,153 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary 查询指定组下账户IDS
+     *  *
+     * @param string                   $instanceId
+     * @param string                   $applicationId
+     * @param string                   $groupId
+     * @param ListUsersForGroupRequest $request       ListUsersForGroupRequest
+     * @param ListUsersForGroupHeaders $headers       ListUsersForGroupHeaders
+     * @param RuntimeOptions           $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return ListUsersForGroupResponse ListUsersForGroupResponse
+     */
+    public function listUsersForGroupWithOptions($instanceId, $applicationId, $groupId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUsersForGroup',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/actions/listUsersForGroup',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListUsersForGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListUsersForGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询指定组下账户IDS
+     *  *
+     * @param string                   $instanceId
+     * @param string                   $applicationId
+     * @param string                   $groupId
+     * @param ListUsersForGroupRequest $request       ListUsersForGroupRequest
+     *
+     * @return ListUsersForGroupResponse ListUsersForGroupResponse
+     */
+    public function listUsersForGroup($instanceId, $applicationId, $groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListUsersForGroupHeaders([]);
+
+        return $this->listUsersForGroupWithOptions($instanceId, $applicationId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新组信息
+     *  *
+     * @param string            $instanceId
+     * @param string            $applicationId
+     * @param string            $groupId
+     * @param PatchGroupRequest $request       PatchGroupRequest
+     * @param PatchGroupHeaders $headers       PatchGroupHeaders
+     * @param RuntimeOptions    $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return PatchGroupResponse PatchGroupResponse
+     */
+    public function patchGroupWithOptions($instanceId, $applicationId, $groupId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->groupName)) {
+            $body['groupName'] = $request->groupName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PatchGroup',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
+            'method' => 'PATCH',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PatchGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return PatchGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新组信息
+     *  *
+     * @param string            $instanceId
+     * @param string            $applicationId
+     * @param string            $groupId
+     * @param PatchGroupRequest $request       PatchGroupRequest
+     *
+     * @return PatchGroupResponse PatchGroupResponse
+     */
+    public function patchGroup($instanceId, $applicationId, $groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new PatchGroupHeaders([]);
+
+        return $this->patchGroupWithOptions($instanceId, $applicationId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Modifies an EIAM organizational unit.
+     *  *
+     * @description The operation conforms to the HTTP PATCH request method. The value of a parameter is modified only if the parameter is specified in the request.
+     *  *
      * @param string                         $instanceId
      * @param string                         $applicationId
      * @param string                         $organizationalUnitId
-     * @param PatchOrganizationalUnitRequest $request
-     * @param PatchOrganizationalUnitHeaders $headers
-     * @param RuntimeOptions                 $runtime
+     * @param PatchOrganizationalUnitRequest $request              PatchOrganizationalUnitRequest
+     * @param PatchOrganizationalUnitHeaders $headers              PatchOrganizationalUnitHeaders
+     * @param RuntimeOptions                 $runtime              runtime options for this request RuntimeOptions
      *
-     * @return PatchOrganizationalUnitResponse
+     * @return PatchOrganizationalUnitResponse PatchOrganizationalUnitResponse
      */
     public function patchOrganizationalUnitWithOptions($instanceId, $applicationId, $organizationalUnitId, $request, $headers, $runtime)
     {
@@ -1373,30 +2084,37 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PatchOrganizationalUnit',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/' . OpenApiUtilClient::getEncodeParam($organizationalUnitId) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'PatchOrganizationalUnit',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/organizationalUnits/' . OpenApiUtilClient::getEncodeParam($organizationalUnitId) . '',
+            'method' => 'PATCH',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PatchOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PatchOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PatchOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Modifies an EIAM organizational unit.
+     *  *
+     * @description The operation conforms to the HTTP PATCH request method. The value of a parameter is modified only if the parameter is specified in the request.
+     *  *
      * @param string                         $instanceId
      * @param string                         $applicationId
      * @param string                         $organizationalUnitId
-     * @param PatchOrganizationalUnitRequest $request
+     * @param PatchOrganizationalUnitRequest $request              PatchOrganizationalUnitRequest
      *
-     * @return PatchOrganizationalUnitResponse
+     * @return PatchOrganizationalUnitResponse PatchOrganizationalUnitResponse
      */
     public function patchOrganizationalUnit($instanceId, $applicationId, $organizationalUnitId, $request)
     {
@@ -1407,14 +2125,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary Modifies an Employee Identity and Access Management (EIAM) account.
+     *  *
+     * @description The operation conforms to the HTTP PATCH request method. The value of a parameter is modified only if the parameter is specified in the request.
+     *  *
      * @param string           $instanceId
      * @param string           $applicationId
      * @param string           $userId
-     * @param PatchUserRequest $request
-     * @param PatchUserHeaders $headers
-     * @param RuntimeOptions   $runtime
+     * @param PatchUserRequest $request       PatchUserRequest
+     * @param PatchUserHeaders $headers       PatchUserHeaders
+     * @param RuntimeOptions   $runtime       runtime options for this request RuntimeOptions
      *
-     * @return PatchUserResponse
+     * @return PatchUserResponse PatchUserResponse
      */
     public function patchUserWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime)
     {
@@ -1453,30 +2175,37 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PatchUser',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'PatchUser',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '',
+            'method' => 'PATCH',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PatchUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PatchUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PatchUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Modifies an Employee Identity and Access Management (EIAM) account.
+     *  *
+     * @description The operation conforms to the HTTP PATCH request method. The value of a parameter is modified only if the parameter is specified in the request.
+     *  *
      * @param string           $instanceId
      * @param string           $applicationId
      * @param string           $userId
-     * @param PatchUserRequest $request
+     * @param PatchUserRequest $request       PatchUserRequest
      *
-     * @return PatchUserResponse
+     * @return PatchUserResponse PatchUserResponse
      */
     public function patchUser($instanceId, $applicationId, $userId, $request)
     {
@@ -1487,14 +2216,16 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary 将账户从多个组织移除【不支持移除主组织】
+     *  *
      * @param string                                   $instanceId
      * @param string                                   $applicationId
      * @param string                                   $userId
-     * @param RemoveUserFromOrganizationalUnitsRequest $request
-     * @param RemoveUserFromOrganizationalUnitsHeaders $headers
-     * @param RuntimeOptions                           $runtime
+     * @param RemoveUserFromOrganizationalUnitsRequest $request       RemoveUserFromOrganizationalUnitsRequest
+     * @param RemoveUserFromOrganizationalUnitsHeaders $headers       RemoveUserFromOrganizationalUnitsHeaders
+     * @param RuntimeOptions                           $runtime       runtime options for this request RuntimeOptions
      *
-     * @return RemoveUserFromOrganizationalUnitsResponse
+     * @return RemoveUserFromOrganizationalUnitsResponse RemoveUserFromOrganizationalUnitsResponse
      */
     public function removeUserFromOrganizationalUnitsWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime)
     {
@@ -1512,30 +2243,35 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveUserFromOrganizationalUnits',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/removeUserFromOrganizationalUnits',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'RemoveUserFromOrganizationalUnits',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/removeUserFromOrganizationalUnits',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RemoveUserFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveUserFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveUserFromOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary 将账户从多个组织移除【不支持移除主组织】
+     *  *
      * @param string                                   $instanceId
      * @param string                                   $applicationId
      * @param string                                   $userId
-     * @param RemoveUserFromOrganizationalUnitsRequest $request
+     * @param RemoveUserFromOrganizationalUnitsRequest $request       RemoveUserFromOrganizationalUnitsRequest
      *
-     * @return RemoveUserFromOrganizationalUnitsResponse
+     * @return RemoveUserFromOrganizationalUnitsResponse RemoveUserFromOrganizationalUnitsResponse
      */
     public function removeUserFromOrganizationalUnits($instanceId, $applicationId, $userId, $request)
     {
@@ -1546,13 +2282,81 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary 为指定组批量解除账户关联
+     *  *
+     * @param string                      $instanceId
+     * @param string                      $applicationId
+     * @param string                      $groupId
+     * @param RemoveUsersFromGroupRequest $request       RemoveUsersFromGroupRequest
+     * @param RemoveUsersFromGroupHeaders $headers       RemoveUsersFromGroupHeaders
+     * @param RuntimeOptions              $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return RemoveUsersFromGroupResponse RemoveUsersFromGroupResponse
+     */
+    public function removeUsersFromGroupWithOptions($instanceId, $applicationId, $groupId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->userIds)) {
+            $body['userIds'] = $request->userIds;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveUsersFromGroup',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/actions/removeUsersFromGroup',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RemoveUsersFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RemoveUsersFromGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 为指定组批量解除账户关联
+     *  *
+     * @param string                      $instanceId
+     * @param string                      $applicationId
+     * @param string                      $groupId
+     * @param RemoveUsersFromGroupRequest $request       RemoveUsersFromGroupRequest
+     *
+     * @return RemoveUsersFromGroupResponse RemoveUsersFromGroupResponse
+     */
+    public function removeUsersFromGroup($instanceId, $applicationId, $groupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new RemoveUsersFromGroupHeaders([]);
+
+        return $this->removeUsersFromGroupWithOptions($instanceId, $applicationId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Revokes an access token or refresh token.
+     *  *
      * @param string             $instanceId
      * @param string             $applicationId
-     * @param RevokeTokenRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param RevokeTokenRequest $request       RevokeTokenRequest
+     * @param string[]           $headers       map
+     * @param RuntimeOptions     $runtime       runtime options for this request RuntimeOptions
      *
-     * @return RevokeTokenResponse
+     * @return RevokeTokenResponse RevokeTokenResponse
      */
     public function revokeTokenWithOptions($instanceId, $applicationId, $request, $headers, $runtime)
     {
@@ -1572,29 +2376,34 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RevokeToken',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/oauth2/revoke',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'RevokeToken',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/oauth2/revoke',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RevokeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RevokeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevokeTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary Revokes an access token or refresh token.
+     *  *
      * @param string             $instanceId
      * @param string             $applicationId
-     * @param RevokeTokenRequest $request
+     * @param RevokeTokenRequest $request       RevokeTokenRequest
      *
-     * @return RevokeTokenResponse
+     * @return RevokeTokenResponse RevokeTokenResponse
      */
     public function revokeToken($instanceId, $applicationId, $request)
     {
@@ -1605,14 +2414,16 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary 将指定组织设置为账户主组织，移除旧主组织，加入新主组织。
+     *  *
      * @param string                                  $instanceId
      * @param string                                  $applicationId
      * @param string                                  $userId
-     * @param SetUserPrimaryOrganizationalUnitRequest $request
-     * @param SetUserPrimaryOrganizationalUnitHeaders $headers
-     * @param RuntimeOptions                          $runtime
+     * @param SetUserPrimaryOrganizationalUnitRequest $request       SetUserPrimaryOrganizationalUnitRequest
+     * @param SetUserPrimaryOrganizationalUnitHeaders $headers       SetUserPrimaryOrganizationalUnitHeaders
+     * @param RuntimeOptions                          $runtime       runtime options for this request RuntimeOptions
      *
-     * @return SetUserPrimaryOrganizationalUnitResponse
+     * @return SetUserPrimaryOrganizationalUnitResponse SetUserPrimaryOrganizationalUnitResponse
      */
     public function setUserPrimaryOrganizationalUnitWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime)
     {
@@ -1630,30 +2441,35 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetUserPrimaryOrganizationalUnit',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/setUserPrimaryOrganizationalUnit',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'SetUserPrimaryOrganizationalUnit',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/setUserPrimaryOrganizationalUnit',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetUserPrimaryOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetUserPrimaryOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetUserPrimaryOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary 将指定组织设置为账户主组织，移除旧主组织，加入新主组织。
+     *  *
      * @param string                                  $instanceId
      * @param string                                  $applicationId
      * @param string                                  $userId
-     * @param SetUserPrimaryOrganizationalUnitRequest $request
+     * @param SetUserPrimaryOrganizationalUnitRequest $request       SetUserPrimaryOrganizationalUnitRequest
      *
-     * @return SetUserPrimaryOrganizationalUnitResponse
+     * @return SetUserPrimaryOrganizationalUnitResponse SetUserPrimaryOrganizationalUnitResponse
      */
     public function setUserPrimaryOrganizationalUnit($instanceId, $applicationId, $userId, $request)
     {
@@ -1664,14 +2480,16 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
+     * @summary 更新账户密码
+     *  *
      * @param string                    $instanceId
      * @param string                    $applicationId
      * @param string                    $userId
-     * @param UpdateUserPasswordRequest $request
-     * @param UpdateUserPasswordHeaders $headers
-     * @param RuntimeOptions            $runtime
+     * @param UpdateUserPasswordRequest $request       UpdateUserPasswordRequest
+     * @param UpdateUserPasswordHeaders $headers       UpdateUserPasswordHeaders
+     * @param RuntimeOptions            $runtime       runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserPasswordResponse
+     * @return UpdateUserPasswordResponse UpdateUserPasswordResponse
      */
     public function updateUserPasswordWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime)
     {
@@ -1689,30 +2507,35 @@ class Eiamdeveloperapi extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUserPassword',
-            'version'     => '2022-02-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/updateUserPassword',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'UpdateUserPassword',
+            'version' => '2022-02-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/updateUserPassword',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType' => 'none',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserPasswordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary 更新账户密码
+     *  *
      * @param string                    $instanceId
      * @param string                    $applicationId
      * @param string                    $userId
-     * @param UpdateUserPasswordRequest $request
+     * @param UpdateUserPasswordRequest $request       UpdateUserPasswordRequest
      *
-     * @return UpdateUserPasswordResponse
+     * @return UpdateUserPasswordResponse UpdateUserPasswordResponse
      */
     public function updateUserPassword($instanceId, $applicationId, $userId, $request)
     {

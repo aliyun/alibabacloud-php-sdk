@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOrganizationalUnitResponseBody extends Model
 {
     /**
+     * @description The ID of the organizational unit.
+     *
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string
@@ -18,9 +20,7 @@ class CreateOrganizationalUnitResponseBody extends Model
         'organizationalUnitId' => 'organizationalUnitId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserIdByUsernameResponseBody extends Model
 {
     /**
+     * @description The account ID.
+     *
      * @example user_d6sbsuumeta4h66ec3il7yxxxx
      *
      * @var string
@@ -18,9 +20,7 @@ class GetUserIdByUsernameResponseBody extends Model
         'userId' => 'userId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

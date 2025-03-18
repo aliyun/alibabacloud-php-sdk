@@ -18,9 +18,7 @@ class UpdateUserPasswordRequest extends Model
         'password' => 'password',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

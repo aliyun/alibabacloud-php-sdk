@@ -15,6 +15,8 @@ class PatchUserRequest extends Model
     public $customFields;
 
     /**
+     * @description The display name of the account.
+     *
      * @example display_name001
      *
      * @var string
@@ -22,6 +24,8 @@ class PatchUserRequest extends Model
     public $displayName;
 
     /**
+     * @description The email address of the user who owns the account.
+     *
      * @example example@example.com
      *
      * @var string
@@ -29,6 +33,8 @@ class PatchUserRequest extends Model
     public $email;
 
     /**
+     * @description Indicates whether the email address is verified. This field is required if an email address is specified. If you have no special requirement, set this parameter to true.
+     *
      * @example true
      *
      * @var bool
@@ -36,6 +42,8 @@ class PatchUserRequest extends Model
     public $emailVerified;
 
     /**
+     * @description The mobile number of the user who owns the account.
+     *
      * @example 156xxxxxxx
      *
      * @var string
@@ -43,6 +51,8 @@ class PatchUserRequest extends Model
     public $phoneNumber;
 
     /**
+     * @description Indicates whether the mobile number is verified. This field is required if a mobile number is specified. If you have no special requirement, set this parameter to true.
+     *
      * @example true
      *
      * @var bool
@@ -50,6 +60,8 @@ class PatchUserRequest extends Model
     public $phoneNumberVerified;
 
     /**
+     * @description The country code of the mobile number. For example, the country code of China is 86 without 00 or +. This parameter is required if a mobile number is specified.
+     *
      * @example 86
      *
      * @var string
@@ -57,25 +69,25 @@ class PatchUserRequest extends Model
     public $phoneRegion;
 
     /**
+     * @description The username of the account.
+     *
      * @example name001
      *
      * @var string
      */
     public $username;
     protected $_name = [
-        'customFields'        => 'customFields',
-        'displayName'         => 'displayName',
-        'email'               => 'email',
-        'emailVerified'       => 'emailVerified',
-        'phoneNumber'         => 'phoneNumber',
+        'customFields' => 'customFields',
+        'displayName' => 'displayName',
+        'email' => 'email',
+        'emailVerified' => 'emailVerified',
+        'phoneNumber' => 'phoneNumber',
         'phoneNumberVerified' => 'phoneNumberVerified',
-        'phoneRegion'         => 'phoneRegion',
-        'username'            => 'username',
+        'phoneRegion' => 'phoneRegion',
+        'username' => 'username',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -125,7 +137,7 @@ class PatchUserRequest extends Model
         if (isset($map['customFields'])) {
             if (!empty($map['customFields'])) {
                 $model->customFields = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['customFields'] as $item) {
                     $model->customFields[$n++] = null !== $item ? customFields::fromMap($item) : $item;
                 }

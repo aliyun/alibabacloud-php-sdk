@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateOrganizationalUnitRequest extends Model
 {
     /**
-     * @example xxxx
+     * @description The description of the organizational unit.
+     *
+     * @example test organizational unit
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The external ID of the organizational unit. The external ID can be used to map external data to the data of the organizational unit in Employee Identity and Access Management (EIAM) of Identity as a Service (IDaaS). By default, the external ID is the organizational unit ID.
+     *
+     * For organizational units with the same source type and source ID, each organizational unit has a unique external ID.
+     *
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string
@@ -23,6 +29,10 @@ class CreateOrganizationalUnitRequest extends Model
     public $organizationalUnitExternalId;
 
     /**
+     * @description The name of the organizational unit.
+     *
+     * This parameter is required.
+     *
      * @example name001
      *
      * @var string
@@ -30,21 +40,23 @@ class CreateOrganizationalUnitRequest extends Model
     public $organizationalUnitName;
 
     /**
+     * @description The ID of the parent organizational unit.
+     *
+     * This parameter is required.
+     *
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string
      */
     public $parentId;
     protected $_name = [
-        'description'                  => 'description',
+        'description' => 'description',
         'organizationalUnitExternalId' => 'organizationalUnitExternalId',
-        'organizationalUnitName'       => 'organizationalUnitName',
-        'parentId'                     => 'parentId',
+        'organizationalUnitName' => 'organizationalUnitName',
+        'parentId' => 'parentId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

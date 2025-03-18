@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddUserToOrganizationalUnitsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example [ou_wovwffm62xifdziem7an7xxxxx]
      *
      * @var string[]
@@ -18,9 +20,7 @@ class AddUserToOrganizationalUnitsRequest extends Model
         'organizationalUnitIds' => 'organizationalUnitIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

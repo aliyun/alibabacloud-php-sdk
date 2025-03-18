@@ -18,15 +18,11 @@ class UpdateUserPasswordResponse extends Model
      */
     public $statusCode;
     protected $_name = [
-        'headers'    => 'headers',
+        'headers' => 'headers',
         'statusCode' => 'statusCode',
     ];
 
-    public function validate()
-    {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
-    }
+    public function validate() {}
 
     public function toMap()
     {

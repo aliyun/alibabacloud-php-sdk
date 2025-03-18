@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateTokenRequest extends Model
 {
     /**
+     * @description The client ID.
+     *
      * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class GenerateTokenRequest extends Model
     public $clientId;
 
     /**
+     * @description The client secret. This parameter is required if grant_type is set to client_credentials.
+     *
      * @example CSEHDcHcrUKHw1CuxkJEHPveWRXBGqVqRsxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class GenerateTokenRequest extends Model
     public $clientSecret;
 
     /**
+     * @description The authorization code. This parameter is required if grant_type is set to authorization_code.
+     *
      * @example xxxx
      *
      * @var string
@@ -30,6 +36,8 @@ class GenerateTokenRequest extends Model
     public $code;
 
     /**
+     * @description The verification code.
+     *
      * @example xxx
      *
      * @var string
@@ -37,6 +45,8 @@ class GenerateTokenRequest extends Model
     public $codeVerifier;
 
     /**
+     * @description The device code. This parameter is required if grant_type is set to authorization_code.urn:ietf:params:oauth:grant-type:device_code.
+     *
      * @example xxxx
      *
      * @var string
@@ -44,6 +54,8 @@ class GenerateTokenRequest extends Model
     public $deviceCode;
 
     /**
+     * @description The excluded tags.
+     *
      * @example ATxxx
      *
      * @var string
@@ -51,6 +63,8 @@ class GenerateTokenRequest extends Model
     public $exclusiveTag;
 
     /**
+     * @description The authorization type. Valid values:
+     * This parameter is required.
      * @example client_credentials
      *
      * @var string
@@ -58,6 +72,8 @@ class GenerateTokenRequest extends Model
     public $grantType;
 
     /**
+     * @description The username. This parameter is required if grant_type is set to password. The password authentication type is not supported.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -65,6 +81,8 @@ class GenerateTokenRequest extends Model
     public $password;
 
     /**
+     * @description The redirect URI. This parameter is required if grant_type is set to authorization_code. The value of this parameter must be the same as the redirect URI in the request to obtain the authorization code.
+     *
      * @example xxx
      *
      * @var string
@@ -72,6 +90,8 @@ class GenerateTokenRequest extends Model
     public $redirectUri;
 
     /**
+     * @description The refreshed token. This parameter is required if grant_type is set to refresh_token.
+     *
      * @example ATxxx
      *
      * @var string
@@ -79,6 +99,13 @@ class GenerateTokenRequest extends Model
     public $refreshToken;
 
     /**
+     * @description The authorization scope. Valid values:
+     *
+     *   openid
+     *   email
+     *   phone
+     *   profile
+     *
      * @example xxxx
      *
      * @var string
@@ -86,29 +113,29 @@ class GenerateTokenRequest extends Model
     public $scope;
 
     /**
+     * @description The username. This parameter is required if grant_type is set to password. The password authentication type is not supported.
+     *
      * @example uesrname_001
      *
      * @var string
      */
     public $username;
     protected $_name = [
-        'clientId'     => 'client_id',
+        'clientId' => 'client_id',
         'clientSecret' => 'client_secret',
-        'code'         => 'code',
+        'code' => 'code',
         'codeVerifier' => 'code_verifier',
-        'deviceCode'   => 'device_code',
+        'deviceCode' => 'device_code',
         'exclusiveTag' => 'exclusive_tag',
-        'grantType'    => 'grant_type',
-        'password'     => 'password',
-        'redirectUri'  => 'redirect_uri',
+        'grantType' => 'grant_type',
+        'password' => 'password',
+        'redirectUri' => 'redirect_uri',
         'refreshToken' => 'refresh_token',
-        'scope'        => 'scope',
-        'username'     => 'username',
+        'scope' => 'scope',
+        'username' => 'username',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

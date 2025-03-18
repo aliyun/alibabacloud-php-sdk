@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateDeviceCodeRequest extends Model
 {
     /**
+     * @description The authorization scope.
+     *
      * @example xxx
      *
      * @var string
@@ -18,9 +20,7 @@ class GenerateDeviceCodeRequest extends Model
         'scope' => 'scope',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

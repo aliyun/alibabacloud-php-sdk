@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListOrganizationalUnitParentIdsResponseBody extends Model
 {
     /**
+     * @description The IDs of the parent organizational units. The IDs of the organizational unit are ordered based on their levels from high to low. Only the IDs of the organizational units within the authorization scope are displayed.
+     *
      * @example [ou_xxx001]
      *
      * @var string[]
@@ -18,9 +20,7 @@ class ListOrganizationalUnitParentIdsResponseBody extends Model
         'parentIds' => 'parentIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

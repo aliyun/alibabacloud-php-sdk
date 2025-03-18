@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateDeviceCodeResponseBody extends Model
 {
     /**
+     * @description The device code.
+     *
      * @example xxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class GenerateDeviceCodeResponseBody extends Model
     public $deviceCode;
 
     /**
+     * @description The time when the token expires. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1653288641
      *
      * @var int
@@ -23,6 +27,8 @@ class GenerateDeviceCodeResponseBody extends Model
     public $expiresAt;
 
     /**
+     * @description The remaining validity period of the device code. Unit: seconds.
+     *
      * @example 1200
      *
      * @var int
@@ -30,6 +36,8 @@ class GenerateDeviceCodeResponseBody extends Model
     public $expiresIn;
 
     /**
+     * @description The timeout period of the request token. Unit: seconds.
+     *
      * @example 5
      *
      * @var int
@@ -37,6 +45,8 @@ class GenerateDeviceCodeResponseBody extends Model
     public $interval;
 
     /**
+     * @description The user authorization code.
+     *
      * @example xxxxx
      *
      * @var string
@@ -44,6 +54,8 @@ class GenerateDeviceCodeResponseBody extends Model
     public $userCode;
 
     /**
+     * @description The verification URI.
+     *
      * @example https://example.com/authorize/device
      *
      * @var string
@@ -51,24 +63,25 @@ class GenerateDeviceCodeResponseBody extends Model
     public $verificationUri;
 
     /**
+     * @description The complete verification URI.
+     *
      * @example https://example.com/authorize/device?user_code=
      * xxxx
+     *
      * @var string
      */
     public $verificationUriComplete;
     protected $_name = [
-        'deviceCode'              => 'device_code',
-        'expiresAt'               => 'expires_at',
-        'expiresIn'               => 'expires_in',
-        'interval'                => 'interval',
-        'userCode'                => 'user_code',
-        'verificationUri'         => 'verification_uri',
+        'deviceCode' => 'device_code',
+        'expiresAt' => 'expires_at',
+        'expiresIn' => 'expires_in',
+        'interval' => 'interval',
+        'userCode' => 'user_code',
+        'verificationUri' => 'verification_uri',
         'verificationUriComplete' => 'verification_uri_complete',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

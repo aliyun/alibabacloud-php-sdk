@@ -13,6 +13,8 @@ class GetUserInfoHeaders extends Model
     /**
      * @description The authentication information. Format: Bearer ${access_token}. Example: Bearer ATxxxx.
      *
+     * This parameter is required.
+     *
      * @example Bearer xxxx
      *
      * @var string
@@ -22,9 +24,7 @@ class GetUserInfoHeaders extends Model
         'authorization' => 'Authorization',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

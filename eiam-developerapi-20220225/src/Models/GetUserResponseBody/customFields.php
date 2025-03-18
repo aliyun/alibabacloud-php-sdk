@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customFields extends Model
 {
     /**
+     * @description The name of the extended field.
+     *
      * @example xxxx
      *
      * @var string
@@ -16,19 +18,19 @@ class customFields extends Model
     public $fieldName;
 
     /**
+     * @description The value of the extended field. Field values are returned as strings regardless of the data types of the fields. For example, true or false is returned for a Boolean field.
+     *
      * @example 字段数据值
      *
      * @var string
      */
     public $fieldValue;
     protected $_name = [
-        'fieldName'  => 'fieldName',
+        'fieldName' => 'fieldName',
         'fieldValue' => 'fieldValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

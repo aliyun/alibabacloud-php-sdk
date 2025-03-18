@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListOrganizationalUnitsRequest extends Model
 {
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListOrganizationalUnitsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 20. Valid values: 1 to 100.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,10 @@ class ListOrganizationalUnitsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the parent organizational unit.
+     *
+     * This parameter is required.
+     *
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string
@@ -30,13 +38,11 @@ class ListOrganizationalUnitsRequest extends Model
     public $parentId;
     protected $_name = [
         'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
-        'parentId'   => 'parentId',
+        'pageSize' => 'pageSize',
+        'parentId' => 'parentId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

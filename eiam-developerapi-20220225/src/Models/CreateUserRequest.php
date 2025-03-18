@@ -11,18 +11,24 @@ use AlibabaCloud\Tea\Model;
 class CreateUserRequest extends Model
 {
     /**
+     * @description Custom fields
+     *
      * @var customFields[]
      */
     public $customFields;
 
     /**
-     * @example xxxxx
+     * @description The description of the account. The description can be up to 256 characters in length.
+     *
+     * @example test user
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The display name of the account. The display name can be up to 64 characters in length.
+     *
      * @example display_name001
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateUserRequest extends Model
     public $displayName;
 
     /**
+     * @description The email address of the user who owns the account.
+     *
      * @example example@example.com
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateUserRequest extends Model
     public $email;
 
     /**
+     * @description Indicates whether the email address is verified. This field is required if an email address is specified. If you have no special requirement, set this parameter to true.
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +54,8 @@ class CreateUserRequest extends Model
     public $emailVerified;
 
     /**
+     * @description The password of the account. For information about the password rules, go to the Create User panel in the Identity as a Service (IDaaS) console.
+     *
      * @example xxxxx
      *
      * @var string
@@ -51,11 +63,15 @@ class CreateUserRequest extends Model
     public $password;
 
     /**
+     * @description Configure the initial password
+     *
      * @var passwordInitializationConfig
      */
     public $passwordInitializationConfig;
 
     /**
+     * @description The mobile number of the user who owns the account.
+     *
      * @example 156xxxxxxx
      *
      * @var string
@@ -63,6 +79,8 @@ class CreateUserRequest extends Model
     public $phoneNumber;
 
     /**
+     * @description Indicates whether the mobile number is verified. This field is required if a mobile number is specified. If you have no special requirement, set this parameter to true.
+     *
      * @example true
      *
      * @var bool
@@ -70,6 +88,8 @@ class CreateUserRequest extends Model
     public $phoneNumberVerified;
 
     /**
+     * @description The country code of the mobile number. For example, the country code of China is 86 without 00 or +. This parameter is required if a mobile number is specified.
+     *
      * @example 86
      *
      * @var string
@@ -77,6 +97,10 @@ class CreateUserRequest extends Model
     public $phoneRegion;
 
     /**
+     * @description The ID of the primary organizational unit.
+     *
+     * This parameter is required.
+     *
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string
@@ -84,6 +108,8 @@ class CreateUserRequest extends Model
     public $primaryOrganizationalUnitId;
 
     /**
+     * @description The external ID of the account. The external ID can be used to map external data to the data of the account in EIAM of Identity as a Service (IDaaS). By default, the external ID is the account ID.
+     *
      * @example user_d6sbsuumeta4h66ec3il7yxxxx
      *
      * @var string
@@ -91,30 +117,32 @@ class CreateUserRequest extends Model
     public $userExternalId;
 
     /**
+     * @description The username of the account.
+     *
+     * This parameter is required.
+     *
      * @example name001
      *
      * @var string
      */
     public $username;
     protected $_name = [
-        'customFields'                 => 'customFields',
-        'description'                  => 'description',
-        'displayName'                  => 'displayName',
-        'email'                        => 'email',
-        'emailVerified'                => 'emailVerified',
-        'password'                     => 'password',
+        'customFields' => 'customFields',
+        'description' => 'description',
+        'displayName' => 'displayName',
+        'email' => 'email',
+        'emailVerified' => 'emailVerified',
+        'password' => 'password',
         'passwordInitializationConfig' => 'passwordInitializationConfig',
-        'phoneNumber'                  => 'phoneNumber',
-        'phoneNumberVerified'          => 'phoneNumberVerified',
-        'phoneRegion'                  => 'phoneRegion',
-        'primaryOrganizationalUnitId'  => 'primaryOrganizationalUnitId',
-        'userExternalId'               => 'userExternalId',
-        'username'                     => 'username',
+        'phoneNumber' => 'phoneNumber',
+        'phoneNumberVerified' => 'phoneNumberVerified',
+        'phoneRegion' => 'phoneRegion',
+        'primaryOrganizationalUnitId' => 'primaryOrganizationalUnitId',
+        'userExternalId' => 'userExternalId',
+        'username' => 'username',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -179,7 +207,7 @@ class CreateUserRequest extends Model
         if (isset($map['customFields'])) {
             if (!empty($map['customFields'])) {
                 $model->customFields = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['customFields'] as $item) {
                     $model->customFields[$n++] = null !== $item ? customFields::fromMap($item) : $item;
                 }

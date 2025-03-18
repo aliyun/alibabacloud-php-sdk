@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetUserIdByEmailRequest extends Model
 {
     /**
+     * @description The email address of the user who owns the account.
+     *
+     * This parameter is required.
+     *
      * @example example@example.com
      *
      * @var string
@@ -18,9 +22,7 @@ class GetUserIdByEmailRequest extends Model
         'email' => 'email',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

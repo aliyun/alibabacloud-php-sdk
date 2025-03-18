@@ -11,6 +11,10 @@ class GetUserIdByUserExternalIdHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description The authentication information. Format: Bearer ${access_token}. Example: Bearer ATxxxx.
+     *
+     * This parameter is required.
+     *
      * @example Bearer AT8csE2seYxxxxxij
      *
      * @var string
@@ -20,9 +24,7 @@ class GetUserIdByUserExternalIdHeaders extends Model
         'authorization' => 'Authorization',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

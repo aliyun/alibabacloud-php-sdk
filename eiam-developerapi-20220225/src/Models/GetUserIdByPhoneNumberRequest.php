@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetUserIdByPhoneNumberRequest extends Model
 {
     /**
+     * @description The mobile number of the user who owns the account.
+     *
+     * This parameter is required.
+     *
      * @example 156xxxxxxx
      *
      * @var string
@@ -18,9 +22,7 @@ class GetUserIdByPhoneNumberRequest extends Model
         'phoneNumber' => 'phoneNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

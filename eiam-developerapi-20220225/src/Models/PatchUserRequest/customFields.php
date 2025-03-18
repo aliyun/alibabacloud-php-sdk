@@ -24,7 +24,10 @@ class customFields extends Model
 
     /**
      * @description 字段操作类型，取值可选范围：
+     * - add：添加。
+     * - replace：替换。若对应扩展字段无设置值，会转换为add操作。
      * - remove：移除。
+     *
      * @example replace
      *
      * @var string
@@ -40,15 +43,13 @@ class customFields extends Model
      */
     public $operator;
     protected $_name = [
-        'fieldName'  => 'fieldName',
+        'fieldName' => 'fieldName',
         'fieldValue' => 'fieldValue',
-        'operation'  => 'operation',
-        'operator'   => 'operator',
+        'operation' => 'operation',
+        'operator' => 'operator',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

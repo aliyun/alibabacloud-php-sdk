@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GenerateTokenResponseBody extends Model
 {
     /**
-     * @description access_token。
+     * @description The access token.
      *
      * @example ATxxx
      *
@@ -18,6 +18,8 @@ class GenerateTokenResponseBody extends Model
     public $accessToken;
 
     /**
+     * @description The time when the token expires. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1653288641
      *
      * @var int
@@ -25,6 +27,8 @@ class GenerateTokenResponseBody extends Model
     public $expiresAt;
 
     /**
+     * @description The remaining validity period of the token. Unit: seconds.
+     *
      * @example 1200
      *
      * @var int
@@ -32,7 +36,7 @@ class GenerateTokenResponseBody extends Model
     public $expiresIn;
 
     /**
-     * @description id_token。
+     * @description The ID token.
      *
      * @example xxxxx
      *
@@ -41,7 +45,7 @@ class GenerateTokenResponseBody extends Model
     public $idToken;
 
     /**
-     * @description refresh_token。
+     * @description The refresh token.
      *
      * @example RTxxx
      *
@@ -50,23 +54,23 @@ class GenerateTokenResponseBody extends Model
     public $refreshToken;
 
     /**
+     * @description The type of the token. Valid values: Basic Bearer
+     *
      * @example Bearer
      *
      * @var string
      */
     public $tokenType;
     protected $_name = [
-        'accessToken'  => 'access_token',
-        'expiresAt'    => 'expires_at',
-        'expiresIn'    => 'expires_in',
-        'idToken'      => 'id_token',
+        'accessToken' => 'access_token',
+        'expiresAt' => 'expires_at',
+        'expiresIn' => 'expires_in',
+        'idToken' => 'id_token',
         'refreshToken' => 'refresh_token',
-        'tokenType'    => 'token_type',
+        'tokenType' => 'token_type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
