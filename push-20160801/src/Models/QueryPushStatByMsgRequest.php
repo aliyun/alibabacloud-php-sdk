@@ -26,13 +26,11 @@ class QueryPushStatByMsgRequest extends Model
      */
     public $messageId;
     protected $_name = [
-        'appKey'    => 'AppKey',
+        'appKey' => 'AppKey',
         'messageId' => 'MessageId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

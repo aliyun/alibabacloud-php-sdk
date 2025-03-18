@@ -22,13 +22,11 @@ class summaryAppInfo extends Model
      */
     public $appName;
     protected $_name = [
-        'appKey'  => 'AppKey',
+        'appKey' => 'AppKey',
         'appName' => 'AppName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

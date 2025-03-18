@@ -17,9 +17,7 @@ class summaryAppInfos extends Model
         'summaryAppInfo' => 'SummaryAppInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class summaryAppInfos extends Model
         if (isset($map['SummaryAppInfo'])) {
             if (!empty($map['SummaryAppInfo'])) {
                 $model->summaryAppInfo = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['SummaryAppInfo'] as $item) {
                     $model->summaryAppInfo[$n++] = null !== $item ? summaryAppInfo::fromMap($item) : $item;
                 }

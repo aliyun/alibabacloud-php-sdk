@@ -41,14 +41,12 @@ class UnbindAliasRequest extends Model
     public $unbindAll;
     protected $_name = [
         'aliasName' => 'AliasName',
-        'appKey'    => 'AppKey',
-        'deviceId'  => 'DeviceId',
+        'appKey' => 'AppKey',
+        'deviceId' => 'DeviceId',
         'unbindAll' => 'UnbindAll',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

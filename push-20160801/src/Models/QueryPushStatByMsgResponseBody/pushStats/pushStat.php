@@ -85,22 +85,20 @@ class pushStat extends Model
      */
     public $smsSkipCount;
     protected $_name = [
-        'acceptCount'            => 'AcceptCount',
-        'deletedCount'           => 'DeletedCount',
-        'messageId'              => 'MessageId',
-        'openedCount'            => 'OpenedCount',
-        'receivedCount'          => 'ReceivedCount',
-        'sentCount'              => 'SentCount',
-        'smsFailedCount'         => 'SmsFailedCount',
-        'smsReceiveFailedCount'  => 'SmsReceiveFailedCount',
+        'acceptCount' => 'AcceptCount',
+        'deletedCount' => 'DeletedCount',
+        'messageId' => 'MessageId',
+        'openedCount' => 'OpenedCount',
+        'receivedCount' => 'ReceivedCount',
+        'sentCount' => 'SentCount',
+        'smsFailedCount' => 'SmsFailedCount',
+        'smsReceiveFailedCount' => 'SmsReceiveFailedCount',
         'smsReceiveSuccessCount' => 'SmsReceiveSuccessCount',
-        'smsSentCount'           => 'SmsSentCount',
-        'smsSkipCount'           => 'SmsSkipCount',
+        'smsSentCount' => 'SmsSentCount',
+        'smsSkipCount' => 'SmsSkipCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class pushInfos extends Model
         'pushInfo' => 'PushInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class pushInfos extends Model
         if (isset($map['PushInfo'])) {
             if (!empty($map['PushInfo'])) {
                 $model->pushInfo = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['PushInfo'] as $item) {
                     $model->pushInfo[$n++] = null !== $item ? pushInfo::fromMap($item) : $item;
                 }

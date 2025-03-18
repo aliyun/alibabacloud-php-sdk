@@ -23,12 +23,10 @@ class deviceCheckInfo extends Model
     public $deviceId;
     protected $_name = [
         'available' => 'Available',
-        'deviceId'  => 'DeviceId',
+        'deviceId' => 'DeviceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

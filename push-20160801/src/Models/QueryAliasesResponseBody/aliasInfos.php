@@ -17,9 +17,7 @@ class aliasInfos extends Model
         'aliasInfo' => 'AliasInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class aliasInfos extends Model
         if (isset($map['AliasInfo'])) {
             if (!empty($map['AliasInfo'])) {
                 $model->aliasInfo = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['AliasInfo'] as $item) {
                     $model->aliasInfo[$n++] = null !== $item ? aliasInfo::fromMap($item) : $item;
                 }

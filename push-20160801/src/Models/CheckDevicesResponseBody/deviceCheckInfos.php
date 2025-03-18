@@ -17,9 +17,7 @@ class deviceCheckInfos extends Model
         'deviceCheckInfo' => 'DeviceCheckInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class deviceCheckInfos extends Model
         if (isset($map['DeviceCheckInfo'])) {
             if (!empty($map['DeviceCheckInfo'])) {
                 $model->deviceCheckInfo = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['DeviceCheckInfo'] as $item) {
                     $model->deviceCheckInfo[$n++] = null !== $item ? deviceCheckInfo::fromMap($item) : $item;
                 }

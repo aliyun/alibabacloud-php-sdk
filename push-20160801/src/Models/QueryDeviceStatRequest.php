@@ -51,16 +51,14 @@ class QueryDeviceStatRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'appKey'     => 'AppKey',
+        'appKey' => 'AppKey',
         'deviceType' => 'DeviceType',
-        'endTime'    => 'EndTime',
-        'queryType'  => 'QueryType',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'queryType' => 'QueryType',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

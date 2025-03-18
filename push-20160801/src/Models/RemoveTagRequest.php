@@ -26,13 +26,11 @@ class RemoveTagRequest extends Model
      */
     public $tagName;
     protected $_name = [
-        'appKey'  => 'AppKey',
+        'appKey' => 'AppKey',
         'tagName' => 'TagName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

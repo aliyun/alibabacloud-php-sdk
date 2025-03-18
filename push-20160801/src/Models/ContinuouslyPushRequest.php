@@ -44,15 +44,13 @@ class ContinuouslyPushRequest extends Model
      */
     public $targetValue;
     protected $_name = [
-        'appKey'      => 'AppKey',
-        'messageId'   => 'MessageId',
-        'target'      => 'Target',
+        'appKey' => 'AppKey',
+        'messageId' => 'MessageId',
+        'target' => 'Target',
         'targetValue' => 'TargetValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

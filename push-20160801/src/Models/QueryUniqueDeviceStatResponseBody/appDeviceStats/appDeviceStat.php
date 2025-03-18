@@ -23,12 +23,10 @@ class appDeviceStat extends Model
     public $time;
     protected $_name = [
         'count' => 'Count',
-        'time'  => 'Time',
+        'time' => 'Time',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

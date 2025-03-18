@@ -26,13 +26,11 @@ class CheckDevicesRequest extends Model
      */
     public $deviceIds;
     protected $_name = [
-        'appKey'    => 'AppKey',
+        'appKey' => 'AppKey',
         'deviceIds' => 'DeviceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

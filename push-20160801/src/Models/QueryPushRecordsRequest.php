@@ -82,21 +82,19 @@ class QueryPushRecordsRequest extends Model
      */
     public $target;
     protected $_name = [
-        'appKey'    => 'AppKey',
-        'endTime'   => 'EndTime',
-        'keyword'   => 'Keyword',
+        'appKey' => 'AppKey',
+        'endTime' => 'EndTime',
+        'keyword' => 'Keyword',
         'nextToken' => 'NextToken',
-        'page'      => 'Page',
-        'pageSize'  => 'PageSize',
-        'pushType'  => 'PushType',
-        'source'    => 'Source',
+        'page' => 'Page',
+        'pageSize' => 'PageSize',
+        'pushType' => 'PushType',
+        'source' => 'Source',
         'startTime' => 'StartTime',
-        'target'    => 'Target',
+        'target' => 'Target',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

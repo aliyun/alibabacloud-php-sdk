@@ -19,25 +19,32 @@ class MassPushRequest extends Model
     public $appKey;
 
     /**
+     * @var string
+     */
+    public $idempotentToken;
+
+    /**
      * @description This parameter is required.
      *
      * @var pushTask[]
      */
     public $pushTask;
     protected $_name = [
-        'appKey'   => 'AppKey',
+        'appKey' => 'AppKey',
+        'idempotentToken' => 'IdempotentToken',
         'pushTask' => 'PushTask',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
+        }
+        if (null !== $this->idempotentToken) {
+            $res['IdempotentToken'] = $this->idempotentToken;
         }
         if (null !== $this->pushTask) {
             $res['PushTask'] = [];
@@ -63,10 +70,13 @@ class MassPushRequest extends Model
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+        if (isset($map['IdempotentToken'])) {
+            $model->idempotentToken = $map['IdempotentToken'];
+        }
         if (isset($map['PushTask'])) {
             if (!empty($map['PushTask'])) {
                 $model->pushTask = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['PushTask'] as $item) {
                     $model->pushTask[$n++] = null !== $item ? pushTask::fromMap($item) : $item;
                 }

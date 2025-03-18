@@ -17,9 +17,7 @@ class appDeviceStats extends Model
         'appDeviceStat' => 'AppDeviceStat',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class appDeviceStats extends Model
         if (isset($map['AppDeviceStat'])) {
             if (!empty($map['AppDeviceStat'])) {
                 $model->appDeviceStat = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['AppDeviceStat'] as $item) {
                     $model->appDeviceStat[$n++] = null !== $item ? appDeviceStat::fromMap($item) : $item;
                 }

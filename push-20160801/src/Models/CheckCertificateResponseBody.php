@@ -41,16 +41,14 @@ class CheckCertificateResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'android'             => 'Android',
+        'android' => 'Android',
         'developmentCertInfo' => 'DevelopmentCertInfo',
-        'IOS'                 => 'IOS',
-        'productionCertInfo'  => 'ProductionCertInfo',
-        'requestId'           => 'RequestId',
+        'IOS' => 'IOS',
+        'productionCertInfo' => 'ProductionCertInfo',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

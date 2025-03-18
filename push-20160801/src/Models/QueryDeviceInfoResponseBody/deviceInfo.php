@@ -88,23 +88,21 @@ class deviceInfo extends Model
      */
     public $tags;
     protected $_name = [
-        'account'        => 'Account',
-        'alias'          => 'Alias',
-        'brand'          => 'Brand',
-        'deviceId'       => 'DeviceId',
-        'deviceToken'    => 'DeviceToken',
-        'deviceType'     => 'DeviceType',
+        'account' => 'Account',
+        'alias' => 'Alias',
+        'brand' => 'Brand',
+        'deviceId' => 'DeviceId',
+        'deviceToken' => 'DeviceToken',
+        'deviceType' => 'DeviceType',
         'lastOnlineTime' => 'LastOnlineTime',
-        'model'          => 'Model',
-        'online'         => 'Online',
-        'phoneNumber'    => 'PhoneNumber',
-        'pushEnabled'    => 'PushEnabled',
-        'tags'           => 'Tags',
+        'model' => 'Model',
+        'online' => 'Online',
+        'phoneNumber' => 'PhoneNumber',
+        'pushEnabled' => 'PushEnabled',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

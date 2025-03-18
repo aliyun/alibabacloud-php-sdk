@@ -72,19 +72,17 @@ class PushNoticeToAndroidRequest extends Model
      */
     public $title;
     protected $_name = [
-        'appKey'        => 'AppKey',
-        'body'          => 'Body',
+        'appKey' => 'AppKey',
+        'body' => 'Body',
         'extParameters' => 'ExtParameters',
-        'jobKey'        => 'JobKey',
-        'storeOffline'  => 'StoreOffline',
-        'target'        => 'Target',
-        'targetValue'   => 'TargetValue',
-        'title'         => 'Title',
+        'jobKey' => 'JobKey',
+        'storeOffline' => 'StoreOffline',
+        'target' => 'Target',
+        'targetValue' => 'TargetValue',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

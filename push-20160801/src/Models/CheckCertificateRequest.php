@@ -20,9 +20,7 @@ class CheckCertificateRequest extends Model
         'appKey' => 'AppKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

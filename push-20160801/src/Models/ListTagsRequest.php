@@ -20,9 +20,7 @@ class ListTagsRequest extends Model
         'appKey' => 'AppKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

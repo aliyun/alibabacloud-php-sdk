@@ -35,14 +35,12 @@ class QueryTagsRequest extends Model
      */
     public $keyType;
     protected $_name = [
-        'appKey'    => 'AppKey',
+        'appKey' => 'AppKey',
         'clientKey' => 'ClientKey',
-        'keyType'   => 'KeyType',
+        'keyType' => 'KeyType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

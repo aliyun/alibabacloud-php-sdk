@@ -18,9 +18,7 @@ class tagInfo extends Model
         'tagName' => 'TagName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

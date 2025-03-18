@@ -85,22 +85,20 @@ class appPushStat extends Model
      */
     public $time;
     protected $_name = [
-        'acceptCount'            => 'AcceptCount',
-        'deletedCount'           => 'DeletedCount',
-        'openedCount'            => 'OpenedCount',
-        'receivedCount'          => 'ReceivedCount',
-        'sentCount'              => 'SentCount',
-        'smsFailedCount'         => 'SmsFailedCount',
-        'smsReceiveFailedCount'  => 'SmsReceiveFailedCount',
+        'acceptCount' => 'AcceptCount',
+        'deletedCount' => 'DeletedCount',
+        'openedCount' => 'OpenedCount',
+        'receivedCount' => 'ReceivedCount',
+        'sentCount' => 'SentCount',
+        'smsFailedCount' => 'SmsFailedCount',
+        'smsReceiveFailedCount' => 'SmsReceiveFailedCount',
         'smsReceiveSuccessCount' => 'SmsReceiveSuccessCount',
-        'smsSentCount'           => 'SmsSentCount',
-        'smsSkipCount'           => 'SmsSkipCount',
-        'time'                   => 'Time',
+        'smsSentCount' => 'SmsSentCount',
+        'smsSkipCount' => 'SmsSkipCount',
+        'time' => 'Time',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

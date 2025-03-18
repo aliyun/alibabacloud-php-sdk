@@ -17,9 +17,7 @@ class tagInfos extends Model
         'tagInfo' => 'TagInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class tagInfos extends Model
         if (isset($map['TagInfo'])) {
             if (!empty($map['TagInfo'])) {
                 $model->tagInfo = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['TagInfo'] as $item) {
                     $model->tagInfo[$n++] = null !== $item ? tagInfo::fromMap($item) : $item;
                 }

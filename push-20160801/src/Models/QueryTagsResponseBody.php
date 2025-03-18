@@ -22,12 +22,10 @@ class QueryTagsResponseBody extends Model
     public $tagInfos;
     protected $_name = [
         'requestId' => 'RequestId',
-        'tagInfos'  => 'TagInfos',
+        'tagInfos' => 'TagInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

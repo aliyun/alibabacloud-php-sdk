@@ -35,14 +35,12 @@ class BindPhoneRequest extends Model
      */
     public $phoneNumber;
     protected $_name = [
-        'appKey'      => 'AppKey',
-        'deviceId'    => 'DeviceId',
+        'appKey' => 'AppKey',
+        'deviceId' => 'DeviceId',
         'phoneNumber' => 'PhoneNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

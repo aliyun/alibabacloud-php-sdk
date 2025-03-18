@@ -27,12 +27,10 @@ class QueryDevicesByAccountRequest extends Model
     public $appKey;
     protected $_name = [
         'account' => 'Account',
-        'appKey'  => 'AppKey',
+        'appKey' => 'AppKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

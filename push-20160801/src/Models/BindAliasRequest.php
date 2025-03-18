@@ -36,13 +36,11 @@ class BindAliasRequest extends Model
     public $deviceId;
     protected $_name = [
         'aliasName' => 'AliasName',
-        'appKey'    => 'AppKey',
-        'deviceId'  => 'DeviceId',
+        'appKey' => 'AppKey',
+        'deviceId' => 'DeviceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

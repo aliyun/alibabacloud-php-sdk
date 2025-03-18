@@ -18,9 +18,7 @@ class aliasInfo extends Model
         'aliasName' => 'AliasName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

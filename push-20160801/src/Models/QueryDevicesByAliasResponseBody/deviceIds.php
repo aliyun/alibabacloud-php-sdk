@@ -16,9 +16,7 @@ class deviceIds extends Model
         'deviceId' => 'DeviceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

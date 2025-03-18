@@ -79,61 +79,61 @@ class Push extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-1'              => 'cloudpush.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'cloudpush.aliyuncs.com',
-            'ap-south-1'                  => 'cloudpush.aliyuncs.com',
-            'ap-southeast-1'              => 'cloudpush.aliyuncs.com',
-            'ap-southeast-2'              => 'cloudpush.aliyuncs.com',
-            'ap-southeast-3'              => 'cloudpush.aliyuncs.com',
-            'ap-southeast-5'              => 'cloudpush.aliyuncs.com',
-            'cn-beijing'                  => 'cloudpush.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'cloudpush.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'cloudpush.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'cloudpush.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'cloudpush.aliyuncs.com',
-            'cn-chengdu'                  => 'cloudpush.aliyuncs.com',
-            'cn-edge-1'                   => 'cloudpush.aliyuncs.com',
-            'cn-fujian'                   => 'cloudpush.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'cloudpush.aliyuncs.com',
-            'cn-hangzhou'                 => 'cloudpush.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'cloudpush.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'cloudpush.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-1' => 'cloudpush.aliyuncs.com',
+            'ap-northeast-2-pop' => 'cloudpush.aliyuncs.com',
+            'ap-south-1' => 'cloudpush.aliyuncs.com',
+            'ap-southeast-1' => 'cloudpush.aliyuncs.com',
+            'ap-southeast-2' => 'cloudpush.aliyuncs.com',
+            'ap-southeast-3' => 'cloudpush.aliyuncs.com',
+            'ap-southeast-5' => 'cloudpush.aliyuncs.com',
+            'cn-beijing' => 'cloudpush.aliyuncs.com',
+            'cn-beijing-finance-1' => 'cloudpush.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'cloudpush.aliyuncs.com',
+            'cn-beijing-gov-1' => 'cloudpush.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'cloudpush.aliyuncs.com',
+            'cn-chengdu' => 'cloudpush.aliyuncs.com',
+            'cn-edge-1' => 'cloudpush.aliyuncs.com',
+            'cn-fujian' => 'cloudpush.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'cloudpush.aliyuncs.com',
+            'cn-hangzhou' => 'cloudpush.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'cloudpush.aliyuncs.com',
+            'cn-hangzhou-finance' => 'cloudpush.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'cloudpush.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'cloudpush.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'cloudpush.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'cloudpush.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'cloudpush.aliyuncs.com',
-            'cn-hongkong'                 => 'cloudpush.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'cloudpush.aliyuncs.com',
-            'cn-huhehaote'                => 'cloudpush.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'cloudpush.aliyuncs.com',
-            'cn-qingdao'                  => 'cloudpush.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'cloudpush.aliyuncs.com',
-            'cn-shanghai'                 => 'cloudpush.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'cloudpush.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'cloudpush.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'cloudpush.aliyuncs.com',
-            'cn-shanghai-inner'           => 'cloudpush.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'cloudpush.aliyuncs.com',
+            'cn-hongkong' => 'cloudpush.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'cloudpush.aliyuncs.com',
+            'cn-huhehaote' => 'cloudpush.aliyuncs.com',
+            'cn-north-2-gov-1' => 'cloudpush.aliyuncs.com',
+            'cn-qingdao' => 'cloudpush.aliyuncs.com',
+            'cn-qingdao-nebula' => 'cloudpush.aliyuncs.com',
+            'cn-shanghai' => 'cloudpush.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'cloudpush.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'cloudpush.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'cloudpush.aliyuncs.com',
+            'cn-shanghai-inner' => 'cloudpush.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'cloudpush.aliyuncs.com',
-            'cn-shenzhen'                 => 'cloudpush.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'cloudpush.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'cloudpush.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'cloudpush.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'cloudpush.aliyuncs.com',
-            'cn-wuhan'                    => 'cloudpush.aliyuncs.com',
-            'cn-yushanfang'               => 'cloudpush.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'cloudpush.aliyuncs.com',
-            'cn-zhangjiakou'              => 'cloudpush.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'cloudpush.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'cloudpush.aliyuncs.com',
-            'eu-central-1'                => 'cloudpush.aliyuncs.com',
-            'eu-west-1'                   => 'cloudpush.aliyuncs.com',
-            'eu-west-1-oxs'               => 'cloudpush.aliyuncs.com',
-            'me-east-1'                   => 'cloudpush.aliyuncs.com',
-            'rus-west-1-pop'              => 'cloudpush.aliyuncs.com',
-            'us-east-1'                   => 'cloudpush.aliyuncs.com',
-            'us-west-1'                   => 'cloudpush.aliyuncs.com',
+            'cn-shenzhen' => 'cloudpush.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'cloudpush.aliyuncs.com',
+            'cn-shenzhen-inner' => 'cloudpush.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'cloudpush.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'cloudpush.aliyuncs.com',
+            'cn-wuhan' => 'cloudpush.aliyuncs.com',
+            'cn-yushanfang' => 'cloudpush.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'cloudpush.aliyuncs.com',
+            'cn-zhangjiakou' => 'cloudpush.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'cloudpush.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'cloudpush.aliyuncs.com',
+            'eu-central-1' => 'cloudpush.aliyuncs.com',
+            'eu-west-1' => 'cloudpush.aliyuncs.com',
+            'eu-west-1-oxs' => 'cloudpush.aliyuncs.com',
+            'me-east-1' => 'cloudpush.aliyuncs.com',
+            'rus-west-1-pop' => 'cloudpush.aliyuncs.com',
+            'us-east-1' => 'cloudpush.aliyuncs.com',
+            'us-west-1' => 'cloudpush.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('push', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -187,18 +187,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindAlias',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindAlias',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BindAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -240,18 +243,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindPhone',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindPhone',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BindPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindPhoneResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -296,18 +302,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindTag',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindTag',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BindTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -346,18 +355,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelPush',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelPush',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CancelPushResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelPushResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelPushResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -391,18 +403,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckCertificate',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckCertificate',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CheckCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -443,18 +458,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckDevice',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckDevice',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CheckDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckDeviceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -497,18 +515,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckDevices',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckDevices',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CheckDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckDevicesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -547,18 +568,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CompleteContinuouslyPush',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CompleteContinuouslyPush',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CompleteContinuouslyPushResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CompleteContinuouslyPushResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CompleteContinuouslyPushResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -603,18 +627,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ContinuouslyPush',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ContinuouslyPush',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ContinuouslyPushResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ContinuouslyPushResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ContinuouslyPushResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -644,20 +671,23 @@ class Push extends OpenApiClient
      */
     public function listSummaryAppsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListSummaryApps',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSummaryApps',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListSummaryAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSummaryAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSummaryAppsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -695,18 +725,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTags',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTags',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -738,27 +771,33 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->appKey)) {
             $query['AppKey'] = $request->appKey;
         }
+        if (!Utils::isUnset($request->idempotentToken)) {
+            $query['IdempotentToken'] = $request->idempotentToken;
+        }
         $body = [];
         if (!Utils::isUnset($request->pushTask)) {
             $body['PushTask'] = $request->pushTask;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'MassPush',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MassPush',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return MassPushResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MassPushResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MassPushResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -991,6 +1030,9 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->harmonyUri)) {
             $query['HarmonyUri'] = $request->harmonyUri;
         }
+        if (!Utils::isUnset($request->idempotentToken)) {
+            $query['IdempotentToken'] = $request->idempotentToken;
+        }
         if (!Utils::isUnset($request->jobKey)) {
             $query['JobKey'] = $request->jobKey;
         }
@@ -1085,18 +1127,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Push',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Push',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PushResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PushResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1150,18 +1195,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PushMessageToAndroid',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PushMessageToAndroid',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PushMessageToAndroidResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PushMessageToAndroidResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushMessageToAndroidResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1215,18 +1263,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PushMessageToiOS',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PushMessageToiOS',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PushMessageToiOSResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PushMessageToiOSResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushMessageToiOSResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1283,18 +1334,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PushNoticeToAndroid',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PushNoticeToAndroid',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PushNoticeToAndroidResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PushNoticeToAndroidResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushNoticeToAndroidResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1351,18 +1405,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PushNoticeToiOS',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PushNoticeToiOS',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PushNoticeToiOSResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PushNoticeToiOSResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushNoticeToiOSResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1401,18 +1458,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAliases',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAliases',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryAliasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1451,18 +1511,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDeviceInfo',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDeviceInfo',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1510,18 +1573,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDeviceStat',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDeviceStat',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryDeviceStatResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDeviceStatResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceStatResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1560,18 +1626,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDevicesByAccount',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDevicesByAccount',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryDevicesByAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDevicesByAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDevicesByAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1610,18 +1679,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDevicesByAlias',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDevicesByAlias',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryDevicesByAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDevicesByAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDevicesByAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1682,18 +1754,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryPushRecords',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPushRecords',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryPushRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryPushRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryPushRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1736,18 +1811,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryPushStatByApp',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPushStatByApp',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryPushStatByAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryPushStatByAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryPushStatByAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1786,18 +1864,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryPushStatByMsg',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPushStatByMsg',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryPushStatByMsgResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryPushStatByMsgResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryPushStatByMsgResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1839,18 +1920,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTags',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTags',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryTagsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1895,18 +1979,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryUniqueDeviceStat',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryUniqueDeviceStat',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryUniqueDeviceStatResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryUniqueDeviceStatResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryUniqueDeviceStatResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1945,18 +2032,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveTag',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveTag',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RemoveTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2001,18 +2091,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnbindAlias',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnbindAlias',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UnbindAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnbindAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2051,18 +2144,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnbindPhone',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnbindPhone',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UnbindPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnbindPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindPhoneResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2107,18 +2203,21 @@ class Push extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnbindTag',
-            'version'     => '2016-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnbindTag',
+            'version' => '2016-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UnbindTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnbindTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

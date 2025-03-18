@@ -23,12 +23,10 @@ class productionCertInfo extends Model
     public $status;
     protected $_name = [
         'exipreTime' => 'ExipreTime',
-        'status'     => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

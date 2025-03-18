@@ -74,19 +74,17 @@ class PushNoticeToiOSRequest extends Model
      */
     public $title;
     protected $_name = [
-        'apnsEnv'       => 'ApnsEnv',
-        'appKey'        => 'AppKey',
-        'body'          => 'Body',
+        'apnsEnv' => 'ApnsEnv',
+        'appKey' => 'AppKey',
+        'body' => 'Body',
         'extParameters' => 'ExtParameters',
-        'jobKey'        => 'JobKey',
-        'target'        => 'Target',
-        'targetValue'   => 'TargetValue',
-        'title'         => 'Title',
+        'jobKey' => 'JobKey',
+        'target' => 'Target',
+        'targetValue' => 'TargetValue',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

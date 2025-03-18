@@ -21,13 +21,11 @@ class ListSummaryAppsResponseBody extends Model
      */
     public $summaryAppInfos;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'summaryAppInfos' => 'SummaryAppInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,13 +26,11 @@ class QueryDevicesByAliasRequest extends Model
      */
     public $appKey;
     protected $_name = [
-        'alias'  => 'Alias',
+        'alias' => 'Alias',
         'appKey' => 'AppKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

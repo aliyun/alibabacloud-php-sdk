@@ -44,15 +44,13 @@ class BindTagRequest extends Model
      */
     public $tagName;
     protected $_name = [
-        'appKey'    => 'AppKey',
+        'appKey' => 'AppKey',
         'clientKey' => 'ClientKey',
-        'keyType'   => 'KeyType',
-        'tagName'   => 'TagName',
+        'keyType' => 'KeyType',
+        'tagName' => 'TagName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

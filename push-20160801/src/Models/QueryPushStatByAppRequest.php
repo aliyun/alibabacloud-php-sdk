@@ -44,15 +44,13 @@ class QueryPushStatByAppRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'appKey'      => 'AppKey',
-        'endTime'     => 'EndTime',
+        'appKey' => 'AppKey',
+        'endTime' => 'EndTime',
         'granularity' => 'Granularity',
-        'startTime'   => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

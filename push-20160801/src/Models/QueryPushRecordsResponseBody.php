@@ -50,16 +50,14 @@ class QueryPushRecordsResponseBody extends Model
     public $total;
     protected $_name = [
         'nextToken' => 'NextToken',
-        'page'      => 'Page',
-        'pageSize'  => 'PageSize',
+        'page' => 'Page',
+        'pageSize' => 'PageSize',
         'pushInfos' => 'PushInfos',
         'requestId' => 'RequestId',
-        'total'     => 'Total',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

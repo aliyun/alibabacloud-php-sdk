@@ -22,12 +22,10 @@ class QueryDeviceStatResponseBody extends Model
     public $requestId;
     protected $_name = [
         'appDeviceStats' => 'AppDeviceStats',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

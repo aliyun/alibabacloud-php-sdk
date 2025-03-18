@@ -78,21 +78,19 @@ class pushInfo extends Model
      */
     public $title;
     protected $_name = [
-        'appKey'     => 'AppKey',
-        'body'       => 'Body',
+        'appKey' => 'AppKey',
+        'body' => 'Body',
         'deviceType' => 'DeviceType',
-        'messageId'  => 'MessageId',
-        'pushTime'   => 'PushTime',
-        'pushType'   => 'PushType',
-        'source'     => 'Source',
-        'status'     => 'Status',
-        'target'     => 'Target',
-        'title'      => 'Title',
+        'messageId' => 'MessageId',
+        'pushTime' => 'PushTime',
+        'pushType' => 'PushType',
+        'source' => 'Source',
+        'status' => 'Status',
+        'target' => 'Target',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
