@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListBackupDataResponseBody extends Model
 {
     /**
+     * @description The backups.
+     *
      * @var backupDataList[]
      */
     public $backupDataList;
 
     /**
+     * @description The request ID.
+     *
      * @example 4AA0C48F-B5BB-5FF9-A43B-6B91E0715D46
      *
      * @var string
@@ -22,12 +26,10 @@ class ListBackupDataResponseBody extends Model
     public $requestId;
     protected $_name = [
         'backupDataList' => 'BackupDataList',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -59,7 +61,7 @@ class ListBackupDataResponseBody extends Model
         if (isset($map['BackupDataList'])) {
             if (!empty($map['BackupDataList'])) {
                 $model->backupDataList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['BackupDataList'] as $item) {
                     $model->backupDataList[$n++] = null !== $item ? backupDataList::fromMap($item) : $item;
                 }

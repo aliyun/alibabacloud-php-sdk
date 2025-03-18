@@ -37,9 +37,18 @@ class instanceList extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example true
      *
      * @var string
@@ -69,11 +78,32 @@ class instanceList extends Model
      *
      *   PostPaid
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * pay-as-you-go
+     *
+     * <!-- -->
+     *
      * .
      *
      *   PrePaid
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * subscription
+     *
+     * <!-- -->
+     *
      * .
+     *
      * @example PrePaid
      *
      * @var string
@@ -107,7 +137,15 @@ class instanceList extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Running
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -115,9 +153,18 @@ class instanceList extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Allocating
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Running
      *
      * @var string
@@ -131,11 +178,32 @@ class instanceList extends Model
      *
      *   Follower
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * read-only secondary instance
+     *
+     * <!-- -->
+     *
      * .
      *
      *   Standard
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * normal instance
+     *
+     * <!-- -->
+     *
      * .
+     *
      * @example Standard
      *
      * @var string
@@ -166,6 +234,11 @@ class instanceList extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $storageType;
 
     /**
      * @description The reason for the suspension.
@@ -199,28 +272,27 @@ class instanceList extends Model
      */
     public $zoneId;
     protected $_name = [
-        'commodityCode'      => 'CommodityCode',
-        'creationTime'       => 'CreationTime',
-        'enableHiveAccess'   => 'EnableHiveAccess',
-        'endpoints'          => 'Endpoints',
-        'expirationTime'     => 'ExpirationTime',
+        'commodityCode' => 'CommodityCode',
+        'creationTime' => 'CreationTime',
+        'enableHiveAccess' => 'EnableHiveAccess',
+        'endpoints' => 'Endpoints',
+        'expirationTime' => 'ExpirationTime',
         'instanceChargeType' => 'InstanceChargeType',
-        'instanceId'         => 'InstanceId',
-        'instanceName'       => 'InstanceName',
-        'instanceStatus'     => 'InstanceStatus',
-        'instanceType'       => 'InstanceType',
-        'leaderInstanceId'   => 'LeaderInstanceId',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'suspendReason'      => 'SuspendReason',
-        'tags'               => 'Tags',
-        'version'            => 'Version',
-        'zoneId'             => 'ZoneId',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'instanceStatus' => 'InstanceStatus',
+        'instanceType' => 'InstanceType',
+        'leaderInstanceId' => 'LeaderInstanceId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'storageType' => 'StorageType',
+        'suspendReason' => 'SuspendReason',
+        'tags' => 'Tags',
+        'version' => 'Version',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -270,6 +342,9 @@ class instanceList extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
+        }
         if (null !== $this->suspendReason) {
             $res['SuspendReason'] = $this->suspendReason;
         }
@@ -312,7 +387,7 @@ class instanceList extends Model
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Endpoints'] as $item) {
                     $model->endpoints[$n++] = null !== $item ? endpoints::fromMap($item) : $item;
                 }
@@ -345,13 +420,16 @@ class instanceList extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
+        }
         if (isset($map['SuspendReason'])) {
             $model->suspendReason = $map['SuspendReason'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

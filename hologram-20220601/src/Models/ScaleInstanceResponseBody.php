@@ -52,16 +52,14 @@ class ScaleInstanceResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'data'           => 'Data',
-        'errorCode'      => 'ErrorCode',
-        'errorMessage'   => 'ErrorMessage',
+        'data' => 'Data',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

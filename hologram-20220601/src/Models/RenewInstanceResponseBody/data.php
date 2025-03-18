@@ -20,6 +20,8 @@ class data extends Model
     /**
      * @description The error details.
      *
+     * @example InvalidChargeType.UnRenewable
+     *
      * @var string
      */
     public $message;
@@ -45,15 +47,13 @@ class data extends Model
      */
     public $success;
     protected $_name = [
-        'code'    => 'Code',
+        'code' => 'Code',
         'message' => 'Message',
         'orderId' => 'OrderId',
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -39,15 +39,13 @@ class warehouseDetail extends Model
      */
     public $warehouseList;
     protected $_name = [
-        'remainingCpu'    => 'RemainingCpu',
-        'reservedCpu'     => 'ReservedCpu',
+        'remainingCpu' => 'RemainingCpu',
+        'reservedCpu' => 'ReservedCpu',
         'timedElasticCpu' => 'TimedElasticCpu',
-        'warehouseList'   => 'WarehouseList',
+        'warehouseList' => 'WarehouseList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -94,7 +92,7 @@ class warehouseDetail extends Model
         if (isset($map['WarehouseList'])) {
             if (!empty($map['WarehouseList'])) {
                 $model->warehouseList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['WarehouseList'] as $item) {
                     $model->warehouseList[$n++] = null !== $item ? warehouseList::fromMap($item) : $item;
                 }

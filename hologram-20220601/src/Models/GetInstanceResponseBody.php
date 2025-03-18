@@ -61,17 +61,15 @@ class GetInstanceResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'errorCode'      => 'ErrorCode',
-        'errorMessage'   => 'ErrorMessage',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'instance'       => 'Instance',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'instance' => 'Instance',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,12 +34,10 @@ class ListInstancesRequest extends Model
     protected $_name = [
         'cmsInstanceType' => 'cmsInstanceType',
         'resourceGroupId' => 'resourceGroupId',
-        'tag'             => 'tag',
+        'tag' => 'tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -80,7 +78,7 @@ class ListInstancesRequest extends Model
         if (isset($map['tag'])) {
             if (!empty($map['tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

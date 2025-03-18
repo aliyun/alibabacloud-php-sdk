@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class backupDataList extends Model
 {
     /**
+     * @description The backup type. In general, the following two types are supported: local backup and remote backup. In the local backup type, snapshots reside in the same region as your instance. The following two sub-types are available: full (single backup, single replica) and redundant (zone-redundant storage, multiple replicas). In the remote backup type, snapshots and your instance reside in different regions. Remote backups are the replicas of the backups of the full or redundant type in another region. The values local and remote do not represent specific types, but are used only for data filtering. The value local indicates all local backups, and the value remote indicates all remote backups.
+     *
      * @example redundant
      *
      * @var string
@@ -16,6 +18,8 @@ class backupDataList extends Model
     public $backupType;
 
     /**
+     * @description The size of cold data. Unit: bytes.
+     *
      * @example 32413521
      *
      * @var int
@@ -23,6 +27,8 @@ class backupDataList extends Model
     public $coldDataSize;
 
     /**
+     * @description The description of the backup data.
+     *
      * @example demo
      *
      * @var string
@@ -30,6 +36,12 @@ class backupDataList extends Model
     public $dataDesc;
 
     /**
+     * @description The backup granularity.
+     *
+     * Valid values:
+     *
+     *   instance
+     *
      * @example instance
      *
      * @var string
@@ -37,6 +49,8 @@ class backupDataList extends Model
     public $dataGran;
 
     /**
+     * @description The size of the backup data. Unit: bytes.
+     *
      * @example 76085723136
      *
      * @var int
@@ -44,6 +58,8 @@ class backupDataList extends Model
     public $dataSize;
 
     /**
+     * @description The snapshot time. The value format of this parameter follows the same standard as that of the StartTime parameter.
+     *
      * @example 2024-10-28T12:23:37.000+00:00
      *
      * @var string
@@ -51,6 +67,8 @@ class backupDataList extends Model
     public $dataTime;
 
     /**
+     * @description The end time of the backup task. The value format of this parameter follows the same standard as that of the StartTime parameter.
+     *
      * @example 2024-10-28T12:27:34.000+00:00
      *
      * @var string
@@ -58,6 +76,8 @@ class backupDataList extends Model
     public $endTime;
 
     /**
+     * @description The unique ID of the backup.
+     *
      * @example 1780805690994479105
      *
      * @var int
@@ -65,6 +85,8 @@ class backupDataList extends Model
     public $id;
 
     /**
+     * @description The instance ID.
+     *
      * @example hgpostcn-cn-pe33jdxxxxx
      *
      * @var string
@@ -72,6 +94,8 @@ class backupDataList extends Model
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
      * @example my-hologres-dw
      *
      * @var string
@@ -79,6 +103,8 @@ class backupDataList extends Model
     public $instanceName;
 
     /**
+     * @description The region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -86,6 +112,13 @@ class backupDataList extends Model
     public $instanceRegion;
 
     /**
+     * @description The type of the instance.
+     *
+     * Valid values:
+     *
+     *   Warehouse: virtual warehouse instance
+     *   Standard: general-purpose instance
+     *
      * @example Warehouse
      *
      * @var string
@@ -93,6 +126,8 @@ class backupDataList extends Model
     public $instanceType;
 
     /**
+     * @description The zone in which the instance resides.
+     *
      * @example cn-hangzhou-j
      *
      * @var string
@@ -100,6 +135,8 @@ class backupDataList extends Model
     public $instanceZoneId;
 
     /**
+     * @description The region in which the backup data resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -107,6 +144,8 @@ class backupDataList extends Model
     public $snapshotRegion;
 
     /**
+     * @description The zone in which the backup data resides. In zone-redundant storage mode, backup data is stored in different zones, including the current zone.
+     *
      * @example cn-hangzhou-j
      *
      * @var string
@@ -114,6 +153,8 @@ class backupDataList extends Model
     public $snapshotZoneId;
 
     /**
+     * @description The start time of the backup task. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ss.SSSTZ format. The time is displayed in UTC (the same below).
+     *
      * @example 2024-10-28T11:19:56.000+00:00
      *
      * @var string
@@ -121,6 +162,14 @@ class backupDataList extends Model
     public $startTime;
 
     /**
+     * @description The status of the backup task.
+     *
+     * Valid values:
+     *
+     *   processing
+     *   completed
+     *   failed
+     *
      * @example completed
      *
      * @var string
@@ -128,35 +177,40 @@ class backupDataList extends Model
     public $status;
 
     /**
+     * @description The mode in which the backup task is triggered.
+     *
+     * Valid values:
+     *
+     *   scheduled: periodic backup
+     *   manual: manual backup
+     *
      * @example scheduled
      *
      * @var string
      */
     public $triggerType;
     protected $_name = [
-        'backupType'     => 'BackupType',
-        'coldDataSize'   => 'ColdDataSize',
-        'dataDesc'       => 'DataDesc',
-        'dataGran'       => 'DataGran',
-        'dataSize'       => 'DataSize',
-        'dataTime'       => 'DataTime',
-        'endTime'        => 'EndTime',
-        'id'             => 'Id',
-        'instanceId'     => 'InstanceId',
-        'instanceName'   => 'InstanceName',
+        'backupType' => 'BackupType',
+        'coldDataSize' => 'ColdDataSize',
+        'dataDesc' => 'DataDesc',
+        'dataGran' => 'DataGran',
+        'dataSize' => 'DataSize',
+        'dataTime' => 'DataTime',
+        'endTime' => 'EndTime',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
         'instanceRegion' => 'InstanceRegion',
-        'instanceType'   => 'InstanceType',
+        'instanceType' => 'InstanceType',
         'instanceZoneId' => 'InstanceZoneId',
         'snapshotRegion' => 'SnapshotRegion',
         'snapshotZoneId' => 'SnapshotZoneId',
-        'startTime'      => 'StartTime',
-        'status'         => 'Status',
-        'triggerType'    => 'TriggerType',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'triggerType' => 'TriggerType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

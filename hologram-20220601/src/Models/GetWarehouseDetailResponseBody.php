@@ -19,19 +19,17 @@ class GetWarehouseDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The values returned.
+     * @description The returned values.
      *
      * @var warehouseDetail
      */
     public $warehouseDetail;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'warehouseDetail' => 'WarehouseDetail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

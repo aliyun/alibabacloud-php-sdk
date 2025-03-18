@@ -12,6 +12,7 @@ class CreateHoloWarehouseRequest extends Model
      * @description The specifications of the virtual warehouse. The number of vCPUs must be an integer multiple of 16 CPUs. Minimum value: 16.
      *
      * This parameter is required.
+     *
      * @example 32
      *
      * @var string
@@ -22,19 +23,18 @@ class CreateHoloWarehouseRequest extends Model
      * @description The name of the virtual warehouse.
      *
      * This parameter is required.
+     *
      * @example my_warehouse
      *
      * @var string
      */
     public $name;
     protected $_name = [
-        'cpu'  => 'cpu',
+        'cpu' => 'cpu',
         'name' => 'name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

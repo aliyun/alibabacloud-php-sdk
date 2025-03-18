@@ -1,3 +1,9 @@
+2025-03-18 Version: 1.5.1
+- Update API CreateInstance: update param body.
+- Update API GetInstance: update response param.
+- Update API ListInstances: update response param.
+
+
 2024-11-18 Version: 1.5.0
 - Support API ListBackupData.
 

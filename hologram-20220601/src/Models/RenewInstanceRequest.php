@@ -15,6 +15,7 @@ class RenewInstanceRequest extends Model
      *   false
      *
      * >  If you enable auto-renewal for an instance for which auto-renewal is enabled, an error is reported.
+     *
      * @example true
      *
      * @var bool
@@ -25,6 +26,7 @@ class RenewInstanceRequest extends Model
      * @description The renewal duration. Unit: month.
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -32,12 +34,10 @@ class RenewInstanceRequest extends Model
     public $duration;
     protected $_name = [
         'autoRenew' => 'autoRenew',
-        'duration'  => 'duration',
+        'duration' => 'duration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

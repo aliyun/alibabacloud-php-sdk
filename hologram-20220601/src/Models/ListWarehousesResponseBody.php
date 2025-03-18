@@ -26,12 +26,10 @@ class ListWarehousesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'warehouseList' => 'WarehouseList',
-        'requestId'     => 'requestId',
+        'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListWarehousesResponseBody extends Model
         if (isset($map['WarehouseList'])) {
             if (!empty($map['WarehouseList'])) {
                 $model->warehouseList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['WarehouseList'] as $item) {
                     $model->warehouseList[$n++] = null !== $item ? warehouseList::fromMap($item) : $item;
                 }

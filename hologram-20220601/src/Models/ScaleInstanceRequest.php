@@ -12,6 +12,7 @@ class ScaleInstanceRequest extends Model
      * @description The infrequent access (IA) storage space of the instance. Unit: GB.
      *
      * > Ignore this parameter for pay-as-you-go instances.
+     *
      * @example 1000G
      *
      * @var int
@@ -46,6 +47,10 @@ class ScaleInstanceRequest extends Model
     public $cpu;
 
     /**
+     * @description 是否开启ServerlessComputing
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableServerlessComputing;
@@ -54,6 +59,7 @@ class ScaleInstanceRequest extends Model
      * @description The number of gateways. Valid values: 2 to 50.
      *
      * > This parameter is required only for virtual warehouse instances.
+     *
      * @example 4
      *
      * @var int
@@ -73,6 +79,7 @@ class ScaleInstanceRequest extends Model
      *   If you set this parameter to DOWNGRADE, the new specifications must be lower than the original specifications. You must configure at least one of the cpu, storageSize, and coldStorageSize parameters. If you leave a parameter empty, the related configuration remains unchanged.
      *
      * This parameter is required.
+     *
      * @example UPGRADE
      *
      * @var string
@@ -83,23 +90,22 @@ class ScaleInstanceRequest extends Model
      * @description The standard storage space of the instance. Unit: GB.
      *
      * > Ignore this parameter for pay-as-you-go instances.
+     *
      * @example 1000G
      *
      * @var int
      */
     public $storageSize;
     protected $_name = [
-        'coldStorageSize'           => 'coldStorageSize',
-        'cpu'                       => 'cpu',
+        'coldStorageSize' => 'coldStorageSize',
+        'cpu' => 'cpu',
         'enableServerlessComputing' => 'enableServerlessComputing',
-        'gatewayCount'              => 'gatewayCount',
-        'scaleType'                 => 'scaleType',
-        'storageSize'               => 'storageSize',
+        'gatewayCount' => 'gatewayCount',
+        'scaleType' => 'scaleType',
+        'storageSize' => 'storageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

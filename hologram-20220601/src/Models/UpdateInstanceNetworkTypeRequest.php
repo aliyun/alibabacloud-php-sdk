@@ -13,13 +13,9 @@ class UpdateInstanceNetworkTypeRequest extends Model
      *
      * Valid values:
      *
-     *   others/null
+     *   others/null: The network type is not changed from AnyTunnel to SingleTunnel.
+     *   true: The network type is changed from AnyTunnel to SingleTunnel.
      *
-     * <!-- -->
-     *
-     *   true
-     *
-     * <!-- -->
      * @example true
      *
      * @var string
@@ -27,7 +23,14 @@ class UpdateInstanceNetworkTypeRequest extends Model
     public $anyTunnelToSingleTunnel;
 
     /**
-     * @description A list of network types that you want to enable. The list of enabled network types is randomly ordered. For example, the Internet, internal network, and VPCSingleTunnel network types are enabled. If you want to disable the Internet type, set this parameter to Intranet,VPCSingleTunnel.
+     * @description A list of network types that you want to enable. The network types are randomly ordered in the list. For example, the Internet, Intranet, and VPCSingleTunnel network types are enabled. If you want to disable the Internet type, set this parameter to Intranet,VPCSingleTunnel.
+     *
+     * Valid values:
+     *
+     *   VPCSingleTunnel: virtual private cloud (VPC).
+     *   Intranet: internal network.
+     *   VPCAnyTunnel: compatibility requirements. This value is not supported by new instances.
+     *   Internet: Internet.
      *
      * @example Internet,VPCSingleTunnel
      *
@@ -36,7 +39,7 @@ class UpdateInstanceNetworkTypeRequest extends Model
     public $networkTypes;
 
     /**
-     * @description The vSwitch ID.
+     * @description The ID of the vSwitch.
      *
      * @example vsw-2vccsiymtqr9aavew0vo3
      *
@@ -45,7 +48,7 @@ class UpdateInstanceNetworkTypeRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC to which the instance belongs.
+     * @description The ID of the VPC.
      *
      * @example vpc-t4netc3y5etlondfb5ra7
      *
@@ -54,7 +57,7 @@ class UpdateInstanceNetworkTypeRequest extends Model
     public $vpcId;
 
     /**
-     * @description The owner ID of the VPC, which is the ID of the Alibaba Cloud account.
+     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
      *
      * @example 1999365732646672
      *
@@ -63,7 +66,7 @@ class UpdateInstanceNetworkTypeRequest extends Model
     public $vpcOwnerId;
 
     /**
-     * @description The region ID of the VPC.
+     * @description The region in which the VPC resides.
      *
      * @example cn-hangzhou
      *
@@ -72,16 +75,14 @@ class UpdateInstanceNetworkTypeRequest extends Model
     public $vpcRegionId;
     protected $_name = [
         'anyTunnelToSingleTunnel' => 'anyTunnelToSingleTunnel',
-        'networkTypes'            => 'networkTypes',
-        'vSwitchId'               => 'vSwitchId',
-        'vpcId'                   => 'vpcId',
-        'vpcOwnerId'              => 'vpcOwnerId',
-        'vpcRegionId'             => 'vpcRegionId',
+        'networkTypes' => 'networkTypes',
+        'vSwitchId' => 'vSwitchId',
+        'vpcId' => 'vpcId',
+        'vpcOwnerId' => 'vpcOwnerId',
+        'vpcRegionId' => 'vpcRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

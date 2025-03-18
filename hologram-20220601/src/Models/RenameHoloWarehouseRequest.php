@@ -12,6 +12,7 @@ class RenameHoloWarehouseRequest extends Model
      * @description The original name of the virtual warehouse.
      *
      * This parameter is required.
+     *
      * @example my_warehouse
      *
      * @var string
@@ -22,19 +23,18 @@ class RenameHoloWarehouseRequest extends Model
      * @description The new name of the virtual warehouse.
      *
      * This parameter is required.
+     *
      * @example new_name
      *
      * @var string
      */
     public $newWarehouseName;
     protected $_name = [
-        'name'             => 'name',
+        'name' => 'name',
         'newWarehouseName' => 'newWarehouseName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

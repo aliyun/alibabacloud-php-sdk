@@ -26,13 +26,11 @@ class tag extends Model
      */
     public $value;
     protected $_name = [
-        'key'   => 'key',
+        'key' => 'key',
         'value' => 'value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -29,6 +29,8 @@ class data extends Model
     /**
      * @description The error details.
      *
+     * @example Vpc is not available
+     *
      * @var string
      */
     public $message;
@@ -54,16 +56,14 @@ class data extends Model
      */
     public $success;
     protected $_name = [
-        'code'       => 'Code',
+        'code' => 'Code',
         'instanceId' => 'InstanceId',
-        'message'    => 'Message',
-        'orderId'    => 'OrderId',
-        'success'    => 'Success',
+        'message' => 'Message',
+        'orderId' => 'OrderId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

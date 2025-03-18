@@ -77,7 +77,15 @@ class warehouseList extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   kSuspended
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -85,33 +93,44 @@ class warehouseList extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   kFailed
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   kAllocating
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example kRunning
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'cpu'              => 'Cpu',
+        'cpu' => 'Cpu',
         'defaultWarehouse' => 'DefaultWarehouse',
-        'elasticCpu'       => 'ElasticCpu',
-        'id'               => 'Id',
-        'mem'              => 'Mem',
-        'name'             => 'Name',
-        'nodeCount'        => 'NodeCount',
-        'rebalanceStatus'  => 'RebalanceStatus',
-        'status'           => 'Status',
+        'elasticCpu' => 'ElasticCpu',
+        'id' => 'Id',
+        'mem' => 'Mem',
+        'name' => 'Name',
+        'nodeCount' => 'NodeCount',
+        'rebalanceStatus' => 'RebalanceStatus',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

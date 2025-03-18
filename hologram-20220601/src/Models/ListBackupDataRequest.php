@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListBackupDataRequest extends Model
 {
     /**
+     * @description The backup type. Specific backup data is filtered based on the type. If you leave this parameter empty, all backup data is returned.
+     *
+     * Valid values:
+     *
+     *   redundant_remote
+     *   remote
+     *   redundant
+     *   full_remote
+     *   local
+     *   full
+     *
      * @example redundant
      *
      * @var string
@@ -16,6 +27,8 @@ class ListBackupDataRequest extends Model
     public $backupType;
 
     /**
+     * @description The instance ID.
+     *
      * @example hgprecn-cn-wwoxxxxx
      *
      * @var string
@@ -26,9 +39,7 @@ class ListBackupDataRequest extends Model
         'instanceId' => 'instanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

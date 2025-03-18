@@ -37,7 +37,7 @@ class ListInstancesResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The list of queried instances.
+     * @description The instances.
      *
      * @var instanceList[]
      */
@@ -61,17 +61,15 @@ class ListInstancesResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'errorCode'      => 'ErrorCode',
-        'errorMessage'   => 'ErrorMessage',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'instanceList'   => 'InstanceList',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'instanceList' => 'InstanceList',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -124,7 +122,7 @@ class ListInstancesResponseBody extends Model
         if (isset($map['InstanceList'])) {
             if (!empty($map['InstanceList'])) {
                 $model->instanceList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['InstanceList'] as $item) {
                     $model->instanceList[$n++] = null !== $item ? instanceList::fromMap($item) : $item;
                 }

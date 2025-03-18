@@ -14,7 +14,8 @@ class CreateInstanceRequest extends Model
      *   true
      *   false
      *
-     * > The default value is true. If the balance of your account is insufficient, you can set this parameter to false. In this case, an unpaid order is generated. You can log on to the User Center to pay for the order.
+     * >  The default value is true. If the balance of your account is insufficient, you can set this parameter to false. In this case, an unpaid order is generated. You can log on to the Expenses and Costs console to pay for the order.
+     *
      * @example true
      *
      * @var bool
@@ -22,7 +23,7 @@ class CreateInstanceRequest extends Model
     public $autoPay;
 
     /**
-     * @description Specifies whether to enable monthly auto-renewal. Default value: false. Valid values:
+     * @description Specifies whether to enable monthly auto-renewal. The default value is false. Valid values:
      *
      *   true
      *   false
@@ -39,7 +40,10 @@ class CreateInstanceRequest extends Model
      *   PrePaid: subscription
      *   PostPaid: pay-as-you-go
      *
+     * >  This parameter is invalid for Hologres Shared Cluster instances. Hologres Shared Cluster instances have fixed specifications and are pay-as-you-go instances.
+     *
      * This parameter is required.
+     *
      * @example PostPaid
      *
      * @var string
@@ -49,7 +53,8 @@ class CreateInstanceRequest extends Model
     /**
      * @description The infrequent access (IA) storage space of the instance. Unit: GB.
      *
-     * > This parameter is invalid for pay-as-you-go instances.
+     * >  This parameter is invalid for pay-as-you-go instances.
+     *
      * @example 500
      *
      * @var int
@@ -59,23 +64,22 @@ class CreateInstanceRequest extends Model
     /**
      * @description The instance specifications. Valid values:
      *
-     *   8-core 32 GB (number of compute nodes: 1)
-     *   16-core 64 GB (number of compute nodes: 1)
-     *   32-core 128 GB (number of compute nodes: 2)
-     *   64-core 256 GB (number of compute nodes: 4)
-     *   96-core 384 GB (number of compute nodes: 6)
-     *   128-core 512 GB (number of compute nodes: 8)
+     *   8-core 32GB (number of compute nodes: 1)
+     *   32-core 128GB (number of compute nodes: 2)
+     *   64-core 256GB (number of compute nodes: 4)
+     *   96-core 384GB (number of compute nodes: 6)
+     *   128-core 512GB (number of compute nodes: 8)
      *   Others
      *
      * >
      *
      *   Set this parameter to the number of cores.
      *
-     *   If you want to set this parameter to specifications with more than 1,024 compute units (CUs), you must submit a ticket.
+     *   If you want to set this parameter to specifications with more than 1,024 GB, you must submit a ticket.
      *
-     *   If you want to purchase a shared instance, you do not need to configure this parameter.
+     *   This parameter is invalid for Hologres Shared Cluster instances.
      *
-     *   The specifications of 8-core 32 GB (number of compute nodes: 1) are for trial use only and cannot be used for production.
+     *   The specifications of 8-core 32GB (number of compute nodes: 1) are for trial use only and cannot be used for production.
      *
      * @example 64
      *
@@ -86,7 +90,8 @@ class CreateInstanceRequest extends Model
     /**
      * @description The validity period of the instance that you want to purchase. For example, you can specify a validity period of two months.
      *
-     * > You do not need to configure this parameter for pay-as-you-go instances.
+     * >  You do not need to configure this parameter for pay-as-you-go instances.
+     *
      * @example 2
      *
      * @var int
@@ -94,6 +99,15 @@ class CreateInstanceRequest extends Model
     public $duration;
 
     /**
+     * @description Specifies whether to enable the Serverless Computing feature.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableServerlessComputing;
@@ -101,7 +115,8 @@ class CreateInstanceRequest extends Model
     /**
      * @description The number of gateways. Valid values: 2 to 50.
      *
-     * > This parameter is required only for virtual warehouse instances.
+     * >  This parameter is required only for virtual warehouse instances.
+     *
      * @example 4
      *
      * @var int
@@ -109,14 +124,19 @@ class CreateInstanceRequest extends Model
     public $gatewayCount;
 
     /**
+     * @description The initial database.
+     *
+     * @example chatbot
+     *
      * @var string
      */
     public $initialDatabases;
 
     /**
-     * @description The name of the Hologres instance that you want to purchase. The name must be 2 to 64 characters in length.
+     * @description The name of the instance. The name must be 2 to 64 characters in length.
      *
      * This parameter is required.
+     *
      * @example my_holo
      *
      * @var string
@@ -124,14 +144,15 @@ class CreateInstanceRequest extends Model
     public $instanceName;
 
     /**
-     * @description The type of the instance. Valid values:
+     * @description The category of the instance. Valid values:
      *
      *   Standard: general-purpose instance
      *   Follower: read-only secondary instance
      *   Warehouse: virtual warehouse instance
-     *   Shared: shared instance
+     *   Shared: Hologres Shared Cluster instance
      *
      * This parameter is required.
+     *
      * @example Standard
      *
      * @var string
@@ -141,7 +162,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The ID of the primary instance. This parameter is required for read-only secondary instances.
      *
-     * > The primary instance and secondary instances must meet the following requirements:
+     * >  The primary and secondary instances must meet the following requirements:
      *
      *   The primary instance is in the Running state.
      *
@@ -151,7 +172,7 @@ class CreateInstanceRequest extends Model
      *
      *   Less than 10 secondary instances are associated with the primary instance.
      *
-     *   The primary and secondary instances belong to the same Alibaba Cloud account.
+     *   The primary instance and secondary instances belong to the same Alibaba Cloud account.
      *
      * @example hgpostcn-cn-lbj3aworq112
      *
@@ -171,7 +192,7 @@ class CreateInstanceRequest extends Model
      *
      *   This parameter can only be set to Hour for pay-as-you-go instances.
      *
-     *   By default, this parameter is set to Hour for shared instances.
+     *   By default, this parameter is set to Hour for Hologres Shared Cluster instances.
      *
      * @example Month
      *
@@ -180,9 +201,10 @@ class CreateInstanceRequest extends Model
     public $pricingCycle;
 
     /**
-     * @description The ID of the region. You can go to the [OpenAPI Explorer](https://api.aliyun.com/product/Hologram) or the Usage notes section to view the ID of the region.
+     * @description The ID of the region. You can obtain region IDs in [Endpoints](https://www.alibabacloud.com/help/en/maxcompute/user-guide/endpoints).
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -190,7 +212,7 @@ class CreateInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The resource group. If you do not specify this parameter, the default resource group of the account is used.
+     * @description The ID of the resource group. If you do not specify this parameter, the default resource group of the account is used.
      *
      * @example ""
      *
@@ -201,7 +223,8 @@ class CreateInstanceRequest extends Model
     /**
      * @description The standard storage space of the instance. Unit: GB.
      *
-     * > This parameter is invalid for pay-as-you-go instances.
+     * >  This parameter is invalid for pay-as-you-go instances.
+     *
      * @example 500
      *
      * @var int
@@ -209,9 +232,15 @@ class CreateInstanceRequest extends Model
     public $storageSize;
 
     /**
-     * @description The ID of the vSwitch. The zone in which the vSwitch resides must be the same as the zone in which the instance resides.
+     * @var string
+     */
+    public $storageType;
+
+    /**
+     * @description The ID of the vSwitch. The zone in which the vSwitch resides must be the same as the zone in which the Hologres instance resides.
      *
      * This parameter is required.
+     *
      * @example vsw-2vccsiymtxxxxxx
      *
      * @var string
@@ -222,6 +251,7 @@ class CreateInstanceRequest extends Model
      * @description The ID of the virtual private cloud (VPC). The region in which the VPC resides must be the same as the region in which the Hologres instance resides.
      *
      * This parameter is required.
+     *
      * @example vpc-t4netc3y5xxxx
      *
      * @var string
@@ -229,39 +259,39 @@ class CreateInstanceRequest extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone. For more information about how to obtain the ID of the zone, see the Usage notes section.
+     * @description The ID of the zone. For more information, see the "Operation description" section in this topic.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou-h
      *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'autoPay'                   => 'autoPay',
-        'autoRenew'                 => 'autoRenew',
-        'chargeType'                => 'chargeType',
-        'coldStorageSize'           => 'coldStorageSize',
-        'cpu'                       => 'cpu',
-        'duration'                  => 'duration',
+        'autoPay' => 'autoPay',
+        'autoRenew' => 'autoRenew',
+        'chargeType' => 'chargeType',
+        'coldStorageSize' => 'coldStorageSize',
+        'cpu' => 'cpu',
+        'duration' => 'duration',
         'enableServerlessComputing' => 'enableServerlessComputing',
-        'gatewayCount'              => 'gatewayCount',
-        'initialDatabases'          => 'initialDatabases',
-        'instanceName'              => 'instanceName',
-        'instanceType'              => 'instanceType',
-        'leaderInstanceId'          => 'leaderInstanceId',
-        'pricingCycle'              => 'pricingCycle',
-        'regionId'                  => 'regionId',
-        'resourceGroupId'           => 'resourceGroupId',
-        'storageSize'               => 'storageSize',
-        'vSwitchId'                 => 'vSwitchId',
-        'vpcId'                     => 'vpcId',
-        'zoneId'                    => 'zoneId',
+        'gatewayCount' => 'gatewayCount',
+        'initialDatabases' => 'initialDatabases',
+        'instanceName' => 'instanceName',
+        'instanceType' => 'instanceType',
+        'leaderInstanceId' => 'leaderInstanceId',
+        'pricingCycle' => 'pricingCycle',
+        'regionId' => 'regionId',
+        'resourceGroupId' => 'resourceGroupId',
+        'storageSize' => 'storageSize',
+        'storageType' => 'storageType',
+        'vSwitchId' => 'vSwitchId',
+        'vpcId' => 'vpcId',
+        'zoneId' => 'zoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -313,6 +343,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->storageSize) {
             $res['storageSize'] = $this->storageSize;
+        }
+        if (null !== $this->storageType) {
+            $res['storageType'] = $this->storageType;
         }
         if (null !== $this->vSwitchId) {
             $res['vSwitchId'] = $this->vSwitchId;
@@ -382,6 +415,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['storageSize'])) {
             $model->storageSize = $map['storageSize'];
+        }
+        if (isset($map['storageType'])) {
+            $model->storageType = $map['storageType'];
         }
         if (isset($map['vSwitchId'])) {
             $model->vSwitchId = $map['vSwitchId'];

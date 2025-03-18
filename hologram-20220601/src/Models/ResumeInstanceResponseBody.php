@@ -18,7 +18,7 @@ class ResumeInstanceResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code.
      *
      * @example 404
      *
@@ -27,7 +27,7 @@ class ResumeInstanceResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The error message.
      *
      * @example Internal server error.
      *
@@ -62,17 +62,15 @@ class ResumeInstanceResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'data'           => 'Data',
-        'errorCode'      => 'ErrorCode',
-        'errorMessage'   => 'ErrorMessage',
+        'data' => 'Data',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceNameRequest extends Model
 {
     /**
-     * @description The new name of the instance.
+     * @description The new name of the instance. The name must be 2 to 64 characters in length.
      *
      * @example new_name
      *
@@ -20,9 +20,7 @@ class UpdateInstanceNameRequest extends Model
         'instanceName' => 'instanceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

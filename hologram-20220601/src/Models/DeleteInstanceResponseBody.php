@@ -17,9 +17,18 @@ class DeleteInstanceResponseBody extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example true
      *
      * @var bool
@@ -71,17 +80,15 @@ class DeleteInstanceResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'data'           => 'Data',
-        'errorCode'      => 'ErrorCode',
-        'errorMessage'   => 'ErrorMessage',
+        'data' => 'Data',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -19,9 +19,18 @@ class instance extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example true
      *
      * @var string
@@ -44,21 +53,71 @@ class instance extends Model
      *
      *   hologram_maxcomputeAccelerate_public_cn
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * China site/Lakehouse Acceleration Edition
+     *
+     * <!-- -->
+     *
      * .
      *
      *   hologram_combo_public_cn
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * China site/Subscription
+     *
+     * <!-- -->
      *
      * .
      *
      *   hologram_prepay_public_intl
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * International site/Subscription
+     *
+     * <!-- -->
+     *
      * .
      *
      *   hologram_storage_dp_cn
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * China site/Storage plan
+     *
+     * <!-- -->
+     *
      * .
      *
      *   hologram_postpay_public_cn
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * China site/Pay-as-you-go
+     *
+     * <!-- -->
      *
      * .
      *
@@ -66,13 +125,40 @@ class instance extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * International site/Pay-as-you-go
+     *
+     * <!-- -->
+     *
      *   hologram_maxcomputeAccelerate_public_intl
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * International site/Lakehouse Acceleration Edition
+     *
+     * <!-- -->
      *
      * .
      *
      *   hologram_cu_dp_cn
      *
      * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * China site/Compute plan
+     *
+     * <!-- -->
+     *
      * @example hologram_combo_public_cn
      *
      * @var string
@@ -125,6 +211,10 @@ class instance extends Model
     public $enableHiveAccess;
 
     /**
+     * @description EnableServerless
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableServerless;
@@ -179,11 +269,32 @@ class instance extends Model
      *
      *   PostPaid
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * pay-as-you-go
+     *
+     * <!-- -->
+     *
      * .
      *
      *   PrePaid
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * subscription
+     *
+     * <!-- -->
+     *
      * .
+     *
      * @example PrePaid
      *
      * @var string
@@ -226,7 +337,15 @@ class instance extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Running
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -234,9 +353,18 @@ class instance extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   Allocating
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example Running
      *
      * @var string
@@ -250,11 +378,32 @@ class instance extends Model
      *
      *   Follower
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * read-only secondary instance
+     *
+     * <!-- -->
+     *
      * .
      *
      *   Standard
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * normal instance
+     *
+     * <!-- -->
+     *
      * .
+     *
      * @example Standard
      *
      * @var string
@@ -289,6 +438,13 @@ class instance extends Model
     public $regionId;
 
     /**
+     * @description Disaster recovery instance role.
+     * Active: Primary disaster recovery instance.
+     * Passive: Disaster tolerance instance.
+     * PreActive: Primary disaster recovery instance not yet in final state.
+     *
+     * @example Active
+     *
      * @var string
      */
     public $replicaRole;
@@ -303,21 +459,64 @@ class instance extends Model
     public $resourceGroupId;
 
     /**
+     * @description The storage type.
+     *
+     *   redundant: 3 copies
+     *   local: single copy
+     *
+     * @example redundant
+     *
+     * @var string
+     */
+    public $storageType;
+
+    /**
      * @description The reason for the suspension.
      *
      * Valid values:
      *
      *   Indebet
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * The instance has an overdue payment
+     *
+     * <!-- -->
+     *
      * .
      *
      *   Manual
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * The instance is manually suspended
+     *
+     * <!-- -->
      *
      * .
      *
      *   Overdue
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * The instance has expired
+     *
+     * <!-- -->
+     *
      * .
+     *
      * @example Manual
      *
      * @var string
@@ -349,40 +548,39 @@ class instance extends Model
      */
     public $zoneId;
     protected $_name = [
-        'autoRenewal'        => 'AutoRenewal',
-        'coldStorage'        => 'ColdStorage',
-        'commodityCode'      => 'CommodityCode',
-        'computeNodeCount'   => 'ComputeNodeCount',
-        'cpu'                => 'Cpu',
-        'creationTime'       => 'CreationTime',
-        'disk'               => 'Disk',
-        'enableHiveAccess'   => 'EnableHiveAccess',
-        'enableServerless'   => 'EnableServerless',
-        'endpoints'          => 'Endpoints',
-        'expirationTime'     => 'ExpirationTime',
-        'gatewayCount'       => 'GatewayCount',
-        'gatewayCpu'         => 'GatewayCpu',
-        'gatewayMemory'      => 'GatewayMemory',
+        'autoRenewal' => 'AutoRenewal',
+        'coldStorage' => 'ColdStorage',
+        'commodityCode' => 'CommodityCode',
+        'computeNodeCount' => 'ComputeNodeCount',
+        'cpu' => 'Cpu',
+        'creationTime' => 'CreationTime',
+        'disk' => 'Disk',
+        'enableHiveAccess' => 'EnableHiveAccess',
+        'enableServerless' => 'EnableServerless',
+        'endpoints' => 'Endpoints',
+        'expirationTime' => 'ExpirationTime',
+        'gatewayCount' => 'GatewayCount',
+        'gatewayCpu' => 'GatewayCpu',
+        'gatewayMemory' => 'GatewayMemory',
         'instanceChargeType' => 'InstanceChargeType',
-        'instanceId'         => 'InstanceId',
-        'instanceName'       => 'InstanceName',
-        'instanceOwner'      => 'InstanceOwner',
-        'instanceStatus'     => 'InstanceStatus',
-        'instanceType'       => 'InstanceType',
-        'leaderInstanceId'   => 'LeaderInstanceId',
-        'memory'             => 'Memory',
-        'regionId'           => 'RegionId',
-        'replicaRole'        => 'ReplicaRole',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'suspendReason'      => 'SuspendReason',
-        'tags'               => 'Tags',
-        'version'            => 'Version',
-        'zoneId'             => 'ZoneId',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'instanceOwner' => 'InstanceOwner',
+        'instanceStatus' => 'InstanceStatus',
+        'instanceType' => 'InstanceType',
+        'leaderInstanceId' => 'LeaderInstanceId',
+        'memory' => 'Memory',
+        'regionId' => 'RegionId',
+        'replicaRole' => 'ReplicaRole',
+        'resourceGroupId' => 'ResourceGroupId',
+        'storageType' => 'StorageType',
+        'suspendReason' => 'SuspendReason',
+        'tags' => 'Tags',
+        'version' => 'Version',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -468,6 +666,9 @@ class instance extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
+        }
         if (null !== $this->suspendReason) {
             $res['SuspendReason'] = $this->suspendReason;
         }
@@ -528,7 +729,7 @@ class instance extends Model
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Endpoints'] as $item) {
                     $model->endpoints[$n++] = null !== $item ? endpoints::fromMap($item) : $item;
                 }
@@ -579,13 +780,16 @@ class instance extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
+        }
         if (isset($map['SuspendReason'])) {
             $model->suspendReason = $map['SuspendReason'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

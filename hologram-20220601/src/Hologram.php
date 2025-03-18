@@ -110,21 +110,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/tag/changeResourceGroup',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/tag/changeResourceGroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -164,21 +167,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateHoloWarehouse',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/createHoloWarehouse',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateHoloWarehouse',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/createHoloWarehouse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -278,6 +284,9 @@ class Hologram extends OpenApiClient
         if (!Utils::isUnset($request->storageSize)) {
             $body['storageSize'] = $request->storageSize;
         }
+        if (!Utils::isUnset($request->storageType)) {
+            $body['storageType'] = $request->storageType;
+        }
         if (!Utils::isUnset($request->vSwitchId)) {
             $body['vSwitchId'] = $request->vSwitchId;
         }
@@ -289,21 +298,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstance',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateInstance',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -360,21 +372,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHoloWarehouse',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/deleteHoloWarehouse',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteHoloWarehouse',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/deleteHoloWarehouse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -397,9 +412,8 @@ class Hologram extends OpenApiClient
      * @summary Deletes a Hologres instance.
      *  *
      * @description > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
-     * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview#section-h6a-x58-jc0).
+     * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
      * *   You can delete only pay-as-you-go instances.
-     * *   If you want to unsubscribe from a subscription instance, submit a ticket.[](https://help.aliyun.com/document_detail/150284.html#section-ogc-9vc-858)
      *  *
      * @param string                $instanceId
      * @param DeleteInstanceRequest $request    DeleteInstanceRequest
@@ -417,30 +431,32 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstance',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/delete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteInstance',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * @summary Deletes a Hologres instance.
      *  *
      * @description > Before you call this operation, read the documentation and make sure that you understand the prerequisites and impacts of this operation.
-     * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview#section-h6a-x58-jc0).
+     * *   After you delete a Hologres instance, data and objects in the instance cannot be restored. Proceed with caution. For more information, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview?spm=a2c63.p38356.0.0.efc33b87i5pDl7).
      * *   You can delete only pay-as-you-go instances.
-     * *   If you want to unsubscribe from a subscription instance, submit a ticket.[](https://help.aliyun.com/document_detail/150284.html#section-ogc-9vc-858)
      *  *
      * @param string                $instanceId
      * @param DeleteInstanceRequest $request    DeleteInstanceRequest
@@ -474,21 +490,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableHiveAccess',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/disableHiveAccess',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DisableHiveAccess',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/disableHiveAccess',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DisableHiveAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableHiveAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableHiveAccessResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -526,21 +545,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableHiveAccess',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/enableHiveAccess',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'EnableHiveAccess',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/enableHiveAccess',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EnableHiveAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableHiveAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableHiveAccessResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -574,18 +596,21 @@ class Hologram extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetInstance',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstance',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -618,18 +643,21 @@ class Hologram extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetWarehouseDetail',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/getWarehouseDetail',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetWarehouseDetail',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/getWarehouseDetail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetWarehouseDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWarehouseDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWarehouseDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -648,7 +676,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 获取备份列表
+     * @summary Queries a list of backups. A backup is a full data snapshot of an instance at the end of the snapshot time. You can purchase another instance to completely restore the original data.
      *  *
      * @param ListBackupDataRequest $request ListBackupDataRequest
      * @param string[]              $headers map
@@ -668,25 +696,28 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListBackupData',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/backups',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListBackupData',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/backups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListBackupDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListBackupDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListBackupDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取备份列表
+     * @summary Queries a list of backups. A backup is a full data snapshot of an instance at the end of the snapshot time. You can purchase another instance to completely restore the original data.
      *  *
      * @param ListBackupDataRequest $request ListBackupDataRequest
      *
@@ -724,21 +755,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstances',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -771,18 +805,21 @@ class Hologram extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListWarehouses',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/listWarehouses',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListWarehouses',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/listWarehouses',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListWarehousesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWarehousesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWarehousesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -819,21 +856,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RebalanceHoloWarehouse',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/rebalanceHoloWarehouse',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RebalanceHoloWarehouse',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/rebalanceHoloWarehouse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RebalanceHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RebalanceHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RebalanceHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -874,21 +914,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RenameHoloWarehouse',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/renameHoloWarehouse',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RenameHoloWarehouse',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/renameHoloWarehouse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RenameHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RenameHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenameHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -910,9 +953,9 @@ class Hologram extends OpenApiClient
     /**
      * @summary Manually renews a Hologres instance. You can enable monthly auto-renewal when you renew a Hologres instance.
      *  *
-     * @description > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     * *   For more information about billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
-     * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/en/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.73f27c8d1Q0FUi).
+     * @description >  Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+     * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/zh/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.38e731c9VAwtDP).
      * *   You can renew only subscription instances.
      *  *
      * @param string               $instanceId
@@ -934,29 +977,32 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RenewInstance',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/renew',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RenewInstance',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/renew',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenewInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * @summary Manually renews a Hologres instance. You can enable monthly auto-renewal when you renew a Hologres instance.
      *  *
-     * @description > Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
-     * *   For more information about billing details of Hologres, see [Pricing](https://www.alibabacloud.com/help/en/hologres/product-overview/billing-overview).
-     * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/en/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.73f27c8d1Q0FUi).
+     * @description >  Before you call this operation, make sure that you understand the billing method and pricing of Hologres because this operation is charged.
+     * *   For more information about the billing of Hologres, see [Billing overview](https://www.alibabacloud.com/help/zh/hologres/product-overview/billing-overview).
+     * *   For more information about how to renew a Hologres instance, see [Manage renewals](https://www.alibabacloud.com/help/zh/hologres/product-overview/manage-renewals?spm=a2c63.p38356.0.0.38e731c9VAwtDP).
      * *   You can renew only subscription instances.
      *  *
      * @param string               $instanceId
@@ -991,21 +1037,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RestartHoloWarehouse',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/restartHoloWarehouse',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RestartHoloWarehouse',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/restartHoloWarehouse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RestartHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RestartHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1025,7 +1074,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 重启实例
+     * @summary Restarts an instance.
      *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
@@ -1039,22 +1088,25 @@ class Hologram extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RestartInstance',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/restart',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RestartInstance',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/restart',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 重启实例
+     * @summary Restarts an instance.
      *  *
      * @param string $instanceId
      *
@@ -1087,21 +1139,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ResumeHoloWarehouse',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/resumeHoloWarehouse',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ResumeHoloWarehouse',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/resumeHoloWarehouse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ResumeHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResumeHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResumeHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1121,7 +1176,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary Resumes a suspended instance.
+     * @summary Resumes an instance.
      *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
@@ -1135,22 +1190,25 @@ class Hologram extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ResumeInstance',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/resume',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ResumeInstance',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/resume',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ResumeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResumeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResumeInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Resumes a suspended instance.
+     * @summary Resumes an instance.
      *  *
      * @param string $instanceId
      *
@@ -1186,21 +1244,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ScaleHoloWarehouse',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/scaleHoloWarehouse',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ScaleHoloWarehouse',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/scaleHoloWarehouse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ScaleHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ScaleHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ScaleHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1257,21 +1318,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ScaleInstance',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/scale',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ScaleInstance',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/scale',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ScaleInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ScaleInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ScaleInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1295,7 +1359,7 @@ class Hologram extends OpenApiClient
     }
 
     /**
-     * @summary 暂停实例
+     * @summary Stops an instance.
      *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
@@ -1309,22 +1373,25 @@ class Hologram extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StopInstance',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/stop',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopInstance',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/stop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return StopInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 暂停实例
+     * @summary Stops an instance.
      *  *
      * @param string $instanceId
      *
@@ -1357,21 +1424,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SuspendHoloWarehouse',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/suspendHoloWarehouse',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SuspendHoloWarehouse',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/suspendHoloWarehouse',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SuspendHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SuspendHoloWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SuspendHoloWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1409,21 +1479,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstanceName',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/instanceName',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateInstanceName',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/instanceName',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateInstanceNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1476,21 +1549,24 @@ class Hologram extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstanceNetworkType',
-            'version'     => '2022-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/network',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateInstanceNetworkType',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/network',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateInstanceNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateInstanceNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateInstanceNetworkTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

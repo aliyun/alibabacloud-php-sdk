@@ -12,6 +12,7 @@ class DeleteHoloWarehouseRequest extends Model
      * @description The name of the virtual warehouse.
      *
      * This parameter is required.
+     *
      * @example my_warehouse
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteHoloWarehouseRequest extends Model
         'name' => 'name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

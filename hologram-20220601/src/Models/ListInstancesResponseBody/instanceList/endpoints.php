@@ -17,9 +17,18 @@ class endpoints extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example true
      *
      * @var bool
@@ -42,19 +51,56 @@ class endpoints extends Model
      *
      *   VPCSingleTunnel
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * virtual private cloud (VPC)
+     *
+     * <!-- -->
+     *
      * .
      *
      *   Intranet
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * internal network
+     *
+     * <!-- -->
+     *
      *   VPCAnyTunnel
+     *
+     * <!-- -->
+     *
+     * : This value is not supported by new instances
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * .
      *
      *   Internet
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * Internet
+     *
+     * <!-- -->
+     *
      * .
+     *
      * @example Internet
      *
      * @var string
@@ -88,17 +134,15 @@ class endpoints extends Model
      */
     public $vpcInstanceId;
     protected $_name = [
-        'enabled'       => 'Enabled',
-        'endpoint'      => 'Endpoint',
-        'type'          => 'Type',
-        'vSwitchId'     => 'VSwitchId',
-        'vpcId'         => 'VpcId',
+        'enabled' => 'Enabled',
+        'endpoint' => 'Endpoint',
+        'type' => 'Type',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
         'vpcInstanceId' => 'VpcInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

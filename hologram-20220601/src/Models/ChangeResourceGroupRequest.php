@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example hgprecn-cn-zvp25ysv3006
      *
      * @var string
@@ -16,19 +18,19 @@ class ChangeResourceGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description new resource group id
+     *
      * @example rg-acfmxwerqwerasfd
      *
      * @var string
      */
     public $newResourceGroupId;
     protected $_name = [
-        'instanceId'         => 'instanceId',
+        'instanceId' => 'instanceId',
         'newResourceGroupId' => 'newResourceGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
