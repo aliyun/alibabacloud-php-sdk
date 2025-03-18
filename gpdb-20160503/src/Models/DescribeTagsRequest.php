@@ -21,7 +21,10 @@ class DescribeTagsRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,24 +54,23 @@ class DescribeTagsRequest extends Model
      * @description The type of the resource. Set the value to **instance**.
      *
      * This parameter is required.
+     *
      * @example instance
      *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceType'         => 'ResourceType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

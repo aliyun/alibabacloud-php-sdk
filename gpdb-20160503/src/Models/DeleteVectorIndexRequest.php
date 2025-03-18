@@ -11,7 +11,10 @@ class DeleteVectorIndexRequest extends Model
     /**
      * @description The name of the collection.
      *
+     * >  You can call the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) operation to query a list of collections.
+     *
      * This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -21,7 +24,10 @@ class DeleteVectorIndexRequest extends Model
     /**
      * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -34,6 +40,7 @@ class DeleteVectorIndexRequest extends Model
      * >  You can create an account on the **Account Management** page of the AnalyticDB for PostgreSQL console or by calling the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) operation.
      *
      * This parameter is required.
+     *
      * @example testaccount
      *
      * @var string
@@ -44,6 +51,7 @@ class DeleteVectorIndexRequest extends Model
      * @description The password of the manager account.
      *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -54,6 +62,7 @@ class DeleteVectorIndexRequest extends Model
      * @description The name of the namespace. Default value: public.
      *
      * >  You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+     *
      * @example mynamespace
      *
      * @var string
@@ -69,6 +78,7 @@ class DeleteVectorIndexRequest extends Model
      * @description The region ID of the instance.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -80,19 +90,17 @@ class DeleteVectorIndexRequest extends Model
      */
     public $type;
     protected $_name = [
-        'collection'             => 'Collection',
-        'DBInstanceId'           => 'DBInstanceId',
-        'managerAccount'         => 'ManagerAccount',
+        'collection' => 'Collection',
+        'DBInstanceId' => 'DBInstanceId',
+        'managerAccount' => 'ManagerAccount',
         'managerAccountPassword' => 'ManagerAccountPassword',
-        'namespace'              => 'Namespace',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
-        'type'                   => 'Type',
+        'namespace' => 'Namespace',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

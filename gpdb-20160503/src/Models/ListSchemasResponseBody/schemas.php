@@ -16,9 +16,7 @@ class schemas extends Model
         'schemas' => 'Schemas',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

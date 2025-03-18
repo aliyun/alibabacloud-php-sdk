@@ -12,6 +12,7 @@ class ListExternalDataSourcesRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxx
      *
      * @var string
@@ -35,6 +36,7 @@ class ListExternalDataSourcesRequest extends Model
      *   **100**
      *
      * Default value: 30.
+     *
      * @example 50
      *
      * @var int
@@ -51,14 +53,12 @@ class ListExternalDataSourcesRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

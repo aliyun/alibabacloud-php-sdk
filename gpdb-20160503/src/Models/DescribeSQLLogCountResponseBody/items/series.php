@@ -19,9 +19,7 @@ class series extends Model
         'values' => 'Values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class series extends Model
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Values'] as $item) {
                     $model->values[$n++] = null !== $item ? values::fromMap($item) : $item;
                 }

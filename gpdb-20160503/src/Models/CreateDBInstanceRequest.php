@@ -19,6 +19,7 @@ class CreateDBInstanceRequest extends Model
      * @description Backup set ID.
      *
      * > You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) interface to view the backup set IDs of all backup sets under the target instance.
+     *
      * @example 1111111111
      *
      * @var string
@@ -41,6 +42,7 @@ class CreateDBInstanceRequest extends Model
      * - **false**: Do not load sample datasets.
      *
      * > If this parameter is not specified, it defaults to not loading sample datasets.
+     *
      * @example false
      *
      * @var bool
@@ -54,6 +56,7 @@ class CreateDBInstanceRequest extends Model
      * - **Basic**: Basic version.
      *
      * > This parameter is required when creating an instance in the storage elastic mode.
+     *
      * @example HighAvailability
      *
      * @var string
@@ -64,6 +67,7 @@ class CreateDBInstanceRequest extends Model
      * @description Instance type. For more details, see the supplementary description of the DBInstanceClass parameter.
      *
      * > This parameter is required when creating a reserved storage mode instance.
+     *
      * @example gpdb.group.segsdx1
      *
      * @var string
@@ -83,6 +87,7 @@ class CreateDBInstanceRequest extends Model
      * @description Number of compute groups. The values are: 2, 4, 8, 12, 16, 24, 32, 64, 96, 128.
      *
      * > This parameter is required when creating a reserved storage mode instance.
+     *
      * @example 2
      *
      * @var string
@@ -96,7 +101,10 @@ class CreateDBInstanceRequest extends Model
      * - **Serverless**: Serverless mode.
      * - **Classic**: Storage reserved mode.
      *
+     * > This parameter is required.
+     *
      * This parameter is required.
+     *
      * @example StorageElastic
      *
      * @var string
@@ -105,7 +113,13 @@ class CreateDBInstanceRequest extends Model
 
     /**
      * @description Deployment mode. The values are as follows:
+     * - multiple: Multi-zone deployment.
+     * - single: Single-zone deployment.
+     *
+     * >
+     * > - If this parameter is not specified, the default value is single-zone deployment.
      * > - Currently, only single-zone deployment is supported.
+     *
      * @example single
      *
      * @var string
@@ -128,6 +142,7 @@ class CreateDBInstanceRequest extends Model
      * @description Key ID.
      *
      * > If the value of the **EncryptionType** parameter is **CloudDisk**, you need to specify the encryption key ID within the same region through this parameter; otherwise, it should be empty.
+     *
      * @example 0d2470df-da7b-4786-b981-88888888****
      *
      * @var string
@@ -141,6 +156,7 @@ class CreateDBInstanceRequest extends Model
      * - **CloudDisk**: Enable cloud disk encryption and specify the key through the **EncryptionKey** parameter.
      *
      * > Once cloud disk encryption is enabled, it cannot be disabled.
+     *
      * @example CloudDisk
      *
      * @var string
@@ -151,6 +167,7 @@ class CreateDBInstanceRequest extends Model
      * @description Database engine, with the value **gpdb**.
      *
      * This parameter is required.
+     *
      * @example gpdb
      *
      * @var string
@@ -163,6 +180,7 @@ class CreateDBInstanceRequest extends Model
      * - **7.0**: Version 7.0.
      *
      * This parameter is required.
+     *
      * @example 6.0
      *
      * @var string
@@ -173,6 +191,7 @@ class CreateDBInstanceRequest extends Model
      * @description The idle release wait time. When the duration without business traffic reaches the specified time, the instance will enter the idle state. The unit is seconds, with a minimum value of 60, and the default value is 600.
      *
      * > This parameter is required only for Serverless auto-scheduling mode instances.
+     *
      * @example 600
      *
      * @var int
@@ -182,7 +201,9 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description Instance network type, with the value **VPC**.
      *
+     * > - Only VPC networks are supported in public cloud.
      * > - If not specified, it defaults to VPC type.
+     *
      * @example VPC
      *
      * @var string
@@ -208,6 +229,7 @@ class CreateDBInstanceRequest extends Model
      * - **8C32G**
      *
      * > This parameter is required when creating an elastic storage mode instance or a Serverless mode instance.
+     *
      * @example 2C16G
      *
      * @var string
@@ -217,7 +239,11 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description This parameter must be specified if you want to change coordinator nodes to AI coordinator nodes.
      *
+     * >-  You cannot specify the MasterAISpec and MasterCU parameters at the same time.
+     * >- You can change coordinator nodes to AI coordinator nodes only in specific regions and zones.
+     * >- Only AnalyticDB for PostgreSQL V7.0 instances of Basic Edition support AI coordinator nodes.
      * >- You can view the valid values of this parameter on the configuration change page of coordinator nodes.
+     *
      * @example ADB.AIMedium.2
      *
      * @var string
@@ -226,7 +252,13 @@ class CreateDBInstanceRequest extends Model
 
     /**
      * @description Master resources, with the following values:
+     * - 2 CU
+     * - 4 CU
+     * - 8 CU
+     * - 16 CU
+     * - 32 CU
      * > Master resources above 8 CU will incur charges.
+     *
      * @example 8 CU
      *
      * @var int
@@ -271,6 +303,7 @@ class CreateDBInstanceRequest extends Model
      * - **Year**: Year
      *
      * > This parameter is required when creating a subscription-billed instance.
+     *
      * @example Month
      *
      * @var string
@@ -292,6 +325,7 @@ class CreateDBInstanceRequest extends Model
      * - **cost-effective**: Cost-Effective Edition.
      *
      * > If this parameter is not specified, the default value is Standard Edition.
+     *
      * @example standard
      *
      * @var string
@@ -301,7 +335,10 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description Region ID.
      *
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -321,6 +358,7 @@ class CreateDBInstanceRequest extends Model
      * @description The IP address whitelist of the instance.
      *
      * A value of 127.0.0.1 denies access from any external IP address. You can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP address whitelist after you create an instance.
+     *
      * @example 127.0.0.1
      *
      * @var string
@@ -349,7 +387,12 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The number of compute nodes. The value description is as follows:
      *
+     * - For the high-availability version of the storage elastic mode, the value range is 4 to 512, and the value must be a multiple of 4.
+     * - For the basic version of the storage elastic mode, the value range is 2 to 512, and the value must be a multiple of 2.
+     * - For the Serverless mode, the value range is 2 to 512, and the value must be a multiple of 2.
+     *
      * > This parameter is required when creating instances in the storage elastic mode or Serverless mode.
+     *
      * @example 4
      *
      * @var string
@@ -360,6 +403,7 @@ class CreateDBInstanceRequest extends Model
      * @description Disk storage type, currently only ESSD cloud disks are supported, with the value **cloud_essd**.
      *
      * > This parameter is required when creating an elastic storage mode instance.
+     *
      * @example cloud_essd
      *
      * @var string
@@ -373,6 +417,7 @@ class CreateDBInstanceRequest extends Model
      * - **Auto**: Auto scheduling.
      *
      * > This parameter is required only for Serverless mode instances.
+     *
      * @example Auto
      *
      * @var string
@@ -383,6 +428,7 @@ class CreateDBInstanceRequest extends Model
      * @description The threshold for computing resources. The value range is 8 to 32, with a step of 8, and the unit is ACU. The default value is 32.
      *
      * > This parameter is required only for Serverless auto-scheduling mode instances.
+     *
      * @example 32
      *
      * @var int
@@ -393,6 +439,7 @@ class CreateDBInstanceRequest extends Model
      * @description ID of the source instance to be cloned.
      *
      * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) interface to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -402,7 +449,10 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description VSwitch ID of the standby zone.
      *
+     * >
+     * > - This parameter is required for multi-zone deployment.
      * > - The VSwitch ID of the standby zone must be in the same zone as the StandbyZoneId.
+     *
      * @example vsw-bp1cpq8mr64paltkb****
      *
      * @var string
@@ -412,7 +462,11 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description ID of the standby zone.
      *
+     * >
+     * > - This parameter is required for multi-zone deployment.
+     * > - You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available zone IDs.
      * > - The ID of the standby zone must be different from the ID of the primary zone.
+     *
      * @example cn-hangzhou-j
      *
      * @var string
@@ -423,6 +477,7 @@ class CreateDBInstanceRequest extends Model
      * @description The size of the storage space, in GB, with a value range of <props="china">50~8000<props="intl">50~6000.
      *
      * > This parameter is required when creating an instance in the storage elastic mode.
+     *
      * @example 200
      *
      * @var int
@@ -451,6 +506,7 @@ class CreateDBInstanceRequest extends Model
      * - When **Period** is **Year**, the value ranges from 1 to 3.
      *
      * > This parameter is required when creating a subscription-billed instance.
+     *
      * @example 1
      *
      * @var string
@@ -462,6 +518,7 @@ class CreateDBInstanceRequest extends Model
      *
      * > - **VPCId** is required.
      * > - The region of the **VPC** must be consistent with **RegionId**.
+     *
      * @example vpc-bp19ame5m1r3oejns****
      *
      * @var string
@@ -473,6 +530,7 @@ class CreateDBInstanceRequest extends Model
      *
      * > - **vSwitchId** is required.
      * > - The availability zone of the **vSwitch** must be consistent with **ZoneId**.
+     *
      * @example vsw-bp1cpq8mr64paltkb****
      *
      * @var string
@@ -486,6 +544,7 @@ class CreateDBInstanceRequest extends Model
      *
      * > - For mainstream analysis scenarios, data warehouse scenarios, and real-time data warehouse scenarios, it is recommended to **not enable** vector engine optimization.
      * > - For users using the vector analysis engine for AIGC, vector retrieval, and other scenarios, it is recommended to **enable** vector engine optimization.
+     *
      * @example enabled
      *
      * @var string
@@ -495,63 +554,64 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description Zone ID.
      *
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available zone IDs.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou-i
      *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'AINodeSpecInfos'           => 'AINodeSpecInfos',
-        'backupId'                  => 'BackupId',
-        'clientToken'               => 'ClientToken',
-        'createSampleData'          => 'CreateSampleData',
-        'DBInstanceCategory'        => 'DBInstanceCategory',
-        'DBInstanceClass'           => 'DBInstanceClass',
-        'DBInstanceDescription'     => 'DBInstanceDescription',
-        'DBInstanceGroupCount'      => 'DBInstanceGroupCount',
-        'DBInstanceMode'            => 'DBInstanceMode',
-        'deployMode'                => 'DeployMode',
-        'enableSSL'                 => 'EnableSSL',
-        'encryptionKey'             => 'EncryptionKey',
-        'encryptionType'            => 'EncryptionType',
-        'engine'                    => 'Engine',
-        'engineVersion'             => 'EngineVersion',
-        'idleTime'                  => 'IdleTime',
-        'instanceNetworkType'       => 'InstanceNetworkType',
-        'instanceSpec'              => 'InstanceSpec',
-        'masterAISpec'              => 'MasterAISpec',
-        'masterCU'                  => 'MasterCU',
-        'masterNodeNum'             => 'MasterNodeNum',
-        'ownerId'                   => 'OwnerId',
-        'payType'                   => 'PayType',
-        'period'                    => 'Period',
-        'privateIpAddress'          => 'PrivateIpAddress',
-        'prodType'                  => 'ProdType',
-        'regionId'                  => 'RegionId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'securityIPList'            => 'SecurityIPList',
-        'segDiskPerformanceLevel'   => 'SegDiskPerformanceLevel',
-        'segNodeNum'                => 'SegNodeNum',
-        'segStorageType'            => 'SegStorageType',
-        'serverlessMode'            => 'ServerlessMode',
-        'serverlessResource'        => 'ServerlessResource',
-        'srcDbInstanceName'         => 'SrcDbInstanceName',
-        'standbyVSwitchId'          => 'StandbyVSwitchId',
-        'standbyZoneId'             => 'StandbyZoneId',
-        'storageSize'               => 'StorageSize',
-        'storageType'               => 'StorageType',
-        'tag'                       => 'Tag',
-        'usedTime'                  => 'UsedTime',
-        'VPCId'                     => 'VPCId',
-        'vSwitchId'                 => 'VSwitchId',
+        'AINodeSpecInfos' => 'AINodeSpecInfos',
+        'backupId' => 'BackupId',
+        'clientToken' => 'ClientToken',
+        'createSampleData' => 'CreateSampleData',
+        'DBInstanceCategory' => 'DBInstanceCategory',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceGroupCount' => 'DBInstanceGroupCount',
+        'DBInstanceMode' => 'DBInstanceMode',
+        'deployMode' => 'DeployMode',
+        'enableSSL' => 'EnableSSL',
+        'encryptionKey' => 'EncryptionKey',
+        'encryptionType' => 'EncryptionType',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'idleTime' => 'IdleTime',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'instanceSpec' => 'InstanceSpec',
+        'masterAISpec' => 'MasterAISpec',
+        'masterCU' => 'MasterCU',
+        'masterNodeNum' => 'MasterNodeNum',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'prodType' => 'ProdType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityIPList' => 'SecurityIPList',
+        'segDiskPerformanceLevel' => 'SegDiskPerformanceLevel',
+        'segNodeNum' => 'SegNodeNum',
+        'segStorageType' => 'SegStorageType',
+        'serverlessMode' => 'ServerlessMode',
+        'serverlessResource' => 'ServerlessResource',
+        'srcDbInstanceName' => 'SrcDbInstanceName',
+        'standbyVSwitchId' => 'StandbyVSwitchId',
+        'standbyZoneId' => 'StandbyZoneId',
+        'storageSize' => 'StorageSize',
+        'storageType' => 'StorageType',
+        'tag' => 'Tag',
+        'usedTime' => 'UsedTime',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
         'vectorConfigurationStatus' => 'VectorConfigurationStatus',
-        'zoneId'                    => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -718,7 +778,7 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['AINodeSpecInfos'])) {
             if (!empty($map['AINodeSpecInfos'])) {
                 $model->AINodeSpecInfos = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['AINodeSpecInfos'] as $item) {
                     $model->AINodeSpecInfos[$n++] = null !== $item ? AINodeSpecInfos::fromMap($item) : $item;
                 }
@@ -841,7 +901,7 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

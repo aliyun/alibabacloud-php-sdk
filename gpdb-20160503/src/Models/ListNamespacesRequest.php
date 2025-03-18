@@ -12,6 +12,7 @@ class ListNamespacesRequest extends Model
      * @description The instance ID.
      *
      * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -21,7 +22,10 @@ class ListNamespacesRequest extends Model
     /**
      * @description The name of the manager account that has the rds_superuser permission.
      *
+     * >  You can create an account on the Account Management page of the AnalyticDB for PostgreSQL console or by calling the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) operation.
+     *
      * This parameter is required.
+     *
      * @example testaccount
      *
      * @var string
@@ -32,6 +36,7 @@ class ListNamespacesRequest extends Model
      * @description The password of the manager account.
      *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -47,6 +52,7 @@ class ListNamespacesRequest extends Model
      * @description The region ID of the instance.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -62,17 +68,15 @@ class ListNamespacesRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'DBInstanceId'           => 'DBInstanceId',
-        'managerAccount'         => 'ManagerAccount',
+        'DBInstanceId' => 'DBInstanceId',
+        'managerAccount' => 'ManagerAccount',
         'managerAccountPassword' => 'ManagerAccountPassword',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
-        'workspaceId'            => 'WorkspaceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

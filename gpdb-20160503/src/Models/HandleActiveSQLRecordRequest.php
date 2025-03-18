@@ -12,6 +12,7 @@ class HandleActiveSQLRecordRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -35,6 +36,7 @@ class HandleActiveSQLRecordRequest extends Model
      * @description The process IDs. A process ID is a unique identifier of a query.
      *
      * This parameter is required.
+     *
      * @example "3003925,3003928"
      *
      * @var string
@@ -42,13 +44,11 @@ class HandleActiveSQLRecordRequest extends Model
     public $pids;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'operateType'  => 'OperateType',
-        'pids'         => 'Pids',
+        'operateType' => 'OperateType',
+        'pids' => 'Pids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -19,12 +19,10 @@ class sparseVectorIndexConfig extends Model
     public $hnswM;
     protected $_name = [
         'hnswEfConstruction' => 'HnswEfConstruction',
-        'hnswM'              => 'HnswM',
+        'hnswM' => 'HnswM',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

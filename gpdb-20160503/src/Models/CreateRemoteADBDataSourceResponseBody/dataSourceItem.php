@@ -66,6 +66,7 @@ class dataSourceItem extends Model
      * @description Region ID.
      *
      * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -108,22 +109,20 @@ class dataSourceItem extends Model
      */
     public $userName;
     protected $_name = [
-        'dataSourceName'     => 'DataSourceName',
-        'description'        => 'Description',
-        'id'                 => 'Id',
-        'localDatabase'      => 'LocalDatabase',
-        'localInstanceName'  => 'LocalInstanceName',
-        'managerUserName'    => 'ManagerUserName',
-        'regionId'           => 'RegionId',
-        'remoteDatabase'     => 'RemoteDatabase',
+        'dataSourceName' => 'DataSourceName',
+        'description' => 'Description',
+        'id' => 'Id',
+        'localDatabase' => 'LocalDatabase',
+        'localInstanceName' => 'LocalInstanceName',
+        'managerUserName' => 'ManagerUserName',
+        'regionId' => 'RegionId',
+        'remoteDatabase' => 'RemoteDatabase',
         'remoteInstanceName' => 'RemoteInstanceName',
-        'status'             => 'Status',
-        'userName'           => 'UserName',
+        'status' => 'Status',
+        'userName' => 'UserName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

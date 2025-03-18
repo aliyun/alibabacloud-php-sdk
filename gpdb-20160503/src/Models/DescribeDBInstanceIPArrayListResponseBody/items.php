@@ -17,9 +17,7 @@ class items extends Model
         'DBInstanceIPArray' => 'DBInstanceIPArray',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class items extends Model
         if (isset($map['DBInstanceIPArray'])) {
             if (!empty($map['DBInstanceIPArray'])) {
                 $model->DBInstanceIPArray = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['DBInstanceIPArray'] as $item) {
                     $model->DBInstanceIPArray[$n++] = null !== $item ? DBInstanceIPArray::fromMap($item) : $item;
                 }

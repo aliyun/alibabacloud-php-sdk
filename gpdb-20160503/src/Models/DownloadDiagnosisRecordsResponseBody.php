@@ -36,13 +36,11 @@ class DownloadDiagnosisRecordsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'downloadId'   => 'DownloadId',
-        'requestId'    => 'RequestId',
+        'downloadId' => 'DownloadId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

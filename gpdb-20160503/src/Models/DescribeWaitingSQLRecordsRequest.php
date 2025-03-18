@@ -11,7 +11,10 @@ class DescribeWaitingSQLRecordsRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the instance IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+     *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -22,6 +25,7 @@ class DescribeWaitingSQLRecordsRequest extends Model
      * @description The name of the database.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -32,6 +36,7 @@ class DescribeWaitingSQLRecordsRequest extends Model
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
      *
      * If this parameter is not specified, all lock diagnostics records that are generated after the query start time are returned. If the query start time is not specified either, all lock diagnostics records are returned.
+     *
      * @example 2022-08-20T07:59Z
      *
      * @var string
@@ -51,6 +56,7 @@ class DescribeWaitingSQLRecordsRequest extends Model
      * @description The field used to sort lock diagnostics records and the sorting order.
      *
      * Default value: `{"Field":"StartTime","Type":"Desc"}`, which indicates that lock diagnostics records are sorted by the start time in descending order. No other values are supported.
+     *
      * @example {"Field":"StartTime","Type":"Desc"}
      *
      * @var string
@@ -74,6 +80,7 @@ class DescribeWaitingSQLRecordsRequest extends Model
      *   **100**
      *
      * Default value: **30**.
+     *
      * @example 30
      *
      * @var int
@@ -88,6 +95,7 @@ class DescribeWaitingSQLRecordsRequest extends Model
      *   `{"Type":"status","Value":"ResourceWaiting"}`: filters resource-waiting queries.
      *
      * This parameter is required.
+     *
      * @example {"Type":"maxCost","Value":"10"}
      *
      * @var string
@@ -98,6 +106,7 @@ class DescribeWaitingSQLRecordsRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * If this parameter is not specified, all lock diagnostics records that are generated before the query end time are returned. If the query end time is not specified either, all lock diagnostics records are returned.
+     *
      * @example 2022-08-15T06:59Z
      *
      * @var string
@@ -113,21 +122,19 @@ class DescribeWaitingSQLRecordsRequest extends Model
      */
     public $user;
     protected $_name = [
-        'DBInstanceId'   => 'DBInstanceId',
-        'database'       => 'Database',
-        'endTime'        => 'EndTime',
-        'keyword'        => 'Keyword',
-        'order'          => 'Order',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'DBInstanceId' => 'DBInstanceId',
+        'database' => 'Database',
+        'endTime' => 'EndTime',
+        'keyword' => 'Keyword',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'queryCondition' => 'QueryCondition',
-        'startTime'      => 'StartTime',
-        'user'           => 'User',
+        'startTime' => 'StartTime',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

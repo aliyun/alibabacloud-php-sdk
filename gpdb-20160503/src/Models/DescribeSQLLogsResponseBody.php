@@ -43,15 +43,13 @@ class DescribeSQLLogsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'items'           => 'Items',
-        'pageNumber'      => 'PageNumber',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
         'pageRecordCount' => 'PageRecordCount',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class DescribeSQLLogsResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Items'] as $item) {
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }

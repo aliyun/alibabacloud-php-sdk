@@ -26,12 +26,10 @@ class resources extends Model
     public $zoneId;
     protected $_name = [
         'supportedEngines' => 'SupportedEngines',
-        'zoneId'           => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class resources extends Model
         if (isset($map['SupportedEngines'])) {
             if (!empty($map['SupportedEngines'])) {
                 $model->supportedEngines = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['SupportedEngines'] as $item) {
                     $model->supportedEngines[$n++] = null !== $item ? supportedEngines::fromMap($item) : $item;
                 }

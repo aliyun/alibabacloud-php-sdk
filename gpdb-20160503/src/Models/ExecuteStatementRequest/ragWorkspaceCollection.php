@@ -19,12 +19,10 @@ class ragWorkspaceCollection extends Model
     public $namespace;
     protected $_name = [
         'collection' => 'Collection',
-        'namespace'  => 'Namespace',
+        'namespace' => 'Namespace',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

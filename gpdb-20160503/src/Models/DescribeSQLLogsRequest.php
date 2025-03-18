@@ -11,7 +11,10 @@ class DescribeSQLLogsRequest extends Model
     /**
      * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxx
      *
      * @var string
@@ -30,7 +33,10 @@ class DescribeSQLLogsRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
      *
+     * > The end time must be later than the start time. The maximum time range that can be specified is seven days.
+     *
      * This parameter is required.
+     *
      * @example 2021-03-17T06:30Z
      *
      * @var string
@@ -124,6 +130,7 @@ class DescribeSQLLogsRequest extends Model
      *   **100**
      *
      * Default value: **30**.
+     *
      * @example 30
      *
      * @var int
@@ -152,6 +159,7 @@ class DescribeSQLLogsRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
      *
      * This parameter is required.
+     *
      * @example 2021-03-10T06:30Z
      *
      * @var string
@@ -167,26 +175,24 @@ class DescribeSQLLogsRequest extends Model
      */
     public $user;
     protected $_name = [
-        'DBInstanceId'   => 'DBInstanceId',
-        'database'       => 'Database',
-        'endTime'        => 'EndTime',
-        'executeCost'    => 'ExecuteCost',
-        'executeState'   => 'ExecuteState',
+        'DBInstanceId' => 'DBInstanceId',
+        'database' => 'Database',
+        'endTime' => 'EndTime',
+        'executeCost' => 'ExecuteCost',
+        'executeState' => 'ExecuteState',
         'maxExecuteCost' => 'MaxExecuteCost',
         'minExecuteCost' => 'MinExecuteCost',
         'operationClass' => 'OperationClass',
-        'operationType'  => 'OperationType',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'queryKeywords'  => 'QueryKeywords',
-        'sourceIP'       => 'SourceIP',
-        'startTime'      => 'StartTime',
-        'user'           => 'User',
+        'operationType' => 'OperationType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'queryKeywords' => 'QueryKeywords',
+        'sourceIP' => 'SourceIP',
+        'startTime' => 'StartTime',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

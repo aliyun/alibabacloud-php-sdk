@@ -64,17 +64,15 @@ class ListDocumentsResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'count'     => 'Count',
-        'items'     => 'Items',
-        'message'   => 'Message',
+        'count' => 'Count',
+        'items' => 'Items',
+        'message' => 'Message',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

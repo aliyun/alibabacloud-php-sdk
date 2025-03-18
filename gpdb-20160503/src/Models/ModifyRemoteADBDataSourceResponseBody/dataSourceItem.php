@@ -107,22 +107,20 @@ class dataSourceItem extends Model
      */
     public $userName;
     protected $_name = [
-        'dataSourceName'     => 'DataSourceName',
-        'description'        => 'Description',
-        'id'                 => 'Id',
-        'localDatabase'      => 'LocalDatabase',
-        'localInstanceName'  => 'LocalInstanceName',
-        'managerUserName'    => 'ManagerUserName',
-        'regionId'           => 'RegionId',
-        'remoteDatabase'     => 'RemoteDatabase',
+        'dataSourceName' => 'DataSourceName',
+        'description' => 'Description',
+        'id' => 'Id',
+        'localDatabase' => 'LocalDatabase',
+        'localInstanceName' => 'LocalInstanceName',
+        'managerUserName' => 'ManagerUserName',
+        'regionId' => 'RegionId',
+        'remoteDatabase' => 'RemoteDatabase',
         'remoteInstanceName' => 'RemoteInstanceName',
-        'status'             => 'Status',
-        'userName'           => 'UserName',
+        'status' => 'Status',
+        'userName' => 'UserName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

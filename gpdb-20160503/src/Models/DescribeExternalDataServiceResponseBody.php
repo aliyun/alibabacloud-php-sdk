@@ -80,19 +80,17 @@ class DescribeExternalDataServiceResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'createTime'         => 'CreateTime',
-        'modifyTime'         => 'ModifyTime',
-        'requestId'          => 'RequestId',
+        'createTime' => 'CreateTime',
+        'modifyTime' => 'ModifyTime',
+        'requestId' => 'RequestId',
         'serviceDescription' => 'ServiceDescription',
-        'serviceId'          => 'ServiceId',
-        'serviceName'        => 'ServiceName',
-        'serviceSpec'        => 'ServiceSpec',
-        'status'             => 'Status',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'serviceSpec' => 'ServiceSpec',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

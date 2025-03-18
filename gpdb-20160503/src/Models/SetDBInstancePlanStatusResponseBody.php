@@ -12,6 +12,7 @@ class SetDBInstancePlanStatusResponseBody extends Model
      * @description The error message returned.
      *
      * This parameter is returned only when the operation fails.
+     *
      * @example ****
      *
      * @var string
@@ -40,6 +41,7 @@ class SetDBInstancePlanStatusResponseBody extends Model
      * @description The state of the operation.
      *
      * If the operation is successful, **success** is returned. If the operation fails, this parameter is not returned.
+     *
      * @example success
      *
      * @var string
@@ -47,14 +49,12 @@ class SetDBInstancePlanStatusResponseBody extends Model
     public $status;
     protected $_name = [
         'errorMessage' => 'ErrorMessage',
-        'planId'       => 'PlanId',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
+        'planId' => 'PlanId',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -31,15 +31,13 @@ class rows extends Model
      */
     public $vector;
     protected $_name = [
-        'id'           => 'Id',
-        'metadata'     => 'Metadata',
+        'id' => 'Id',
+        'metadata' => 'Metadata',
         'sparseVector' => 'SparseVector',
-        'vector'       => 'Vector',
+        'vector' => 'Vector',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

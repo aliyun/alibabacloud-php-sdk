@@ -37,14 +37,12 @@ class indices extends Model
     public $namespace;
     protected $_name = [
         'collection' => 'Collection',
-        'indexDef'   => 'IndexDef',
-        'indexName'  => 'IndexName',
-        'namespace'  => 'Namespace',
+        'indexDef' => 'IndexDef',
+        'indexName' => 'IndexName',
+        'namespace' => 'Namespace',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

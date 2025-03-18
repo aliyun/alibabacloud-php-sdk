@@ -20,7 +20,10 @@ class ModifyDBInstanceConfigRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the instance IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+     *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -55,15 +58,13 @@ class ModifyDBInstanceConfigRequest extends Model
     public $serverlessResource;
     protected $_name = [
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'idleTime'              => 'IdleTime',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'serverlessResource'    => 'ServerlessResource',
+        'DBInstanceId' => 'DBInstanceId',
+        'idleTime' => 'IdleTime',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serverlessResource' => 'ServerlessResource',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

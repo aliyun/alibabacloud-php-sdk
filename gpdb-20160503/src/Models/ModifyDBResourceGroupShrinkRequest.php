@@ -11,7 +11,10 @@ class ModifyDBResourceGroupShrinkRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -27,18 +30,17 @@ class ModifyDBResourceGroupShrinkRequest extends Model
      * @description The information about the resource group.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $resourceGroupItemsShrink;
     protected $_name = [
-        'DBInstanceId'             => 'DBInstanceId',
-        'ownerId'                  => 'OwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
         'resourceGroupItemsShrink' => 'ResourceGroupItems',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -91,6 +91,7 @@ class jobItems extends Model
      * @description The error message returned.
      *
      * This parameter is returned only when the return value of **Status** is **false**.
+     *
      * @example ""
      *
      * @var string
@@ -145,7 +146,9 @@ class jobItems extends Model
     /**
      * @description The configuration mode. Valid values:
      *
+     * 1.  basic: In basic mode, you must configure the configuration parameters.
      * 2.  professional: In professional mode, you can submit a YAML configuration file.
+     *
      * @example Basic / Professional
      *
      * @var string
@@ -207,33 +210,31 @@ class jobItems extends Model
      */
     public $writeMode;
     protected $_name = [
-        'account'        => 'Account',
-        'consistency'    => 'Consistency',
-        'createTime'     => 'CreateTime',
-        'dataSourceId'   => 'DataSourceId',
+        'account' => 'Account',
+        'consistency' => 'Consistency',
+        'createTime' => 'CreateTime',
+        'dataSourceId' => 'DataSourceId',
         'dataSourceName' => 'DataSourceName',
-        'destColumns'    => 'DestColumns',
-        'destDatabase'   => 'DestDatabase',
-        'destSchema'     => 'DestSchema',
-        'destTable'      => 'DestTable',
-        'errorMessage'   => 'ErrorMessage',
+        'destColumns' => 'DestColumns',
+        'destDatabase' => 'DestDatabase',
+        'destSchema' => 'DestSchema',
+        'destTable' => 'DestTable',
+        'errorMessage' => 'ErrorMessage',
         'fallbackOffset' => 'FallbackOffset',
         'jobDescription' => 'JobDescription',
-        'jobId'          => 'JobId',
-        'jobName'        => 'JobName',
-        'matchColumns'   => 'MatchColumns',
-        'mode'           => 'Mode',
-        'modifyTime'     => 'ModifyTime',
-        'password'       => 'Password',
-        'srcColumns'     => 'SrcColumns',
-        'status'         => 'Status',
-        'updateColumns'  => 'UpdateColumns',
-        'writeMode'      => 'WriteMode',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
+        'matchColumns' => 'MatchColumns',
+        'mode' => 'Mode',
+        'modifyTime' => 'ModifyTime',
+        'password' => 'Password',
+        'srcColumns' => 'SrcColumns',
+        'status' => 'Status',
+        'updateColumns' => 'UpdateColumns',
+        'writeMode' => 'WriteMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

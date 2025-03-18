@@ -12,6 +12,7 @@ class DeleteStreamingDataSourceRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -22,6 +23,7 @@ class DeleteStreamingDataSourceRequest extends Model
      * @description The data source ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,12 +39,10 @@ class DeleteStreamingDataSourceRequest extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'dataSourceId' => 'DataSourceId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

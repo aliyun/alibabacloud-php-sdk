@@ -11,7 +11,10 @@ class ResetIMVMonitorDataRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-bp152460513z****
      *
      * @var string
@@ -22,6 +25,7 @@ class ResetIMVMonitorDataRequest extends Model
      * @description The name of the database.
      *
      * This parameter is required.
+     *
      * @example testdb
      *
      * @var string
@@ -29,12 +33,10 @@ class ResetIMVMonitorDataRequest extends Model
     public $database;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'database'     => 'Database',
+        'database' => 'Database',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

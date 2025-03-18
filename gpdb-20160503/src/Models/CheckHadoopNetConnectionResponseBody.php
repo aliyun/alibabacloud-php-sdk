@@ -20,7 +20,10 @@ class CheckHadoopNetConnectionResponseBody extends Model
     /**
      * @description Connection status:
      *
+     * - Network connected: Success
+     *
      * - Network not connected: Failed
+     *
      * @example Success
      *
      * @var string
@@ -37,13 +40,11 @@ class CheckHadoopNetConnectionResponseBody extends Model
     public $requestId;
     protected $_name = [
         'connectionMessage' => 'ConnectionMessage',
-        'connectionStatus'  => 'ConnectionStatus',
-        'requestId'         => 'RequestId',
+        'connectionStatus' => 'ConnectionStatus',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

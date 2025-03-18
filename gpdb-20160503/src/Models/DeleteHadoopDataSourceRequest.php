@@ -12,6 +12,7 @@ class DeleteHadoopDataSourceRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxx
      *
      * @var string
@@ -22,6 +23,7 @@ class DeleteHadoopDataSourceRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example 123
      *
      * @var string
@@ -37,12 +39,10 @@ class DeleteHadoopDataSourceRequest extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'dataSourceId' => 'DataSourceId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

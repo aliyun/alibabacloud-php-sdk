@@ -12,6 +12,7 @@ class DescribeDBInstanceSupportMaxPerformanceRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -24,12 +25,10 @@ class DescribeDBInstanceSupportMaxPerformanceRequest extends Model
     public $ownerId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'ownerId'      => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

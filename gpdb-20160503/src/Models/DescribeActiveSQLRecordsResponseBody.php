@@ -35,13 +35,11 @@ class DescribeActiveSQLRecordsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'queries'      => 'Queries',
-        'requestId'    => 'RequestId',
+        'queries' => 'Queries',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class DescribeActiveSQLRecordsResponseBody extends Model
         if (isset($map['Queries'])) {
             if (!empty($map['Queries'])) {
                 $model->queries = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Queries'] as $item) {
                     $model->queries[$n++] = null !== $item ? queries::fromMap($item) : $item;
                 }

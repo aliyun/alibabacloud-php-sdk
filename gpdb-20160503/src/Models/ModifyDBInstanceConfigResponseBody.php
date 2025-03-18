@@ -49,13 +49,11 @@ class ModifyDBInstanceConfigResponseBody extends Model
     protected $_name = [
         'dbInstanceId' => 'DbInstanceId',
         'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

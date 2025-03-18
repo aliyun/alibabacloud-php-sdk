@@ -46,15 +46,13 @@ class GetUpsertCollectionDataJobResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'job'       => 'Job',
-        'message'   => 'Message',
+        'job' => 'Job',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

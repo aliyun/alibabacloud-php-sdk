@@ -55,16 +55,14 @@ class ListSchemasResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'message'   => 'Message',
+        'message' => 'Message',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'schemas'   => 'Schemas',
-        'status'    => 'Status',
+        'schemas' => 'Schemas',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class items extends Model
         'DBInstanceAttribute' => 'DBInstanceAttribute',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class items extends Model
         if (isset($map['DBInstanceAttribute'])) {
             if (!empty($map['DBInstanceAttribute'])) {
                 $model->DBInstanceAttribute = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['DBInstanceAttribute'] as $item) {
                     $model->DBInstanceAttribute[$n++] = null !== $item ? DBInstanceAttribute::fromMap($item) : $item;
                 }

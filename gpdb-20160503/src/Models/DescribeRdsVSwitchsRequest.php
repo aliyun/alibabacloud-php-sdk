@@ -22,6 +22,7 @@ class DescribeRdsVSwitchsRequest extends Model
      * @description The ID of the region.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list and zone list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -71,26 +72,25 @@ class DescribeRdsVSwitchsRequest extends Model
      * @description The ID of the zone.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list and zone list.
+     *
      * @example cn-hangzhou-h
      *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
-        'vpcId'                => 'VpcId',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityToken' => 'SecurityToken',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

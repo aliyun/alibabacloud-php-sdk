@@ -21,6 +21,7 @@ class CreateRemoteADBDataSourceRequest extends Model
      * @description Instance ID of the data being used (required).
      *
      * This parameter is required.
+     *
      * @example gp-test1
      *
      * @var string
@@ -31,6 +32,7 @@ class CreateRemoteADBDataSourceRequest extends Model
      * @description Database name of the data being used (required)
      *
      * This parameter is required.
+     *
      * @example db1
      *
      * @var string
@@ -41,6 +43,7 @@ class CreateRemoteADBDataSourceRequest extends Model
      * @description Management account of the data-using instance.
      *
      * This parameter is required.
+     *
      * @example managerAccount
      *
      * @var string
@@ -51,6 +54,7 @@ class CreateRemoteADBDataSourceRequest extends Model
      * @description Password of the management account of the data-using instance.
      *
      * This parameter is required.
+     *
      * @example password2
      *
      * @var string
@@ -66,6 +70,7 @@ class CreateRemoteADBDataSourceRequest extends Model
      * @description Instance ID providing the data (required).
      *
      * This parameter is required.
+     *
      * @example gp-test2
      *
      * @var string
@@ -76,6 +81,7 @@ class CreateRemoteADBDataSourceRequest extends Model
      * @description Database name providing the data (required).
      *
      * This parameter is required.
+     *
      * @example db2
      *
      * @var string
@@ -86,6 +92,7 @@ class CreateRemoteADBDataSourceRequest extends Model
      * @description Account name of the data-providing instance used for user mapping (required).
      *
      * This parameter is required.
+     *
      * @example account1
      *
      * @var string
@@ -96,27 +103,26 @@ class CreateRemoteADBDataSourceRequest extends Model
      * @description Password of the data-providing instance account used for user mapping.
      *
      * This parameter is required.
+     *
      * @example password1
      *
      * @var string
      */
     public $userPassword;
     protected $_name = [
-        'dataSourceName'      => 'DataSourceName',
-        'localDBInstanceId'   => 'LocalDBInstanceId',
-        'localDatabase'       => 'LocalDatabase',
-        'managerUserName'     => 'ManagerUserName',
+        'dataSourceName' => 'DataSourceName',
+        'localDBInstanceId' => 'LocalDBInstanceId',
+        'localDatabase' => 'LocalDatabase',
+        'managerUserName' => 'ManagerUserName',
         'managerUserPassword' => 'ManagerUserPassword',
-        'ownerId'             => 'OwnerId',
-        'remoteDBInstanceId'  => 'RemoteDBInstanceId',
-        'remoteDatabase'      => 'RemoteDatabase',
-        'userName'            => 'UserName',
-        'userPassword'        => 'UserPassword',
+        'ownerId' => 'OwnerId',
+        'remoteDBInstanceId' => 'RemoteDBInstanceId',
+        'remoteDatabase' => 'RemoteDatabase',
+        'userName' => 'UserName',
+        'userPassword' => 'UserPassword',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

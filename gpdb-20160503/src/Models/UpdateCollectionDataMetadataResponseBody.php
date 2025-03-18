@@ -40,6 +40,7 @@ class UpdateCollectionDataMetadataResponseBody extends Model
      *
      * - **success**: Success.
      * - **fail**: Failure.
+     *
      * @example success
      *
      * @var string
@@ -47,14 +48,12 @@ class UpdateCollectionDataMetadataResponseBody extends Model
     public $status;
     protected $_name = [
         'appliedRows' => 'AppliedRows',
-        'message'     => 'Message',
-        'requestId'   => 'RequestId',
-        'status'      => 'Status',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

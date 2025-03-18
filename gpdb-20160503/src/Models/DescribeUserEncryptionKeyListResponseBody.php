@@ -25,13 +25,11 @@ class DescribeUserEncryptionKeyListResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'kmsKeys'   => 'KmsKeys',
+        'kmsKeys' => 'KmsKeys',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeUserEncryptionKeyListResponseBody extends Model
         if (isset($map['KmsKeys'])) {
             if (!empty($map['KmsKeys'])) {
                 $model->kmsKeys = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['KmsKeys'] as $item) {
                     $model->kmsKeys[$n++] = null !== $item ? kmsKeys::fromMap($item) : $item;
                 }

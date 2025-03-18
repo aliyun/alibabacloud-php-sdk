@@ -43,16 +43,14 @@ class backupJob extends Model
      */
     public $startTime;
     protected $_name = [
-        'backupJobId'  => 'BackupJobId',
-        'backupMode'   => 'BackupMode',
+        'backupJobId' => 'BackupJobId',
+        'backupMode' => 'BackupMode',
         'backupStatus' => 'BackupStatus',
-        'process'      => 'Process',
-        'startTime'    => 'StartTime',
+        'process' => 'Process',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

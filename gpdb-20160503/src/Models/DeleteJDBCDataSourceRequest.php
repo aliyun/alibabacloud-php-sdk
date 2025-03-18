@@ -12,6 +12,7 @@ class DeleteJDBCDataSourceRequest extends Model
      * @description Instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxx
      *
      * @var string
@@ -22,6 +23,7 @@ class DeleteJDBCDataSourceRequest extends Model
      * @description Data source ID.
      *
      * This parameter is required.
+     *
      * @example 123
      *
      * @var string
@@ -32,6 +34,7 @@ class DeleteJDBCDataSourceRequest extends Model
      * @description Region ID.
      *
      * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -40,12 +43,10 @@ class DeleteJDBCDataSourceRequest extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'dataSourceId' => 'DataSourceId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

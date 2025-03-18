@@ -11,7 +11,10 @@ class UpdateCollectionDataMetadataRequest extends Model
     /**
      * @description Collection name.
      *
+     * > You can use the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) API to view the list.
+     *
      * This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -22,6 +25,7 @@ class UpdateCollectionDataMetadataRequest extends Model
      * @description Instance ID.
      *
      * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
+     *
      * @example gp-j788ghhjjxxxx
      *
      * @var string
@@ -48,8 +52,12 @@ class UpdateCollectionDataMetadataRequest extends Model
      * @description Data to be updated, in a JSON string of MAP format. The key is the field name, and the value is the new data value.
      *
      * This parameter is required.
+     *
      * @example {
+     * "title": "new title",
+     * "content": "new content"
      * }
+     *
      * @var mixed[]
      */
     public $metadata;
@@ -58,6 +66,7 @@ class UpdateCollectionDataMetadataRequest extends Model
      * @description Namespace.
      *
      * > You can use the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API to view the list.
+     *
      * @example mynamespace
      *
      * @var string
@@ -68,6 +77,7 @@ class UpdateCollectionDataMetadataRequest extends Model
      * @description Password corresponding to the namespace.
      *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -83,6 +93,7 @@ class UpdateCollectionDataMetadataRequest extends Model
      * @description Region ID where the instance is located.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -98,21 +109,19 @@ class UpdateCollectionDataMetadataRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'collection'        => 'Collection',
-        'DBInstanceId'      => 'DBInstanceId',
-        'filter'            => 'Filter',
-        'ids'               => 'Ids',
-        'metadata'          => 'Metadata',
-        'namespace'         => 'Namespace',
+        'collection' => 'Collection',
+        'DBInstanceId' => 'DBInstanceId',
+        'filter' => 'Filter',
+        'ids' => 'Ids',
+        'metadata' => 'Metadata',
+        'namespace' => 'Namespace',
         'namespacePassword' => 'NamespacePassword',
-        'ownerId'           => 'OwnerId',
-        'regionId'          => 'RegionId',
-        'workspaceId'       => 'WorkspaceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

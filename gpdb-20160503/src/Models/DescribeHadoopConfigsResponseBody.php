@@ -27,7 +27,9 @@ class DescribeHadoopConfigsResponseBody extends Model
      * @description The configuration value.
      *
      * @example <?xml version="1.0"?>
+     * <configuration>
      * <property>
+     *
      * @var string
      */
     public $configValue;
@@ -41,14 +43,12 @@ class DescribeHadoopConfigsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'configName'  => 'ConfigName',
+        'configName' => 'ConfigName',
         'configValue' => 'ConfigValue',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

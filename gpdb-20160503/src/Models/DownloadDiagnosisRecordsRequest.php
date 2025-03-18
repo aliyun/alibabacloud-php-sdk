@@ -11,7 +11,10 @@ class DownloadDiagnosisRecordsRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -22,6 +25,7 @@ class DownloadDiagnosisRecordsRequest extends Model
      * @description The name of the database.
      *
      * This parameter is required.
+     *
      * @example adbtest
      *
      * @var string
@@ -95,19 +99,17 @@ class DownloadDiagnosisRecordsRequest extends Model
      */
     public $user;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'database'        => 'Database',
-        'endTime'         => 'EndTime',
-        'lang'            => 'Lang',
-        'queryCondition'  => 'QueryCondition',
+        'DBInstanceId' => 'DBInstanceId',
+        'database' => 'Database',
+        'endTime' => 'EndTime',
+        'lang' => 'Lang',
+        'queryCondition' => 'QueryCondition',
         'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
-        'user'            => 'User',
+        'startTime' => 'StartTime',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

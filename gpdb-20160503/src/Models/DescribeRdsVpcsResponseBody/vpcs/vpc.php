@@ -109,22 +109,20 @@ class vpc extends Model
      */
     public $vpcName;
     protected $_name = [
-        'aliUid'      => 'AliUid',
-        'bid'         => 'Bid',
-        'cidrBlock'   => 'CidrBlock',
-        'gmtCreate'   => 'GmtCreate',
+        'aliUid' => 'AliUid',
+        'bid' => 'Bid',
+        'cidrBlock' => 'CidrBlock',
+        'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
-        'isDefault'   => 'IsDefault',
-        'regionNo'    => 'RegionNo',
-        'status'      => 'Status',
-        'vSwitchs'    => 'VSwitchs',
-        'vpcId'       => 'VpcId',
-        'vpcName'     => 'VpcName',
+        'isDefault' => 'IsDefault',
+        'regionNo' => 'RegionNo',
+        'status' => 'Status',
+        'vSwitchs' => 'VSwitchs',
+        'vpcId' => 'VpcId',
+        'vpcName' => 'VpcName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -207,7 +205,7 @@ class vpc extends Model
         if (isset($map['VSwitchs'])) {
             if (!empty($map['VSwitchs'])) {
                 $model->vSwitchs = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['VSwitchs'] as $item) {
                     $model->vSwitchs[$n++] = null !== $item ? vSwitchs::fromMap($item) : $item;
                 }

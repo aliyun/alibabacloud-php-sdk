@@ -17,9 +17,7 @@ class performances extends Model
         'performance' => 'Performance',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class performances extends Model
         if (isset($map['Performance'])) {
             if (!empty($map['Performance'])) {
                 $model->performance = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['Performance'] as $item) {
                     $model->performance[$n++] = null !== $item ? performance::fromMap($item) : $item;
                 }

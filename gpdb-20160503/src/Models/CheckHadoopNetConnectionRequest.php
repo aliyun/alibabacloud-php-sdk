@@ -12,6 +12,7 @@ class CheckHadoopNetConnectionRequest extends Model
      * @description Instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxx
      *
      * @var string
@@ -20,7 +21,9 @@ class CheckHadoopNetConnectionRequest extends Model
 
     /**
      * @description 1. Either DataSourceId or EmrInstanceId must be specified as input, otherwise an error will occur.
+     * 2. If both of the above parameters are specified, EmrInstanceId will be used preferentially.
      * 3. If the data source specified by DataSourceId is a self-built Hadoop cluster, an error will occur directly.
+     *
      * @example 126
      *
      * @var string
@@ -45,15 +48,13 @@ class CheckHadoopNetConnectionRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'DBInstanceId'  => 'DBInstanceId',
-        'dataSourceId'  => 'DataSourceId',
+        'DBInstanceId' => 'DBInstanceId',
+        'dataSourceId' => 'DataSourceId',
         'emrInstanceId' => 'EmrInstanceId',
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -62,17 +62,15 @@ class items extends Model
      */
     public $segmentName;
     protected $_name = [
-        'backupId'     => 'BackupId',
+        'backupId' => 'BackupId',
         'DBInstanceId' => 'DBInstanceId',
-        'logFileName'  => 'LogFileName',
-        'logFileSize'  => 'LogFileSize',
-        'logTime'      => 'LogTime',
-        'segmentName'  => 'SegmentName',
+        'logFileName' => 'LogFileName',
+        'logFileSize' => 'LogFileSize',
+        'logTime' => 'LogTime',
+        'segmentName' => 'SegmentName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class DescribeCollectionRequest extends Model
     /**
      * @description The name of the collection.
      *
+     * >  You can call the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) operation to query a list of collections.
+     *
      * This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -22,6 +25,7 @@ class DescribeCollectionRequest extends Model
      * @description The instance ID.
      *
      * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -32,6 +36,7 @@ class DescribeCollectionRequest extends Model
      * @description The name of the namespace.
      *
      * >  You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+     *
      * @example mynamespace
      *
      * @var string
@@ -42,6 +47,7 @@ class DescribeCollectionRequest extends Model
      * @description The password of the namespace.
      *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -57,6 +63,7 @@ class DescribeCollectionRequest extends Model
      * @description The region ID of the instance.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -72,18 +79,16 @@ class DescribeCollectionRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'collection'        => 'Collection',
-        'DBInstanceId'      => 'DBInstanceId',
-        'namespace'         => 'Namespace',
+        'collection' => 'Collection',
+        'DBInstanceId' => 'DBInstanceId',
+        'namespace' => 'Namespace',
         'namespacePassword' => 'NamespacePassword',
-        'ownerId'           => 'OwnerId',
-        'regionId'          => 'RegionId',
-        'workspaceId'       => 'WorkspaceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

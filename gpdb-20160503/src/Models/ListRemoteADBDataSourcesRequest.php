@@ -12,6 +12,7 @@ class ListRemoteADBDataSourcesRequest extends Model
      * @description Instance name.
      *
      * This parameter is required.
+     *
      * @example gp-xxxx
      *
      * @var string
@@ -34,12 +35,10 @@ class ListRemoteADBDataSourcesRequest extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'dataSourceId' => 'DataSourceId',
-        'ownerId'      => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

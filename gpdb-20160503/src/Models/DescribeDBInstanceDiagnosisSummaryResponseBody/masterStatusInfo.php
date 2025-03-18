@@ -62,17 +62,15 @@ class masterStatusInfo extends Model
      */
     public $syncedNodeNum;
     protected $_name = [
-        'exceptionNodeNum'    => 'ExceptionNodeNum',
-        'normalNodeNum'       => 'NormalNodeNum',
+        'exceptionNodeNum' => 'ExceptionNodeNum',
+        'normalNodeNum' => 'NormalNodeNum',
         'notPreferredNodeNum' => 'NotPreferredNodeNum',
-        'notSyncingNodeNum'   => 'NotSyncingNodeNum',
-        'preferredNodeNum'    => 'PreferredNodeNum',
-        'syncedNodeNum'       => 'SyncedNodeNum',
+        'notSyncingNodeNum' => 'NotSyncingNodeNum',
+        'preferredNodeNum' => 'PreferredNodeNum',
+        'syncedNodeNum' => 'SyncedNodeNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

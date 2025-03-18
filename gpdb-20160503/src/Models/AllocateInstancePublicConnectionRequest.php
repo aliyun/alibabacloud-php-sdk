@@ -15,6 +15,7 @@ class AllocateInstancePublicConnectionRequest extends Model
      *   **cluster**: instance endpoint. This value is supported only for an instance that contains multiple coordinator nodes.
      *
      * >  The default value is primary.
+     *
      * @example primary
      *
      * @var string
@@ -27,6 +28,7 @@ class AllocateInstancePublicConnectionRequest extends Model
      * Specify a prefix for the endpoint. Example: `gp-bp12ga6v69h86****`. In this example, the endpoint is `gp-bp12ga6v69h86****.gpdb.rds.aliyuncs.com`.
      *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -36,7 +38,10 @@ class AllocateInstancePublicConnectionRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -52,6 +57,7 @@ class AllocateInstancePublicConnectionRequest extends Model
      * @description The port number. Example: 5432.
      *
      * This parameter is required.
+     *
      * @example 5432
      *
      * @var string
@@ -68,18 +74,16 @@ class AllocateInstancePublicConnectionRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'addressType'            => 'AddressType',
+        'addressType' => 'AddressType',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
-        'DBInstanceId'           => 'DBInstanceId',
-        'ownerId'                => 'OwnerId',
-        'port'                   => 'Port',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
+        'port' => 'Port',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

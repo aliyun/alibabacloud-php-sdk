@@ -17,9 +17,7 @@ class items extends Model
         'DBInstance' => 'DBInstance',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class items extends Model
         if (isset($map['DBInstance'])) {
             if (!empty($map['DBInstance'])) {
                 $model->DBInstance = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['DBInstance'] as $item) {
                     $model->DBInstance[$n++] = null !== $item ? DBInstance::fromMap($item) : $item;
                 }

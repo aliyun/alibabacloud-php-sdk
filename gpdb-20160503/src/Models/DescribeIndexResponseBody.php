@@ -58,17 +58,15 @@ class DescribeIndexResponseBody extends Model
     public $status;
     protected $_name = [
         'collection' => 'Collection',
-        'indexDef'   => 'IndexDef',
-        'indexName'  => 'IndexName',
-        'message'    => 'Message',
-        'namespace'  => 'Namespace',
-        'requestId'  => 'RequestId',
-        'status'     => 'Status',
+        'indexDef' => 'IndexDef',
+        'indexName' => 'IndexName',
+        'message' => 'Message',
+        'namespace' => 'Namespace',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

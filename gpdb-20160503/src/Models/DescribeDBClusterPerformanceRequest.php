@@ -11,7 +11,10 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query details about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -21,7 +24,10 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDTHH:mmZ` format.
      *
+     * > The end time must be later than the start time. The maximum time range that can be specified is seven days.
+     *
      * This parameter is required.
+     *
      * @example 2021-11-03T15:10Z
      *
      * @var string
@@ -32,6 +38,7 @@ class DescribeDBClusterPerformanceRequest extends Model
      * @description The performance metric that you want to query. Separate multiple values with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
      *
      * This parameter is required.
+     *
      * @example adbpg_conn_count
      *
      * @var string
@@ -45,6 +52,7 @@ class DescribeDBClusterPerformanceRequest extends Model
      *   **segment**: compute node.
      *
      * > If you do not specify this parameter, the performance metrics of all nodes are returned.
+     *
      * @example master
      *
      * @var string
@@ -79,25 +87,26 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDTHH:mmZ` format.
      *
+     * > You can query monitoring information only within the last 30 days.
+     *
      * This parameter is required.
+     *
      * @example 2021-11-03T15:00Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceId'      => 'DBInstanceId',
-        'endTime'           => 'EndTime',
-        'key'               => 'Key',
-        'nodeType'          => 'NodeType',
-        'nodes'             => 'Nodes',
+        'DBInstanceId' => 'DBInstanceId',
+        'endTime' => 'EndTime',
+        'key' => 'Key',
+        'nodeType' => 'NodeType',
+        'nodes' => 'Nodes',
         'resourceGroupName' => 'ResourceGroupName',
-        'startTime'         => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

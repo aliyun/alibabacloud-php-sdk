@@ -20,20 +20,21 @@ class RestartDBInstanceRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
      */
     public $DBInstanceId;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

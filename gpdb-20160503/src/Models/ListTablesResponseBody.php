@@ -55,16 +55,14 @@ class ListTablesResponseBody extends Model
      */
     public $tables;
     protected $_name = [
-        'message'   => 'Message',
+        'message' => 'Message',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
-        'tables'    => 'Tables',
+        'status' => 'Status',
+        'tables' => 'Tables',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

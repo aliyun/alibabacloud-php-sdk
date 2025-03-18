@@ -21,6 +21,7 @@ class ModifyMasterSpecResponseBody extends Model
      * @description The returned message.
      *
      * This parameter is returned only if the request fails.
+     *
      * @example ******
      *
      * @var string
@@ -50,13 +51,11 @@ class ModifyMasterSpecResponseBody extends Model
     protected $_name = [
         'dbInstanceId' => 'DbInstanceId',
         'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

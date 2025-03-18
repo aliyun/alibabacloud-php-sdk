@@ -29,9 +29,7 @@ class DescribeRdsVSwitchsResponseBody extends Model
         'vSwitches' => 'VSwitches',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

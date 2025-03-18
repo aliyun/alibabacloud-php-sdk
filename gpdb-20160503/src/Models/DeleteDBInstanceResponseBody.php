@@ -20,9 +20,7 @@ class DeleteDBInstanceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

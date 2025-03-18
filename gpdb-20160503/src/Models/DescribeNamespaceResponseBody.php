@@ -72,18 +72,16 @@ class DescribeNamespaceResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'DBInstanceId'  => 'DBInstanceId',
-        'message'       => 'Message',
-        'namespace'     => 'Namespace',
+        'DBInstanceId' => 'DBInstanceId',
+        'message' => 'Message',
+        'namespace' => 'Namespace',
         'namespaceInfo' => 'NamespaceInfo',
-        'regionId'      => 'RegionId',
-        'requestId'     => 'RequestId',
-        'status'        => 'Status',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

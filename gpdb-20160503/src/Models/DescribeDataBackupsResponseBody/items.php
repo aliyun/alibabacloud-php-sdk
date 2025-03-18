@@ -147,24 +147,22 @@ class items extends Model
      */
     public $dataType;
     protected $_name = [
-        'backupEndTime'        => 'BackupEndTime',
-        'backupEndTimeLocal'   => 'BackupEndTimeLocal',
-        'backupMethod'         => 'BackupMethod',
-        'backupMode'           => 'BackupMode',
-        'backupSetId'          => 'BackupSetId',
-        'backupSize'           => 'BackupSize',
-        'backupStartTime'      => 'BackupStartTime',
+        'backupEndTime' => 'BackupEndTime',
+        'backupEndTimeLocal' => 'BackupEndTimeLocal',
+        'backupMethod' => 'BackupMethod',
+        'backupMode' => 'BackupMode',
+        'backupSetId' => 'BackupSetId',
+        'backupSize' => 'BackupSize',
+        'backupStartTime' => 'BackupStartTime',
         'backupStartTimeLocal' => 'BackupStartTimeLocal',
-        'backupStatus'         => 'BackupStatus',
-        'baksetName'           => 'BaksetName',
-        'consistentTime'       => 'ConsistentTime',
-        'DBInstanceId'         => 'DBInstanceId',
-        'dataType'             => 'DataType',
+        'backupStatus' => 'BackupStatus',
+        'baksetName' => 'BaksetName',
+        'consistentTime' => 'ConsistentTime',
+        'DBInstanceId' => 'DBInstanceId',
+        'dataType' => 'DataType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

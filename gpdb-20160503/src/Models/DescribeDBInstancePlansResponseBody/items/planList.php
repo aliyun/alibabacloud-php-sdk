@@ -121,21 +121,19 @@ class planList extends Model
      */
     public $planType;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
-        'planConfig'       => 'PlanConfig',
-        'planDesc'         => 'PlanDesc',
-        'planEndDate'      => 'PlanEndDate',
-        'planId'           => 'PlanId',
-        'planName'         => 'PlanName',
+        'DBInstanceId' => 'DBInstanceId',
+        'planConfig' => 'PlanConfig',
+        'planDesc' => 'PlanDesc',
+        'planEndDate' => 'PlanEndDate',
+        'planId' => 'PlanId',
+        'planName' => 'PlanName',
         'planScheduleType' => 'PlanScheduleType',
-        'planStartDate'    => 'PlanStartDate',
-        'planStatus'       => 'PlanStatus',
-        'planType'         => 'PlanType',
+        'planStartDate' => 'PlanStartDate',
+        'planStatus' => 'PlanStatus',
+        'planType' => 'PlanType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

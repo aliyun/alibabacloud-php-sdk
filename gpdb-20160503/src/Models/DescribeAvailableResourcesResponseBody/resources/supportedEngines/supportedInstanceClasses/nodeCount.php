@@ -30,6 +30,7 @@ class nodeCount extends Model
      * @description The step size for adding compute nodes.
      *
      * For example, if the value of this parameter is 4, compute nodes must be added by multiples of 4.
+     *
      * @example 4
      *
      * @var string
@@ -38,12 +39,10 @@ class nodeCount extends Model
     protected $_name = [
         'maxCount' => 'MaxCount',
         'minCount' => 'MinCount',
-        'step'     => 'Step',
+        'step' => 'Step',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

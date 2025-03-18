@@ -25,13 +25,11 @@ class DescribeDBResourceGroupResponseBody extends Model
      */
     public $resourceGroupItems;
     protected $_name = [
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceGroupItems' => 'ResourceGroupItems',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

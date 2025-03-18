@@ -21,6 +21,7 @@ class ModifyDBInstanceSSLRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxxxx
      *
      * @var string
@@ -35,6 +36,7 @@ class ModifyDBInstanceSSLRequest extends Model
      *   2: updates SSL encryption.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -42,13 +44,11 @@ class ModifyDBInstanceSSLRequest extends Model
     public $SSLEnabled;
     protected $_name = [
         'connectionString' => 'ConnectionString',
-        'DBInstanceId'     => 'DBInstanceId',
-        'SSLEnabled'       => 'SSLEnabled',
+        'DBInstanceId' => 'DBInstanceId',
+        'SSLEnabled' => 'SSLEnabled',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

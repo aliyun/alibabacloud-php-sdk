@@ -29,13 +29,11 @@ class results extends Model
      */
     public $status;
     protected $_name = [
-        'pid'    => 'Pid',
+        'pid' => 'Pid',
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

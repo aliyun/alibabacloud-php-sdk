@@ -47,14 +47,12 @@ class DescribeTableResponseBody extends Model
     public $status;
     protected $_name = [
         'columnList' => 'ColumnList',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'status'     => 'Status',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

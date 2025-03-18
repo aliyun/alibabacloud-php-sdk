@@ -17,9 +17,7 @@ class columnList extends Model
         'columnList' => 'ColumnList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class columnList extends Model
         if (isset($map['ColumnList'])) {
             if (!empty($map['ColumnList'])) {
                 $model->columnList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ColumnList'] as $item) {
                     $model->columnList[$n++] = null !== $item ? ColumnMetadata::fromMap($item) : $item;
                 }

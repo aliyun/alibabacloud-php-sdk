@@ -448,20 +448,20 @@ class Gpdb extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-beijing'            => 'gpdb.aliyuncs.com',
-            'cn-hangzhou'           => 'gpdb.aliyuncs.com',
-            'cn-shanghai'           => 'gpdb.aliyuncs.com',
-            'cn-shenzhen'           => 'gpdb.aliyuncs.com',
-            'cn-hongkong'           => 'gpdb.aliyuncs.com',
-            'ap-southeast-1'        => 'gpdb.aliyuncs.com',
-            'us-west-1'             => 'gpdb.aliyuncs.com',
-            'us-east-1'             => 'gpdb.aliyuncs.com',
-            'cn-hangzhou-finance'   => 'gpdb.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-beijing' => 'gpdb.aliyuncs.com',
+            'cn-hangzhou' => 'gpdb.aliyuncs.com',
+            'cn-shanghai' => 'gpdb.aliyuncs.com',
+            'cn-shenzhen' => 'gpdb.aliyuncs.com',
+            'cn-hongkong' => 'gpdb.aliyuncs.com',
+            'ap-southeast-1' => 'gpdb.aliyuncs.com',
+            'us-west-1' => 'gpdb.aliyuncs.com',
+            'us-east-1' => 'gpdb.aliyuncs.com',
+            'cn-hangzhou-finance' => 'gpdb.aliyuncs.com',
             'cn-shanghai-finance-1' => 'gpdb.aliyuncs.com',
             'cn-shenzhen-finance-1' => 'gpdb.aliyuncs.com',
-            'cn-qingdao'            => 'gpdb.aliyuncs.com',
-            'cn-north-2-gov-1'      => 'gpdb.aliyuncs.com',
+            'cn-qingdao' => 'gpdb.aliyuncs.com',
+            'cn-north-2-gov-1' => 'gpdb.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('gpdb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -531,15 +531,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateInstancePublicConnection',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateInstancePublicConnection',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -599,15 +599,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindDBResourceGroupWithRole',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindDBResourceGroupWithRole',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return BindDBResourceGroupWithRoleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -670,15 +670,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelCreateIndexJob',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelCreateIndexJob',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelCreateIndexJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -740,18 +740,18 @@ class Gpdb extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CancelUploadDocumentJob',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelUploadDocumentJob',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelUploadDocumentJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -819,18 +819,18 @@ class Gpdb extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CancelUpsertCollectionDataJob',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelUpsertCollectionDataJob',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelUpsertCollectionDataJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -884,15 +884,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckHadoopDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckHadoopDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CheckHadoopDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -943,15 +943,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckHadoopNetConnection',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckHadoopNetConnection',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CheckHadoopNetConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1002,15 +1002,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckJDBCSourceNetConnection',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckJDBCSourceNetConnection',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CheckJDBCSourceNetConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1052,15 +1052,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckServiceLinkedRole',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckServiceLinkedRole',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1108,15 +1108,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CloneDBInstance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CloneDBInstance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CloneDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1181,15 +1181,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAccount',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAccount',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1236,15 +1236,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateBackup',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBackup',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1348,15 +1348,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCollection',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCollection',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1532,15 +1532,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBInstance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBInstance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1612,15 +1612,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBInstancePlan',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBInstancePlan',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDBInstancePlanResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1675,15 +1675,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBResourceGroup',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBResourceGroup',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1776,15 +1776,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDocumentCollection',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDocumentCollection',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDocumentCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1835,15 +1835,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateExtensions',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateExtensions',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1897,15 +1897,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateExternalDataService',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateExternalDataService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateExternalDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1983,15 +1983,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHadoopDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHadoopDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateHadoopDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2060,15 +2060,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIndex',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIndex',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateIndexResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2131,15 +2131,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateJDBCDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateJDBCDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateJDBCDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2202,15 +2202,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNamespace',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNamespace',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2279,15 +2279,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRemoteADBDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRemoteADBDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateRemoteADBDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2336,15 +2336,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSampleData',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSampleData',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateSampleDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2414,15 +2414,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSecret',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSecret',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateSecretResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2467,15 +2467,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceLinkedRole',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceLinkedRole',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2529,15 +2529,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateStreamingDataService',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateStreamingDataService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateStreamingDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2597,15 +2597,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateStreamingDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateStreamingDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateStreamingDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2724,15 +2724,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateStreamingJob',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateStreamingJob',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateStreamingJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2813,15 +2813,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVectorIndex',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVectorIndex',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateVectorIndexResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2866,15 +2866,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAccount',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAccount',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2919,15 +2919,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBackup',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteBackup',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteBackupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2987,15 +2987,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCollection',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCollection',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3061,15 +3061,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCollectionData',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCollectionData',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteCollectionDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3125,15 +3125,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBInstance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBInstance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3190,15 +3190,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBInstancePlan',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBInstancePlan',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDBInstancePlanResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3250,15 +3250,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBResourceGroup',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBResourceGroup',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3318,15 +3318,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDocument',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDocument',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3383,15 +3383,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDocumentCollection',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDocumentCollection',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteDocumentCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3442,15 +3442,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteExtension',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteExtension',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3498,15 +3498,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteExternalDataService',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteExternalDataService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteExternalDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3554,15 +3554,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHadoopDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHadoopDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteHadoopDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3625,15 +3625,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIndex',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIndex',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteIndexResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3681,15 +3681,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteJDBCDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteJDBCDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteJDBCDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3749,15 +3749,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNamespace',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNamespace',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3805,15 +3805,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRemoteADBDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRemoteADBDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteRemoteADBDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3870,15 +3870,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSecret',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSecret',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteSecretResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3926,15 +3926,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteStreamingDataService',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteStreamingDataService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteStreamingDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3982,15 +3982,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteStreamingDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteStreamingDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteStreamingDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4038,15 +4038,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteStreamingJob',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteStreamingJob',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteStreamingJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4109,15 +4109,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVectorIndex',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVectorIndex',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteVectorIndexResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4169,15 +4169,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccounts',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccounts',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4247,15 +4247,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveSQLRecords',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveSQLRecords',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeActiveSQLRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4305,15 +4305,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAvailableResources',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAvailableResources',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAvailableResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4360,15 +4360,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupJob',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupJob',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeBackupJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4414,15 +4414,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupPolicy',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupPolicy',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4486,15 +4486,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCollection',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCollection',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4557,15 +4557,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCreateIndexJob',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCreateIndexJob',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeCreateIndexJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4615,15 +4615,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterNode',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterNode',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterNodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4690,15 +4690,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterPerformance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterPerformance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBClusterPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4754,15 +4754,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceAttribute',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceAttribute',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4826,15 +4826,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceDataBloat',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceDataBloat',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInstanceDataBloatResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4896,15 +4896,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceDataSkew',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceDataSkew',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInstanceDataSkewResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4967,15 +4967,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceDiagnosisSummary',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceDiagnosisSummary',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInstanceDiagnosisSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5050,15 +5050,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceErrorLog',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceErrorLog',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInstanceErrorLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5114,15 +5114,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceIPArrayList',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceIPArrayList',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInstanceIPArrayListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5183,15 +5183,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceIndexUsage',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceIndexUsage',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInstanceIndexUsageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5239,15 +5239,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceNetInfo',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceNetInfo',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInstanceNetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5301,15 +5301,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstancePerformance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstancePerformance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInstancePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5373,15 +5373,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstancePlans',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstancePlans',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInstancePlansResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5427,15 +5427,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceSSL',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceSSL',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5480,15 +5480,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceSupportMaxPerformance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceSupportMaxPerformance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInstanceSupportMaxPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5588,15 +5588,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstances',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstances',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5649,15 +5649,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBResourceGroup',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBResourceGroup',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5702,15 +5702,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBResourceManagementMode',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBResourceManagementMode',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBResourceManagementModeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5764,15 +5764,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBVersionInfos',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBVersionInfos',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDBVersionInfosResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5840,15 +5840,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataBackups',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataBackups',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDataBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5895,15 +5895,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataReDistributeInfo',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataReDistributeInfo',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDataReDistributeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5962,15 +5962,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataShareInstances',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataShareInstances',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDataShareInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6030,15 +6030,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataSharePerformance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataSharePerformance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDataSharePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6088,15 +6088,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiagnosisDimensions',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiagnosisDimensions',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDiagnosisDimensionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6161,15 +6161,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiagnosisMonitorPerformance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiagnosisMonitorPerformance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDiagnosisMonitorPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6246,15 +6246,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiagnosisRecords',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiagnosisRecords',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDiagnosisRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6309,15 +6309,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiagnosisSQLInfo',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiagnosisSQLInfo',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDiagnosisSQLInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6380,15 +6380,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDocument',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDocument',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6429,19 +6429,22 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
+        if (!Utils::isUnset($request->downloadTaskType)) {
+            $query['DownloadTaskType'] = $request->downloadTaskType;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDownloadRecords',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDownloadRecords',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDownloadRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6486,15 +6489,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDownloadSQLLogs',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDownloadSQLLogs',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeDownloadSQLLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6542,15 +6545,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExternalDataService',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExternalDataService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeExternalDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6595,15 +6598,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHadoopClustersInSameNet',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHadoopClustersInSameNet',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeHadoopClustersInSameNetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6654,15 +6657,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHadoopConfigs',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHadoopConfigs',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeHadoopConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6710,15 +6713,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHadoopDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHadoopDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeHadoopDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6767,15 +6770,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHealthStatus',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHealthStatus',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6827,15 +6830,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIMVInfos',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIMVInfos',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeIMVInfosResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6898,15 +6901,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIndex',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIndex',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeIndexResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6951,15 +6954,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeJDBCDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeJDBCDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeJDBCDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7013,15 +7016,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLogBackups',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLogBackups',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeLogBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7069,15 +7072,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeModifyParameterLog',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeModifyParameterLog',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeModifyParameterLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7137,15 +7140,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNamespace',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNamespace',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7191,15 +7194,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeParameters',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeParameters',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7273,15 +7276,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRdsVSwitchs',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRdsVSwitchs',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeRdsVSwitchsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7352,15 +7355,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRdsVpcs',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRdsVpcs',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeRdsVpcsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7410,15 +7413,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7467,15 +7470,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRoles',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRoles',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeRolesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7555,15 +7558,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSQLLogCount',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSQLLogCount',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeSQLLogCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7651,15 +7654,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSQLLogs',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSQLLogs',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeSQLLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7755,15 +7758,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSQLLogsV2',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSQLLogsV2',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeSQLLogsV2Response::fromMap($this->callApi($params, $req, $runtime));
@@ -7814,15 +7817,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSampleData',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSampleData',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeSampleDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7872,15 +7875,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeStreamingDataService',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeStreamingDataService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeStreamingDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7928,15 +7931,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeStreamingDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeStreamingDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeStreamingDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7984,15 +7987,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeStreamingJob',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeStreamingJob',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeStreamingJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8037,15 +8040,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSupportFeatures',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSupportFeatures',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeSupportFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8108,15 +8111,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTable',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTable',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8176,15 +8179,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTags',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTags',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8232,15 +8235,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserEncryptionKeyList',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserEncryptionKeyList',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeUserEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8292,15 +8295,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWaitingSQLInfo',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWaitingSQLInfo',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeWaitingSQLInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8377,15 +8380,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWaitingSQLRecords',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWaitingSQLRecords',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeWaitingSQLRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8438,15 +8441,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableDBResourceGroup',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableDBResourceGroup',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DisableDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8518,15 +8521,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DownloadDiagnosisRecords',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DownloadDiagnosisRecords',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DownloadDiagnosisRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8618,15 +8621,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DownloadSQLLogsRecords',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DownloadSQLLogsRecords',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DownloadSQLLogsRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8675,15 +8678,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableDBResourceGroup',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableDBResourceGroup',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return EnableDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8772,18 +8775,18 @@ class Gpdb extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteStatement',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecuteStatement',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ExecuteStatementResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8828,15 +8831,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAccount',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccount',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8893,15 +8896,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSecretValue',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSecretValue',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetSecretValueResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8958,15 +8961,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetStatementResult',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetStatementResult',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetStatementResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9029,18 +9032,18 @@ class Gpdb extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUploadDocumentJob',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUploadDocumentJob',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetUploadDocumentJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9109,18 +9112,18 @@ class Gpdb extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUpsertCollectionDataJob',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUpsertCollectionDataJob',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetUpsertCollectionDataJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9189,15 +9192,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GrantCollection',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GrantCollection',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GrantCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9245,15 +9248,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'HandleActiveSQLRecord',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'HandleActiveSQLRecord',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return HandleActiveSQLRecordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9310,15 +9313,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InitVectorDatabase',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InitVectorDatabase',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return InitVectorDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9363,15 +9366,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListBackupJobs',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListBackupJobs',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListBackupJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9428,15 +9431,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCollections',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCollections',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9496,15 +9499,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDatabases',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDatabases',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9558,15 +9561,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDocumentCollections',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDocumentCollections',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListDocumentCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9629,15 +9632,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDocuments',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDocuments',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9688,15 +9691,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListExternalDataServices',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListExternalDataServices',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListExternalDataServicesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9747,15 +9750,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListExternalDataSources',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListExternalDataSources',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListExternalDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9815,15 +9818,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIndices',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIndices',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9880,15 +9883,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceExtensions',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstanceExtensions',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListInstanceExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9945,15 +9948,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNamespaces',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNamespaces',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10001,15 +10004,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRemoteADBDataSources',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRemoteADBDataSources',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListRemoteADBDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10072,15 +10075,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSchemas',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSchemas',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10131,15 +10134,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSecrets',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSecrets',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10190,15 +10193,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStreamingDataServices',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListStreamingDataServices',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListStreamingDataServicesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10249,15 +10252,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStreamingDataSources',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListStreamingDataSources',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListStreamingDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10308,15 +10311,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStreamingJobs',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListStreamingJobs',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListStreamingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10382,15 +10385,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTables',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTables',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10456,15 +10459,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10515,15 +10518,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAccountDescription',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAccountDescription',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10580,15 +10583,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBackupPolicy',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBackupPolicy',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10642,15 +10645,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceConfig',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceConfig',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10704,15 +10707,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceConnectionString',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceConnectionString',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10763,15 +10766,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceDeploymentMode',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceDeploymentMode',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBInstanceDeploymentModeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10823,15 +10826,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceDescription',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceDescription',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10890,15 +10893,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceMaintainTime',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceMaintainTime',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBInstanceMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10961,15 +10964,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceNetworkType',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceNetworkType',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBInstanceNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11025,15 +11028,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstancePayType',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstancePayType',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBInstancePayTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11095,15 +11098,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceResourceGroup',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceResourceGroup',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBInstanceResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11153,15 +11156,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceSSL',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceSSL',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11214,15 +11217,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBResourceGroup',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBResourceGroup',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11276,15 +11279,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyExternalDataService',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyExternalDataService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyExternalDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11362,15 +11365,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHadoopDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHadoopDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyHadoopDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11433,15 +11436,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyJDBCDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyJDBCDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyJDBCDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11498,15 +11501,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyMasterSpec',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyMasterSpec',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyMasterSpecResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11561,15 +11564,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyParameters',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyParameters',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyParametersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11630,15 +11633,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyRemoteADBDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyRemoteADBDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyRemoteADBDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11686,15 +11689,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySQLCollectorPolicy',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySQLCollectorPolicy',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifySQLCollectorPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11758,15 +11761,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySecurityIps',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySecurityIps',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11824,15 +11827,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyStreamingDataService',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyStreamingDataService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyStreamingDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11886,15 +11889,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyStreamingDataSource',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyStreamingDataSource',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyStreamingDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12007,15 +12010,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyStreamingJob',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyStreamingJob',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyStreamingJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12063,15 +12066,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVectorConfiguration',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVectorConfiguration',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyVectorConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12116,15 +12119,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PauseDataRedistribute',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PauseDataRedistribute',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return PauseDataRedistributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12175,15 +12178,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PauseInstance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PauseInstance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return PauseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12302,15 +12305,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCollectionData',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCollectionData',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return QueryCollectionDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12417,15 +12420,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryContent',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryContent',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return QueryContentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12457,10 +12460,10 @@ class Gpdb extends OpenApiClient
     public function queryContentAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
@@ -12469,56 +12472,56 @@ class Gpdb extends OpenApiClient
             $credentialType = 'access_key';
         }
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $authClient  = new OpenPlatform($authConfig);
+        $authClient = new OpenPlatform($authConfig);
         $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'gpdb',
+            'product' => 'gpdb',
             'regionId' => $this->_regionId,
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
         $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $queryContentReq = new QueryContentRequest([]);
         OpenApiUtilClient::convert($request, $queryContentReq);
         if (!Utils::isUnset($request->fileUrlObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->fileUrlObject,
+            $ossConfig->endpoint = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->fileUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
                 'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
+                'header' => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
             $queryContentReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
@@ -12549,15 +12552,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RebalanceDBInstance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RebalanceDBInstance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RebalanceDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12605,15 +12608,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseInstancePublicConnection',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseInstancePublicConnection',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12683,18 +12686,18 @@ class Gpdb extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'Rerank',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Rerank',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RerankResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12742,15 +12745,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetAccountPassword',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetAccountPassword',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12795,15 +12798,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetIMVMonitorData',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetIMVMonitorData',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ResetIMVMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12852,15 +12855,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartDBInstance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartDBInstance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12909,15 +12912,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResumeDataRedistribute',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResumeDataRedistribute',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ResumeDataRedistributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12968,15 +12971,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResumeInstance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResumeInstance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ResumeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13037,15 +13040,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDBInstancePlanStatus',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDBInstancePlanStatus',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetDBInstancePlanStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13109,15 +13112,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDataShareInstance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDataShareInstance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetDataShareInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13171,15 +13174,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchDBInstanceNetType',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchDBInstanceNetType',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SwitchDBInstanceNetTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13244,15 +13247,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13310,18 +13313,18 @@ class Gpdb extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TextEmbedding',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TextEmbedding',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TextEmbeddingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13377,15 +13380,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnbindDBResourceGroupWithRole',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnbindDBResourceGroupWithRole',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UnbindDBResourceGroupWithRoleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13434,15 +13437,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnloadSampleData',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnloadSampleData',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UnloadSampleDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13512,15 +13515,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13597,15 +13600,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCollectionDataMetadata',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCollectionDataMetadata',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateCollectionDataMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13672,15 +13675,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDBInstancePlan',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDBInstancePlan',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateDBInstancePlanResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13768,15 +13771,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeDBInstance',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeDBInstance',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpgradeDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13839,15 +13842,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeDBVersion',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeDBVersion',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpgradeDBVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13898,15 +13901,15 @@ class Gpdb extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeExtensions',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeExtensions',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpgradeExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14009,18 +14012,18 @@ class Gpdb extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UploadDocumentAsync',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadDocumentAsync',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UploadDocumentAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14061,10 +14064,10 @@ class Gpdb extends OpenApiClient
     public function uploadDocumentAsyncAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
@@ -14073,56 +14076,56 @@ class Gpdb extends OpenApiClient
             $credentialType = 'access_key';
         }
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $authClient  = new OpenPlatform($authConfig);
+        $authClient = new OpenPlatform($authConfig);
         $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'gpdb',
+            'product' => 'gpdb',
             'regionId' => $this->_regionId,
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
         $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $uploadDocumentAsyncReq = new UploadDocumentAsyncRequest([]);
         OpenApiUtilClient::convert($request, $uploadDocumentAsyncReq);
         if (!Utils::isUnset($request->fileUrlObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->fileUrlObject,
+            $ossConfig->endpoint = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->fileUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
                 'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
+                'header' => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
             $uploadDocumentAsyncReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
@@ -14177,18 +14180,18 @@ class Gpdb extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpsertChunks',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpsertChunks',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpsertChunksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14257,18 +14260,18 @@ class Gpdb extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpsertCollectionData',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpsertCollectionData',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpsertCollectionDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14336,18 +14339,18 @@ class Gpdb extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpsertCollectionDataAsync',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpsertCollectionDataAsync',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpsertCollectionDataAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14385,10 +14388,10 @@ class Gpdb extends OpenApiClient
     public function upsertCollectionDataAsyncAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
@@ -14397,56 +14400,56 @@ class Gpdb extends OpenApiClient
             $credentialType = 'access_key';
         }
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $authClient  = new OpenPlatform($authConfig);
+        $authClient = new OpenPlatform($authConfig);
         $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'gpdb',
+            'product' => 'gpdb',
             'regionId' => $this->_regionId,
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
         $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         OpenApiUtilClient::convert($runtime, $ossRuntime);
         $upsertCollectionDataAsyncReq = new UpsertCollectionDataAsyncRequest([]);
         OpenApiUtilClient::convert($request, $upsertCollectionDataAsyncReq);
         if (!Utils::isUnset($request->fileUrlObject)) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->fileUrlObject,
+            $ossConfig->endpoint = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->fileUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
                 'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
+                'header' => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
             $upsertCollectionDataAsyncReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';

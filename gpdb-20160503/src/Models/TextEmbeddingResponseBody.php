@@ -42,16 +42,14 @@ class TextEmbeddingResponseBody extends Model
      */
     public $textTokens;
     protected $_name = [
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'results'    => 'Results',
-        'status'     => 'Status',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'results' => 'Results',
+        'status' => 'Status',
         'textTokens' => 'TextTokens',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

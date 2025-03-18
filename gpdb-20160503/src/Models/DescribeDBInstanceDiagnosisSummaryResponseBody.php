@@ -59,17 +59,15 @@ class DescribeDBInstanceDiagnosisSummaryResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'items'             => 'Items',
-        'masterStatusInfo'  => 'MasterStatusInfo',
-        'pageNumber'        => 'PageNumber',
-        'requestId'         => 'RequestId',
+        'items' => 'Items',
+        'masterStatusInfo' => 'MasterStatusInfo',
+        'pageNumber' => 'PageNumber',
+        'requestId' => 'RequestId',
         'segmentStatusInfo' => 'SegmentStatusInfo',
-        'totalCount'        => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -113,7 +111,7 @@ class DescribeDBInstanceDiagnosisSummaryResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Items'] as $item) {
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }

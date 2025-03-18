@@ -25,13 +25,11 @@ class items extends Model
      */
     public $series;
     protected $_name = [
-        'name'   => 'Name',
+        'name' => 'Name',
         'series' => 'Series',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class items extends Model
         if (isset($map['Series'])) {
             if (!empty($map['Series'])) {
                 $model->series = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Series'] as $item) {
                     $model->series[$n++] = null !== $item ? series::fromMap($item) : $item;
                 }

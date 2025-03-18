@@ -73,18 +73,16 @@ class ListNamespacesResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'count'        => 'Count',
+        'count' => 'Count',
         'DBInstanceId' => 'DBInstanceId',
-        'message'      => 'Message',
-        'namespaces'   => 'Namespaces',
-        'regionId'     => 'RegionId',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
+        'message' => 'Message',
+        'namespaces' => 'Namespaces',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

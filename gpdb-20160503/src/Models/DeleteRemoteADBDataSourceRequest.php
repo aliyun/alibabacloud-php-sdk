@@ -12,6 +12,7 @@ class DeleteRemoteADBDataSourceRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -22,6 +23,7 @@ class DeleteRemoteADBDataSourceRequest extends Model
      * @description The ID of the instance that uses the data provided by another instance.
      *
      * This parameter is required.
+     *
      * @example gp-test
      *
      * @var string
@@ -33,14 +35,12 @@ class DeleteRemoteADBDataSourceRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'dataSourceId'      => 'DataSourceId',
+        'dataSourceId' => 'DataSourceId',
         'localDBInstanceId' => 'LocalDBInstanceId',
-        'ownerId'           => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

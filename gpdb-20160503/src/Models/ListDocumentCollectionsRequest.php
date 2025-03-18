@@ -11,7 +11,10 @@ class ListDocumentCollectionsRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -22,6 +25,7 @@ class ListDocumentCollectionsRequest extends Model
      * @description The name of the namespace. Default value: public.
      *
      * >  You can call the CreateNamespace operation to create a namespace and call the ListNamespaces operation to query a list of namespaces.
+     *
      * @example mynamespace
      *
      * @var string
@@ -31,7 +35,10 @@ class ListDocumentCollectionsRequest extends Model
     /**
      * @description The password of the namespace.
      *
+     * >  This value is specified when you call the CreateNamespace operation.
+     *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -47,22 +54,21 @@ class ListDocumentCollectionsRequest extends Model
      * @description The region ID of the instance.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'DBInstanceId'      => 'DBInstanceId',
-        'namespace'         => 'Namespace',
+        'DBInstanceId' => 'DBInstanceId',
+        'namespace' => 'Namespace',
         'namespacePassword' => 'NamespacePassword',
-        'ownerId'           => 'OwnerId',
-        'regionId'          => 'RegionId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

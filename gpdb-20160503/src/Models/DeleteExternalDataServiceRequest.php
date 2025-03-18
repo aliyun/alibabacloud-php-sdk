@@ -12,6 +12,7 @@ class DeleteExternalDataServiceRequest extends Model
      * @description Instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxx
      *
      * @var string
@@ -22,6 +23,7 @@ class DeleteExternalDataServiceRequest extends Model
      * @description Region ID.
      *
      * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +34,7 @@ class DeleteExternalDataServiceRequest extends Model
      * @description Service ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -39,13 +42,11 @@ class DeleteExternalDataServiceRequest extends Model
     public $serviceId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'regionId'     => 'RegionId',
-        'serviceId'    => 'ServiceId',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

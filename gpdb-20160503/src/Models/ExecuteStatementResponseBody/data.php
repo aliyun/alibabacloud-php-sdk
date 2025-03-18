@@ -34,13 +34,11 @@ class data extends Model
     public $totalNumRows;
     protected $_name = [
         'columnMetadata' => 'ColumnMetadata',
-        'records'        => 'Records',
-        'totalNumRows'   => 'TotalNumRows',
+        'records' => 'Records',
+        'totalNumRows' => 'TotalNumRows',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

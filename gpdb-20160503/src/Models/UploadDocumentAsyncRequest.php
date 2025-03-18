@@ -12,6 +12,7 @@ class UploadDocumentAsyncRequest extends Model
      * @description The size of data that is overlapped between consecutive chunks. The maximum value of this parameter cannot be greater than the value of the ChunkSize parameter.
      *
      * >  This parameter is used to prevent context missing that may occur due to data truncation. For example, when you upload a long text, you can retain specific overlapped text content between consecutive chunks to better understand the context.
+     *
      * @example 50
      *
      * @var int
@@ -29,7 +30,10 @@ class UploadDocumentAsyncRequest extends Model
 
     /**
      * @description The name of the document library.
+     * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API to view the document libraries that have already been created.
+     *
      * This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -40,6 +44,7 @@ class UploadDocumentAsyncRequest extends Model
      * @description Instance ID with vector engine optimization acceleration enabled. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -70,6 +75,7 @@ class UploadDocumentAsyncRequest extends Model
      * @description Specifies whether to perform only document understanding and chunking, but not vectorization and storage. Default value: false.
      *
      * >  You can set this parameter to true, check the chunking effect, and then perform optimization if needed.
+     *
      * @example false
      *
      * @var bool
@@ -88,6 +94,7 @@ class UploadDocumentAsyncRequest extends Model
      *   You can use a compressed package to upload images. The package file name must contain an extension. Supported package file extensions: `.tar`, `.gz`, and `.zip`.
      *
      * This parameter is required.
+     *
      * @example mydoc.txt
      *
      * @var string
@@ -96,7 +103,10 @@ class UploadDocumentAsyncRequest extends Model
 
     /**
      * @description The URL of the publicly accessible document.
+     * >  > - It is recommended to call this interface using the SDK, which provides a method called UploadDocumentAsyncAdvance for directly uploading local files. > - If the URL points to an image archive, the number of images in the archive should not exceed 100.
+     *
      * This parameter is required.
+     *
      * @example https://xx/mydoc.txt
      *
      * @var string
@@ -123,6 +133,7 @@ class UploadDocumentAsyncRequest extends Model
      * @description The password corresponding to the namespace.  > This value is specified by the CreateNamespace interface.
      *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -138,6 +149,7 @@ class UploadDocumentAsyncRequest extends Model
      * @description The region ID of the instance.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -175,33 +187,32 @@ class UploadDocumentAsyncRequest extends Model
      * @description Specifies whether to enable title enhancement.
      *
      * >  You can determine the title text, mark the text in the metadata, and then combine the text with the upper-level title to implement text enhancement.
+     *
      * @example false
      *
      * @var bool
      */
     public $zhTitleEnhance;
     protected $_name = [
-        'chunkOverlap'       => 'ChunkOverlap',
-        'chunkSize'          => 'ChunkSize',
-        'collection'         => 'Collection',
-        'DBInstanceId'       => 'DBInstanceId',
+        'chunkOverlap' => 'ChunkOverlap',
+        'chunkSize' => 'ChunkSize',
+        'collection' => 'Collection',
+        'DBInstanceId' => 'DBInstanceId',
         'documentLoaderName' => 'DocumentLoaderName',
-        'dryRun'             => 'DryRun',
-        'fileName'           => 'FileName',
-        'fileUrl'            => 'FileUrl',
-        'metadata'           => 'Metadata',
-        'namespace'          => 'Namespace',
-        'namespacePassword'  => 'NamespacePassword',
-        'ownerId'            => 'OwnerId',
-        'regionId'           => 'RegionId',
-        'separators'         => 'Separators',
-        'textSplitterName'   => 'TextSplitterName',
-        'zhTitleEnhance'     => 'ZhTitleEnhance',
+        'dryRun' => 'DryRun',
+        'fileName' => 'FileName',
+        'fileUrl' => 'FileUrl',
+        'metadata' => 'Metadata',
+        'namespace' => 'Namespace',
+        'namespacePassword' => 'NamespacePassword',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'separators' => 'Separators',
+        'textSplitterName' => 'TextSplitterName',
+        'zhTitleEnhance' => 'ZhTitleEnhance',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,12 +30,10 @@ class zone extends Model
     public $zoneId;
     protected $_name = [
         'vpcEnabled' => 'VpcEnabled',
-        'zoneId'     => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

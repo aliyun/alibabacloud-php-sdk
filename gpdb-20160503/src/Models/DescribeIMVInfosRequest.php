@@ -12,6 +12,7 @@ class DescribeIMVInfosRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxxx
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeIMVInfosRequest extends Model
      * @description The name of the database.
      *
      * This parameter is required.
+     *
      * @example testdb
      *
      * @var string
@@ -38,13 +40,11 @@ class DescribeIMVInfosRequest extends Model
     public $MVName;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'database'     => 'Database',
-        'MVName'       => 'MVName',
+        'database' => 'Database',
+        'MVName' => 'MVName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

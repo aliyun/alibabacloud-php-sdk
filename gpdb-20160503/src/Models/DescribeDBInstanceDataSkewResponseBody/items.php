@@ -89,20 +89,18 @@ class items extends Model
      */
     public $timeLastUpdated;
     protected $_name = [
-        'databaseName'    => 'DatabaseName',
-        'distributeKey'   => 'DistributeKey',
-        'owner'           => 'Owner',
-        'schemaName'      => 'SchemaName',
-        'sequence'        => 'Sequence',
-        'tableName'       => 'TableName',
-        'tableSize'       => 'TableSize',
-        'tableSkew'       => 'TableSkew',
+        'databaseName' => 'DatabaseName',
+        'distributeKey' => 'DistributeKey',
+        'owner' => 'Owner',
+        'schemaName' => 'SchemaName',
+        'sequence' => 'Sequence',
+        'tableName' => 'TableName',
+        'tableSize' => 'TableSize',
+        'tableSkew' => 'TableSkew',
         'timeLastUpdated' => 'TimeLastUpdated',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

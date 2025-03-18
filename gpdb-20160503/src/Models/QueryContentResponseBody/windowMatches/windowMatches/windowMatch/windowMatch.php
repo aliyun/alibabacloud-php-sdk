@@ -51,16 +51,14 @@ class windowMatch extends Model
      */
     public $metadata;
     protected $_name = [
-        'content'        => 'Content',
-        'fileName'       => 'FileName',
-        'id'             => 'Id',
+        'content' => 'Content',
+        'fileName' => 'FileName',
+        'id' => 'Id',
         'loaderMetadata' => 'LoaderMetadata',
-        'metadata'       => 'Metadata',
+        'metadata' => 'Metadata',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

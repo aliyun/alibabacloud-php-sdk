@@ -29,13 +29,11 @@ class DescribeDBResourceManagementModeResponseBody extends Model
      */
     public $resourceManagementMode;
     protected $_name = [
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceManagementMode' => 'ResourceManagementMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

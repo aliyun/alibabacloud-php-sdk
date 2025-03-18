@@ -33,12 +33,10 @@ class nodeMasterStatus extends Model
     public $value;
     protected $_name = [
         'status' => 'Status',
-        'value'  => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

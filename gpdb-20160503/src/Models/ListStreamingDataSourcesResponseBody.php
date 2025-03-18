@@ -43,15 +43,13 @@ class ListStreamingDataSourcesResponseBody extends Model
      */
     public $totalRecordCount;
     protected $_name = [
-        'dataSourceItems'  => 'DataSourceItems',
-        'pageNumber'       => 'PageNumber',
-        'requestId'        => 'RequestId',
+        'dataSourceItems' => 'DataSourceItems',
+        'pageNumber' => 'PageNumber',
+        'requestId' => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class ListStreamingDataSourcesResponseBody extends Model
         if (isset($map['DataSourceItems'])) {
             if (!empty($map['DataSourceItems'])) {
                 $model->dataSourceItems = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['DataSourceItems'] as $item) {
                     $model->dataSourceItems[$n++] = null !== $item ? dataSourceItems::fromMap($item) : $item;
                 }

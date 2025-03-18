@@ -16,6 +16,7 @@ class nodeSegmentConnectionStatus extends Model
      *   **healthy**: The compute node connection usage is less than 90%. In this case, this metric is marked in green in the console.
      *
      * >  The compute node connection usage is the maximum connection usage among all compute nodes.
+     *
      * @example healthy
      *
      * @var string
@@ -26,6 +27,7 @@ class nodeSegmentConnectionStatus extends Model
      * @description The metric value of maximum compute node connection usage.
      *
      * Unit: %.
+     *
      * @example 0.48
      *
      * @var float
@@ -33,12 +35,10 @@ class nodeSegmentConnectionStatus extends Model
     public $value;
     protected $_name = [
         'status' => 'Status',
-        'value'  => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

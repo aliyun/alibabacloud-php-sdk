@@ -12,6 +12,7 @@ class ListStreamingJobsRequest extends Model
      * @description Instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -31,6 +32,7 @@ class ListStreamingJobsRequest extends Model
      * @description Number of records per page, with the following options:
      * - **30** - **50** - **100**
      * Default value: 30.
+     *
      * @example kafka
      *
      * @var int
@@ -41,6 +43,7 @@ class ListStreamingJobsRequest extends Model
      * @description The region ID.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -48,14 +51,12 @@ class ListStreamingJobsRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -69,6 +69,7 @@ class items extends Model
      *   **mirror**: secondary node.
      *
      * If the value of this parameter is the same as that of **NodeRole**, no primary/secondary switchover occurs. If the value of this parameter is different from that of **NodeRole**, a primary/secondary switchover occurs.
+     *
      * @example primary
      *
      * @var string
@@ -125,22 +126,20 @@ class items extends Model
      */
     public $nodeType;
     protected $_name = [
-        'hostname'            => 'Hostname',
-        'nodeAddress'         => 'NodeAddress',
-        'nodeCID'             => 'NodeCID',
-        'nodeID'              => 'NodeID',
-        'nodeName'            => 'NodeName',
-        'nodePort'            => 'NodePort',
-        'nodePreferredRole'   => 'NodePreferredRole',
+        'hostname' => 'Hostname',
+        'nodeAddress' => 'NodeAddress',
+        'nodeCID' => 'NodeCID',
+        'nodeID' => 'NodeID',
+        'nodeName' => 'NodeName',
+        'nodePort' => 'NodePort',
+        'nodePreferredRole' => 'NodePreferredRole',
         'nodeReplicationMode' => 'NodeReplicationMode',
-        'nodeRole'            => 'NodeRole',
-        'nodeStatus'          => 'NodeStatus',
-        'nodeType'            => 'NodeType',
+        'nodeRole' => 'NodeRole',
+        'nodeStatus' => 'NodeStatus',
+        'nodeType' => 'NodeType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

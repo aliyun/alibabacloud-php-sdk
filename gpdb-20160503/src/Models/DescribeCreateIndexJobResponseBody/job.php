@@ -59,18 +59,16 @@ class job extends Model
      */
     public $updateTime;
     protected $_name = [
-        'completed'  => 'Completed',
+        'completed' => 'Completed',
         'createTime' => 'CreateTime',
-        'error'      => 'Error',
-        'id'         => 'Id',
-        'progress'   => 'Progress',
-        'status'     => 'Status',
+        'error' => 'Error',
+        'id' => 'Id',
+        'progress' => 'Progress',
+        'status' => 'Status',
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

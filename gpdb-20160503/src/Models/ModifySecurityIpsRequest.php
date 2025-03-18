@@ -21,6 +21,7 @@ class ModifySecurityIpsRequest extends Model
      * @description The name of the whitelist. If you do not enter a name, IP addresses are added to the default whitelist.
      *
      * >  You can create up to 50 whitelists for an instance.
+     *
      * @example default
      *
      * @var string
@@ -30,7 +31,10 @@ class ModifySecurityIpsRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the instance IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+     *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -67,6 +71,7 @@ class ModifySecurityIpsRequest extends Model
      *   10.23.12.24/24. This is a CIDR block. The value `/24` indicates that the prefix of the CIDR block is 24-bit long. You can replace 24 with a value in the range of `1 to 32`.
      *
      * This parameter is required.
+     *
      * @example ``10.10.**.**``
      *
      * @var string
@@ -74,16 +79,14 @@ class ModifySecurityIpsRequest extends Model
     public $securityIPList;
     protected $_name = [
         'DBInstanceIPArrayAttribute' => 'DBInstanceIPArrayAttribute',
-        'DBInstanceIPArrayName'      => 'DBInstanceIPArrayName',
-        'DBInstanceId'               => 'DBInstanceId',
-        'modifyMode'                 => 'ModifyMode',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'securityIPList'             => 'SecurityIPList',
+        'DBInstanceIPArrayName' => 'DBInstanceIPArrayName',
+        'DBInstanceId' => 'DBInstanceId',
+        'modifyMode' => 'ModifyMode',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityIPList' => 'SecurityIPList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

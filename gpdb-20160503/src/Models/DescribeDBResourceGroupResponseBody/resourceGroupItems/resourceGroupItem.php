@@ -47,13 +47,11 @@ class resourceGroupItem extends Model
     public $roleList;
     protected $_name = [
         'resourceGroupConfig' => 'ResourceGroupConfig',
-        'resourceGroupName'   => 'ResourceGroupName',
-        'roleList'            => 'RoleList',
+        'resourceGroupName' => 'ResourceGroupName',
+        'roleList' => 'RoleList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

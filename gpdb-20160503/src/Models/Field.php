@@ -38,17 +38,15 @@ class Field extends Model
      */
     public $stringValue;
     protected $_name = [
-        'blobValue'    => 'BlobValue',
+        'blobValue' => 'BlobValue',
         'booleanValue' => 'BooleanValue',
-        'doubleValue'  => 'DoubleValue',
-        'isNull'       => 'IsNull',
-        'longValue'    => 'LongValue',
-        'stringValue'  => 'StringValue',
+        'doubleValue' => 'DoubleValue',
+        'isNull' => 'IsNull',
+        'longValue' => 'LongValue',
+        'stringValue' => 'StringValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

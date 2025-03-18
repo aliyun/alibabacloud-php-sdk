@@ -164,28 +164,26 @@ class items extends Model
      */
     public $sourcePort;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'DBName'               => 'DBName',
-        'DBRole'               => 'DBRole',
-        'errorCode'            => 'ErrorCode',
-        'errorMsg'             => 'ErrorMsg',
-        'executeCost'          => 'ExecuteCost',
-        'executeState'         => 'ExecuteState',
-        'operationClass'       => 'OperationClass',
+        'accountName' => 'AccountName',
+        'DBName' => 'DBName',
+        'DBRole' => 'DBRole',
+        'errorCode' => 'ErrorCode',
+        'errorMsg' => 'ErrorMsg',
+        'executeCost' => 'ExecuteCost',
+        'executeState' => 'ExecuteState',
+        'operationClass' => 'OperationClass',
         'operationExecuteTime' => 'OperationExecuteTime',
-        'operationType'        => 'OperationType',
-        'queryId'              => 'QueryId',
-        'returnRowCounts'      => 'ReturnRowCounts',
-        'SQLText'              => 'SQLText',
-        'scanRowCounts'        => 'ScanRowCounts',
-        'sessionId'            => 'SessionId',
-        'sourceIP'             => 'SourceIP',
-        'sourcePort'           => 'SourcePort',
+        'operationType' => 'OperationType',
+        'queryId' => 'QueryId',
+        'returnRowCounts' => 'ReturnRowCounts',
+        'SQLText' => 'SQLText',
+        'scanRowCounts' => 'ScanRowCounts',
+        'sessionId' => 'SessionId',
+        'sourceIP' => 'SourceIP',
+        'sourcePort' => 'SourcePort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

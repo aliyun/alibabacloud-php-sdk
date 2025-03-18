@@ -26,12 +26,10 @@ class DescribeRolesResponseBody extends Model
     public $roleList;
     protected $_name = [
         'requestId' => 'RequestId',
-        'roleList'  => 'RoleList',
+        'roleList' => 'RoleList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

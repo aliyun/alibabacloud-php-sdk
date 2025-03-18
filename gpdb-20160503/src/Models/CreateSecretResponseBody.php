@@ -56,16 +56,14 @@ class CreateSecretResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'secretArn'  => 'SecretArn',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'secretArn' => 'SecretArn',
         'secretName' => 'SecretName',
-        'status'     => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -104,21 +104,19 @@ class items extends Model
      */
     public $user;
     protected $_name = [
-        'database'              => 'Database',
-        'duration'              => 'Duration',
-        'queryID'               => 'QueryID',
-        'SQLStmt'               => 'SQLStmt',
-        'SQLTruncated'          => 'SQLTruncated',
+        'database' => 'Database',
+        'duration' => 'Duration',
+        'queryID' => 'QueryID',
+        'SQLStmt' => 'SQLStmt',
+        'SQLTruncated' => 'SQLTruncated',
         'SQLTruncatedThreshold' => 'SQLTruncatedThreshold',
-        'sessionID'             => 'SessionID',
-        'startTime'             => 'StartTime',
-        'status'                => 'Status',
-        'user'                  => 'User',
+        'sessionID' => 'SessionID',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

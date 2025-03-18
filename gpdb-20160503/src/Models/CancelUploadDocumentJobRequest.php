@@ -11,7 +11,10 @@ class CancelUploadDocumentJobRequest extends Model
     /**
      * @description The name of the document collection.
      *
+     * >  You can call the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation to create a document collection and call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to query a list of document collections.
+     *
      * This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -21,7 +24,10 @@ class CancelUploadDocumentJobRequest extends Model
     /**
      * @description The ID of the instance for which vector engine optimization is enabled.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -32,6 +38,7 @@ class CancelUploadDocumentJobRequest extends Model
      * @description The ID of the document upload job. You can call the `UploadDocumentAsync` operation to query the job ID.
      *
      * This parameter is required.
+     *
      * @example 231460f8-75dc-405e-a669-0c5204887e91
      *
      * @var string
@@ -42,6 +49,7 @@ class CancelUploadDocumentJobRequest extends Model
      * @description The name of the namespace. Default value: public.
      *
      * >  You can call the CreateNamespace operation to create a namespace and call the ListNamespaces operation to query a list of namespaces.
+     *
      * @example mynamespace
      *
      * @var string
@@ -51,7 +59,10 @@ class CancelUploadDocumentJobRequest extends Model
     /**
      * @description The password of the namespace.
      *
+     * >  The value of this parameter is specified when you call the CreateNamespace operation.
+     *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -67,24 +78,23 @@ class CancelUploadDocumentJobRequest extends Model
      * @description The region ID of the instance.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'collection'        => 'Collection',
-        'DBInstanceId'      => 'DBInstanceId',
-        'jobId'             => 'JobId',
-        'namespace'         => 'Namespace',
+        'collection' => 'Collection',
+        'DBInstanceId' => 'DBInstanceId',
+        'jobId' => 'JobId',
+        'namespace' => 'Namespace',
         'namespacePassword' => 'NamespacePassword',
-        'ownerId'           => 'OwnerId',
-        'regionId'          => 'RegionId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

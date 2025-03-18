@@ -11,7 +11,10 @@ class tag extends Model
     /**
      * @description Tag key. The restrictions are as follows:
      *
+     * - It cannot be an empty string.
+     * - It supports up to 128 characters.
      * - It cannot start with `aliyun` or `acs:`, and it cannot contain `http://` or `https://`.
+     *
      * @example TestKey
      *
      * @var string
@@ -21,20 +24,21 @@ class tag extends Model
     /**
      * @description Tag value. The restrictions are as follows:
      *
+     * - It can be an empty string.
+     * - It supports up to 128 characters.
      * - It cannot start with `acs:`, and it cannot contain `http://` or `https://`.
+     *
      * @example TestValue
      *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

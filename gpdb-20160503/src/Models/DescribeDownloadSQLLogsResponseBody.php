@@ -25,13 +25,11 @@ class DescribeDownloadSQLLogsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'records'   => 'Records',
+        'records' => 'Records',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeDownloadSQLLogsResponseBody extends Model
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Records'] as $item) {
                     $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
                 }

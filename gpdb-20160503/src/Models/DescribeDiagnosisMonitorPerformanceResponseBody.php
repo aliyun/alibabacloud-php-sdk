@@ -46,15 +46,13 @@ class DescribeDiagnosisMonitorPerformanceResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'performances'          => 'Performances',
+        'performances' => 'Performances',
         'performancesThreshold' => 'PerformancesThreshold',
         'performancesTruncated' => 'PerformancesTruncated',
-        'requestId'             => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class DescribeDiagnosisMonitorPerformanceResponseBody extends Model
         if (isset($map['Performances'])) {
             if (!empty($map['Performances'])) {
                 $model->performances = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['Performances'] as $item) {
                     $model->performances[$n++] = null !== $item ? performances::fromMap($item) : $item;
                 }

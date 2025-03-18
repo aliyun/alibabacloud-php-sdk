@@ -21,6 +21,7 @@ class ModifyVectorConfigurationResponseBody extends Model
      * @description The error message that is returned.
      *
      * This parameter is returned only if the request fails.
+     *
      * @example Failed to modify vector configuration.
      *
      * @var string
@@ -50,13 +51,11 @@ class ModifyVectorConfigurationResponseBody extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

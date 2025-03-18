@@ -23,7 +23,10 @@ class DescribeAvailableResourcesRequest extends Model
     /**
      * @description The region ID.
      *
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -33,7 +36,10 @@ class DescribeAvailableResourcesRequest extends Model
     /**
      * @description The zone ID.
      *
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent zone list.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou-h
      *
      * @var string
@@ -41,13 +47,11 @@ class DescribeAvailableResourcesRequest extends Model
     public $zoneId;
     protected $_name = [
         'chargeType' => 'ChargeType',
-        'region'     => 'Region',
-        'zoneId'     => 'ZoneId',
+        'region' => 'Region',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

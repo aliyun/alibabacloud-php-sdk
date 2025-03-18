@@ -37,12 +37,10 @@ class storageSize extends Model
     protected $_name = [
         'maxCount' => 'MaxCount',
         'minCount' => 'MinCount',
-        'step'     => 'Step',
+        'step' => 'Step',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

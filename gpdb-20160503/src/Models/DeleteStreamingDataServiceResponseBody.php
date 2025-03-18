@@ -12,6 +12,7 @@ class DeleteStreamingDataServiceResponseBody extends Model
      * @description The error message returned if the operation fails.
      *
      * This parameter is returned only when the return value of **Status** is **false**.
+     *
      * @example This external service cannot be deleted because it is still used by other data source.
      *
      * @var string
@@ -40,13 +41,11 @@ class DeleteStreamingDataServiceResponseBody extends Model
     public $status;
     protected $_name = [
         'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

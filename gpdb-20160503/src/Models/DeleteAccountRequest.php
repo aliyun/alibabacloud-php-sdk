@@ -12,6 +12,7 @@ class DeleteAccountRequest extends Model
      * @description The name of the database account. The privileged account cannot be deleted.
      *
      * This parameter is required.
+     *
      * @example testuser
      *
      * @var string
@@ -22,19 +23,18 @@ class DeleteAccountRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp***************
      *
      * @var string
      */
     public $DBInstanceId;
     protected $_name = [
-        'accountName'  => 'AccountName',
+        'accountName' => 'AccountName',
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -19,12 +19,10 @@ class sparseVector extends Model
     public $values;
     protected $_name = [
         'indices' => 'Indices',
-        'values'  => 'Values',
+        'values' => 'Values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

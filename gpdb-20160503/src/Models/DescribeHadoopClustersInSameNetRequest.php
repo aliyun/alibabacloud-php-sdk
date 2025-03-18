@@ -12,6 +12,7 @@ class DescribeHadoopClustersInSameNetRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxx
      *
      * @var string
@@ -28,12 +29,10 @@ class DescribeHadoopClustersInSameNetRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

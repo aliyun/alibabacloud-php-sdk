@@ -12,6 +12,7 @@ class CheckJDBCSourceNetConnectionRequest extends Model
      * @description Instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxx
      *
      * @var string
@@ -45,15 +46,13 @@ class CheckJDBCSourceNetConnectionRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'dataSourceId'         => 'DataSourceId',
+        'DBInstanceId' => 'DBInstanceId',
+        'dataSourceId' => 'DataSourceId',
         'jdbcConnectionString' => 'JdbcConnectionString',
-        'regionId'             => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

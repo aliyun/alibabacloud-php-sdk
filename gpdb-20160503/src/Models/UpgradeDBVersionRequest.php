@@ -12,6 +12,7 @@ class UpgradeDBVersionRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example gp-wz9kmr708m155j***
      *
      * @var string
@@ -68,18 +69,16 @@ class UpgradeDBVersionRequest extends Model
      */
     public $switchTimeMode;
     protected $_name = [
-        'DBInstanceId'   => 'DBInstanceId',
-        'majorVersion'   => 'MajorVersion',
-        'minorVersion'   => 'MinorVersion',
-        'ownerId'        => 'OwnerId',
-        'regionId'       => 'RegionId',
-        'switchTime'     => 'SwitchTime',
+        'DBInstanceId' => 'DBInstanceId',
+        'majorVersion' => 'MajorVersion',
+        'minorVersion' => 'MinorVersion',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'switchTime' => 'SwitchTime',
         'switchTimeMode' => 'SwitchTimeMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

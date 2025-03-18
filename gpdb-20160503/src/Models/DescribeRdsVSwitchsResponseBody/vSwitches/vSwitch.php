@@ -110,22 +110,20 @@ class vSwitch extends Model
      */
     public $vSwitchName;
     protected $_name = [
-        'aliUid'      => 'AliUid',
-        'bid'         => 'Bid',
-        'cidrBlock'   => 'CidrBlock',
-        'gmtCreate'   => 'GmtCreate',
+        'aliUid' => 'AliUid',
+        'bid' => 'Bid',
+        'cidrBlock' => 'CidrBlock',
+        'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
-        'isDefault'   => 'IsDefault',
-        'izNo'        => 'IzNo',
-        'regionNo'    => 'RegionNo',
-        'status'      => 'Status',
-        'vSwitchId'   => 'VSwitchId',
+        'isDefault' => 'IsDefault',
+        'izNo' => 'IzNo',
+        'regionNo' => 'RegionNo',
+        'status' => 'Status',
+        'vSwitchId' => 'VSwitchId',
         'vSwitchName' => 'VSwitchName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

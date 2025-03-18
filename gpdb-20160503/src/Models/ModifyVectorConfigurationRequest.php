@@ -12,6 +12,7 @@ class ModifyVectorConfigurationRequest extends Model
      * @description The instance ID.
      *
      * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a region.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -31,20 +32,19 @@ class ModifyVectorConfigurationRequest extends Model
      *
      * > *   We recommend that you **do not enable** vector engine optimization in mainstream analysis and real-time data warehousing scenarios.
      * > *   We recommend that you **enable** vector engine optimization in AI Generated Content (AIGC) and vector retrieval scenarios that require the vector analysis engine.
+     *
      * @example enabled
      *
      * @var string
      */
     public $vectorConfigurationStatus;
     protected $_name = [
-        'DBInstanceId'              => 'DBInstanceId',
-        'ownerId'                   => 'OwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
         'vectorConfigurationStatus' => 'VectorConfigurationStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

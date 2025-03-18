@@ -12,6 +12,7 @@ class ListStreamingDataServicesRequest extends Model
      * @description Instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -29,7 +30,10 @@ class ListStreamingDataServicesRequest extends Model
 
     /**
      * @description Number of records per page, with the following values:
+     * - 30 (default)
+     * - 50
      * - 100
+     *
      * @example 50
      *
      * @var int
@@ -46,14 +50,12 @@ class ListStreamingDataServicesRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -138,6 +138,7 @@ class DescribeDocumentResponseBody extends Model
      * @description API execution status, with values as follows:
      * - **success**: Execution succeeded.
      * - **fail**: Execution failed.
+     *
      * @example success
      *
      * @var string
@@ -153,27 +154,25 @@ class DescribeDocumentResponseBody extends Model
      */
     public $textSplitter;
     protected $_name = [
-        'chunkFileUrl'      => 'ChunkFileUrl',
-        'docsCount'         => 'DocsCount',
-        'documentLoader'    => 'DocumentLoader',
-        'fileExt'           => 'FileExt',
-        'fileMd5'           => 'FileMd5',
-        'fileMtime'         => 'FileMtime',
-        'fileName'          => 'FileName',
-        'fileSize'          => 'FileSize',
-        'fileUrl'           => 'FileUrl',
-        'fileVersion'       => 'FileVersion',
-        'message'           => 'Message',
+        'chunkFileUrl' => 'ChunkFileUrl',
+        'docsCount' => 'DocsCount',
+        'documentLoader' => 'DocumentLoader',
+        'fileExt' => 'FileExt',
+        'fileMd5' => 'FileMd5',
+        'fileMtime' => 'FileMtime',
+        'fileName' => 'FileName',
+        'fileSize' => 'FileSize',
+        'fileUrl' => 'FileUrl',
+        'fileVersion' => 'FileVersion',
+        'message' => 'Message',
         'plainChunkFileUrl' => 'PlainChunkFileUrl',
-        'requestId'         => 'RequestId',
-        'source'            => 'Source',
-        'status'            => 'Status',
-        'textSplitter'      => 'TextSplitter',
+        'requestId' => 'RequestId',
+        'source' => 'Source',
+        'status' => 'Status',
+        'textSplitter' => 'TextSplitter',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

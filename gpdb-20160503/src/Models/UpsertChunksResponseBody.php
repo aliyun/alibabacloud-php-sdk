@@ -12,6 +12,7 @@ class UpsertChunksResponseBody extends Model
      * @description Number of tokens used during vectorization.
      *
      * > A token refers to the smallest unit into which the input text is divided. A token can be a word, a phrase, a punctuation mark, a character, etc.
+     *
      * @example 100
      *
      * @var string
@@ -40,6 +41,7 @@ class UpsertChunksResponseBody extends Model
      * @description API execution status, with the following values:
      * - **success**: Execution succeeded.
      * - **fail**: Execution failed.
+     *
      * @example success
      *
      * @var string
@@ -47,14 +49,12 @@ class UpsertChunksResponseBody extends Model
     public $status;
     protected $_name = [
         'embeddingTokens' => 'EmbeddingTokens',
-        'message'         => 'Message',
-        'requestId'       => 'RequestId',
-        'status'          => 'Status',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -62,6 +62,7 @@ class DescribeDBInstancesRequest extends Model
      *   **Classic**: classic network.
      *
      * > If you do not specify this parameter, instances of all network types are returned.
+     *
      * @example VPC
      *
      * @var string
@@ -90,6 +91,7 @@ class DescribeDBInstancesRequest extends Model
      *   **100**
      *
      * Default value: **30**.
+     *
      * @example 50
      *
      * @var int
@@ -99,7 +101,10 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @description The region ID.
      *
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -131,25 +136,23 @@ class DescribeDBInstancesRequest extends Model
      */
     public $vpcId;
     protected $_name = [
-        'DBInstanceCategories'  => 'DBInstanceCategories',
+        'DBInstanceCategories' => 'DBInstanceCategories',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceIds'         => 'DBInstanceIds',
-        'DBInstanceModes'       => 'DBInstanceModes',
-        'DBInstanceStatuses'    => 'DBInstanceStatuses',
-        'instanceDeployTypes'   => 'InstanceDeployTypes',
-        'instanceNetworkType'   => 'InstanceNetworkType',
-        'ownerId'               => 'OwnerId',
-        'pageNumber'            => 'PageNumber',
-        'pageSize'              => 'PageSize',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'tag'                   => 'Tag',
-        'vpcId'                 => 'VpcId',
+        'DBInstanceIds' => 'DBInstanceIds',
+        'DBInstanceModes' => 'DBInstanceModes',
+        'DBInstanceStatuses' => 'DBInstanceStatuses',
+        'instanceDeployTypes' => 'InstanceDeployTypes',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag' => 'Tag',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -261,7 +264,7 @@ class DescribeDBInstancesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

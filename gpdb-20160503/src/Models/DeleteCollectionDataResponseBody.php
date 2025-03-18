@@ -48,14 +48,12 @@ class DeleteCollectionDataResponseBody extends Model
     public $status;
     protected $_name = [
         'appliedRows' => 'AppliedRows',
-        'message'     => 'Message',
-        'requestId'   => 'RequestId',
-        'status'      => 'Status',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

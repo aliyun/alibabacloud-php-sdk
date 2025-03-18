@@ -34,14 +34,12 @@ class performanceKeys extends Model
      */
     public $unit;
     protected $_name = [
-        'name'   => 'Name',
+        'name' => 'Name',
         'series' => 'Series',
-        'unit'   => 'Unit',
+        'unit' => 'Unit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class performanceKeys extends Model
         if (isset($map['Series'])) {
             if (!empty($map['Series'])) {
                 $model->series = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Series'] as $item) {
                     $model->series[$n++] = null !== $item ? series::fromMap($item) : $item;
                 }

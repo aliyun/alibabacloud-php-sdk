@@ -12,6 +12,7 @@ class items extends Model
      * @description The coefficient of data bloat. It is calculated by using the following formula:
      *
      * Bloat coefficient = Number of dead rows/Number of active rows.
+     *
      * @example 1.03
      *
      * @var string
@@ -40,6 +41,7 @@ class items extends Model
      * @description The expected size of the table.
      *
      * It indicates the size of the table that has no data bloat.
+     *
      * @example 1MB
      *
      * @var string
@@ -122,23 +124,21 @@ class items extends Model
      */
     public $timeLastVacuumed;
     protected $_name = [
-        'bloatCeoff'       => 'BloatCeoff',
-        'bloatSize'        => 'BloatSize',
-        'databaseName'     => 'DatabaseName',
-        'expectTableSize'  => 'ExpectTableSize',
-        'realTableSize'    => 'RealTableSize',
-        'schemaName'       => 'SchemaName',
-        'sequence'         => 'Sequence',
-        'storageType'      => 'StorageType',
-        'suggestedAction'  => 'SuggestedAction',
-        'tableName'        => 'TableName',
-        'timeLastUpdated'  => 'TimeLastUpdated',
+        'bloatCeoff' => 'BloatCeoff',
+        'bloatSize' => 'BloatSize',
+        'databaseName' => 'DatabaseName',
+        'expectTableSize' => 'ExpectTableSize',
+        'realTableSize' => 'RealTableSize',
+        'schemaName' => 'SchemaName',
+        'sequence' => 'Sequence',
+        'storageType' => 'StorageType',
+        'suggestedAction' => 'SuggestedAction',
+        'tableName' => 'TableName',
+        'timeLastUpdated' => 'TimeLastUpdated',
         'timeLastVacuumed' => 'TimeLastVacuumed',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

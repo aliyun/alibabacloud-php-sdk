@@ -11,6 +11,8 @@ class tag extends Model
     /**
      * @description The key of tag N. The key must be 1 to 64 characters in length.
      *
+     * You can use `Tag.N` to query AnalyticDB for PostgreSQL instances that have specific tags added. Tag.N consists of Tag.N.Key and Tag.N.Value.
+     *
      * Valid values of N: 1 to 20.
      *
      *   If you specify only `Tag.N.Key`, all instances that have the tag key added are returned.
@@ -27,19 +29,18 @@ class tag extends Model
      * @description The value of tag N. The value must be 1 to 128 characters in length.
      *
      * Valid values of N: 1 to 20.
+     *
      * @example TestValue
      *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

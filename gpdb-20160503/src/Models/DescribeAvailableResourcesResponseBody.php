@@ -34,14 +34,12 @@ class DescribeAvailableResourcesResponseBody extends Model
      */
     public $resources;
     protected $_name = [
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
         'requestId' => 'RequestId',
         'resources' => 'Resources',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class DescribeAvailableResourcesResponseBody extends Model
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Resources'] as $item) {
                     $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
                 }

@@ -137,25 +137,23 @@ class items extends Model
      */
     public $sourcePort;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'DBName'               => 'DBName',
-        'DBRole'               => 'DBRole',
-        'executeCost'          => 'ExecuteCost',
-        'executeState'         => 'ExecuteState',
-        'operationClass'       => 'OperationClass',
+        'accountName' => 'AccountName',
+        'DBName' => 'DBName',
+        'DBRole' => 'DBRole',
+        'executeCost' => 'ExecuteCost',
+        'executeState' => 'ExecuteState',
+        'operationClass' => 'OperationClass',
         'operationExecuteTime' => 'OperationExecuteTime',
-        'operationType'        => 'OperationType',
-        'returnRowCounts'      => 'ReturnRowCounts',
-        'SQLPlan'              => 'SQLPlan',
-        'SQLText'              => 'SQLText',
-        'scanRowCounts'        => 'ScanRowCounts',
-        'sourceIP'             => 'SourceIP',
-        'sourcePort'           => 'SourcePort',
+        'operationType' => 'OperationType',
+        'returnRowCounts' => 'ReturnRowCounts',
+        'SQLPlan' => 'SQLPlan',
+        'SQLText' => 'SQLText',
+        'scanRowCounts' => 'ScanRowCounts',
+        'sourceIP' => 'SourceIP',
+        'sourcePort' => 'SourcePort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

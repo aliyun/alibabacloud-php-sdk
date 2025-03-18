@@ -22,12 +22,10 @@ class results extends Model
     public $index;
     protected $_name = [
         'embedding' => 'Embedding',
-        'index'     => 'Index',
+        'index' => 'Index',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class RerankShrinkRequest extends Model
     /**
      * @description Instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -27,7 +30,12 @@ class RerankShrinkRequest extends Model
 
     /**
      * @description Maximum number of chunks allowed when the text exceeds the model window:
+     * - bge-reranker-v2-m3: default value is 10.
+     * - bge-reranker-v2-minicpm-layerwise: default value is 5:
+     *
+     * > Example of splitting
      * > - If using the bge-reranker-v2-minicpm-layerwise model, the maximum single inference window is 2048 tokens. If the query is 48 tokens and the content of a single document parameter is 9000 tokens, it will be divided as follows: 1-2000 for the first, 2001-4000 for the second, and so on. If the number of splits exceeds MaxChunksPerDoc, the remaining sentences will be discarded.
+     *
      * @example 10
      *
      * @var int
@@ -36,7 +44,9 @@ class RerankShrinkRequest extends Model
 
     /**
      * @description Rerank model, currently supports:
+     * - bge-reranker-v2-m3: (default), better performance, supports 8192 tokens per inference, if exceeded, it will be split, which may reduce the effect.
      * - bge-reranker-v2-minicpm-layerwise: better performance than v2-m3, supports 2048 tokens per inference, if exceeded, it will be split, which may reduce the effect.
+     *
      * @example bge-reranker-v2-m3
      *
      * @var string
@@ -61,6 +71,7 @@ class RerankShrinkRequest extends Model
      * @description Region ID where the instance is located.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -85,20 +96,18 @@ class RerankShrinkRequest extends Model
      */
     public $topK;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'documentsShrink' => 'Documents',
         'maxChunksPerDoc' => 'MaxChunksPerDoc',
-        'model'           => 'Model',
-        'ownerId'         => 'OwnerId',
-        'query'           => 'Query',
-        'regionId'        => 'RegionId',
+        'model' => 'Model',
+        'ownerId' => 'OwnerId',
+        'query' => 'Query',
+        'regionId' => 'RegionId',
         'returnDocuments' => 'ReturnDocuments',
-        'topK'            => 'TopK',
+        'topK' => 'TopK',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

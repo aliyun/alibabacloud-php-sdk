@@ -39,21 +39,20 @@ class UploadDocumentAsyncResponseBody extends Model
      * @description API execution status, with the following values:
      * - **success**: Execution succeeded.
      * - **fail**: Execution failed.
+     *
      * @example success
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'jobId'     => 'JobId',
-        'message'   => 'Message',
+        'jobId' => 'JobId',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

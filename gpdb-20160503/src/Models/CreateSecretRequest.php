@@ -12,6 +12,7 @@ class CreateSecretRequest extends Model
      * @description The instance ID.
      *
      * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -36,6 +37,7 @@ class CreateSecretRequest extends Model
      * @description The password of the database account that is used to access the instance.
      *
      * This parameter is required.
+     *
      * @example pwd123
      *
      * @var string
@@ -46,6 +48,7 @@ class CreateSecretRequest extends Model
      * @description The region ID of the instance.
      *
      * This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -74,6 +77,7 @@ class CreateSecretRequest extends Model
      * @description The name of the database account that is used to access the instance.
      *
      * This parameter is required.
+     *
      * @example testacc
      *
      * @var string
@@ -85,20 +89,18 @@ class CreateSecretRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'DBInstanceId'   => 'DBInstanceId',
-        'description'    => 'Description',
-        'ownerId'        => 'OwnerId',
-        'password'       => 'Password',
-        'regionId'       => 'RegionId',
-        'secretName'     => 'SecretName',
+        'DBInstanceId' => 'DBInstanceId',
+        'description' => 'Description',
+        'ownerId' => 'OwnerId',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
+        'secretName' => 'SecretName',
         'testConnection' => 'TestConnection',
-        'username'       => 'Username',
-        'workspaceId'    => 'WorkspaceId',
+        'username' => 'Username',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class UpsertCollectionDataAsyncRequest extends Model
     /**
      * @description The name of the collection.
      *
+     * >  You can call the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) operation to query a list of collections.
+     *
      * This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -22,6 +25,7 @@ class UpsertCollectionDataAsyncRequest extends Model
      * @description The instance ID.
      *
      * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -40,6 +44,7 @@ class UpsertCollectionDataAsyncRequest extends Model
      *   We recommend that you use SDKs to call this operation. SDKs encapsulate the UpsertCollectionDataAsyncAdvance method to upload on-premises files as data sources.
      *
      * This parameter is required.
+     *
      * @example https://xx/vectors.jsonl
      *
      * @var string
@@ -50,6 +55,7 @@ class UpsertCollectionDataAsyncRequest extends Model
      * @description The name of the namespace. Default value: public.
      *
      * >  You can call the CreateNamespace operation to create a namespace and call the ListNamespaces operation to query a list of namespaces.
+     *
      * @example mynamespace
      *
      * @var string
@@ -59,7 +65,10 @@ class UpsertCollectionDataAsyncRequest extends Model
     /**
      * @description The password of the namespace.
      *
+     * >  The value of this parameter is specified when you call the CreateNamespace operation.
+     *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -75,6 +84,7 @@ class UpsertCollectionDataAsyncRequest extends Model
      * @description The region ID of the instance.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -90,19 +100,17 @@ class UpsertCollectionDataAsyncRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'collection'        => 'Collection',
-        'DBInstanceId'      => 'DBInstanceId',
-        'fileUrl'           => 'FileUrl',
-        'namespace'         => 'Namespace',
+        'collection' => 'Collection',
+        'DBInstanceId' => 'DBInstanceId',
+        'fileUrl' => 'FileUrl',
+        'namespace' => 'Namespace',
         'namespacePassword' => 'NamespacePassword',
-        'ownerId'           => 'OwnerId',
-        'regionId'          => 'RegionId',
-        'workspaceId'       => 'WorkspaceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

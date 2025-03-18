@@ -26,12 +26,10 @@ class DescribeRdsVpcsResponseBody extends Model
     public $vpcs;
     protected $_name = [
         'requestId' => 'RequestId',
-        'vpcs'      => 'Vpcs',
+        'vpcs' => 'Vpcs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

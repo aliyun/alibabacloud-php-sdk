@@ -11,7 +11,10 @@ class DeleteExtensionRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -22,6 +25,7 @@ class DeleteExtensionRequest extends Model
      * @description The name of the database.
      *
      * This parameter is required.
+     *
      * @example demo1
      *
      * @var string
@@ -32,6 +36,7 @@ class DeleteExtensionRequest extends Model
      * @description The name of the extension.
      *
      * This parameter is required.
+     *
      * @example citext
      *
      * @var string
@@ -48,14 +53,12 @@ class DeleteExtensionRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'DBNames'      => 'DBNames',
-        'extension'    => 'Extension',
-        'regionId'     => 'RegionId',
+        'DBNames' => 'DBNames',
+        'extension' => 'Extension',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

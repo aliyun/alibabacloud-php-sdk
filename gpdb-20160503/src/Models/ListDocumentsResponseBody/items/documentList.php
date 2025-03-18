@@ -27,12 +27,10 @@ class documentList extends Model
     public $source;
     protected $_name = [
         'fileName' => 'FileName',
-        'source'   => 'Source',
+        'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

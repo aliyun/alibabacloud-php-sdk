@@ -30,9 +30,7 @@ class CreateExternalDataServiceResponseBody extends Model
         'serviceId' => 'ServiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

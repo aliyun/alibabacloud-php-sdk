@@ -16,9 +16,7 @@ class vector extends Model
         'vectorList' => 'VectorList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

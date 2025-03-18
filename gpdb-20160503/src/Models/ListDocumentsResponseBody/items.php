@@ -17,9 +17,7 @@ class items extends Model
         'documentList' => 'DocumentList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class items extends Model
         if (isset($map['DocumentList'])) {
             if (!empty($map['DocumentList'])) {
                 $model->documentList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['DocumentList'] as $item) {
                     $model->documentList[$n++] = null !== $item ? documentList::fromMap($item) : $item;
                 }

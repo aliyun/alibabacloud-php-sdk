@@ -128,24 +128,22 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
      */
     public $user;
     protected $_name = [
-        'database'      => 'Database',
-        'duration'      => 'Duration',
+        'database' => 'Database',
+        'duration' => 'Duration',
         'maxOutputRows' => 'MaxOutputRows',
-        'queryID'       => 'QueryID',
-        'queryPlan'     => 'QueryPlan',
-        'requestId'     => 'RequestId',
-        'SQLStmt'       => 'SQLStmt',
-        'sessionID'     => 'SessionID',
+        'queryID' => 'QueryID',
+        'queryPlan' => 'QueryPlan',
+        'requestId' => 'RequestId',
+        'SQLStmt' => 'SQLStmt',
+        'sessionID' => 'SessionID',
         'sortedMetrics' => 'SortedMetrics',
-        'startTime'     => 'StartTime',
-        'status'        => 'Status',
-        'textPlan'      => 'TextPlan',
-        'user'          => 'User',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'textPlan' => 'TextPlan',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DescribeStreamingDataServiceRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeStreamingDataServiceRequest extends Model
      * @description The region ID.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -32,6 +34,7 @@ class DescribeStreamingDataServiceRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -39,13 +42,11 @@ class DescribeStreamingDataServiceRequest extends Model
     public $serviceId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'regionId'     => 'RegionId',
-        'serviceId'    => 'ServiceId',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

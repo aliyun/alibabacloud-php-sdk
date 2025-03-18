@@ -35,14 +35,12 @@ class results extends Model
      */
     public $relevanceScore;
     protected $_name = [
-        'document'       => 'Document',
-        'index'          => 'Index',
+        'document' => 'Document',
+        'index' => 'Index',
         'relevanceScore' => 'RelevanceScore',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

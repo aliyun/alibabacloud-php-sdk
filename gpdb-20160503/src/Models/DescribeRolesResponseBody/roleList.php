@@ -16,9 +16,7 @@ class roleList extends Model
         'role' => 'Role',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

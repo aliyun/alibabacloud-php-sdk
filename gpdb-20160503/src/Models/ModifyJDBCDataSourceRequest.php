@@ -12,6 +12,7 @@ class ModifyJDBCDataSourceRequest extends Model
      * @description Instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxx
      *
      * @var string
@@ -31,6 +32,7 @@ class ModifyJDBCDataSourceRequest extends Model
      * @description Data source ID.
      *
      * This parameter is required.
+     *
      * @example 123
      *
      * @var string
@@ -82,19 +84,17 @@ class ModifyJDBCDataSourceRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'DBInstanceId'          => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'dataSourceDescription' => 'DataSourceDescription',
-        'dataSourceId'          => 'DataSourceId',
-        'dataSourceType'        => 'DataSourceType',
-        'JDBCConnectionString'  => 'JDBCConnectionString',
-        'JDBCPassword'          => 'JDBCPassword',
-        'JDBCUserName'          => 'JDBCUserName',
-        'regionId'              => 'RegionId',
+        'dataSourceId' => 'DataSourceId',
+        'dataSourceType' => 'DataSourceType',
+        'JDBCConnectionString' => 'JDBCConnectionString',
+        'JDBCPassword' => 'JDBCPassword',
+        'JDBCUserName' => 'JDBCUserName',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

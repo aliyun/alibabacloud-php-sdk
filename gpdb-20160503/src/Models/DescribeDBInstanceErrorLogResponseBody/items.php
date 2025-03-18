@@ -62,17 +62,15 @@ class items extends Model
      */
     public $user;
     protected $_name = [
-        'database'   => 'Database',
-        'host'       => 'Host',
+        'database' => 'Database',
+        'host' => 'Host',
         'logContext' => 'LogContext',
-        'logLevel'   => 'LogLevel',
-        'time'       => 'Time',
-        'user'       => 'User',
+        'logLevel' => 'LogLevel',
+        'time' => 'Time',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

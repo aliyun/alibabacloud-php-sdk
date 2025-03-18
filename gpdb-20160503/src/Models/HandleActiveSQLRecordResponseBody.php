@@ -47,14 +47,12 @@ class HandleActiveSQLRecordResponseBody extends Model
     public $status;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'requestId'    => 'RequestId',
-        'results'      => 'Results',
-        'status'       => 'Status',
+        'requestId' => 'RequestId',
+        'results' => 'Results',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class HandleActiveSQLRecordResponseBody extends Model
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Results'] as $item) {
                     $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }

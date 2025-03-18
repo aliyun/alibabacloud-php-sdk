@@ -12,6 +12,7 @@ class CreateExternalDataServiceRequest extends Model
      * @description Instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -40,6 +41,7 @@ class CreateExternalDataServiceRequest extends Model
      * @description Service name.
      *
      * This parameter is required.
+     *
      * @example test-adbpgss
      *
      * @var string
@@ -49,23 +51,24 @@ class CreateExternalDataServiceRequest extends Model
     /**
      * @description Service specification (in CU), value:
      *
+     * - 8
+     *
      * This parameter is required.
+     *
      * @example 8
      *
      * @var string
      */
     public $serviceSpec;
     protected $_name = [
-        'DBInstanceId'       => 'DBInstanceId',
-        'regionId'           => 'RegionId',
+        'DBInstanceId' => 'DBInstanceId',
+        'regionId' => 'RegionId',
         'serviceDescription' => 'ServiceDescription',
-        'serviceName'        => 'ServiceName',
-        'serviceSpec'        => 'ServiceSpec',
+        'serviceName' => 'ServiceName',
+        'serviceSpec' => 'ServiceSpec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

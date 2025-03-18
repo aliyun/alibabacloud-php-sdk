@@ -46,11 +46,7 @@ class DescribeCollectionResponseBody extends Model
 
     /**
      * @description The metadata of vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
-     *
-     **
-     *
      **Warning** Reserved fields such as id, vector, and to_tsvector cannot be used.
-     *
      * @var string[]
      */
     public $metadata;
@@ -122,24 +118,22 @@ class DescribeCollectionResponseBody extends Model
      */
     public $supportSparse;
     protected $_name = [
-        'DBInstanceId'            => 'DBInstanceId',
-        'dimension'               => 'Dimension',
+        'DBInstanceId' => 'DBInstanceId',
+        'dimension' => 'Dimension',
         'fullTextRetrievalFields' => 'FullTextRetrievalFields',
-        'message'                 => 'Message',
-        'metadata'                => 'Metadata',
-        'metrics'                 => 'Metrics',
-        'namespace'               => 'Namespace',
-        'parser'                  => 'Parser',
-        'regionId'                => 'RegionId',
-        'requestId'               => 'RequestId',
-        'sparseVectorMetrics'     => 'SparseVectorMetrics',
-        'status'                  => 'Status',
-        'supportSparse'           => 'SupportSparse',
+        'message' => 'Message',
+        'metadata' => 'Metadata',
+        'metrics' => 'Metrics',
+        'namespace' => 'Namespace',
+        'parser' => 'Parser',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'sparseVectorMetrics' => 'SparseVectorMetrics',
+        'status' => 'Status',
+        'supportSparse' => 'SupportSparse',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

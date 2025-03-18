@@ -11,7 +11,10 @@ class DescribeModifyParameterLogRequest extends Model
     /**
      * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxx
      *
      * @var string
@@ -37,13 +40,11 @@ class DescribeModifyParameterLogRequest extends Model
     public $startTime;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'endTime'      => 'EndTime',
-        'startTime'    => 'StartTime',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

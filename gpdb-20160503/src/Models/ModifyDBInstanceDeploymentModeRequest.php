@@ -40,15 +40,13 @@ class ModifyDBInstanceDeploymentModeRequest extends Model
      */
     public $standbyZoneId;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
-        'deployMode'       => 'DeployMode',
+        'DBInstanceId' => 'DBInstanceId',
+        'deployMode' => 'DeployMode',
         'standbyVSwitchId' => 'StandbyVSwitchId',
-        'standbyZoneId'    => 'StandbyZoneId',
+        'standbyZoneId' => 'StandbyZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class CreateStreamingDataSourceRequest extends Model
      * @description Instance ID.
      *
      * This parameter is required.
+     *
      * @example CreateExternalDataSource
      *
      * @var string
@@ -22,6 +23,7 @@ class CreateStreamingDataSourceRequest extends Model
      * @description Data source configuration information.
      *
      * This parameter is required.
+     *
      * @example {"broker_list":"broker0:9091,broker1:9091","topic":"topic"}
      *
      * @var string
@@ -41,6 +43,7 @@ class CreateStreamingDataSourceRequest extends Model
      * @description Data source name.
      *
      * This parameter is required.
+     *
      * @example test-kafka
      *
      * @var string
@@ -49,7 +52,10 @@ class CreateStreamingDataSourceRequest extends Model
 
     /**
      * @description Data source type. Values:
+     * -  kafka
+     *
      * This parameter is required.
+     *
      * @example kafka
      *
      * @var string
@@ -60,6 +66,7 @@ class CreateStreamingDataSourceRequest extends Model
      * @description Region ID.
      *
      * > You can view available region IDs through the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -70,24 +77,23 @@ class CreateStreamingDataSourceRequest extends Model
      * @description Real-time data service ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
      */
     public $serviceId;
     protected $_name = [
-        'DBInstanceId'          => 'DBInstanceId',
-        'dataSourceConfig'      => 'DataSourceConfig',
+        'DBInstanceId' => 'DBInstanceId',
+        'dataSourceConfig' => 'DataSourceConfig',
         'dataSourceDescription' => 'DataSourceDescription',
-        'dataSourceName'        => 'DataSourceName',
-        'dataSourceType'        => 'DataSourceType',
-        'regionId'              => 'RegionId',
-        'serviceId'             => 'ServiceId',
+        'dataSourceName' => 'DataSourceName',
+        'dataSourceType' => 'DataSourceType',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

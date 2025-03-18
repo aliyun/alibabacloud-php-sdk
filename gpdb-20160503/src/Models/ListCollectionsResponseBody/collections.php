@@ -16,9 +16,7 @@ class collections extends Model
         'collection' => 'Collection',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

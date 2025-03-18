@@ -24,13 +24,11 @@ class ListBackupJobsRequest extends Model
      */
     public $DBInstanceId;
     protected $_name = [
-        'backupMode'   => 'BackupMode',
+        'backupMode' => 'BackupMode',
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

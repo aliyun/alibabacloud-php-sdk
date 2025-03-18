@@ -39,13 +39,11 @@ class SetDataShareInstanceResponseBody extends Model
     public $status;
     protected $_name = [
         'errMessage' => 'ErrMessage',
-        'requestId'  => 'RequestId',
-        'status'     => 'Status',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

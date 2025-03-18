@@ -24,6 +24,7 @@ class resourceGroupItems extends Model
      *   Concurrency: the maximum number of concurrent transactions or parallel queries that are allowed for a resource group. Default value: 20.
      *
      * This parameter is required.
+     *
      * @example {"CpuRateLimit":"10","MemoryLimit":"12","MemorySharedQuota":"20","MemorySpillRatio":"75","Concurrency":"3"}
      *
      * @var string
@@ -34,6 +35,7 @@ class resourceGroupItems extends Model
      * @description The name of the resource group.
      *
      * This parameter is required.
+     *
      * @example testgroup
      *
      * @var string
@@ -41,12 +43,10 @@ class resourceGroupItems extends Model
     public $resourceGroupName;
     protected $_name = [
         'resourceGroupConfig' => 'ResourceGroupConfig',
-        'resourceGroupName'   => 'ResourceGroupName',
+        'resourceGroupName' => 'ResourceGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

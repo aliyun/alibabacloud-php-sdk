@@ -80,19 +80,17 @@ class items extends Model
      */
     public $status;
     protected $_name = [
-        'currentVersion'       => 'CurrentVersion',
-        'description'          => 'Description',
-        'extensionId'          => 'ExtensionId',
-        'installedDatabases'   => 'InstalledDatabases',
+        'currentVersion' => 'CurrentVersion',
+        'description' => 'Description',
+        'extensionId' => 'ExtensionId',
+        'installedDatabases' => 'InstalledDatabases',
         'isInstallNeedRestart' => 'IsInstallNeedRestart',
-        'latestVersion'        => 'LatestVersion',
-        'name'                 => 'Name',
-        'status'               => 'Status',
+        'latestVersion' => 'LatestVersion',
+        'name' => 'Name',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

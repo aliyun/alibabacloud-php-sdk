@@ -38,6 +38,7 @@ class RerankResponseBody extends Model
      * @description API execution status, value description:
      * - **success**: Execution succeeded.
      * - **fail**: Execution failed.
+     *
      * @example success
      *
      * @var string
@@ -53,16 +54,14 @@ class RerankResponseBody extends Model
      */
     public $tokens;
     protected $_name = [
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'results'   => 'Results',
-        'status'    => 'Status',
-        'tokens'    => 'Tokens',
+        'results' => 'Results',
+        'status' => 'Status',
+        'tokens' => 'Tokens',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

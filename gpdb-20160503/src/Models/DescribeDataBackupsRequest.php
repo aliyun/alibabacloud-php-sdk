@@ -12,6 +12,7 @@ class DescribeDataBackupsRequest extends Model
      * @description The ID of the backup set. If you specify BackupId, the details of the backup set are returned.
      *
      * > You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the information about all backup sets of an instance, including backup set IDs.
+     *
      * @example 327329803
      *
      * @var string
@@ -25,6 +26,7 @@ class DescribeDataBackupsRequest extends Model
      *   Manual
      *
      * If you do not specify this parameter, all backup sets are returned.
+     *
      * @example Automated
      *
      * @var string
@@ -38,6 +40,7 @@ class DescribeDataBackupsRequest extends Model
      *   Failed
      *
      * If you do not specify this parameter, all backup sets are returned.
+     *
      * @example Success
      *
      * @var string
@@ -47,7 +50,10 @@ class DescribeDataBackupsRequest extends Model
     /**
      * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -61,6 +67,7 @@ class DescribeDataBackupsRequest extends Model
      *   **RESTOREPOI**: point-in-time recovery backup.
      *
      * If you do not specify this parameter, the backup sets of full backup are returned.
+     *
      * @example DATA
      *
      * @var string
@@ -93,6 +100,7 @@ class DescribeDataBackupsRequest extends Model
      *   100
      *
      * Default value: 30.
+     *
      * @example 30
      *
      * @var int
@@ -108,20 +116,18 @@ class DescribeDataBackupsRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'backupId'     => 'BackupId',
-        'backupMode'   => 'BackupMode',
+        'backupId' => 'BackupId',
+        'backupMode' => 'BackupMode',
         'backupStatus' => 'BackupStatus',
         'DBInstanceId' => 'DBInstanceId',
-        'dataType'     => 'DataType',
-        'endTime'      => 'EndTime',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'startTime'    => 'StartTime',
+        'dataType' => 'DataType',
+        'endTime' => 'EndTime',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

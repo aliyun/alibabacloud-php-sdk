@@ -12,6 +12,7 @@ class DescribeRegionsRequest extends Model
      * @description The ID of the region.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -21,9 +22,7 @@ class DescribeRegionsRequest extends Model
         'region' => 'Region',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class ModifyDBInstanceDescriptionRequest extends Model
     /**
      * @description The description of the instance.
      *
+     * The description must be 2 to 256 characters in length. It cannot start with http:// or https://.
+     *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -21,7 +24,10 @@ class ModifyDBInstanceDescriptionRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the instance IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+     *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -38,13 +44,11 @@ class ModifyDBInstanceDescriptionRequest extends Model
     public $resourceGroupId;
     protected $_name = [
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'resourceGroupId'       => 'ResourceGroupId',
+        'DBInstanceId' => 'DBInstanceId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

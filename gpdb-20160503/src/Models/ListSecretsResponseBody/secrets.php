@@ -9,16 +9,14 @@ use AlibabaCloud\Tea\Model;
 class secrets extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSecretsResponseBody\secrets\secrets[]
+     * @var secrets\secrets[]
      */
     public $secrets;
     protected $_name = [
         'secrets' => 'Secrets',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -47,9 +45,9 @@ class secrets extends Model
         if (isset($map['Secrets'])) {
             if (!empty($map['Secrets'])) {
                 $model->secrets = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Secrets'] as $item) {
-                    $model->secrets[$n++] = null !== $item ? \AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSecretsResponseBody\secrets\secrets::fromMap($item) : $item;
+                    $model->secrets[$n++] = null !== $item ? secrets\secrets::fromMap($item) : $item;
                 }
             }
         }

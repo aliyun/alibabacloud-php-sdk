@@ -27,6 +27,7 @@ class status extends Model
      * @description The information of maximum compute node storage usage.
      *
      * >  This parameter value is returned only for instances in elastic storage mode.
+     *
      * @var adbgpSegmentDiskUsagePercentMax
      */
     public $adbgpSegmentDiskUsagePercentMax;
@@ -42,6 +43,7 @@ class status extends Model
      * @description The information of instance storage status.
      *
      * >  This parameter value is returned only for instances in elastic storage mode.
+     *
      * @var adbpgDiskStatus
      */
     public $adbpgDiskStatus;
@@ -50,6 +52,7 @@ class status extends Model
      * @description The information of instance storage usage.
      *
      * >  This parameter value is returned only for instances in elastic storage mode.
+     *
      * @var adbpgDiskUsagePercent
      */
     public $adbpgDiskUsagePercent;
@@ -79,6 +82,7 @@ class status extends Model
      * @description The information of maximum coordinator node storage usage.
      *
      * >  This parameter value is returned only for instances in elastic storage mode.
+     *
      * @var adbpgMasterDiskUsagePercentMax
      */
     public $adbpgMasterDiskUsagePercentMax;
@@ -129,30 +133,29 @@ class status extends Model
      * @description The information of compute node storage status.
      *
      * >  This parameter value is returned only for instances in elastic storage mode.
+     *
      * @var nodeSegmentDiskStatus
      */
     public $nodeSegmentDiskStatus;
     protected $_name = [
         'adbgpSegmentDiskUsagePercentMax' => 'adbgp_segment_disk_usage_percent_max',
-        'adbpgConnectionStatus'           => 'adbpg_connection_status',
-        'adbpgDiskStatus'                 => 'adbpg_disk_status',
-        'adbpgDiskUsagePercent'           => 'adbpg_disk_usage_percent',
-        'adbpgInstanceColdDataGb'         => 'adbpg_instance_cold_data_gb',
-        'adbpgInstanceHotDataGb'          => 'adbpg_instance_hot_data_gb',
-        'adbpgInstanceTotalDataGb'        => 'adbpg_instance_total_data_gb',
-        'adbpgMasterDiskUsagePercentMax'  => 'adbpg_master_disk_usage_percent_max',
-        'adbpgMasterStatus'               => 'adbpg_master_status',
-        'adbpgSegmentStatus'              => 'adbpg_segment_status',
-        'adbpgStatus'                     => 'adbpg_status',
-        'nodeMasterConnectionStatus'      => 'node_master_connection_status',
-        'nodeMasterStatus'                => 'node_master_status',
-        'nodeSegmentConnectionStatus'     => 'node_segment_connection_status',
-        'nodeSegmentDiskStatus'           => 'node_segment_disk_status',
+        'adbpgConnectionStatus' => 'adbpg_connection_status',
+        'adbpgDiskStatus' => 'adbpg_disk_status',
+        'adbpgDiskUsagePercent' => 'adbpg_disk_usage_percent',
+        'adbpgInstanceColdDataGb' => 'adbpg_instance_cold_data_gb',
+        'adbpgInstanceHotDataGb' => 'adbpg_instance_hot_data_gb',
+        'adbpgInstanceTotalDataGb' => 'adbpg_instance_total_data_gb',
+        'adbpgMasterDiskUsagePercentMax' => 'adbpg_master_disk_usage_percent_max',
+        'adbpgMasterStatus' => 'adbpg_master_status',
+        'adbpgSegmentStatus' => 'adbpg_segment_status',
+        'adbpgStatus' => 'adbpg_status',
+        'nodeMasterConnectionStatus' => 'node_master_connection_status',
+        'nodeMasterStatus' => 'node_master_status',
+        'nodeSegmentConnectionStatus' => 'node_segment_connection_status',
+        'nodeSegmentDiskStatus' => 'node_segment_disk_status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

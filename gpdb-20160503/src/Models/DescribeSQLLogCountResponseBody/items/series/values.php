@@ -18,9 +18,7 @@ class values extends Model
         'point' => 'Point',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

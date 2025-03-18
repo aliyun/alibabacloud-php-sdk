@@ -15,6 +15,7 @@ class QueryContentResponseBody extends Model
      * @description Number of tokens used for vectorization.
      *
      * > A token refers to the smallest unit into which the input text is divided; a token can be a word, a phrase, a punctuation mark, or a character, etc.
+     *
      * @example 100
      *
      * @var string
@@ -73,17 +74,15 @@ class QueryContentResponseBody extends Model
     public $windowMatches;
     protected $_name = [
         'embeddingTokens' => 'EmbeddingTokens',
-        'matches'         => 'Matches',
-        'message'         => 'Message',
-        'requestId'       => 'RequestId',
-        'status'          => 'Status',
-        'usage'           => 'Usage',
-        'windowMatches'   => 'WindowMatches',
+        'matches' => 'Matches',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'usage' => 'Usage',
+        'windowMatches' => 'WindowMatches',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

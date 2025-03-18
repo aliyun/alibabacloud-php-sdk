@@ -55,16 +55,14 @@ class ListSecretsResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'count'     => 'Count',
-        'message'   => 'Message',
+        'count' => 'Count',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'secrets'   => 'Secrets',
-        'status'    => 'Status',
+        'secrets' => 'Secrets',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

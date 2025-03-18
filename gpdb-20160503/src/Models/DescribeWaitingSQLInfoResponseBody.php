@@ -34,14 +34,12 @@ class DescribeWaitingSQLInfoResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'database'  => 'Database',
-        'items'     => 'Items',
+        'database' => 'Database',
+        'items' => 'Items',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class DescribeWaitingSQLInfoResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Items'] as $item) {
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }

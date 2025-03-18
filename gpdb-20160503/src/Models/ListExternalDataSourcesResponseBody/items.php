@@ -102,21 +102,19 @@ class items extends Model
      */
     public $statusMessage;
     protected $_name = [
-        'createTime'            => 'CreateTime',
+        'createTime' => 'CreateTime',
         'dataSourceDescription' => 'DataSourceDescription',
-        'dataSourceDir'         => 'DataSourceDir',
-        'dataSourceId'          => 'DataSourceId',
-        'dataSourceName'        => 'DataSourceName',
-        'dataSourceStatus'      => 'DataSourceStatus',
-        'dataSourceType'        => 'DataSourceType',
+        'dataSourceDir' => 'DataSourceDir',
+        'dataSourceId' => 'DataSourceId',
+        'dataSourceName' => 'DataSourceName',
+        'dataSourceStatus' => 'DataSourceStatus',
+        'dataSourceType' => 'DataSourceType',
         'externalDataServiceId' => 'ExternalDataServiceId',
-        'modifyTime'            => 'ModifyTime',
-        'statusMessage'         => 'StatusMessage',
+        'modifyTime' => 'ModifyTime',
+        'statusMessage' => 'StatusMessage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

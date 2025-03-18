@@ -13,6 +13,7 @@ class DescribeIMVInfosResponseBody extends Model
      * @description The ID of the instance.
      *
      * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -36,13 +37,11 @@ class DescribeIMVInfosResponseBody extends Model
     public $requestId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'imvInfos'     => 'ImvInfos',
-        'requestId'    => 'RequestId',
+        'imvInfos' => 'ImvInfos',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -80,7 +79,7 @@ class DescribeIMVInfosResponseBody extends Model
         if (isset($map['ImvInfos'])) {
             if (!empty($map['ImvInfos'])) {
                 $model->imvInfos = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['ImvInfos'] as $item) {
                     $model->imvInfos[$n++] = null !== $item ? imvInfos::fromMap($item) : $item;
                 }

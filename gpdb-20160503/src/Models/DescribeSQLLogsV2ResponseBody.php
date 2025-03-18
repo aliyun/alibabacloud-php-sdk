@@ -53,15 +53,13 @@ class DescribeSQLLogsV2ResponseBody extends Model
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'items'              => 'Items',
-        'pageNumber'         => 'PageNumber',
-        'pageRecordCount'    => 'PageRecordCount',
-        'requestId'          => 'RequestId',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +103,7 @@ class DescribeSQLLogsV2ResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Items'] as $item) {
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }

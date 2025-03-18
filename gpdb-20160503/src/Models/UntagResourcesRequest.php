@@ -11,7 +11,11 @@ class UntagResourcesRequest extends Model
     /**
      * @description Whether to untag all tags on the instance. This parameter is only effective when TagKey.N is not set in the request. The value range is:
      *
+     * - true
+     * - false
+     *
      * Default value: false
+     *
      * @example false
      *
      * @var bool
@@ -32,6 +36,7 @@ class UntagResourcesRequest extends Model
      * @description Region ID, you can view available region IDs through the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +47,7 @@ class UntagResourcesRequest extends Model
      * @description Instance ID. N\\"s value range: 1~50
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -58,7 +64,11 @@ class UntagResourcesRequest extends Model
 
     /**
      * @description Resource type. The value range is:
+     * - `instance`: Reserved mode instance.
+     * - `ALIYUN::GPDB::INSTANCE`: Elastic mode instance.
+     *
      * This parameter is required.
+     *
      * @example instance
      *
      * @var string
@@ -72,20 +82,18 @@ class UntagResourcesRequest extends Model
      */
     public $tagKey;
     protected $_name = [
-        'all'                  => 'All',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceId'           => 'ResourceId',
+        'all' => 'All',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceType'         => 'ResourceType',
-        'tagKey'               => 'TagKey',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
+        'tagKey' => 'TagKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -20,9 +20,7 @@ class kmsKeys extends Model
         'keyId' => 'KeyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

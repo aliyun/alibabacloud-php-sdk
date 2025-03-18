@@ -60,16 +60,14 @@ class DescribeSampleDataResponseBody extends Model
      */
     public $sampleDataStatus;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
-        'errorMessage'     => 'ErrorMessage',
-        'hasSampleData'    => 'HasSampleData',
-        'requestId'        => 'RequestId',
+        'DBInstanceId' => 'DBInstanceId',
+        'errorMessage' => 'ErrorMessage',
+        'hasSampleData' => 'HasSampleData',
+        'requestId' => 'RequestId',
         'sampleDataStatus' => 'SampleDataStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,6 +18,7 @@ class DescribeHadoopConfigsRequest extends Model
      *   hive-site
      *
      * This parameter is required.
+     *
      * @example hdfs-site
      *
      * @var string
@@ -28,6 +29,7 @@ class DescribeHadoopConfigsRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxx
      *
      * @var string
@@ -38,6 +40,7 @@ class DescribeHadoopConfigsRequest extends Model
      * @description The E-MapReduce (EMR) Hadoop cluster ID.
      *
      * This parameter is required.
+     *
      * @example c-xxx
      *
      * @var string
@@ -48,21 +51,20 @@ class DescribeHadoopConfigsRequest extends Model
      * @description The region ID of the instance.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'configName'    => 'ConfigName',
-        'DBInstanceId'  => 'DBInstanceId',
+        'configName' => 'ConfigName',
+        'DBInstanceId' => 'DBInstanceId',
         'emrInstanceId' => 'EmrInstanceId',
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

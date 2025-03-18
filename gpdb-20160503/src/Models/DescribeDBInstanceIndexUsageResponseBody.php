@@ -43,15 +43,13 @@ class DescribeDBInstanceIndexUsageResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'items'      => 'Items',
+        'items' => 'Items',
         'pageNumber' => 'PageNumber',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class DescribeDBInstanceIndexUsageResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Items'] as $item) {
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }

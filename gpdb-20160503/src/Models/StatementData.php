@@ -53,20 +53,18 @@ class StatementData extends Model
      */
     public $updatedAt;
     protected $_name = [
-        'createdAt'  => 'CreatedAt',
-        'database'   => 'Database',
-        'id'         => 'Id',
+        'createdAt' => 'CreatedAt',
+        'database' => 'Database',
+        'id' => 'Id',
         'parameters' => 'Parameters',
-        'secretArn'  => 'SecretArn',
-        'sql'        => 'Sql',
-        'sqls'       => 'Sqls',
-        'status'     => 'Status',
-        'updatedAt'  => 'UpdatedAt',
+        'secretArn' => 'SecretArn',
+        'sql' => 'Sql',
+        'sqls' => 'Sqls',
+        'status' => 'Status',
+        'updatedAt' => 'UpdatedAt',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

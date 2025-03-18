@@ -24,6 +24,7 @@ class DescribeDataSharePerformanceRequest extends Model
      *   **adbpg_datashare_data_size_mb**: the amount of data shared.
      *
      * This parameter is required.
+     *
      * @example adbpg_datashare_topic_count
      *
      * @var string
@@ -33,7 +34,10 @@ class DescribeDataSharePerformanceRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,16 +62,14 @@ class DescribeDataSharePerformanceRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'         => 'EndTime',
-        'key'             => 'Key',
-        'regionId'        => 'RegionId',
+        'endTime' => 'EndTime',
+        'key' => 'Key',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

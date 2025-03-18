@@ -12,6 +12,7 @@ class DeleteStreamingJobRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -22,6 +23,7 @@ class DeleteStreamingJobRequest extends Model
      * @description The job ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -36,13 +38,11 @@ class DeleteStreamingJobRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'jobId'        => 'JobId',
-        'regionId'     => 'RegionId',
+        'jobId' => 'JobId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

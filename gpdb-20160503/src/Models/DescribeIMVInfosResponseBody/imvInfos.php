@@ -35,14 +35,12 @@ class imvInfos extends Model
      */
     public $MV;
     protected $_name = [
-        'base'       => 'Base',
+        'base' => 'Base',
         'detailInfo' => 'DetailInfo',
-        'MV'         => 'MV',
+        'MV' => 'MV',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

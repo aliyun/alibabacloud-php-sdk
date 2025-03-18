@@ -26,13 +26,11 @@ class DeleteBackupRequest extends Model
      */
     public $DBInstanceId;
     protected $_name = [
-        'backupId'     => 'BackupId',
+        'backupId' => 'BackupId',
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

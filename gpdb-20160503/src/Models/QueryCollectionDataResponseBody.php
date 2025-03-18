@@ -38,6 +38,7 @@ class QueryCollectionDataResponseBody extends Model
      * @description Status, with the following values:
      * - **success**: Success.
      * - **fail**: Failure.
+     *
      * @example success
      *
      * @var string
@@ -53,16 +54,14 @@ class QueryCollectionDataResponseBody extends Model
      */
     public $total;
     protected $_name = [
-        'matches'   => 'Matches',
-        'message'   => 'Message',
+        'matches' => 'Matches',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
-        'total'     => 'Total',
+        'status' => 'Status',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

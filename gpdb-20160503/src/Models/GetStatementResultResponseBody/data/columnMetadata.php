@@ -16,9 +16,7 @@ class columnMetadata extends Model
         'columnMetadata' => 'ColumnMetadata',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -47,7 +45,7 @@ class columnMetadata extends Model
         if (isset($map['ColumnMetadata'])) {
             if (!empty($map['ColumnMetadata'])) {
                 $model->columnMetadata = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['ColumnMetadata'] as $item) {
                     $model->columnMetadata[$n++] = null !== $item ? \AlibabaCloud\SDK\Gpdb\V20160503\Models\ColumnMetadata::fromMap($item) : $item;
                 }

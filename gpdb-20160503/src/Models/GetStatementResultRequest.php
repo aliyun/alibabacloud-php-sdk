@@ -12,6 +12,7 @@ class GetStatementResultRequest extends Model
      * @description Instance ID. Can be obtained by calling DescribeDBInstances.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -31,6 +32,7 @@ class GetStatementResultRequest extends Model
      * @description Task ID for asynchronous SQL execution.
      *
      * This parameter is required.
+     *
      * @example 9A920F47-416A-4044-817C-7C2A72AD16D3
      *
      * @var string
@@ -46,6 +48,7 @@ class GetStatementResultRequest extends Model
      * @description Region ID where the instance is located.
      *
      * This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -55,7 +58,10 @@ class GetStatementResultRequest extends Model
     /**
      * @description Access credential. Created through the CreateSecret interface.
      *
+     * > When accessing this interface with a sub-account, the sub-account must have the UseSecret or GetSecretValue permission for this SecretArn.
+     *
      * This parameter is required.
+     *
      * @example acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
      *
      * @var string
@@ -63,16 +69,14 @@ class GetStatementResultRequest extends Model
     public $secretArn;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'database'     => 'Database',
-        'id'           => 'Id',
-        'ownerId'      => 'OwnerId',
-        'regionId'     => 'RegionId',
-        'secretArn'    => 'SecretArn',
+        'database' => 'Database',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'secretArn' => 'SecretArn',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class accounts extends Model
         'DBInstanceAccount' => 'DBInstanceAccount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class accounts extends Model
         if (isset($map['DBInstanceAccount'])) {
             if (!empty($map['DBInstanceAccount'])) {
                 $model->DBInstanceAccount = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['DBInstanceAccount'] as $item) {
                     $model->DBInstanceAccount[$n++] = null !== $item ? DBInstanceAccount::fromMap($item) : $item;
                 }

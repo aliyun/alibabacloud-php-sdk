@@ -13,6 +13,7 @@ class matchList extends Model
      * @description The content that is used for full-text search. If you leave this parameter empty, only vector search is used. If you do not leave this parameter empty, two-way retrieval based on vector search and full-text search is used.
      *
      * >  You must specify at least one of the Content and Vector parameters.
+     *
      * @example Cloud-native data warehouse AnalyticDB PostgreSQL Edition provides a simple, fast, and cost-effective PB-level cloud data warehouse solution.
      *
      * @var string
@@ -23,6 +24,7 @@ class matchList extends Model
      * @description The name of the document.
      *
      * >  You can call the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) operation to query a list of documents.
+     *
      * @example my_doc.txt
      *
      * @var string
@@ -75,7 +77,10 @@ class matchList extends Model
     /**
      * @description Source of the retrieval results:
      *
+     * - 1 indicates vector retrieval
+     * - 2 indicates full-text retrieval
      * - 3 indicates dual-path recall
+     *
      * @example 1
      *
      * @var int
@@ -95,25 +100,24 @@ class matchList extends Model
      * @description The vector data. The length of the value must be the same as that of the Dimension parameter in the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) operation.
      *
      * >  If you leave this parameter empty, only full-text search results are returned.
+     *
      * @var vector
      */
     public $vector;
     protected $_name = [
-        'content'         => 'Content',
-        'fileName'        => 'FileName',
-        'fileURL'         => 'FileURL',
-        'id'              => 'Id',
-        'loaderMetadata'  => 'LoaderMetadata',
-        'metadata'        => 'Metadata',
-        'rerankScore'     => 'RerankScore',
+        'content' => 'Content',
+        'fileName' => 'FileName',
+        'fileURL' => 'FileURL',
+        'id' => 'Id',
+        'loaderMetadata' => 'LoaderMetadata',
+        'metadata' => 'Metadata',
+        'rerankScore' => 'RerankScore',
         'retrievalSource' => 'RetrievalSource',
-        'score'           => 'Score',
-        'vector'          => 'Vector',
+        'score' => 'Score',
+        'vector' => 'Vector',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -98,21 +98,19 @@ class items extends Model
      */
     public $user;
     protected $_name = [
-        'application'          => 'Application',
+        'application' => 'Application',
         'blockedByApplication' => 'BlockedByApplication',
-        'blockedByPID'         => 'BlockedByPID',
-        'blockedBySQLStmt'     => 'BlockedBySQLStmt',
-        'blockedByUser'        => 'BlockedByUser',
-        'grantLocks'           => 'GrantLocks',
-        'notGrantLocks'        => 'NotGrantLocks',
-        'PID'                  => 'PID',
-        'SQLStmt'              => 'SQLStmt',
-        'user'                 => 'User',
+        'blockedByPID' => 'BlockedByPID',
+        'blockedBySQLStmt' => 'BlockedBySQLStmt',
+        'blockedByUser' => 'BlockedByUser',
+        'grantLocks' => 'GrantLocks',
+        'notGrantLocks' => 'NotGrantLocks',
+        'PID' => 'PID',
+        'SQLStmt' => 'SQLStmt',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

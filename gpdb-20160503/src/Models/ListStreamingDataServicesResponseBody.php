@@ -34,14 +34,12 @@ class ListStreamingDataServicesResponseBody extends Model
      */
     public $totalRecordCount;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'serviceItems'     => 'ServiceItems',
+        'requestId' => 'RequestId',
+        'serviceItems' => 'ServiceItems',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class ListStreamingDataServicesResponseBody extends Model
         if (isset($map['ServiceItems'])) {
             if (!empty($map['ServiceItems'])) {
                 $model->serviceItems = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ServiceItems'] as $item) {
                     $model->serviceItems[$n++] = null !== $item ? serviceItems::fromMap($item) : $item;
                 }

@@ -37,7 +37,10 @@ class DescribeDBVersionInfosRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -53,16 +56,14 @@ class DescribeDBVersionInfosRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'DBInstanceMode'  => 'DBInstanceMode',
-        'DBVersion'       => 'DBVersion',
-        'ownerId'         => 'OwnerId',
-        'regionId'        => 'RegionId',
+        'DBInstanceMode' => 'DBInstanceMode',
+        'DBVersion' => 'DBVersion',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

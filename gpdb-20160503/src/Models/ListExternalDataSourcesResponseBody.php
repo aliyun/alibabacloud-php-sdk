@@ -43,15 +43,13 @@ class ListExternalDataSourcesResponseBody extends Model
      */
     public $totalRecordCount;
     protected $_name = [
-        'items'            => 'Items',
-        'pageNumber'       => 'PageNumber',
-        'requestId'        => 'RequestId',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'requestId' => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class ListExternalDataSourcesResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Items'] as $item) {
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }

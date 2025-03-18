@@ -44,15 +44,13 @@ class TextEmbeddingShrinkRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'inputShrink'  => 'Input',
-        'model'        => 'Model',
-        'ownerId'      => 'OwnerId',
-        'regionId'     => 'RegionId',
+        'inputShrink' => 'Input',
+        'model' => 'Model',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

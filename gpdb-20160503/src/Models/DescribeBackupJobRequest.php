@@ -26,13 +26,11 @@ class DescribeBackupJobRequest extends Model
      */
     public $DBInstanceId;
     protected $_name = [
-        'backupJobId'  => 'BackupJobId',
+        'backupJobId' => 'BackupJobId',
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

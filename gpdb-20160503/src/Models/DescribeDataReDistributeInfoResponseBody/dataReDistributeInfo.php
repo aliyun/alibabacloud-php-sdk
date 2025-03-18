@@ -62,17 +62,15 @@ class dataReDistributeInfo extends Model
      */
     public $type;
     protected $_name = [
-        'message'    => 'Message',
-        'progress'   => 'Progress',
+        'message' => 'Message',
+        'progress' => 'Progress',
         'remainTime' => 'RemainTime',
-        'startTime'  => 'StartTime',
-        'status'     => 'Status',
-        'type'       => 'Type',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

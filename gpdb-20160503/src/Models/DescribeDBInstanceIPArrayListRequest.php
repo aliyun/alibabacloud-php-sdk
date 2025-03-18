@@ -12,6 +12,7 @@ class DescribeDBInstanceIPArrayListRequest extends Model
      * @description The name of the IP address whitelist. If you do not specify this parameter, the default whitelist is queried.
      *
      * >  Each instance supports up to 50 IP address whitelists.
+     *
      * @example Default
      *
      * @var string
@@ -21,7 +22,10 @@ class DescribeDBInstanceIPArrayListRequest extends Model
     /**
      * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query details about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -38,13 +42,11 @@ class DescribeDBInstanceIPArrayListRequest extends Model
     public $resourceGroupId;
     protected $_name = [
         'DBInstanceIPArrayName' => 'DBInstanceIPArrayName',
-        'DBInstanceId'          => 'DBInstanceId',
-        'resourceGroupId'       => 'ResourceGroupId',
+        'DBInstanceId' => 'DBInstanceId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

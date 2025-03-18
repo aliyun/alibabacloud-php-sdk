@@ -17,9 +17,7 @@ class DBInstanceNetInfos extends Model
         'DBInstanceNetInfo' => 'DBInstanceNetInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class DBInstanceNetInfos extends Model
         if (isset($map['DBInstanceNetInfo'])) {
             if (!empty($map['DBInstanceNetInfo'])) {
                 $model->DBInstanceNetInfo = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['DBInstanceNetInfo'] as $item) {
                     $model->DBInstanceNetInfo[$n++] = null !== $item ? DBInstanceNetInfo::fromMap($item) : $item;
                 }

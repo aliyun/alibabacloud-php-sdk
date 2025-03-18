@@ -36,9 +36,7 @@ class DescribeDiagnosisDimensionsResponseBody extends Model
         'userNames' => 'UserNames',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

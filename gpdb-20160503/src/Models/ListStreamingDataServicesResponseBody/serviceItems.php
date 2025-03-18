@@ -102,6 +102,7 @@ class serviceItems extends Model
      * @description Service type, with the following value:
      *
      * - **adbpgss**
+     *
      * @example adbpgss
      *
      * @var string
@@ -111,30 +112,35 @@ class serviceItems extends Model
     /**
      * @description Service status, with the following values:
      *
+     * - Init: Initializing
+     *
+     * - Running: In operation
+     *
+     * - Exception: Abnormal
+     *
      * - Paused: Suspended
+     *
      * @example Running
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'createTime'         => 'CreateTime',
-        'modifyTime'         => 'ModifyTime',
+        'createTime' => 'CreateTime',
+        'modifyTime' => 'ModifyTime',
         'serviceDescription' => 'ServiceDescription',
-        'serviceId'          => 'ServiceId',
-        'serviceIp'          => 'ServiceIp',
-        'serviceManaged'     => 'ServiceManaged',
-        'serviceName'        => 'ServiceName',
-        'serviceOwnerId'     => 'ServiceOwnerId',
-        'servicePort'        => 'ServicePort',
-        'serviceSpec'        => 'ServiceSpec',
-        'serviceType'        => 'ServiceType',
-        'status'             => 'Status',
+        'serviceId' => 'ServiceId',
+        'serviceIp' => 'ServiceIp',
+        'serviceManaged' => 'ServiceManaged',
+        'serviceName' => 'ServiceName',
+        'serviceOwnerId' => 'ServiceOwnerId',
+        'servicePort' => 'ServicePort',
+        'serviceSpec' => 'ServiceSpec',
+        'serviceType' => 'ServiceType',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

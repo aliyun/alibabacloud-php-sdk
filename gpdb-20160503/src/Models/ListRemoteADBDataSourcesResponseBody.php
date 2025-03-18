@@ -35,13 +35,11 @@ class ListRemoteADBDataSourcesResponseBody extends Model
     public $taskId;
     protected $_name = [
         'dataSourceItems' => 'DataSourceItems',
-        'requestId'       => 'RequestId',
-        'taskId'          => 'TaskId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

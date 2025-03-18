@@ -30,20 +30,19 @@ class CreateDocumentCollectionResponseBody extends Model
      * @description The status of the operation. Valid values:
      * - **success**
      * - **fail**
+     *
      * @example successs
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

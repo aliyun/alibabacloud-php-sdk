@@ -36,12 +36,10 @@ class DescribeDBInstanceSupportMaxPerformanceResponseBody extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'performances' => 'Performances',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

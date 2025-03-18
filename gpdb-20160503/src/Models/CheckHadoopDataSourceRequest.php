@@ -12,6 +12,7 @@ class CheckHadoopDataSourceRequest extends Model
      * @description The Hadoop path that you want to check.
      *
      * This parameter is required.
+     *
      * @example tmp
      *
      * @var string
@@ -22,6 +23,7 @@ class CheckHadoopDataSourceRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxx
      *
      * @var string
@@ -32,6 +34,7 @@ class CheckHadoopDataSourceRequest extends Model
      * @description The data source ID.
      *
      * This parameter is required.
+     *
      * @example 123
      *
      * @var string
@@ -42,21 +45,20 @@ class CheckHadoopDataSourceRequest extends Model
      * @description The region ID.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'checkDir'     => 'CheckDir',
+        'checkDir' => 'CheckDir',
         'DBInstanceId' => 'DBInstanceId',
         'dataSourceId' => 'DataSourceId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

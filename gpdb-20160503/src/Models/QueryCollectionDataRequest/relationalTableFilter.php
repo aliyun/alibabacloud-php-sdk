@@ -45,14 +45,12 @@ class relationalTableFilter extends Model
     public $tableName;
     protected $_name = [
         'collectionMetadataField' => 'CollectionMetadataField',
-        'condition'               => 'Condition',
-        'tableField'              => 'TableField',
-        'tableName'               => 'TableName',
+        'condition' => 'Condition',
+        'tableField' => 'TableField',
+        'tableName' => 'TableName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

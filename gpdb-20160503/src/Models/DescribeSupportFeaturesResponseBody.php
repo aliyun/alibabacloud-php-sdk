@@ -38,14 +38,12 @@ class DescribeSupportFeaturesResponseBody extends Model
      */
     public $supportFeatureList;
     protected $_name = [
-        'DBInstanceId'       => 'DBInstanceId',
-        'requestId'          => 'RequestId',
+        'DBInstanceId' => 'DBInstanceId',
+        'requestId' => 'RequestId',
         'supportFeatureList' => 'SupportFeatureList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

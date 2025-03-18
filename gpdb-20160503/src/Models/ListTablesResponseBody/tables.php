@@ -16,9 +16,7 @@ class tables extends Model
         'tables' => 'Tables',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

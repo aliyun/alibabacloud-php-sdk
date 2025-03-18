@@ -13,6 +13,7 @@ class DBInstance extends Model
      * @description An invalid parameter. It is no longer returned when you call this operation.
      *
      * You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the access mode of an instance.
+     *
      * @example null
      *
      * @var string
@@ -116,6 +117,7 @@ class DBInstance extends Model
      * @description The expiration time of the instance. The time is displayed in UTC.
      *
      * >  The expiration time of a pay-as-you-go instance is `2999-09-08T16:00:00Z`.
+     *
      * @example 2999-09-08T16:00:00Z
      *
      * @var string
@@ -172,6 +174,7 @@ class DBInstance extends Model
      *   **4**: The instance is automatically locked due to exhausted storage.
      *
      * >  If the instance is in reserved storage mode and is not locked, null is returned.
+     *
      * @example 0
      *
      * @var string
@@ -242,6 +245,7 @@ class DBInstance extends Model
      *   **Auto**: automatic scheduling.
      *
      * >  This parameter is returned only for instances in Serverless mode.
+     *
      * @example Manual
      *
      * @var string
@@ -303,39 +307,37 @@ class DBInstance extends Model
      */
     public $zoneId;
     protected $_name = [
-        'connectionMode'        => 'ConnectionMode',
-        'createTime'            => 'CreateTime',
-        'DBInstanceCategory'    => 'DBInstanceCategory',
+        'connectionMode' => 'ConnectionMode',
+        'createTime' => 'CreateTime',
+        'DBInstanceCategory' => 'DBInstanceCategory',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceMode'        => 'DBInstanceMode',
-        'DBInstanceNetType'     => 'DBInstanceNetType',
-        'DBInstanceStatus'      => 'DBInstanceStatus',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'expireTime'            => 'ExpireTime',
-        'instanceDeployType'    => 'InstanceDeployType',
-        'instanceNetworkType'   => 'InstanceNetworkType',
-        'lockMode'              => 'LockMode',
-        'lockReason'            => 'LockReason',
-        'masterNodeNum'         => 'MasterNodeNum',
-        'payType'               => 'PayType',
-        'prodType'              => 'ProdType',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'segNodeNum'            => 'SegNodeNum',
-        'serverlessMode'        => 'ServerlessMode',
-        'storageSize'           => 'StorageSize',
-        'storageType'           => 'StorageType',
-        'tags'                  => 'Tags',
-        'vSwitchId'             => 'VSwitchId',
-        'vpcId'                 => 'VpcId',
-        'zoneId'                => 'ZoneId',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceMode' => 'DBInstanceMode',
+        'DBInstanceNetType' => 'DBInstanceNetType',
+        'DBInstanceStatus' => 'DBInstanceStatus',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'expireTime' => 'ExpireTime',
+        'instanceDeployType' => 'InstanceDeployType',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'lockMode' => 'LockMode',
+        'lockReason' => 'LockReason',
+        'masterNodeNum' => 'MasterNodeNum',
+        'payType' => 'PayType',
+        'prodType' => 'ProdType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'segNodeNum' => 'SegNodeNum',
+        'serverlessMode' => 'ServerlessMode',
+        'storageSize' => 'StorageSize',
+        'storageType' => 'StorageType',
+        'tags' => 'Tags',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -77,18 +77,16 @@ class parameters extends Model
      */
     public $parameterValue;
     protected $_name = [
-        'currentValue'         => 'CurrentValue',
+        'currentValue' => 'CurrentValue',
         'forceRestartInstance' => 'ForceRestartInstance',
-        'isChangeableConfig'   => 'IsChangeableConfig',
-        'optionalRange'        => 'OptionalRange',
+        'isChangeableConfig' => 'IsChangeableConfig',
+        'optionalRange' => 'OptionalRange',
         'parameterDescription' => 'ParameterDescription',
-        'parameterName'        => 'ParameterName',
-        'parameterValue'       => 'ParameterValue',
+        'parameterName' => 'ParameterName',
+        'parameterValue' => 'ParameterValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

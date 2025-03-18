@@ -29,21 +29,22 @@ class DescribeAccountsRequest extends Model
     /**
      * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-bp***************
      *
      * @var string
      */
     public $DBInstanceId;
     protected $_name = [
-        'accountName'  => 'AccountName',
-        'accountType'  => 'AccountType',
+        'accountName' => 'AccountName',
+        'accountType' => 'AccountType',
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

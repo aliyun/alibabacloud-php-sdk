@@ -17,9 +17,7 @@ class matches extends Model
         'matchList' => 'MatchList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class matches extends Model
         if (isset($map['MatchList'])) {
             if (!empty($map['MatchList'])) {
                 $model->matchList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['MatchList'] as $item) {
                     $model->matchList[$n++] = null !== $item ? matchList::fromMap($item) : $item;
                 }

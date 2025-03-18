@@ -63,16 +63,14 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $SSLExpiredTime;
     protected $_name = [
         'certCommonName' => 'CertCommonName',
-        'DBInstanceId'   => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'DBInstanceName' => 'DBInstanceName',
-        'requestId'      => 'RequestId',
-        'SSLEnabled'     => 'SSLEnabled',
+        'requestId' => 'RequestId',
+        'SSLEnabled' => 'SSLEnabled',
         'SSLExpiredTime' => 'SSLExpiredTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

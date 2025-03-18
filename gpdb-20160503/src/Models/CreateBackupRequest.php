@@ -20,9 +20,7 @@ class CreateBackupRequest extends Model
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,13 +18,11 @@ class AINodeSpecInfos extends Model
      */
     public $AINodeSpec;
     protected $_name = [
-        'AINodeNum'  => 'AINodeNum',
+        'AINodeNum' => 'AINodeNum',
         'AINodeSpec' => 'AINodeSpec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

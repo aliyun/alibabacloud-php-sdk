@@ -29,7 +29,10 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+     *
      * This parameter is required.
+     *
      * @example gp-rj***************
      *
      * @var string
@@ -40,6 +43,7 @@ class UpgradeDBInstanceRequest extends Model
      * @description The specifications of each compute node. For information about the supported specifications, see [Instance specifications](https://help.aliyun.com/document_detail/35406.html).
      *
      * > This parameter is available only for instances in elastic storage mode.
+     *
      * @example 4C16G
      *
      * @var string
@@ -73,6 +77,7 @@ class UpgradeDBInstanceRequest extends Model
      * @description The region ID of the instance.
      *
      * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -127,6 +132,7 @@ class UpgradeDBInstanceRequest extends Model
      * @description The storage capacity of each compute node. Unit: GB. Valid values: 50 to 6000, in 50 increments.
      *
      * >  This parameter is available only for instances in elastic storage mode.
+     *
      * @example 100
      *
      * @var string
@@ -155,25 +161,23 @@ class UpgradeDBInstanceRequest extends Model
      */
     public $upgradeType;
     protected $_name = [
-        'DBInstanceClass'         => 'DBInstanceClass',
-        'DBInstanceGroupCount'    => 'DBInstanceGroupCount',
-        'DBInstanceId'            => 'DBInstanceId',
-        'instanceSpec'            => 'InstanceSpec',
-        'masterNodeNum'           => 'MasterNodeNum',
-        'ownerId'                 => 'OwnerId',
-        'payType'                 => 'PayType',
-        'regionId'                => 'RegionId',
-        'resourceGroupId'         => 'ResourceGroupId',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceGroupCount' => 'DBInstanceGroupCount',
+        'DBInstanceId' => 'DBInstanceId',
+        'instanceSpec' => 'InstanceSpec',
+        'masterNodeNum' => 'MasterNodeNum',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'segDiskPerformanceLevel' => 'SegDiskPerformanceLevel',
-        'segNodeNum'              => 'SegNodeNum',
-        'segStorageType'          => 'SegStorageType',
-        'storageSize'             => 'StorageSize',
-        'upgradeType'             => 'UpgradeType',
+        'segNodeNum' => 'SegNodeNum',
+        'segStorageType' => 'SegStorageType',
+        'storageSize' => 'StorageSize',
+        'upgradeType' => 'UpgradeType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

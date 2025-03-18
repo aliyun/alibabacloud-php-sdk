@@ -65,17 +65,15 @@ class performances extends Model
      */
     public $user;
     protected $_name = [
-        'cost'      => 'Cost',
-        'database'  => 'Database',
-        'queryID'   => 'QueryID',
+        'cost' => 'Cost',
+        'database' => 'Database',
+        'queryID' => 'QueryID',
         'startTime' => 'StartTime',
-        'status'    => 'Status',
-        'user'      => 'User',
+        'status' => 'Status',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

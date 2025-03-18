@@ -56,6 +56,7 @@ class DescribeStreamingDataSourceResponseBody extends Model
     /**
      * @description Data source type, values include:
      * -  kafka
+     *
      * @example kafka
      *
      * @var string
@@ -92,28 +93,31 @@ class DescribeStreamingDataSourceResponseBody extends Model
     /**
      * @description Service status:
      *
+     * - Initializing init
+     *
+     * - Running running
+     *
      * - Exception exception
+     *
      * @example running
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'createTime'            => 'CreateTime',
-        'dataSourceConfig'      => 'DataSourceConfig',
+        'createTime' => 'CreateTime',
+        'dataSourceConfig' => 'DataSourceConfig',
         'dataSourceDescription' => 'DataSourceDescription',
-        'dataSourceId'          => 'DataSourceId',
-        'dataSourceName'        => 'DataSourceName',
-        'dataSourceType'        => 'DataSourceType',
-        'errorMessage'          => 'ErrorMessage',
-        'requestId'             => 'RequestId',
-        'serviceId'             => 'ServiceId',
-        'status'                => 'Status',
+        'dataSourceId' => 'DataSourceId',
+        'dataSourceName' => 'DataSourceName',
+        'dataSourceType' => 'DataSourceType',
+        'errorMessage' => 'ErrorMessage',
+        'requestId' => 'RequestId',
+        'serviceId' => 'ServiceId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

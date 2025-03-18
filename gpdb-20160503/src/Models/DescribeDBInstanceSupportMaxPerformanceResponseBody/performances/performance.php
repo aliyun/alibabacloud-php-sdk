@@ -45,14 +45,12 @@ class performance extends Model
     public $value;
     protected $_name = [
         'bottleneck' => 'Bottleneck',
-        'key'        => 'Key',
-        'unit'       => 'Unit',
-        'value'      => 'Value',
+        'key' => 'Key',
+        'unit' => 'Unit',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -16,6 +16,7 @@ class nodeMasterConnectionStatus extends Model
      *   **healthy**: The coordinator node connection usage is less than 90%. In this case, this metric is marked in green in the console.
      *
      * >  The coordinator node connection usage is the maximum connection usage of the coordinator node.
+     *
      * @example healthy
      *
      * @var string
@@ -26,6 +27,7 @@ class nodeMasterConnectionStatus extends Model
      * @description The metric value of coordinator node connection usage.
      *
      * Unit: %.
+     *
      * @example 1.71
      *
      * @var float
@@ -33,12 +35,10 @@ class nodeMasterConnectionStatus extends Model
     public $value;
     protected $_name = [
         'status' => 'Status',
-        'value'  => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

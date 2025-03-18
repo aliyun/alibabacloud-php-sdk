@@ -30,6 +30,7 @@ class DescribeUserEncryptionKeyListRequest extends Model
      * @description The ID of the region.
      *
      * This parameter is required.
+     *
      * @example ap-southeast-1
      *
      * @var string
@@ -37,13 +38,11 @@ class DescribeUserEncryptionKeyListRequest extends Model
     public $regionId;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

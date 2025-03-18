@@ -12,6 +12,7 @@ class DescribeStreamingJobRequest extends Model
      * @description Instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeStreamingJobRequest extends Model
      * @description Job ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -32,6 +34,7 @@ class DescribeStreamingJobRequest extends Model
      * @description Region ID.
      *
      * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -39,13 +42,11 @@ class DescribeStreamingJobRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'jobId'        => 'JobId',
-        'regionId'     => 'RegionId',
+        'jobId' => 'JobId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

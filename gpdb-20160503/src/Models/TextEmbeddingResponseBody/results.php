@@ -9,16 +9,14 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Gpdb\V20160503\Models\TextEmbeddingResponseBody\results\results[]
+     * @var results\results[]
      */
     public $results;
     protected $_name = [
         'results' => 'Results',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -47,9 +45,9 @@ class results extends Model
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Results'] as $item) {
-                    $model->results[$n++] = null !== $item ? \AlibabaCloud\SDK\Gpdb\V20160503\Models\TextEmbeddingResponseBody\results\results::fromMap($item) : $item;
+                    $model->results[$n++] = null !== $item ? results\results::fromMap($item) : $item;
                 }
             }
         }

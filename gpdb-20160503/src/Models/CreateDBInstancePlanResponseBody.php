@@ -21,6 +21,7 @@ class CreateDBInstancePlanResponseBody extends Model
      * @description The error message.
      *
      * This parameter is returned only if the request fails.
+     *
      * @example ****
      *
      * @var string
@@ -49,6 +50,7 @@ class CreateDBInstancePlanResponseBody extends Model
      * @description Indicates whether the request was successful.
      *
      * If the request was successful, **success** is returned. If the request failed, this parameter is not returned.
+     *
      * @example success
      *
      * @var string
@@ -57,14 +59,12 @@ class CreateDBInstancePlanResponseBody extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'errorMessage' => 'ErrorMessage',
-        'planId'       => 'PlanId',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
+        'planId' => 'PlanId',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

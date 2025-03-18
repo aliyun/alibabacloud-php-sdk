@@ -104,21 +104,19 @@ class dataSourceItems extends Model
      */
     public $status;
     protected $_name = [
-        'createTime'            => 'CreateTime',
-        'dataSourceConfig'      => 'DataSourceConfig',
+        'createTime' => 'CreateTime',
+        'dataSourceConfig' => 'DataSourceConfig',
         'dataSourceDescription' => 'DataSourceDescription',
-        'dataSourceId'          => 'DataSourceId',
-        'dataSourceName'        => 'DataSourceName',
-        'dataSourceType'        => 'DataSourceType',
-        'errorMessage'          => 'ErrorMessage',
-        'modifyTime'            => 'ModifyTime',
-        'serviceId'             => 'ServiceId',
-        'status'                => 'Status',
+        'dataSourceId' => 'DataSourceId',
+        'dataSourceName' => 'DataSourceName',
+        'dataSourceType' => 'DataSourceType',
+        'errorMessage' => 'ErrorMessage',
+        'modifyTime' => 'ModifyTime',
+        'serviceId' => 'ServiceId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

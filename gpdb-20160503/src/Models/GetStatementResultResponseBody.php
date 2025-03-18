@@ -39,21 +39,20 @@ class GetStatementResultResponseBody extends Model
      *
      * - **false**: Execution failed.
      * - **true**: Execution succeeded.
+     *
      * @example success
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'data'      => 'Data',
-        'message'   => 'Message',
+        'data' => 'Data',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

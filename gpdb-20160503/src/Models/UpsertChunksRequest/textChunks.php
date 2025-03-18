@@ -12,6 +12,7 @@ class textChunks extends Model
      * @description Document content.
      *
      * This parameter is required.
+     *
      * @example Cloud-native data warehouse AnalyticDB PostgreSQL Edition provides a simple, fast, and cost-effective PB-level cloud data warehouse solution.
      *
      * @var string
@@ -27,13 +28,11 @@ class textChunks extends Model
      */
     public $metadata;
     protected $_name = [
-        'content'  => 'Content',
+        'content' => 'Content',
         'metadata' => 'Metadata',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

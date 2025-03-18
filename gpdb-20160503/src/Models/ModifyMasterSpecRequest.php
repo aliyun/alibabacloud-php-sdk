@@ -20,7 +20,10 @@ class ModifyMasterSpecRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a region.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -29,7 +32,11 @@ class ModifyMasterSpecRequest extends Model
 
     /**
      * @description This parameter must be specified if you want to change coordinator nodes to AI coordinator nodes.
+     * >-  You cannot specify the MasterAISpec and MasterCU parameters at the same time.
+     * >- You can change coordinator nodes to AI coordinator nodes only in specific regions and zones.
+     * >- Only AnalyticDB for PostgreSQL V7.0 instances of Basic Edition support AI coordinator nodes.
      * >- You can view the valid values of this parameter on the configuration change page of coordinator nodes.
+     *
      * @example ADB.AIMedium.2
      *
      * @var string
@@ -46,6 +53,7 @@ class ModifyMasterSpecRequest extends Model
      *   32 CU
      *
      * >  You are charged for coordinator node resources of more than 8 compute units (CUs).
+     *
      * @example 8 CU
      *
      * @var int
@@ -62,15 +70,13 @@ class ModifyMasterSpecRequest extends Model
     public $resourceGroupId;
     protected $_name = [
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'masterAISpec'          => 'MasterAISpec',
-        'masterCU'              => 'MasterCU',
-        'resourceGroupId'       => 'ResourceGroupId',
+        'DBInstanceId' => 'DBInstanceId',
+        'masterAISpec' => 'MasterAISpec',
+        'masterCU' => 'MasterCU',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

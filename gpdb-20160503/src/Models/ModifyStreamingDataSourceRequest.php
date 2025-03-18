@@ -11,7 +11,10 @@ class ModifyStreamingDataSourceRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-k2j36a3172b102593
      *
      * @var string
@@ -40,6 +43,7 @@ class ModifyStreamingDataSourceRequest extends Model
      * @description The data source ID.
      *
      * This parameter is required.
+     *
      * @example 57
      *
      * @var string
@@ -50,22 +54,21 @@ class ModifyStreamingDataSourceRequest extends Model
      * @description The region ID.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * @example cn-beijing
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'DBInstanceId'          => 'DBInstanceId',
-        'dataSourceConfig'      => 'DataSourceConfig',
+        'DBInstanceId' => 'DBInstanceId',
+        'dataSourceConfig' => 'DataSourceConfig',
         'dataSourceDescription' => 'DataSourceDescription',
-        'dataSourceId'          => 'DataSourceId',
-        'regionId'              => 'RegionId',
+        'dataSourceId' => 'DataSourceId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

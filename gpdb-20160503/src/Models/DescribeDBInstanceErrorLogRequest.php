@@ -11,7 +11,10 @@ class DescribeDBInstanceErrorLogRequest extends Model
     /**
      * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -85,6 +88,7 @@ class DescribeDBInstanceErrorLogRequest extends Model
      *   **100**
      *
      * Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -110,20 +114,18 @@ class DescribeDBInstanceErrorLogRequest extends Model
     public $user;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'database'     => 'Database',
-        'endTime'      => 'EndTime',
-        'host'         => 'Host',
-        'keywords'     => 'Keywords',
-        'logLevel'     => 'LogLevel',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'startTime'    => 'StartTime',
-        'user'         => 'User',
+        'database' => 'Database',
+        'endTime' => 'EndTime',
+        'host' => 'Host',
+        'keywords' => 'Keywords',
+        'logLevel' => 'LogLevel',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

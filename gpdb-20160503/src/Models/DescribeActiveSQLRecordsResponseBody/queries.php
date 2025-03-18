@@ -113,22 +113,20 @@ class queries extends Model
      */
     public $user;
     protected $_name = [
-        'clientAddr'            => 'ClientAddr',
-        'database'              => 'Database',
-        'PID'                   => 'PID',
-        'query'                 => 'Query',
-        'queryDuration'         => 'QueryDuration',
-        'queryStart'            => 'QueryStart',
-        'sessionID'             => 'SessionID',
-        'sqlTruncated'          => 'SqlTruncated',
+        'clientAddr' => 'ClientAddr',
+        'database' => 'Database',
+        'PID' => 'PID',
+        'query' => 'Query',
+        'queryDuration' => 'QueryDuration',
+        'queryStart' => 'QueryStart',
+        'sessionID' => 'SessionID',
+        'sqlTruncated' => 'SqlTruncated',
         'sqlTruncatedThreshold' => 'SqlTruncatedThreshold',
-        'state'                 => 'State',
-        'user'                  => 'User',
+        'state' => 'State',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class DescribeParametersRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -21,9 +24,7 @@ class DescribeParametersRequest extends Model
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

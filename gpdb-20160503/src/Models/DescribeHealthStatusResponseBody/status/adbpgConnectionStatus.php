@@ -16,6 +16,7 @@ class adbpgConnectionStatus extends Model
      *   **healthy**: The instance connection usage is less than or equal to 90%. In this case, this metric is marked in green in the console.
      *
      * >  The instance connection usage is the maximum connection usage among all the coordinator and compute nodes.
+     *
      * @example healthy
      *
      * @var string
@@ -26,6 +27,7 @@ class adbpgConnectionStatus extends Model
      * @description The metric value of instance connection usage.
      *
      * Unit: %.
+     *
      * @example 1.71
      *
      * @var float
@@ -33,12 +35,10 @@ class adbpgConnectionStatus extends Model
     public $value;
     protected $_name = [
         'status' => 'Status',
-        'value'  => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

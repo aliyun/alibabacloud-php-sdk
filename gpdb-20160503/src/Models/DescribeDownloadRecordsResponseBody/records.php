@@ -57,16 +57,14 @@ class records extends Model
      */
     public $status;
     protected $_name = [
-        'downloadId'   => 'DownloadId',
-        'downloadUrl'  => 'DownloadUrl',
+        'downloadId' => 'DownloadId',
+        'downloadUrl' => 'DownloadUrl',
         'exceptionMsg' => 'ExceptionMsg',
-        'fileName'     => 'FileName',
-        'status'       => 'Status',
+        'fileName' => 'FileName',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

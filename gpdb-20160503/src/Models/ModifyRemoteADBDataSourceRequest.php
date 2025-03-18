@@ -12,6 +12,7 @@ class ModifyRemoteADBDataSourceRequest extends Model
      * @description Service ID
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -31,6 +32,7 @@ class ModifyRemoteADBDataSourceRequest extends Model
      * @description The ID of the local data instance being used.
      *
      * This parameter is required.
+     *
      * @example gp-test
      *
      * @var string
@@ -46,6 +48,7 @@ class ModifyRemoteADBDataSourceRequest extends Model
      * @description New user name.
      *
      * This parameter is required.
+     *
      * @example newUserName
      *
      * @var string
@@ -56,23 +59,22 @@ class ModifyRemoteADBDataSourceRequest extends Model
      * @description New user password, which must be transmitted in encrypted form.
      *
      * This parameter is required.
+     *
      * @example newUserPassword
      *
      * @var string
      */
     public $userPassword;
     protected $_name = [
-        'dataSourceId'      => 'DataSourceId',
-        'dataSourceName'    => 'DataSourceName',
+        'dataSourceId' => 'DataSourceId',
+        'dataSourceName' => 'DataSourceName',
         'localDBInstanceId' => 'LocalDBInstanceId',
-        'ownerId'           => 'OwnerId',
-        'userName'          => 'UserName',
-        'userPassword'      => 'UserPassword',
+        'ownerId' => 'OwnerId',
+        'userName' => 'UserName',
+        'userPassword' => 'UserPassword',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

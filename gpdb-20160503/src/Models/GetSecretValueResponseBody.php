@@ -101,21 +101,19 @@ class GetSecretValueResponseBody extends Model
      */
     public $username;
     protected $_name = [
-        'code'         => 'Code',
+        'code' => 'Code',
         'DBInstanceId' => 'DBInstanceId',
-        'description'  => 'Description',
-        'message'      => 'Message',
-        'password'     => 'Password',
-        'requestId'    => 'RequestId',
-        'secretArn'    => 'SecretArn',
-        'secretName'   => 'SecretName',
-        'status'       => 'Status',
-        'username'     => 'Username',
+        'description' => 'Description',
+        'message' => 'Message',
+        'password' => 'Password',
+        'requestId' => 'RequestId',
+        'secretArn' => 'SecretArn',
+        'secretName' => 'SecretName',
+        'status' => 'Status',
+        'username' => 'Username',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

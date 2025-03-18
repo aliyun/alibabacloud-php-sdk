@@ -12,6 +12,7 @@ class ModifySQLCollectorPolicyRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxx
      *
      * @var string
@@ -25,19 +26,18 @@ class ModifySQLCollectorPolicyRequest extends Model
      *   Disabled: disables SQL collection.
      *
      * This parameter is required.
+     *
      * @example Enable
      *
      * @var string
      */
     public $SQLCollectorStatus;
     protected $_name = [
-        'DBInstanceId'       => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'SQLCollectorStatus' => 'SQLCollectorStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

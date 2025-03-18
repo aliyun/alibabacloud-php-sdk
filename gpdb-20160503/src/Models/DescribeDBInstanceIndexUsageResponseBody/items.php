@@ -101,21 +101,19 @@ class items extends Model
      */
     public $timeLastUpdated;
     protected $_name = [
-        'databaseName'     => 'DatabaseName',
-        'indexDef'         => 'IndexDef',
-        'indexName'        => 'IndexName',
-        'indexScanTimes'   => 'IndexScanTimes',
-        'indexSize'        => 'IndexSize',
+        'databaseName' => 'DatabaseName',
+        'indexDef' => 'IndexDef',
+        'indexName' => 'IndexName',
+        'indexScanTimes' => 'IndexScanTimes',
+        'indexSize' => 'IndexSize',
         'isPartitionTable' => 'IsPartitionTable',
-        'parentTableName'  => 'ParentTableName',
-        'schemaName'       => 'SchemaName',
-        'tableName'        => 'TableName',
-        'timeLastUpdated'  => 'TimeLastUpdated',
+        'parentTableName' => 'ParentTableName',
+        'schemaName' => 'SchemaName',
+        'tableName' => 'TableName',
+        'timeLastUpdated' => 'TimeLastUpdated',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

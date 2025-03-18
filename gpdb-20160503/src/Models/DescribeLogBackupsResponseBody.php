@@ -61,17 +61,15 @@ class DescribeLogBackupsResponseBody extends Model
      */
     public $totalLogSize;
     protected $_name = [
-        'items'        => 'Items',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'totalLogSize' => 'TotalLogSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -115,7 +113,7 @@ class DescribeLogBackupsResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Items'] as $item) {
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }

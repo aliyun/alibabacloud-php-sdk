@@ -11,7 +11,10 @@ class DescribeSQLLogsV2Request extends Model
     /**
      * @description The ID of instance.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxx
      *
      * @var string
@@ -31,6 +34,7 @@ class DescribeSQLLogsV2Request extends Model
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
      *
      * >  The end time must be later than the start time. The interval cannot be more than 24 hours.
+     *
      * @example 2022-03-17T06:30Z
      *
      * @var string
@@ -97,6 +101,7 @@ class DescribeSQLLogsV2Request extends Model
      * > *   If the **OperationClass** parameter is specified, the **OperationType** value must belong to the corresponding query language. For example, if the **OperationClass** value is **DQL**, the **OperationType** value must be a **DQL** SQL statement such as **SELECT**.
      * >*   If the **OperationClass** parameter is not specified, the **OperationType** value can be an SQL statement of all query languages.
      * >*   If neither of the **OperationClass** and **OperationType** parameters is specified, all types of SQL statements are returned.
+     *
      * @example SELECT
      *
      * @var string
@@ -133,7 +138,10 @@ class DescribeSQLLogsV2Request extends Model
     /**
      * @description The region ID of the instance.
      *
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -176,28 +184,26 @@ class DescribeSQLLogsV2Request extends Model
      */
     public $user;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'database'        => 'Database',
-        'endTime'         => 'EndTime',
-        'executeCost'     => 'ExecuteCost',
-        'executeState'    => 'ExecuteState',
-        'maxExecuteCost'  => 'MaxExecuteCost',
-        'minExecuteCost'  => 'MinExecuteCost',
-        'operationClass'  => 'OperationClass',
-        'operationType'   => 'OperationType',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'queryKeywords'   => 'QueryKeywords',
-        'regionId'        => 'RegionId',
+        'DBInstanceId' => 'DBInstanceId',
+        'database' => 'Database',
+        'endTime' => 'EndTime',
+        'executeCost' => 'ExecuteCost',
+        'executeState' => 'ExecuteState',
+        'maxExecuteCost' => 'MaxExecuteCost',
+        'minExecuteCost' => 'MinExecuteCost',
+        'operationClass' => 'OperationClass',
+        'operationType' => 'OperationType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'queryKeywords' => 'QueryKeywords',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'sourceIP'        => 'SourceIP',
-        'startTime'       => 'StartTime',
-        'user'            => 'User',
+        'sourceIP' => 'SourceIP',
+        'startTime' => 'StartTime',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

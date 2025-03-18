@@ -16,6 +16,7 @@ class nodeSegmentDiskStatus extends Model
      *   **healthy**: The compute node storage usage is less than 80%. In this case, this metric is marked in green in the console.
      *
      * >  The compute node storage usage is the maximum storage usage among all compute nodes.
+     *
      * @example healthy
      *
      * @var string
@@ -26,6 +27,7 @@ class nodeSegmentDiskStatus extends Model
      * @description The metric value of maximum compute node storage usage.
      *
      * Unit: %.
+     *
      * @example 1.52
      *
      * @var float
@@ -33,12 +35,10 @@ class nodeSegmentDiskStatus extends Model
     public $value;
     protected $_name = [
         'status' => 'Status',
-        'value'  => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -72,19 +72,17 @@ class CancelCreateIndexJobRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'collection'        => 'Collection',
-        'DBInstanceId'      => 'DBInstanceId',
-        'jobId'             => 'JobId',
-        'namespace'         => 'Namespace',
+        'collection' => 'Collection',
+        'DBInstanceId' => 'DBInstanceId',
+        'jobId' => 'JobId',
+        'namespace' => 'Namespace',
         'namespacePassword' => 'NamespacePassword',
-        'ownerId'           => 'OwnerId',
-        'regionId'          => 'RegionId',
-        'workspaceId'       => 'WorkspaceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

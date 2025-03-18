@@ -11,7 +11,10 @@ class CreateDocumentCollectionRequest extends Model
     /**
      * @description The name of the document collection that you want to create.
      *
+     * > The name must comply with PostgreSQL object naming restrictions.
+     *
      * This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -21,7 +24,10 @@ class CreateDocumentCollectionRequest extends Model
     /**
      * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -123,7 +129,10 @@ class CreateDocumentCollectionRequest extends Model
     /**
      * @description The name of the manager account that has the rds_superuser permission.
      *
+     * > You can create an account through the console -> Account Management, or by using the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) API.
+     *
      * This parameter is required.
+     *
      * @example testaccount
      *
      * @var string
@@ -134,6 +143,7 @@ class CreateDocumentCollectionRequest extends Model
      * @description The password of the management account.
      *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -143,7 +153,12 @@ class CreateDocumentCollectionRequest extends Model
     /**
      * @description The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
      *
+     * > Supported data types:
+     * > - For information about data types, see: [Data Types](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/developer-reference/data-types-1/).
+     * > - The money type is not supported.
+     *
      * >Warning: The fields id, vector, doc_name, content, loader_metadata, source, and to_tsvector are reserved and should not be used.
+     *
      * @example {"title":"text","page":"int"}
      *
      * @var string
@@ -176,6 +191,7 @@ class CreateDocumentCollectionRequest extends Model
      * @description The name of the namespace. Default value: public.
      *
      * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+     *
      * @example mynamespace
      *
      * @var string
@@ -212,35 +228,34 @@ class CreateDocumentCollectionRequest extends Model
      * @description The region ID of the instance.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'collection'              => 'Collection',
-        'DBInstanceId'            => 'DBInstanceId',
-        'dimension'               => 'Dimension',
-        'embeddingModel'          => 'EmbeddingModel',
-        'externalStorage'         => 'ExternalStorage',
+        'collection' => 'Collection',
+        'DBInstanceId' => 'DBInstanceId',
+        'dimension' => 'Dimension',
+        'embeddingModel' => 'EmbeddingModel',
+        'externalStorage' => 'ExternalStorage',
         'fullTextRetrievalFields' => 'FullTextRetrievalFields',
-        'hnswEfConstruction'      => 'HnswEfConstruction',
-        'hnswM'                   => 'HnswM',
-        'managerAccount'          => 'ManagerAccount',
-        'managerAccountPassword'  => 'ManagerAccountPassword',
-        'metadata'                => 'Metadata',
-        'metadataIndices'         => 'MetadataIndices',
-        'metrics'                 => 'Metrics',
-        'namespace'               => 'Namespace',
-        'ownerId'                 => 'OwnerId',
-        'parser'                  => 'Parser',
-        'pqEnable'                => 'PqEnable',
-        'regionId'                => 'RegionId',
+        'hnswEfConstruction' => 'HnswEfConstruction',
+        'hnswM' => 'HnswM',
+        'managerAccount' => 'ManagerAccount',
+        'managerAccountPassword' => 'ManagerAccountPassword',
+        'metadata' => 'Metadata',
+        'metadataIndices' => 'MetadataIndices',
+        'metrics' => 'Metrics',
+        'namespace' => 'Namespace',
+        'ownerId' => 'OwnerId',
+        'parser' => 'Parser',
+        'pqEnable' => 'PqEnable',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

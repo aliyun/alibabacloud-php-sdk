@@ -83,19 +83,17 @@ class items extends Model
      */
     public $waitingTime;
     protected $_name = [
-        'database'    => 'Database',
-        'PID'         => 'PID',
-        'SQLStmt'     => 'SQLStmt',
-        'sessionID'   => 'SessionID',
-        'startTime'   => 'StartTime',
-        'status'      => 'Status',
-        'user'        => 'User',
+        'database' => 'Database',
+        'PID' => 'PID',
+        'SQLStmt' => 'SQLStmt',
+        'sessionID' => 'SessionID',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'user' => 'User',
         'waitingTime' => 'WaitingTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -129,24 +129,22 @@ class DescribeJDBCDataSourceResponseBody extends Model
      */
     public $statusMessage;
     protected $_name = [
-        'createTime'            => 'CreateTime',
+        'createTime' => 'CreateTime',
         'dataSourceDescription' => 'DataSourceDescription',
-        'dataSourceId'          => 'DataSourceId',
-        'dataSourceName'        => 'DataSourceName',
-        'dataSourceStatus'      => 'DataSourceStatus',
-        'dataSourceType'        => 'DataSourceType',
+        'dataSourceId' => 'DataSourceId',
+        'dataSourceName' => 'DataSourceName',
+        'dataSourceStatus' => 'DataSourceStatus',
+        'dataSourceType' => 'DataSourceType',
         'externalDataServiceId' => 'ExternalDataServiceId',
-        'JDBCConnectionString'  => 'JDBCConnectionString',
-        'JDBCPassword'          => 'JDBCPassword',
-        'JDBCUserName'          => 'JDBCUserName',
-        'modifyTime'            => 'ModifyTime',
-        'requestId'             => 'RequestId',
-        'statusMessage'         => 'StatusMessage',
+        'JDBCConnectionString' => 'JDBCConnectionString',
+        'JDBCPassword' => 'JDBCPassword',
+        'JDBCUserName' => 'JDBCUserName',
+        'modifyTime' => 'ModifyTime',
+        'requestId' => 'RequestId',
+        'statusMessage' => 'StatusMessage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -60,17 +60,15 @@ class DescribeDBInstancePerformanceResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'endTime'         => 'EndTime',
-        'engine'          => 'Engine',
+        'DBInstanceId' => 'DBInstanceId',
+        'endTime' => 'EndTime',
+        'engine' => 'Engine',
         'performanceKeys' => 'PerformanceKeys',
-        'requestId'       => 'RequestId',
-        'startTime'       => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

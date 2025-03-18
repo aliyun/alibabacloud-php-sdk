@@ -12,6 +12,7 @@ class ListCollectionsRequest extends Model
      * @description The instance ID.
      *
      * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -31,6 +32,7 @@ class ListCollectionsRequest extends Model
      * @description The password of the namespace.
      *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -45,7 +47,10 @@ class ListCollectionsRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -61,17 +66,15 @@ class ListCollectionsRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'DBInstanceId'      => 'DBInstanceId',
-        'namespace'         => 'Namespace',
+        'DBInstanceId' => 'DBInstanceId',
+        'namespace' => 'Namespace',
         'namespacePassword' => 'NamespacePassword',
-        'ownerId'           => 'OwnerId',
-        'regionId'          => 'RegionId',
-        'workspaceId'       => 'WorkspaceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

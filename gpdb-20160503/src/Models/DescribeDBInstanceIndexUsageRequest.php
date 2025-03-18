@@ -11,7 +11,10 @@ class DescribeDBInstanceIndexUsageRequest extends Model
     /**
      * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -53,6 +56,7 @@ class DescribeDBInstanceIndexUsageRequest extends Model
      *   **100**
      *
      * Default value: **30**.
+     *
      * @example 20
      *
      * @var int
@@ -60,15 +64,13 @@ class DescribeDBInstanceIndexUsageRequest extends Model
     public $pageSize;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'database'     => 'Database',
-        'orderBy'      => 'OrderBy',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'database' => 'Database',
+        'orderBy' => 'OrderBy',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

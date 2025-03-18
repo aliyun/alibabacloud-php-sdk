@@ -49,13 +49,11 @@ class CreateSampleDataResponseBody extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

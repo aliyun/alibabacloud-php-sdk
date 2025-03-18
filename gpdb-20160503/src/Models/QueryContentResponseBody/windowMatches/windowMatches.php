@@ -19,9 +19,7 @@ class windowMatches extends Model
         'windowMatch' => 'WindowMatch',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

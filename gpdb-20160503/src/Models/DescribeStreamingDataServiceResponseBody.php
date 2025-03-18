@@ -121,23 +121,21 @@ class DescribeStreamingDataServiceResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'createTime'         => 'CreateTime',
-        'modifyTime'         => 'ModifyTime',
-        'requestId'          => 'RequestId',
+        'createTime' => 'CreateTime',
+        'modifyTime' => 'ModifyTime',
+        'requestId' => 'RequestId',
         'serviceDescription' => 'ServiceDescription',
-        'serviceId'          => 'ServiceId',
-        'serviceIp'          => 'ServiceIp',
-        'serviceManaged'     => 'ServiceManaged',
-        'serviceName'        => 'ServiceName',
-        'serviceOwnerId'     => 'ServiceOwnerId',
-        'servicePort'        => 'ServicePort',
-        'serviceSpec'        => 'ServiceSpec',
-        'status'             => 'Status',
+        'serviceId' => 'ServiceId',
+        'serviceIp' => 'ServiceIp',
+        'serviceManaged' => 'ServiceManaged',
+        'serviceName' => 'ServiceName',
+        'serviceOwnerId' => 'ServiceOwnerId',
+        'servicePort' => 'ServicePort',
+        'serviceSpec' => 'ServiceSpec',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

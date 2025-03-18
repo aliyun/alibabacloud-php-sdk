@@ -11,7 +11,10 @@ class DescribeDBResourceGroupRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -27,20 +30,19 @@ class DescribeDBResourceGroupRequest extends Model
      * @description The name of the resource group.
      *
      * >  If you specify this parameter, the information about the specified resource group is returned. If you do not specify this parameter, the information about all resource groups is returned.
+     *
      * @example testgroup
      *
      * @var string
      */
     public $resourceGroupName;
     protected $_name = [
-        'DBInstanceId'      => 'DBInstanceId',
-        'ownerId'           => 'OwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
         'resourceGroupName' => 'ResourceGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

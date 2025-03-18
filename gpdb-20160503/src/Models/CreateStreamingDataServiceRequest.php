@@ -12,6 +12,7 @@ class CreateStreamingDataServiceRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -22,6 +23,7 @@ class CreateStreamingDataServiceRequest extends Model
      * @description The region ID.
      *
      * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent list of regions.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -41,6 +43,7 @@ class CreateStreamingDataServiceRequest extends Model
      * @description The name of the service.
      *
      * This parameter is required.
+     *
      * @example test-adbpgss
      *
      * @var string
@@ -51,22 +54,21 @@ class CreateStreamingDataServiceRequest extends Model
      * @description The specifications of the service.
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var string
      */
     public $serviceSpec;
     protected $_name = [
-        'DBInstanceId'       => 'DBInstanceId',
-        'regionId'           => 'RegionId',
+        'DBInstanceId' => 'DBInstanceId',
+        'regionId' => 'RegionId',
         'serviceDescription' => 'ServiceDescription',
-        'serviceName'        => 'ServiceName',
-        'serviceSpec'        => 'ServiceSpec',
+        'serviceName' => 'ServiceName',
+        'serviceSpec' => 'ServiceSpec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

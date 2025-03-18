@@ -63,16 +63,14 @@ class GetUploadDocumentJobResponseBody extends Model
     public $usage;
     protected $_name = [
         'chunkResult' => 'ChunkResult',
-        'job'         => 'Job',
-        'message'     => 'Message',
-        'requestId'   => 'RequestId',
-        'status'      => 'Status',
-        'usage'       => 'Usage',
+        'job' => 'Job',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'usage' => 'Usage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

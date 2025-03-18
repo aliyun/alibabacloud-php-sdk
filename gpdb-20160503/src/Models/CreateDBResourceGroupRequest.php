@@ -11,7 +11,10 @@ class CreateDBResourceGroupRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -39,6 +42,7 @@ class CreateDBResourceGroupRequest extends Model
      *   Concurrency: the maximum number of concurrent transactions or parallel queries that are allowed for a resource group. Default value: 20.
      *
      * This parameter is required.
+     *
      * @example {"CpuRateLimit":"10","MemoryLimit":"12","MemorySharedQuota":"20","MemorySpillRatio":"75","Concurrency":"3"}
      *
      * @var string
@@ -49,21 +53,20 @@ class CreateDBResourceGroupRequest extends Model
      * @description The name of the resource group.
      *
      * This parameter is required.
+     *
      * @example testgroup
      *
      * @var string
      */
     public $resourceGroupName;
     protected $_name = [
-        'DBInstanceId'        => 'DBInstanceId',
-        'ownerId'             => 'OwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
         'resourceGroupConfig' => 'ResourceGroupConfig',
-        'resourceGroupName'   => 'ResourceGroupName',
+        'resourceGroupName' => 'ResourceGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

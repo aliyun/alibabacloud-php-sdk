@@ -12,6 +12,7 @@ class GetAccountRequest extends Model
      * @description The name of the database account.
      *
      * This parameter is required.
+     *
      * @example testuser
      *
      * @var string
@@ -21,20 +22,21 @@ class GetAccountRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
      */
     public $DBInstanceId;
     protected $_name = [
-        'accountName'  => 'AccountName',
+        'accountName' => 'AccountName',
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

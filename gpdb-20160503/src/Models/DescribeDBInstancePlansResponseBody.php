@@ -13,6 +13,7 @@ class DescribeDBInstancePlansResponseBody extends Model
      * @description The error message.
      *
      * This parameter is returned only if the request fails.
+     *
      * @example ****
      *
      * @var string
@@ -57,6 +58,7 @@ class DescribeDBInstancePlansResponseBody extends Model
      * @description Indicates whether the request was successful.
      *
      * If the request was successful, **success** is returned. If the request failed, this parameter is not returned.
+     *
      * @example success
      *
      * @var string
@@ -72,18 +74,16 @@ class DescribeDBInstancePlansResponseBody extends Model
      */
     public $totalRecordCount;
     protected $_name = [
-        'errorMessage'     => 'ErrorMessage',
-        'items'            => 'Items',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
-        'status'           => 'Status',
+        'errorMessage' => 'ErrorMessage',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

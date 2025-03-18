@@ -83,26 +83,24 @@ class ColumnMetadata extends Model
      */
     public $udtName;
     protected $_name = [
-        'columnDefault'   => 'ColumnDefault',
-        'comment'         => 'Comment',
-        'dataType'        => 'DataType',
+        'columnDefault' => 'ColumnDefault',
+        'comment' => 'Comment',
+        'dataType' => 'DataType',
         'isCaseSensitive' => 'IsCaseSensitive',
-        'isCurrency'      => 'IsCurrency',
-        'isPrimaryKey'    => 'IsPrimaryKey',
-        'isSigned'        => 'IsSigned',
-        'maxLength'       => 'MaxLength',
-        'name'            => 'Name',
-        'nullable'        => 'Nullable',
-        'precision'       => 'Precision',
-        'scale'           => 'Scale',
-        'schemaName'      => 'SchemaName',
-        'tableName'       => 'TableName',
-        'udtName'         => 'UdtName',
+        'isCurrency' => 'IsCurrency',
+        'isPrimaryKey' => 'IsPrimaryKey',
+        'isSigned' => 'IsSigned',
+        'maxLength' => 'MaxLength',
+        'name' => 'Name',
+        'nullable' => 'Nullable',
+        'precision' => 'Precision',
+        'scale' => 'Scale',
+        'schemaName' => 'SchemaName',
+        'tableName' => 'TableName',
+        'udtName' => 'UdtName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,15 +44,13 @@ class UpgradeDBVersionResponseBody extends Model
      */
     public $taskId;
     protected $_name = [
-        'DBInstanceId'   => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'DBInstanceName' => 'DBInstanceName',
-        'requestId'      => 'RequestId',
-        'taskId'         => 'TaskId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

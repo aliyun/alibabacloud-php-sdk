@@ -26,12 +26,10 @@ class DescribeModifyParameterLogResponseBody extends Model
     public $requestId;
     protected $_name = [
         'changelogs' => 'Changelogs',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeModifyParameterLogResponseBody extends Model
         if (isset($map['Changelogs'])) {
             if (!empty($map['Changelogs'])) {
                 $model->changelogs = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Changelogs'] as $item) {
                     $model->changelogs[$n++] = null !== $item ? changelogs::fromMap($item) : $item;
                 }

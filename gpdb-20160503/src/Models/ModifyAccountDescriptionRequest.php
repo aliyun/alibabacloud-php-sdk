@@ -26,6 +26,7 @@ class ModifyAccountDescriptionRequest extends Model
      * @description The name of the database account.
      *
      * This parameter is required.
+     *
      * @example testAccout
      *
      * @var string
@@ -44,7 +45,10 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+     *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -52,14 +56,12 @@ class ModifyAccountDescriptionRequest extends Model
     public $DBInstanceId;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
-        'accountName'        => 'AccountName',
-        'clientToken'        => 'ClientToken',
-        'DBInstanceId'       => 'DBInstanceId',
+        'accountName' => 'AccountName',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

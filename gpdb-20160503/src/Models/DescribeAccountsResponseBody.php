@@ -25,13 +25,11 @@ class DescribeAccountsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'accounts'  => 'Accounts',
+        'accounts' => 'Accounts',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

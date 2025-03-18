@@ -21,13 +21,11 @@ class ListBackupJobsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'items'     => 'Items',
+        'items' => 'Items',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class ModifyStreamingDataServiceRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -38,6 +41,7 @@ class ModifyStreamingDataServiceRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -53,22 +57,21 @@ class ModifyStreamingDataServiceRequest extends Model
      *   16
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var string
      */
     public $serviceSpec;
     protected $_name = [
-        'DBInstanceId'       => 'DBInstanceId',
-        'regionId'           => 'RegionId',
+        'DBInstanceId' => 'DBInstanceId',
+        'regionId' => 'RegionId',
         'serviceDescription' => 'ServiceDescription',
-        'serviceId'          => 'ServiceId',
-        'serviceSpec'        => 'ServiceSpec',
+        'serviceId' => 'ServiceId',
+        'serviceSpec' => 'ServiceSpec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

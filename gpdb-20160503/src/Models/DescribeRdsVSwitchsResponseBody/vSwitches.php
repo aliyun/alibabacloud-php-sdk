@@ -19,9 +19,7 @@ class vSwitches extends Model
         'vSwitch' => 'VSwitch',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class vSwitches extends Model
         if (isset($map['VSwitch'])) {
             if (!empty($map['VSwitch'])) {
                 $model->vSwitch = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['VSwitch'] as $item) {
                     $model->vSwitch[$n++] = null !== $item ? vSwitch::fromMap($item) : $item;
                 }

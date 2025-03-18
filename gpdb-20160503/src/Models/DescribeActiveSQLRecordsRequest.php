@@ -11,7 +11,10 @@ class DescribeActiveSQLRecordsRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -67,6 +70,7 @@ class DescribeActiveSQLRecordsRequest extends Model
      * @description The field used to sort lock diagnostics records and the sorting order.
      *
      * Default value: `{"Field":"StartTime","Type":"Desc"}`, which indicates that lock diagnostics records are sorted by the start time in descending order. No other values are supported.
+     *
      * @example {"Field":"StartTime","Type":"Desc"}
      *
      * @var string
@@ -92,19 +96,17 @@ class DescribeActiveSQLRecordsRequest extends Model
     public $user;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'database'     => 'Database',
-        'endTime'      => 'EndTime',
-        'keyword'      => 'Keyword',
-        'maxDuration'  => 'MaxDuration',
-        'minDuration'  => 'MinDuration',
-        'order'        => 'Order',
-        'startTime'    => 'StartTime',
-        'user'         => 'User',
+        'database' => 'Database',
+        'endTime' => 'EndTime',
+        'keyword' => 'Keyword',
+        'maxDuration' => 'MaxDuration',
+        'minDuration' => 'MinDuration',
+        'order' => 'Order',
+        'startTime' => 'StartTime',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

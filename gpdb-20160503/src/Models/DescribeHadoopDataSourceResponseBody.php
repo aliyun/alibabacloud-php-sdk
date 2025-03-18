@@ -186,30 +186,28 @@ class DescribeHadoopDataSourceResponseBody extends Model
      */
     public $yarnConf;
     protected $_name = [
-        'createTime'            => 'CreateTime',
+        'createTime' => 'CreateTime',
         'dataSourceDescription' => 'DataSourceDescription',
-        'dataSourceDir'         => 'DataSourceDir',
-        'dataSourceId'          => 'DataSourceId',
-        'dataSourceName'        => 'DataSourceName',
-        'dataSourceStatus'      => 'DataSourceStatus',
-        'dataSourceType'        => 'DataSourceType',
-        'emrInstanceId'         => 'EmrInstanceId',
+        'dataSourceDir' => 'DataSourceDir',
+        'dataSourceId' => 'DataSourceId',
+        'dataSourceName' => 'DataSourceName',
+        'dataSourceStatus' => 'DataSourceStatus',
+        'dataSourceType' => 'DataSourceType',
+        'emrInstanceId' => 'EmrInstanceId',
         'externalDataServiceId' => 'ExternalDataServiceId',
-        'HDFSConf'              => 'HDFSConf',
-        'hadoopCoreConf'        => 'HadoopCoreConf',
-        'hadoopCreateType'      => 'HadoopCreateType',
-        'hadoopHostsAddress'    => 'HadoopHostsAddress',
-        'hiveConf'              => 'HiveConf',
-        'mapReduceConf'         => 'MapReduceConf',
-        'modifyTime'            => 'ModifyTime',
-        'requestId'             => 'RequestId',
-        'statusMessage'         => 'StatusMessage',
-        'yarnConf'              => 'YarnConf',
+        'HDFSConf' => 'HDFSConf',
+        'hadoopCoreConf' => 'HadoopCoreConf',
+        'hadoopCreateType' => 'HadoopCreateType',
+        'hadoopHostsAddress' => 'HadoopHostsAddress',
+        'hiveConf' => 'HiveConf',
+        'mapReduceConf' => 'MapReduceConf',
+        'modifyTime' => 'ModifyTime',
+        'requestId' => 'RequestId',
+        'statusMessage' => 'StatusMessage',
+        'yarnConf' => 'YarnConf',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

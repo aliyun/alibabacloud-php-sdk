@@ -16,9 +16,7 @@ class embedding extends Model
         'embedding' => 'Embedding',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

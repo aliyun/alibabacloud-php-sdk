@@ -15,6 +15,7 @@ class SwitchDBInstanceNetTypeRequest extends Model
      *   The prefix can be up to 30 characters in length.
      *
      * This parameter is required.
+     *
      * @example test1234
      *
      * @var string
@@ -24,7 +25,10 @@ class SwitchDBInstanceNetTypeRequest extends Model
     /**
      * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2361776.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -35,6 +39,7 @@ class SwitchDBInstanceNetTypeRequest extends Model
      * @description The port number.
      *
      * This parameter is required.
+     *
      * @example 3306
      *
      * @var string
@@ -42,13 +47,11 @@ class SwitchDBInstanceNetTypeRequest extends Model
     public $port;
     protected $_name = [
         'connectionStringPrefix' => 'ConnectionStringPrefix',
-        'DBInstanceId'           => 'DBInstanceId',
-        'port'                   => 'Port',
+        'DBInstanceId' => 'DBInstanceId',
+        'port' => 'Port',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

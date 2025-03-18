@@ -9,16 +9,14 @@ use AlibabaCloud\Tea\Model;
 class indices extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesResponseBody\indices\indices[]
+     * @var indices\indices[]
      */
     public $indices;
     protected $_name = [
         'indices' => 'Indices',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -47,9 +45,9 @@ class indices extends Model
         if (isset($map['Indices'])) {
             if (!empty($map['Indices'])) {
                 $model->indices = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Indices'] as $item) {
-                    $model->indices[$n++] = null !== $item ? \AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesResponseBody\indices\indices::fromMap($item) : $item;
+                    $model->indices[$n++] = null !== $item ? indices\indices::fromMap($item) : $item;
                 }
             }
         }

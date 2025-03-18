@@ -56,15 +56,13 @@ class ListDatabasesResponseBody extends Model
     public $status;
     protected $_name = [
         'databases' => 'Databases',
-        'message'   => 'Message',
+        'message' => 'Message',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

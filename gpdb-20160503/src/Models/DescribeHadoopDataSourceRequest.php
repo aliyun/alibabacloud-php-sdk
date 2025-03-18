@@ -12,6 +12,7 @@ class DescribeHadoopDataSourceRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxx
      *
      * @var string
@@ -31,6 +32,7 @@ class DescribeHadoopDataSourceRequest extends Model
      * @description The region ID of the instance.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2361846.html) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,12 +41,10 @@ class DescribeHadoopDataSourceRequest extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'dataSourceId' => 'DataSourceId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

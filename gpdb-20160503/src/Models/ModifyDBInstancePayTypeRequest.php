@@ -12,6 +12,7 @@ class ModifyDBInstancePayTypeRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -25,6 +26,7 @@ class ModifyDBInstancePayTypeRequest extends Model
      *   Prepaid: subscription.
      *
      * This parameter is required.
+     *
      * @example Postpaid
      *
      * @var string
@@ -38,6 +40,7 @@ class ModifyDBInstancePayTypeRequest extends Model
      *   Year
      *
      * This parameter must be specified only when PayType is set to Prepaid.
+     *
      * @example Month
      *
      * @var string
@@ -51,6 +54,7 @@ class ModifyDBInstancePayTypeRequest extends Model
      *   Valid values when Period is set to Year: 1 to 3.
      *
      * This parameter must be specified only when PayType is set to Prepaid.
+     *
      * @example 1
      *
      * @var int
@@ -58,14 +62,12 @@ class ModifyDBInstancePayTypeRequest extends Model
     public $usedTime;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'payType'      => 'PayType',
-        'period'       => 'Period',
-        'usedTime'     => 'UsedTime',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'usedTime' => 'UsedTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

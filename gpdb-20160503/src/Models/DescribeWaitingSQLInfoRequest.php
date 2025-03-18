@@ -11,7 +11,10 @@ class DescribeWaitingSQLInfoRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the instance IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+     *
      * This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -22,6 +25,7 @@ class DescribeWaitingSQLInfoRequest extends Model
      * @description The name of the database.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -31,7 +35,10 @@ class DescribeWaitingSQLInfoRequest extends Model
     /**
      * @description The ID of the process that uniquely identifies the query.
      *
+     * >  You can call the [DescribeWaitingSQLRecords](https://help.aliyun.com/document_detail/461735.html) operation to obtain the process IDs of lock-waiting queries.
+     *
      * This parameter is required.
+     *
      * @example 100
      *
      * @var string
@@ -39,13 +46,11 @@ class DescribeWaitingSQLInfoRequest extends Model
     public $PID;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'database'     => 'Database',
-        'PID'          => 'PID',
+        'database' => 'Database',
+        'PID' => 'PID',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -82,21 +82,19 @@ class CreateIndexRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'collection'        => 'Collection',
-        'DBInstanceId'      => 'DBInstanceId',
-        'indexConfig'       => 'IndexConfig',
-        'indexField'        => 'IndexField',
-        'indexName'         => 'IndexName',
-        'namespace'         => 'Namespace',
+        'collection' => 'Collection',
+        'DBInstanceId' => 'DBInstanceId',
+        'indexConfig' => 'IndexConfig',
+        'indexField' => 'IndexField',
+        'indexName' => 'IndexName',
+        'namespace' => 'Namespace',
         'namespacePassword' => 'NamespacePassword',
-        'ownerId'           => 'OwnerId',
-        'regionId'          => 'RegionId',
-        'workspaceId'       => 'WorkspaceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

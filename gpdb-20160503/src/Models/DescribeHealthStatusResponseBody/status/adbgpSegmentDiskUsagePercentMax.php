@@ -25,6 +25,7 @@ class adbgpSegmentDiskUsagePercentMax extends Model
      * @description The metric value of maximum compute node storage usage.
      *
      * Unit: %.
+     *
      * @example 1.52
      *
      * @var float
@@ -32,12 +33,10 @@ class adbgpSegmentDiskUsagePercentMax extends Model
     public $value;
     protected $_name = [
         'status' => 'Status',
-        'value'  => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

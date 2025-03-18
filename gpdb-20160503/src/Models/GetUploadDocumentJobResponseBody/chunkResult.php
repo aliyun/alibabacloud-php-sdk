@@ -26,13 +26,11 @@ class chunkResult extends Model
      */
     public $plainChunkFileUrl;
     protected $_name = [
-        'chunkFileUrl'      => 'ChunkFileUrl',
+        'chunkFileUrl' => 'ChunkFileUrl',
         'plainChunkFileUrl' => 'PlainChunkFileUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

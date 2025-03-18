@@ -25,13 +25,11 @@ class DescribeRegionsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'regions'   => 'Regions',
+        'regions' => 'Regions',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class records extends Model
         'record' => 'Record',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class records extends Model
         if (isset($map['Record'])) {
             if (!empty($map['Record'])) {
                 $model->record = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Record'] as $item) {
                     $model->record[$n++] = null !== $item ? Field::fromMap($item) : $item;
                 }

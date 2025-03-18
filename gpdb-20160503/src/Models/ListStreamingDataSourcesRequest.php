@@ -12,6 +12,7 @@ class ListStreamingDataSourcesRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -35,6 +36,7 @@ class ListStreamingDataSourcesRequest extends Model
      *   **100**
      *
      * Default value: **30**.
+     *
      * @example 30
      *
      * @var int
@@ -45,6 +47,7 @@ class ListStreamingDataSourcesRequest extends Model
      * @description The region ID.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -52,14 +55,12 @@ class ListStreamingDataSourcesRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

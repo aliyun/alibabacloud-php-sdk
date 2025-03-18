@@ -83,19 +83,17 @@ class vSwitchs extends Model
      */
     public $vSwitchName;
     protected $_name = [
-        'cidrBlock'   => 'CidrBlock',
-        'gmtCreate'   => 'GmtCreate',
+        'cidrBlock' => 'CidrBlock',
+        'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
-        'isDefault'   => 'IsDefault',
-        'izNo'        => 'IzNo',
-        'status'      => 'Status',
-        'vSwitchId'   => 'VSwitchId',
+        'isDefault' => 'IsDefault',
+        'izNo' => 'IzNo',
+        'status' => 'Status',
+        'vSwitchId' => 'VSwitchId',
         'vSwitchName' => 'VSwitchName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class dataSourceItems extends Model
         'remoteDataSources' => 'RemoteDataSources',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class dataSourceItems extends Model
         if (isset($map['RemoteDataSources'])) {
             if (!empty($map['RemoteDataSources'])) {
                 $model->remoteDataSources = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['RemoteDataSources'] as $item) {
                     $model->remoteDataSources[$n++] = null !== $item ? remoteDataSources::fromMap($item) : $item;
                 }

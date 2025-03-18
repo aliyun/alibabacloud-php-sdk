@@ -57,18 +57,16 @@ class DescribeBackupJobResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'backupId'     => 'BackupId',
-        'backupJobId'  => 'BackupJobId',
-        'backupMode'   => 'BackupMode',
+        'backupId' => 'BackupId',
+        'backupJobId' => 'BackupJobId',
+        'backupMode' => 'BackupMode',
         'backupStatus' => 'BackupStatus',
-        'process'      => 'Process',
-        'requestId'    => 'RequestId',
-        'startTime'    => 'StartTime',
+        'process' => 'Process',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

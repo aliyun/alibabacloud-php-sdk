@@ -83,19 +83,17 @@ class DBInstanceNetInfo extends Model
      */
     public $vpcInstanceId;
     protected $_name = [
-        'addressType'      => 'AddressType',
+        'addressType' => 'AddressType',
         'connectionString' => 'ConnectionString',
-        'IPAddress'        => 'IPAddress',
-        'IPType'           => 'IPType',
-        'port'             => 'Port',
-        'VPCId'            => 'VPCId',
-        'vSwitchId'        => 'VSwitchId',
-        'vpcInstanceId'    => 'VpcInstanceId',
+        'IPAddress' => 'IPAddress',
+        'IPType' => 'IPType',
+        'port' => 'Port',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcInstanceId' => 'VpcInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

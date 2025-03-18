@@ -9,16 +9,14 @@ use AlibabaCloud\Tea\Model;
 class windowMatches extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\windowMatches\windowMatches[]
+     * @var windowMatches\windowMatches[]
      */
     public $windowMatches;
     protected $_name = [
         'windowMatches' => 'windowMatches',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -47,9 +45,9 @@ class windowMatches extends Model
         if (isset($map['windowMatches'])) {
             if (!empty($map['windowMatches'])) {
                 $model->windowMatches = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['windowMatches'] as $item) {
-                    $model->windowMatches[$n++] = null !== $item ? \AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\windowMatches\windowMatches::fromMap($item) : $item;
+                    $model->windowMatches[$n++] = null !== $item ? windowMatches\windowMatches::fromMap($item) : $item;
                 }
             }
         }

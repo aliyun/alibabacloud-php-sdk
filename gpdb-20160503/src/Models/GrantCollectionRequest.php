@@ -11,7 +11,10 @@ class GrantCollectionRequest extends Model
     /**
      * @description The name of the collection.
      *
+     * >  You can call the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) operation to create a vector collection and call the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) operation to query a list of vector collections.
+     *
      * This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -21,7 +24,10 @@ class GrantCollectionRequest extends Model
     /**
      * @description The ID of the instance in reserved storage mode.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -32,6 +38,7 @@ class GrantCollectionRequest extends Model
      * @description The name of the namespace to which you want to grant the vector collection permissions.
      *
      * This parameter is required.
+     *
      * @example othernamespace
      *
      * @var string
@@ -46,6 +53,7 @@ class GrantCollectionRequest extends Model
      *   none: the delete permission.
      *
      * This parameter is required.
+     *
      * @example rw
      *
      * @var string
@@ -55,7 +63,10 @@ class GrantCollectionRequest extends Model
     /**
      * @description The name of the manager account that has the rds_superuser permission.
      *
+     * >  You can create an account on the Account Management page of the AnalyticDB for PostgreSQL console or by calling the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) operation.
+     *
      * This parameter is required.
+     *
      * @example testaccount
      *
      * @var string
@@ -66,6 +77,7 @@ class GrantCollectionRequest extends Model
      * @description The password of the manager account.
      *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -76,6 +88,7 @@ class GrantCollectionRequest extends Model
      * @description The name of the namespace.
      *
      * >  You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+     *
      * @example mynamespace
      *
      * @var string
@@ -91,26 +104,25 @@ class GrantCollectionRequest extends Model
      * @description The region ID of the instance.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'collection'             => 'Collection',
-        'DBInstanceId'           => 'DBInstanceId',
-        'grantToNamespace'       => 'GrantToNamespace',
-        'grantType'              => 'GrantType',
-        'managerAccount'         => 'ManagerAccount',
+        'collection' => 'Collection',
+        'DBInstanceId' => 'DBInstanceId',
+        'grantToNamespace' => 'GrantToNamespace',
+        'grantType' => 'GrantType',
+        'managerAccount' => 'ManagerAccount',
         'managerAccountPassword' => 'ManagerAccountPassword',
-        'namespace'              => 'Namespace',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
+        'namespace' => 'Namespace',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -53,16 +53,14 @@ class changelogs extends Model
      */
     public $parameterValueBefore;
     protected $_name = [
-        'effectTime'           => 'EffectTime',
-        'parameterName'        => 'ParameterName',
-        'parameterValid'       => 'ParameterValid',
-        'parameterValueAfter'  => 'ParameterValueAfter',
+        'effectTime' => 'EffectTime',
+        'parameterName' => 'ParameterName',
+        'parameterValid' => 'ParameterValid',
+        'parameterValueAfter' => 'ParameterValueAfter',
         'parameterValueBefore' => 'ParameterValueBefore',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

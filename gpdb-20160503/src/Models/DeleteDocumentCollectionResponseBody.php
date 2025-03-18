@@ -30,20 +30,19 @@ class DeleteDocumentCollectionResponseBody extends Model
      * @description Status, with the following possible values:
      * - **success**: Success.
      * - **fail**: Failure.
+     *
      * @example success
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

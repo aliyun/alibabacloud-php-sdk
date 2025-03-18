@@ -71,18 +71,16 @@ class collectionList extends Model
      */
     public $parser;
     protected $_name = [
-        'collectionName'          => 'CollectionName',
-        'dimension'               => 'Dimension',
-        'embeddingModel'          => 'EmbeddingModel',
+        'collectionName' => 'CollectionName',
+        'dimension' => 'Dimension',
+        'embeddingModel' => 'EmbeddingModel',
         'fullTextRetrievalFields' => 'FullTextRetrievalFields',
-        'metadata'                => 'Metadata',
-        'metrics'                 => 'Metrics',
-        'parser'                  => 'Parser',
+        'metadata' => 'Metadata',
+        'metrics' => 'Metrics',
+        'parser' => 'Parser',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

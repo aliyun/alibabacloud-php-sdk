@@ -91,20 +91,18 @@ class ExecuteStatementResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'createdAt'    => 'CreatedAt',
+        'createdAt' => 'CreatedAt',
         'DBInstanceId' => 'DBInstanceId',
-        'data'         => 'Data',
-        'database'     => 'Database',
-        'id'           => 'Id',
-        'message'      => 'Message',
-        'requestId'    => 'RequestId',
-        'secretArn'    => 'SecretArn',
-        'status'       => 'Status',
+        'data' => 'Data',
+        'database' => 'Database',
+        'id' => 'Id',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'secretArn' => 'SecretArn',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

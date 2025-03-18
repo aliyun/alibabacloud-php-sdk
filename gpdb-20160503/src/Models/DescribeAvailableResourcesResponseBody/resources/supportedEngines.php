@@ -37,14 +37,12 @@ class supportedEngines extends Model
      */
     public $supportedInstanceClasses;
     protected $_name = [
-        'mode'                     => 'Mode',
-        'supportedEngineVersion'   => 'SupportedEngineVersion',
+        'mode' => 'Mode',
+        'supportedEngineVersion' => 'SupportedEngineVersion',
         'supportedInstanceClasses' => 'SupportedInstanceClasses',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -85,7 +83,7 @@ class supportedEngines extends Model
         if (isset($map['SupportedInstanceClasses'])) {
             if (!empty($map['SupportedInstanceClasses'])) {
                 $model->supportedInstanceClasses = [];
-                $n                               = 0;
+                $n = 0;
                 foreach ($map['SupportedInstanceClasses'] as $item) {
                     $model->supportedInstanceClasses[$n++] = null !== $item ? supportedInstanceClasses::fromMap($item) : $item;
                 }

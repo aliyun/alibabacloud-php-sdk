@@ -52,16 +52,14 @@ class ListStreamingJobsResponseBody extends Model
      */
     public $totalRecordCount;
     protected $_name = [
-        'jobItems'         => 'JobItems',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
+        'jobItems' => 'JobItems',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class ListStreamingJobsResponseBody extends Model
         if (isset($map['JobItems'])) {
             if (!empty($map['JobItems'])) {
                 $model->jobItems = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['JobItems'] as $item) {
                     $model->jobItems[$n++] = null !== $item ? jobItems::fromMap($item) : $item;
                 }

@@ -19,9 +19,7 @@ class vpcs extends Model
         'vpc' => 'Vpc',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class vpcs extends Model
         if (isset($map['Vpc'])) {
             if (!empty($map['Vpc'])) {
                 $model->vpc = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Vpc'] as $item) {
                     $model->vpc[$n++] = null !== $item ? vpc::fromMap($item) : $item;
                 }

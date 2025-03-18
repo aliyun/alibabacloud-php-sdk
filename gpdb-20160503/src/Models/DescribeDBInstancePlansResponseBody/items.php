@@ -17,9 +17,7 @@ class items extends Model
         'planList' => 'PlanList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class items extends Model
         if (isset($map['PlanList'])) {
             if (!empty($map['PlanList'])) {
                 $model->planList = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['PlanList'] as $item) {
                     $model->planList[$n++] = null !== $item ? planList::fromMap($item) : $item;
                 }

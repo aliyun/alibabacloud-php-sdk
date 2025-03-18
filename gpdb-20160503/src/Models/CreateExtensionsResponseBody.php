@@ -27,12 +27,10 @@ class CreateExtensionsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'extensions' => 'Extensions',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

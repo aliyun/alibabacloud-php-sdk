@@ -71,17 +71,15 @@ class DBInstance extends Model
      */
     public $zoneId;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'DBInstanceMode'  => 'DBInstanceMode',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceMode' => 'DBInstanceMode',
         'dataShareStatus' => 'DataShareStatus',
-        'description'     => 'Description',
-        'regionId'        => 'RegionId',
-        'zoneId'          => 'ZoneId',
+        'description' => 'Description',
+        'regionId' => 'RegionId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

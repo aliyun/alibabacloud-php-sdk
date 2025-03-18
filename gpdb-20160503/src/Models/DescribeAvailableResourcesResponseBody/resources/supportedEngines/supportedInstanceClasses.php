@@ -76,18 +76,16 @@ class supportedInstanceClasses extends Model
      */
     public $storageType;
     protected $_name = [
-        'category'      => 'Category',
-        'description'   => 'Description',
-        'displayClass'  => 'DisplayClass',
+        'category' => 'Category',
+        'description' => 'Description',
+        'displayClass' => 'DisplayClass',
         'instanceClass' => 'InstanceClass',
-        'nodeCount'     => 'NodeCount',
-        'storageSize'   => 'StorageSize',
-        'storageType'   => 'StorageType',
+        'nodeCount' => 'NodeCount',
+        'storageSize' => 'StorageSize',
+        'storageType' => 'StorageType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

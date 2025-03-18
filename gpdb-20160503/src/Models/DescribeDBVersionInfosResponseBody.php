@@ -25,13 +25,11 @@ class DescribeDBVersionInfosResponseBody extends Model
      */
     public $versionDetails;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'versionDetails' => 'VersionDetails',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

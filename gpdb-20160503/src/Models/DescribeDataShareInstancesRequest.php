@@ -30,6 +30,7 @@ class DescribeDataShareInstancesRequest extends Model
      *   **100**
      *
      * Default value: 30.
+     *
      * @example 30
      *
      * @var int
@@ -39,7 +40,10 @@ class DescribeDataShareInstancesRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -59,23 +63,22 @@ class DescribeDataShareInstancesRequest extends Model
      * @description The keyword used to filter instances, which can be an instance ID or instance description.
      *
      * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs and instance descriptions.
+     *
      * @example gp-bp***************
      *
      * @var string
      */
     public $searchValue;
     protected $_name = [
-        'ownerId'         => 'OwnerId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'searchValue'     => 'SearchValue',
+        'searchValue' => 'SearchValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

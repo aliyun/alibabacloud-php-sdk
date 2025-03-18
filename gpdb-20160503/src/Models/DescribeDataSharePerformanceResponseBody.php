@@ -52,16 +52,14 @@ class DescribeDataSharePerformanceResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'DBClusterId'     => 'DBClusterId',
-        'endTime'         => 'EndTime',
+        'DBClusterId' => 'DBClusterId',
+        'endTime' => 'EndTime',
         'performanceKeys' => 'PerformanceKeys',
-        'requestId'       => 'RequestId',
-        'startTime'       => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +106,7 @@ class DescribeDataSharePerformanceResponseBody extends Model
         if (isset($map['PerformanceKeys'])) {
             if (!empty($map['PerformanceKeys'])) {
                 $model->performanceKeys = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['PerformanceKeys'] as $item) {
                     $model->performanceKeys[$n++] = null !== $item ? performanceKeys::fromMap($item) : $item;
                 }

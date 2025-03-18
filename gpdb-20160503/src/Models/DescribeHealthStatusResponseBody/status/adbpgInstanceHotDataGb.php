@@ -20,9 +20,7 @@ class adbpgInstanceHotDataGb extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

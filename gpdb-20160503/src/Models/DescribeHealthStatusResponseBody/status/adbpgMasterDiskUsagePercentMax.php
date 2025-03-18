@@ -25,6 +25,7 @@ class adbpgMasterDiskUsagePercentMax extends Model
      * @description The metric value of maximum coordinator node storage usage.
      *
      * Unit: %.
+     *
      * @example 1.34
      *
      * @var float
@@ -32,12 +33,10 @@ class adbpgMasterDiskUsagePercentMax extends Model
     public $value;
     protected $_name = [
         'status' => 'Status',
-        'value'  => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

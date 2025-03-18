@@ -11,7 +11,10 @@ class DescribeDBResourceManagementModeRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -24,12 +27,10 @@ class DescribeDBResourceManagementModeRequest extends Model
     public $ownerId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'ownerId'      => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

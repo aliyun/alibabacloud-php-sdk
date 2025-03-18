@@ -21,6 +21,7 @@ class PauseInstanceResponseBody extends Model
      * @description The error message returned.
      *
      * This parameter is returned only if **false** is returned for the **Status** parameter.
+     *
      * @example *******
      *
      * @var string
@@ -50,13 +51,11 @@ class PauseInstanceResponseBody extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

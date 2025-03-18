@@ -12,6 +12,7 @@ class ModifyExternalDataServiceRequest extends Model
      * @description Instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -22,6 +23,7 @@ class ModifyExternalDataServiceRequest extends Model
      * @description Region ID.
      *
      * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +43,7 @@ class ModifyExternalDataServiceRequest extends Model
      * @description Service ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -50,23 +53,24 @@ class ModifyExternalDataServiceRequest extends Model
     /**
      * @description Service specification (in CU), value:
      *
+     * - 8
+     *
      * This parameter is required.
+     *
      * @example 8
      *
      * @var string
      */
     public $serviceSpec;
     protected $_name = [
-        'DBInstanceId'       => 'DBInstanceId',
-        'regionId'           => 'RegionId',
+        'DBInstanceId' => 'DBInstanceId',
+        'regionId' => 'RegionId',
         'serviceDescription' => 'ServiceDescription',
-        'serviceId'          => 'ServiceId',
-        'serviceSpec'        => 'ServiceSpec',
+        'serviceId' => 'ServiceId',
+        'serviceSpec' => 'ServiceSpec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

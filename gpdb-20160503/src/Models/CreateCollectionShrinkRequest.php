@@ -11,7 +11,10 @@ class CreateCollectionShrinkRequest extends Model
     /**
      * @description The name of the collection that you want to create.
      *
+     * >  The name must comply with the naming conventions of PostgreSQL objects.
+     *
      * This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -22,6 +25,7 @@ class CreateCollectionShrinkRequest extends Model
      * @description The instance ID.
      *
      * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -32,6 +36,7 @@ class CreateCollectionShrinkRequest extends Model
      * @description The number of vector dimensions.
      *
      * >  If you specify this parameter, an index is created. When you call the [UpsertCollectionData](https://help.aliyun.com/document_detail/2401493.html) operation, make sure that the length of the Rows.Vector parameter is the same as the value of this parameter. If you do not specify this parameter, you can call the [CreateVectorIndex](https://help.aliyun.com/document_detail/2401499.html) operation to create an index.
+     *
      * @example 1024
      *
      * @var int
@@ -89,7 +94,10 @@ class CreateCollectionShrinkRequest extends Model
     /**
      * @description Name of the management account with rds_superuser permissions.
      *
+     * > You can create an account through the console -> Account Management, or by using the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) API.
+     *
      * This parameter is required.
+     *
      * @example testaccount
      *
      * @var string
@@ -100,6 +108,7 @@ class CreateCollectionShrinkRequest extends Model
      * @description The password of the manager account.
      *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -114,11 +123,6 @@ class CreateCollectionShrinkRequest extends Model
      *   For information about the supported data types, see [Data types](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-postgresql/developer-reference/data-types-1/).
      *
      *   The money data type is not supported.
-     *
-     **
-     *
-     **Warning** Reserved fields such as id, vector, to_tsvector, and source cannot be used.
-     *
      * This parameter is required.
      * @example {"title":"text","content":"text","response":"int"}
      *
@@ -152,6 +156,7 @@ class CreateCollectionShrinkRequest extends Model
      * @description The name of the namespace.
      *
      * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+     *
      * @example mynamespace
      *
      * @var string
@@ -188,6 +193,7 @@ class CreateCollectionShrinkRequest extends Model
      * @description The region ID of the instance.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -213,31 +219,29 @@ class CreateCollectionShrinkRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'collection'                    => 'Collection',
-        'DBInstanceId'                  => 'DBInstanceId',
-        'dimension'                     => 'Dimension',
-        'externalStorage'               => 'ExternalStorage',
-        'fullTextRetrievalFields'       => 'FullTextRetrievalFields',
-        'hnswEfConstruction'            => 'HnswEfConstruction',
-        'hnswM'                         => 'HnswM',
-        'managerAccount'                => 'ManagerAccount',
-        'managerAccountPassword'        => 'ManagerAccountPassword',
-        'metadata'                      => 'Metadata',
-        'metadataIndices'               => 'MetadataIndices',
-        'metrics'                       => 'Metrics',
-        'namespace'                     => 'Namespace',
-        'ownerId'                       => 'OwnerId',
-        'parser'                        => 'Parser',
-        'pqEnable'                      => 'PqEnable',
-        'regionId'                      => 'RegionId',
+        'collection' => 'Collection',
+        'DBInstanceId' => 'DBInstanceId',
+        'dimension' => 'Dimension',
+        'externalStorage' => 'ExternalStorage',
+        'fullTextRetrievalFields' => 'FullTextRetrievalFields',
+        'hnswEfConstruction' => 'HnswEfConstruction',
+        'hnswM' => 'HnswM',
+        'managerAccount' => 'ManagerAccount',
+        'managerAccountPassword' => 'ManagerAccountPassword',
+        'metadata' => 'Metadata',
+        'metadataIndices' => 'MetadataIndices',
+        'metrics' => 'Metrics',
+        'namespace' => 'Namespace',
+        'ownerId' => 'OwnerId',
+        'parser' => 'Parser',
+        'pqEnable' => 'PqEnable',
+        'regionId' => 'RegionId',
         'sparseVectorIndexConfigShrink' => 'SparseVectorIndexConfig',
-        'supportSparse'                 => 'SupportSparse',
-        'workspaceId'                   => 'WorkspaceId',
+        'supportSparse' => 'SupportSparse',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

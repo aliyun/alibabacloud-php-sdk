@@ -35,14 +35,12 @@ class CloneDBInstanceRequest extends Model
      */
     public $srcDbInstanceName;
     protected $_name = [
-        'backupId'          => 'BackupId',
-        'DBInstanceId'      => 'DBInstanceId',
+        'backupId' => 'BackupId',
+        'DBInstanceId' => 'DBInstanceId',
         'srcDbInstanceName' => 'SrcDbInstanceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

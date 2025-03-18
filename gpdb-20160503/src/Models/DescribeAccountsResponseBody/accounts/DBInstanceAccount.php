@@ -58,15 +58,13 @@ class DBInstanceAccount extends Model
     public $DBInstanceId;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
-        'accountName'        => 'AccountName',
-        'accountStatus'      => 'AccountStatus',
-        'accountType'        => 'AccountType',
-        'DBInstanceId'       => 'DBInstanceId',
+        'accountName' => 'AccountName',
+        'accountStatus' => 'AccountStatus',
+        'accountType' => 'AccountType',
+        'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class resourceGroupItems extends Model
         'resourceGroupItem' => 'ResourceGroupItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class resourceGroupItems extends Model
         if (isset($map['ResourceGroupItem'])) {
             if (!empty($map['ResourceGroupItem'])) {
                 $model->resourceGroupItem = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['ResourceGroupItem'] as $item) {
                     $model->resourceGroupItem[$n++] = null !== $item ? resourceGroupItem::fromMap($item) : $item;
                 }

@@ -87,19 +87,17 @@ class serviceItems extends Model
      */
     public $status;
     protected $_name = [
-        'createTime'         => 'CreateTime',
-        'modifyTime'         => 'ModifyTime',
+        'createTime' => 'CreateTime',
+        'modifyTime' => 'ModifyTime',
         'serviceDescription' => 'ServiceDescription',
-        'serviceId'          => 'ServiceId',
-        'serviceName'        => 'ServiceName',
-        'serviceSpec'        => 'ServiceSpec',
-        'serviceType'        => 'ServiceType',
-        'status'             => 'Status',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'serviceSpec' => 'ServiceSpec',
+        'serviceType' => 'ServiceType',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

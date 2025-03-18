@@ -12,6 +12,7 @@ class CreateNamespaceRequest extends Model
      * @description The instance ID.
      *
      * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -21,7 +22,10 @@ class CreateNamespaceRequest extends Model
     /**
      * @description The name of the manager account that has the rds_superuser permission.
      *
+     * >  You can create an account on the Account Management page of the AnalyticDB for PostgreSQL console or by calling the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) operation.
+     *
      * This parameter is required.
+     *
      * @example testaccount
      *
      * @var string
@@ -32,6 +36,7 @@ class CreateNamespaceRequest extends Model
      * @description The password of the manager account.
      *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -42,6 +47,7 @@ class CreateNamespaceRequest extends Model
      * @description The name of the namespace. After the namespace is created, the system automatically creates an account that has the same name.
      *
      * >  The name must comply with the naming conventions of PostgreSQL objects.
+     *
      * @example mynamespace
      *
      * @var string
@@ -52,6 +58,7 @@ class CreateNamespaceRequest extends Model
      * @description The password of the namespace.
      *
      * This parameter is required.
+     *
      * @example testpassword2
      *
      * @var string
@@ -67,6 +74,7 @@ class CreateNamespaceRequest extends Model
      * @description The region ID of the instance.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -82,19 +90,17 @@ class CreateNamespaceRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'DBInstanceId'           => 'DBInstanceId',
-        'managerAccount'         => 'ManagerAccount',
+        'DBInstanceId' => 'DBInstanceId',
+        'managerAccount' => 'ManagerAccount',
         'managerAccountPassword' => 'ManagerAccountPassword',
-        'namespace'              => 'Namespace',
-        'namespacePassword'      => 'NamespacePassword',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
-        'workspaceId'            => 'WorkspaceId',
+        'namespace' => 'Namespace',
+        'namespacePassword' => 'NamespacePassword',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

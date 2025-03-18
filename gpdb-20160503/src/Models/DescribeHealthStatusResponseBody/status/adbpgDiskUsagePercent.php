@@ -16,6 +16,7 @@ class adbpgDiskUsagePercent extends Model
      *   **healthy**: The instance storage usage is less than 70%.
      *
      * >  The instance storage usage is the average storage usage of all compute nodes.
+     *
      * @example healthy
      *
      * @var string
@@ -26,6 +27,7 @@ class adbpgDiskUsagePercent extends Model
      * @description The metric value of instance storage usage.
      *
      * Unit: %.
+     *
      * @example 1.52
      *
      * @var float
@@ -33,12 +35,10 @@ class adbpgDiskUsagePercent extends Model
     public $value;
     protected $_name = [
         'status' => 'Status',
-        'value'  => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

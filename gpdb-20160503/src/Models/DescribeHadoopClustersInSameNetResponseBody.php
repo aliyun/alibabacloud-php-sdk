@@ -22,13 +22,11 @@ class DescribeHadoopClustersInSameNetResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'clusters'  => 'Clusters',
+        'clusters' => 'Clusters',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,13 +36,11 @@ class CheckServiceLinkedRoleResponseBody extends Model
     public $requestId;
     protected $_name = [
         'hasServiceLinkedRole' => 'HasServiceLinkedRole',
-        'regionId'             => 'RegionId',
-        'requestId'            => 'RequestId',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

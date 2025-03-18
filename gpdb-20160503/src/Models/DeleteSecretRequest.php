@@ -12,6 +12,7 @@ class DeleteSecretRequest extends Model
      * @description The instance ID. You can call the DescribeDBInstances operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      *
      * >
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -27,6 +28,7 @@ class DeleteSecretRequest extends Model
      * @description The region ID of the instance.
      *
      * This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -37,6 +39,7 @@ class DeleteSecretRequest extends Model
      * @description The Alibaba Cloud Resource Name (ARN) of the access credential for the created Data API account. Format: `acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}`.
      *
      * >  You must specify one of the SecretArn and SecretName parameters.
+     *
      * @example acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
      *
      * @var string
@@ -47,6 +50,7 @@ class DeleteSecretRequest extends Model
      * @description The name of the access credential.
      *
      * >  You must specify one of the SecretArn and SecretName parameters.
+     *
      * @example testsecret
      *
      * @var string
@@ -59,16 +63,14 @@ class DeleteSecretRequest extends Model
     public $workspaceId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'ownerId'      => 'OwnerId',
-        'regionId'     => 'RegionId',
-        'secretArn'    => 'SecretArn',
-        'secretName'   => 'SecretName',
-        'workspaceId'  => 'WorkspaceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'secretArn' => 'SecretArn',
+        'secretName' => 'SecretName',
+        'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

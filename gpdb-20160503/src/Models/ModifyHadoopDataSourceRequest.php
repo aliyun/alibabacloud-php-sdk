@@ -12,6 +12,7 @@ class ModifyHadoopDataSourceRequest extends Model
      * @description Instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxx
      *
      * @var string
@@ -46,6 +47,7 @@ class ModifyHadoopDataSourceRequest extends Model
      *   hdfs
      *
      * - hive
+     *
      * @example mysql
      *
      * @var string
@@ -113,7 +115,18 @@ class ModifyHadoopDataSourceRequest extends Model
      * @description The content of the Hadoop mapred-site.xml file. This parameter must be specified when DataSourceType is set to HDFS.
      *
      * @example <?xml version="1.0" ?>
+     * <!-- Created at 2023-08-15 13:53:28.962 -->
+     * <configuration>
+     * <property>
+     * <name>mapreduce.map.speculative</name>
+     * <value>true</value>
+     * </property>
+     * <property>
+     * <name>mapreduce.jobhistory.keytab</name>
+     * <value></value>
+     * </property>
      * </configuration>
+     *
      * @var string
      */
     public $mapReduceConf;
@@ -122,6 +135,7 @@ class ModifyHadoopDataSourceRequest extends Model
      * @description The region ID.
      *
      * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -137,24 +151,22 @@ class ModifyHadoopDataSourceRequest extends Model
      */
     public $yarnConf;
     protected $_name = [
-        'DBInstanceId'          => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'dataSourceDescription' => 'DataSourceDescription',
-        'dataSourceId'          => 'DataSourceId',
-        'dataSourceType'        => 'DataSourceType',
-        'emrInstanceId'         => 'EmrInstanceId',
-        'HDFSConf'              => 'HDFSConf',
-        'hadoopCoreConf'        => 'HadoopCoreConf',
-        'hadoopCreateType'      => 'HadoopCreateType',
-        'hadoopHostsAddress'    => 'HadoopHostsAddress',
-        'hiveConf'              => 'HiveConf',
-        'mapReduceConf'         => 'MapReduceConf',
-        'regionId'              => 'RegionId',
-        'yarnConf'              => 'YarnConf',
+        'dataSourceId' => 'DataSourceId',
+        'dataSourceType' => 'DataSourceType',
+        'emrInstanceId' => 'EmrInstanceId',
+        'HDFSConf' => 'HDFSConf',
+        'hadoopCoreConf' => 'HadoopCoreConf',
+        'hadoopCreateType' => 'HadoopCreateType',
+        'hadoopHostsAddress' => 'HadoopHostsAddress',
+        'hiveConf' => 'HiveConf',
+        'mapReduceConf' => 'MapReduceConf',
+        'regionId' => 'RegionId',
+        'yarnConf' => 'YarnConf',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

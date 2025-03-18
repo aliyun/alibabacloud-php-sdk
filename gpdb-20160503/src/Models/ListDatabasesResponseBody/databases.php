@@ -16,9 +16,7 @@ class databases extends Model
         'databases' => 'Databases',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

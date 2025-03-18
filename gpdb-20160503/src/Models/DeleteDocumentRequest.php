@@ -10,8 +10,6 @@ class DeleteDocumentRequest extends Model
 {
     /**
      * @description Document collection name.
-     *
-     *
      * This parameter is required.
      * @example document
      *
@@ -22,7 +20,10 @@ class DeleteDocumentRequest extends Model
     /**
      * @description Instance ID.
      *
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -32,7 +33,10 @@ class DeleteDocumentRequest extends Model
     /**
      * @description File name.
      *
+     * > The name of an uploaded file. You can query the list of files using the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) API.
+     *
      * This parameter is required.
+     *
      * @example music.txt
      *
      * @var string
@@ -43,6 +47,7 @@ class DeleteDocumentRequest extends Model
      * @description Namespace, default is public.
      *
      * > You can create a namespace using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list of namespaces using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
+     *
      * @example mynamespace
      *
      * @var string
@@ -52,7 +57,10 @@ class DeleteDocumentRequest extends Model
     /**
      * @description Password for the namespace.
      *
+     * > This value is specified in the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API.
+     *
      * This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -68,24 +76,23 @@ class DeleteDocumentRequest extends Model
      * @description Region ID where the instance is located.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'collection'        => 'Collection',
-        'DBInstanceId'      => 'DBInstanceId',
-        'fileName'          => 'FileName',
-        'namespace'         => 'Namespace',
+        'collection' => 'Collection',
+        'DBInstanceId' => 'DBInstanceId',
+        'fileName' => 'FileName',
+        'namespace' => 'Namespace',
         'namespacePassword' => 'NamespacePassword',
-        'ownerId'           => 'OwnerId',
-        'regionId'          => 'RegionId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

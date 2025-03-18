@@ -11,7 +11,10 @@ class SetDataShareInstanceShrinkRequest extends Model
     /**
      * @description The ID of the AnalyticDB for PostgreSQL instance in Serverless mode.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @var string
      */
     public $instanceListShrink;
@@ -23,6 +26,7 @@ class SetDataShareInstanceShrinkRequest extends Model
      *   **remove**: disables data sharing.
      *
      * This parameter is required.
+     *
      * @example add
      *
      * @var string
@@ -37,7 +41,10 @@ class SetDataShareInstanceShrinkRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -45,14 +52,12 @@ class SetDataShareInstanceShrinkRequest extends Model
     public $regionId;
     protected $_name = [
         'instanceListShrink' => 'InstanceList',
-        'operationType'      => 'OperationType',
-        'ownerId'            => 'OwnerId',
-        'regionId'           => 'RegionId',
+        'operationType' => 'OperationType',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

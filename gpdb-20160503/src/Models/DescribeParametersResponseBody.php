@@ -26,12 +26,10 @@ class DescribeParametersResponseBody extends Model
     public $requestId;
     protected $_name = [
         'parameters' => 'Parameters',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeParametersResponseBody extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Parameters'] as $item) {
                     $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }

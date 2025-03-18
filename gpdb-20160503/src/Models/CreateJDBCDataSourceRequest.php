@@ -12,6 +12,7 @@ class CreateJDBCDataSourceRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-xxxxxxx
      *
      * @var string
@@ -81,19 +82,17 @@ class CreateJDBCDataSourceRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'DBInstanceId'          => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'dataSourceDescription' => 'DataSourceDescription',
-        'dataSourceName'        => 'DataSourceName',
-        'dataSourceType'        => 'DataSourceType',
-        'JDBCConnectionString'  => 'JDBCConnectionString',
-        'JDBCPassword'          => 'JDBCPassword',
-        'JDBCUserName'          => 'JDBCUserName',
-        'regionId'              => 'RegionId',
+        'dataSourceName' => 'DataSourceName',
+        'dataSourceType' => 'DataSourceType',
+        'JDBCConnectionString' => 'JDBCConnectionString',
+        'JDBCPassword' => 'JDBCPassword',
+        'JDBCUserName' => 'JDBCUserName',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

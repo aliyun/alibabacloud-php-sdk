@@ -82,19 +82,17 @@ class ListCollectionsResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'collections'  => 'Collections',
-        'count'        => 'Count',
+        'collections' => 'Collections',
+        'count' => 'Count',
         'DBInstanceId' => 'DBInstanceId',
-        'message'      => 'Message',
-        'namespace'    => 'Namespace',
-        'regionId'     => 'RegionId',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
+        'message' => 'Message',
+        'namespace' => 'Namespace',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

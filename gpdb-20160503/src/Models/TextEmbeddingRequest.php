@@ -44,15 +44,13 @@ class TextEmbeddingRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'input'        => 'Input',
-        'model'        => 'Model',
-        'ownerId'      => 'OwnerId',
-        'regionId'     => 'RegionId',
+        'input' => 'Input',
+        'model' => 'Model',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

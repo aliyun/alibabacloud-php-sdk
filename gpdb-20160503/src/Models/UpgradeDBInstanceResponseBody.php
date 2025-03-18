@@ -36,13 +36,11 @@ class UpgradeDBInstanceResponseBody extends Model
     public $requestId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'orderId'      => 'OrderId',
-        'requestId'    => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -53,15 +53,13 @@ class DescribeSQLLogCountResponseBody extends Model
     public $startTime;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'endTime'     => 'EndTime',
-        'items'       => 'Items',
-        'requestId'   => 'RequestId',
-        'startTime'   => 'StartTime',
+        'endTime' => 'EndTime',
+        'items' => 'Items',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +106,7 @@ class DescribeSQLLogCountResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Items'] as $item) {
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }

@@ -11,7 +11,10 @@ class UnbindDBResourceGroupWithRoleRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -27,6 +30,7 @@ class UnbindDBResourceGroupWithRoleRequest extends Model
      * @description The name of the resource group.
      *
      * This parameter is required.
+     *
      * @example testgroup
      *
      * @var string
@@ -37,19 +41,18 @@ class UnbindDBResourceGroupWithRoleRequest extends Model
      * @description The roles.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $roleList;
     protected $_name = [
-        'DBInstanceId'      => 'DBInstanceId',
-        'ownerId'           => 'OwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
         'resourceGroupName' => 'ResourceGroupName',
-        'roleList'          => 'RoleList',
+        'roleList' => 'RoleList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

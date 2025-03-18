@@ -21,6 +21,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
      * @description The endpoint prefix of the instance.
      *
      * This parameter is required.
+     *
      * @example gp-test
      *
      * @var string
@@ -31,6 +32,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
      * @description The current endpoint of the instance.
      *
      * This parameter is required.
+     *
      * @example gp-t4n2qg19bnn98****-master.gpdb.rds.aliyuncs.com
      *
      * @var string
@@ -41,6 +43,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example gp-t4n2qg19bnn98****
      *
      * @var string
@@ -51,22 +54,21 @@ class ModifyDBInstanceConnectionStringRequest extends Model
      * @description The port number. Example: 5432.
      *
      * This parameter is required.
+     *
      * @example 5432
      *
      * @var string
      */
     public $port;
     protected $_name = [
-        'clientToken'             => 'ClientToken',
-        'connectionStringPrefix'  => 'ConnectionStringPrefix',
+        'clientToken' => 'ClientToken',
+        'connectionStringPrefix' => 'ConnectionStringPrefix',
         'currentConnectionString' => 'CurrentConnectionString',
-        'DBInstanceId'            => 'DBInstanceId',
-        'port'                    => 'Port',
+        'DBInstanceId' => 'DBInstanceId',
+        'port' => 'Port',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

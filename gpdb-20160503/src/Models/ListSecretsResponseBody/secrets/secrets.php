@@ -71,18 +71,16 @@ class secrets extends Model
      */
     public $username;
     protected $_name = [
-        'accountId'    => 'AccountId',
+        'accountId' => 'AccountId',
         'DBInstanceId' => 'DBInstanceId',
-        'description'  => 'Description',
-        'regionId'     => 'RegionId',
-        'secretArn'    => 'SecretArn',
-        'secretName'   => 'SecretName',
-        'username'     => 'Username',
+        'description' => 'Description',
+        'regionId' => 'RegionId',
+        'secretArn' => 'SecretArn',
+        'secretName' => 'SecretName',
+        'username' => 'Username',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

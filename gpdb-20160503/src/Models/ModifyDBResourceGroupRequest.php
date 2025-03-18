@@ -12,7 +12,10 @@ class ModifyDBResourceGroupRequest extends Model
     /**
      * @description The instance ID.
      *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     *
      * This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -28,18 +31,17 @@ class ModifyDBResourceGroupRequest extends Model
      * @description The information about the resource group.
      *
      * This parameter is required.
+     *
      * @var resourceGroupItems[]
      */
     public $resourceGroupItems;
     protected $_name = [
-        'DBInstanceId'       => 'DBInstanceId',
-        'ownerId'            => 'OwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
         'resourceGroupItems' => 'ResourceGroupItems',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -80,7 +82,7 @@ class ModifyDBResourceGroupRequest extends Model
         if (isset($map['ResourceGroupItems'])) {
             if (!empty($map['ResourceGroupItems'])) {
                 $model->resourceGroupItems = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['ResourceGroupItems'] as $item) {
                     $model->resourceGroupItems[$n++] = null !== $item ? resourceGroupItems::fromMap($item) : $item;
                 }
