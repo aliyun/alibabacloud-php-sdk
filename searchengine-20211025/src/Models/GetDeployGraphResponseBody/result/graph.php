@@ -54,17 +54,15 @@ class graph extends Model
      */
     public $zoneMetas;
     protected $_name = [
-        'indexMetas'         => 'indexMetas',
-        'onlineMaster'       => 'onlineMaster',
+        'indexMetas' => 'indexMetas',
+        'onlineMaster' => 'onlineMaster',
         'tableIndexRelation' => 'tableIndexRelation',
-        'tableMetas'         => 'tableMetas',
-        'zoneIndexRelation'  => 'zoneIndexRelation',
-        'zoneMetas'          => 'zoneMetas',
+        'tableMetas' => 'tableMetas',
+        'zoneIndexRelation' => 'zoneIndexRelation',
+        'zoneMetas' => 'zoneMetas',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -126,7 +124,7 @@ class graph extends Model
         if (isset($map['indexMetas'])) {
             if (!empty($map['indexMetas'])) {
                 $model->indexMetas = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['indexMetas'] as $item) {
                     $model->indexMetas[$n++] = null !== $item ? indexMetas::fromMap($item) : $item;
                 }
@@ -135,7 +133,7 @@ class graph extends Model
         if (isset($map['onlineMaster'])) {
             if (!empty($map['onlineMaster'])) {
                 $model->onlineMaster = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['onlineMaster'] as $item) {
                     $model->onlineMaster[$n++] = null !== $item ? onlineMaster::fromMap($item) : $item;
                 }
@@ -147,7 +145,7 @@ class graph extends Model
         if (isset($map['tableMetas'])) {
             if (!empty($map['tableMetas'])) {
                 $model->tableMetas = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['tableMetas'] as $item) {
                     $model->tableMetas[$n++] = null !== $item ? tableMetas::fromMap($item) : $item;
                 }
@@ -159,7 +157,7 @@ class graph extends Model
         if (isset($map['zoneMetas'])) {
             if (!empty($map['zoneMetas'])) {
                 $model->zoneMetas = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['zoneMetas'] as $item) {
                     $model->zoneMetas[$n++] = null !== $item ? zoneMetas::fromMap($item) : $item;
                 }

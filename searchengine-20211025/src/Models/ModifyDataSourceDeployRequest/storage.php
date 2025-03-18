@@ -113,24 +113,22 @@ class storage extends Model
      */
     public $tag;
     protected $_name = [
-        'accessKey'    => 'accessKey',
+        'accessKey' => 'accessKey',
         'accessSecret' => 'accessSecret',
-        'bucket'       => 'bucket',
-        'catalog'      => 'catalog',
-        'database'     => 'database',
-        'endpoint'     => 'endpoint',
-        'namespace'    => 'namespace',
-        'ossPath'      => 'ossPath',
-        'partition'    => 'partition',
-        'path'         => 'path',
-        'project'      => 'project',
-        'table'        => 'table',
-        'tag'          => 'tag',
+        'bucket' => 'bucket',
+        'catalog' => 'catalog',
+        'database' => 'database',
+        'endpoint' => 'endpoint',
+        'namespace' => 'namespace',
+        'ossPath' => 'ossPath',
+        'partition' => 'partition',
+        'path' => 'path',
+        'project' => 'project',
+        'table' => 'table',
+        'tag' => 'tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

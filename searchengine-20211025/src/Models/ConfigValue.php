@@ -25,13 +25,11 @@ class ConfigValue extends Model
      */
     public $files;
     protected $_name = [
-        'desc'  => 'desc',
+        'desc' => 'desc',
         'files' => 'files',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class ConfigValue extends Model
         if (isset($map['files'])) {
             if (!empty($map['files'])) {
                 $model->files = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['files'] as $item) {
                     $model->files[$n++] = null !== $item ? files::fromMap($item) : $item;
                 }

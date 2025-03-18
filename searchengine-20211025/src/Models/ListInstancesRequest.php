@@ -90,22 +90,20 @@ class ListInstancesRequest extends Model
      */
     public $tags;
     protected $_name = [
-        'catalog'         => 'catalog',
-        'dataSourceType'  => 'dataSourceType',
-        'database'        => 'database',
-        'description'     => 'description',
-        'edition'         => 'edition',
-        'instanceId'      => 'instanceId',
-        'pageNumber'      => 'pageNumber',
-        'pageSize'        => 'pageSize',
+        'catalog' => 'catalog',
+        'dataSourceType' => 'dataSourceType',
+        'database' => 'database',
+        'description' => 'description',
+        'edition' => 'edition',
+        'instanceId' => 'instanceId',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
         'resourceGroupId' => 'resourceGroupId',
-        'table'           => 'table',
-        'tags'            => 'tags',
+        'table' => 'table',
+        'tags' => 'tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -194,7 +192,7 @@ class ListInstancesRequest extends Model
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

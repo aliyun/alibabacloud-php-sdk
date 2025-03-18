@@ -35,15 +35,13 @@ class ListTagResourcesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'nextToken'    => 'nextToken',
-        'resourceId'   => 'resourceId',
+        'nextToken' => 'nextToken',
+        'resourceId' => 'resourceId',
         'resourceType' => 'resourceType',
-        'tag'          => 'tag',
+        'tag' => 'tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class ListTagResourcesRequest extends Model
         if (isset($map['tag'])) {
             if (!empty($map['tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

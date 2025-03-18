@@ -60,17 +60,15 @@ class result extends Model
      */
     public $type;
     protected $_name = [
-        'domain'      => 'domain',
-        'indexes'     => 'indexes',
+        'domain' => 'domain',
+        'indexes' => 'indexes',
         'lastFulTime' => 'lastFulTime',
-        'name'        => 'name',
-        'status'      => 'status',
-        'type'        => 'type',
+        'name' => 'name',
+        'status' => 'status',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

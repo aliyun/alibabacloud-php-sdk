@@ -36,15 +36,13 @@ class UntagResourcesShrinkRequest extends Model
      */
     public $tagKeyShrink;
     protected $_name = [
-        'all'              => 'all',
+        'all' => 'all',
         'resourceIdShrink' => 'resourceId',
-        'resourceType'     => 'resourceType',
-        'tagKeyShrink'     => 'tagKey',
+        'resourceType' => 'resourceType',
+        'tagKeyShrink' => 'tagKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

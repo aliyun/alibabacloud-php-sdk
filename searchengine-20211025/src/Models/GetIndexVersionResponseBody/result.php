@@ -25,13 +25,11 @@ class result extends Model
      */
     public $indexVersions;
     protected $_name = [
-        'cluster'       => 'cluster',
+        'cluster' => 'cluster',
         'indexVersions' => 'indexVersions',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class result extends Model
         if (isset($map['indexVersions'])) {
             if (!empty($map['indexVersions'])) {
                 $model->indexVersions = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['indexVersions'] as $item) {
                     $model->indexVersions[$n++] = null !== $item ? indexVersions::fromMap($item) : $item;
                 }

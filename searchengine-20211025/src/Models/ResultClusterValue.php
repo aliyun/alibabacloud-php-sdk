@@ -30,9 +30,7 @@ class ResultClusterValue extends Model
         'mergeParallelNum' => 'mergeParallelNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

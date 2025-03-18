@@ -28,20 +28,19 @@ class ModifyAdvanceConfigFileRequest extends Model
      * @description The name of the file.
      *
      * This parameter is required.
+     *
      * @example /qrs.json
      *
      * @var string
      */
     public $fileName;
     protected $_name = [
-        'content'   => 'content',
+        'content' => 'content',
         'variables' => 'variables',
-        'fileName'  => 'fileName',
+        'fileName' => 'fileName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

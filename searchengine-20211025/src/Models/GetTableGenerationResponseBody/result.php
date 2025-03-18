@@ -27,12 +27,10 @@ class result extends Model
     public $status;
     protected $_name = [
         'generationId' => 'generationId',
-        'status'       => 'status',
+        'status' => 'status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

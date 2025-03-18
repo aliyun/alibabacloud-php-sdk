@@ -63,16 +63,14 @@ class tableMetas extends Model
     public $type;
     protected $_name = [
         'buildDeployId' => 'buildDeployId',
-        'domainName'    => 'domainName',
-        'name'          => 'name',
+        'domainName' => 'domainName',
+        'name' => 'name',
         'tableDeployId' => 'tableDeployId',
-        'tag'           => 'tag',
-        'type'          => 'type',
+        'tag' => 'tag',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

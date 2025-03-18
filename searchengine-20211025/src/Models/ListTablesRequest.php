@@ -20,9 +20,7 @@ class ListTablesRequest extends Model
         'newMode' => 'newMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

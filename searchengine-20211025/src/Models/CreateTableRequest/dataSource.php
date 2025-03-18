@@ -44,14 +44,12 @@ class dataSource extends Model
     public $type;
     protected $_name = [
         'autoBuildIndex' => 'autoBuildIndex',
-        'config'         => 'config',
-        'dataTimeSec'    => 'dataTimeSec',
-        'type'           => 'type',
+        'config' => 'config',
+        'dataTimeSec' => 'dataTimeSec',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

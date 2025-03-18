@@ -20,9 +20,7 @@ class UpdateSqlInstanceContentRequest extends Model
         'content' => 'content',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -45,14 +45,12 @@ class serviceStatus extends Model
     public $totalSize;
     protected $_name = [
         'donePercent' => 'donePercent',
-        'doneSize'    => 'doneSize',
-        'name'        => 'name',
-        'totalSize'   => 'totalSize',
+        'doneSize' => 'doneSize',
+        'name' => 'name',
+        'totalSize' => 'totalSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

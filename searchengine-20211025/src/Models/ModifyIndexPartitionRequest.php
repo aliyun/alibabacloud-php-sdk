@@ -44,14 +44,12 @@ class ModifyIndexPartitionRequest extends Model
     public $indexInfos;
     protected $_name = [
         'dataSourceName' => 'dataSourceName',
-        'domainName'     => 'domainName',
-        'generation'     => 'generation',
-        'indexInfos'     => 'indexInfos',
+        'domainName' => 'domainName',
+        'generation' => 'generation',
+        'indexInfos' => 'indexInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class ModifyIndexPartitionRequest extends Model
         if (isset($map['indexInfos'])) {
             if (!empty($map['indexInfos'])) {
                 $model->indexInfos = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['indexInfos'] as $item) {
                     $model->indexInfos[$n++] = null !== $item ? indexInfos::fromMap($item) : $item;
                 }

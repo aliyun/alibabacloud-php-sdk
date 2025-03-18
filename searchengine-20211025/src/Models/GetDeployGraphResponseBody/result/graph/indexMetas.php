@@ -62,17 +62,15 @@ class indexMetas extends Model
      */
     public $zoneName;
     protected $_name = [
-        'domainName'    => 'domainName',
-        'name'          => 'name',
+        'domainName' => 'domainName',
+        'name' => 'name',
         'tableDeployId' => 'tableDeployId',
-        'tableName'     => 'tableName',
-        'tag'           => 'tag',
-        'zoneName'      => 'zoneName',
+        'tableName' => 'tableName',
+        'tag' => 'tag',
+        'zoneName' => 'zoneName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

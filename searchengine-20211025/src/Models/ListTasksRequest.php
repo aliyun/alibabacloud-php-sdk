@@ -26,13 +26,11 @@ class ListTasksRequest extends Model
      */
     public $start;
     protected $_name = [
-        'end'   => 'end',
+        'end' => 'end',
         'start' => 'start',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

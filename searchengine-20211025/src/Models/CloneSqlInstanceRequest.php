@@ -26,13 +26,11 @@ class CloneSqlInstanceRequest extends Model
      */
     public $targetFolderId;
     protected $_name = [
-        'name'           => 'name',
+        'name' => 'name',
         'targetFolderId' => 'targetFolderId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

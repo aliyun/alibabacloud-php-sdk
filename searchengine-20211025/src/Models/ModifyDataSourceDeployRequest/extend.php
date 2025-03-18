@@ -42,13 +42,11 @@ class extend extends Model
     protected $_name = [
         'hdfs' => 'hdfs',
         'odps' => 'odps',
-        'oss'  => 'oss',
+        'oss' => 'oss',
         'saro' => 'saro',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

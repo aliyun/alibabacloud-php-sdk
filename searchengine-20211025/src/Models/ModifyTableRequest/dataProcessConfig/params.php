@@ -35,13 +35,11 @@ class params extends Model
     public $vectorModel;
     protected $_name = [
         'srcFieldConfig' => 'srcFieldConfig',
-        'vectorModal'    => 'vectorModal',
-        'vectorModel'    => 'vectorModel',
+        'vectorModal' => 'vectorModal',
+        'vectorModel' => 'vectorModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

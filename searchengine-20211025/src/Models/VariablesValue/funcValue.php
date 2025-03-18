@@ -27,12 +27,10 @@ class funcValue extends Model
     public $template;
     protected $_name = [
         'funcClassName' => 'funcClassName',
-        'template'      => 'template',
+        'template' => 'template',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

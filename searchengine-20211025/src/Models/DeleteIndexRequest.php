@@ -12,6 +12,7 @@ class DeleteIndexRequest extends Model
      * @description The data source.
      *
      * This parameter is required.
+     *
      * @example ha-cn-pl32rf0js04_test
      *
      * @var string
@@ -27,13 +28,11 @@ class DeleteIndexRequest extends Model
      */
     public $deleteDataSource;
     protected $_name = [
-        'dataSource'       => 'dataSource',
+        'dataSource' => 'dataSource',
         'deleteDataSource' => 'deleteDataSource',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

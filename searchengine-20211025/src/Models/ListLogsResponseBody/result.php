@@ -24,13 +24,11 @@ class result extends Model
      */
     public $totalCount;
     protected $_name = [
-        'result'     => 'result',
+        'result' => 'result',
         'totalCount' => 'totalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

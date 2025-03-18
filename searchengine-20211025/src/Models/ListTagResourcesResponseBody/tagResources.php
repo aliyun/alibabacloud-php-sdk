@@ -36,15 +36,13 @@ class tagResources extends Model
      */
     public $tagValue;
     protected $_name = [
-        'resourceId'   => 'resourceId',
+        'resourceId' => 'resourceId',
         'resourceType' => 'resourceType',
-        'tagKey'       => 'tagKey',
-        'tagValue'     => 'tagValue',
+        'tagKey' => 'tagKey',
+        'tagValue' => 'tagValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -64,19 +64,17 @@ class sqlInstances extends Model
      */
     public $type;
     protected $_name = [
-        'children'   => 'children',
-        'id'         => 'id',
+        'children' => 'children',
+        'id' => 'id',
         'instanceId' => 'instanceId',
-        'isDir'      => 'isDir',
-        'name'       => 'name',
-        'parent'     => 'parent',
+        'isDir' => 'isDir',
+        'name' => 'name',
+        'parent' => 'parent',
         'templateId' => 'templateId',
-        'type'       => 'type',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

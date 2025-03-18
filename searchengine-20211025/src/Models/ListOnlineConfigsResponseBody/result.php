@@ -26,13 +26,11 @@ class result extends Model
      */
     public $indexName;
     protected $_name = [
-        'config'    => 'config',
+        'config' => 'config',
         'indexName' => 'indexName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

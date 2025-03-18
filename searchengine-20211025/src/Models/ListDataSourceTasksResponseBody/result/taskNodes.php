@@ -45,14 +45,12 @@ class taskNodes extends Model
     public $status;
     protected $_name = [
         'finishDate' => 'finishDate',
-        'index'      => 'index',
-        'name'       => 'name',
-        'status'     => 'status',
+        'index' => 'index',
+        'name' => 'name',
+        'status' => 'status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

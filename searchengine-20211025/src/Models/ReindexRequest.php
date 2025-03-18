@@ -37,12 +37,10 @@ class ReindexRequest extends Model
     protected $_name = [
         'dataTimeSec' => 'dataTimeSec',
         'ossDataPath' => 'ossDataPath',
-        'partition'   => 'partition',
+        'partition' => 'partition',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

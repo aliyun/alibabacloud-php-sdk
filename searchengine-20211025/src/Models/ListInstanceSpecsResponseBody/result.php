@@ -44,15 +44,13 @@ class result extends Model
      */
     public $minDisk;
     protected $_name = [
-        'cpu'     => 'cpu',
+        'cpu' => 'cpu',
         'maxDisk' => 'maxDisk',
-        'mem'     => 'mem',
+        'mem' => 'mem',
         'minDisk' => 'minDisk',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

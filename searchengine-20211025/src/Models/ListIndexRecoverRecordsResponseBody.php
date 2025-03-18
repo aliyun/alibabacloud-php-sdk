@@ -35,14 +35,12 @@ class ListIndexRecoverRecordsResponseBody extends Model
      */
     public $generationId;
     protected $_name = [
-        'desc'         => 'desc',
+        'desc' => 'desc',
         'finishedTime' => 'finishedTime',
         'generationId' => 'generationId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

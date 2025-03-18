@@ -87,20 +87,18 @@ class ModifyClusterOfflineConfigRequest extends Model
      */
     public $pushMode;
     protected $_name = [
-        'buildMode'      => 'buildMode',
-        'config'         => 'config',
+        'buildMode' => 'buildMode',
+        'config' => 'config',
         'dataSourceName' => 'dataSourceName',
         'dataSourceType' => 'dataSourceType',
-        'dataTimeSec'    => 'dataTimeSec',
-        'domain'         => 'domain',
-        'generation'     => 'generation',
-        'partition'      => 'partition',
-        'pushMode'       => 'pushMode',
+        'dataTimeSec' => 'dataTimeSec',
+        'domain' => 'domain',
+        'generation' => 'generation',
+        'partition' => 'partition',
+        'pushMode' => 'pushMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

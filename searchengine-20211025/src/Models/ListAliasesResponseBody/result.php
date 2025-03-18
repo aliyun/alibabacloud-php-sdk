@@ -30,9 +30,7 @@ class result extends Model
         'index' => 'index',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

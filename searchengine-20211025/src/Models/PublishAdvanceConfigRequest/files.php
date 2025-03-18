@@ -61,17 +61,15 @@ class files extends Model
      */
     public $parentFullPath;
     protected $_name = [
-        'config'         => 'config',
-        'dirName'        => 'dirName',
-        'fileName'       => 'fileName',
-        'operateType'    => 'operateType',
-        'ossPath'        => 'ossPath',
+        'config' => 'config',
+        'dirName' => 'dirName',
+        'fileName' => 'fileName',
+        'operateType' => 'operateType',
+        'ossPath' => 'ossPath',
         'parentFullPath' => 'parentFullPath',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

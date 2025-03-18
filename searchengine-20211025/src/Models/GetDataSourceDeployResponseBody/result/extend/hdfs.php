@@ -18,9 +18,7 @@ class hdfs extends Model
         'path' => 'path',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

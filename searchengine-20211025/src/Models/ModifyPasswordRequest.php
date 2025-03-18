@@ -30,9 +30,7 @@ class ModifyPasswordRequest extends Model
         'username' => 'username',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

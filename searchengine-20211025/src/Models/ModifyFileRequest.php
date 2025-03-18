@@ -30,20 +30,19 @@ class ModifyFileRequest extends Model
      * @description The name of the file in the full path
      *
      * This parameter is required.
+     *
      * @example /schemas/generation_schema.json
      *
      * @var string
      */
     public $fileName;
     protected $_name = [
-        'content'   => 'content',
+        'content' => 'content',
         'partition' => 'partition',
-        'fileName'  => 'fileName',
+        'fileName' => 'fileName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

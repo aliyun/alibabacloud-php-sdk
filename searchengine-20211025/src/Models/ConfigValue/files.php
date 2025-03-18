@@ -52,16 +52,14 @@ class files extends Model
      */
     public $dirName;
     protected $_name = [
-        'operateType'    => 'operateType',
+        'operateType' => 'operateType',
         'parentFullPath' => 'parentFullPath',
-        'fileName'       => 'fileName',
-        'config'         => 'config',
-        'dirName'        => 'dirName',
+        'fileName' => 'fileName',
+        'config' => 'config',
+        'dirName' => 'dirName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -55,16 +55,14 @@ class ListAdvanceConfigsRequest extends Model
     public $type;
     protected $_name = [
         'dataSourceName' => 'dataSourceName',
-        'indexName'      => 'indexName',
-        'newMode'        => 'newMode',
-        'pageNumber'     => 'pageNumber',
-        'pageSize'       => 'pageSize',
-        'type'           => 'type',
+        'indexName' => 'indexName',
+        'newMode' => 'newMode',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

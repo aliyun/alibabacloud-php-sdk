@@ -148,27 +148,25 @@ class result extends Model
      */
     public $status;
     protected $_name = [
-        'config'                          => 'config',
-        'configUpdateTime'                => 'configUpdateTime',
-        'createTime'                      => 'createTime',
-        'currentAdvanceConfigVersion'     => 'currentAdvanceConfigVersion',
+        'config' => 'config',
+        'configUpdateTime' => 'configUpdateTime',
+        'createTime' => 'createTime',
+        'currentAdvanceConfigVersion' => 'currentAdvanceConfigVersion',
         'currentOfflineDictConfigVersion' => 'currentOfflineDictConfigVersion',
-        'currentOnlineConfigVersion'      => 'currentOnlineConfigVersion',
+        'currentOnlineConfigVersion' => 'currentOnlineConfigVersion',
         'currentOnlineQueryConfigVersion' => 'currentOnlineQueryConfigVersion',
-        'dataNode'                        => 'dataNode',
-        'description'                     => 'description',
-        'latestAdvanceConfigVersion'      => 'latestAdvanceConfigVersion',
-        'latestOfflineDictConfigVersion'  => 'latestOfflineDictConfigVersion',
-        'latestOnlineConfigVersion'       => 'latestOnlineConfigVersion',
-        'latestOnlineQueryConfigVersion'  => 'latestOnlineQueryConfigVersion',
-        'name'                            => 'name',
-        'queryNode'                       => 'queryNode',
-        'status'                          => 'status',
+        'dataNode' => 'dataNode',
+        'description' => 'description',
+        'latestAdvanceConfigVersion' => 'latestAdvanceConfigVersion',
+        'latestOfflineDictConfigVersion' => 'latestOfflineDictConfigVersion',
+        'latestOnlineConfigVersion' => 'latestOnlineConfigVersion',
+        'latestOnlineQueryConfigVersion' => 'latestOnlineQueryConfigVersion',
+        'name' => 'name',
+        'queryNode' => 'queryNode',
+        'status' => 'status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -54,15 +54,13 @@ class configStatusList extends Model
     public $totalSize;
     protected $_name = [
         'configUpdateTime' => 'configUpdateTime',
-        'donePercent'      => 'donePercent',
-        'doneSize'         => 'doneSize',
-        'name'             => 'name',
-        'totalSize'        => 'totalSize',
+        'donePercent' => 'donePercent',
+        'doneSize' => 'doneSize',
+        'name' => 'name',
+        'totalSize' => 'totalSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

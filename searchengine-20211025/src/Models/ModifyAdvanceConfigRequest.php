@@ -70,18 +70,16 @@ class ModifyAdvanceConfigRequest extends Model
      */
     public $updateTime;
     protected $_name = [
-        'content'     => 'content',
+        'content' => 'content',
         'contentType' => 'contentType',
-        'desc'        => 'desc',
-        'files'       => 'files',
-        'name'        => 'name',
-        'status'      => 'status',
-        'updateTime'  => 'updateTime',
+        'desc' => 'desc',
+        'files' => 'files',
+        'name' => 'name',
+        'status' => 'status',
+        'updateTime' => 'updateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -137,7 +135,7 @@ class ModifyAdvanceConfigRequest extends Model
         if (isset($map['files'])) {
             if (!empty($map['files'])) {
                 $model->files = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['files'] as $item) {
                     $model->files[$n++] = null !== $item ? files::fromMap($item) : $item;
                 }

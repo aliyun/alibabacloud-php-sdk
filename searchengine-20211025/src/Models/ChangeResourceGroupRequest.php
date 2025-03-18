@@ -27,12 +27,10 @@ class ChangeResourceGroupRequest extends Model
     public $resourceType;
     protected $_name = [
         'newResourceGroupId' => 'newResourceGroupId',
-        'resourceType'       => 'resourceType',
+        'resourceType' => 'resourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

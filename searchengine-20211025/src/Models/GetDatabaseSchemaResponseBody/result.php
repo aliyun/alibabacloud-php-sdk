@@ -43,16 +43,14 @@ class result extends Model
      */
     public $indexType;
     protected $_name = [
-        'fieldName'       => 'fieldName',
-        'fieldType'       => 'fieldType',
+        'fieldName' => 'fieldName',
+        'fieldType' => 'fieldType',
         'fieldTypeDetail' => 'fieldTypeDetail',
-        'indexName'       => 'indexName',
-        'indexType'       => 'indexType',
+        'indexName' => 'indexName',
+        'indexType' => 'indexType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

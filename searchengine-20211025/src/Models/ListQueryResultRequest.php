@@ -27,12 +27,10 @@ class ListQueryResultRequest extends Model
     public $sql;
     protected $_name = [
         'query' => 'query',
-        'sql'   => 'sql',
+        'sql' => 'sql',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

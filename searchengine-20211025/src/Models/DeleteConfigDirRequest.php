@@ -12,6 +12,7 @@ class DeleteConfigDirRequest extends Model
      * @description The directory name.
      *
      * This parameter is required.
+     *
      * @example /clusters
      *
      * @var string
@@ -22,19 +23,18 @@ class DeleteConfigDirRequest extends Model
      * @description The path of the parent directory.
      *
      * This parameter is required.
+     *
      * @example /
      *
      * @var string
      */
     public $parentFullPath;
     protected $_name = [
-        'dirName'        => 'dirName',
+        'dirName' => 'dirName',
         'parentFullPath' => 'parentFullPath',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

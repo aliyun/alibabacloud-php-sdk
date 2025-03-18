@@ -106,21 +106,19 @@ class result extends Model
     public $user;
     protected $_name = [
         'extraAttribute' => 'extraAttribute',
-        'field3'         => 'field3',
-        'fsmId'          => 'fsmId',
-        'groupType'      => 'groupType',
-        'name'           => 'name',
-        'status'         => 'status',
-        'tags'           => 'tags',
-        'taskNodes'      => 'taskNodes',
-        'time'           => 'time',
-        'type'           => 'type',
-        'user'           => 'user',
+        'field3' => 'field3',
+        'fsmId' => 'fsmId',
+        'groupType' => 'groupType',
+        'name' => 'name',
+        'status' => 'status',
+        'tags' => 'tags',
+        'taskNodes' => 'taskNodes',
+        'time' => 'time',
+        'type' => 'type',
+        'user' => 'user',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -203,7 +201,7 @@ class result extends Model
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
@@ -212,7 +210,7 @@ class result extends Model
         if (isset($map['taskNodes'])) {
             if (!empty($map['taskNodes'])) {
                 $model->taskNodes = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['taskNodes'] as $item) {
                     $model->taskNodes[$n++] = null !== $item ? taskNodes::fromMap($item) : $item;
                 }

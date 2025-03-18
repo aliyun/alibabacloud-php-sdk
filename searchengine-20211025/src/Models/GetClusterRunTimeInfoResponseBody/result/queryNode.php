@@ -25,12 +25,10 @@ class queryNode extends Model
     public $serviceStatus;
     protected $_name = [
         'configStatusList' => 'configStatusList',
-        'serviceStatus'    => 'serviceStatus',
+        'serviceStatus' => 'serviceStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -62,7 +60,7 @@ class queryNode extends Model
         if (isset($map['configStatusList'])) {
             if (!empty($map['configStatusList'])) {
                 $model->configStatusList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['configStatusList'] as $item) {
                     $model->configStatusList[$n++] = null !== $item ? configStatusList::fromMap($item) : $item;
                 }

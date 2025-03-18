@@ -44,16 +44,14 @@ class CreateInstanceRequest extends Model
      */
     public $tags;
     protected $_name = [
-        'chargeType'      => 'chargeType',
-        'components'      => 'components',
-        'order'           => 'order',
+        'chargeType' => 'chargeType',
+        'components' => 'components',
+        'order' => 'order',
         'resourceGroupId' => 'resourceGroupId',
-        'tags'            => 'tags',
+        'tags' => 'tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,7 +101,7 @@ class CreateInstanceRequest extends Model
         if (isset($map['components'])) {
             if (!empty($map['components'])) {
                 $model->components = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['components'] as $item) {
                     $model->components[$n++] = null !== $item ? components::fromMap($item) : $item;
                 }
@@ -118,7 +116,7 @@ class CreateInstanceRequest extends Model
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

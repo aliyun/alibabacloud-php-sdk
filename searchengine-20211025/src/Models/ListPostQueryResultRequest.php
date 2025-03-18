@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListPostQueryResultRequest extends Model
 {
     /**
-     * @description The instance endpoint.
-     *
-     * @example 127.0.0.1
-     *
-     * @var string
-     */
-    public $address;
-
-    /**
      * @description The request body.
      *
      * @example {}
@@ -35,21 +26,15 @@ class ListPostQueryResultRequest extends Model
      */
     public $type;
     protected $_name = [
-        'address' => 'address',
-        'body'    => 'body',
-        'type'    => 'type',
+        'body' => 'body',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->address) {
-            $res['address'] = $this->address;
-        }
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
@@ -68,9 +53,6 @@ class ListPostQueryResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['address'])) {
-            $model->address = $map['address'];
-        }
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }

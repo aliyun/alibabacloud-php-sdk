@@ -69,18 +69,16 @@ class dataSourceInfo extends Model
      */
     public $type;
     protected $_name = [
-        'autoBuildIndex'        => 'autoBuildIndex',
-        'config'                => 'config',
-        'domain'                => 'domain',
-        'name'                  => 'name',
+        'autoBuildIndex' => 'autoBuildIndex',
+        'config' => 'config',
+        'domain' => 'domain',
+        'name' => 'name',
         'processPartitionCount' => 'processPartitionCount',
-        'saroConfig'            => 'saroConfig',
-        'type'                  => 'type',
+        'saroConfig' => 'saroConfig',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

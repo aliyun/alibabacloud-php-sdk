@@ -36,15 +36,13 @@ class UntagResourcesRequest extends Model
      */
     public $tagKey;
     protected $_name = [
-        'all'          => 'all',
-        'resourceId'   => 'resourceId',
+        'all' => 'all',
+        'resourceId' => 'resourceId',
         'resourceType' => 'resourceType',
-        'tagKey'       => 'tagKey',
+        'tagKey' => 'tagKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

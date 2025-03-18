@@ -33,13 +33,11 @@ class dataNodes extends Model
     public $serviceStatus;
     protected $_name = [
         'configStatusList' => 'configStatusList',
-        'dataStatusList'   => 'dataStatusList',
-        'serviceStatus'    => 'serviceStatus',
+        'dataStatusList' => 'dataStatusList',
+        'serviceStatus' => 'serviceStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -80,7 +78,7 @@ class dataNodes extends Model
         if (isset($map['configStatusList'])) {
             if (!empty($map['configStatusList'])) {
                 $model->configStatusList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['configStatusList'] as $item) {
                     $model->configStatusList[$n++] = null !== $item ? configStatusList::fromMap($item) : $item;
                 }
@@ -89,7 +87,7 @@ class dataNodes extends Model
         if (isset($map['dataStatusList'])) {
             if (!empty($map['dataStatusList'])) {
                 $model->dataStatusList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['dataStatusList'] as $item) {
                     $model->dataStatusList[$n++] = null !== $item ? dataStatusList::fromMap($item) : $item;
                 }

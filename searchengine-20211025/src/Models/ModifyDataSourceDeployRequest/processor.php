@@ -26,13 +26,11 @@ class processor extends Model
      */
     public $resource;
     protected $_name = [
-        'args'     => 'args',
+        'args' => 'args',
         'resource' => 'resource',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

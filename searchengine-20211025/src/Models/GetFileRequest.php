@@ -12,6 +12,7 @@ class GetFileRequest extends Model
      * @description The name of the file in full path
      *
      * This parameter is required.
+     *
      * @example /schemas/automobile_vector_schema.json
      *
      * @var string
@@ -21,9 +22,7 @@ class GetFileRequest extends Model
         'fileName' => 'fileName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

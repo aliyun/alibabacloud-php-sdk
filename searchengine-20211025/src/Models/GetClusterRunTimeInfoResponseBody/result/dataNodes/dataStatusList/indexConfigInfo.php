@@ -27,12 +27,10 @@ class indexConfigInfo extends Model
     public $version;
     protected $_name = [
         'configMetaName' => 'configMetaName',
-        'version'        => 'version',
+        'version' => 'version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -20,13 +20,11 @@ class spec extends Model
      */
     public $searchResource;
     protected $_name = [
-        'qrsResource'    => 'qrsResource',
+        'qrsResource' => 'qrsResource',
         'searchResource' => 'searchResource',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

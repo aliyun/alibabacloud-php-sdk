@@ -42,15 +42,13 @@ class indexVersions extends Model
      */
     public $versions;
     protected $_name = [
-        'buildDeployId'  => 'buildDeployId',
+        'buildDeployId' => 'buildDeployId',
         'currentVersion' => 'currentVersion',
-        'indexName'      => 'indexName',
-        'versions'       => 'versions',
+        'indexName' => 'indexName',
+        'versions' => 'versions',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

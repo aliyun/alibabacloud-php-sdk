@@ -53,16 +53,14 @@ class FilesConfigVariablesValue extends Model
      */
     public $value;
     protected $_name = [
-        'description'   => 'description',
+        'description' => 'description',
         'disableModify' => 'disableModify',
-        'isModify'      => 'isModify',
-        'type'          => 'type',
-        'value'         => 'value',
+        'isModify' => 'isModify',
+        'type' => 'type',
+        'value' => 'value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

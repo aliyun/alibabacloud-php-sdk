@@ -115,24 +115,22 @@ class dataSourceInfo extends Model
      */
     public $type;
     protected $_name = [
-        'autoBuildIndex'        => 'autoBuildIndex',
-        'buildMode'             => 'buildMode',
-        'config'                => 'config',
-        'dataTimeSec'           => 'dataTimeSec',
-        'domain'                => 'domain',
-        'generation'            => 'generation',
-        'name'                  => 'name',
-        'ossDataPath'           => 'ossDataPath',
-        'partition'             => 'partition',
-        'processParallelNum'    => 'processParallelNum',
+        'autoBuildIndex' => 'autoBuildIndex',
+        'buildMode' => 'buildMode',
+        'config' => 'config',
+        'dataTimeSec' => 'dataTimeSec',
+        'domain' => 'domain',
+        'generation' => 'generation',
+        'name' => 'name',
+        'ossDataPath' => 'ossDataPath',
+        'partition' => 'partition',
+        'processParallelNum' => 'processParallelNum',
         'processPartitionCount' => 'processPartitionCount',
-        'saroConfig'            => 'saroConfig',
-        'type'                  => 'type',
+        'saroConfig' => 'saroConfig',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

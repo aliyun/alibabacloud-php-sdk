@@ -50,17 +50,15 @@ class ExecuteSqlInstanceRequest extends Model
     public $staticParam;
     protected $_name = [
         'combineParam' => 'combineParam',
-        'content'      => 'content',
-        'domain'       => 'domain',
+        'content' => 'content',
+        'domain' => 'domain',
         'dynamicParam' => 'dynamicParam',
-        'kvpair'       => 'kvpair',
-        'params'       => 'params',
-        'staticParam'  => 'staticParam',
+        'kvpair' => 'kvpair',
+        'params' => 'params',
+        'staticParam' => 'staticParam',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

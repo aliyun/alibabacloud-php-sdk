@@ -81,21 +81,19 @@ class result extends Model
      */
     public $vectorIndex;
     protected $_name = [
-        'dataProcessConfig'  => 'dataProcessConfig',
+        'dataProcessConfig' => 'dataProcessConfig',
         'dataProcessorCount' => 'dataProcessorCount',
-        'dataSource'         => 'dataSource',
-        'fieldSchema'        => 'fieldSchema',
-        'name'               => 'name',
-        'partitionCount'     => 'partitionCount',
-        'primaryKey'         => 'primaryKey',
-        'rawSchema'          => 'rawSchema',
-        'status'             => 'status',
-        'vectorIndex'        => 'vectorIndex',
+        'dataSource' => 'dataSource',
+        'fieldSchema' => 'fieldSchema',
+        'name' => 'name',
+        'partitionCount' => 'partitionCount',
+        'primaryKey' => 'primaryKey',
+        'rawSchema' => 'rawSchema',
+        'status' => 'status',
+        'vectorIndex' => 'vectorIndex',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -157,7 +155,7 @@ class result extends Model
         if (isset($map['dataProcessConfig'])) {
             if (!empty($map['dataProcessConfig'])) {
                 $model->dataProcessConfig = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['dataProcessConfig'] as $item) {
                     $model->dataProcessConfig[$n++] = null !== $item ? dataProcessConfig::fromMap($item) : $item;
                 }
@@ -190,7 +188,7 @@ class result extends Model
         if (isset($map['vectorIndex'])) {
             if (!empty($map['vectorIndex'])) {
                 $model->vectorIndex = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['vectorIndex'] as $item) {
                     $model->vectorIndex[$n++] = null !== $item ? vectorIndex::fromMap($item) : $item;
                 }

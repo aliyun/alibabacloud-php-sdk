@@ -35,14 +35,12 @@ class CreateConfigFileRequest extends Model
      */
     public $parentFullPath;
     protected $_name = [
-        'fileName'       => 'fileName',
-        'ossPath'        => 'ossPath',
+        'fileName' => 'fileName',
+        'ossPath' => 'ossPath',
         'parentFullPath' => 'parentFullPath',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

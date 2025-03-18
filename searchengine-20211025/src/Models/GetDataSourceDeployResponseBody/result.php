@@ -46,15 +46,13 @@ class result extends Model
     public $swift;
     protected $_name = [
         'autoBuildIndex' => 'autoBuildIndex',
-        'extend'         => 'extend',
-        'processor'      => 'processor',
-        'storage'        => 'storage',
-        'swift'          => 'swift',
+        'extend' => 'extend',
+        'processor' => 'processor',
+        'storage' => 'storage',
+        'swift' => 'swift',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

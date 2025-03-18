@@ -35,13 +35,11 @@ class dataSource extends Model
     public $dataTimeSec;
     protected $_name = [
         'autoBuildIndex' => 'autoBuildIndex',
-        'config'         => 'config',
-        'dataTimeSec'    => 'dataTimeSec',
+        'config' => 'config',
+        'dataTimeSec' => 'dataTimeSec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,6 +17,7 @@ class ListInstanceSpecsRequest extends Model
      *   cluster: cluster
      *
      * This parameter is required.
+     *
      * @example search
      *
      * @var string
@@ -26,9 +27,7 @@ class ListInstanceSpecsRequest extends Model
         'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

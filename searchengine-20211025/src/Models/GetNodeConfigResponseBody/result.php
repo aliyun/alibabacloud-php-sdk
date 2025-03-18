@@ -62,17 +62,15 @@ class result extends Model
      */
     public $published;
     protected $_name = [
-        'active'              => 'active',
+        'active' => 'active',
         'dataDuplicateNumber' => 'dataDuplicateNumber',
-        'dataFragmentNumber'  => 'dataFragmentNumber',
-        'flowRatio'           => 'flowRatio',
-        'minServicePercent'   => 'minServicePercent',
-        'published'           => 'published',
+        'dataFragmentNumber' => 'dataFragmentNumber',
+        'flowRatio' => 'flowRatio',
+        'minServicePercent' => 'minServicePercent',
+        'published' => 'published',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

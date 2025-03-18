@@ -35,14 +35,12 @@ class indexInfos extends Model
      */
     public $partitionCount;
     protected $_name = [
-        'indexName'      => 'indexName',
-        'parallelNum'    => 'parallelNum',
+        'indexName' => 'indexName',
+        'parallelNum' => 'parallelNum',
         'partitionCount' => 'partitionCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

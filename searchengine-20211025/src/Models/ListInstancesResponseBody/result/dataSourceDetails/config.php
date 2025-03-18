@@ -69,22 +69,20 @@ class config extends Model
     public $tag;
     protected $_name = [
         'accessKey' => 'accessKey',
-        'bucket'    => 'bucket',
-        'catalog'   => 'catalog',
-        'database'  => 'database',
-        'endpoint'  => 'endpoint',
+        'bucket' => 'bucket',
+        'catalog' => 'catalog',
+        'database' => 'database',
+        'endpoint' => 'endpoint',
         'namespace' => 'namespace',
-        'ossPath'   => 'ossPath',
+        'ossPath' => 'ossPath',
         'partition' => 'partition',
-        'path'      => 'path',
-        'project'   => 'project',
-        'table'     => 'table',
-        'tag'       => 'tag',
+        'path' => 'path',
+        'project' => 'project',
+        'table' => 'table',
+        'tag' => 'tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

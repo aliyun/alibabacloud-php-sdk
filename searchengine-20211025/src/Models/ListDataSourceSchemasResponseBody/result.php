@@ -70,18 +70,16 @@ class result extends Model
      */
     public $type;
     protected $_name = [
-        'addIndex'   => 'addIndex',
-        'attribute'  => 'attribute',
-        'custom'     => 'custom',
-        'name'       => 'name',
+        'addIndex' => 'addIndex',
+        'attribute' => 'attribute',
+        'custom' => 'custom',
+        'name' => 'name',
         'primaryKey' => 'primaryKey',
-        'summary'    => 'summary',
-        'type'       => 'type',
+        'summary' => 'summary',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -68,17 +68,15 @@ class ModifyDataSourceDeployRequest extends Model
     public $generationId;
     protected $_name = [
         'autoBuildIndex' => 'autoBuildIndex',
-        'extend'         => 'extend',
-        'processor'      => 'processor',
-        'storage'        => 'storage',
-        'swift'          => 'swift',
-        'dryRun'         => 'dryRun',
-        'generationId'   => 'generationId',
+        'extend' => 'extend',
+        'processor' => 'processor',
+        'storage' => 'storage',
+        'swift' => 'swift',
+        'dryRun' => 'dryRun',
+        'generationId' => 'generationId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

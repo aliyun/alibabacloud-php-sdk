@@ -19,9 +19,7 @@ class result extends Model
         'graph' => 'graph',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

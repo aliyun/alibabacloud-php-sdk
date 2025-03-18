@@ -26,13 +26,11 @@ class CreateConfigDirRequest extends Model
      */
     public $parentFullPath;
     protected $_name = [
-        'dirName'        => 'dirName',
+        'dirName' => 'dirName',
         'parentFullPath' => 'parentFullPath',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

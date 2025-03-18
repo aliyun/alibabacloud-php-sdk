@@ -130,25 +130,23 @@ class ModifyIndexRequest extends Model
      */
     public $dryRun;
     protected $_name = [
-        'buildParallelNum'  => 'buildParallelNum',
-        'cluster'           => 'cluster',
+        'buildParallelNum' => 'buildParallelNum',
+        'cluster' => 'cluster',
         'clusterConfigName' => 'clusterConfigName',
-        'config'            => 'config',
-        'content'           => 'content',
-        'dataSource'        => 'dataSource',
-        'dataSourceInfo'    => 'dataSourceInfo',
-        'description'       => 'description',
-        'domain'            => 'domain',
-        'extend'            => 'extend',
-        'mergeParallelNum'  => 'mergeParallelNum',
-        'partition'         => 'partition',
-        'pushMode'          => 'pushMode',
-        'dryRun'            => 'dryRun',
+        'config' => 'config',
+        'content' => 'content',
+        'dataSource' => 'dataSource',
+        'dataSourceInfo' => 'dataSourceInfo',
+        'description' => 'description',
+        'domain' => 'domain',
+        'extend' => 'extend',
+        'mergeParallelNum' => 'mergeParallelNum',
+        'partition' => 'partition',
+        'pushMode' => 'pushMode',
+        'dryRun' => 'dryRun',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -133,26 +133,24 @@ class result extends Model
      */
     public $versions;
     protected $_name = [
-        'content'        => 'content',
-        'createTime'     => 'createTime',
-        'dataSource'     => 'dataSource',
+        'content' => 'content',
+        'createTime' => 'createTime',
+        'dataSource' => 'dataSource',
         'dataSourceInfo' => 'dataSourceInfo',
-        'description'    => 'description',
-        'domain'         => 'domain',
+        'description' => 'description',
+        'domain' => 'domain',
         'fullUpdateTime' => 'fullUpdateTime',
-        'fullVersion'    => 'fullVersion',
-        'incUpdateTime'  => 'incUpdateTime',
-        'indexSize'      => 'indexSize',
-        'indexStatus'    => 'indexStatus',
-        'name'           => 'name',
-        'partition'      => 'partition',
-        'updateTime'     => 'updateTime',
-        'versions'       => 'versions',
+        'fullVersion' => 'fullVersion',
+        'incUpdateTime' => 'incUpdateTime',
+        'indexSize' => 'indexSize',
+        'indexStatus' => 'indexStatus',
+        'name' => 'name',
+        'partition' => 'partition',
+        'updateTime' => 'updateTime',
+        'versions' => 'versions',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -265,7 +263,7 @@ class result extends Model
         if (isset($map['versions'])) {
             if (!empty($map['versions'])) {
                 $model->versions = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['versions'] as $item) {
                     $model->versions[$n++] = null !== $item ? versions::fromMap($item) : $item;
                 }

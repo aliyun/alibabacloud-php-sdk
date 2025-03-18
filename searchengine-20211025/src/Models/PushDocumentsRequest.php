@@ -24,13 +24,11 @@ class PushDocumentsRequest extends Model
      */
     public $pkField;
     protected $_name = [
-        'body'    => 'body',
+        'body' => 'body',
         'pkField' => 'pkField',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

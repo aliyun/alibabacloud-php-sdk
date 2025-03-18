@@ -75,25 +75,24 @@ class ListSchemasRequest extends Model
      * @description The type of the data source. Valid values: odps, swift, saro, oss, and unKnow.
      *
      * This parameter is required.
+     *
      * @example odps
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'accessKey'    => 'accessKey',
+        'accessKey' => 'accessKey',
         'accessSecret' => 'accessSecret',
-        'endpoint'     => 'endpoint',
-        'namespace'    => 'namespace',
-        'partition'    => 'partition',
-        'project'      => 'project',
-        'table'        => 'table',
-        'type'         => 'type',
+        'endpoint' => 'endpoint',
+        'namespace' => 'namespace',
+        'partition' => 'partition',
+        'project' => 'project',
+        'table' => 'table',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

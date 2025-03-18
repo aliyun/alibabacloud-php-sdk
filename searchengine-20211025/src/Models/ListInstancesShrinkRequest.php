@@ -89,22 +89,20 @@ class ListInstancesShrinkRequest extends Model
      */
     public $tagsShrink;
     protected $_name = [
-        'catalog'         => 'catalog',
-        'dataSourceType'  => 'dataSourceType',
-        'database'        => 'database',
-        'description'     => 'description',
-        'edition'         => 'edition',
-        'instanceId'      => 'instanceId',
-        'pageNumber'      => 'pageNumber',
-        'pageSize'        => 'pageSize',
+        'catalog' => 'catalog',
+        'dataSourceType' => 'dataSourceType',
+        'database' => 'database',
+        'description' => 'description',
+        'edition' => 'edition',
+        'instanceId' => 'instanceId',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
         'resourceGroupId' => 'resourceGroupId',
-        'table'           => 'table',
-        'tagsShrink'      => 'tags',
+        'table' => 'table',
+        'tagsShrink' => 'tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -70,17 +70,15 @@ class result extends Model
     public $timestamp;
     protected $_name = [
         'buildDeployId' => 'buildDeployId',
-        'createTime'    => 'createTime',
-        'dataDumpRoot'  => 'dataDumpRoot',
-        'generation'    => 'generation',
-        'partition'     => 'partition',
-        'status'        => 'status',
-        'timestamp'     => 'timestamp',
+        'createTime' => 'createTime',
+        'dataDumpRoot' => 'dataDumpRoot',
+        'generation' => 'generation',
+        'partition' => 'partition',
+        'status' => 'status',
+        'timestamp' => 'timestamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

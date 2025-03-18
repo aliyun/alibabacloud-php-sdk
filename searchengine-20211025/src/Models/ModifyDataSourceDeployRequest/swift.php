@@ -27,12 +27,10 @@ class swift extends Model
     public $zk;
     protected $_name = [
         'topic' => 'topic',
-        'zk'    => 'zk',
+        'zk' => 'zk',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

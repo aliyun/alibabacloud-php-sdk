@@ -23,12 +23,10 @@ class ModifyClusterOnlineConfigRequest extends Model
     public $config;
     protected $_name = [
         'clusters' => 'clusters',
-        'config'   => 'config',
+        'config' => 'config',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListVectorQueryResultRequest extends Model
 {
     /**
-     * @description The instance endpoint.
-     *
-     * @example 127.0.0.1
-     *
-     * @var string
-     */
-    public $address;
-
-    /**
      * @description The request body.
      *
      * @example {}
@@ -25,6 +16,11 @@ class ListVectorQueryResultRequest extends Model
      * @var mixed[]
      */
     public $body;
+
+    /**
+     * @var string
+     */
+    public $path;
 
     /**
      * @description The query type. Valid values: vector, primary_key, and vector_text.
@@ -44,24 +40,22 @@ class ListVectorQueryResultRequest extends Model
      */
     public $vectorQueryType;
     protected $_name = [
-        'address'         => 'address',
-        'body'            => 'body',
-        'queryType'       => 'queryType',
+        'body' => 'body',
+        'path' => 'path',
+        'queryType' => 'queryType',
         'vectorQueryType' => 'vectorQueryType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->address) {
-            $res['address'] = $this->address;
-        }
         if (null !== $this->body) {
             $res['body'] = $this->body;
+        }
+        if (null !== $this->path) {
+            $res['path'] = $this->path;
         }
         if (null !== $this->queryType) {
             $res['queryType'] = $this->queryType;
@@ -81,11 +75,11 @@ class ListVectorQueryResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['address'])) {
-            $model->address = $map['address'];
-        }
         if (isset($map['body'])) {
             $model->body = $map['body'];
+        }
+        if (isset($map['path'])) {
+            $model->path = $map['path'];
         }
         if (isset($map['queryType'])) {
             $model->queryType = $map['queryType'];

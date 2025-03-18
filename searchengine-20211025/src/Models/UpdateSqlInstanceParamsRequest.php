@@ -35,14 +35,12 @@ class UpdateSqlInstanceParamsRequest extends Model
     protected $_name = [
         'combineParam' => 'combineParam',
         'dynamicParam' => 'dynamicParam',
-        'kvpair'       => 'kvpair',
-        'params'       => 'params',
-        'staticParam'  => 'staticParam',
+        'kvpair' => 'kvpair',
+        'params' => 'params',
+        'staticParam' => 'staticParam',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

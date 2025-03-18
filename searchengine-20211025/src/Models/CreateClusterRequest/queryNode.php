@@ -20,9 +20,7 @@ class queryNode extends Model
         'number' => 'number',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

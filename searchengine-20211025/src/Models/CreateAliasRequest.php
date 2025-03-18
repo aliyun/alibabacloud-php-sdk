@@ -35,14 +35,12 @@ class CreateAliasRequest extends Model
      */
     public $newMode;
     protected $_name = [
-        'alias'   => 'alias',
-        'index'   => 'index',
+        'alias' => 'alias',
+        'index' => 'index',
         'newMode' => 'newMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

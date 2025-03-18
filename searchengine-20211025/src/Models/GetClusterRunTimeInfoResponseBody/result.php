@@ -34,13 +34,11 @@ class result extends Model
     public $queryNode;
     protected $_name = [
         'clusterName' => 'clusterName',
-        'dataNodes'   => 'dataNodes',
-        'queryNode'   => 'queryNode',
+        'dataNodes' => 'dataNodes',
+        'queryNode' => 'queryNode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class result extends Model
         if (isset($map['dataNodes'])) {
             if (!empty($map['dataNodes'])) {
                 $model->dataNodes = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['dataNodes'] as $item) {
                     $model->dataNodes[$n++] = null !== $item ? dataNodes::fromMap($item) : $item;
                 }

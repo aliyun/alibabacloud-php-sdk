@@ -36,13 +36,11 @@ class result extends Model
     public $status;
     protected $_name = [
         'indexStatus' => 'indexStatus',
-        'name'        => 'name',
-        'status'      => 'status',
+        'name' => 'name',
+        'status' => 'status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -45,14 +45,12 @@ class onlineMaster extends Model
     public $name;
     protected $_name = [
         'domainName' => 'domainName',
-        'hippoId'    => 'hippoId',
-        'id'         => 'id',
-        'name'       => 'name',
+        'hippoId' => 'hippoId',
+        'id' => 'id',
+        'name' => 'name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

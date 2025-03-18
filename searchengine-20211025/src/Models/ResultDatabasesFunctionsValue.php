@@ -22,13 +22,11 @@ class ResultDatabasesFunctionsValue extends Model
      */
     public $signatures;
     protected $_name = [
-        'name'       => 'name',
+        'name' => 'name',
         'signatures' => 'signatures',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

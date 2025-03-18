@@ -24,14 +24,12 @@ class dataSourceDetails extends Model
      */
     public $type;
     protected $_name = [
-        'config'    => 'config',
+        'config' => 'config',
         'indexName' => 'indexName',
-        'type'      => 'type',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

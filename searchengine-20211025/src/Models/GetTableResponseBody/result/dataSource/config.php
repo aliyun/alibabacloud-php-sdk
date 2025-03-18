@@ -82,21 +82,19 @@ class config extends Model
      */
     public $table;
     protected $_name = [
-        'accessKey'    => 'accessKey',
+        'accessKey' => 'accessKey',
         'accessSecret' => 'accessSecret',
-        'bucket'       => 'bucket',
-        'endpoint'     => 'endpoint',
-        'namespace'    => 'namespace',
-        'ossPath'      => 'ossPath',
-        'partition'    => 'partition',
-        'path'         => 'path',
-        'project'      => 'project',
-        'table'        => 'table',
+        'bucket' => 'bucket',
+        'endpoint' => 'endpoint',
+        'namespace' => 'namespace',
+        'ossPath' => 'ossPath',
+        'partition' => 'partition',
+        'path' => 'path',
+        'project' => 'project',
+        'table' => 'table',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

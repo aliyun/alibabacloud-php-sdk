@@ -18,9 +18,7 @@ class UntagResourcesResponseBody extends Model
         'tequestId' => 'tequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

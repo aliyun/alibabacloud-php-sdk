@@ -45,14 +45,12 @@ class files extends Model
     public $name;
     protected $_name = [
         'fullPathName' => 'fullPathName',
-        'isDir'        => 'isDir',
-        'isTemplate'   => 'isTemplate',
-        'name'         => 'name',
+        'isDir' => 'isDir',
+        'isTemplate' => 'isTemplate',
+        'name' => 'name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -35,14 +35,12 @@ class order extends Model
      */
     public $pricingCycle;
     protected $_name = [
-        'autoRenew'    => 'autoRenew',
-        'duration'     => 'duration',
+        'autoRenew' => 'autoRenew',
+        'duration' => 'duration',
         'pricingCycle' => 'pricingCycle',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

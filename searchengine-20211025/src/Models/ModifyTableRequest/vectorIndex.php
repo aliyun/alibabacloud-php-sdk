@@ -88,20 +88,18 @@ class vectorIndex extends Model
      */
     public $vectorIndexType;
     protected $_name = [
-        'advanceParams'    => 'advanceParams',
-        'dimension'        => 'dimension',
-        'distanceType'     => 'distanceType',
-        'indexName'        => 'indexName',
-        'namespace'        => 'namespace',
+        'advanceParams' => 'advanceParams',
+        'dimension' => 'dimension',
+        'distanceType' => 'distanceType',
+        'indexName' => 'indexName',
+        'namespace' => 'namespace',
         'sparseIndexField' => 'sparseIndexField',
         'sparseValueField' => 'sparseValueField',
-        'vectorField'      => 'vectorField',
-        'vectorIndexType'  => 'vectorIndexType',
+        'vectorField' => 'vectorField',
+        'vectorIndexType' => 'vectorIndexType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,9 +21,7 @@ class ModifyIndexVersionRequest extends Model
         'body' => 'body',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -52,7 +50,7 @@ class ModifyIndexVersionRequest extends Model
         if (isset($map['body'])) {
             if (!empty($map['body'])) {
                 $model->body = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['body'] as $item) {
                     $model->body[$n++] = null !== $item ? body::fromMap($item) : $item;
                 }

@@ -34,15 +34,13 @@ class ListTagResourcesShrinkRequest extends Model
      */
     public $tagShrink;
     protected $_name = [
-        'nextToken'        => 'nextToken',
+        'nextToken' => 'nextToken',
         'resourceIdShrink' => 'resourceId',
-        'resourceType'     => 'resourceType',
-        'tagShrink'        => 'tag',
+        'resourceType' => 'resourceType',
+        'tagShrink' => 'tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

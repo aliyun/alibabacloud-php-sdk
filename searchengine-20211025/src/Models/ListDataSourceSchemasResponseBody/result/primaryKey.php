@@ -36,13 +36,11 @@ class primaryKey extends Model
     public $isPrimaryKeySorted;
     protected $_name = [
         'hasPrimaryKeyAttribute' => 'hasPrimaryKeyAttribute',
-        'isPrimaryKey'           => 'isPrimaryKey',
-        'isPrimaryKeySorted'     => 'isPrimaryKeySorted',
+        'isPrimaryKey' => 'isPrimaryKey',
+        'isPrimaryKeySorted' => 'isPrimaryKeySorted',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

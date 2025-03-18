@@ -32,15 +32,13 @@ class ListIndexesRequest extends Model
      */
     public $table;
     protected $_name = [
-        'catalog'  => 'catalog',
+        'catalog' => 'catalog',
         'database' => 'database',
-        'newMode'  => 'newMode',
-        'table'    => 'table',
+        'newMode' => 'newMode',
+        'table' => 'table',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -69,17 +69,15 @@ class versions extends Model
      */
     public $versionId;
     protected $_name = [
-        'desc'       => 'desc',
-        'files'      => 'files',
-        'name'       => 'name',
-        'status'     => 'status',
+        'desc' => 'desc',
+        'files' => 'files',
+        'name' => 'name',
+        'status' => 'status',
         'updateTime' => 'updateTime',
-        'versionId'  => 'versionId',
+        'versionId' => 'versionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -126,7 +124,7 @@ class versions extends Model
         if (isset($map['files'])) {
             if (!empty($map['files'])) {
                 $model->files = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['files'] as $item) {
                     $model->files[$n++] = null !== $item ? files::fromMap($item) : $item;
                 }

@@ -30,9 +30,7 @@ class saroConfig extends Model
         'tableName' => 'tableName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

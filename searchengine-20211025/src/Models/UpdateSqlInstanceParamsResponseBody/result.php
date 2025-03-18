@@ -90,23 +90,21 @@ class result extends Model
      */
     public $version;
     protected $_name = [
-        'combineParams'     => 'combineParams',
-        'comment'           => 'comment',
-        'content'           => 'content',
-        'dynamicParams'     => 'dynamicParams',
-        'gmtCreate'         => 'gmtCreate',
-        'gmtModified'       => 'gmtModified',
-        'instanceId'        => 'instanceId',
-        'kvpairs'           => 'kvpairs',
+        'combineParams' => 'combineParams',
+        'comment' => 'comment',
+        'content' => 'content',
+        'dynamicParams' => 'dynamicParams',
+        'gmtCreate' => 'gmtCreate',
+        'gmtModified' => 'gmtModified',
+        'instanceId' => 'instanceId',
+        'kvpairs' => 'kvpairs',
         'relatedTemplateId' => 'relatedTemplateId',
-        'staticParams'      => 'staticParams',
-        'templateParams'    => 'templateParams',
-        'version'           => 'version',
+        'staticParams' => 'staticParams',
+        'templateParams' => 'templateParams',
+        'version' => 'version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

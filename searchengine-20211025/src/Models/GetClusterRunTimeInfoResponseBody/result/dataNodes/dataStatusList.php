@@ -144,27 +144,25 @@ class dataStatusList extends Model
      */
     public $totalSize;
     protected $_name = [
-        'advanceConfigInfo'  => 'advanceConfigInfo',
+        'advanceConfigInfo' => 'advanceConfigInfo',
         'deployFailedWorker' => 'deployFailedWorker',
-        'docSize'            => 'docSize',
-        'donePercent'        => 'donePercent',
-        'doneSize'           => 'doneSize',
-        'errorMsg'           => 'errorMsg',
-        'fullUpdateTime'     => 'fullUpdateTime',
-        'fullVersion'        => 'fullVersion',
-        'incUpdateTime'      => 'incUpdateTime',
-        'incVersion'         => 'incVersion',
-        'indexConfigInfo'    => 'indexConfigInfo',
-        'indexSize'          => 'indexSize',
-        'lackDiskWorker'     => 'lackDiskWorker',
-        'lackMemWorker'      => 'lackMemWorker',
-        'name'               => 'name',
-        'totalSize'          => 'totalSize',
+        'docSize' => 'docSize',
+        'donePercent' => 'donePercent',
+        'doneSize' => 'doneSize',
+        'errorMsg' => 'errorMsg',
+        'fullUpdateTime' => 'fullUpdateTime',
+        'fullVersion' => 'fullVersion',
+        'incUpdateTime' => 'incUpdateTime',
+        'incVersion' => 'incVersion',
+        'indexConfigInfo' => 'indexConfigInfo',
+        'indexSize' => 'indexSize',
+        'lackDiskWorker' => 'lackDiskWorker',
+        'lackMemWorker' => 'lackMemWorker',
+        'name' => 'name',
+        'totalSize' => 'totalSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

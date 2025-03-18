@@ -76,19 +76,17 @@ class BuildIndexRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'buildMode'      => 'buildMode',
+        'buildMode' => 'buildMode',
         'dataSourceName' => 'dataSourceName',
         'dataSourceType' => 'dataSourceType',
-        'dataTimeSec'    => 'dataTimeSec',
-        'domain'         => 'domain',
-        'generation'     => 'generation',
-        'partition'      => 'partition',
-        'tag'            => 'tag',
+        'dataTimeSec' => 'dataTimeSec',
+        'domain' => 'domain',
+        'generation' => 'generation',
+        'partition' => 'partition',
+        'tag' => 'tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

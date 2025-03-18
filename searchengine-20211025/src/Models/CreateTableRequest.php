@@ -96,21 +96,19 @@ class CreateTableRequest extends Model
      */
     public $dryRun;
     protected $_name = [
-        'dataProcessConfig'  => 'dataProcessConfig',
+        'dataProcessConfig' => 'dataProcessConfig',
         'dataProcessorCount' => 'dataProcessorCount',
-        'dataSource'         => 'dataSource',
-        'fieldSchema'        => 'fieldSchema',
-        'name'               => 'name',
-        'partitionCount'     => 'partitionCount',
-        'primaryKey'         => 'primaryKey',
-        'rawSchema'          => 'rawSchema',
-        'vectorIndex'        => 'vectorIndex',
-        'dryRun'             => 'dryRun',
+        'dataSource' => 'dataSource',
+        'fieldSchema' => 'fieldSchema',
+        'name' => 'name',
+        'partitionCount' => 'partitionCount',
+        'primaryKey' => 'primaryKey',
+        'rawSchema' => 'rawSchema',
+        'vectorIndex' => 'vectorIndex',
+        'dryRun' => 'dryRun',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -172,7 +170,7 @@ class CreateTableRequest extends Model
         if (isset($map['dataProcessConfig'])) {
             if (!empty($map['dataProcessConfig'])) {
                 $model->dataProcessConfig = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['dataProcessConfig'] as $item) {
                     $model->dataProcessConfig[$n++] = null !== $item ? dataProcessConfig::fromMap($item) : $item;
                 }
@@ -202,7 +200,7 @@ class CreateTableRequest extends Model
         if (isset($map['vectorIndex'])) {
             if (!empty($map['vectorIndex'])) {
                 $model->vectorIndex = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['vectorIndex'] as $item) {
                     $model->vectorIndex[$n++] = null !== $item ? vectorIndex::fromMap($item) : $item;
                 }

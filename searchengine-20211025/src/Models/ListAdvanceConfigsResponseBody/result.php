@@ -97,19 +97,17 @@ class result extends Model
     public $updateTime;
     protected $_name = [
         'advanceConfigType' => 'advanceConfigType',
-        'content'           => 'content',
-        'contentType'       => 'contentType',
-        'creator'           => 'creator',
-        'desc'              => 'desc',
-        'files'             => 'files',
-        'name'              => 'name',
-        'status'            => 'status',
-        'updateTime'        => 'updateTime',
+        'content' => 'content',
+        'contentType' => 'contentType',
+        'creator' => 'creator',
+        'desc' => 'desc',
+        'files' => 'files',
+        'name' => 'name',
+        'status' => 'status',
+        'updateTime' => 'updateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -177,7 +175,7 @@ class result extends Model
         if (isset($map['files'])) {
             if (!empty($map['files'])) {
                 $model->files = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['files'] as $item) {
                     $model->files[$n++] = null !== $item ? files::fromMap($item) : $item;
                 }

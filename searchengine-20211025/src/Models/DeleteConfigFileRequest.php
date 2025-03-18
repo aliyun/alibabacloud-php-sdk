@@ -12,6 +12,7 @@ class DeleteConfigFileRequest extends Model
      * @description The file name.
      *
      * This parameter is required.
+     *
      * @example /schemas/automobile_vector_schema.json
      *
      * @var string
@@ -22,19 +23,18 @@ class DeleteConfigFileRequest extends Model
      * @description The path of the parent directory.
      *
      * This parameter is required.
+     *
      * @example /
      *
      * @var string
      */
     public $parentFullPath;
     protected $_name = [
-        'fileName'       => 'fileName',
+        'fileName' => 'fileName',
         'parentFullPath' => 'parentFullPath',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

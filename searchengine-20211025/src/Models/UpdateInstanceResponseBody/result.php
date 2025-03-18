@@ -107,22 +107,20 @@ class result extends Model
      */
     public $updateTime;
     protected $_name = [
-        'chargeType'      => 'chargeType',
-        'commodityCode'   => 'commodityCode',
-        'createTime'      => 'createTime',
-        'description'     => 'description',
-        'expiredTime'     => 'expiredTime',
-        'inDebt'          => 'inDebt',
-        'instanceId'      => 'instanceId',
-        'lockMode'        => 'lockMode',
+        'chargeType' => 'chargeType',
+        'commodityCode' => 'commodityCode',
+        'createTime' => 'createTime',
+        'description' => 'description',
+        'expiredTime' => 'expiredTime',
+        'inDebt' => 'inDebt',
+        'instanceId' => 'instanceId',
+        'lockMode' => 'lockMode',
         'resourceGroupId' => 'resourceGroupId',
-        'status'          => 'status',
-        'updateTime'      => 'updateTime',
+        'status' => 'status',
+        'updateTime' => 'updateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

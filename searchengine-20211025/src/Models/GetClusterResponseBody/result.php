@@ -112,23 +112,21 @@ class result extends Model
      */
     public $status;
     protected $_name = [
-        'config'                      => 'config',
-        'configUpdateTime'            => 'configUpdateTime',
-        'createTime'                  => 'createTime',
+        'config' => 'config',
+        'configUpdateTime' => 'configUpdateTime',
+        'createTime' => 'createTime',
         'currentAdvanceConfigVersion' => 'currentAdvanceConfigVersion',
-        'currentOnlineConfigVersion'  => 'currentOnlineConfigVersion',
-        'dataNode'                    => 'dataNode',
-        'description'                 => 'description',
-        'latestAdvanceConfigVersion'  => 'latestAdvanceConfigVersion',
-        'latestOnlineConfigVersion'   => 'latestOnlineConfigVersion',
-        'name'                        => 'name',
-        'queryNode'                   => 'queryNode',
-        'status'                      => 'status',
+        'currentOnlineConfigVersion' => 'currentOnlineConfigVersion',
+        'dataNode' => 'dataNode',
+        'description' => 'description',
+        'latestAdvanceConfigVersion' => 'latestAdvanceConfigVersion',
+        'latestOnlineConfigVersion' => 'latestOnlineConfigVersion',
+        'name' => 'name',
+        'queryNode' => 'queryNode',
+        'status' => 'status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

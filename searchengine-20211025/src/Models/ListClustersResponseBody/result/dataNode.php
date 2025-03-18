@@ -35,14 +35,12 @@ class dataNode extends Model
      */
     public $partition;
     protected $_name = [
-        'name'      => 'name',
-        'number'    => 'number',
+        'name' => 'name',
+        'number' => 'number',
         'partition' => 'partition',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

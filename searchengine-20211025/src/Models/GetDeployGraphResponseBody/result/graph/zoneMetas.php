@@ -53,16 +53,14 @@ class zoneMetas extends Model
      */
     public $type;
     protected $_name = [
-        'domainInfo'    => 'domainInfo',
-        'name'          => 'name',
+        'domainInfo' => 'domainInfo',
+        'name' => 'name',
         'suezAdminName' => 'suezAdminName',
-        'tag'           => 'tag',
-        'type'          => 'type',
+        'tag' => 'tag',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

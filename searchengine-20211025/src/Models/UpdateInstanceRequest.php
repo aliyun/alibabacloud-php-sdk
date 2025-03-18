@@ -34,14 +34,12 @@ class UpdateInstanceRequest extends Model
      */
     public $orderType;
     protected $_name = [
-        'components'  => 'components',
+        'components' => 'components',
         'description' => 'description',
-        'orderType'   => 'orderType',
+        'orderType' => 'orderType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class UpdateInstanceRequest extends Model
         if (isset($map['components'])) {
             if (!empty($map['components'])) {
                 $model->components = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['components'] as $item) {
                     $model->components[$n++] = null !== $item ? components::fromMap($item) : $item;
                 }

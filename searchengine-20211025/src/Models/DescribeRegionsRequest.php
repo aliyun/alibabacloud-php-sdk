@@ -20,9 +20,7 @@ class DescribeRegionsRequest extends Model
         'acceptLanguage' => 'acceptLanguage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

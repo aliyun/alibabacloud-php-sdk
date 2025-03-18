@@ -84,6 +84,7 @@ class ModifyNodeConfigRequest extends Model
      * @description The name of the configuration before the modification.
      *
      * This parameter is required.
+     *
      * @example ha-cn-zvp2iv9a401_qrs
      *
      * @var string
@@ -100,27 +101,26 @@ class ModifyNodeConfigRequest extends Model
      *   suggest: a drop-down suggestions model.
      *
      * This parameter is required.
+     *
      * @example " "
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'active'              => 'active',
+        'active' => 'active',
         'dataDuplicateNumber' => 'dataDuplicateNumber',
-        'dataFragmentNumber'  => 'dataFragmentNumber',
-        'flowRatio'           => 'flowRatio',
-        'minServicePercent'   => 'minServicePercent',
-        'published'           => 'published',
-        'clusterName'         => 'clusterName',
-        'dataSourceName'      => 'dataSourceName',
-        'name'                => 'name',
-        'type'                => 'type',
+        'dataFragmentNumber' => 'dataFragmentNumber',
+        'flowRatio' => 'flowRatio',
+        'minServicePercent' => 'minServicePercent',
+        'published' => 'published',
+        'clusterName' => 'clusterName',
+        'dataSourceName' => 'dataSourceName',
+        'name' => 'name',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

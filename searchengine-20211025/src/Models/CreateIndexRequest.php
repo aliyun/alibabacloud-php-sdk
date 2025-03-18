@@ -56,7 +56,18 @@ class CreateIndexRequest extends Model
      * @description The extended content of the field configuration. key specifies the vector field and the field that requires embedding.
      *
      * @example {
+     * "vector":
+     * [
+     * "source_image_vector"
+     * ],
+     * "embeding":
+     * [
+     * "source_image"
+     * ],
+     * "description":
+     * []
      * }
+     *
      * @var mixed[]
      */
     public $extend;
@@ -101,20 +112,18 @@ class CreateIndexRequest extends Model
     public $dryRun;
     protected $_name = [
         'buildParallelNum' => 'buildParallelNum',
-        'content'          => 'content',
-        'dataSource'       => 'dataSource',
-        'dataSourceInfo'   => 'dataSourceInfo',
-        'domain'           => 'domain',
-        'extend'           => 'extend',
+        'content' => 'content',
+        'dataSource' => 'dataSource',
+        'dataSourceInfo' => 'dataSourceInfo',
+        'domain' => 'domain',
+        'extend' => 'extend',
         'mergeParallelNum' => 'mergeParallelNum',
-        'name'             => 'name',
-        'partition'        => 'partition',
-        'dryRun'           => 'dryRun',
+        'name' => 'name',
+        'partition' => 'partition',
+        'dryRun' => 'dryRun',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

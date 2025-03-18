@@ -74,17 +74,15 @@ class VariablesValue extends Model
     public $funcValue;
     protected $_name = [
         'disableModify' => 'disableModify',
-        'isModify'      => 'isModify',
-        'value'         => 'value',
-        'description'   => 'description',
+        'isModify' => 'isModify',
+        'value' => 'value',
+        'description' => 'description',
         'templateValue' => 'templateValue',
-        'type'          => 'type',
-        'funcValue'     => 'funcValue',
+        'type' => 'type',
+        'funcValue' => 'funcValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

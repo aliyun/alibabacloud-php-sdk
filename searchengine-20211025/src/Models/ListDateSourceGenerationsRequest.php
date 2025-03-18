@@ -12,6 +12,7 @@ class ListDateSourceGenerationsRequest extends Model
      * @description The data center where the data source is deployed.
      *
      * This parameter is required.
+     *
      * @example bj_vpc_domain_1
      *
      * @var string
@@ -21,20 +22,20 @@ class ListDateSourceGenerationsRequest extends Model
     /**
      * @description Specifies the index versions to be returned. Valid values:
      *
+     * 1.  true (default): returns the index versions that are complete and not expired.
      * 2.  false: returns all index versions.
+     *
      * @example true
      *
      * @var bool
      */
     public $validStatus;
     protected $_name = [
-        'domainName'  => 'domainName',
+        'domainName' => 'domainName',
         'validStatus' => 'validStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

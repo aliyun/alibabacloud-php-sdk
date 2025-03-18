@@ -39,16 +39,14 @@ class databases extends Model
      */
     public $templates;
     protected $_name = [
-        'database'     => 'database',
-        'functions'    => 'functions',
+        'database' => 'database',
+        'functions' => 'functions',
         'sqlInstances' => 'sqlInstances',
-        'tables'       => 'tables',
-        'templates'    => 'templates',
+        'tables' => 'tables',
+        'templates' => 'templates',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -107,7 +105,7 @@ class databases extends Model
         if (isset($map['sqlInstances'])) {
             if (!empty($map['sqlInstances'])) {
                 $model->sqlInstances = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['sqlInstances'] as $item) {
                     $model->sqlInstances[$n++] = null !== $item ? sqlInstances::fromMap($item) : $item;
                 }
@@ -116,7 +114,7 @@ class databases extends Model
         if (isset($map['tables'])) {
             if (!empty($map['tables'])) {
                 $model->tables = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['tables'] as $item) {
                     $model->tables[$n++] = null !== $item ? tables::fromMap($item) : $item;
                 }
@@ -125,7 +123,7 @@ class databases extends Model
         if (isset($map['templates'])) {
             if (!empty($map['templates'])) {
                 $model->templates = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['templates'] as $item) {
                     $model->templates[$n++] = null !== $item ? templates::fromMap($item) : $item;
                 }

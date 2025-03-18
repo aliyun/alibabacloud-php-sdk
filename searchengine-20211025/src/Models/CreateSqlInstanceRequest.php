@@ -26,13 +26,11 @@ class CreateSqlInstanceRequest extends Model
      */
     public $parent;
     protected $_name = [
-        'name'   => 'name',
+        'name' => 'name',
         'parent' => 'parent',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

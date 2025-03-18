@@ -35,14 +35,12 @@ class srcFieldConfig extends Model
      */
     public $uid;
     protected $_name = [
-        'ossBucket'   => 'ossBucket',
+        'ossBucket' => 'ossBucket',
         'ossEndpoint' => 'ossEndpoint',
-        'uid'         => 'uid',
+        'uid' => 'uid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -45,13 +45,11 @@ class dataProcessConfig extends Model
     protected $_name = [
         'dstField' => 'dstField',
         'operator' => 'operator',
-        'params'   => 'params',
+        'params' => 'params',
         'srcField' => 'srcField',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

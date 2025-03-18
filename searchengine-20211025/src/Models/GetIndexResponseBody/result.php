@@ -170,30 +170,28 @@ class result extends Model
      */
     public $versions;
     protected $_name = [
-        'cluster'         => 'cluster',
-        'config'          => 'config',
+        'cluster' => 'cluster',
+        'config' => 'config',
         'configWhenBuild' => 'configWhenBuild',
-        'content'         => 'content',
-        'createTime'      => 'createTime',
-        'dataSource'      => 'dataSource',
-        'dataSourceInfo'  => 'dataSourceInfo',
-        'description'     => 'description',
-        'domain'          => 'domain',
-        'extend'          => 'extend',
-        'fullUpdateTime'  => 'fullUpdateTime',
-        'fullVersion'     => 'fullVersion',
-        'incUpdateTime'   => 'incUpdateTime',
-        'indexSize'       => 'indexSize',
-        'indexStatus'     => 'indexStatus',
-        'name'            => 'name',
-        'partition'       => 'partition',
-        'updateTime'      => 'updateTime',
-        'versions'        => 'versions',
+        'content' => 'content',
+        'createTime' => 'createTime',
+        'dataSource' => 'dataSource',
+        'dataSourceInfo' => 'dataSourceInfo',
+        'description' => 'description',
+        'domain' => 'domain',
+        'extend' => 'extend',
+        'fullUpdateTime' => 'fullUpdateTime',
+        'fullVersion' => 'fullVersion',
+        'incUpdateTime' => 'incUpdateTime',
+        'indexSize' => 'indexSize',
+        'indexStatus' => 'indexStatus',
+        'name' => 'name',
+        'partition' => 'partition',
+        'updateTime' => 'updateTime',
+        'versions' => 'versions',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -335,7 +333,7 @@ class result extends Model
         if (isset($map['versions'])) {
             if (!empty($map['versions'])) {
                 $model->versions = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['versions'] as $item) {
                     $model->versions[$n++] = null !== $item ? versions::fromMap($item) : $item;
                 }

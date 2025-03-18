@@ -20,9 +20,7 @@ class result extends Model
         'changeRate' => 'changeRate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

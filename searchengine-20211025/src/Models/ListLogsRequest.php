@@ -62,17 +62,15 @@ class ListLogsRequest extends Model
      */
     public $type;
     protected $_name = [
-        'endTime'   => 'endTime',
-        'pageNum'   => 'pageNum',
-        'pageSize'  => 'pageSize',
-        'query'     => 'query',
+        'endTime' => 'endTime',
+        'pageNum' => 'pageNum',
+        'pageSize' => 'pageSize',
+        'query' => 'query',
         'startTime' => 'startTime',
-        'type'      => 'type',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -41,13 +41,11 @@ class GetNodeConfigRequest extends Model
     public $type;
     protected $_name = [
         'clusterName' => 'clusterName',
-        'name'        => 'name',
-        'type'        => 'type',
+        'name' => 'name',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

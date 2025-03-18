@@ -73,20 +73,18 @@ class result extends Model
      */
     public $type;
     protected $_name = [
-        'gmtCreate'   => 'gmtCreate',
+        'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
-        'id'          => 'id',
-        'instanceId'  => 'instanceId',
-        'isDir'       => 'isDir',
-        'name'        => 'name',
-        'parent'      => 'parent',
-        'templateId'  => 'templateId',
-        'type'        => 'type',
+        'id' => 'id',
+        'instanceId' => 'instanceId',
+        'isDir' => 'isDir',
+        'name' => 'name',
+        'parent' => 'parent',
+        'templateId' => 'templateId',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,15 +44,13 @@ class advanceParams extends Model
      */
     public $searchIndexParams;
     protected $_name = [
-        'buildIndexParams'     => 'buildIndexParams',
+        'buildIndexParams' => 'buildIndexParams',
         'linearBuildThreshold' => 'linearBuildThreshold',
-        'minScanDocCnt'        => 'minScanDocCnt',
-        'searchIndexParams'    => 'searchIndexParams',
+        'minScanDocCnt' => 'minScanDocCnt',
+        'searchIndexParams' => 'searchIndexParams',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

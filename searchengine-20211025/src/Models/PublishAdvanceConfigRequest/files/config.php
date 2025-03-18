@@ -25,13 +25,11 @@ class config extends Model
      */
     public $variables;
     protected $_name = [
-        'content'   => 'content',
+        'content' => 'content',
         'variables' => 'variables',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

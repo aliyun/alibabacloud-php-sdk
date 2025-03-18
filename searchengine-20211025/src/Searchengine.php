@@ -269,21 +269,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BuildIndex',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/actions/build-index',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BuildIndex',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/actions/build-index',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BuildIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BuildIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BuildIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -329,21 +332,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/actions/change-resource-group',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/actions/change-resource-group',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -384,21 +390,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CloneSqlInstance',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/actions/clone',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CloneSqlInstance',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/actions/clone',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CloneSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CloneSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CloneSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -441,22 +450,25 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAlias',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAlias',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -509,21 +521,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateCluster',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateCluster',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -568,21 +583,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateConfigDir',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/dir',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateConfigDir',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/dir',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateConfigDirResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateConfigDirResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateConfigDirResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -624,21 +642,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateConfigFile',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/file',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateConfigFile',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/file',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateConfigFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -694,22 +715,25 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDataSource',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDataSource',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -752,21 +776,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFolder',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/folders',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateFolder',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/folders',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFolderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -840,22 +867,25 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateIndex',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateIndex',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -918,21 +948,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstance',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateInstance',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -970,18 +1003,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'CreatePublicUrl',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/public-url',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreatePublicUrl',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/public-url',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreatePublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePublicUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1020,21 +1056,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSqlInstance',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSqlInstance',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1099,22 +1138,25 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTable',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateTable',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1154,18 +1196,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteAdvanceConfig',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteAdvanceConfig',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAdvanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1203,18 +1248,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteAlias',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases/' . OpenApiUtilClient::getEncodeParam($alias) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteAlias',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases/' . OpenApiUtilClient::getEncodeParam($alias) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1252,21 +1300,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteConfigDir',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/dir',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteConfigDir',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/dir',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteConfigDirResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteConfigDirResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteConfigDirResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1305,21 +1356,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteConfigFile',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/file',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteConfigFile',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/file',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteConfigFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1358,18 +1412,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataSource',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDataSource',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1408,18 +1465,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteFolder',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/folders/' . OpenApiUtilClient::getEncodeParam($folderId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteFolder',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/folders/' . OpenApiUtilClient::getEncodeParam($folderId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFolderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1465,21 +1525,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIndex',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteIndex',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1526,18 +1589,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteIndexVersion',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/versions/' . OpenApiUtilClient::getEncodeParam($versionName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteIndexVersion',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/versions/' . OpenApiUtilClient::getEncodeParam($versionName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIndexVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1582,18 +1648,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstance',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteInstance',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1631,18 +1700,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeletePublicUrl',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/public-url',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeletePublicUrl',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/public-url',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeletePublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePublicUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1675,18 +1747,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteSqlInstance',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteSqlInstance',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1720,18 +1795,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteTable',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteTable',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1768,21 +1846,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/regions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeRegions',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/regions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1837,21 +1918,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteSqlInstance',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/actions/execution',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ExecuteSqlInstance',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/actions/execution',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExecuteSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1895,18 +1979,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ForceSwitch',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/force-switch/' . OpenApiUtilClient::getEncodeParam($fsmId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ForceSwitch',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/force-switch/' . OpenApiUtilClient::getEncodeParam($fsmId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ForceSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ForceSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ForceSwitchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1959,21 +2046,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAdvanceConfig',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAdvanceConfig',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAdvanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2023,21 +2113,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAdvanceConfigFile',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/file',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAdvanceConfigFile',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/file',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAdvanceConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAdvanceConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAdvanceConfigFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2083,18 +2176,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetCluster',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCluster',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2138,18 +2234,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetClusterRunTimeInfo',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/cluster-run-time-info',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetClusterRunTimeInfo',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/cluster-run-time-info',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetClusterRunTimeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetClusterRunTimeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetClusterRunTimeInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2193,18 +2292,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetDataSource',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDataSource',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataSourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2245,18 +2347,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetDataSourceDeploy',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/deploys/' . OpenApiUtilClient::getEncodeParam($deployName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDataSourceDeploy',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/deploys/' . OpenApiUtilClient::getEncodeParam($deployName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDataSourceDeployResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataSourceDeployResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataSourceDeployResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2291,18 +2396,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetDatabaseSchema',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/schema',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDatabaseSchema',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/schema',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDatabaseSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDatabaseSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDatabaseSchemaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2342,18 +2450,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetDeployGraph',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/deploy-graph',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDeployGraph',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/deploy-graph',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDeployGraphResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDeployGraphResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeployGraphResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2404,21 +2515,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFile',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/versions/' . OpenApiUtilClient::getEncodeParam($versionName) . '/file',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFile',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/versions/' . OpenApiUtilClient::getEncodeParam($versionName) . '/file',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2465,18 +2579,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetIndex',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetIndex',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2518,18 +2635,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetIndexOnlineStrategy',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/deploys/' . OpenApiUtilClient::getEncodeParam($deployName) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/online-strategy',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetIndexOnlineStrategy',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/deploys/' . OpenApiUtilClient::getEncodeParam($deployName) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/online-strategy',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetIndexOnlineStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetIndexOnlineStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetIndexOnlineStrategyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2571,18 +2691,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetIndexVersion',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '/index-version',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetIndexVersion',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '/index-version',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetIndexVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2630,18 +2753,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetInstance',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstance',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2693,21 +2819,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNodeConfig',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/node-config',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetNodeConfig',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/node-config',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetNodeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetNodeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetNodeConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2745,21 +2874,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSqlInstance',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSqlInstance',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSqlInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSqlInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2794,18 +2926,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTable',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTable',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2841,18 +2976,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTableGeneration',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/index_versions/' . OpenApiUtilClient::getEncodeParam($generationId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTableGeneration',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/index_versions/' . OpenApiUtilClient::getEncodeParam($generationId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetTableGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTableGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTableGenerationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2897,21 +3035,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAdvanceConfigDir',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/dir',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAdvanceConfigDir',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/dir',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAdvanceConfigDirResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAdvanceConfigDirResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAdvanceConfigDirResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2973,21 +3114,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAdvanceConfigs',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAdvanceConfigs',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAdvanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAdvanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAdvanceConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3022,18 +3166,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListAliases',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAliases',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAliasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3068,18 +3215,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListClusterNames',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/cluster-names',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListClusterNames',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/cluster-names',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListClusterNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListClusterNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListClusterNamesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3124,18 +3274,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListClusterTasks',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/cluster-tasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListClusterTasks',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/cluster-tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListClusterTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListClusterTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListClusterTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3186,18 +3339,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListClusters',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListClusters',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListClustersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3245,18 +3401,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListDataSourceSchemas',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/schemas',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDataSourceSchemas',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/schemas',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDataSourceSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataSourceSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataSourceSchemasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3304,18 +3463,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListDataSourceTasks',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-source-tasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDataSourceTasks',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-source-tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDataSourceTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataSourceTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataSourceTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3362,18 +3524,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListDataSources',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDataSources',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataSourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3409,18 +3574,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListDatabases',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDatabases',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3464,21 +3632,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDateSourceGenerations',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/generations',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDateSourceGenerations',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/generations',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDateSourceGenerationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDateSourceGenerationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDateSourceGenerationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3517,18 +3688,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListIndexRecoverRecords',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/actions/list-recover-records',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListIndexRecoverRecords',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/actions/list-recover-records',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListIndexRecoverRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIndexRecoverRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIndexRecoverRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3578,21 +3752,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIndexes',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListIndexes',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListIndexesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIndexesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIndexesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3640,21 +3817,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceSpecs',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/specs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstanceSpecs',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/specs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListInstanceSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstanceSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstanceSpecsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3736,21 +3916,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstances',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3805,21 +3988,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLogs',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/logs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListLogs',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/logs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3865,21 +4051,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOnlineConfigs',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/node/' . OpenApiUtilClient::getEncodeParam($nodeName) . '/online-configs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListOnlineConfigs',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/node/' . OpenApiUtilClient::getEncodeParam($nodeName) . '/online-configs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListOnlineConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOnlineConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOnlineConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3921,18 +4110,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListPausePolicys',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/pause-policies',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListPausePolicys',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/pause-policies',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPausePolicysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPausePolicysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPausePolicysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3949,6 +4141,8 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 召回引擎版使用POST请求获取搜索测试结果
+     *  *
      * @param string                     $instanceId
      * @param ListPostQueryResultRequest $request    ListPostQueryResultRequest
      * @param string[]                   $headers    map
@@ -3960,9 +4154,6 @@ class Searchengine extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['address'] = $request->address;
-        }
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;
         }
@@ -3972,25 +4163,30 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListPostQueryResult',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/query',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListPostQueryResult',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPostQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPostQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPostQueryResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary 召回引擎版使用POST请求获取搜索测试结果
+     *  *
      * @param string                     $instanceId
      * @param ListPostQueryResultRequest $request    ListPostQueryResultRequest
      *
@@ -4031,21 +4227,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListQueryResult',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/query',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListQueryResult',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/query',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListQueryResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4070,6 +4269,8 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 召回引擎版获取rest查询搜索测试结果
+     *  *
      * @param string                     $instanceId
      * @param ListRestQueryResultRequest $request    ListRestQueryResultRequest
      * @param string[]                   $headers    map
@@ -4080,10 +4281,6 @@ class Searchengine extends OpenApiClient
     public function listRestQueryResultWithOptions($instanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['address'] = $request->address;
-        }
         $body = [];
         if (!Utils::isUnset($request->indexName)) {
             $body['indexName'] = $request->indexName;
@@ -4093,25 +4290,29 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListRestQueryResult',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/rest-query',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListRestQueryResult',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/rest-query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListRestQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRestQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRestQueryResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary 召回引擎版获取rest查询搜索测试结果
+     *  *
      * @param string                     $instanceId
      * @param ListRestQueryResultRequest $request    ListRestQueryResultRequest
      *
@@ -4165,21 +4366,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSchemas',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/schemas',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSchemas',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/schemas',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSchemasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4214,18 +4418,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListTableGenerations',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/index_versions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTableGenerations',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/index_versions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTableGenerationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTableGenerationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTableGenerationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4263,21 +4470,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTables',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTables',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTablesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4331,21 +4541,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/resource-tags',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTagResources',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/resource-tags',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4385,21 +4598,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTasks',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTasks',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4419,6 +4635,8 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 向量检索版获取向量查询搜索测试结果
+     *  *
      * @param string                       $instanceId
      * @param ListVectorQueryResultRequest $request    ListVectorQueryResultRequest
      * @param string[]                     $headers    map
@@ -4430,8 +4648,8 @@ class Searchengine extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['address'] = $request->address;
+        if (!Utils::isUnset($request->path)) {
+            $query['path'] = $request->path;
         }
         if (!Utils::isUnset($request->queryType)) {
             $query['queryType'] = $request->queryType;
@@ -4445,25 +4663,30 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListVectorQueryResult',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/vector-query',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListVectorQueryResult',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/vector-query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListVectorQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVectorQueryResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVectorQueryResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary 向量检索版获取向量查询搜索测试结果
+     *  *
      * @param string                       $instanceId
      * @param ListVectorQueryResultRequest $request    ListVectorQueryResultRequest
      *
@@ -4513,21 +4736,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAdvanceConfig',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyAdvanceConfig',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAdvanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4577,22 +4803,25 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAdvanceConfigFile',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/file',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyAdvanceConfigFile',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/file',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyAdvanceConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAdvanceConfigFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAdvanceConfigFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4638,21 +4867,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAlias',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases/' . OpenApiUtilClient::getEncodeParam($alias) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyAlias',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/aliases/' . OpenApiUtilClient::getEncodeParam($alias) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAliasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAliasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4695,21 +4927,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyClusterDesc',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '/desc',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyClusterDesc',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '/desc',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyClusterDescResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyClusterDescResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyClusterDescResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4780,21 +5015,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyClusterOfflineConfig',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/cluster-offline-config',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyClusterOfflineConfig',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/cluster-offline-config',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyClusterOfflineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyClusterOfflineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyClusterOfflineConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4843,21 +5081,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyClusterOnlineConfig',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/cluster-online-config',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyClusterOnlineConfig',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/cluster-online-config',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyClusterOnlineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyClusterOnlineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyClusterOnlineConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4921,22 +5162,25 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDataSourceDeploy',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/deploys/' . OpenApiUtilClient::getEncodeParam($deployName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyDataSourceDeploy',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/deploys/' . OpenApiUtilClient::getEncodeParam($deployName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyDataSourceDeployResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDataSourceDeployResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDataSourceDeployResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4990,22 +5234,25 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyFile',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/versions/' . OpenApiUtilClient::getEncodeParam($versionName) . '/file',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyFile',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/versions/' . OpenApiUtilClient::getEncodeParam($versionName) . '/file',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5089,22 +5336,25 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyIndex',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyIndex',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5144,21 +5394,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyIndexOnlineStrategy',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/deploys/' . OpenApiUtilClient::getEncodeParam($deployName) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/online-strategy',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyIndexOnlineStrategy',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/deploys/' . OpenApiUtilClient::getEncodeParam($deployName) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/online-strategy',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyIndexOnlineStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyIndexOnlineStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyIndexOnlineStrategyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5213,21 +5466,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyIndexPartition',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/index-partition',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyIndexPartition',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/index-partition',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyIndexPartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyIndexPartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyIndexPartitionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5272,21 +5528,24 @@ class Searchengine extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::toArray($request->body),
+            'body' => Utils::toArray($request->body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyIndexVersion',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '/index-version',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyIndexVersion',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '/index-version',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyIndexVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5367,22 +5626,25 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyNodeConfig',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/node-config',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyNodeConfig',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/node-config',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyNodeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyNodeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyNodeConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5440,21 +5702,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyOnlineConfig',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/node/' . OpenApiUtilClient::getEncodeParam($nodeName) . '/online-configs/' . OpenApiUtilClient::getEncodeParam($indexName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyOnlineConfig',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/node/' . OpenApiUtilClient::getEncodeParam($nodeName) . '/online-configs/' . OpenApiUtilClient::getEncodeParam($indexName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyOnlineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyOnlineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyOnlineConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5511,21 +5776,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPassword',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/password',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyPassword',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/password',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyPasswordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5566,21 +5834,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPausePolicy',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/pause-policies',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyPausePolicy',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/pause-policies',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyPausePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyPausePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyPausePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5616,21 +5887,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPublicUrlIpList',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/public-url-ip-list',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyPublicUrlIpList',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/public-url-ip-list',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyPublicUrlIpListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyPublicUrlIpListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyPublicUrlIpListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5691,22 +5965,25 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyTable',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyTable',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyTableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5758,21 +6035,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PublishAdvanceConfig',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/actions/publish',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PublishAdvanceConfig',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/advanced-configs/' . OpenApiUtilClient::getEncodeParam($configName) . '/actions/publish',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PublishAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PublishAdvanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishAdvanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5826,21 +6106,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PublishIndexVersion',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/actions/publish',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PublishIndexVersion',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/actions/publish',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PublishIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PublishIndexVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishIndexVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5883,22 +6166,25 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => $request->body,
+            'query' => OpenApiUtilClient::query($query),
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'PushDocuments',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/actions/bulk',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PushDocuments',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/data-sources/' . OpenApiUtilClient::getEncodeParam($dataSourceName) . '/actions/bulk',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PushDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PushDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushDocumentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5949,21 +6235,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RecoverIndex',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/recover-index',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RecoverIndex',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/recover-index',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RecoverIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RecoverIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RecoverIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6013,21 +6302,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'Reindex',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/reindex',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'Reindex',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '/reindex',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ReindexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReindexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReindexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6072,18 +6364,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveCluster',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveCluster',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RemoveClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6130,21 +6425,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RenameFolder',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/folders/' . OpenApiUtilClient::getEncodeParam($folderId) . '/name',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RenameFolder',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/folders/' . OpenApiUtilClient::getEncodeParam($folderId) . '/name',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RenameFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RenameFolderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenameFolderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6177,18 +6475,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StartIndex',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/startIndex',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartIndex',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/startIndex',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return StartIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6219,18 +6520,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StopIndex',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/stopIndex',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopIndex',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/indexes/' . OpenApiUtilClient::getEncodeParam($indexName) . '/stopIndex',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return StopIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6272,18 +6576,21 @@ class Searchengine extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StopTask',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/stop-task/' . OpenApiUtilClient::getEncodeParam($fsmId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopTask',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/stop-task/' . OpenApiUtilClient::getEncodeParam($fsmId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return StopTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6335,21 +6642,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/resource-tags',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TagResources',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/resource-tags',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6402,21 +6712,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/resource-tags',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UntagResources',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/resource-tags',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6464,21 +6777,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstance',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateInstance',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6521,21 +6837,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSqlInstanceContent',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/content',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateSqlInstanceContent',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/content',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateSqlInstanceContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSqlInstanceContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSqlInstanceContentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6573,21 +6892,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSqlInstanceName',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/name',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateSqlInstanceName',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/name',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateSqlInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSqlInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSqlInstanceNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6637,21 +6959,24 @@ class Searchengine extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSqlInstanceParams',
-            'version'     => '2021-10-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/params',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateSqlInstanceParams',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/sql-studio/databases/' . OpenApiUtilClient::getEncodeParam($database) . '/sql-instances/' . OpenApiUtilClient::getEncodeParam($sqlInstanceId) . '/params',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateSqlInstanceParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSqlInstanceParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSqlInstanceParamsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

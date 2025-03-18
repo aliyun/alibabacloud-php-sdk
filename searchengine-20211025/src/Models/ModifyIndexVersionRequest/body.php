@@ -36,13 +36,11 @@ class body extends Model
     public $version;
     protected $_name = [
         'buildDeployId' => 'buildDeployId',
-        'indexName'     => 'indexName',
-        'version'       => 'version',
+        'indexName' => 'indexName',
+        'version' => 'version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

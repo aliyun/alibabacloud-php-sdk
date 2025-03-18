@@ -16,9 +16,7 @@ class odps extends Model
         'partitions' => 'partitions',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

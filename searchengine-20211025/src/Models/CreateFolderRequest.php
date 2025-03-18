@@ -30,20 +30,19 @@ class CreateFolderRequest extends Model
      * @description table, instance, template, function
      *
      * This parameter is required.
+     *
      * @example instance
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'name'   => 'name',
+        'name' => 'name',
         'parent' => 'parent',
-        'type'   => 'type',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListRestQueryResultRequest extends Model
 {
     /**
-     * @description The instance endpoint.
-     *
-     * @example 127.0.0.1
-     *
-     * @var string
-     */
-    public $address;
-
-    /**
      * @description The name of the index table.
      *
      * @example main_index
@@ -35,21 +26,15 @@ class ListRestQueryResultRequest extends Model
      */
     public $query;
     protected $_name = [
-        'address'   => 'address',
         'indexName' => 'indexName',
-        'query'     => 'query',
+        'query' => 'query',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->address) {
-            $res['address'] = $this->address;
-        }
         if (null !== $this->indexName) {
             $res['indexName'] = $this->indexName;
         }
@@ -68,9 +53,6 @@ class ListRestQueryResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['address'])) {
-            $model->address = $map['address'];
-        }
         if (isset($map['indexName'])) {
             $model->indexName = $map['indexName'];
         }

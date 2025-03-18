@@ -26,13 +26,11 @@ class tags extends Model
      */
     public $tagLevel;
     protected $_name = [
-        'msg'      => 'msg',
+        'msg' => 'msg',
         'tagLevel' => 'tagLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

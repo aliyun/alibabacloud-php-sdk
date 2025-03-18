@@ -70,17 +70,15 @@ class CreateDataSourceRequest extends Model
     public $dryRun;
     protected $_name = [
         'autoBuildIndex' => 'autoBuildIndex',
-        'config'         => 'config',
-        'domain'         => 'domain',
-        'name'           => 'name',
-        'saroConfig'     => 'saroConfig',
-        'type'           => 'type',
-        'dryRun'         => 'dryRun',
+        'config' => 'config',
+        'domain' => 'domain',
+        'name' => 'name',
+        'saroConfig' => 'saroConfig',
+        'type' => 'type',
+        'dryRun' => 'dryRun',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

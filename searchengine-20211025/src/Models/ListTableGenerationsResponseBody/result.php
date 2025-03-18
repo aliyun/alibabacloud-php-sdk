@@ -20,9 +20,7 @@ class result extends Model
         'generationId' => 'generationId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

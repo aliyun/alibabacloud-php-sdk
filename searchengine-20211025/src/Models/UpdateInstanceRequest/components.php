@@ -26,13 +26,11 @@ class components extends Model
      */
     public $value;
     protected $_name = [
-        'code'  => 'code',
+        'code' => 'code',
         'value' => 'value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

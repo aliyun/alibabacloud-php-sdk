@@ -44,15 +44,13 @@ class RecoverIndexRequest extends Model
      */
     public $indexName;
     protected $_name = [
-        'buildDeployId'  => 'buildDeployId',
+        'buildDeployId' => 'buildDeployId',
         'dataSourceName' => 'dataSourceName',
-        'generation'     => 'generation',
-        'indexName'      => 'indexName',
+        'generation' => 'generation',
+        'indexName' => 'indexName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

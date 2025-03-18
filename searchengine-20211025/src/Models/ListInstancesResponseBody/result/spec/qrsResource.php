@@ -33,16 +33,14 @@ class qrsResource extends Model
      */
     public $nodeCount;
     protected $_name = [
-        'category'  => 'category',
-        'cpu'       => 'cpu',
-        'disk'      => 'disk',
-        'mem'       => 'mem',
+        'category' => 'category',
+        'cpu' => 'cpu',
+        'disk' => 'disk',
+        'mem' => 'mem',
         'nodeCount' => 'nodeCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

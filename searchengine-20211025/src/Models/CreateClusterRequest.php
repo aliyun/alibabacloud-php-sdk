@@ -51,16 +51,14 @@ class CreateClusterRequest extends Model
      */
     public $queryNode;
     protected $_name = [
-        'autoLoad'    => 'autoLoad',
-        'dataNode'    => 'dataNode',
+        'autoLoad' => 'autoLoad',
+        'dataNode' => 'dataNode',
         'description' => 'description',
-        'name'        => 'name',
-        'queryNode'   => 'queryNode',
+        'name' => 'name',
+        'queryNode' => 'queryNode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

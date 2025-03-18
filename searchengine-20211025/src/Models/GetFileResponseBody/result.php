@@ -69,18 +69,16 @@ class result extends Model
      */
     public $partition;
     protected $_name = [
-        'content'      => 'content',
-        'dataSource'   => 'dataSource',
-        'extend'       => 'extend',
+        'content' => 'content',
+        'dataSource' => 'dataSource',
+        'extend' => 'extend',
         'fullPathName' => 'fullPathName',
-        'isDir'        => 'isDir',
-        'name'         => 'name',
-        'partition'    => 'partition',
+        'isDir' => 'isDir',
+        'name' => 'name',
+        'partition' => 'partition',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

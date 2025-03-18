@@ -29,21 +29,46 @@ class result extends Model
     /**
      * @description The ID of the region. Valid values:
      *
+     * cn-hangzhou: China (Hangzhou)
+     *
+     * cn-shanghai: China (Shanghai)
+     *
+     * cn-qingdao: China (Qingdao)
+     *
+     * cn-beijing: China (Beijing)
+     *
+     * cn-zhangjiakou: China (Zhangjiakou)
+     *
+     * cn-shenzhen: China (Shenzhen)
+     *
+     * ap-southeast-1: Singapore (Singapore)
+     *
+     * cn-internal: Internal Center
+     *
+     * cn-zhangbei-in: Internal Center (Zhangjiakou)
+     *
+     * us-west-1-in: Internal Center (US)
+     *
+     * rus-west-1-in: Internal Center (Russia)
+     *
+     * cn-daily: Daily Environment
+     *
+     * cn-test: Joint Debugging
+     *
      * pre-hangzhou: China (Hangzhou)-Staging
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'endpoint'  => 'endpoint',
+        'endpoint' => 'endpoint',
         'localName' => 'localName',
-        'regionId'  => 'regionId',
+        'regionId' => 'regionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

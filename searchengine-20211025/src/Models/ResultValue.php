@@ -53,16 +53,14 @@ class ResultValue extends Model
      */
     public $pauseRuntime;
     protected $_name = [
-        'pauseAll'        => 'pauseAll',
-        'pauseIndex'      => 'pauseIndex',
+        'pauseAll' => 'pauseAll',
+        'pauseIndex' => 'pauseIndex',
         'pauseIndexBatch' => 'pauseIndexBatch',
-        'pauseBiz'        => 'pauseBiz',
-        'pauseRuntime'    => 'pauseRuntime',
+        'pauseBiz' => 'pauseBiz',
+        'pauseRuntime' => 'pauseRuntime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

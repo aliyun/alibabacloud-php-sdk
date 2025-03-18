@@ -45,16 +45,14 @@ class network extends Model
      */
     public $vpcId;
     protected $_name = [
-        'allow'          => 'allow',
-        'endpoint'       => 'endpoint',
+        'allow' => 'allow',
+        'endpoint' => 'endpoint',
         'publicEndpoint' => 'publicEndpoint',
-        'vSwitchId'      => 'vSwitchId',
-        'vpcId'          => 'vpcId',
+        'vSwitchId' => 'vSwitchId',
+        'vpcId' => 'vpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
