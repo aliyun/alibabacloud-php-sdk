@@ -179,29 +179,27 @@ class instances extends Model
      */
     public $vswitchId;
     protected $_name = [
-        'bandWidth'           => 'BandWidth',
-        'description'         => 'Description',
-        'expireTime'          => 'ExpireTime',
-        'imageVersion'        => 'ImageVersion',
-        'instanceId'          => 'InstanceId',
-        'instanceStatus'      => 'InstanceStatus',
-        'internetEndpoint'    => 'InternetEndpoint',
-        'intranetEndpoint'    => 'IntranetEndpoint',
-        'legacy'              => 'Legacy',
-        'licenseCode'         => 'LicenseCode',
-        'planCode'            => 'PlanCode',
+        'bandWidth' => 'BandWidth',
+        'description' => 'Description',
+        'expireTime' => 'ExpireTime',
+        'imageVersion' => 'ImageVersion',
+        'instanceId' => 'InstanceId',
+        'instanceStatus' => 'InstanceStatus',
+        'internetEndpoint' => 'InternetEndpoint',
+        'intranetEndpoint' => 'IntranetEndpoint',
+        'legacy' => 'Legacy',
+        'licenseCode' => 'LicenseCode',
+        'planCode' => 'PlanCode',
         'publicNetworkAccess' => 'PublicNetworkAccess',
-        'regionId'            => 'RegionId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'slaveVswitchId'      => 'SlaveVswitchId',
-        'startTime'           => 'StartTime',
-        'vpcId'               => 'VpcId',
-        'vswitchId'           => 'VswitchId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'slaveVswitchId' => 'SlaveVswitchId',
+        'startTime' => 'StartTime',
+        'vpcId' => 'VpcId',
+        'vswitchId' => 'VswitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

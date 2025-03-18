@@ -61,16 +61,14 @@ class databaseAccounts extends Model
      */
     public $protocolName;
     protected $_name = [
-        'databaseAccountId'   => 'DatabaseAccountId',
+        'databaseAccountId' => 'DatabaseAccountId',
         'databaseAccountName' => 'DatabaseAccountName',
-        'databaseId'          => 'DatabaseId',
-        'isAuthorized'        => 'IsAuthorized',
-        'protocolName'        => 'ProtocolName',
+        'databaseId' => 'DatabaseId',
+        'isAuthorized' => 'IsAuthorized',
+        'protocolName' => 'ProtocolName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

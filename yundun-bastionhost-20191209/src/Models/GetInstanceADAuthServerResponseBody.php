@@ -25,13 +25,11 @@ class GetInstanceADAuthServerResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'AD'        => 'AD',
+        'AD' => 'AD',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

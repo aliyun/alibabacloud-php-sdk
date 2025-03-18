@@ -44,15 +44,13 @@ class userGroups extends Model
      */
     public $userGroupName;
     protected $_name = [
-        'comment'       => 'Comment',
-        'memberCount'   => 'MemberCount',
-        'userGroupId'   => 'UserGroupId',
+        'comment' => 'Comment',
+        'memberCount' => 'MemberCount',
+        'userGroupId' => 'UserGroupId',
         'userGroupName' => 'UserGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

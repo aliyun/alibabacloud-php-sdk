@@ -29,7 +29,10 @@ class ListHostsForUserRequest extends Model
     /**
      * @description The ID of the bastion host on which you want to query the hosts that the user is authorized or not authorized to manage.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -71,7 +74,10 @@ class ListHostsForUserRequest extends Model
 
     /**
      * @description The number of entries per page.\\
+     * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+     *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var string
@@ -82,6 +88,7 @@ class ListHostsForUserRequest extends Model
      * @description The region ID of the bastion host on which you want to query the hosts that the user is authorized or not authorized to manage.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -91,7 +98,10 @@ class ListHostsForUserRequest extends Model
     /**
      * @description The ID of the user.
      *
+     * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -99,19 +109,17 @@ class ListHostsForUserRequest extends Model
     public $userId;
     protected $_name = [
         'hostAddress' => 'HostAddress',
-        'hostName'    => 'HostName',
-        'instanceId'  => 'InstanceId',
-        'mode'        => 'Mode',
-        'OSType'      => 'OSType',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'userId'      => 'UserId',
+        'hostName' => 'HostName',
+        'instanceId' => 'InstanceId',
+        'mode' => 'Mode',
+        'OSType' => 'OSType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

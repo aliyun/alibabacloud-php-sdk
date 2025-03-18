@@ -13,6 +13,7 @@ class AttachDatabaseAccountsToUserGroupRequest extends Model
      * @description An array that consists of the database objects.
      *
      * >  You can specify up to 10 databases and 10 database accounts. The database accounts are not required. If you do not specify a database account, the user group is authorized to manage only the databases.
+     *
      * @var databases[]
      */
     public $databases;
@@ -20,7 +21,10 @@ class AttachDatabaseAccountsToUserGroupRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-zvp282aly06
      *
      * @var string
@@ -31,6 +35,7 @@ class AttachDatabaseAccountsToUserGroupRequest extends Model
      * @description The region ID of the bastion host.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -46,15 +51,13 @@ class AttachDatabaseAccountsToUserGroupRequest extends Model
      */
     public $userGroupId;
     protected $_name = [
-        'databases'   => 'Databases',
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
+        'databases' => 'Databases',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +95,7 @@ class AttachDatabaseAccountsToUserGroupRequest extends Model
         if (isset($map['Databases'])) {
             if (!empty($map['Databases'])) {
                 $model->databases = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Databases'] as $item) {
                     $model->databases[$n++] = null !== $item ? databases::fromMap($item) : $item;
                 }

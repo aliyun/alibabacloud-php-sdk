@@ -27,6 +27,10 @@ class operationTickets extends Model
     public $applyUsername;
 
     /**
+     * @description The remarks entered when the O\\&M personnel applies for O\\&M permissions.
+     *
+     * @example Apply for O\\&M
+     *
      * @var string
      */
     public $approveComment;
@@ -127,16 +131,31 @@ class operationTickets extends Model
     public $createdTime;
 
     /**
+     * @description The maximum number of logons applied by the O\\&M engineer. Valid values:
+     *
+     *   **0**: The number of logons is unlimited. The O\\&M engineer can log on to the specified asset for unlimited times during the validity period.
+     *   **1**: The O\\&M engineer can log on to the specified asset only once during the validity period.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $effectCount;
 
     /**
+     * @description The end time of the validity period. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1679393152
+     *
      * @var int
      */
     public $effectEndTime;
 
     /**
+     * @description The start time of the validity period. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1685600242
+     *
      * @var int
      */
     public $effectStartTime;
@@ -170,30 +189,28 @@ class operationTickets extends Model
      */
     public $state;
     protected $_name = [
-        'applyUserId'           => 'ApplyUserId',
-        'applyUsername'         => 'ApplyUsername',
-        'approveComment'        => 'ApproveComment',
-        'assetAccountId'        => 'AssetAccountId',
-        'assetAccountName'      => 'AssetAccountName',
-        'assetAddress'          => 'AssetAddress',
-        'assetId'               => 'AssetId',
-        'assetName'             => 'AssetName',
-        'assetNetworkDomainId'  => 'AssetNetworkDomainId',
-        'assetOs'               => 'AssetOs',
-        'assetSource'           => 'AssetSource',
+        'applyUserId' => 'ApplyUserId',
+        'applyUsername' => 'ApplyUsername',
+        'approveComment' => 'ApproveComment',
+        'assetAccountId' => 'AssetAccountId',
+        'assetAccountName' => 'AssetAccountName',
+        'assetAddress' => 'AssetAddress',
+        'assetId' => 'AssetId',
+        'assetName' => 'AssetName',
+        'assetNetworkDomainId' => 'AssetNetworkDomainId',
+        'assetOs' => 'AssetOs',
+        'assetSource' => 'AssetSource',
         'assetSourceInstanceId' => 'AssetSourceInstanceId',
-        'createdTime'           => 'CreatedTime',
-        'effectCount'           => 'EffectCount',
-        'effectEndTime'         => 'EffectEndTime',
-        'effectStartTime'       => 'EffectStartTime',
-        'operationTicketId'     => 'OperationTicketId',
-        'protocolName'          => 'ProtocolName',
-        'state'                 => 'State',
+        'createdTime' => 'CreatedTime',
+        'effectCount' => 'EffectCount',
+        'effectEndTime' => 'EffectEndTime',
+        'effectStartTime' => 'EffectStartTime',
+        'operationTicketId' => 'OperationTicketId',
+        'protocolName' => 'ProtocolName',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

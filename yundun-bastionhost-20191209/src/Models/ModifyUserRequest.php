@@ -12,6 +12,7 @@ class ModifyUserRequest extends Model
      * @description The new remarks of the user. The remarks can be up to 500 characters in length.
      *
      * >  Leave this parameter empty if you do not want to change the remarks of the user.
+     *
      * @example comment
      *
      * @var string
@@ -22,6 +23,7 @@ class ModifyUserRequest extends Model
      * @description The new display name of the user. The display name can be up to 128 characters in length.
      *
      * >  Leave this parameter empty if you do not want to change the display name of the user.
+     *
      * @example Bob
      *
      * @var string
@@ -32,6 +34,7 @@ class ModifyUserRequest extends Model
      * @description The end time of the validity period of the user. Specify a UNIX timestamp. Unit: seconds.
      *
      * >  Leave this parameter empty if you do not want to change the end time of the validity period.
+     *
      * @example 1672502400
      *
      * @var int
@@ -42,6 +45,7 @@ class ModifyUserRequest extends Model
      * @description The start time of the validity period of the user. Specify a UNIX timestamp. Unit: seconds.
      *
      * >  Leave this parameter empty if you do not want to change the start time of the validity period.
+     *
      * @example 1669630029
      *
      * @var int
@@ -68,7 +72,10 @@ class ModifyUserRequest extends Model
     /**
      * @description The ID of the bastion host on which you want to modify the information about the user.
      *
+     * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -80,6 +87,7 @@ class ModifyUserRequest extends Model
      *
      * - **zh-cn**: simplified Chinese
      * - **en**: English
+     *
      * @example en
      *
      * @var string
@@ -93,6 +101,7 @@ class ModifyUserRequest extends Model
      *   **Custom**
      *
      * >  Leave this parameter empty if you do not want to change the natural language used to notify the user.
+     *
      * @example Custom
      *
      * @var string
@@ -153,6 +162,7 @@ class ModifyUserRequest extends Model
      *   **false**
      *
      * >  Leave this parameter empty if you do not want to change the password reset settings for the user.
+     *
      * @example true
      *
      * @var bool
@@ -163,6 +173,7 @@ class ModifyUserRequest extends Model
      * @description The new password of the user. The password must be 8 to 128 characters in length. It must contain uppercase letters, lowercase letters, digits, and special characters.
      *
      * > Leave this parameter empty if you do not want to change the password of the user.
+     *
      * @example 321****
      *
      * @var string
@@ -173,6 +184,7 @@ class ModifyUserRequest extends Model
      * @description The region ID of the bastion host on which you want to modify the information about the user.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -188,6 +200,7 @@ class ModifyUserRequest extends Model
      *   **totp OTP:** one-time password (OTP) token-based two-factor authentication.
      *
      * >  If TwoFactorStatus is set to Enable, you must specify one of the valid values as TwoFactorMethods.
+     *
      * @example sms
      *
      * @var string
@@ -202,6 +215,7 @@ class ModifyUserRequest extends Model
      *   **Enable**: Two-factor authentication is enabled and user-specific settings apply.
      *
      * >  Leave this parameter empty if you do not want to change the two-factory authentication settings for the user.
+     *
      * @example Enable
      *
      * @var string
@@ -211,34 +225,35 @@ class ModifyUserRequest extends Model
     /**
      * @description The ID of the user whose information you want to modify.
      *
+     * >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'comment'            => 'Comment',
-        'displayName'        => 'DisplayName',
-        'effectiveEndTime'   => 'EffectiveEndTime',
+        'comment' => 'Comment',
+        'displayName' => 'DisplayName',
+        'effectiveEndTime' => 'EffectiveEndTime',
         'effectiveStartTime' => 'EffectiveStartTime',
-        'email'              => 'Email',
-        'instanceId'         => 'InstanceId',
-        'language'           => 'Language',
-        'languageStatus'     => 'LanguageStatus',
-        'mobile'             => 'Mobile',
-        'mobileCountryCode'  => 'MobileCountryCode',
-        'needResetPassword'  => 'NeedResetPassword',
-        'password'           => 'Password',
-        'regionId'           => 'RegionId',
-        'twoFactorMethods'   => 'TwoFactorMethods',
-        'twoFactorStatus'    => 'TwoFactorStatus',
-        'userId'             => 'UserId',
+        'email' => 'Email',
+        'instanceId' => 'InstanceId',
+        'language' => 'Language',
+        'languageStatus' => 'LanguageStatus',
+        'mobile' => 'Mobile',
+        'mobileCountryCode' => 'MobileCountryCode',
+        'needResetPassword' => 'NeedResetPassword',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
+        'twoFactorMethods' => 'TwoFactorMethods',
+        'twoFactorStatus' => 'TwoFactorStatus',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

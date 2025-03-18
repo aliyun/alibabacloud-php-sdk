@@ -53,16 +53,14 @@ class publicKeys extends Model
      */
     public $userId;
     protected $_name = [
-        'comment'       => 'Comment',
-        'fingerPrint'   => 'FingerPrint',
-        'publicKeyId'   => 'PublicKeyId',
+        'comment' => 'Comment',
+        'fingerPrint' => 'FingerPrint',
+        'publicKeyId' => 'PublicKeyId',
         'publicKeyName' => 'PublicKeyName',
-        'userId'        => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

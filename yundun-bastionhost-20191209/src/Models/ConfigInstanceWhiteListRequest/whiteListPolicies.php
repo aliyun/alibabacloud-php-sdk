@@ -19,12 +19,10 @@ class whiteListPolicies extends Model
     public $entry;
     protected $_name = [
         'description' => 'Description',
-        'entry'       => 'Entry',
+        'entry' => 'Entry',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -147,6 +147,7 @@ class instanceAttribute extends Model
      *
      * - **Enable**
      * - **Disable**
+     *
      * @example Enable
      *
      * @var string
@@ -158,6 +159,7 @@ class instanceAttribute extends Model
      *
      * - **Enable**
      * - **Disable**
+     *
      * @example Enable
      *
      * @var string
@@ -301,6 +303,7 @@ class instanceAttribute extends Model
      *
      * - **Enable**
      * - **Disable**
+     *
      * @example Enable
      *
      * @var string
@@ -312,49 +315,47 @@ class instanceAttribute extends Model
      */
     public $whiteListPolicies;
     protected $_name = [
-        'appOperationModule'       => 'AppOperationModule',
+        'appOperationModule' => 'AppOperationModule',
         'authorizedSecurityGroups' => 'AuthorizedSecurityGroups',
-        'bandwidth'                => 'Bandwidth',
-        'bandwidthPackage'         => 'BandwidthPackage',
-        'dbOperationModule'        => 'DbOperationModule',
-        'description'              => 'Description',
-        'eniInstanceId'            => 'EniInstanceId',
-        'expireTime'               => 'ExpireTime',
-        'HSMModule'                => 'HSMModule',
-        'IDaaSModule'              => 'IDaaSModule',
-        'instanceId'               => 'InstanceId',
-        'instanceStatus'           => 'InstanceStatus',
-        'internetEndpoint'         => 'InternetEndpoint',
-        'intranetEndpoint'         => 'IntranetEndpoint',
-        'kmsSecretModule'          => 'KmsSecretModule',
-        'licenseCode'              => 'LicenseCode',
-        'modifyPasswordModule'     => 'ModifyPasswordModule',
-        'networkProxyModule'       => 'NetworkProxyModule',
-        'ports'                    => 'Ports',
-        'privateExportIps'         => 'PrivateExportIps',
-        'privateWhiteList'         => 'PrivateWhiteList',
-        'publicExportIps'          => 'PublicExportIps',
-        'publicIps'                => 'PublicIps',
-        'publicNetworkAccess'      => 'PublicNetworkAccess',
-        'publicWhiteList'          => 'PublicWhiteList',
-        'RDModule'                 => 'RDModule',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'routerRules'              => 'RouterRules',
-        'scriptDeliverModule'      => 'ScriptDeliverModule',
-        'securityGroupIds'         => 'SecurityGroupIds',
-        'slaveVswitchId'           => 'SlaveVswitchId',
-        'startTime'                => 'StartTime',
-        'storage'                  => 'Storage',
-        'vpcId'                    => 'VpcId',
-        'vswitchId'                => 'VswitchId',
-        'webTerminalModule'        => 'WebTerminalModule',
-        'whiteListPolicies'        => 'WhiteListPolicies',
+        'bandwidth' => 'Bandwidth',
+        'bandwidthPackage' => 'BandwidthPackage',
+        'dbOperationModule' => 'DbOperationModule',
+        'description' => 'Description',
+        'eniInstanceId' => 'EniInstanceId',
+        'expireTime' => 'ExpireTime',
+        'HSMModule' => 'HSMModule',
+        'IDaaSModule' => 'IDaaSModule',
+        'instanceId' => 'InstanceId',
+        'instanceStatus' => 'InstanceStatus',
+        'internetEndpoint' => 'InternetEndpoint',
+        'intranetEndpoint' => 'IntranetEndpoint',
+        'kmsSecretModule' => 'KmsSecretModule',
+        'licenseCode' => 'LicenseCode',
+        'modifyPasswordModule' => 'ModifyPasswordModule',
+        'networkProxyModule' => 'NetworkProxyModule',
+        'ports' => 'Ports',
+        'privateExportIps' => 'PrivateExportIps',
+        'privateWhiteList' => 'PrivateWhiteList',
+        'publicExportIps' => 'PublicExportIps',
+        'publicIps' => 'PublicIps',
+        'publicNetworkAccess' => 'PublicNetworkAccess',
+        'publicWhiteList' => 'PublicWhiteList',
+        'RDModule' => 'RDModule',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'routerRules' => 'RouterRules',
+        'scriptDeliverModule' => 'ScriptDeliverModule',
+        'securityGroupIds' => 'SecurityGroupIds',
+        'slaveVswitchId' => 'SlaveVswitchId',
+        'startTime' => 'StartTime',
+        'storage' => 'Storage',
+        'vpcId' => 'VpcId',
+        'vswitchId' => 'VswitchId',
+        'webTerminalModule' => 'WebTerminalModule',
+        'whiteListPolicies' => 'WhiteListPolicies',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -556,7 +557,7 @@ class instanceAttribute extends Model
         if (isset($map['Ports'])) {
             if (!empty($map['Ports'])) {
                 $model->ports = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Ports'] as $item) {
                     $model->ports[$n++] = null !== $item ? ports::fromMap($item) : $item;
                 }
@@ -633,7 +634,7 @@ class instanceAttribute extends Model
         if (isset($map['WhiteListPolicies'])) {
             if (!empty($map['WhiteListPolicies'])) {
                 $model->whiteListPolicies = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['WhiteListPolicies'] as $item) {
                     $model->whiteListPolicies[$n++] = null !== $item ? whiteListPolicies::fromMap($item) : $item;
                 }

@@ -46,14 +46,12 @@ class results extends Model
      */
     public $message;
     protected $_name = [
-        'code'    => 'Code',
-        'hostId'  => 'HostId',
+        'code' => 'Code',
+        'hostId' => 'HostId',
         'message' => 'Message',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

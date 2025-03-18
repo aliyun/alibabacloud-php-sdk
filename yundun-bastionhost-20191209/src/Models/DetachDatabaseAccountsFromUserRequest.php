@@ -19,7 +19,10 @@ class DetachDatabaseAccountsFromUserRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * > You can call the DescribeInstances operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-pe335ipfk01
      *
      * @var string
@@ -30,6 +33,7 @@ class DetachDatabaseAccountsFromUserRequest extends Model
      * @description The region ID of the bastion host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -39,22 +43,23 @@ class DetachDatabaseAccountsFromUserRequest extends Model
     /**
      * @description The ID of the user from whom you want to revoke the permissions on databases and database accounts.
      *
+     * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'databases'  => 'Databases',
+        'databases' => 'Databases',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'userId'     => 'UserId',
+        'regionId' => 'RegionId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +97,7 @@ class DetachDatabaseAccountsFromUserRequest extends Model
         if (isset($map['Databases'])) {
             if (!empty($map['Databases'])) {
                 $model->databases = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Databases'] as $item) {
                     $model->databases[$n++] = null !== $item ? databases::fromMap($item) : $item;
                 }

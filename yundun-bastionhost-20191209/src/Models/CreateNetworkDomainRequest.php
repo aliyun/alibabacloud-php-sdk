@@ -21,7 +21,10 @@ class CreateNetworkDomainRequest extends Model
     /**
      * @description The ID of the bastion host for which you want to create a network domain.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-lbj3bw4ma02
      *
      * @var string
@@ -32,6 +35,7 @@ class CreateNetworkDomainRequest extends Model
      * @description The name of the network domain that you want to create. The name can be up to 128 characters in length.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $networkDomainName;
@@ -43,6 +47,7 @@ class CreateNetworkDomainRequest extends Model
      *   Proxy
      *
      * This parameter is required.
+     *
      * @example Proxy
      *
      * @var string
@@ -60,23 +65,22 @@ class CreateNetworkDomainRequest extends Model
      * @description The region ID of the bastion host for which you want to create a network domain.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'comment'           => 'Comment',
-        'instanceId'        => 'InstanceId',
+        'comment' => 'Comment',
+        'instanceId' => 'InstanceId',
         'networkDomainName' => 'NetworkDomainName',
         'networkDomainType' => 'NetworkDomainType',
-        'proxies'           => 'Proxies',
-        'regionId'          => 'RegionId',
+        'proxies' => 'Proxies',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -132,7 +136,7 @@ class CreateNetworkDomainRequest extends Model
         if (isset($map['Proxies'])) {
             if (!empty($map['Proxies'])) {
                 $model->proxies = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Proxies'] as $item) {
                     $model->proxies[$n++] = null !== $item ? proxies::fromMap($item) : $item;
                 }

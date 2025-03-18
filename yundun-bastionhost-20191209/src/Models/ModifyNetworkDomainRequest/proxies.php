@@ -69,17 +69,15 @@ class proxies extends Model
      */
     public $user;
     protected $_name = [
-        'address'   => 'Address',
-        'nodeType'  => 'NodeType',
-        'password'  => 'Password',
-        'port'      => 'Port',
+        'address' => 'Address',
+        'nodeType' => 'NodeType',
+        'password' => 'Password',
+        'port' => 'Port',
         'proxyType' => 'ProxyType',
-        'user'      => 'User',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

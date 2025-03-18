@@ -34,14 +34,12 @@ class DescribeInstancesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'instances'  => 'Instances',
-        'requestId'  => 'RequestId',
+        'instances' => 'Instances',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeInstancesResponseBody extends Model
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Instances'] as $item) {
                     $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }

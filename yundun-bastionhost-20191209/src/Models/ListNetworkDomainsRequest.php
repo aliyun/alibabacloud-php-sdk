@@ -11,7 +11,10 @@ class ListNetworkDomainsRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-tl329pvu70x
      *
      * @var string
@@ -48,7 +51,10 @@ class ListNetworkDomainsRequest extends Model
 
     /**
      * @description The number of entries per page.\\
+     * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var string
@@ -59,23 +65,22 @@ class ListNetworkDomainsRequest extends Model
      * @description The region ID of the bastion host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'instanceId'        => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'networkDomainName' => 'NetworkDomainName',
         'networkDomainType' => 'NetworkDomainType',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'regionId'          => 'RegionId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

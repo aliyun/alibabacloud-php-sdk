@@ -20,7 +20,10 @@ class ModifyHostGroupRequest extends Model
     /**
      * @description The ID of the asset group that you want to modify.
      *
+     * >  You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -39,7 +42,10 @@ class ModifyHostGroupRequest extends Model
     /**
      * @description The ID of the bastion host whose asset group you want to modify.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -50,22 +56,21 @@ class ModifyHostGroupRequest extends Model
      * @description The region ID of the bastion host whose asset group you want to modify.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'comment'       => 'Comment',
-        'hostGroupId'   => 'HostGroupId',
+        'comment' => 'Comment',
+        'hostGroupId' => 'HostGroupId',
         'hostGroupName' => 'HostGroupName',
-        'instanceId'    => 'InstanceId',
-        'regionId'      => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

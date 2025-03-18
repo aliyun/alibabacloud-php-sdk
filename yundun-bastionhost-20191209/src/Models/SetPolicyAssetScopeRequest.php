@@ -15,6 +15,7 @@ class SetPolicyAssetScopeRequest extends Model
      * @description The databases to which the control policy applies.
      *
      * >  This parameter is required if ScopeType is set to Database. You can specify up to 500 databases.
+     *
      * @var databases[]
      */
     public $databases;
@@ -23,6 +24,7 @@ class SetPolicyAssetScopeRequest extends Model
      * @description The asset groups to which the control policy applies.
      *
      * > This parameter is required if ScopeType is set to HostGroup. You can specify up to 100 asset groups.
+     *
      * @var hostGroups[]
      */
     public $hostGroups;
@@ -31,6 +33,7 @@ class SetPolicyAssetScopeRequest extends Model
      * @description The hosts to which the control policy applies.
      *
      * > This parameter is required if ScopeType is set to Host. You can specify up to 500 hosts.
+     *
      * @var hosts[]
      */
     public $hosts;
@@ -38,7 +41,10 @@ class SetPolicyAssetScopeRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -48,7 +54,10 @@ class SetPolicyAssetScopeRequest extends Model
     /**
      * @description The ID of the control policy that you want to modify.
      *
+     * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+     *
      * This parameter is required.
+     *
      * @example 7
      *
      * @var string
@@ -59,6 +68,7 @@ class SetPolicyAssetScopeRequest extends Model
      * @description The region ID of the bastion host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -74,24 +84,23 @@ class SetPolicyAssetScopeRequest extends Model
      * **HostGroup**: The control policy applies to specified asset groups.
      *
      * This parameter is required.
+     *
      * @example All
      *
      * @var string
      */
     public $scopeType;
     protected $_name = [
-        'databases'  => 'Databases',
+        'databases' => 'Databases',
         'hostGroups' => 'HostGroups',
-        'hosts'      => 'Hosts',
+        'hosts' => 'Hosts',
         'instanceId' => 'InstanceId',
-        'policyId'   => 'PolicyId',
-        'regionId'   => 'RegionId',
-        'scopeType'  => 'ScopeType',
+        'policyId' => 'PolicyId',
+        'regionId' => 'RegionId',
+        'scopeType' => 'ScopeType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -150,7 +159,7 @@ class SetPolicyAssetScopeRequest extends Model
         if (isset($map['Databases'])) {
             if (!empty($map['Databases'])) {
                 $model->databases = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Databases'] as $item) {
                     $model->databases[$n++] = null !== $item ? databases::fromMap($item) : $item;
                 }
@@ -159,7 +168,7 @@ class SetPolicyAssetScopeRequest extends Model
         if (isset($map['HostGroups'])) {
             if (!empty($map['HostGroups'])) {
                 $model->hostGroups = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['HostGroups'] as $item) {
                     $model->hostGroups[$n++] = null !== $item ? hostGroups::fromMap($item) : $item;
                 }
@@ -168,7 +177,7 @@ class SetPolicyAssetScopeRequest extends Model
         if (isset($map['Hosts'])) {
             if (!empty($map['Hosts'])) {
                 $model->hosts = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Hosts'] as $item) {
                     $model->hosts[$n++] = null !== $item ? hosts::fromMap($item) : $item;
                 }

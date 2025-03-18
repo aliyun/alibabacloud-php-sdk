@@ -12,6 +12,7 @@ class ports extends Model
      * @description The custom port.
      *
      * > Only the SSH and RDP ports can be changed. If no custom O\\&M port is specified for the bastion host, the value of StandardPort is returned.
+     *
      * @example 600xx
      *
      * @var int
@@ -31,13 +32,11 @@ class ports extends Model
      */
     public $standardPort;
     protected $_name = [
-        'customPort'   => 'CustomPort',
+        'customPort' => 'CustomPort',
         'standardPort' => 'StandardPort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

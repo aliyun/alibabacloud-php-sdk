@@ -45,15 +45,13 @@ class assetScope extends Model
      */
     public $scopeType;
     protected $_name = [
-        'databases'  => 'Databases',
+        'databases' => 'Databases',
         'hostGroups' => 'HostGroups',
-        'hosts'      => 'Hosts',
-        'scopeType'  => 'ScopeType',
+        'hosts' => 'Hosts',
+        'scopeType' => 'ScopeType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,7 +101,7 @@ class assetScope extends Model
         if (isset($map['Databases'])) {
             if (!empty($map['Databases'])) {
                 $model->databases = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Databases'] as $item) {
                     $model->databases[$n++] = null !== $item ? databases::fromMap($item) : $item;
                 }
@@ -112,7 +110,7 @@ class assetScope extends Model
         if (isset($map['HostGroups'])) {
             if (!empty($map['HostGroups'])) {
                 $model->hostGroups = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['HostGroups'] as $item) {
                     $model->hostGroups[$n++] = null !== $item ? hostGroups::fromMap($item) : $item;
                 }
@@ -121,7 +119,7 @@ class assetScope extends Model
         if (isset($map['Hosts'])) {
             if (!empty($map['Hosts'])) {
                 $model->hosts = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Hosts'] as $item) {
                     $model->hosts[$n++] = null !== $item ? hosts::fromMap($item) : $item;
                 }

@@ -27,12 +27,10 @@ class CreateUserResponseBody extends Model
     public $userId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'userId'    => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

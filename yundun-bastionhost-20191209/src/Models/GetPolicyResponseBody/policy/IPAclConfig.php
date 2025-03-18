@@ -28,12 +28,10 @@ class IPAclConfig extends Model
     public $IPs;
     protected $_name = [
         'aclType' => 'AclType',
-        'IPs'     => 'IPs',
+        'IPs' => 'IPs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

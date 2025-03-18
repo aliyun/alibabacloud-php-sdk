@@ -15,6 +15,7 @@ class deny extends Model
      *   **white**: whitelist mode.
      *
      * This parameter is required.
+     *
      * @example white
      *
      * @var string
@@ -25,17 +26,16 @@ class deny extends Model
      * @description The commands to be controlled.
      *
      * > This parameter is required if AclType is set to white.
+     *
      * @var string[]
      */
     public $commands;
     protected $_name = [
-        'aclType'  => 'AclType',
+        'aclType' => 'AclType',
         'commands' => 'Commands',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

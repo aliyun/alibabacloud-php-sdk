@@ -26,12 +26,10 @@ class AttachHostGroupAccountsToUserResponseBody extends Model
     public $results;
     protected $_name = [
         'requestId' => 'RequestId',
-        'results'   => 'Results',
+        'results' => 'Results',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class AttachHostGroupAccountsToUserResponseBody extends Model
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Results'] as $item) {
                     $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }

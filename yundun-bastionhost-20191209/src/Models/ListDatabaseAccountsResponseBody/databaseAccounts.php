@@ -56,16 +56,14 @@ class databaseAccounts extends Model
      */
     public $hasPassword;
     protected $_name = [
-        'databaseAccountId'   => 'DatabaseAccountId',
+        'databaseAccountId' => 'DatabaseAccountId',
         'databaseAccountName' => 'DatabaseAccountName',
-        'databaseId'          => 'DatabaseId',
-        'databaseSchema'      => 'DatabaseSchema',
-        'hasPassword'         => 'HasPassword',
+        'databaseId' => 'DatabaseId',
+        'databaseSchema' => 'DatabaseSchema',
+        'hasPassword' => 'HasPassword',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

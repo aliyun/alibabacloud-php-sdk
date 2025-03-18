@@ -25,13 +25,11 @@ class GetPolicyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'policy'    => 'Policy',
+        'policy' => 'Policy',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

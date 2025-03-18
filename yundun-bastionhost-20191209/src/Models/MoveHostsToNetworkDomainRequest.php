@@ -12,6 +12,7 @@ class MoveHostsToNetworkDomainRequest extends Model
      * @description The IDs of the hosts that you want to add to the network domain.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $hostIds;
@@ -19,7 +20,10 @@ class MoveHostsToNetworkDomainRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-uax2zmx8005
      *
      * @var string
@@ -29,7 +33,10 @@ class MoveHostsToNetworkDomainRequest extends Model
     /**
      * @description The ID of the network domain to which you want to add hosts.
      *
+     * >  You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+     *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var string
@@ -40,21 +47,20 @@ class MoveHostsToNetworkDomainRequest extends Model
      * @description The region ID of the bastion host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'hostIds'         => 'HostIds',
-        'instanceId'      => 'InstanceId',
+        'hostIds' => 'HostIds',
+        'instanceId' => 'InstanceId',
         'networkDomainId' => 'NetworkDomainId',
-        'regionId'        => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

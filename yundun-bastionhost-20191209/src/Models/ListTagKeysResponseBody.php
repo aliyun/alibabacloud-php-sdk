@@ -53,15 +53,13 @@ class ListTagKeysResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'tagKeys'    => 'TagKeys',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'tagKeys' => 'TagKeys',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class ListTagKeysResponseBody extends Model
         if (isset($map['TagKeys'])) {
             if (!empty($map['TagKeys'])) {
                 $model->tagKeys = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['TagKeys'] as $item) {
                     $model->tagKeys[$n++] = null !== $item ? tagKeys::fromMap($item) : $item;
                 }

@@ -33,14 +33,12 @@ class databaseAccounts extends Model
      */
     public $message;
     protected $_name = [
-        'code'              => 'Code',
+        'code' => 'Code',
         'databaseAccountId' => 'DatabaseAccountId',
-        'message'           => 'Message',
+        'message' => 'Message',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

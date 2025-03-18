@@ -35,13 +35,11 @@ class ListDatabaseAccountsForUserResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'databaseAccounts' => 'DatabaseAccounts',
-        'requestId'        => 'RequestId',
-        'totalCount'       => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListDatabaseAccountsForUserResponseBody extends Model
         if (isset($map['DatabaseAccounts'])) {
             if (!empty($map['DatabaseAccounts'])) {
                 $model->databaseAccounts = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['DatabaseAccounts'] as $item) {
                     $model->databaseAccounts[$n++] = null !== $item ? databaseAccounts::fromMap($item) : $item;
                 }

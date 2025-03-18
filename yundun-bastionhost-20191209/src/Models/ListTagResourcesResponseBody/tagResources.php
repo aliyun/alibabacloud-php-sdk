@@ -21,6 +21,7 @@ class tagResources extends Model
      * @description The type of the resource.
      *
      * The returned value is INSTANCE, which indicates that the resource is a Bastionhost instance.
+     *
      * @example INSTANCE
      *
      * @var string
@@ -45,15 +46,13 @@ class tagResources extends Model
      */
     public $tagValue;
     protected $_name = [
-        'resourceId'   => 'ResourceId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tagKey'       => 'TagKey',
-        'tagValue'     => 'TagValue',
+        'tagKey' => 'TagKey',
+        'tagValue' => 'TagValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

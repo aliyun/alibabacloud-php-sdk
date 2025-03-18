@@ -16,19 +16,7 @@ class results extends Model
      *   **UNEXPECTED**: An unknown error occurred.
      *
      *   **INVALID_ARGUMENT**: A request parameter is invalid.
-     *
-     **
-     *
-     **Note**Make sure that the request parameters are valid and call the operation again.
-     *
-     *   **OBJECT_NOT_FOUND**: The specified object on which you want to perform the operation does not exist.
-     *
-     **
-     *
-     **Note**Check whether the specified ID of the bastion host exists, whether the specified hosts exist, and whether the specified host IDs are valid. Then, call the operation again.
-     *
      *   **OBJECT_AlREADY_EXISTS**: The specified object on which you want to perform the operation already exists.
-     *
      * @example OK
      *
      * @var string
@@ -53,14 +41,12 @@ class results extends Model
      */
     public $userId;
     protected $_name = [
-        'code'    => 'Code',
+        'code' => 'Code',
         'message' => 'Message',
-        'userId'  => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

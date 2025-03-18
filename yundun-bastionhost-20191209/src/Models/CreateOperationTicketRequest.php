@@ -79,20 +79,18 @@ class CreateOperationTicketRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'approveComment'   => 'ApproveComment',
+        'approveComment' => 'ApproveComment',
         'assetAccountName' => 'AssetAccountName',
-        'assetId'          => 'AssetId',
-        'effectEndTime'    => 'EffectEndTime',
-        'effectStartTime'  => 'EffectStartTime',
-        'instanceId'       => 'InstanceId',
-        'isOneTimeEffect'  => 'IsOneTimeEffect',
-        'protocolName'     => 'ProtocolName',
-        'regionId'         => 'RegionId',
+        'assetId' => 'AssetId',
+        'effectEndTime' => 'EffectEndTime',
+        'effectStartTime' => 'EffectStartTime',
+        'instanceId' => 'InstanceId',
+        'isOneTimeEffect' => 'IsOneTimeEffect',
+        'protocolName' => 'ProtocolName',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

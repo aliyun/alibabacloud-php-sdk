@@ -10,7 +10,10 @@ class GetNetworkDomainRequest extends Model
 {
     /**
      * @description The bastion host ID.
+     * > You can call the [DescribeInstances ](https://help.aliyun.com/document_detail/153281.html)operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-i7m2btk6g48
      *
      * @var string
@@ -19,7 +22,10 @@ class GetNetworkDomainRequest extends Model
 
     /**
      * @description The ID of the network domain to query.
+     * > You can call the [ListNetworkDomains ](https://help.aliyun.com/document_detail/2758827.html)operation to query the network domain ID.
+     *
      * This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -30,20 +36,19 @@ class GetNetworkDomainRequest extends Model
      * @description The region ID of the bastion host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'networkDomainId' => 'NetworkDomainId',
-        'regionId'        => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

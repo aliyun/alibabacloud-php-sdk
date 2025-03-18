@@ -18,9 +18,7 @@ class approval extends Model
         'commands' => 'Commands',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

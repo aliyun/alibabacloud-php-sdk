@@ -13,6 +13,7 @@ class SetPolicyIPAclConfigRequest extends Model
      * @description The access control settings for source IP addresses.
      *
      * This parameter is required.
+     *
      * @var IPAclConfig
      */
     public $IPAclConfig;
@@ -20,7 +21,10 @@ class SetPolicyIPAclConfigRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * > You can call the DescribeInstances operation to query the bastion host ID.[](~~153281~~)
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -30,7 +34,10 @@ class SetPolicyIPAclConfigRequest extends Model
     /**
      * @description The ID of the control policy that you want to modify.
      *
+     * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+     *
      * This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -41,6 +48,7 @@ class SetPolicyIPAclConfigRequest extends Model
      * @description The region ID of the bastion host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -48,14 +56,12 @@ class SetPolicyIPAclConfigRequest extends Model
     public $regionId;
     protected $_name = [
         'IPAclConfig' => 'IPAclConfig',
-        'instanceId'  => 'InstanceId',
-        'policyId'    => 'PolicyId',
-        'regionId'    => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'policyId' => 'PolicyId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

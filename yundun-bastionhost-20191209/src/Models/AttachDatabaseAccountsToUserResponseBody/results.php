@@ -50,16 +50,14 @@ class results extends Model
      */
     public $userId;
     protected $_name = [
-        'code'             => 'Code',
+        'code' => 'Code',
         'databaseAccounts' => 'DatabaseAccounts',
-        'databaseId'       => 'DatabaseId',
-        'message'          => 'Message',
-        'userId'           => 'UserId',
+        'databaseId' => 'DatabaseId',
+        'message' => 'Message',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,7 +101,7 @@ class results extends Model
         if (isset($map['DatabaseAccounts'])) {
             if (!empty($map['DatabaseAccounts'])) {
                 $model->databaseAccounts = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['DatabaseAccounts'] as $item) {
                     $model->databaseAccounts[$n++] = null !== $item ? databaseAccounts::fromMap($item) : $item;
                 }

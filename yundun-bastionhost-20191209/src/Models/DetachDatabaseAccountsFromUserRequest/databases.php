@@ -25,12 +25,10 @@ class databases extends Model
     public $databaseId;
     protected $_name = [
         'databaseAccountIds' => 'DatabaseAccountIds',
-        'databaseId'         => 'DatabaseId',
+        'databaseId' => 'DatabaseId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

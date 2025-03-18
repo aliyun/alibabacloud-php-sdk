@@ -35,13 +35,11 @@ class ListHostGroupsForUserResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'hostGroups' => 'HostGroups',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListHostGroupsForUserResponseBody extends Model
         if (isset($map['HostGroups'])) {
             if (!empty($map['HostGroups'])) {
                 $model->hostGroups = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['HostGroups'] as $item) {
                     $model->hostGroups[$n++] = null !== $item ? hostGroups::fromMap($item) : $item;
                 }

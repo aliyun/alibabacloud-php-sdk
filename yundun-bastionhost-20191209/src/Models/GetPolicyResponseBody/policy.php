@@ -85,19 +85,17 @@ class policy extends Model
     public $protocolConfig;
     protected $_name = [
         'accessTimeRangeConfig' => 'AccessTimeRangeConfig',
-        'approvalConfig'        => 'ApprovalConfig',
-        'commandConfig'         => 'CommandConfig',
-        'comment'               => 'Comment',
-        'IPAclConfig'           => 'IPAclConfig',
-        'policyId'              => 'PolicyId',
-        'policyName'            => 'PolicyName',
-        'priority'              => 'Priority',
-        'protocolConfig'        => 'ProtocolConfig',
+        'approvalConfig' => 'ApprovalConfig',
+        'commandConfig' => 'CommandConfig',
+        'comment' => 'Comment',
+        'IPAclConfig' => 'IPAclConfig',
+        'policyId' => 'PolicyId',
+        'policyName' => 'PolicyName',
+        'priority' => 'Priority',
+        'protocolConfig' => 'ProtocolConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,7 +12,10 @@ class TagResourcesRequest extends Model
     /**
      * @description The region ID of the bastion hosts to which you want to create and add tags.
      *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -22,7 +25,12 @@ class TagResourcesRequest extends Model
     /**
      * @description An array that consists of IDs of bastion hosts.
      *
+     * Valid values: 1 to 20.
+     *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query IDs of bastion hosts.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-78v1gc****
      *
      * @var string[]
@@ -35,6 +43,7 @@ class TagResourcesRequest extends Model
      * Set the value to **INSTANCE**, which indicates that the resource is a bastion host.
      *
      * This parameter is required.
+     *
      * @example INSTANCE
      *
      * @var string
@@ -48,15 +57,13 @@ class TagResourcesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +112,7 @@ class TagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

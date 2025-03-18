@@ -58,6 +58,7 @@ class user extends Model
      *
      * - **zh-cn**: simplified Chinese.
      * - **en**: English.
+     *
      * @example en
      *
      * @var string
@@ -142,6 +143,7 @@ class user extends Model
      * @description The unique ID of the user.
      *
      * > This parameter uniquely identifies a RAM user of the bastion host. A value is returned for this parameter if the **Source** parameter is set to **Ram**. No value is returned for this parameter if the **Source** parameter is set to **Local**.
+     *
      * @example 122748924538****
      *
      * @var string
@@ -193,28 +195,26 @@ class user extends Model
      */
     public $userState;
     protected $_name = [
-        'comment'            => 'Comment',
-        'displayName'        => 'DisplayName',
-        'effectiveEndTime'   => 'EffectiveEndTime',
+        'comment' => 'Comment',
+        'displayName' => 'DisplayName',
+        'effectiveEndTime' => 'EffectiveEndTime',
         'effectiveStartTime' => 'EffectiveStartTime',
-        'email'              => 'Email',
-        'language'           => 'Language',
-        'languageStatus'     => 'LanguageStatus',
-        'mobile'             => 'Mobile',
-        'mobileCountryCode'  => 'MobileCountryCode',
-        'needResetPassword'  => 'NeedResetPassword',
-        'source'             => 'Source',
-        'sourceUserId'       => 'SourceUserId',
-        'twoFactorMethods'   => 'TwoFactorMethods',
-        'twoFactorStatus'    => 'TwoFactorStatus',
-        'userId'             => 'UserId',
-        'userName'           => 'UserName',
-        'userState'          => 'UserState',
+        'email' => 'Email',
+        'language' => 'Language',
+        'languageStatus' => 'LanguageStatus',
+        'mobile' => 'Mobile',
+        'mobileCountryCode' => 'MobileCountryCode',
+        'needResetPassword' => 'NeedResetPassword',
+        'source' => 'Source',
+        'sourceUserId' => 'SourceUserId',
+        'twoFactorMethods' => 'TwoFactorMethods',
+        'twoFactorStatus' => 'TwoFactorStatus',
+        'userId' => 'UserId',
+        'userName' => 'UserName',
+        'userState' => 'UserState',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class MoveDatabasesToNetworkDomainRequest extends Model
      * @description The IDs of the databases that you want to add to the network domain.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $databaseIds;
@@ -19,7 +20,10 @@ class MoveDatabasesToNetworkDomainRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-zpr3h2zo60l
      *
      * @var string
@@ -29,7 +33,10 @@ class MoveDatabasesToNetworkDomainRequest extends Model
     /**
      * @description The ID of the network domain to which you want to add databases.
      *
+     * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+     *
      * This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -39,21 +46,20 @@ class MoveDatabasesToNetworkDomainRequest extends Model
     /**
      * @description The region ID of the bastion host.
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'databaseIds'     => 'DatabaseIds',
-        'instanceId'      => 'InstanceId',
+        'databaseIds' => 'DatabaseIds',
+        'instanceId' => 'InstanceId',
         'networkDomainId' => 'NetworkDomainId',
-        'regionId'        => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

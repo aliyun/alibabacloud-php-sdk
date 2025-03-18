@@ -25,13 +25,11 @@ class GetInstanceTwoFactorResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'config'    => 'Config',
+        'config' => 'Config',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

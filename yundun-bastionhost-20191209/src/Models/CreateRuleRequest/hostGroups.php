@@ -25,12 +25,10 @@ class hostGroups extends Model
     public $hostGroupId;
     protected $_name = [
         'hostAccountNames' => 'HostAccountNames',
-        'hostGroupId'      => 'HostGroupId',
+        'hostGroupId' => 'HostGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

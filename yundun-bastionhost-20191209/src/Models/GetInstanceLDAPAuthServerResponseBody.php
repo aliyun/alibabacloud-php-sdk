@@ -25,13 +25,11 @@ class GetInstanceLDAPAuthServerResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'LDAP'      => 'LDAP',
+        'LDAP' => 'LDAP',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

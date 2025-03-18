@@ -12,6 +12,7 @@ class DescribeInstanceAttributeRequest extends Model
      * @description The ID of the Bastionhost instance.
      *
      * This parameter is required.
+     *
      * @example bastionhost-cn-78v1ghxxxxx
      *
      * @var string
@@ -28,12 +29,10 @@ class DescribeInstanceAttributeRequest extends Model
     public $regionId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

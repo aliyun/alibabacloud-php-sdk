@@ -12,6 +12,7 @@ class hostGroups extends Model
      * @description The asset accounts to which the control policy applies.
      *
      * > This parameter is required if AccountScopeType is set to AccountName.
+     *
      * @var string[]
      */
     public $accountNames;
@@ -37,14 +38,12 @@ class hostGroups extends Model
      */
     public $hostGroupId;
     protected $_name = [
-        'accountNames'     => 'AccountNames',
+        'accountNames' => 'AccountNames',
         'accountScopeType' => 'AccountScopeType',
-        'hostGroupId'      => 'HostGroupId',
+        'hostGroupId' => 'HostGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

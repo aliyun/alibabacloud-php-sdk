@@ -15,6 +15,7 @@ class ModifyHostsActiveAddressTypeRequest extends Model
      *   **Private**: internal portal
      *
      * This parameter is required.
+     *
      * @example Private
      *
      * @var string
@@ -24,7 +25,10 @@ class ModifyHostsActiveAddressTypeRequest extends Model
     /**
      * @description The ID of the host for which you want to change the portal type. The value is a JSON string. You can add up to 100 host IDs.
      *
+     * >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+     *
      * This parameter is required.
+     *
      * @example ["1","2"]
      *
      * @var string
@@ -34,7 +38,10 @@ class ModifyHostsActiveAddressTypeRequest extends Model
     /**
      * @description The ID of the bastion host for which you want to change the portal type of the host.
      *
+     * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw***
      *
      * @var string
@@ -45,6 +52,7 @@ class ModifyHostsActiveAddressTypeRequest extends Model
      * @description The region ID of the bastion host for which you want to change the portal type of the host.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -52,14 +60,12 @@ class ModifyHostsActiveAddressTypeRequest extends Model
     public $regionId;
     protected $_name = [
         'activeAddressType' => 'ActiveAddressType',
-        'hostIds'           => 'HostIds',
-        'instanceId'        => 'InstanceId',
-        'regionId'          => 'RegionId',
+        'hostIds' => 'HostIds',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

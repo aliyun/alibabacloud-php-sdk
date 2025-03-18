@@ -11,7 +11,10 @@ class GetDatabaseRequest extends Model
     /**
      * @description The ID of the database to query.
      *
+     * >  You can call the [ListDatabases](https://help.aliyun.com/document_detail/2758822.html) operation to query the database ID.
+     *
      * This parameter is required.
+     *
      * @example 21
      *
      * @var string
@@ -21,7 +24,10 @@ class GetDatabaseRequest extends Model
     /**
      * @description The ID of the bastion host that manages the database to query.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-wwo36qbv601
      *
      * @var string
@@ -32,6 +38,7 @@ class GetDatabaseRequest extends Model
      * @description The region ID of the bastion host that manages the database to query.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -40,12 +47,10 @@ class GetDatabaseRequest extends Model
     protected $_name = [
         'databaseId' => 'DatabaseId',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

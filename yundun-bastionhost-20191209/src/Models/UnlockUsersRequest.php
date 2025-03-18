@@ -11,7 +11,10 @@ class UnlockUsersRequest extends Model
     /**
      * @description The ID of the bastion host to which the users to be unlocked belong.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -22,6 +25,7 @@ class UnlockUsersRequest extends Model
      * @description The region ID of the bastion host to which the users to be unlocked belong.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -31,7 +35,10 @@ class UnlockUsersRequest extends Model
     /**
      * @description The ID of the user that you want to unlock. The value is a JSON string. You can add up to 100 user IDs. If you specify multiple IDs, separate the IDs with commas (,).
      *
+     * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+     *
      * This parameter is required.
+     *
      * @example ["1","2"]
      *
      * @var string
@@ -39,13 +46,11 @@ class UnlockUsersRequest extends Model
     public $userIds;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'userIds'    => 'UserIds',
+        'regionId' => 'RegionId',
+        'userIds' => 'UserIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

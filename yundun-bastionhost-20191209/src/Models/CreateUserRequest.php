@@ -21,6 +21,7 @@ class CreateUserRequest extends Model
      * @description The display name of the user that you want to add. The display name can be up to 128 characters in length.
      *
      * >  If you leave this parameter empty, the logon name is used as the display name.
+     *
      * @example Bob
      *
      * @var string
@@ -63,7 +64,10 @@ class CreateUserRequest extends Model
     /**
      * @description The ID of the bastion host to which you want to add a user.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -89,6 +93,7 @@ class CreateUserRequest extends Model
      *   **Custom**
      *
      * >  If you leave this parameter empty, the default value Global is used.
+     *
      * @example Custom
      *
      * @var string
@@ -147,6 +152,7 @@ class CreateUserRequest extends Model
      *   **false**
      *
      * >  If you leave this parameter empty, the default value false is used.
+     *
      * @example true
      *
      * @var bool
@@ -157,6 +163,7 @@ class CreateUserRequest extends Model
      * @description The logon password of the user that you want to add. The logon password must be 8 to 128 characters in length. It must contain uppercase letters, lowercase letters, digits, and special characters.
      *
      * > This parameter is required if Source is set to Local.
+     *
      * @example 213****
      *
      * @var string
@@ -167,6 +174,7 @@ class CreateUserRequest extends Model
      * @description The region ID of the bastion host to which you want to add a user.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -182,6 +190,7 @@ class CreateUserRequest extends Model
      *   **LDAP**: an LDAP-authenticated user.
      *
      * This parameter is required.
+     *
      * @example local
      *
      * @var string
@@ -212,6 +221,7 @@ class CreateUserRequest extends Model
      *   **totp OTP**: one-time password (OTP) token-based two-factor authentication.
      *
      * >  If TwoFactorStatus is set to Enable, you must select one of the preceding values for TwoFactorMethods.
+     *
      * @example ["sms"]
      *
      * @var string
@@ -226,6 +236,7 @@ class CreateUserRequest extends Model
      *   **Enable**: Two-factor authentication is enabled and user-specific settings apply.
      *
      * >  If you leave this parameter empty, the default value Global is used.
+     *
      * @example Enable
      *
      * @var string
@@ -236,35 +247,34 @@ class CreateUserRequest extends Model
      * @description The logon name of the user that you want to add. The logon name must be 1 to 128 characters in length and can contain only letters, digits, and underscores (_).
      *
      * This parameter is required.
+     *
      * @example abc_def
      *
      * @var string
      */
     public $userName;
     protected $_name = [
-        'comment'            => 'Comment',
-        'displayName'        => 'DisplayName',
-        'effectiveEndTime'   => 'EffectiveEndTime',
+        'comment' => 'Comment',
+        'displayName' => 'DisplayName',
+        'effectiveEndTime' => 'EffectiveEndTime',
         'effectiveStartTime' => 'EffectiveStartTime',
-        'email'              => 'Email',
-        'instanceId'         => 'InstanceId',
-        'language'           => 'Language',
-        'languageStatus'     => 'LanguageStatus',
-        'mobile'             => 'Mobile',
-        'mobileCountryCode'  => 'MobileCountryCode',
-        'needResetPassword'  => 'NeedResetPassword',
-        'password'           => 'Password',
-        'regionId'           => 'RegionId',
-        'source'             => 'Source',
-        'sourceUserId'       => 'SourceUserId',
-        'twoFactorMethods'   => 'TwoFactorMethods',
-        'twoFactorStatus'    => 'TwoFactorStatus',
-        'userName'           => 'UserName',
+        'email' => 'Email',
+        'instanceId' => 'InstanceId',
+        'language' => 'Language',
+        'languageStatus' => 'LanguageStatus',
+        'mobile' => 'Mobile',
+        'mobileCountryCode' => 'MobileCountryCode',
+        'needResetPassword' => 'NeedResetPassword',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
+        'source' => 'Source',
+        'sourceUserId' => 'SourceUserId',
+        'twoFactorMethods' => 'TwoFactorMethods',
+        'twoFactorStatus' => 'TwoFactorStatus',
+        'userName' => 'UserName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

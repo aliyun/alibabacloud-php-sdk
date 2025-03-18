@@ -12,6 +12,7 @@ class GenerateAssetOperationTokenRequest extends Model
      * @description The ID of the account whose assets the O\\&M token takes effect.
      *
      * >  You must specify at least one of the following parameters: AssetAccountId and AssetAccountName. If you specify both parameters, AssetAccountId takes precedence.
+     *
      * @example 2
      *
      * @var string
@@ -22,6 +23,7 @@ class GenerateAssetOperationTokenRequest extends Model
      * @description The name of the host account. If you use a custom account, enter a real account name.
      *
      * >  When both AssetAccountId and AssetAccountName are specified, AssetAccountId takes precedence.
+     *
      * @example root
      *
      * @var string
@@ -57,6 +59,7 @@ class GenerateAssetOperationTokenRequest extends Model
      * @description The ID of the asset for which you want to apply for an O\\&M token.
      *
      * This parameter is required.
+     *
      * @example 11
      *
      * @var string
@@ -70,6 +73,7 @@ class GenerateAssetOperationTokenRequest extends Model
      *   **Database**
      *
      * This parameter is required.
+     *
      * @example Host
      *
      * @var string
@@ -77,6 +81,12 @@ class GenerateAssetOperationTokenRequest extends Model
     public $assetType;
 
     /**
+     * @description The name of the database. If you set OperationMode to Sso and AssetAccountProtocolName to PostgreSQL or Oracle and you select Custom Account for the Database Account parameter, you must specify this parameter.
+     *
+     * >This parameter is available only for bastion hosts that run V3.2.44 or later.
+     *
+     * @example orcl
+     *
      * @var string
      */
     public $databaseSchema;
@@ -84,7 +94,10 @@ class GenerateAssetOperationTokenRequest extends Model
     /**
      * @description The ID of the bastion host for which you want to apply an O\\&M token.
      *
+     * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -92,19 +105,43 @@ class GenerateAssetOperationTokenRequest extends Model
     public $instanceId;
 
     /**
+     * @description The logon attribute. If you set OperationMode to Sso and AssetAccountProtocolName to Oracle, you must specify this parameter. Valid values:
+     *
+     *   **SERVICENAME**
+     *   **SID**
+     *
+     * >  This parameter is available only for bastion hosts that run V3.2.44 or later.
+     *
+     * @example SID
+     *
      * @var string
      */
     public $loginAttribute;
 
     /**
+     * @description The O\\&M logon method. Valid values:
+     *
+     *   **WebToken**: O\\&M token-based logon.
+     *   **Sso**: Local client-based logon.
+     *
+     * >  This parameter is available only for bastion hosts that run V3.2.44 or later. If you do not specify this parameter, the default value WebToken is used.
+     *
+     * @example Sso
+     *
      * @var string
      */
     public $operationMode;
 
     /**
+     * @var string
+     */
+    public $operationNote;
+
+    /**
      * @description The region ID of the bastion host.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -112,27 +149,35 @@ class GenerateAssetOperationTokenRequest extends Model
     public $regionId;
 
     /**
+     * @description The type of the local client that you want to perform O\\&M operations on Linux assets. If you set OperationMode to Sso and AssetAccountProtocolName to SSH, you must specify this parameter. Valid values:
+     *
+     *   **ssh**: Perform O\\&M operations on Linux assets by connecting to a bastion host from an SSH client.
+     *   **sftp**: Perform O\\&M operations on Linux assets by connecting to a bastion host from a Secure File Transfer Protocol (SFTP) client.
+     *
+     * >  This parameter is available only for bastion hosts that run V3.2.44 or later.
+     *
+     * @example ssh
+     *
      * @var string
      */
     public $ssoClient;
     protected $_name = [
-        'assetAccountId'           => 'AssetAccountId',
-        'assetAccountName'         => 'AssetAccountName',
-        'assetAccountPassword'     => 'AssetAccountPassword',
+        'assetAccountId' => 'AssetAccountId',
+        'assetAccountName' => 'AssetAccountName',
+        'assetAccountPassword' => 'AssetAccountPassword',
         'assetAccountProtocolName' => 'AssetAccountProtocolName',
-        'assetId'                  => 'AssetId',
-        'assetType'                => 'AssetType',
-        'databaseSchema'           => 'DatabaseSchema',
-        'instanceId'               => 'InstanceId',
-        'loginAttribute'           => 'LoginAttribute',
-        'operationMode'            => 'OperationMode',
-        'regionId'                 => 'RegionId',
-        'ssoClient'                => 'SsoClient',
+        'assetId' => 'AssetId',
+        'assetType' => 'AssetType',
+        'databaseSchema' => 'DatabaseSchema',
+        'instanceId' => 'InstanceId',
+        'loginAttribute' => 'LoginAttribute',
+        'operationMode' => 'OperationMode',
+        'operationNote' => 'OperationNote',
+        'regionId' => 'RegionId',
+        'ssoClient' => 'SsoClient',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -166,6 +211,9 @@ class GenerateAssetOperationTokenRequest extends Model
         }
         if (null !== $this->operationMode) {
             $res['OperationMode'] = $this->operationMode;
+        }
+        if (null !== $this->operationNote) {
+            $res['OperationNote'] = $this->operationNote;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -214,6 +262,9 @@ class GenerateAssetOperationTokenRequest extends Model
         }
         if (isset($map['OperationMode'])) {
             $model->operationMode = $map['OperationMode'];
+        }
+        if (isset($map['OperationNote'])) {
+            $model->operationNote = $map['OperationNote'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

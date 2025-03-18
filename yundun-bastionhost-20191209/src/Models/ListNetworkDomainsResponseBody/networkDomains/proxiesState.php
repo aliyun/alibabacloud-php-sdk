@@ -32,13 +32,11 @@ class proxiesState extends Model
      */
     public $proxyState;
     protected $_name = [
-        'nodeType'   => 'NodeType',
+        'nodeType' => 'NodeType',
         'proxyState' => 'ProxyState',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

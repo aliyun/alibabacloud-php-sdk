@@ -25,13 +25,11 @@ class GetHostResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'host'      => 'Host',
+        'host' => 'Host',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

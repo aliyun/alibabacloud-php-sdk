@@ -24,6 +24,7 @@ class hosts extends Model
      * @description The host accounts to which the control policy applies.
      *
      * > This parameter is required if AccountScopeType is set to AccountId.
+     *
      * @var string[]
      */
     public $hostAccountIds;
@@ -38,13 +39,11 @@ class hosts extends Model
     public $hostId;
     protected $_name = [
         'accountScopeType' => 'AccountScopeType',
-        'hostAccountIds'   => 'HostAccountIds',
-        'hostId'           => 'HostId',
+        'hostAccountIds' => 'HostAccountIds',
+        'hostId' => 'HostId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -29,9 +29,7 @@ class GetUserGroupResponseBody extends Model
         'userGroup' => 'UserGroup',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

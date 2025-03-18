@@ -11,7 +11,10 @@ class AttachHostGroupAccountsToUserRequest extends Model
     /**
      * @description The ID of the host group and the name of the host account that you want to authorize the user to manage. You can specify up to 10 host group IDs and up to 10 host account names for each host group. You can specify only host group IDs. In this case, the user is authorized to manage only the specified host groups. For more information about this parameter, see the "Description of the HostGroups parameter" section of this topic.
      *
+     * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group and the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the name of the host account.
+     *
      * This parameter is required.
+     *
      * @example [ {"HostGroupId":"1"}, {"HostGroupId":"2","HostAccountNames":["root","111","abc"]}, {"HostGroupId":"3","HostAccountNames":["root","111","abc"]}, {"HostGroupId":"4","HostAccountNames":["root","111","abc"]} ]
      *
      * @var string
@@ -21,7 +24,10 @@ class AttachHostGroupAccountsToUserRequest extends Model
     /**
      * @description The ID of the bastion host for which you want to authorize the user to manage the host groups and host accounts.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -32,6 +38,7 @@ class AttachHostGroupAccountsToUserRequest extends Model
      * @description The region ID of the bastion host for which you want to authorize the user to manage the host groups and host accounts.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -41,7 +48,10 @@ class AttachHostGroupAccountsToUserRequest extends Model
     /**
      * @description The ID of the user that you want to authorize to manage the host groups and host accounts.
      *
+     * > You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the user.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -50,13 +60,11 @@ class AttachHostGroupAccountsToUserRequest extends Model
     protected $_name = [
         'hostGroups' => 'HostGroups',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'userId'     => 'UserId',
+        'regionId' => 'RegionId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

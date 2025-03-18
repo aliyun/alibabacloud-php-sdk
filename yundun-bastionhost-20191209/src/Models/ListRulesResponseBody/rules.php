@@ -65,17 +65,15 @@ class rules extends Model
      */
     public $ruleState;
     protected $_name = [
-        'comment'            => 'Comment',
-        'effectiveEndTime'   => 'EffectiveEndTime',
+        'comment' => 'Comment',
+        'effectiveEndTime' => 'EffectiveEndTime',
         'effectiveStartTime' => 'EffectiveStartTime',
-        'ruleId'             => 'RuleId',
-        'ruleName'           => 'RuleName',
-        'ruleState'          => 'RuleState',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleState' => 'RuleState',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

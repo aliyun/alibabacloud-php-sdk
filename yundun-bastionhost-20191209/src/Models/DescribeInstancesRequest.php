@@ -78,18 +78,16 @@ class DescribeInstancesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'instanceStatus'  => 'InstanceStatus',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'instanceStatus' => 'InstanceStatus',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'tag'             => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -156,7 +154,7 @@ class DescribeInstancesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

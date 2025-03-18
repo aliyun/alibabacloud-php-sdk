@@ -44,15 +44,13 @@ class hostShareKey extends Model
      */
     public $privateKeyFingerPrint;
     protected $_name = [
-        'hostShareKeyId'        => 'HostShareKeyId',
-        'hostShareKeyName'      => 'HostShareKeyName',
-        'lastModifyKeyAt'       => 'LastModifyKeyAt',
+        'hostShareKeyId' => 'HostShareKeyId',
+        'hostShareKeyName' => 'HostShareKeyName',
+        'lastModifyKeyAt' => 'LastModifyKeyAt',
         'privateKeyFingerPrint' => 'PrivateKeyFingerPrint',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

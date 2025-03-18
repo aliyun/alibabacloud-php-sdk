@@ -39,14 +39,12 @@ class hostAccounts extends Model
      */
     public $message;
     protected $_name = [
-        'code'          => 'Code',
+        'code' => 'Code',
         'hostAccountId' => 'HostAccountId',
-        'message'       => 'Message',
+        'message' => 'Message',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

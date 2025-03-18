@@ -27,12 +27,10 @@ class CreateNetworkDomainResponseBody extends Model
     public $requestId;
     protected $_name = [
         'networkDomainId' => 'NetworkDomainId',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

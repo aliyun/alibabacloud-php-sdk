@@ -25,13 +25,11 @@ class GetDatabaseResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'database'  => 'Database',
+        'database' => 'Database',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

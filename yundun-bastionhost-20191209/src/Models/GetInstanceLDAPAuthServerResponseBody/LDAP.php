@@ -122,23 +122,21 @@ class LDAP extends Model
      */
     public $standbyServer;
     protected $_name = [
-        'account'          => 'Account',
-        'baseDN'           => 'BaseDN',
-        'emailMapping'     => 'EmailMapping',
-        'filter'           => 'Filter',
-        'hasPassword'      => 'HasPassword',
-        'isSSL'            => 'IsSSL',
+        'account' => 'Account',
+        'baseDN' => 'BaseDN',
+        'emailMapping' => 'EmailMapping',
+        'filter' => 'Filter',
+        'hasPassword' => 'HasPassword',
+        'isSSL' => 'IsSSL',
         'loginNameMapping' => 'LoginNameMapping',
-        'mobileMapping'    => 'MobileMapping',
-        'nameMapping'      => 'NameMapping',
-        'port'             => 'Port',
-        'server'           => 'Server',
-        'standbyServer'    => 'StandbyServer',
+        'mobileMapping' => 'MobileMapping',
+        'nameMapping' => 'NameMapping',
+        'port' => 'Port',
+        'server' => 'Server',
+        'standbyServer' => 'StandbyServer',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

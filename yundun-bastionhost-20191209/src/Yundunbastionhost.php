@@ -374,18 +374,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AcceptApproveCommand',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AcceptApproveCommand',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AcceptApproveCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AcceptApproveCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AcceptApproveCommandResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -406,7 +409,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @summary Approves an O\\\\\\&M application.
+     * @summary Approves an O\\\\\\\\\\\\&M application.
      *  *
      * @description You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -445,22 +448,25 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AcceptOperationTicket',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AcceptOperationTicket',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AcceptOperationTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AcceptOperationTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AcceptOperationTicketResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Approves an O\\\\\\&M application.
+     * @summary Approves an O\\\\\\\\\\\\&M application.
      *  *
      * @description You can call this operation as a Bastionhost administrator to approve an O\\&M application of an O\\&M engineer.
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -504,18 +510,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddDatabasesToGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddDatabasesToGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddDatabasesToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddDatabasesToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddDatabasesToGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -564,18 +573,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddHostsToGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddHostsToGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddHostsToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddHostsToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddHostsToGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -629,18 +641,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddUsersToGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddUsersToGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddUsersToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddUsersToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddUsersToGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -690,18 +705,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachDatabaseAccountsToUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachDatabaseAccountsToUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachDatabaseAccountsToUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachDatabaseAccountsToUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachDatabaseAccountsToUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -746,18 +764,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachDatabaseAccountsToUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachDatabaseAccountsToUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachDatabaseAccountsToUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachDatabaseAccountsToUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachDatabaseAccountsToUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -802,18 +823,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachHostAccountsToHostShareKey',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachHostAccountsToHostShareKey',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachHostAccountsToHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachHostAccountsToHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachHostAccountsToHostShareKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -858,18 +882,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachHostAccountsToUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachHostAccountsToUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachHostAccountsToUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachHostAccountsToUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachHostAccountsToUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -916,18 +943,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachHostAccountsToUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachHostAccountsToUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachHostAccountsToUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachHostAccountsToUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachHostAccountsToUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -974,18 +1004,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachHostGroupAccountsToUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachHostGroupAccountsToUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachHostGroupAccountsToUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachHostGroupAccountsToUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachHostGroupAccountsToUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1030,18 +1063,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachHostGroupAccountsToUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachHostGroupAccountsToUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachHostGroupAccountsToUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachHostGroupAccountsToUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachHostGroupAccountsToUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1086,18 +1122,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigInstanceSecurityGroups',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigInstanceSecurityGroups',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ConfigInstanceSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigInstanceSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigInstanceSecurityGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1147,18 +1186,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigInstanceWhiteList',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigInstanceWhiteList',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ConfigInstanceWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigInstanceWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigInstanceWhiteListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1238,18 +1280,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDatabase',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDatabase',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1303,18 +1348,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDatabaseAccount',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDatabaseAccount',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateDatabaseAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDatabaseAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDatabaseAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1351,18 +1399,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateExportConfigJob',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateExportConfigJob',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateExportConfigJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateExportConfigJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateExportConfigJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1429,18 +1480,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHost',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHost',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateHostResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateHostResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateHostResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1500,18 +1554,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHostAccount',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHostAccount',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateHostAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1556,18 +1613,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHostGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHostGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateHostGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1615,18 +1675,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHostShareKey',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHostShareKey',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateHostShareKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1677,18 +1740,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNetworkDomain',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNetworkDomain',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateNetworkDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1746,18 +1812,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateOperationTicket',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateOperationTicket',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateOperationTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOperationTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOperationTicketResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1803,18 +1872,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePolicy',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePolicy',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1880,18 +1952,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRule',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1981,18 +2056,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2043,18 +2121,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2110,18 +2191,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateUserPublicKey',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateUserPublicKey',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateUserPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUserPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUserPublicKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2165,18 +2249,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDatabase',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDatabase',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2218,18 +2305,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDatabaseAccount',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDatabaseAccount',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteDatabaseAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDatabaseAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDatabaseAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2271,18 +2361,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHost',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHost',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteHostResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteHostResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteHostResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2330,18 +2423,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHostAccount',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHostAccount',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteHostAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2393,18 +2489,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHostGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHostGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteHostGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2450,18 +2549,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHostShareKey',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHostShareKey',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteHostShareKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2503,18 +2605,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNetworkDomain',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNetworkDomain',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteNetworkDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2556,18 +2661,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePolicy',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePolicy',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2609,18 +2717,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRule',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2662,18 +2773,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2715,18 +2829,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2770,18 +2887,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUserPublicKey',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUserPublicKey',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserPublicKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2824,18 +2944,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceAttribute',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceAttribute',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2894,18 +3017,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstances',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstances',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2944,18 +3070,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3000,18 +3129,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachDatabaseAccountsFromUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachDatabaseAccountsFromUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachDatabaseAccountsFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachDatabaseAccountsFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachDatabaseAccountsFromUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3056,18 +3188,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachDatabaseAccountsFromUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachDatabaseAccountsFromUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachDatabaseAccountsFromUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachDatabaseAccountsFromUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachDatabaseAccountsFromUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3112,18 +3247,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachHostAccountsFromHostShareKey',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachHostAccountsFromHostShareKey',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachHostAccountsFromHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachHostAccountsFromHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachHostAccountsFromHostShareKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3168,18 +3306,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachHostAccountsFromUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachHostAccountsFromUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachHostAccountsFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachHostAccountsFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachHostAccountsFromUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3224,18 +3365,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachHostAccountsFromUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachHostAccountsFromUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachHostAccountsFromUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachHostAccountsFromUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachHostAccountsFromUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3280,18 +3424,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachHostGroupAccountsFromUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachHostGroupAccountsFromUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachHostGroupAccountsFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachHostGroupAccountsFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachHostGroupAccountsFromUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3338,18 +3485,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachHostGroupAccountsFromUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachHostGroupAccountsFromUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachHostGroupAccountsFromUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachHostGroupAccountsFromUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachHostGroupAccountsFromUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3390,18 +3540,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableInstancePublicAccess',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableInstancePublicAccess',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DisableInstancePublicAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableInstancePublicAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableInstancePublicAccessResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3443,18 +3596,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableRule',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DisableRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3493,18 +3649,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableInstancePublicAccess',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableInstancePublicAccess',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EnableInstancePublicAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableInstancePublicAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableInstancePublicAccessResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3546,18 +3705,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableRule',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EnableRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3575,7 +3737,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @summary Applies for an O&M token.
+     * @summary Applies for an O\\&M token.
      *  *
      * @param GenerateAssetOperationTokenRequest $request GenerateAssetOperationTokenRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -3616,6 +3778,9 @@ class Yundunbastionhost extends OpenApiClient
         if (!Utils::isUnset($request->operationMode)) {
             $query['OperationMode'] = $request->operationMode;
         }
+        if (!Utils::isUnset($request->operationNote)) {
+            $query['OperationNote'] = $request->operationNote;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -3626,22 +3791,25 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateAssetOperationToken',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateAssetOperationToken',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GenerateAssetOperationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateAssetOperationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateAssetOperationTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Applies for an O&M token.
+     * @summary Applies for an O\\&M token.
      *  *
      * @param GenerateAssetOperationTokenRequest $request GenerateAssetOperationTokenRequest
      *
@@ -3679,18 +3847,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDatabase',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDatabase',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3732,18 +3903,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDatabaseAccount',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDatabaseAccount',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDatabaseAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDatabaseAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDatabaseAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3783,18 +3957,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetExportConfigJob',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetExportConfigJob',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetExportConfigJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetExportConfigJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetExportConfigJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3834,18 +4011,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHost',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHost',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetHostResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHostResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHostResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3887,18 +4067,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHostAccount',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHostAccount',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHostAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3940,18 +4123,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHostGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHostGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHostGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3993,18 +4179,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHostShareKey',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHostShareKey',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHostShareKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4048,18 +4237,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceADAuthServer',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceADAuthServer',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetInstanceADAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceADAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceADAuthServerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4103,18 +4295,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceLDAPAuthServer',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceLDAPAuthServer',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetInstanceLDAPAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceLDAPAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceLDAPAuthServerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4151,18 +4346,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceStoreInfo',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceStoreInfo',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetInstanceStoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceStoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceStoreInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4203,18 +4401,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceTwoFactor',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceTwoFactor',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetInstanceTwoFactorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceTwoFactorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceTwoFactorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4260,18 +4461,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNetworkDomain',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNetworkDomain',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetNetworkDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4313,18 +4517,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPolicy',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPolicy',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4366,18 +4573,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPolicyAssetScope',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPolicyAssetScope',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPolicyAssetScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPolicyAssetScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPolicyAssetScopeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4419,18 +4629,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPolicyUserScope',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPolicyUserScope',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPolicyUserScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPolicyUserScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPolicyUserScopeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4472,18 +4685,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRule',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4525,18 +4741,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4578,18 +4797,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4637,18 +4859,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApproveCommands',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApproveCommands',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListApproveCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListApproveCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListApproveCommandsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4702,18 +4927,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDatabaseAccounts',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDatabaseAccounts',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDatabaseAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDatabaseAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDatabaseAccountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4767,18 +4995,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDatabaseAccountsForUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDatabaseAccountsForUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDatabaseAccountsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDatabaseAccountsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDatabaseAccountsForUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4832,18 +5063,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDatabaseAccountsForUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDatabaseAccountsForUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDatabaseAccountsForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDatabaseAccountsForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDatabaseAccountsForUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4900,18 +5134,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDatabases',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDatabases',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4971,18 +5208,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDatabasesForUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDatabasesForUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDatabasesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDatabasesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDatabasesForUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5042,18 +5282,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDatabasesForUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDatabasesForUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDatabasesForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDatabasesForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDatabasesForUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5107,18 +5350,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHostAccounts',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHostAccounts',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHostAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostAccountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5166,18 +5412,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHostAccountsForHostShareKey',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHostAccountsForHostShareKey',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHostAccountsForHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostAccountsForHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostAccountsForHostShareKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5231,18 +5480,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHostAccountsForUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHostAccountsForUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHostAccountsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostAccountsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostAccountsForUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5296,18 +5548,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHostAccountsForUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHostAccountsForUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHostAccountsForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostAccountsForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostAccountsForUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5352,18 +5607,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHostGroupAccountNamesForUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHostGroupAccountNamesForUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHostGroupAccountNamesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostGroupAccountNamesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostGroupAccountNamesForUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5408,18 +5666,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHostGroupAccountNamesForUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHostGroupAccountNamesForUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHostGroupAccountNamesForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostGroupAccountNamesForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostGroupAccountNamesForUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5467,18 +5728,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHostGroups',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHostGroups',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHostGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5532,18 +5796,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHostGroupsForUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHostGroupsForUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHostGroupsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostGroupsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostGroupsForUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5597,18 +5864,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHostGroupsForUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHostGroupsForUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHostGroupsForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostGroupsForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostGroupsForUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5653,18 +5923,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHostShareKeys',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHostShareKeys',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHostShareKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostShareKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostShareKeysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5730,18 +6003,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHosts',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHosts',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHostsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5801,18 +6077,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHostsForUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHostsForUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHostsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostsForUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5872,18 +6151,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHostsForUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHostsForUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListHostsForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostsForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostsForUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5934,18 +6216,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNetworkDomains',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNetworkDomains',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListNetworkDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNetworkDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNetworkDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5996,18 +6281,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOperationDatabaseAccounts',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListOperationDatabaseAccounts',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListOperationDatabaseAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOperationDatabaseAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOperationDatabaseAccountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6070,18 +6358,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOperationDatabases',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListOperationDatabases',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListOperationDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOperationDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOperationDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6132,18 +6423,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOperationHostAccounts',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListOperationHostAccounts',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListOperationHostAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOperationHostAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOperationHostAccountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6206,18 +6500,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOperationHosts',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListOperationHosts',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListOperationHostsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOperationHostsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOperationHostsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6235,7 +6532,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @summary Queries O\\\\\\&M applications to be reviewed.
+     * @summary Queries O\\\\\\\\\\\\&M applications to be reviewed.
      *  *
      * @description You can call this operation to query the O\\&M applications to be reviewed by a Bastionhost administrator.
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -6268,22 +6565,25 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOperationTickets',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListOperationTickets',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListOperationTicketsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOperationTicketsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOperationTicketsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries O\\\\\\&M applications to be reviewed.
+     * @summary Queries O\\\\\\\\\\\\&M applications to be reviewed.
      *  *
      * @description You can call this operation to query the O\\&M applications to be reviewed by a Bastionhost administrator.
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -6330,18 +6630,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPolicies',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPolicies',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6392,18 +6695,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRules',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRules',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6451,18 +6757,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagKeys',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagKeys',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6513,18 +6822,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6572,18 +6884,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserGroups',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserGroups',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6631,18 +6946,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUserPublicKeys',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUserPublicKeys',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListUserPublicKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserPublicKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserPublicKeysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6708,18 +7026,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUsers',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListUsers',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6766,18 +7087,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'LockUsers',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LockUsers',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return LockUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return LockUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LockUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6848,18 +7172,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDatabase',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDatabase',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6910,18 +7237,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDatabaseAccount',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDatabaseAccount',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyDatabaseAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDatabaseAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDatabaseAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6977,6 +7307,9 @@ class Yundunbastionhost extends OpenApiClient
         if (!Utils::isUnset($request->OSType)) {
             $query['OSType'] = $request->OSType;
         }
+        if (!Utils::isUnset($request->prefKex)) {
+            $query['PrefKex'] = $request->prefKex;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -6984,18 +7317,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHost',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHost',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyHostResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHostResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHostResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7055,18 +7391,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHostAccount',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHostAccount',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHostAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7114,18 +7453,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHostGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHostGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHostGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7176,18 +7518,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHostShareKey',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHostShareKey',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHostShareKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHostShareKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7232,18 +7577,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHostsActiveAddressType',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHostsActiveAddressType',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyHostsActiveAddressTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHostsActiveAddressTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHostsActiveAddressTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7297,18 +7645,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHostsPort',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHostsPort',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyHostsPortResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHostsPortResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHostsPortResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7389,18 +7740,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceADAuthServer',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceADAuthServer',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyInstanceADAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyInstanceADAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyInstanceADAuthServerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7442,18 +7796,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceAttribute',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceAttribute',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7528,18 +7885,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceLDAPAuthServer',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceLDAPAuthServer',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyInstanceLDAPAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyInstanceLDAPAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyInstanceLDAPAuthServerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7587,18 +7947,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceTwoFactor',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyInstanceTwoFactor',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyInstanceTwoFactorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyInstanceTwoFactorResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyInstanceTwoFactorResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7652,18 +8015,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyNetworkDomain',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyNetworkDomain',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyNetworkDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7714,18 +8080,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPolicy',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPolicy',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7794,18 +8163,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyRule',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyRule',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7886,18 +8258,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyUser',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyUser',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7945,18 +8320,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyUserGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyUserGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyUserGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8007,18 +8385,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyUserPublicKey',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyUserPublicKey',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyUserPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyUserPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyUserPublicKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8063,18 +8444,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveDatabasesToNetworkDomain',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveDatabasesToNetworkDomain',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return MoveDatabasesToNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveDatabasesToNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveDatabasesToNetworkDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8119,18 +8503,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveHostsToNetworkDomain',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveHostsToNetworkDomain',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return MoveHostsToNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveHostsToNetworkDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveHostsToNetworkDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8175,18 +8562,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveResourceGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveResourceGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8231,18 +8621,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RejectApproveCommand',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RejectApproveCommand',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RejectApproveCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RejectApproveCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RejectApproveCommandResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8263,7 +8656,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * @summary If a Bastionhost administrator enables O\\&M Approval on the Create Control Policy page, O\\&M engineers can log on to assets to perform O\\&M operations only after the administrator approves their O\\&M applications.
+     * @summary If a Bastionhost administrator enables O\\\\\\&M Approval on the Create Control Policy page, O\\\\\\&M engineers can log on to assets to perform O\\\\\\&M operations only after the administrator approves their O\\\\\\&M applications.
      *  *
      * @description You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -8293,22 +8686,25 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RejectOperationTicket',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RejectOperationTicket',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RejectOperationTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RejectOperationTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RejectOperationTicketResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary If a Bastionhost administrator enables O\\&M Approval on the Create Control Policy page, O\\&M engineers can log on to assets to perform O\\&M operations only after the administrator approves their O\\&M applications.
+     * @summary If a Bastionhost administrator enables O\\\\\\&M Approval on the Create Control Policy page, O\\\\\\&M engineers can log on to assets to perform O\\\\\\&M operations only after the administrator approves their O\\\\\\&M applications.
      *  *
      * @description You can call this operation to reject an O\\&M application of an O\\&M engineer as a Bastionhost administrator.
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -8352,18 +8748,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveDatabasesFromGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveDatabasesFromGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RemoveDatabasesFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveDatabasesFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveDatabasesFromGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8412,18 +8811,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveHostsFromGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveHostsFromGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RemoveHostsFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveHostsFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveHostsFromGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8476,18 +8878,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveUsersFromGroup',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveUsersFromGroup',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RemoveUsersFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveUsersFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveUsersFromGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8533,18 +8938,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RenewAssetOperationToken',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RenewAssetOperationToken',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RenewAssetOperationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RenewAssetOperationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenewAssetOperationTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8589,18 +8997,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetHostAccountCredential',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetHostAccountCredential',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ResetHostAccountCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetHostAccountCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetHostAccountCredentialResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8650,18 +9061,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetPolicyAccessTimeRangeConfig',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetPolicyAccessTimeRangeConfig',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetPolicyAccessTimeRangeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetPolicyAccessTimeRangeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetPolicyAccessTimeRangeConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8711,18 +9125,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetPolicyApprovalConfig',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetPolicyApprovalConfig',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetPolicyApprovalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetPolicyApprovalConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetPolicyApprovalConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8776,18 +9193,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetPolicyAssetScope',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetPolicyAssetScope',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetPolicyAssetScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetPolicyAssetScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetPolicyAssetScopeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8837,18 +9257,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetPolicyCommandConfig',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetPolicyCommandConfig',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetPolicyCommandConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetPolicyCommandConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetPolicyCommandConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8898,18 +9321,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetPolicyIPAclConfig',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetPolicyIPAclConfig',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetPolicyIPAclConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetPolicyIPAclConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetPolicyIPAclConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8959,18 +9385,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetPolicyProtocolConfig',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetPolicyProtocolConfig',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetPolicyProtocolConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetPolicyProtocolConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetPolicyProtocolConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9021,18 +9450,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetPolicyUserScope',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetPolicyUserScope',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetPolicyUserScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetPolicyUserScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetPolicyUserScopeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9086,18 +9518,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartInstance',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartInstance',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return StartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9142,18 +9577,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9199,18 +9637,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnlockUsers',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnlockUsers',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UnlockUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnlockUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnlockUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9262,18 +9703,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9339,18 +9783,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyInstanceADAuthServer',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyInstanceADAuthServer',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return VerifyInstanceADAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return VerifyInstanceADAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return VerifyInstanceADAuthServerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9413,18 +9860,21 @@ class Yundunbastionhost extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VerifyInstanceLDAPAuthServer',
-            'version'     => '2019-12-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyInstanceLDAPAuthServer',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return VerifyInstanceLDAPAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return VerifyInstanceLDAPAuthServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return VerifyInstanceLDAPAuthServerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

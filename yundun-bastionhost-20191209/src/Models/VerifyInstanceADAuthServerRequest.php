@@ -101,22 +101,20 @@ class VerifyInstanceADAuthServerRequest extends Model
      */
     public $standbyServer;
     protected $_name = [
-        'account'       => 'Account',
-        'baseDN'        => 'BaseDN',
-        'domain'        => 'Domain',
-        'filter'        => 'Filter',
-        'instanceId'    => 'InstanceId',
-        'isSSL'         => 'IsSSL',
-        'password'      => 'Password',
-        'port'          => 'Port',
-        'regionId'      => 'RegionId',
-        'server'        => 'Server',
+        'account' => 'Account',
+        'baseDN' => 'BaseDN',
+        'domain' => 'Domain',
+        'filter' => 'Filter',
+        'instanceId' => 'InstanceId',
+        'isSSL' => 'IsSSL',
+        'password' => 'Password',
+        'port' => 'Port',
+        'regionId' => 'RegionId',
+        'server' => 'Server',
         'standbyServer' => 'StandbyServer',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

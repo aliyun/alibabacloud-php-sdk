@@ -12,6 +12,7 @@ class ModifyInstanceADAuthServerRequest extends Model
      * @description The username of the account that is used for the AD server.
      *
      * This parameter is required.
+     *
      * @example cn=Manager,dc=test,dc=com
      *
      * @var string
@@ -22,6 +23,7 @@ class ModifyInstanceADAuthServerRequest extends Model
      * @description The Base distinguished name (DN).
      *
      * This parameter is required.
+     *
      * @example dc=test,dc=com
      *
      * @var string
@@ -32,6 +34,7 @@ class ModifyInstanceADAuthServerRequest extends Model
      * @description The domain on the AD server.
      *
      * This parameter is required.
+     *
      * @example domain
      *
      * @var string
@@ -59,7 +62,10 @@ class ModifyInstanceADAuthServerRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -73,6 +79,7 @@ class ModifyInstanceADAuthServerRequest extends Model
      *   **false**
      *
      * This parameter is required.
+     *
      * @example true
      *
      * @var string
@@ -110,6 +117,7 @@ class ModifyInstanceADAuthServerRequest extends Model
      * @description The port that is used to access the server.
      *
      * This parameter is required.
+     *
      * @example 389
      *
      * @var string
@@ -120,6 +128,7 @@ class ModifyInstanceADAuthServerRequest extends Model
      * @description The region ID of the bastion host.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -130,6 +139,7 @@ class ModifyInstanceADAuthServerRequest extends Model
      * @description The address of the AD server.
      *
      * This parameter is required.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -145,25 +155,23 @@ class ModifyInstanceADAuthServerRequest extends Model
      */
     public $standbyServer;
     protected $_name = [
-        'account'       => 'Account',
-        'baseDN'        => 'BaseDN',
-        'domain'        => 'Domain',
-        'emailMapping'  => 'EmailMapping',
-        'filter'        => 'Filter',
-        'instanceId'    => 'InstanceId',
-        'isSSL'         => 'IsSSL',
+        'account' => 'Account',
+        'baseDN' => 'BaseDN',
+        'domain' => 'Domain',
+        'emailMapping' => 'EmailMapping',
+        'filter' => 'Filter',
+        'instanceId' => 'InstanceId',
+        'isSSL' => 'IsSSL',
         'mobileMapping' => 'MobileMapping',
-        'nameMapping'   => 'NameMapping',
-        'password'      => 'Password',
-        'port'          => 'Port',
-        'regionId'      => 'RegionId',
-        'server'        => 'Server',
+        'nameMapping' => 'NameMapping',
+        'password' => 'Password',
+        'port' => 'Port',
+        'regionId' => 'RegionId',
+        'server' => 'Server',
         'standbyServer' => 'StandbyServer',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

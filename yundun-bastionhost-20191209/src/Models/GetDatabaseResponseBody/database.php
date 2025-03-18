@@ -114,6 +114,7 @@ class database extends Model
      * @description The ID of the ApsaraDB RDS instance or PolarDB cluster.
      *
      * > If **Source** is set to **Local**, this parameter is empty.
+     *
      * @example i-wz9527ob0e0nftcsffke
      *
      * @var string
@@ -141,24 +142,22 @@ class database extends Model
      */
     public $sourceInstanceState;
     protected $_name = [
-        'activeAddressType'      => 'ActiveAddressType',
-        'comment'                => 'Comment',
-        'databaseId'             => 'DatabaseId',
-        'databaseName'           => 'DatabaseName',
-        'databasePort'           => 'DatabasePort',
+        'activeAddressType' => 'ActiveAddressType',
+        'comment' => 'Comment',
+        'databaseId' => 'DatabaseId',
+        'databaseName' => 'DatabaseName',
+        'databasePort' => 'DatabasePort',
         'databasePrivateAddress' => 'DatabasePrivateAddress',
-        'databasePublicAddress'  => 'DatabasePublicAddress',
-        'databaseType'           => 'DatabaseType',
-        'networkDomainId'        => 'NetworkDomainId',
-        'source'                 => 'Source',
-        'sourceInstanceId'       => 'SourceInstanceId',
+        'databasePublicAddress' => 'DatabasePublicAddress',
+        'databaseType' => 'DatabaseType',
+        'networkDomainId' => 'NetworkDomainId',
+        'source' => 'Source',
+        'sourceInstanceId' => 'SourceInstanceId',
         'sourceInstanceRegionId' => 'SourceInstanceRegionId',
-        'sourceInstanceState'    => 'SourceInstanceState',
+        'sourceInstanceState' => 'SourceInstanceState',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

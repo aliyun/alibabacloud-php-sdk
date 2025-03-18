@@ -39,13 +39,11 @@ class protocols extends Model
     public $protocolName;
     protected $_name = [
         'hostFingerPrint' => 'HostFingerPrint',
-        'port'            => 'Port',
-        'protocolName'    => 'ProtocolName',
+        'port' => 'Port',
+        'protocolName' => 'ProtocolName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

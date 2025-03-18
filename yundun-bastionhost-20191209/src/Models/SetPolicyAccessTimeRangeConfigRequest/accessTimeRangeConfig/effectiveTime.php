@@ -22,13 +22,11 @@ class effectiveTime extends Model
      */
     public $hours;
     protected $_name = [
-        'days'  => 'Days',
+        'days' => 'Days',
         'hours' => 'Hours',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

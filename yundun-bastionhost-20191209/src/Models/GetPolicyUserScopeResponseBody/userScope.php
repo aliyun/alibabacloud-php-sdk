@@ -34,14 +34,12 @@ class userScope extends Model
      */
     public $userIds;
     protected $_name = [
-        'scopeType'    => 'ScopeType',
+        'scopeType' => 'ScopeType',
         'userGroupIds' => 'UserGroupIds',
-        'userIds'      => 'UserIds',
+        'userIds' => 'UserIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

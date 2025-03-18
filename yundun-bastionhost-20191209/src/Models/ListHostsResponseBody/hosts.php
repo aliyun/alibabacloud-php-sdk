@@ -103,6 +103,7 @@ class hosts extends Model
      * @description The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
      *
      * > No value is returned for this parameter if the **Source** parameter is set to **Local**.
+     *
      * @example i-bp19ienyt0yax748****
      *
      * @var string
@@ -121,22 +122,20 @@ class hosts extends Model
      */
     public $sourceInstanceState;
     protected $_name = [
-        'activeAddressType'   => 'ActiveAddressType',
-        'comment'             => 'Comment',
-        'hostAccountCount'    => 'HostAccountCount',
-        'hostId'              => 'HostId',
-        'hostName'            => 'HostName',
-        'hostPrivateAddress'  => 'HostPrivateAddress',
-        'hostPublicAddress'   => 'HostPublicAddress',
-        'OSType'              => 'OSType',
-        'source'              => 'Source',
-        'sourceInstanceId'    => 'SourceInstanceId',
+        'activeAddressType' => 'ActiveAddressType',
+        'comment' => 'Comment',
+        'hostAccountCount' => 'HostAccountCount',
+        'hostId' => 'HostId',
+        'hostName' => 'HostName',
+        'hostPrivateAddress' => 'HostPrivateAddress',
+        'hostPublicAddress' => 'HostPublicAddress',
+        'OSType' => 'OSType',
+        'source' => 'Source',
+        'sourceInstanceId' => 'SourceInstanceId',
         'sourceInstanceState' => 'SourceInstanceState',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

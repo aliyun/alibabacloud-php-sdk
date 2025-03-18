@@ -44,15 +44,13 @@ class hostGroups extends Model
      */
     public $memberCount;
     protected $_name = [
-        'comment'       => 'Comment',
-        'hostGroupId'   => 'HostGroupId',
+        'comment' => 'Comment',
+        'hostGroupId' => 'HostGroupId',
         'hostGroupName' => 'HostGroupName',
-        'memberCount'   => 'MemberCount',
+        'memberCount' => 'MemberCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

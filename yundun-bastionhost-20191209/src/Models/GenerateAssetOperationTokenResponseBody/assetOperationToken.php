@@ -54,6 +54,10 @@ class assetOperationToken extends Model
     public $renewCount;
 
     /**
+     * @description The single sign-on (SSO) URL.
+     *
+     * @example sso://eyJOT0RFX0NPTU1PTiI6eyJNb2R******
+     *
      * @var string
      */
     public $ssoUrl;
@@ -76,19 +80,17 @@ class assetOperationToken extends Model
      */
     public $tokenId;
     protected $_name = [
-        'countLeft'     => 'CountLeft',
-        'expireTime'    => 'ExpireTime',
+        'countLeft' => 'CountLeft',
+        'expireTime' => 'ExpireTime',
         'hasCountLimit' => 'HasCountLimit',
         'maxRenewCount' => 'MaxRenewCount',
-        'renewCount'    => 'RenewCount',
-        'ssoUrl'        => 'SsoUrl',
-        'token'         => 'Token',
-        'tokenId'       => 'TokenId',
+        'renewCount' => 'RenewCount',
+        'ssoUrl' => 'SsoUrl',
+        'token' => 'Token',
+        'tokenId' => 'TokenId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

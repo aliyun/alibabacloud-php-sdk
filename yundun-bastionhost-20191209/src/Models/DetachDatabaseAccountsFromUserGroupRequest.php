@@ -19,7 +19,10 @@ class DetachDatabaseAccountsFromUserGroupRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-7mz2v120f0y
      *
      * @var string
@@ -30,6 +33,7 @@ class DetachDatabaseAccountsFromUserGroupRequest extends Model
      * @description The region ID of the bastion host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,22 +43,23 @@ class DetachDatabaseAccountsFromUserGroupRequest extends Model
     /**
      * @description The ID of the user group from which you want to revoke permissions on databases and database accounts.
      *
+     * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
      */
     public $userGroupId;
     protected $_name = [
-        'databases'   => 'Databases',
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
+        'databases' => 'Databases',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +97,7 @@ class DetachDatabaseAccountsFromUserGroupRequest extends Model
         if (isset($map['Databases'])) {
             if (!empty($map['Databases'])) {
                 $model->databases = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Databases'] as $item) {
                     $model->databases[$n++] = null !== $item ? databases::fromMap($item) : $item;
                 }

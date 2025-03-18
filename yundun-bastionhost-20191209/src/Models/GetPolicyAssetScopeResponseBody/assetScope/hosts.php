@@ -37,13 +37,11 @@ class hosts extends Model
     public $hostId;
     protected $_name = [
         'accountScopeType' => 'AccountScopeType',
-        'hostAccountIds'   => 'HostAccountIds',
-        'hostId'           => 'HostId',
+        'hostAccountIds' => 'HostAccountIds',
+        'hostId' => 'HostId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

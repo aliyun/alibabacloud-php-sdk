@@ -18,7 +18,10 @@ class ModifyPolicyRequest extends Model
     /**
      * @description The ID of the bastion host to which the control policy to modify belongs.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-09k1u8mv501
      *
      * @var string
@@ -29,6 +32,7 @@ class ModifyPolicyRequest extends Model
      * @description The ID of the control policy that you want to modify.
      *
      * This parameter is required.
+     *
      * @example 7
      *
      * @var string
@@ -57,23 +61,22 @@ class ModifyPolicyRequest extends Model
      * @description The region ID of the bastion host to which the control policy to modify belongs.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'comment'    => 'Comment',
+        'comment' => 'Comment',
         'instanceId' => 'InstanceId',
-        'policyId'   => 'PolicyId',
+        'policyId' => 'PolicyId',
         'policyName' => 'PolicyName',
-        'priority'   => 'Priority',
-        'regionId'   => 'RegionId',
+        'priority' => 'Priority',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

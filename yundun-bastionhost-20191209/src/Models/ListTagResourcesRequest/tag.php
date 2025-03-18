@@ -12,6 +12,7 @@ class tag extends Model
      * @description The key of tag N.
      *
      * Valid values of N: 1 to 20.
+     *
      * @example test
      *
      * @var string
@@ -22,19 +23,18 @@ class tag extends Model
      * @description The value of tag N.
      *
      * Valid values of N: 1 to 20.
+     *
      * @example testapi
      *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

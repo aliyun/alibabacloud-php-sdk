@@ -26,13 +26,11 @@ class CreateUserGroupResponseBody extends Model
      */
     public $userGroupId;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,7 +12,10 @@ class ConfigInstanceWhiteListRequest extends Model
     /**
      * @description The ID of the bastion host for which you want to configure a whitelist of public IP addresses.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-78v1gh****
      *
      * @var string
@@ -42,15 +45,13 @@ class ConfigInstanceWhiteListRequest extends Model
      */
     public $whiteListPolicies;
     protected $_name = [
-        'instanceId'        => 'InstanceId',
-        'regionId'          => 'RegionId',
-        'whiteList'         => 'WhiteList',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'whiteList' => 'WhiteList',
         'whiteListPolicies' => 'WhiteListPolicies',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -99,7 +100,7 @@ class ConfigInstanceWhiteListRequest extends Model
         if (isset($map['WhiteListPolicies'])) {
             if (!empty($map['WhiteListPolicies'])) {
                 $model->whiteListPolicies = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['WhiteListPolicies'] as $item) {
                     $model->whiteListPolicies[$n++] = null !== $item ? whiteListPolicies::fromMap($item) : $item;
                 }

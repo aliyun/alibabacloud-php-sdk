@@ -19,9 +19,7 @@ class accessTimeRangeConfig extends Model
         'effectiveTime' => 'EffectiveTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class accessTimeRangeConfig extends Model
         if (isset($map['EffectiveTime'])) {
             if (!empty($map['EffectiveTime'])) {
                 $model->effectiveTime = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['EffectiveTime'] as $item) {
                     $model->effectiveTime[$n++] = null !== $item ? effectiveTime::fromMap($item) : $item;
                 }

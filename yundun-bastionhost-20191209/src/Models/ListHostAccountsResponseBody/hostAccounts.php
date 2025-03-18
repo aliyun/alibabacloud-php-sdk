@@ -90,19 +90,17 @@ class hostAccounts extends Model
      */
     public $protocolName;
     protected $_name = [
-        'hasPassword'           => 'HasPassword',
-        'hostAccountId'         => 'HostAccountId',
-        'hostAccountName'       => 'HostAccountName',
-        'hostId'                => 'HostId',
-        'hostShareKeyId'        => 'HostShareKeyId',
-        'hostShareKeyName'      => 'HostShareKeyName',
+        'hasPassword' => 'HasPassword',
+        'hostAccountId' => 'HostAccountId',
+        'hostAccountName' => 'HostAccountName',
+        'hostId' => 'HostId',
+        'hostShareKeyId' => 'HostShareKeyId',
+        'hostShareKeyName' => 'HostShareKeyName',
         'privateKeyFingerprint' => 'PrivateKeyFingerprint',
-        'protocolName'          => 'ProtocolName',
+        'protocolName' => 'ProtocolName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

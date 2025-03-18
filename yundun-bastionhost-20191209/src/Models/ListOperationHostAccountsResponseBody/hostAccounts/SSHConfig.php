@@ -23,12 +23,10 @@ class SSHConfig extends Model
     public $enableSSHChannel;
     protected $_name = [
         'enableSFTPChannel' => 'EnableSFTPChannel',
-        'enableSSHChannel'  => 'EnableSSHChannel',
+        'enableSSHChannel' => 'EnableSSHChannel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

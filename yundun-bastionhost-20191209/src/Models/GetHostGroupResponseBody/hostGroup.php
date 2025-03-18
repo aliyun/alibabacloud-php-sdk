@@ -35,14 +35,12 @@ class hostGroup extends Model
      */
     public $hostGroupName;
     protected $_name = [
-        'comment'       => 'Comment',
-        'hostGroupId'   => 'HostGroupId',
+        'comment' => 'Comment',
+        'hostGroupId' => 'HostGroupId',
         'hostGroupName' => 'HostGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

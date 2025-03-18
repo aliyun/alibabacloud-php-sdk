@@ -26,12 +26,10 @@ class GetHostAccountResponseBody extends Model
     public $requestId;
     protected $_name = [
         'hostAccount' => 'HostAccount',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

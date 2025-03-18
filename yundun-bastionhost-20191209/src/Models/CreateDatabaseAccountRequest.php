@@ -12,6 +12,7 @@ class CreateDatabaseAccountRequest extends Model
      * @description The username of the database account to be created. The username can be up to 128 characters in length.
      *
      * This parameter is required.
+     *
      * @example root
      *
      * @var string
@@ -21,7 +22,10 @@ class CreateDatabaseAccountRequest extends Model
     /**
      * @description The ID of the database for which you want to create a database account.
      *
+     * >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+     *
      * This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -40,7 +44,10 @@ class CreateDatabaseAccountRequest extends Model
     /**
      * @description The ID of the bastion host for which you want to create a database account.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-5yd34ol020a
      *
      * @var string
@@ -72,6 +79,7 @@ class CreateDatabaseAccountRequest extends Model
      * @description The region ID of the bastion host for which you want to create a database account.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -79,17 +87,15 @@ class CreateDatabaseAccountRequest extends Model
     public $regionId;
     protected $_name = [
         'databaseAccountName' => 'DatabaseAccountName',
-        'databaseId'          => 'DatabaseId',
-        'databaseSchema'      => 'DatabaseSchema',
-        'instanceId'          => 'InstanceId',
-        'loginAttribute'      => 'LoginAttribute',
-        'password'            => 'Password',
-        'regionId'            => 'RegionId',
+        'databaseId' => 'DatabaseId',
+        'databaseSchema' => 'DatabaseSchema',
+        'instanceId' => 'InstanceId',
+        'loginAttribute' => 'LoginAttribute',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

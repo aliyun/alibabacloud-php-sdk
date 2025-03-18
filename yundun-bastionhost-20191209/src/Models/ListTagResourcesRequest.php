@@ -22,6 +22,7 @@ class ListTagResourcesRequest extends Model
      * @description The region ID of the Bastionhost instance.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -45,7 +46,10 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The type of the resource.
      *
+     * Set the value to INSTANCE, which indicates that the resource is a Bastionhost instance.
+     *
      * This parameter is required.
+     *
      * @example INSTANCE
      *
      * @var string
@@ -59,17 +63,15 @@ class ListTagResourcesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'nextToken'       => 'NextToken',
-        'regionId'        => 'RegionId',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceId'      => 'ResourceId',
-        'resourceType'    => 'ResourceType',
-        'tag'             => 'Tag',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -130,7 +132,7 @@ class ListTagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

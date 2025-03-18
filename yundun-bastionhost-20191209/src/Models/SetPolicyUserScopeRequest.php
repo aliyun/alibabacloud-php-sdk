@@ -11,7 +11,10 @@ class SetPolicyUserScopeRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -21,7 +24,10 @@ class SetPolicyUserScopeRequest extends Model
     /**
      * @description The ID of the control policy that you want to modify.
      *
+     * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -32,6 +38,7 @@ class SetPolicyUserScopeRequest extends Model
      * @description The region ID of the bastion host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -46,6 +53,7 @@ class SetPolicyUserScopeRequest extends Model
      * **UserGroup**: The control policy applies to specified user groups.
      *
      * This parameter is required.
+     *
      * @example All
      *
      * @var string
@@ -56,6 +64,7 @@ class SetPolicyUserScopeRequest extends Model
      * @description The user groups to which the control policy applies.
      *
      * > This parameter is required if ScopeType is set to UserGroup. You can specify up to 100 user group IDs.
+     *
      * @var string[]
      */
     public $userGroupIds;
@@ -64,21 +73,20 @@ class SetPolicyUserScopeRequest extends Model
      * @description The users to whom the control policy applies.
      *
      * > This parameter is required if ScopeType is set to User. You can specify up to 500 user IDs.
+     *
      * @var string[]
      */
     public $userIds;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'policyId'     => 'PolicyId',
-        'regionId'     => 'RegionId',
-        'scopeType'    => 'ScopeType',
+        'instanceId' => 'InstanceId',
+        'policyId' => 'PolicyId',
+        'regionId' => 'RegionId',
+        'scopeType' => 'ScopeType',
         'userGroupIds' => 'UserGroupIds',
-        'userIds'      => 'UserIds',
+        'userIds' => 'UserIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -27,13 +27,11 @@ class deny extends Model
      */
     public $commands;
     protected $_name = [
-        'aclType'  => 'AclType',
+        'aclType' => 'AclType',
         'commands' => 'Commands',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

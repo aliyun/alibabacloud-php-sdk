@@ -26,12 +26,10 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $requestId;
     protected $_name = [
         'instanceAttribute' => 'InstanceAttribute',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

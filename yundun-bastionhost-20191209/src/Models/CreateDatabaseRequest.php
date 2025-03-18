@@ -15,6 +15,7 @@ class CreateDatabaseRequest extends Model
      *   Private
      *
      * This parameter is required.
+     *
      * @example Public
      *
      * @var string
@@ -52,6 +53,7 @@ class CreateDatabaseRequest extends Model
      * @description The internal IP address of the database. Specify an IPv4 address or a domain name.
      *
      * >  This parameter is required if ActiveAddressType is set to Private.
+     *
      * @example pgm-uf6o******
      *
      * @var string
@@ -62,6 +64,7 @@ class CreateDatabaseRequest extends Model
      * @description The public IP address of the database. Specify an IPv4 address or a domain name.
      *
      * >  This parameter is required if ActiveAddressType is set to Public.
+     *
      * @example rm-uf65251k51******
      *
      * @var string
@@ -77,6 +80,7 @@ class CreateDatabaseRequest extends Model
      *   **SQLServer**
      *
      * This parameter is required.
+     *
      * @example MySQL
      *
      * @var string
@@ -86,7 +90,10 @@ class CreateDatabaseRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-7mz2g5hu20e
      *
      * @var string
@@ -97,6 +104,7 @@ class CreateDatabaseRequest extends Model
      * @description The ID of the network domain to which the database to add belongs.
      *
      * >  You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+     *
      * @example 1
      *
      * @var string
@@ -119,6 +127,7 @@ class CreateDatabaseRequest extends Model
      * @description The region ID of the bastion host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -133,6 +142,7 @@ class CreateDatabaseRequest extends Model
      *   PolarDB: PolarDB cluster.
      *
      * This parameter is required.
+     *
      * @example Local
      *
      * @var string
@@ -143,6 +153,7 @@ class CreateDatabaseRequest extends Model
      * @description The instance ID of the database to add.
      *
      * > This parameter is required if **Source** is set to **Rds** or **PolarDB**.
+     *
      * @example i-bp19ienyt0yax748****
      *
      * @var string
@@ -153,31 +164,30 @@ class CreateDatabaseRequest extends Model
      * @description The region ID of the database to add.
      *
      * >  This parameter is required if **Source** is set to **Rds** or **PolarDB**.
+     *
      * @example cn-shanghai
      *
      * @var string
      */
     public $sourceInstanceRegionId;
     protected $_name = [
-        'activeAddressType'      => 'ActiveAddressType',
-        'comment'                => 'Comment',
-        'databaseName'           => 'DatabaseName',
-        'databasePort'           => 'DatabasePort',
+        'activeAddressType' => 'ActiveAddressType',
+        'comment' => 'Comment',
+        'databaseName' => 'DatabaseName',
+        'databasePort' => 'DatabasePort',
         'databasePrivateAddress' => 'DatabasePrivateAddress',
-        'databasePublicAddress'  => 'DatabasePublicAddress',
-        'databaseType'           => 'DatabaseType',
-        'instanceId'             => 'InstanceId',
-        'networkDomainId'        => 'NetworkDomainId',
-        'polarDBEndpointType'    => 'PolarDBEndpointType',
-        'regionId'               => 'RegionId',
-        'source'                 => 'Source',
-        'sourceInstanceId'       => 'SourceInstanceId',
+        'databasePublicAddress' => 'DatabasePublicAddress',
+        'databaseType' => 'DatabaseType',
+        'instanceId' => 'InstanceId',
+        'networkDomainId' => 'NetworkDomainId',
+        'polarDBEndpointType' => 'PolarDBEndpointType',
+        'regionId' => 'RegionId',
+        'source' => 'Source',
+        'sourceInstanceId' => 'SourceInstanceId',
         'sourceInstanceRegionId' => 'SourceInstanceRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -13,6 +13,7 @@ class tag extends Model
      *
      * > - Thekey cannot be an empty string. The key can be up to 128 characters in length.
      * > - It cannot start with **aliyun** or **acs:**, and cannot contain **http://** or **https://**.
+     *
      * @example operation
      *
      * @var string
@@ -25,19 +26,18 @@ class tag extends Model
      *
      * > *   The value can be a string of up to 128 characters or an empty string.
      * > *   It cannot start with **aliyun** or **acs:**, and cannot contain **http://** or **https://**.
+     *
      * @example operation_test
      *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

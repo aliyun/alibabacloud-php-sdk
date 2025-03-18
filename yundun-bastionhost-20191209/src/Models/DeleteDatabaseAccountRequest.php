@@ -11,7 +11,10 @@ class DeleteDatabaseAccountRequest extends Model
     /**
      * @description The ID of the database account that you want to delete.
      *
+     * >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+     *
      * This parameter is required.
+     *
      * @example 9
      *
      * @var string
@@ -21,7 +24,10 @@ class DeleteDatabaseAccountRequest extends Model
     /**
      * @description The ID of the bastion host from which you want to delete the database account.
      *
+     * > You can call the DescribeInstances operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -32,6 +38,7 @@ class DeleteDatabaseAccountRequest extends Model
      * @description The region ID of the bastion host from which you want to delete the database account.
      *
      * > For more information about the mapping between region IDs and region names, [see Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,13 +46,11 @@ class DeleteDatabaseAccountRequest extends Model
     public $regionId;
     protected $_name = [
         'databaseAccountId' => 'DatabaseAccountId',
-        'instanceId'        => 'InstanceId',
-        'regionId'          => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

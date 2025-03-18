@@ -122,23 +122,21 @@ class AD extends Model
      */
     public $standbyServer;
     protected $_name = [
-        'account'       => 'Account',
-        'baseDN'        => 'BaseDN',
-        'domain'        => 'Domain',
-        'emailMapping'  => 'EmailMapping',
-        'filter'        => 'Filter',
-        'hasPassword'   => 'HasPassword',
-        'isSSL'         => 'IsSSL',
+        'account' => 'Account',
+        'baseDN' => 'BaseDN',
+        'domain' => 'Domain',
+        'emailMapping' => 'EmailMapping',
+        'filter' => 'Filter',
+        'hasPassword' => 'HasPassword',
+        'isSSL' => 'IsSSL',
         'mobileMapping' => 'MobileMapping',
-        'nameMapping'   => 'NameMapping',
-        'port'          => 'Port',
-        'server'        => 'Server',
+        'nameMapping' => 'NameMapping',
+        'port' => 'Port',
+        'server' => 'Server',
         'standbyServer' => 'StandbyServer',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

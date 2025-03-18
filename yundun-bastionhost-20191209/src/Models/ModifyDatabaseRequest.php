@@ -33,6 +33,7 @@ class ModifyDatabaseRequest extends Model
      * @description The ID of the database to modify.
      *
      * This parameter is required.
+     *
      * @example 11
      *
      * @var string
@@ -78,7 +79,10 @@ class ModifyDatabaseRequest extends Model
     /**
      * @description The ID of the bastion host that manages the database to modify.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-72137xe5n01
      *
      * @var string
@@ -89,6 +93,7 @@ class ModifyDatabaseRequest extends Model
      * @description The ID of the new network domain for the database.
      *
      * >  You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+     *
      * @example 2
      *
      * @var string
@@ -99,6 +104,7 @@ class ModifyDatabaseRequest extends Model
      * @description The region ID of the bastion host that manages the database to modify.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -109,28 +115,27 @@ class ModifyDatabaseRequest extends Model
      * @description The ID of the ApsaraDB for RDS instance or PolarDB cluster to modify.
      *
      * > This parameter is required if **Source** is set to **Rds** or **PolarDB**.
+     *
      * @example i-wz99nexqd62z3bvuvpz5
      *
      * @var string
      */
     public $sourceInstanceId;
     protected $_name = [
-        'activeAddressType'      => 'ActiveAddressType',
-        'comment'                => 'Comment',
-        'databaseId'             => 'DatabaseId',
-        'databaseName'           => 'DatabaseName',
-        'databasePort'           => 'DatabasePort',
+        'activeAddressType' => 'ActiveAddressType',
+        'comment' => 'Comment',
+        'databaseId' => 'DatabaseId',
+        'databaseName' => 'DatabaseName',
+        'databasePort' => 'DatabasePort',
         'databasePrivateAddress' => 'DatabasePrivateAddress',
-        'databasePublicAddress'  => 'DatabasePublicAddress',
-        'instanceId'             => 'InstanceId',
-        'networkDomainId'        => 'NetworkDomainId',
-        'regionId'               => 'RegionId',
-        'sourceInstanceId'       => 'SourceInstanceId',
+        'databasePublicAddress' => 'DatabasePublicAddress',
+        'instanceId' => 'InstanceId',
+        'networkDomainId' => 'NetworkDomainId',
+        'regionId' => 'RegionId',
+        'sourceInstanceId' => 'SourceInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

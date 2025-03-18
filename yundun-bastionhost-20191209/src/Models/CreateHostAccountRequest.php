@@ -12,6 +12,7 @@ class CreateHostAccountRequest extends Model
      * @description The name of the host account. The name can be up to 128 characters in length.
      *
      * This parameter is required.
+     *
      * @example abc
      *
      * @var string
@@ -21,7 +22,10 @@ class CreateHostAccountRequest extends Model
     /**
      * @description The ID of the host to which you want to add a host account.
      *
+     * >  You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -40,7 +44,10 @@ class CreateHostAccountRequest extends Model
     /**
      * @description The ID of the bastion host in which you want to add a host account to the host.
      *
+     * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -51,6 +58,7 @@ class CreateHostAccountRequest extends Model
      * @description The passphrase for the private key of the host account.
      *
      * > You can configure this parameter only if ProtocolName is set to SSH. You do not need to configure this parameter if ProtocolName is set to RDP.
+     *
      * @example ****
      *
      * @var string
@@ -70,6 +78,7 @@ class CreateHostAccountRequest extends Model
      * @description The private key of the host account. Specify a Base64-encoded string.
      *
      * > This parameter is valid only if ProtocolName is set to SSH. You do not need to configure this parameter if ProtocolName is set to RDP. You can configure a password and a private key for the host account at the same time. If both a password and a private key are configured for the host account, Bastionhost preferentially uses the private key for logon.
+     *
      * @example ****
      *
      * @var string
@@ -85,6 +94,7 @@ class CreateHostAccountRequest extends Model
      *   RDP
      *
      * This parameter is required.
+     *
      * @example SSH
      *
      * @var string
@@ -95,6 +105,7 @@ class CreateHostAccountRequest extends Model
      * @description The region ID of the bastion host in which you want to add a host account to the host.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -102,19 +113,17 @@ class CreateHostAccountRequest extends Model
     public $regionId;
     protected $_name = [
         'hostAccountName' => 'HostAccountName',
-        'hostId'          => 'HostId',
-        'hostShareKeyId'  => 'HostShareKeyId',
-        'instanceId'      => 'InstanceId',
-        'passPhrase'      => 'PassPhrase',
-        'password'        => 'Password',
-        'privateKey'      => 'PrivateKey',
-        'protocolName'    => 'ProtocolName',
-        'regionId'        => 'RegionId',
+        'hostId' => 'HostId',
+        'hostShareKeyId' => 'HostShareKeyId',
+        'instanceId' => 'InstanceId',
+        'passPhrase' => 'PassPhrase',
+        'password' => 'Password',
+        'privateKey' => 'PrivateKey',
+        'protocolName' => 'ProtocolName',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

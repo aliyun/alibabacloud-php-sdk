@@ -29,9 +29,7 @@ class GetPolicyUserScopeResponseBody extends Model
         'userScope' => 'UserScope',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

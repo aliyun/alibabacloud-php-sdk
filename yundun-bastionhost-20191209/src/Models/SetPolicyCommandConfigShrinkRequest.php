@@ -11,7 +11,10 @@ class SetPolicyCommandConfigShrinkRequest extends Model
     /**
      * @description The command control settings.
      *
+     * > This parameter applies only to Linux hosts.
+     *
      * This parameter is required.
+     *
      * @var string
      */
     public $commandConfigShrink;
@@ -19,7 +22,10 @@ class SetPolicyCommandConfigShrinkRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-78v1ghxxxxx
      *
      * @var string
@@ -29,7 +35,10 @@ class SetPolicyCommandConfigShrinkRequest extends Model
     /**
      * @description The ID of the control policy that you want to modify.
      *
+     * > You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+     *
      * This parameter is required.
+     *
      * @example 45
      *
      * @var string
@@ -40,6 +49,7 @@ class SetPolicyCommandConfigShrinkRequest extends Model
      * @description The region ID of the bastion host.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -47,14 +57,12 @@ class SetPolicyCommandConfigShrinkRequest extends Model
     public $regionId;
     protected $_name = [
         'commandConfigShrink' => 'CommandConfig',
-        'instanceId'          => 'InstanceId',
-        'policyId'            => 'PolicyId',
-        'regionId'            => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'policyId' => 'PolicyId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

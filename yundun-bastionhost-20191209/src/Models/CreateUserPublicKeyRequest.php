@@ -20,7 +20,10 @@ class CreateUserPublicKeyRequest extends Model
     /**
      * @description The ID of the bastion host on which you want to create a public key for the user.
      *
+     * > You can call the [listinstances](https://help.aliyun.com/document_detail/204522.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -31,6 +34,7 @@ class CreateUserPublicKeyRequest extends Model
      * @description The public key. Encode the value by using the Base64 algorithm.
      *
      * This parameter is required.
+     *
      * @example c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSUxGQnQxUUpyT3IxK2hTTGRkbERMZUx4WGRIZ3hBalBxWHJIbWNFNWxqSk8gbm93Y29kZXJAbm93Y29kZXJkZU1hY0Jvb2stUHJvLmxvY2Fs
      *
      * @var string
@@ -41,6 +45,7 @@ class CreateUserPublicKeyRequest extends Model
      * @description The name of the public key.
      *
      * This parameter is required.
+     *
      * @example Public key of a user
      *
      * @var string
@@ -51,6 +56,7 @@ class CreateUserPublicKeyRequest extends Model
      * @description Specifies the region ID of the bastion host on which you want to create a public key for the user.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -60,24 +66,25 @@ class CreateUserPublicKeyRequest extends Model
     /**
      * @description The ID of the user for whom you want to create a public key.
      *
+     * >  You can call the [ListUsers](https://help.aliyun.com/document_detail/204522.html) operation to query the user ID.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'comment'       => 'Comment',
-        'instanceId'    => 'InstanceId',
-        'publicKey'     => 'PublicKey',
+        'comment' => 'Comment',
+        'instanceId' => 'InstanceId',
+        'publicKey' => 'PublicKey',
         'publicKeyName' => 'PublicKeyName',
-        'regionId'      => 'RegionId',
-        'userId'        => 'UserId',
+        'regionId' => 'RegionId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

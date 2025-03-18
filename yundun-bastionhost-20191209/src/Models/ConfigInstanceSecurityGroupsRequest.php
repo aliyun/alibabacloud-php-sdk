@@ -12,6 +12,7 @@ class ConfigInstanceSecurityGroupsRequest extends Model
      * @description An array that consists of the IDs of authorized security groups.
      *
      * This parameter is required.
+     *
      * @example sg-bp14u00sh39jvw5****
      *
      * @var string[]
@@ -21,7 +22,10 @@ class ConfigInstanceSecurityGroupsRequest extends Model
     /**
      * @description The ID of the bastion host.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-78v1gh****
      *
      * @var string
@@ -50,14 +54,12 @@ class ConfigInstanceSecurityGroupsRequest extends Model
     public $regionId;
     protected $_name = [
         'authorizedSecurityGroups' => 'AuthorizedSecurityGroups',
-        'instanceId'               => 'InstanceId',
-        'lang'                     => 'Lang',
-        'regionId'                 => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

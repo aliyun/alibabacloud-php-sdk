@@ -26,12 +26,10 @@ class hosts extends Model
     public $hostId;
     protected $_name = [
         'hostAccounts' => 'HostAccounts',
-        'hostId'       => 'HostId',
+        'hostId' => 'HostId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class hosts extends Model
         if (isset($map['HostAccounts'])) {
             if (!empty($map['HostAccounts'])) {
                 $model->hostAccounts = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['HostAccounts'] as $item) {
                     $model->hostAccounts[$n++] = null !== $item ? hostAccounts::fromMap($item) : $item;
                 }

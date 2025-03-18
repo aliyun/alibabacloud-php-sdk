@@ -22,6 +22,7 @@ class proxies extends Model
      *
      * - **true**
      * - **false**
+     *
      * @example true
      *
      * @var bool
@@ -32,6 +33,7 @@ class proxies extends Model
      * @description The node type of the proxy server. Valid values:
      * - **Master**: primary proxy server.
      * - **Slave**: secondary proxy server.
+     *
      * @example Master
      *
      * @var string
@@ -52,6 +54,7 @@ class proxies extends Model
      *
      * - **Available**
      * - **Unavailable**
+     *
      * @example Unavailable
      *
      * @var string
@@ -65,6 +68,7 @@ class proxies extends Model
      * - **CHECK_PWD_TIMEOUT**: The password verification session timed out.
      * - **CHECK_PWD_NETWORK_ERR**: A network error occurred.
      * - **UNEXPECTED**: An unknown error occurred.
+     *
      * @example CHECK_PWD_TIMEOUT
      *
      * @var string
@@ -77,6 +81,7 @@ class proxies extends Model
      * - **SSHProxy**
      * - **HTTPProxy**
      * - **Socks5Proxy**
+     *
      * @example HTTPProxy
      *
      * @var string
@@ -92,19 +97,17 @@ class proxies extends Model
      */
     public $user;
     protected $_name = [
-        'address'             => 'Address',
-        'hasPassword'         => 'HasPassword',
-        'nodeType'            => 'NodeType',
-        'port'                => 'Port',
-        'proxyState'          => 'ProxyState',
+        'address' => 'Address',
+        'hasPassword' => 'HasPassword',
+        'nodeType' => 'NodeType',
+        'port' => 'Port',
+        'proxyState' => 'ProxyState',
         'proxyStateErrorCode' => 'ProxyStateErrorCode',
-        'proxyType'           => 'ProxyType',
-        'user'                => 'User',
+        'proxyType' => 'ProxyType',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

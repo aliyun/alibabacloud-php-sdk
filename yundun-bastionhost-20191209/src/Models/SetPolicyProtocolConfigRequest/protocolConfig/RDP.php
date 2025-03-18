@@ -15,6 +15,7 @@ class RDP extends Model
      *   Disable
      *
      * > If you do not specify this parameter, the default value Disable is used.
+     *
      * @example Enable
      *
      * @var string
@@ -28,6 +29,7 @@ class RDP extends Model
      *   Disable
      *
      * > If you do not specify this parameter, the default value Disable is used.
+     *
      * @example Enable
      *
      * @var string
@@ -41,6 +43,7 @@ class RDP extends Model
      *   Disable
      *
      * > If you do not specify this parameter, the default value Disable is used.
+     *
      * @example Enable
      *
      * @var string
@@ -54,6 +57,7 @@ class RDP extends Model
      *   Disable
      *
      * > If you do not specify this parameter, the default value Disable is used.
+     *
      * @example Enable
      *
      * @var string
@@ -61,14 +65,12 @@ class RDP extends Model
     public $recordKeyboard;
     protected $_name = [
         'clipboardDownload' => 'ClipboardDownload',
-        'clipboardUpload'   => 'ClipboardUpload',
-        'diskRedirection'   => 'DiskRedirection',
-        'recordKeyboard'    => 'RecordKeyboard',
+        'clipboardUpload' => 'ClipboardUpload',
+        'diskRedirection' => 'DiskRedirection',
+        'recordKeyboard' => 'RecordKeyboard',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

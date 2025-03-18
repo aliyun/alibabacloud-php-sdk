@@ -24,6 +24,7 @@ class databases extends Model
      * @description The database accounts to which the control policy applies.
      *
      * >  This parameter is required if AccountScopeType is set to AccountId.
+     *
      * @var string[]
      */
     public $databaseAccountIds;
@@ -37,14 +38,12 @@ class databases extends Model
      */
     public $databaseId;
     protected $_name = [
-        'accountScopeType'   => 'AccountScopeType',
+        'accountScopeType' => 'AccountScopeType',
         'databaseAccountIds' => 'DatabaseAccountIds',
-        'databaseId'         => 'DatabaseId',
+        'databaseId' => 'DatabaseId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

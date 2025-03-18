@@ -20,9 +20,7 @@ class hostAccounts extends Model
         'hostAccountId' => 'HostAccountId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

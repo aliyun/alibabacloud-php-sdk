@@ -60,7 +60,10 @@ class ModifyRuleRequest extends Model
     /**
      * @description The ID of the bastion host whose authorization rule you want to modify.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-zmb2y9ydw08
      *
      * @var string
@@ -71,6 +74,7 @@ class ModifyRuleRequest extends Model
      * @description The region ID of the bastion host to which the authorization rule to modify belongs.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -81,6 +85,7 @@ class ModifyRuleRequest extends Model
      * @description The ID of the authorization rule to modify.
      *
      * This parameter is required.
+     *
      * @example 68
      *
      * @var string
@@ -110,23 +115,21 @@ class ModifyRuleRequest extends Model
      */
     public $userIds;
     protected $_name = [
-        'comment'            => 'Comment',
-        'databases'          => 'Databases',
-        'effectiveEndTime'   => 'EffectiveEndTime',
+        'comment' => 'Comment',
+        'databases' => 'Databases',
+        'effectiveEndTime' => 'EffectiveEndTime',
         'effectiveStartTime' => 'EffectiveStartTime',
-        'hostGroups'         => 'HostGroups',
-        'hosts'              => 'Hosts',
-        'instanceId'         => 'InstanceId',
-        'regionId'           => 'RegionId',
-        'ruleId'             => 'RuleId',
-        'ruleName'           => 'RuleName',
-        'userGroupIds'       => 'UserGroupIds',
-        'userIds'            => 'UserIds',
+        'hostGroups' => 'HostGroups',
+        'hosts' => 'Hosts',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'userGroupIds' => 'UserGroupIds',
+        'userIds' => 'UserIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -203,7 +206,7 @@ class ModifyRuleRequest extends Model
         if (isset($map['Databases'])) {
             if (!empty($map['Databases'])) {
                 $model->databases = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Databases'] as $item) {
                     $model->databases[$n++] = null !== $item ? databases::fromMap($item) : $item;
                 }
@@ -218,7 +221,7 @@ class ModifyRuleRequest extends Model
         if (isset($map['HostGroups'])) {
             if (!empty($map['HostGroups'])) {
                 $model->hostGroups = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['HostGroups'] as $item) {
                     $model->hostGroups[$n++] = null !== $item ? hostGroups::fromMap($item) : $item;
                 }
@@ -227,7 +230,7 @@ class ModifyRuleRequest extends Model
         if (isset($map['Hosts'])) {
             if (!empty($map['Hosts'])) {
                 $model->hosts = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Hosts'] as $item) {
                     $model->hosts[$n++] = null !== $item ? hosts::fromMap($item) : $item;
                 }

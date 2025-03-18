@@ -34,14 +34,12 @@ class ListDatabasesForUserResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'databases'  => 'Databases',
-        'requestId'  => 'RequestId',
+        'databases' => 'Databases',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListDatabasesForUserResponseBody extends Model
         if (isset($map['Databases'])) {
             if (!empty($map['Databases'])) {
                 $model->databases = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Databases'] as $item) {
                     $model->databases[$n++] = null !== $item ? databases::fromMap($item) : $item;
                 }

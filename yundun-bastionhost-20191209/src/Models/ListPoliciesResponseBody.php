@@ -34,14 +34,12 @@ class ListPoliciesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'policies'   => 'Policies',
-        'requestId'  => 'RequestId',
+        'policies' => 'Policies',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListPoliciesResponseBody extends Model
         if (isset($map['Policies'])) {
             if (!empty($map['Policies'])) {
                 $model->policies = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Policies'] as $item) {
                     $model->policies[$n++] = null !== $item ? policies::fromMap($item) : $item;
                 }

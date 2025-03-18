@@ -10,7 +10,10 @@ class ListUserGroupsRequest extends Model
 {
     /**
      * @description The ID of the bastion host on which you want to query user groups.
+     * >You can call the [DescribeInstances ](https://help.aliyun.com/document_detail/462953.html)operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -29,6 +32,7 @@ class ListUserGroupsRequest extends Model
     /**
      * @description The number of entries to return on each page.
      * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
      * @example 20
      *
      * @var string
@@ -38,6 +42,7 @@ class ListUserGroupsRequest extends Model
     /**
      * @description The region ID of the bastion host on which you want to query user groups.
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/462924.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -53,16 +58,14 @@ class ListUserGroupsRequest extends Model
      */
     public $userGroupName;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'regionId'      => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'userGroupName' => 'UserGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

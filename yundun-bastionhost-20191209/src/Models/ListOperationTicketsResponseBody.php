@@ -35,13 +35,11 @@ class ListOperationTicketsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'operationTickets' => 'OperationTickets',
-        'requestId'        => 'RequestId',
-        'totalCount'       => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListOperationTicketsResponseBody extends Model
         if (isset($map['OperationTickets'])) {
             if (!empty($map['OperationTickets'])) {
                 $model->operationTickets = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['OperationTickets'] as $item) {
                     $model->operationTickets[$n++] = null !== $item ? operationTickets::fromMap($item) : $item;
                 }

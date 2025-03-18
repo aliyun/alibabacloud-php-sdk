@@ -51,16 +51,14 @@ class GetExportConfigJobResponseBody extends Model
     public $status;
     protected $_name = [
         'downloadUrl' => 'DownloadUrl',
-        'expireTime'  => 'ExpireTime',
-        'jobId'       => 'JobId',
-        'message'     => 'Message',
-        'requestId'   => 'RequestId',
-        'status'      => 'Status',
+        'expireTime' => 'ExpireTime',
+        'jobId' => 'JobId',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

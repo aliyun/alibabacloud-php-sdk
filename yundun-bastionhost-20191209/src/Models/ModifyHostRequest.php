@@ -20,7 +20,10 @@ class ModifyHostRequest extends Model
     /**
      * @description The ID of the host.
      *
+     * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the ID of the host.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -57,7 +60,10 @@ class ModifyHostRequest extends Model
     /**
      * @description The ID of the bastion host on which you want to modify the information about the host.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -68,6 +74,7 @@ class ModifyHostRequest extends Model
      * @description The ID of the new network domain to which the host belongs.
      *
      * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+     *
      * @example 1
      *
      * @var string
@@ -87,29 +94,34 @@ class ModifyHostRequest extends Model
     public $OSType;
 
     /**
+     * @var string
+     */
+    public $prefKex;
+
+    /**
      * @description The region ID of the bastion host on which you want to modify the information about the host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'comment'            => 'Comment',
-        'hostId'             => 'HostId',
-        'hostName'           => 'HostName',
+        'comment' => 'Comment',
+        'hostId' => 'HostId',
+        'hostName' => 'HostName',
         'hostPrivateAddress' => 'HostPrivateAddress',
-        'hostPublicAddress'  => 'HostPublicAddress',
-        'instanceId'         => 'InstanceId',
-        'networkDomainId'    => 'NetworkDomainId',
-        'OSType'             => 'OSType',
-        'regionId'           => 'RegionId',
+        'hostPublicAddress' => 'HostPublicAddress',
+        'instanceId' => 'InstanceId',
+        'networkDomainId' => 'NetworkDomainId',
+        'OSType' => 'OSType',
+        'prefKex' => 'PrefKex',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -137,6 +149,9 @@ class ModifyHostRequest extends Model
         }
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
+        }
+        if (null !== $this->prefKex) {
+            $res['PrefKex'] = $this->prefKex;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -176,6 +191,9 @@ class ModifyHostRequest extends Model
         }
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];
+        }
+        if (isset($map['PrefKex'])) {
+            $model->prefKex = $map['PrefKex'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

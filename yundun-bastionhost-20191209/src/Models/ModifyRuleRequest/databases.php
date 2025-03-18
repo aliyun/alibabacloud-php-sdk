@@ -19,18 +19,20 @@ class databases extends Model
      * @description The database ID.
      *
      * @example [
+     * {
+     * "DatabaseId": "1"
+     * }
      * ]
+     *
      * @var string
      */
     public $databaseId;
     protected $_name = [
         'databaseAccountIds' => 'DatabaseAccountIds',
-        'databaseId'         => 'DatabaseId',
+        'databaseId' => 'DatabaseId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,12 +25,10 @@ class commandConfig extends Model
     public $deny;
     protected $_name = [
         'approval' => 'Approval',
-        'deny'     => 'Deny',
+        'deny' => 'Deny',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

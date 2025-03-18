@@ -27,12 +27,10 @@ class CreateUserPublicKeyResponseBody extends Model
     public $requestId;
     protected $_name = [
         'publicKeyId' => 'PublicKeyId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

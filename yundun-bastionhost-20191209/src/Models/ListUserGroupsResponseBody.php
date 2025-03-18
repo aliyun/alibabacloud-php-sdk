@@ -34,14 +34,12 @@ class ListUserGroupsResponseBody extends Model
      */
     public $userGroups;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
         'userGroups' => 'UserGroups',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class ListUserGroupsResponseBody extends Model
         if (isset($map['UserGroups'])) {
             if (!empty($map['UserGroups'])) {
                 $model->userGroups = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['UserGroups'] as $item) {
                     $model->userGroups[$n++] = null !== $item ? userGroups::fromMap($item) : $item;
                 }

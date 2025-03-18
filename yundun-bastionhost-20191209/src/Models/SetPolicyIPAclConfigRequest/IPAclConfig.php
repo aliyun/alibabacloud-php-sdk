@@ -15,6 +15,7 @@ class IPAclConfig extends Model
      *   **white**: whitelist mode.
      *
      * This parameter is required.
+     *
      * @example white
      *
      * @var string
@@ -31,17 +32,16 @@ class IPAclConfig extends Model
      *   If AclType is set to black but you do not want to add IP addresses to the blacklist, you can leave IPs empty.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $IPs;
     protected $_name = [
         'aclType' => 'AclType',
-        'IPs'     => 'IPs',
+        'IPs' => 'IPs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

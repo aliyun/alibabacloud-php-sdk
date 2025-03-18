@@ -20,9 +20,7 @@ class databaseAccounts extends Model
         'databaseAccountId' => 'DatabaseAccountId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

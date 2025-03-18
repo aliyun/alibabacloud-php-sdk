@@ -43,7 +43,10 @@ class ListOperationDatabasesRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-tl32wloo90y
      *
      * @var string
@@ -61,7 +64,10 @@ class ListOperationDatabasesRequest extends Model
 
     /**
      * @description The number of entries per page.\\
+     * Maximum value: 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var string
@@ -72,6 +78,7 @@ class ListOperationDatabasesRequest extends Model
      * @description The region ID of the bastion host.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -112,21 +119,19 @@ class ListOperationDatabasesRequest extends Model
      */
     public $sourceInstanceState;
     protected $_name = [
-        'databaseAddress'     => 'DatabaseAddress',
-        'databaseName'        => 'DatabaseName',
-        'databaseType'        => 'DatabaseType',
-        'instanceId'          => 'InstanceId',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'regionId'            => 'RegionId',
-        'source'              => 'Source',
-        'sourceInstanceId'    => 'SourceInstanceId',
+        'databaseAddress' => 'DatabaseAddress',
+        'databaseName' => 'DatabaseName',
+        'databaseType' => 'DatabaseType',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'source' => 'Source',
+        'sourceInstanceId' => 'SourceInstanceId',
         'sourceInstanceState' => 'SourceInstanceState',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -57,14 +57,12 @@ class RDP extends Model
     public $recordKeyboard;
     protected $_name = [
         'clipboardDownload' => 'ClipboardDownload',
-        'clipboardUpload'   => 'ClipboardUpload',
-        'diskRedirection'   => 'DiskRedirection',
-        'recordKeyboard'    => 'RecordKeyboard',
+        'clipboardUpload' => 'ClipboardUpload',
+        'diskRedirection' => 'DiskRedirection',
+        'recordKeyboard' => 'RecordKeyboard',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

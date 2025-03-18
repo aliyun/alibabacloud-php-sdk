@@ -14,6 +14,7 @@ class commandConfig extends Model
      * @description The command approval settings.
      *
      * > A command approval policy is used to approve the commands that are excluded from a whitelist or blacklist specified in a command control policy. The command control policy takes precedence over the command approval policy in validation.
+     *
      * @var approval
      */
     public $approval;
@@ -22,17 +23,16 @@ class commandConfig extends Model
      * @description The command control settings.
      *
      * This parameter is required.
+     *
      * @var deny
      */
     public $deny;
     protected $_name = [
         'approval' => 'Approval',
-        'deny'     => 'Deny',
+        'deny' => 'Deny',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

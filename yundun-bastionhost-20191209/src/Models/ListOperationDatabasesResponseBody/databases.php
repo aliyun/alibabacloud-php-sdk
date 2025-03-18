@@ -131,23 +131,21 @@ class databases extends Model
      */
     public $sourceInstanceState;
     protected $_name = [
-        'activeAddressType'      => 'ActiveAddressType',
-        'comment'                => 'Comment',
-        'databaseId'             => 'DatabaseId',
-        'databaseName'           => 'DatabaseName',
-        'databasePort'           => 'DatabasePort',
+        'activeAddressType' => 'ActiveAddressType',
+        'comment' => 'Comment',
+        'databaseId' => 'DatabaseId',
+        'databaseName' => 'DatabaseName',
+        'databasePort' => 'DatabasePort',
         'databasePrivateAddress' => 'DatabasePrivateAddress',
-        'databasePublicAddress'  => 'DatabasePublicAddress',
-        'databaseType'           => 'DatabaseType',
-        'source'                 => 'Source',
-        'sourceInstanceId'       => 'SourceInstanceId',
+        'databasePublicAddress' => 'DatabasePublicAddress',
+        'databaseType' => 'DatabaseType',
+        'source' => 'Source',
+        'sourceInstanceId' => 'SourceInstanceId',
         'sourceInstanceRegionId' => 'SourceInstanceRegionId',
-        'sourceInstanceState'    => 'SourceInstanceState',
+        'sourceInstanceState' => 'SourceInstanceState',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

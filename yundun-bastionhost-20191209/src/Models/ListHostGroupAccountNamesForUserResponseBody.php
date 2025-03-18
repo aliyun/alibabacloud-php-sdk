@@ -25,12 +25,10 @@ class ListHostGroupAccountNamesForUserResponseBody extends Model
     public $requestId;
     protected $_name = [
         'hostAccountNames' => 'HostAccountNames',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

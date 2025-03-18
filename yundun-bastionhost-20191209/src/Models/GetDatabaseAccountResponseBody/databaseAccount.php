@@ -59,16 +59,14 @@ class databaseAccount extends Model
      */
     public $loginAttribute;
     protected $_name = [
-        'databaseAccountId'   => 'DatabaseAccountId',
+        'databaseAccountId' => 'DatabaseAccountId',
         'databaseAccountName' => 'DatabaseAccountName',
-        'databaseSchema'      => 'DatabaseSchema',
-        'hasPassword'         => 'HasPassword',
-        'loginAttribute'      => 'LoginAttribute',
+        'databaseSchema' => 'DatabaseSchema',
+        'hasPassword' => 'HasPassword',
+        'loginAttribute' => 'LoginAttribute',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

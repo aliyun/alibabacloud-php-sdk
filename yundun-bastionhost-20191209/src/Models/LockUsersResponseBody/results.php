@@ -49,14 +49,12 @@ class results extends Model
      */
     public $userId;
     protected $_name = [
-        'code'    => 'Code',
+        'code' => 'Code',
         'message' => 'Message',
-        'userId'  => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -85,19 +85,17 @@ class hostAccounts extends Model
      */
     public $SSHConfig;
     protected $_name = [
-        'hasPassword'           => 'HasPassword',
-        'hostAccountId'         => 'HostAccountId',
-        'hostAccountName'       => 'HostAccountName',
-        'hostId'                => 'HostId',
-        'hostShareKeyId'        => 'HostShareKeyId',
+        'hasPassword' => 'HasPassword',
+        'hostAccountId' => 'HostAccountId',
+        'hostAccountName' => 'HostAccountName',
+        'hostId' => 'HostId',
+        'hostShareKeyId' => 'HostShareKeyId',
         'privateKeyFingerprint' => 'PrivateKeyFingerprint',
-        'protocolName'          => 'ProtocolName',
-        'SSHConfig'             => 'SSHConfig',
+        'protocolName' => 'ProtocolName',
+        'SSHConfig' => 'SSHConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

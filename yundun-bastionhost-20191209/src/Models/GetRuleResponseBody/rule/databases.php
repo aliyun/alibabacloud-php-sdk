@@ -26,12 +26,10 @@ class databases extends Model
     public $databaseId;
     protected $_name = [
         'databaseAccounts' => 'DatabaseAccounts',
-        'databaseId'       => 'DatabaseId',
+        'databaseId' => 'DatabaseId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class databases extends Model
         if (isset($map['DatabaseAccounts'])) {
             if (!empty($map['DatabaseAccounts'])) {
                 $model->databaseAccounts = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['DatabaseAccounts'] as $item) {
                     $model->databaseAccounts[$n++] = null !== $item ? databaseAccounts::fromMap($item) : $item;
                 }

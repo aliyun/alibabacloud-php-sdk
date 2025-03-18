@@ -11,7 +11,10 @@ class AddHostsToGroupRequest extends Model
     /**
      * @description The ID of the asset group to which you want to add hosts.
      *
+     * >You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -21,7 +24,10 @@ class AddHostsToGroupRequest extends Model
     /**
      * @description The IDs of the hosts that you want to add to the asset group. Specify a JSON string. You can specify up to 100 host IDs.
      *
+     * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query the host IDs.
+     *
      * This parameter is required.
+     *
      * @example ["1","2","3"]
      *
      * @var string
@@ -31,7 +37,10 @@ class AddHostsToGroupRequest extends Model
     /**
      * @description The ID of the bastion host whose asset group you want to add hosts to.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -42,6 +51,7 @@ class AddHostsToGroupRequest extends Model
      * @description The region ID of the bastion host whose asset group you want to add hosts to.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -49,14 +59,12 @@ class AddHostsToGroupRequest extends Model
     public $regionId;
     protected $_name = [
         'hostGroupId' => 'HostGroupId',
-        'hostIds'     => 'HostIds',
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
+        'hostIds' => 'HostIds',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

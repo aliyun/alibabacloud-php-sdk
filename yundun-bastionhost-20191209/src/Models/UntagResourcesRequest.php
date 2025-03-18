@@ -23,7 +23,10 @@ class UntagResourcesRequest extends Model
     /**
      * @description The region ID of the bastion host to query.
      *
+     * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -33,7 +36,12 @@ class UntagResourcesRequest extends Model
     /**
      * @description An array that consists of IDs of bastion hosts.
      *
+     * Valid values: 1 to 20.
+     *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -44,6 +52,7 @@ class UntagResourcesRequest extends Model
      * Set the value to **INSTANCE**, which indicates that the resource is a bastion host.
      *
      * This parameter is required.
+     *
      * @example INSTANCE
      *
      * @var string
@@ -54,20 +63,19 @@ class UntagResourcesRequest extends Model
      * @description The key of tag N.
      *
      * Valid values of N: 1 to 20.
+     *
      * @var string[]
      */
     public $tagKey;
     protected $_name = [
-        'all'          => 'All',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'all' => 'All',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tagKey'       => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -28,9 +28,7 @@ class protocolConfig extends Model
         'SSH' => 'SSH',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

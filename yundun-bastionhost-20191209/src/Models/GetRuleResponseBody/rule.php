@@ -93,21 +93,19 @@ class rule extends Model
      */
     public $users;
     protected $_name = [
-        'comment'            => 'Comment',
-        'databases'          => 'Databases',
-        'effectiveEndTime'   => 'EffectiveEndTime',
+        'comment' => 'Comment',
+        'databases' => 'Databases',
+        'effectiveEndTime' => 'EffectiveEndTime',
         'effectiveStartTime' => 'EffectiveStartTime',
-        'hostGroups'         => 'HostGroups',
-        'hosts'              => 'Hosts',
-        'ruleId'             => 'RuleId',
-        'ruleName'           => 'RuleName',
-        'userGroups'         => 'UserGroups',
-        'users'              => 'Users',
+        'hostGroups' => 'HostGroups',
+        'hosts' => 'Hosts',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'userGroups' => 'UserGroups',
+        'users' => 'Users',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -190,7 +188,7 @@ class rule extends Model
         if (isset($map['Databases'])) {
             if (!empty($map['Databases'])) {
                 $model->databases = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Databases'] as $item) {
                     $model->databases[$n++] = null !== $item ? databases::fromMap($item) : $item;
                 }
@@ -205,7 +203,7 @@ class rule extends Model
         if (isset($map['HostGroups'])) {
             if (!empty($map['HostGroups'])) {
                 $model->hostGroups = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['HostGroups'] as $item) {
                     $model->hostGroups[$n++] = null !== $item ? hostGroups::fromMap($item) : $item;
                 }
@@ -214,7 +212,7 @@ class rule extends Model
         if (isset($map['Hosts'])) {
             if (!empty($map['Hosts'])) {
                 $model->hosts = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Hosts'] as $item) {
                     $model->hosts[$n++] = null !== $item ? hosts::fromMap($item) : $item;
                 }
@@ -229,7 +227,7 @@ class rule extends Model
         if (isset($map['UserGroups'])) {
             if (!empty($map['UserGroups'])) {
                 $model->userGroups = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['UserGroups'] as $item) {
                     $model->userGroups[$n++] = null !== $item ? userGroups::fromMap($item) : $item;
                 }
@@ -238,7 +236,7 @@ class rule extends Model
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
                 $model->users = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Users'] as $item) {
                     $model->users[$n++] = null !== $item ? users::fromMap($item) : $item;
                 }

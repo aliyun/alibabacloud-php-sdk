@@ -20,7 +20,10 @@ class ListDatabaseAccountsForUserGroupRequest extends Model
     /**
      * @description The ID of the database whose database accounts you want to query.
      *
+     * >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+     *
      * This parameter is required.
+     *
      * @example 36
      *
      * @var string
@@ -30,7 +33,10 @@ class ListDatabaseAccountsForUserGroupRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-pe334a03o0h
      *
      * @var string
@@ -48,7 +54,10 @@ class ListDatabaseAccountsForUserGroupRequest extends Model
 
     /**
      * @description The number of entries per page.\\
+     * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var string
@@ -59,6 +68,7 @@ class ListDatabaseAccountsForUserGroupRequest extends Model
      * @description The region ID of the bastion host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -68,7 +78,10 @@ class ListDatabaseAccountsForUserGroupRequest extends Model
     /**
      * @description The ID of the user group to query. This operation returns whether the user group is authorized to manage each database account.
      *
+     * >  You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the user group ID.
+     *
      * This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -76,17 +89,15 @@ class ListDatabaseAccountsForUserGroupRequest extends Model
     public $userGroupId;
     protected $_name = [
         'databaseAccountName' => 'DatabaseAccountName',
-        'databaseId'          => 'DatabaseId',
-        'instanceId'          => 'InstanceId',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'regionId'            => 'RegionId',
-        'userGroupId'         => 'UserGroupId',
+        'databaseId' => 'DatabaseId',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

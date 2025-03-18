@@ -11,7 +11,10 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
     /**
      * @description The ID of the host group.
      *
+     * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the ID of the host group.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -21,7 +24,10 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
     /**
      * @description The ID of the bastion host on which you want to query the host account names the user group is authorized to manage in a host group.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -32,6 +38,7 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
      * @description The region ID of the bastion host on which you want to query the host account names the user group is authorized to manage in a host group.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -41,7 +48,10 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
     /**
      * @description The ID of the user group.
      *
+     * > You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the ID of the user group.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -49,14 +59,12 @@ class ListHostGroupAccountNamesForUserGroupRequest extends Model
     public $userGroupId;
     protected $_name = [
         'hostGroupId' => 'HostGroupId',
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

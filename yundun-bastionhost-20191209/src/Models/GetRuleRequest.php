@@ -11,7 +11,10 @@ class GetRuleRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-wwo35essw07
      *
      * @var string
@@ -22,6 +25,7 @@ class GetRuleRequest extends Model
      * @description The region ID of the bastion host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-beijing
      *
      * @var string
@@ -31,7 +35,10 @@ class GetRuleRequest extends Model
     /**
      * @description The ID of the authorization rule to query.
      *
+     * >  You can call the [ListRules](https://help.aliyun.com/document_detail/2758868.html) operation to query the authorization rule ID.
+     *
      * This parameter is required.
+     *
      * @example 18
      *
      * @var string
@@ -39,13 +46,11 @@ class GetRuleRequest extends Model
     public $ruleId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'ruleId'     => 'RuleId',
+        'regionId' => 'RegionId',
+        'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

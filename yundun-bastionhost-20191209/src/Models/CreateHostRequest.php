@@ -15,6 +15,7 @@ class CreateHostRequest extends Model
      *   **Private**: internal endpoint
      *
      * This parameter is required.
+     *
      * @example Public
      *
      * @var string
@@ -34,6 +35,7 @@ class CreateHostRequest extends Model
      * @description The name of the host that you want to create. The name can be up to 128 characters in length.
      *
      * This parameter is required.
+     *
      * @example host01
      *
      * @var string
@@ -44,6 +46,7 @@ class CreateHostRequest extends Model
      * @description The internal endpoint of the host that you want to create. You can set this parameter to a domain name or an IP address.
      *
      * > This parameter is required if the **ActiveAddressType** parameter is set to **Private**.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -54,6 +57,7 @@ class CreateHostRequest extends Model
      * @description The public endpoint of the host that you want to create. You can set this parameter to a domain name or an IP address.
      *
      * > This parameter is required if the **ActiveAddressType** parameter is set to **Public**.
+     *
      * @example 172.16.XX.XX
      *
      * @var string
@@ -63,7 +67,10 @@ class CreateHostRequest extends Model
     /**
      * @description The ID of the bastion host in which you want to create the host.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -74,6 +81,7 @@ class CreateHostRequest extends Model
      * @description The ID of the region to which the ECS instance or the host in an ApsaraDB MyBase dedicated cluster belongs.
      *
      * > This parameter is required if the **Source** parameter is set to **Ecs** or **Rds**.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -84,6 +92,7 @@ class CreateHostRequest extends Model
      * @description The ID of the network domain to which the host to be imported belongs.
      *
      * > You can call the [ListNetworkDomains](https://help.aliyun.com/document_detail/2758827.html) operation to query the network domain ID.
+     *
      * @example 1
      *
      * @var string
@@ -97,6 +106,7 @@ class CreateHostRequest extends Model
      *   **Windows**
      *
      * This parameter is required.
+     *
      * @example Linux
      *
      * @var string
@@ -107,6 +117,7 @@ class CreateHostRequest extends Model
      * @description The region ID of the bastion host to which you want to import the host.
      *
      * > For information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -121,6 +132,7 @@ class CreateHostRequest extends Model
      *   **Rds**: a host in an ApsaraDB MyBase dedicated cluster
      *
      * This parameter is required.
+     *
      * @example Local
      *
      * @var string
@@ -131,29 +143,28 @@ class CreateHostRequest extends Model
      * @description The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
      *
      * > This parameter is required if the **Source** parameter is set to **Ecs** or **Rds**.
+     *
      * @example i-dfabfda
      *
      * @var string
      */
     public $sourceInstanceId;
     protected $_name = [
-        'activeAddressType'  => 'ActiveAddressType',
-        'comment'            => 'Comment',
-        'hostName'           => 'HostName',
+        'activeAddressType' => 'ActiveAddressType',
+        'comment' => 'Comment',
+        'hostName' => 'HostName',
         'hostPrivateAddress' => 'HostPrivateAddress',
-        'hostPublicAddress'  => 'HostPublicAddress',
-        'instanceId'         => 'InstanceId',
-        'instanceRegionId'   => 'InstanceRegionId',
-        'networkDomainId'    => 'NetworkDomainId',
-        'OSType'             => 'OSType',
-        'regionId'           => 'RegionId',
-        'source'             => 'Source',
-        'sourceInstanceId'   => 'SourceInstanceId',
+        'hostPublicAddress' => 'HostPublicAddress',
+        'instanceId' => 'InstanceId',
+        'instanceRegionId' => 'InstanceRegionId',
+        'networkDomainId' => 'NetworkDomainId',
+        'OSType' => 'OSType',
+        'regionId' => 'RegionId',
+        'source' => 'Source',
+        'sourceInstanceId' => 'SourceInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

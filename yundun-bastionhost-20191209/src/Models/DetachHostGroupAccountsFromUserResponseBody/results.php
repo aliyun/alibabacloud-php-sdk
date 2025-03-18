@@ -58,16 +58,14 @@ class results extends Model
      */
     public $userId;
     protected $_name = [
-        'code'             => 'Code',
+        'code' => 'Code',
         'hostAccountNames' => 'HostAccountNames',
-        'hostGroupId'      => 'HostGroupId',
-        'message'          => 'Message',
-        'userId'           => 'UserId',
+        'hostGroupId' => 'HostGroupId',
+        'message' => 'Message',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class results extends Model
         if (isset($map['HostAccountNames'])) {
             if (!empty($map['HostAccountNames'])) {
                 $model->hostAccountNames = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['HostAccountNames'] as $item) {
                     $model->hostAccountNames[$n++] = null !== $item ? hostAccountNames::fromMap($item) : $item;
                 }

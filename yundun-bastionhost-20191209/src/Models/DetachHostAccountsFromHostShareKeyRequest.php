@@ -11,7 +11,10 @@ class DetachHostAccountsFromHostShareKeyRequest extends Model
     /**
      * @description The host account IDs.
      *
+     * >  You can call the [ListHostAccountsForHostShareKey](https://help.aliyun.com/document_detail/462975.html) operation to query the host account IDs.
+     *
      * This parameter is required.
+     *
      * @example ["1","2","3"]
      *
      * @var string
@@ -21,7 +24,10 @@ class DetachHostAccountsFromHostShareKeyRequest extends Model
     /**
      * @description The shared key ID.
      *
+     * >  You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+     *
      * This parameter is required.
+     *
      * @example 11
      *
      * @var string
@@ -31,7 +37,10 @@ class DetachHostAccountsFromHostShareKeyRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -42,6 +51,7 @@ class DetachHostAccountsFromHostShareKeyRequest extends Model
      * @description The region ID of the bastion host.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -50,13 +60,11 @@ class DetachHostAccountsFromHostShareKeyRequest extends Model
     protected $_name = [
         'hostAccountIds' => 'HostAccountIds',
         'hostShareKeyId' => 'HostShareKeyId',
-        'instanceId'     => 'InstanceId',
-        'regionId'       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

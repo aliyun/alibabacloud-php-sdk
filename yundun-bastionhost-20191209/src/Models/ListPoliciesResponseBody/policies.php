@@ -42,15 +42,13 @@ class policies extends Model
      */
     public $priority;
     protected $_name = [
-        'comment'    => 'Comment',
-        'policyId'   => 'PolicyId',
+        'comment' => 'Comment',
+        'policyId' => 'PolicyId',
         'policyName' => 'PolicyName',
-        'priority'   => 'Priority',
+        'priority' => 'Priority',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

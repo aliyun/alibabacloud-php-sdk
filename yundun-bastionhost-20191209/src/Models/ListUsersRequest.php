@@ -20,7 +20,10 @@ class ListUsersRequest extends Model
     /**
      * @description The ID of the bastion host whose users you want to query.
      *
+     * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -47,7 +50,10 @@ class ListUsersRequest extends Model
 
     /**
      * @description The number of entries per page.\\
+     * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var string
@@ -58,6 +64,7 @@ class ListUsersRequest extends Model
      * @description The region ID of the bastion host whose users you want to query.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -82,6 +89,7 @@ class ListUsersRequest extends Model
      * @description The unique ID of the user that you want to query. Only exact match is supported.
      *
      * >  This parameter uniquely identifies a RAM user of the bastion host. This parameter is valid if **Source** is set to **Ram**. You can call the [ListUsers](https://help.aliyun.com/document_detail/28684.html) operation in RAM to obtain the unique ID of the user from the **UserId** response parameter.
+     *
      * @example 122748924538****
      *
      * @var string
@@ -92,6 +100,7 @@ class ListUsersRequest extends Model
      * @description The ID of the user group to which the user you want to query belongs.
      *
      * >  You can call the [ListUserGroups](https://help.aliyun.com/document_detail/204509.html) operation to query the user group ID.
+     *
      * @example 1
      *
      * @var string
@@ -120,22 +129,20 @@ class ListUsersRequest extends Model
      */
     public $userState;
     protected $_name = [
-        'displayName'  => 'DisplayName',
-        'instanceId'   => 'InstanceId',
-        'mobile'       => 'Mobile',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
-        'source'       => 'Source',
+        'displayName' => 'DisplayName',
+        'instanceId' => 'InstanceId',
+        'mobile' => 'Mobile',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'source' => 'Source',
         'sourceUserId' => 'SourceUserId',
-        'userGroupId'  => 'UserGroupId',
-        'userName'     => 'UserName',
-        'userState'    => 'UserState',
+        'userGroupId' => 'UserGroupId',
+        'userName' => 'UserName',
+        'userState' => 'UserState',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

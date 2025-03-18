@@ -11,7 +11,10 @@ class DeleteHostGroupRequest extends Model
     /**
      * @description The ID of the asset group that you want to delete.
      *
+     * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -21,7 +24,10 @@ class DeleteHostGroupRequest extends Model
     /**
      * @description The ID of the bastion host whose asset group you want to delete.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -32,6 +38,7 @@ class DeleteHostGroupRequest extends Model
      * @description The region ID of the bastion host whose asset group you want to delete.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,13 +46,11 @@ class DeleteHostGroupRequest extends Model
     public $regionId;
     protected $_name = [
         'hostGroupId' => 'HostGroupId',
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

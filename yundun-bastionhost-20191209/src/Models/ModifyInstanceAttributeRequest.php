@@ -12,6 +12,7 @@ class ModifyInstanceAttributeRequest extends Model
      * @description The description of the bastion host.
      *
      * > The description must be up to 30 characters in length, and can contain letters, digits, underscores (_), and hyphens (-).
+     *
      * @example Bastionhost demo
      *
      * @var string
@@ -21,7 +22,10 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @description The ID of the bastion host.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-78v1gh****
      *
      * @var string
@@ -32,6 +36,7 @@ class ModifyInstanceAttributeRequest extends Model
      * @description The region ID of the bastion host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,13 +44,11 @@ class ModifyInstanceAttributeRequest extends Model
     public $regionId;
     protected $_name = [
         'description' => 'Description',
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

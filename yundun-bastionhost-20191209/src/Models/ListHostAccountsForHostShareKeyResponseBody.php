@@ -35,13 +35,11 @@ class ListHostAccountsForHostShareKeyResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'hostAccounts' => 'HostAccounts',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListHostAccountsForHostShareKeyResponseBody extends Model
         if (isset($map['HostAccounts'])) {
             if (!empty($map['HostAccounts'])) {
                 $model->hostAccounts = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['HostAccounts'] as $item) {
                     $model->hostAccounts[$n++] = null !== $item ? hostAccounts::fromMap($item) : $item;
                 }

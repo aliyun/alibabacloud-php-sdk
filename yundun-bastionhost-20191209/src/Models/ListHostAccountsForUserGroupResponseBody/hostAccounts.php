@@ -59,16 +59,14 @@ class hostAccounts extends Model
      */
     public $protocolName;
     protected $_name = [
-        'hostAccountId'   => 'HostAccountId',
+        'hostAccountId' => 'HostAccountId',
         'hostAccountName' => 'HostAccountName',
-        'hostId'          => 'HostId',
-        'isAuthorized'    => 'IsAuthorized',
-        'protocolName'    => 'ProtocolName',
+        'hostId' => 'HostId',
+        'isAuthorized' => 'IsAuthorized',
+        'protocolName' => 'ProtocolName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

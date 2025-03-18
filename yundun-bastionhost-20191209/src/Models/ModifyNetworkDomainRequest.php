@@ -21,7 +21,10 @@ class ModifyNetworkDomainRequest extends Model
     /**
      * @description The ID of the bastion host to which the network domain to modify belongs.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-x0r3hyr3f09
      *
      * @var string
@@ -32,6 +35,7 @@ class ModifyNetworkDomainRequest extends Model
      * @description The ID of the network domain to modify.
      *
      * This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -70,24 +74,23 @@ class ModifyNetworkDomainRequest extends Model
      * @description The region ID of the bastion host to which the network domain to modify belongs.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'comment'           => 'Comment',
-        'instanceId'        => 'InstanceId',
-        'networkDomainId'   => 'NetworkDomainId',
+        'comment' => 'Comment',
+        'instanceId' => 'InstanceId',
+        'networkDomainId' => 'NetworkDomainId',
         'networkDomainName' => 'NetworkDomainName',
         'networkDomainType' => 'NetworkDomainType',
-        'proxies'           => 'Proxies',
-        'regionId'          => 'RegionId',
+        'proxies' => 'Proxies',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -149,7 +152,7 @@ class ModifyNetworkDomainRequest extends Model
         if (isset($map['Proxies'])) {
             if (!empty($map['Proxies'])) {
                 $model->proxies = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Proxies'] as $item) {
                     $model->proxies[$n++] = null !== $item ? proxies::fromMap($item) : $item;
                 }

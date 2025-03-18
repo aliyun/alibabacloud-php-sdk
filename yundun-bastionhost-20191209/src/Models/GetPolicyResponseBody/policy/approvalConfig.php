@@ -23,9 +23,7 @@ class approvalConfig extends Model
         'switchStatus' => 'SwitchStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

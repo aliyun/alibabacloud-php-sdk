@@ -30,6 +30,7 @@ class ListTagKeysRequest extends Model
      * @description The region ID of the bastion host.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,23 +45,24 @@ class ListTagKeysRequest extends Model
     /**
      * @description The type of the resource.
      *
+     * Set the value to INSTANCE, which indicates that the resource is a bastion host.
+     *
      * This parameter is required.
+     *
      * @example INSTANCE
      *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceType'    => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

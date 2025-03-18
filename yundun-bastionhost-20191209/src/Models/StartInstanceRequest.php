@@ -21,7 +21,10 @@ class StartInstanceRequest extends Model
     /**
      * @description The ID of the bastion host that you want to enable.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-78v1gh****
      *
      * @var string
@@ -41,6 +44,7 @@ class StartInstanceRequest extends Model
      * @description An array consisting of the IDs of security groups to which the bastion host is added.
      *
      * This parameter is required.
+     *
      * @example sg-bp1aiupc4yjqgmm****
      *
      * @var string[]
@@ -61,18 +65,16 @@ class StartInstanceRequest extends Model
      */
     public $vswitchId;
     protected $_name = [
-        'clientSecurityGroupIds'    => 'ClientSecurityGroupIds',
+        'clientSecurityGroupIds' => 'ClientSecurityGroupIds',
         'enablePortalPrivateAccess' => 'EnablePortalPrivateAccess',
-        'instanceId'                => 'InstanceId',
-        'regionId'                  => 'RegionId',
-        'securityGroupIds'          => 'SecurityGroupIds',
-        'slaveVswitchId'            => 'SlaveVswitchId',
-        'vswitchId'                 => 'VswitchId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'securityGroupIds' => 'SecurityGroupIds',
+        'slaveVswitchId' => 'SlaveVswitchId',
+        'vswitchId' => 'VswitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

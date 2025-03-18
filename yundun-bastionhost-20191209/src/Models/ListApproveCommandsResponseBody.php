@@ -35,13 +35,11 @@ class ListApproveCommandsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'approveCommands' => 'ApproveCommands',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListApproveCommandsResponseBody extends Model
         if (isset($map['ApproveCommands'])) {
             if (!empty($map['ApproveCommands'])) {
                 $model->approveCommands = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['ApproveCommands'] as $item) {
                     $model->approveCommands[$n++] = null !== $item ? approveCommands::fromMap($item) : $item;
                 }

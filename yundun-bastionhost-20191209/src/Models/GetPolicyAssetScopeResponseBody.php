@@ -26,12 +26,10 @@ class GetPolicyAssetScopeResponseBody extends Model
     public $requestId;
     protected $_name = [
         'assetScope' => 'AssetScope',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

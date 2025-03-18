@@ -110,21 +110,19 @@ class hosts extends Model
      */
     public $sourceInstanceState;
     protected $_name = [
-        'activeAddressType'   => 'ActiveAddressType',
-        'comment'             => 'Comment',
-        'hostId'              => 'HostId',
-        'hostName'            => 'HostName',
-        'hostPrivateAddress'  => 'HostPrivateAddress',
-        'hostPublicAddress'   => 'HostPublicAddress',
-        'OSType'              => 'OSType',
-        'source'              => 'Source',
-        'sourceInstanceId'    => 'SourceInstanceId',
+        'activeAddressType' => 'ActiveAddressType',
+        'comment' => 'Comment',
+        'hostId' => 'HostId',
+        'hostName' => 'HostName',
+        'hostPrivateAddress' => 'HostPrivateAddress',
+        'hostPublicAddress' => 'HostPublicAddress',
+        'OSType' => 'OSType',
+        'source' => 'Source',
+        'sourceInstanceId' => 'SourceInstanceId',
         'sourceInstanceState' => 'SourceInstanceState',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

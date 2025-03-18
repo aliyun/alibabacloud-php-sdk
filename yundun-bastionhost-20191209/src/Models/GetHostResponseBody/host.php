@@ -88,6 +88,11 @@ class host extends Model
     public $OSType;
 
     /**
+     * @var string
+     */
+    public $prefKex;
+
+    /**
      * @description The protocol information about the host.
      *
      * @var protocols[]
@@ -111,6 +116,7 @@ class host extends Model
      * @description The ID of the ECS instance or the host in an ApsaraDB MyBase dedicated cluster.
      *
      * >  If **Local** is returned for the **Source** parameter, no value is returned for this parameter.
+     *
      * @example i-bp19ienyt0yax748****
      *
      * @var string
@@ -129,23 +135,22 @@ class host extends Model
      */
     public $sourceInstanceState;
     protected $_name = [
-        'activeAddressType'   => 'ActiveAddressType',
-        'comment'             => 'Comment',
-        'hostId'              => 'HostId',
-        'hostName'            => 'HostName',
-        'hostPrivateAddress'  => 'HostPrivateAddress',
-        'hostPublicAddress'   => 'HostPublicAddress',
-        'networkDomainId'     => 'NetworkDomainId',
-        'OSType'              => 'OSType',
-        'protocols'           => 'Protocols',
-        'source'              => 'Source',
-        'sourceInstanceId'    => 'SourceInstanceId',
+        'activeAddressType' => 'ActiveAddressType',
+        'comment' => 'Comment',
+        'hostId' => 'HostId',
+        'hostName' => 'HostName',
+        'hostPrivateAddress' => 'HostPrivateAddress',
+        'hostPublicAddress' => 'HostPublicAddress',
+        'networkDomainId' => 'NetworkDomainId',
+        'OSType' => 'OSType',
+        'prefKex' => 'PrefKex',
+        'protocols' => 'Protocols',
+        'source' => 'Source',
+        'sourceInstanceId' => 'SourceInstanceId',
         'sourceInstanceState' => 'SourceInstanceState',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -173,6 +178,9 @@ class host extends Model
         }
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
+        }
+        if (null !== $this->prefKex) {
+            $res['PrefKex'] = $this->prefKex;
         }
         if (null !== $this->protocols) {
             $res['Protocols'] = [];
@@ -228,10 +236,13 @@ class host extends Model
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];
         }
+        if (isset($map['PrefKex'])) {
+            $model->prefKex = $map['PrefKex'];
+        }
         if (isset($map['Protocols'])) {
             if (!empty($map['Protocols'])) {
                 $model->protocols = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Protocols'] as $item) {
                     $model->protocols[$n++] = null !== $item ? protocols::fromMap($item) : $item;
                 }

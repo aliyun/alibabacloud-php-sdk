@@ -20,7 +20,10 @@ class CreatePolicyRequest extends Model
     /**
      * @description The ID of the bastion host for which you want to create a control policy.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-20p364c1w0g
      *
      * @var string
@@ -31,6 +34,7 @@ class CreatePolicyRequest extends Model
      * @description The name of the control policy. The name can be up to 128 characters in length.
      *
      * This parameter is required.
+     *
      * @example policytest
      *
      * @var string
@@ -53,22 +57,21 @@ class CreatePolicyRequest extends Model
      * @description The region ID of the bastion host for which you want to create a control policy.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-shanghai
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'comment'    => 'Comment',
+        'comment' => 'Comment',
         'instanceId' => 'InstanceId',
         'policyName' => 'PolicyName',
-        'priority'   => 'Priority',
-        'regionId'   => 'RegionId',
+        'priority' => 'Priority',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

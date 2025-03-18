@@ -67,17 +67,15 @@ class networkDomain extends Model
      */
     public $proxies;
     protected $_name = [
-        'comment'           => 'Comment',
-        'default'           => 'Default',
-        'networkDomainId'   => 'NetworkDomainId',
+        'comment' => 'Comment',
+        'default' => 'Default',
+        'networkDomainId' => 'NetworkDomainId',
         'networkDomainName' => 'NetworkDomainName',
         'networkDomainType' => 'NetworkDomainType',
-        'proxies'           => 'Proxies',
+        'proxies' => 'Proxies',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -136,7 +134,7 @@ class networkDomain extends Model
         if (isset($map['Proxies'])) {
             if (!empty($map['Proxies'])) {
                 $model->proxies = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Proxies'] as $item) {
                     $model->proxies[$n++] = null !== $item ? proxies::fromMap($item) : $item;
                 }

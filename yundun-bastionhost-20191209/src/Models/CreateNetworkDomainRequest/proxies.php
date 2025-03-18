@@ -22,6 +22,7 @@ class proxies extends Model
      *
      * - **Master**: primary proxy server.
      * - **Slave**: secondary proxy server.
+     *
      * @example Master
      *
      * @var string
@@ -52,6 +53,7 @@ class proxies extends Model
      * - **SSHProxy**
      * - **HTTPProxy**
      * - **Socks5Proxy**
+     *
      * @example SSHProxy
      *
      * @var string
@@ -67,17 +69,15 @@ class proxies extends Model
      */
     public $user;
     protected $_name = [
-        'address'   => 'Address',
-        'nodeType'  => 'NodeType',
-        'password'  => 'Password',
-        'port'      => 'Port',
+        'address' => 'Address',
+        'nodeType' => 'NodeType',
+        'password' => 'Password',
+        'port' => 'Port',
         'proxyType' => 'ProxyType',
-        'user'      => 'User',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

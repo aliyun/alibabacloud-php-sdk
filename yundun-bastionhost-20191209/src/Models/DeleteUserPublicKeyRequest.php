@@ -11,7 +11,10 @@ class DeleteUserPublicKeyRequest extends Model
     /**
      * @description The ID of the Bastionhost instance to which the users to be queried belong.
      *
+     * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the Bastionhost instance.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -21,7 +24,10 @@ class DeleteUserPublicKeyRequest extends Model
     /**
      * @description The public key ID.
      *
+     * >  You can call the [ListUserPublicKeys](https://help.aliyun.com/document_detail/477555.html) operation to query the public key ID.
+     *
      * This parameter is required.
+     *
      * @example 11
      *
      * @var string
@@ -37,14 +43,12 @@ class DeleteUserPublicKeyRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'publicKeyId' => 'PublicKeyId',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

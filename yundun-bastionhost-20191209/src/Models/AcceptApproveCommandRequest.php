@@ -11,7 +11,10 @@ class AcceptApproveCommandRequest extends Model
     /**
      * @description The ID of the command that you want to approve.
      *
+     * >  You can call the [ListApproveCommands](https://help.aliyun.com/document_detail/2584310.html) operation to query the IDs of all commands that need to be reviewed.
+     *
      * This parameter is required.
+     *
      * @example 7
      *
      * @var string
@@ -21,7 +24,10 @@ class AcceptApproveCommandRequest extends Model
     /**
      * @description The ID of the bastion host.
      *
+     * >  You can call the DescribeInstances operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -32,20 +38,19 @@ class AcceptApproveCommandRequest extends Model
      * @description The region ID of the bastion host.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'commandId'  => 'CommandId',
+        'commandId' => 'CommandId',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

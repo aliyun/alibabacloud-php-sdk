@@ -27,12 +27,10 @@ class tagKeys extends Model
     public $tagKey;
     protected $_name = [
         'tagCount' => 'TagCount',
-        'tagKey'   => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

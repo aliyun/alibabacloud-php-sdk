@@ -21,6 +21,7 @@ class ListDatabaseAccountsForUserRequest extends Model
      * @description The ID of the database whose accounts you want to query.
      *
      * This parameter is required.
+     *
      * @example 89
      *
      * @var string
@@ -30,7 +31,10 @@ class ListDatabaseAccountsForUserRequest extends Model
     /**
      * @description The bastion host ID.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-zz42zoqql01
      *
      * @var string
@@ -48,7 +52,10 @@ class ListDatabaseAccountsForUserRequest extends Model
 
     /**
      * @description The number of entries per page.\\
+     * Valid values: 1 to 100. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
      * > We recommend that you do not leave this parameter empty.
+     *
      * @example 20
      *
      * @var string
@@ -59,6 +66,7 @@ class ListDatabaseAccountsForUserRequest extends Model
      * @description The region ID of the bastion host.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -68,7 +76,10 @@ class ListDatabaseAccountsForUserRequest extends Model
     /**
      * @description The ID of the user to query. This operation returns whether the user is authorized to manage each database account.
      *
+     * > You can call the ListUsers operation to query the ID of the user.[](~~204522~~)
+     *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var string
@@ -76,17 +87,15 @@ class ListDatabaseAccountsForUserRequest extends Model
     public $userId;
     protected $_name = [
         'databaseAccountName' => 'DatabaseAccountName',
-        'databaseId'          => 'DatabaseId',
-        'instanceId'          => 'InstanceId',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'regionId'            => 'RegionId',
-        'userId'              => 'UserId',
+        'databaseId' => 'DatabaseId',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

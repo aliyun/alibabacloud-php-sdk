@@ -15,6 +15,7 @@ class SSH extends Model
      *   Disable
      *
      * > If you do not specify this parameter, the default value Disable is used.
+     *
      * @example Enable
      *
      * @var string
@@ -48,6 +49,7 @@ class SSH extends Model
      *   Disable
      *
      * > If you do not specify this parameter, the default value Disable is used.
+     *
      * @example Enable
      *
      * @var string
@@ -61,6 +63,7 @@ class SSH extends Model
      *   Disable
      *
      * > If you do not specify this parameter, the default value Disable is used.
+     *
      * @example Enable
      *
      * @var string
@@ -74,6 +77,7 @@ class SSH extends Model
      *   Disable
      *
      * > If you do not specify this parameter, the default value Disable is used.
+     *
      * @example Enable
      *
      * @var string
@@ -87,6 +91,7 @@ class SSH extends Model
      *   Disable
      *
      * > If you do not specify this parameter, the default value Disable is used.
+     *
      * @example Enable
      *
      * @var string
@@ -100,6 +105,7 @@ class SSH extends Model
      *   Disable
      *
      * > If you do not specify this parameter, the default value Disable is used.
+     *
      * @example Enable
      *
      * @var string
@@ -113,6 +119,7 @@ class SSH extends Model
      *   Disable
      *
      * > If you do not specify this parameter, the default value Disable is used.
+     *
      * @example Enable
      *
      * @var string
@@ -146,27 +153,26 @@ class SSH extends Model
      *   Disable
      *
      * > If you do not specify this parameter, the default value Disable is used.
+     *
      * @example Enable
      *
      * @var string
      */
     public $x11Forwarding;
     protected $_name = [
-        'execCommand'      => 'ExecCommand',
-        'SFTPChannel'      => 'SFTPChannel',
+        'execCommand' => 'ExecCommand',
+        'SFTPChannel' => 'SFTPChannel',
         'SFTPDownloadFile' => 'SFTPDownloadFile',
-        'SFTPMkdir'        => 'SFTPMkdir',
-        'SFTPRemoveFile'   => 'SFTPRemoveFile',
-        'SFTPRenameFile'   => 'SFTPRenameFile',
-        'SFTPRmdir'        => 'SFTPRmdir',
-        'SFTPUploadFile'   => 'SFTPUploadFile',
-        'SSHChannel'       => 'SSHChannel',
-        'x11Forwarding'    => 'X11Forwarding',
+        'SFTPMkdir' => 'SFTPMkdir',
+        'SFTPRemoveFile' => 'SFTPRemoveFile',
+        'SFTPRenameFile' => 'SFTPRenameFile',
+        'SFTPRmdir' => 'SFTPRmdir',
+        'SFTPUploadFile' => 'SFTPUploadFile',
+        'SSHChannel' => 'SSHChannel',
+        'x11Forwarding' => 'X11Forwarding',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

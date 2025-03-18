@@ -34,13 +34,11 @@ class GetExportConfigJobRequest extends Model
     public $regionId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'jobId'      => 'JobId',
-        'regionId'   => 'RegionId',
+        'jobId' => 'JobId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

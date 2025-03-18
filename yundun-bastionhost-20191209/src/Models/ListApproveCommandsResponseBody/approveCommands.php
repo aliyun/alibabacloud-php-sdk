@@ -109,20 +109,18 @@ class approveCommands extends Model
     protected $_name = [
         'approveCommandId' => 'ApproveCommandId',
         'assetAccountName' => 'AssetAccountName',
-        'assetIp'          => 'AssetIp',
-        'assetName'        => 'AssetName',
-        'clientIp'         => 'ClientIp',
-        'clientUser'       => 'ClientUser',
-        'command'          => 'Command',
-        'createTime'       => 'CreateTime',
-        'protocolName'     => 'ProtocolName',
-        'sessionId'        => 'SessionId',
-        'state'            => 'State',
+        'assetIp' => 'AssetIp',
+        'assetName' => 'AssetName',
+        'clientIp' => 'ClientIp',
+        'clientUser' => 'ClientUser',
+        'command' => 'Command',
+        'createTime' => 'CreateTime',
+        'protocolName' => 'ProtocolName',
+        'sessionId' => 'SessionId',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

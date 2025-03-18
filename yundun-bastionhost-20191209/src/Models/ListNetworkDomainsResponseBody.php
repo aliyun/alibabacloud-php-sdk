@@ -35,13 +35,11 @@ class ListNetworkDomainsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'networkDomains' => 'NetworkDomains',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListNetworkDomainsResponseBody extends Model
         if (isset($map['NetworkDomains'])) {
             if (!empty($map['NetworkDomains'])) {
                 $model->networkDomains = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['NetworkDomains'] as $item) {
                     $model->networkDomains[$n++] = null !== $item ? networkDomains::fromMap($item) : $item;
                 }

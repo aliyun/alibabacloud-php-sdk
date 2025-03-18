@@ -15,6 +15,7 @@ class approvalConfig extends Model
      * **Off**: disables O&M approval.
      *
      * This parameter is required.
+     *
      * @example On
      *
      * @var string
@@ -24,9 +25,7 @@ class approvalConfig extends Model
         'switchStatus' => 'SwitchStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

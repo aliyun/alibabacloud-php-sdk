@@ -11,7 +11,10 @@ class ModifyDatabaseAccountRequest extends Model
     /**
      * @description The ID of the database account to modify.
      *
+     * >  You can call the [ListDatabaseAccounts](https://help.aliyun.com/document_detail/2758839.html) operation to query the database account ID.
+     *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var string
@@ -39,7 +42,10 @@ class ModifyDatabaseAccountRequest extends Model
     /**
      * @description The ID of the bastion host that manages the database account to modify.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-zpr2zyqx603
      *
      * @var string
@@ -59,23 +65,22 @@ class ModifyDatabaseAccountRequest extends Model
      * @description The region ID of the bastion host that manages the database account to modify.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'databaseAccountId'   => 'DatabaseAccountId',
+        'databaseAccountId' => 'DatabaseAccountId',
         'databaseAccountName' => 'DatabaseAccountName',
-        'databaseSchema'      => 'DatabaseSchema',
-        'instanceId'          => 'InstanceId',
-        'password'            => 'Password',
-        'regionId'            => 'RegionId',
+        'databaseSchema' => 'DatabaseSchema',
+        'instanceId' => 'InstanceId',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

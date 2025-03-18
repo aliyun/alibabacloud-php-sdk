@@ -12,6 +12,7 @@ class RemoveDatabasesFromGroupRequest extends Model
      * @description The IDs of the databases that you want to remove.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $databaseIds;
@@ -19,7 +20,10 @@ class RemoveDatabasesFromGroupRequest extends Model
     /**
      * @description The ID of the asset group from which you want to remove databases.
      *
+     * > You can call the [ListHostGroups](https://help.aliyun.com/document_detail/201307.html) operation to query the asset group ID.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -29,7 +33,10 @@ class RemoveDatabasesFromGroupRequest extends Model
     /**
      * @description The ID of the bastion host whose asset group you want to manage.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the bastion host ID.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-78v1ghxxxxx
      *
      * @var string
@@ -40,6 +47,7 @@ class RemoveDatabasesFromGroupRequest extends Model
      * @description The region ID of the bastion host whose asset group you want to manage.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -48,13 +56,11 @@ class RemoveDatabasesFromGroupRequest extends Model
     protected $_name = [
         'databaseIds' => 'DatabaseIds',
         'hostGroupId' => 'HostGroupId',
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

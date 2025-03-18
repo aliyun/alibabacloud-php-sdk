@@ -77,18 +77,16 @@ class hosts extends Model
      */
     public $OSType;
     protected $_name = [
-        'activeAddressType'  => 'ActiveAddressType',
-        'comment'            => 'Comment',
-        'hostId'             => 'HostId',
-        'hostName'           => 'HostName',
+        'activeAddressType' => 'ActiveAddressType',
+        'comment' => 'Comment',
+        'hostId' => 'HostId',
+        'hostName' => 'HostName',
         'hostPrivateAddress' => 'HostPrivateAddress',
-        'hostPublicAddress'  => 'HostPublicAddress',
-        'OSType'             => 'OSType',
+        'hostPublicAddress' => 'HostPublicAddress',
+        'OSType' => 'OSType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

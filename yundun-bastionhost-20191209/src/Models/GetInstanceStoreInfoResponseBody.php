@@ -29,14 +29,12 @@ class GetInstanceStoreInfoResponseBody extends Model
      */
     public $usage;
     protected $_name = [
-        'max'       => 'Max',
+        'max' => 'Max',
         'requestId' => 'RequestId',
-        'usage'     => 'Usage',
+        'usage' => 'Usage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

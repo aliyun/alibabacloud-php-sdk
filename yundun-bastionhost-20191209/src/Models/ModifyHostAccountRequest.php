@@ -11,7 +11,10 @@ class ModifyHostAccountRequest extends Model
     /**
      * @description The ID of the host account whose information you want to modify.
      *
+     * > You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/204372.html) operation to query the ID of the host account.
+     *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -31,6 +34,7 @@ class ModifyHostAccountRequest extends Model
      * @description The ID of the shared key that is associated with the host.
      *
      * >  You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+     *
      * @example 1
      *
      * @var string
@@ -40,7 +44,10 @@ class ModifyHostAccountRequest extends Model
     /**
      * @description The ID of the bastion host in which you want to modify the information about the host account.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -51,6 +58,7 @@ class ModifyHostAccountRequest extends Model
      * @description The passphrase for the new private key of the host account.
      *
      * >  This parameter is valid only if the protocol used by the host is SSH. You do not need to configure this parameter if the protocol used by the host is Remote Desktop Protocol (RDP).
+     *
      * @example ****
      *
      * @var string
@@ -70,6 +78,7 @@ class ModifyHostAccountRequest extends Model
      * @description The new private key of the host account. Specify a Base64-encoded string.
      *
      * >  This parameter takes effect only if the protocol used by the host is SSH. You do not need to configure this parameter if the protocol used by the host is Remote Desktop Protocol (RDP). You can call the [GetHostAccount](https://help.aliyun.com/document_detail/204391.html) operation to query the protocol used by the host. You can configure a password and a private key for the host account at the same time. If both a password and a private key are configured for the host account, Bastionhost preferentially uses the private key for logon.
+     *
      * @example ****
      *
      * @var string
@@ -80,25 +89,24 @@ class ModifyHostAccountRequest extends Model
      * @description The region ID of the bastion host in which you want to query the details of the host account.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'hostAccountId'   => 'HostAccountId',
+        'hostAccountId' => 'HostAccountId',
         'hostAccountName' => 'HostAccountName',
-        'hostShareKeyId'  => 'HostShareKeyId',
-        'instanceId'      => 'InstanceId',
-        'passPhrase'      => 'PassPhrase',
-        'password'        => 'Password',
-        'privateKey'      => 'PrivateKey',
-        'regionId'        => 'RegionId',
+        'hostShareKeyId' => 'HostShareKeyId',
+        'instanceId' => 'InstanceId',
+        'passPhrase' => 'PassPhrase',
+        'password' => 'Password',
+        'privateKey' => 'PrivateKey',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class AttachHostAccountsToHostShareKeyRequest extends Model
      * @description The host account IDs.
      *
      * >  You must specify this parameter. You can call the [ListHostAccounts](https://help.aliyun.com/document_detail/462937.html) operation to query the host account IDs.
+     *
      * @example ["1","2","3"]
      *
      * @var string
@@ -22,6 +23,7 @@ class AttachHostAccountsToHostShareKeyRequest extends Model
      * @description The shared key ID.
      *
      * >  You must specify this parameter. You can call the [ListHostShareKeys](https://help.aliyun.com/document_detail/462973.html) operation to query the shared key ID.
+     *
      * @example 10267
      *
      * @var string
@@ -32,6 +34,7 @@ class AttachHostAccountsToHostShareKeyRequest extends Model
      * @description The ID of the bastion host. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
      *
      * This parameter is required.
+     *
      * @example bastionhost-cn-st220aw****
      *
      * @var string
@@ -49,13 +52,11 @@ class AttachHostAccountsToHostShareKeyRequest extends Model
     protected $_name = [
         'hostAccountIds' => 'HostAccountIds',
         'hostShareKeyId' => 'HostShareKeyId',
-        'instanceId'     => 'InstanceId',
-        'regionId'       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

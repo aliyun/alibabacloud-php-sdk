@@ -11,7 +11,10 @@ class GetPolicyRequest extends Model
     /**
      * @description The ID of the bastion host to which the control policy to query belongs.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-zvp2d3syb0g
      *
      * @var string
@@ -21,7 +24,10 @@ class GetPolicyRequest extends Model
     /**
      * @description The ID of the control policy that you want to query.
      *
+     * >  You can call the [ListPolicies](https://help.aliyun.com/document_detail/2758876.html) operation to query the control policy ID.
+     *
      * This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -32,6 +38,7 @@ class GetPolicyRequest extends Model
      * @description The region ID of the bastion host to which the control policy to query belongs.
      *
      * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,13 +46,11 @@ class GetPolicyRequest extends Model
     public $regionId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'policyId'   => 'PolicyId',
-        'regionId'   => 'RegionId',
+        'policyId' => 'PolicyId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class DisableInstancePublicAccessRequest extends Model
     /**
      * @description The ID of the bastion host whose Internet access you want to disable.
      *
+     * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the ID of the bastion host.
+     *
      * This parameter is required.
+     *
      * @example bastionhost-cn-78v1gh****
      *
      * @var string
@@ -28,12 +31,10 @@ class DisableInstancePublicAccessRequest extends Model
     public $regionId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

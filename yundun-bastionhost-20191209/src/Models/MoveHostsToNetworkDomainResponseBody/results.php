@@ -12,6 +12,7 @@ class results extends Model
      * @description The return code that indicates whether the host is added to the network domain.
      *
      * > The code LICENSE_OUT_OF_LIMIT indicates that the network domain feature is not supported by the current Bastionhost edition.
+     *
      * @example OK
      *
      * @var string
@@ -34,14 +35,12 @@ class results extends Model
      */
     public $message;
     protected $_name = [
-        'code'    => 'Code',
-        'hostId'  => 'HostId',
+        'code' => 'Code',
+        'hostId' => 'HostId',
         'message' => 'Message',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
