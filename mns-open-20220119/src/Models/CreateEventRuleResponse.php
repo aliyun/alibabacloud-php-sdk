@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AuthorizeEndpointAclResponse extends Model
+class CreateEventRuleResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class AuthorizeEndpointAclResponse extends Model
     public $statusCode;
 
     /**
-     * @var AuthorizeEndpointAclResponseBody
+     * @var CreateEventRuleResponseBody
      */
     public $body;
     protected $_name = [
@@ -49,7 +49,7 @@ class AuthorizeEndpointAclResponse extends Model
     /**
      * @param array $map
      *
-     * @return AuthorizeEndpointAclResponse
+     * @return CreateEventRuleResponse
      */
     public static function fromMap($map = [])
     {
@@ -61,7 +61,7 @@ class AuthorizeEndpointAclResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = AuthorizeEndpointAclResponseBody::fromMap($map['body']);
+            $model->body = CreateEventRuleResponseBody::fromMap($map['body']);
         }
 
         return $model;

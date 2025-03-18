@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetTopicAttributesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
     /**
+     * @description The tag key.
+     *
+     * @example tag1
+     *
      * @var string
      */
     public $tagKey;
+
     /**
+     * @description The tag value.
+     *
+     * @example test
+     *
      * @var string
      */
     public $tagValue;
     protected $_name = [
-        'tagKey'   => 'TagKey',
+        'tagKey' => 'TagKey',
         'tagValue' => 'TagValue',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
-
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -40,18 +45,17 @@ class tags extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tags
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
-
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

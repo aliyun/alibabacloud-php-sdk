@@ -2,26 +2,32 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
+namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateEventRuleRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class GetEndpointAttributeRequest extends Model
+class endpoints extends Model
 {
     /**
-     * @description The type of the endpoint. Value:
+     * @description This parameter is required.
      *
-     *   **public**: indicates public endpoint. (Only the public is supported.)
-     *
-     * This parameter is required.
-     *
-     * @example public
+     * @example http
      *
      * @var string
      */
     public $endpointType;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example test-xxx-queue
+     *
+     * @var string
+     */
+    public $endpointValue;
     protected $_name = [
         'endpointType' => 'EndpointType',
+        'endpointValue' => 'EndpointValue',
     ];
 
     public function validate() {}
@@ -32,6 +38,9 @@ class GetEndpointAttributeRequest extends Model
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
         }
+        if (null !== $this->endpointValue) {
+            $res['EndpointValue'] = $this->endpointValue;
+        }
 
         return $res;
     }
@@ -39,13 +48,16 @@ class GetEndpointAttributeRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetEndpointAttributeRequest
+     * @return endpoints
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
+        }
+        if (isset($map['EndpointValue'])) {
+            $model->endpointValue = $map['EndpointValue'];
         }
 
         return $model;

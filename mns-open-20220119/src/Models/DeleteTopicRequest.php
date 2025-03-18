@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteTopicRequest extends Model
 {
     /**
+     * @description The name of the topic that you want to delete.
+     *
+     * This parameter is required.
+     *
+     * @example tf-testAccMNSTopic-112965059402264645
+     *
      * @var string
      */
     public $topicName;
@@ -16,12 +22,9 @@ class DeleteTopicRequest extends Model
         'topicName' => 'TopicName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->topicName) {
@@ -31,11 +34,11 @@ class DeleteTopicRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteTopicRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

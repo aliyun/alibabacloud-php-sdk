@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models\SubscribeRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dlqPolicy extends Model
 {
     /**
+     * @description The queue to which dead-letter messages are delivered.
+     *
+     * @example deadLetterTargetQueue
+     *
      * @var string
      */
     public $deadLetterTargetQueue;
+
     /**
+     * @description Specifies whether to enable the dead-letter message delivery.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
     protected $_name = [
         'deadLetterTargetQueue' => 'DeadLetterTargetQueue',
-        'enabled'               => 'Enabled',
+        'enabled' => 'Enabled',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deadLetterTargetQueue) {
             $res['DeadLetterTargetQueue'] = $this->deadLetterTargetQueue;
         }
-
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
@@ -40,18 +45,17 @@ class dlqPolicy extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dlqPolicy
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeadLetterTargetQueue'])) {
             $model->deadLetterTargetQueue = $map['DeadLetterTargetQueue'];
         }
-
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
