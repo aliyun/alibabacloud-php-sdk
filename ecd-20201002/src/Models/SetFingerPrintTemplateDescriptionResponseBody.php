@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetFingerPrintTemplateDescriptionResponseBody extends Model
 {
     /**
+     * @example BBD7DFD1-A5DE-51D9-8FD6-3BF54EF4****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class SetFingerPrintTemplateDescriptionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class SetFingerPrintTemplateDescriptionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetFingerPrintTemplateDescriptionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

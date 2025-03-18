@@ -4,35 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeRegionsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class regions extends Model
 {
     /**
+     * @example ecd.cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $regionEndpoint;
+
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'regionEndpoint' => 'RegionEndpoint',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionEndpoint) {
             $res['RegionEndpoint'] = $this->regionEndpoint;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -40,18 +41,17 @@ class regions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return regions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionEndpoint'])) {
             $model->regionEndpoint = $map['RegionEndpoint'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

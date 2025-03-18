@@ -4,35 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class EncryptPasswordResponseBody extends Model
 {
     /**
+     * @example d34601bc-e6b1-4433-b0cc-8f6c5e52;n4apvGub3OBoj4Grwg==;thhO4UEomJfdvwnwlA==
+     *
      * @var string
      */
     public $encryptedPassword;
+
     /**
+     * @example AF538DA8-FFC6-52DA-8FF8-7B92579F****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'encryptedPassword' => 'EncryptedPassword',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->encryptedPassword) {
             $res['EncryptedPassword'] = $this->encryptedPassword;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +41,17 @@ class EncryptPasswordResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return EncryptPasswordResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EncryptedPassword'])) {
             $model->encryptedPassword = $map['EncryptedPassword'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

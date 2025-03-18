@@ -4,58 +4,53 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\GetCloudDriveServiceMountTokenResponseBody\token;
+use AlibabaCloud\Tea\Model;
 
 class GetCloudDriveServiceMountTokenResponseBody extends Model
 {
     /**
+     * @example DC27288A-F9E1-5092-9B5B-71C27D15****
+     *
      * @var string
      */
     public $requestId;
+
     /**
      * @var token
      */
     public $token;
     protected $_name = [
         'requestId' => 'RequestId',
-        'token'     => 'Token',
+        'token' => 'Token',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->token) {
-            $this->token->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->token) {
-            $res['Token'] = null !== $this->token ? $this->token->toArray($noStream) : $this->token;
+            $res['Token'] = null !== $this->token ? $this->token->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCloudDriveServiceMountTokenResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Token'])) {
             $model->token = token::fromMap($map['Token']);
         }

@@ -4,35 +4,50 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeGlobalDesktopsResponseBody\desktops;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class clients extends Model
 {
     /**
+     * @description 客户端类型，取值：
+     *
+     * - macos：Mac客户端
+     * - ios：IOS客户端
+     * - android：Android客户端
+     * - html5：Web客户端
+     * - windows：Windows客户端
+     * - linux：Linux客户端
+     *
+     * @example windows
+     *
      * @var string
      */
     public $clientType;
+
     /**
+     * @description 客户端状态，取值：
+     *
+     * - ON：允许登录
+     * - OFF：不允许登录
+     *
+     * @example ON
+     *
      * @var string
      */
     public $status;
     protected $_name = [
         'clientType' => 'ClientType',
-        'status'     => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientType) {
             $res['ClientType'] = $this->clientType;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -40,18 +55,17 @@ class clients extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return clients
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientType'])) {
             $model->clientType = $map['ClientType'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

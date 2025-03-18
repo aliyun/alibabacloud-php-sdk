@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20201002\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class VerifyCredentialResponseBody extends Model
 {
     /**
+     * @example D5F0BDFB-A229-5F1D-B790-33709D43****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class VerifyCredentialResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class VerifyCredentialResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return VerifyCredentialResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
