@@ -4,15 +4,30 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterDetailResponseBody\operationPolicy;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class clusterAutoUpgrade extends Model
 {
     /**
+     * @description The frequency of auto cluster updates. For more information, see [Update frequency](https://help.aliyun.com/document_detail/2712866.html).
+     *
+     * Valid values:
+     *
+     *   patch: specifies the latest patch version.
+     *   stable: specifies the second-latest minor version.
+     *   rapid: specifies the latest minor version.
+     *
+     * @example patch
+     *
      * @var string
      */
     public $channel;
+
     /**
+     * @description Specifies whether to enable auto cluster update.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
@@ -21,18 +36,14 @@ class clusterAutoUpgrade extends Model
         'enabled' => 'enabled',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channel) {
             $res['channel'] = $this->channel;
         }
-
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
@@ -40,18 +51,17 @@ class clusterAutoUpgrade extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return clusterAutoUpgrade
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['channel'])) {
             $model->channel = $map['channel'];
         }
-
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }

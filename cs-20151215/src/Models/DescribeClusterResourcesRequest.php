@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeClusterResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to query the resources created by cluster components.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $withAddonResources;
@@ -16,12 +20,9 @@ class DescribeClusterResourcesRequest extends Model
         'withAddonResources' => 'with_addon_resources',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->withAddonResources) {
@@ -31,11 +32,11 @@ class DescribeClusterResourcesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeClusterResourcesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

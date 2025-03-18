@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools;
+use AlibabaCloud\Tea\Model;
 
 class DescribeClusterNodePoolsResponseBody extends Model
 {
     /**
+     * @description The node pools.
+     *
      * @var nodepools[]
      */
     public $nodepools;
@@ -17,23 +19,17 @@ class DescribeClusterNodePoolsResponseBody extends Model
         'nodepools' => 'nodepools',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->nodepools)) {
-            Model::validateArray($this->nodepools);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodepools) {
-            if (\is_array($this->nodepools)) {
-                $res['nodepools'] = [];
-                $n1               = 0;
-                foreach ($this->nodepools as $item1) {
-                    $res['nodepools'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['nodepools'] = [];
+            if (null !== $this->nodepools && \is_array($this->nodepools)) {
+                $n = 0;
+                foreach ($this->nodepools as $item) {
+                    $res['nodepools'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class DescribeClusterNodePoolsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeClusterNodePoolsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nodepools'])) {
             if (!empty($map['nodepools'])) {
                 $model->nodepools = [];
-                $n1               = 0;
-                foreach ($map['nodepools'] as $item1) {
-                    $model->nodepools[$n1++] = nodepools::fromMap($item1);
+                $n = 0;
+                foreach ($map['nodepools'] as $item) {
+                    $model->nodepools[$n++] = null !== $item ? nodepools::fromMap($item) : $item;
                 }
             }
         }

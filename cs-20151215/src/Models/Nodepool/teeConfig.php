@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\Nodepool;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class teeConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $teeEnable;
@@ -16,12 +20,9 @@ class teeConfig extends Model
         'teeEnable' => 'tee_enable',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->teeEnable) {
@@ -31,11 +32,11 @@ class teeConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return teeConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

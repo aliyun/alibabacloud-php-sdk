@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\management;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class autoRepairPolicy extends Model
 {
     /**
+     * @description Specifies whether ACK is allowed to automatically restart nodes after repairing the nodes. Valid values:
+     *
+     *   `true`: yes.
+     *   `false`: no.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $restartNode;
@@ -16,12 +23,9 @@ class autoRepairPolicy extends Model
         'restartNode' => 'restart_node',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->restartNode) {
@@ -31,11 +35,11 @@ class autoRepairPolicy extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return autoRepairPolicy
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

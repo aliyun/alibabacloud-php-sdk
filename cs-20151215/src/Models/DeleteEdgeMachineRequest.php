@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteEdgeMachineRequest extends Model
 {
     /**
+     * @description Specifies whether to forcefully delete the cloud-native box. Valid values:
+     *
+     *   `true`: forcefully deletes the cloud-native box.
+     *   `false`: does not forcefully delete the cloud-native box.
+     *
+     * Default value: `false`.
+     *
+     * @example true/false
+     *
      * @var string
      */
     public $force;
@@ -16,12 +25,9 @@ class DeleteEdgeMachineRequest extends Model
         'force' => 'force',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->force) {
@@ -31,11 +37,11 @@ class DeleteEdgeMachineRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteEdgeMachineRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponseBody\componentGroups;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
+     * @description The name of the component.
+     *
+     * @example flexvolume
+     *
      * @var string
      */
     public $name;
@@ -16,12 +20,9 @@ class items extends Model
         'name' => 'name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
@@ -31,11 +32,11 @@ class items extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return items
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

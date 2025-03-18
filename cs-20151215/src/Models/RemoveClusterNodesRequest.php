@@ -4,53 +4,49 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RemoveClusterNodesRequest extends Model
 {
     /**
+     * @description Specifies whether to evict all pods from the nodes that you want to remove.
+     *
      * @var bool
      */
     public $drainNode;
+
     /**
+     * @description The list of nodes to be removed.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $nodes;
+
     /**
+     * @description Specifies whether to release the Elastic Compute Service (ECS) instances when they are removed from the cluster.
+     *
      * @var bool
      */
     public $releaseNode;
     protected $_name = [
-        'drainNode'   => 'drain_node',
-        'nodes'       => 'nodes',
+        'drainNode' => 'drain_node',
+        'nodes' => 'nodes',
         'releaseNode' => 'release_node',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->nodes)) {
-            Model::validateArray($this->nodes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->drainNode) {
             $res['drain_node'] = $this->drainNode;
         }
-
         if (null !== $this->nodes) {
-            if (\is_array($this->nodes)) {
-                $res['nodes'] = [];
-                $n1           = 0;
-                foreach ($this->nodes as $item1) {
-                    $res['nodes'][$n1++] = $item1;
-                }
-            }
+            $res['nodes'] = $this->nodes;
         }
-
         if (null !== $this->releaseNode) {
             $res['release_node'] = $this->releaseNode;
         }
@@ -58,28 +54,22 @@ class RemoveClusterNodesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RemoveClusterNodesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['drain_node'])) {
             $model->drainNode = $map['drain_node'];
         }
-
         if (isset($map['nodes'])) {
             if (!empty($map['nodes'])) {
-                $model->nodes = [];
-                $n1           = 0;
-                foreach ($map['nodes'] as $item1) {
-                    $model->nodes[$n1++] = $item1;
-                }
+                $model->nodes = $map['nodes'];
             }
         }
-
         if (isset($map['release_node'])) {
             $model->releaseNode = $map['release_node'];
         }

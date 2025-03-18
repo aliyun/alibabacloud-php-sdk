@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\management;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class autoUpgradePolicy extends Model
 {
     /**
+     * @description Specifies whether to allow auto update of the kubelet.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoUpgradeKubelet;
@@ -16,12 +20,9 @@ class autoUpgradePolicy extends Model
         'autoUpgradeKubelet' => 'auto_upgrade_kubelet',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoUpgradeKubelet) {
@@ -31,11 +32,11 @@ class autoUpgradePolicy extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return autoUpgradePolicy
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

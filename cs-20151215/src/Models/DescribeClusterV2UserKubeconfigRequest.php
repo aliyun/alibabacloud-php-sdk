@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeClusterV2UserKubeconfigRequest extends Model
 {
@@ -12,27 +12,24 @@ class DescribeClusterV2UserKubeconfigRequest extends Model
      * @var bool
      */
     public $privateIpAddress;
+
     /**
      * @var int
      */
     public $temporaryDurationMinutes;
     protected $_name = [
-        'privateIpAddress'         => 'PrivateIpAddress',
+        'privateIpAddress' => 'PrivateIpAddress',
         'temporaryDurationMinutes' => 'TemporaryDurationMinutes',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
-
         if (null !== $this->temporaryDurationMinutes) {
             $res['TemporaryDurationMinutes'] = $this->temporaryDurationMinutes;
         }
@@ -40,18 +37,17 @@ class DescribeClusterV2UserKubeconfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeClusterV2UserKubeconfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
-
         if (isset($map['TemporaryDurationMinutes'])) {
             $model->temporaryDurationMinutes = $map['TemporaryDurationMinutes'];
         }

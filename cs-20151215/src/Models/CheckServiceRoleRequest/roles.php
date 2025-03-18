@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\CheckServiceRoleRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class roles extends Model
 {
     /**
+     * @description The name of the service role. For more information about ACK roles, see [ACK roles](https://help.aliyun.com/document_detail/86483.html).
+     *
+     * This parameter is required.
+     *
+     * @example AliyunCSManagedAutoScalerRole
+     *
      * @var string
      */
     public $name;
@@ -16,12 +22,9 @@ class roles extends Model
         'name' => 'name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
@@ -31,11 +34,11 @@ class roles extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return roles
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

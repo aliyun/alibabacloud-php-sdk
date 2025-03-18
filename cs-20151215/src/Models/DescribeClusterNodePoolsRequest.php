@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeClusterNodePoolsRequest extends Model
 {
     /**
+     * @description Node pool name.
+     *
+     * @example nodepool-test
+     *
      * @var string
      */
     public $nodepoolName;
@@ -16,12 +20,9 @@ class DescribeClusterNodePoolsRequest extends Model
         'nodepoolName' => 'NodepoolName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodepoolName) {
@@ -31,11 +32,11 @@ class DescribeClusterNodePoolsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeClusterNodePoolsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

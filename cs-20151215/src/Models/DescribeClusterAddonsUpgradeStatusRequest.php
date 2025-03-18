@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeClusterAddonsUpgradeStatusRequest extends Model
 {
     /**
+     * @description The list of component names.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $componentIds;
@@ -16,45 +20,29 @@ class DescribeClusterAddonsUpgradeStatusRequest extends Model
         'componentIds' => 'componentIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->componentIds)) {
-            Model::validateArray($this->componentIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->componentIds) {
-            if (\is_array($this->componentIds)) {
-                $res['componentIds'] = [];
-                $n1                  = 0;
-                foreach ($this->componentIds as $item1) {
-                    $res['componentIds'][$n1++] = $item1;
-                }
-            }
+            $res['componentIds'] = $this->componentIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeClusterAddonsUpgradeStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['componentIds'])) {
             if (!empty($map['componentIds'])) {
-                $model->componentIds = [];
-                $n1                  = 0;
-                foreach ($map['componentIds'] as $item1) {
-                    $model->componentIds[$n1++] = $item1;
-                }
+                $model->componentIds = $map['componentIds'];
             }
         }
 

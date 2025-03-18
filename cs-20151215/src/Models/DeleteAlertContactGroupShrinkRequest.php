@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAlertContactGroupShrinkRequest extends Model
 {
     /**
+     * @description The list of alert contact group IDs.
+     *
+     * This parameter is required.
+     *
      * @var string
      */
     public $contactGroupIdsShrink;
@@ -16,12 +20,9 @@ class DeleteAlertContactGroupShrinkRequest extends Model
         'contactGroupIdsShrink' => 'contact_group_ids',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contactGroupIdsShrink) {
@@ -31,11 +32,11 @@ class DeleteAlertContactGroupShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAlertContactGroupShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

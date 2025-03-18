@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class workerDataDisks extends Model
 {
@@ -12,36 +12,33 @@ class workerDataDisks extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $encrypted;
+
     /**
      * @var string
      */
     public $size;
     protected $_name = [
-        'category'  => 'category',
+        'category' => 'category',
         'encrypted' => 'encrypted',
-        'size'      => 'size',
+        'size' => 'size',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
-
         if (null !== $this->encrypted) {
             $res['encrypted'] = $this->encrypted;
         }
-
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -49,22 +46,20 @@ class workerDataDisks extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return workerDataDisks
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
-
         if (isset($map['encrypted'])) {
             $model->encrypted = $map['encrypted'];
         }
-
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }

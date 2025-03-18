@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\scalingGroup;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class privatePoolOptions extends Model
 {
@@ -12,27 +12,24 @@ class privatePoolOptions extends Model
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $matchCriteria;
     protected $_name = [
-        'id'            => 'id',
+        'id' => 'id',
         'matchCriteria' => 'match_criteria',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-
         if (null !== $this->matchCriteria) {
             $res['match_criteria'] = $this->matchCriteria;
         }
@@ -40,18 +37,17 @@ class privatePoolOptions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return privatePoolOptions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-
         if (isset($map['match_criteria'])) {
             $model->matchCriteria = $map['match_criteria'];
         }

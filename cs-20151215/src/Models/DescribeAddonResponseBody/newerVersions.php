@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class newerVersions extends Model
 {
     /**
+     * @description The minimum cluster version required by the component version.
+     *
+     * @example 1.20.4
+     *
      * @var string
      */
     public $minimumClusterVersion;
+
     /**
+     * @description Indicates whether the component can be updated to the version.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $upgradable;
+
     /**
+     * @description The version number.
+     *
+     * @example v1.9.3.10-7dfca203-aliyun
+     *
      * @var string
      */
     public $version;
     protected $_name = [
         'minimumClusterVersion' => 'minimum_cluster_version',
-        'upgradable'            => 'upgradable',
-        'version'               => 'version',
+        'upgradable' => 'upgradable',
+        'version' => 'version',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->minimumClusterVersion) {
             $res['minimum_cluster_version'] = $this->minimumClusterVersion;
         }
-
         if (null !== $this->upgradable) {
             $res['upgradable'] = $this->upgradable;
         }
-
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -49,22 +58,20 @@ class newerVersions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return newerVersions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['minimum_cluster_version'])) {
             $model->minimumClusterVersion = $map['minimum_cluster_version'];
         }
-
         if (isset($map['upgradable'])) {
             $model->upgradable = $map['upgradable'];
         }
-
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

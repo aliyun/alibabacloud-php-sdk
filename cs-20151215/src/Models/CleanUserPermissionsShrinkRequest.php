@@ -4,35 +4,41 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CleanUserPermissionsShrinkRequest extends Model
 {
     /**
+     * @description The cluster IDs. If you specify a list of cluster IDs, only the kubeconfig files and RBAC permissions of the clusters that belong to the current user in the list are revoked.
+     *
      * @var string
      */
     public $clusterIdsShrink;
+
     /**
+     * @description Specifies whether to forcefully delete the specified kubeconfig files. Valid values:
+     *
+     *   false (default): checks the cluster access records within the previous seven days before deleting the kubeconfig files. The kubeconfig files are not deleted if cluster access records are found or fail to be retrieved.
+     *   true: forcefully deletes the kubeconfig files without checking the cluster access records.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $force;
     protected $_name = [
         'clusterIdsShrink' => 'ClusterIds',
-        'force'            => 'Force',
+        'force' => 'Force',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterIdsShrink) {
             $res['ClusterIds'] = $this->clusterIdsShrink;
         }
-
         if (null !== $this->force) {
             $res['Force'] = $this->force;
         }
@@ -40,18 +46,17 @@ class CleanUserPermissionsShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CleanUserPermissionsShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterIds'])) {
             $model->clusterIdsShrink = $map['ClusterIds'];
         }
-
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
         }

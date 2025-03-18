@@ -4,71 +4,80 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The ID of the region in which the resource resides.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The list of resource IDs.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $resourceIds;
+
     /**
+     * @description The type of resources that you want to label. Set the value to `CLUSTER`.
+     *
+     * This parameter is required.
+     *
+     * @example CLUSTER
+     *
      * @var string
      */
     public $resourceType;
+
     /**
+     * @description The tags that you want to add to the resources in key-value pairs. You can add up to 20 key-value pairs. Note:
+     *
+     *   The values cannot be empty strings. A value must be 1 to 128 characters in length.
+     *   A key or value cannot start with `aliyun` or `acs:`.
+     *   A key or value cannot contain `http://` or `https://`.
+     *
+     * This parameter is required.
+     *
      * @var Tag[]
      */
     public $tags;
     protected $_name = [
-        'regionId'     => 'region_id',
-        'resourceIds'  => 'resource_ids',
+        'regionId' => 'region_id',
+        'resourceIds' => 'resource_ids',
         'resourceType' => 'resource_type',
-        'tags'         => 'tags',
+        'tags' => 'tags',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resourceIds)) {
-            Model::validateArray($this->resourceIds);
-        }
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['region_id'] = $this->regionId;
         }
-
         if (null !== $this->resourceIds) {
-            if (\is_array($this->resourceIds)) {
-                $res['resource_ids'] = [];
-                $n1                  = 0;
-                foreach ($this->resourceIds as $item1) {
-                    $res['resource_ids'][$n1++] = $item1;
-                }
-            }
+            $res['resource_ids'] = $this->resourceIds;
         }
-
         if (null !== $this->resourceType) {
             $res['resource_type'] = $this->resourceType;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['tags'] = [];
-                $n1          = 0;
-                foreach ($this->tags as $item1) {
-                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -76,38 +85,31 @@ class TagResourcesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TagResourcesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['region_id'])) {
             $model->regionId = $map['region_id'];
         }
-
         if (isset($map['resource_ids'])) {
             if (!empty($map['resource_ids'])) {
-                $model->resourceIds = [];
-                $n1                 = 0;
-                foreach ($map['resource_ids'] as $item1) {
-                    $model->resourceIds[$n1++] = $item1;
-                }
+                $model->resourceIds = $map['resource_ids'];
             }
         }
-
         if (isset($map['resource_type'])) {
             $model->resourceType = $map['resource_type'];
         }
-
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n1          = 0;
-                foreach ($map['tags'] as $item1) {
-                    $model->tags[$n1++] = Tag::fromMap($item1);
+                $n = 0;
+                foreach ($map['tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
                 }
             }
         }

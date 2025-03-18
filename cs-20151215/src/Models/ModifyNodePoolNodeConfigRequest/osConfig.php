@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\ModifyNodePoolNodeConfigRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class osConfig extends Model
 {
     /**
+     * @description Configuration for sysctl kernel parameters.
+     *
      * @var mixed[]
      */
     public $sysctl;
@@ -16,44 +18,28 @@ class osConfig extends Model
         'sysctl' => 'sysctl',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->sysctl)) {
-            Model::validateArray($this->sysctl);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->sysctl) {
-            if (\is_array($this->sysctl)) {
-                $res['sysctl'] = [];
-                foreach ($this->sysctl as $key1 => $value1) {
-                    $res['sysctl'][$key1] = $value1;
-                }
-            }
+            $res['sysctl'] = $this->sysctl;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return osConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['sysctl'])) {
-            if (!empty($map['sysctl'])) {
-                $model->sysctl = [];
-                foreach ($map['sysctl'] as $key1 => $value1) {
-                    $model->sysctl[$key1] = $value1;
-                }
-            }
+            $model->sysctl = $map['sysctl'];
         }
 
         return $model;
