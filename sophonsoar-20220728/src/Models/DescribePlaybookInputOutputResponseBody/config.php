@@ -19,7 +19,17 @@ class config extends Model
      * @description The input parameter configuration of the playbook. The value is a JSON array.
      *
      * @example [
+     * {
+     * "typeName": "String",
+     * "dataClass": "normal",
+     * "dataType": "String",
+     * "description": "period",
+     * "example": "",
+     * "name": "period",
+     * "required": false
+     * }
      * ]
+     *
      * @var string
      */
     public $inputParams;
@@ -56,16 +66,14 @@ class config extends Model
      */
     public $playbookUuid;
     protected $_name = [
-        'exeConfig'    => 'ExeConfig',
-        'inputParams'  => 'InputParams',
+        'exeConfig' => 'ExeConfig',
+        'inputParams' => 'InputParams',
         'outputParams' => 'OutputParams',
-        'paramType'    => 'ParamType',
+        'paramType' => 'ParamType',
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

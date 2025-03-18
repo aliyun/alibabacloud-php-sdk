@@ -12,6 +12,7 @@ class DescribeComponentAssetFormRequest extends Model
      * @description The component name.
      *
      * This parameter is required.
+     *
      * @example python3
      *
      * @var string
@@ -31,12 +32,10 @@ class DescribeComponentAssetFormRequest extends Model
     public $lang;
     protected $_name = [
         'componentName' => 'ComponentName',
-        'lang'          => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

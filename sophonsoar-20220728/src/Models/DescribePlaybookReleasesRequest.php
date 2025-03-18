@@ -33,6 +33,7 @@ class DescribePlaybookReleasesRequest extends Model
      * @description The number of entries per page. Default value: 10. If you do not specify the PageSize parameter, 10 entries are returned by default.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 10
      *
      * @var int
@@ -43,21 +44,20 @@ class DescribePlaybookReleasesRequest extends Model
      * @description The playbook UUID.
      *
      * This parameter is required.
+     *
      * @example ac343acc-1a61-4084-9a1c-xxxx
      *
      * @var string
      */
     public $playbookUuid;
     protected $_name = [
-        'lang'         => 'Lang',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'lang' => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

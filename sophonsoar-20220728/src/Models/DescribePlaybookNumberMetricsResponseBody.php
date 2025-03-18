@@ -25,13 +25,11 @@ class DescribePlaybookNumberMetricsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'metrics'   => 'Metrics',
+        'metrics' => 'Metrics',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

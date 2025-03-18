@@ -23,20 +23,21 @@ class DescriberPython3ScriptLogsRequest extends Model
     /**
      * @description The UUID that is returned when the Python3 script is run.
      *
+     * >  You can call the [RunPython3Script](~~RunPython3Script~~) operation to query the UUID.
+     *
      * This parameter is required.
+     *
      * @example 69edc2b4-c95c-424f-9114-xxxxxxx
      *
      * @var string
      */
     public $requestUuid;
     protected $_name = [
-        'lang'        => 'Lang',
+        'lang' => 'Lang',
         'requestUuid' => 'RequestUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

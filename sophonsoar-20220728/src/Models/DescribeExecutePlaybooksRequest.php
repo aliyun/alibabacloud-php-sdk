@@ -14,6 +14,7 @@ class DescribeExecutePlaybooksRequest extends Model
      * - **file**: file entity.
      * - **process**: process entity.
      * - **incident**: incident entity.
+     *
      * @example ip,file,process,host
      *
      * @var string
@@ -59,22 +60,21 @@ class DescribeExecutePlaybooksRequest extends Model
      * @description The playbook UUID.
      *
      * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
+     *
      * @example f916b93e-e814-459f-9662-xxxxxx
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'inputMode'    => 'InputMode',
-        'lang'         => 'Lang',
-        'paramType'    => 'ParamType',
+        'inputMode' => 'InputMode',
+        'lang' => 'Lang',
+        'paramType' => 'ParamType',
         'playbookName' => 'PlaybookName',
-        'uuid'         => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

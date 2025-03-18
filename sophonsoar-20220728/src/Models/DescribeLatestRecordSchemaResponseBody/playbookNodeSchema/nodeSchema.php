@@ -42,15 +42,13 @@ class nodeSchema extends Model
      */
     public $outputFields;
     protected $_name = [
-        'actionName'    => 'ActionName',
+        'actionName' => 'ActionName',
         'componentName' => 'ComponentName',
-        'nodeName'      => 'NodeName',
-        'outputFields'  => 'OutputFields',
+        'nodeName' => 'NodeName',
+        'outputFields' => 'OutputFields',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -51,16 +51,14 @@ class DescribePopApiItemListResponseBody extends Model
      */
     public $version;
     protected $_name = [
-        'names'     => 'Names',
-        'popCode'   => 'PopCode',
+        'names' => 'Names',
+        'popCode' => 'PopCode',
         'requestId' => 'RequestId',
-        'total'     => 'Total',
-        'version'   => 'Version',
+        'total' => 'Total',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

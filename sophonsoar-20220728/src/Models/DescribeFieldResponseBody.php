@@ -35,14 +35,12 @@ class DescribeFieldResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'fields'    => 'Fields',
-        'name'      => 'Name',
+        'fields' => 'Fields',
+        'name' => 'Name',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

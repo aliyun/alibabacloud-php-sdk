@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSoarRecordsRequest extends Model
 {
     /**
-     * @description The end of the time range to query. The value is a 13-digit timestamp.
+     * @description The end time of the task execution, in 13-digit timestamp format.
      *
      * @example 1683772744953
      *
@@ -18,10 +18,9 @@ class DescribeSoarRecordsRequest extends Model
     public $endMillis;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
+     * @description Set the language type for requests and received messages. The default is **zh**. Values:
+     * - **zh**: Chinese
+     * - **en**: English
      *
      * @example zh
      *
@@ -30,7 +29,7 @@ class DescribeSoarRecordsRequest extends Model
     public $lang;
 
     /**
-     * @description The page number. Default value: 1. Pages start from page 1.
+     * @description Set which page to start displaying the query results from. The default value is 1, indicating the first page.
      *
      * @example 1
      *
@@ -39,9 +38,9 @@ class DescribeSoarRecordsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: 10. If you do not specify the PageSize parameter, 10 entries are returned by default.
+     * @description Specify the maximum number of data entries per page when performing a paginated query. The default number of entries per page is 20. If the PageSize parameter is empty, it will return 10 entries by default.
+     * > It is recommended not to leave the PageSize value empty.
      *
-     * >  We recommend that you do not leave this parameter empty.
      * @example 10
      *
      * @var int
@@ -49,9 +48,11 @@ class DescribeSoarRecordsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The playbook UUID.
+     * @description The UUID of the playbook.
+     * > You can obtain this parameter by calling the [DescribePlaybooks](~~DescribePlaybooks~~) interface.
      *
      * This parameter is required.
+     *
      * @example 8f55e76d-b5d5-4720-9cd7-xxxxx
      *
      * @var string
@@ -59,7 +60,17 @@ class DescribeSoarRecordsRequest extends Model
     public $playbookUuid;
 
     /**
-     * @description The beginning of the time range to query. The value is a 13-byte timestamp.
+     * @description UUID of the playbook task execution.
+     * > You can obtain this parameter by calling the [DescribeSoarRecords](https://help.aliyun.com/document_detail/2627455.html) interface.
+     *
+     * @example 6d412cfa-0905-4567-8a83-xxxxxx
+     *
+     * @var string
+     */
+    public $requestUuid;
+
+    /**
+     * @description The start time of the task execution, in 13-digit timestamp format.
      *
      * @example 1683526284584
      *
@@ -68,11 +79,11 @@ class DescribeSoarRecordsRequest extends Model
     public $startMillis;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The status of the task execution. Values:
      *
-     *   **success**
-     *   **failed**
-     *   **inprogress**
+     * - **success**: Successful task.
+     * - **failed**: Failed task.
+     * - **inprogress**: Task in progress
      *
      * @example inprogress
      *
@@ -81,7 +92,7 @@ class DescribeSoarRecordsRequest extends Model
     public $taskStatus;
 
     /**
-     * @description The MD5 value of the playbook.
+     * @description The MD5 value of the playbook configuration.
      *
      * @example be0a4ef084dd174abe478df52xxxxx
      *
@@ -90,7 +101,7 @@ class DescribeSoarRecordsRequest extends Model
     public $taskflowMd5;
 
     /**
-     * @description The ID of the Alibaba Cloud account that is used to execute the task.
+     * @description The Alibaba Cloud account ID that executed the playbook task.
      *
      * @example 127xxxx4392
      *
@@ -98,20 +109,19 @@ class DescribeSoarRecordsRequest extends Model
      */
     public $triggerUser;
     protected $_name = [
-        'endMillis'    => 'EndMillis',
-        'lang'         => 'Lang',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'endMillis' => 'EndMillis',
+        'lang' => 'Lang',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'playbookUuid' => 'PlaybookUuid',
-        'startMillis'  => 'StartMillis',
-        'taskStatus'   => 'TaskStatus',
-        'taskflowMd5'  => 'TaskflowMd5',
-        'triggerUser'  => 'TriggerUser',
+        'requestUuid' => 'RequestUuid',
+        'startMillis' => 'StartMillis',
+        'taskStatus' => 'TaskStatus',
+        'taskflowMd5' => 'TaskflowMd5',
+        'triggerUser' => 'TriggerUser',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -130,6 +140,9 @@ class DescribeSoarRecordsRequest extends Model
         }
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
+        }
+        if (null !== $this->requestUuid) {
+            $res['RequestUuid'] = $this->requestUuid;
         }
         if (null !== $this->startMillis) {
             $res['StartMillis'] = $this->startMillis;
@@ -169,6 +182,9 @@ class DescribeSoarRecordsRequest extends Model
         }
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];
+        }
+        if (isset($map['RequestUuid'])) {
+            $model->requestUuid = $map['RequestUuid'];
         }
         if (isset($map['StartMillis'])) {
             $model->startMillis = $map['StartMillis'];

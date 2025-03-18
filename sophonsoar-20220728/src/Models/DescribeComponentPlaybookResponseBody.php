@@ -29,9 +29,7 @@ class DescribeComponentPlaybookResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeComponentPlaybookResponseBody extends Model
         if (isset($map['Playbooks'])) {
             if (!empty($map['Playbooks'])) {
                 $model->playbooks = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Playbooks'] as $item) {
                     $model->playbooks[$n++] = null !== $item ? playbooks::fromMap($item) : $item;
                 }

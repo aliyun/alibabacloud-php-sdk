@@ -21,7 +21,13 @@ class DescriberPython3ScriptLogsResponseBody extends Model
      * @description The operational logs of the Python3 script.
      *
      * @example {
+     * "logs": [
+     * {
+     * "message": "function input is {}"
      * }
+     * ]
+     * }
+     *
      * @var string
      */
     public $runResult;
@@ -30,9 +36,7 @@ class DescriberPython3ScriptLogsResponseBody extends Model
         'runResult' => 'RunResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

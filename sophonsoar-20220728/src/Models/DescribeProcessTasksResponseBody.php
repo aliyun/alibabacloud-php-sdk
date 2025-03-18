@@ -33,14 +33,12 @@ class DescribeProcessTasksResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'page'         => 'Page',
+        'page' => 'Page',
         'processTasks' => 'ProcessTasks',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class DescribeProcessTasksResponseBody extends Model
         if (isset($map['ProcessTasks'])) {
             if (!empty($map['ProcessTasks'])) {
                 $model->processTasks = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ProcessTasks'] as $item) {
                     $model->processTasks[$n++] = null !== $item ? processTasks::fromMap($item) : $item;
                 }

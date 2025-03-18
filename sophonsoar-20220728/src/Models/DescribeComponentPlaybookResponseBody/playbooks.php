@@ -30,8 +30,19 @@ class playbooks extends Model
      * @description The input parameter configuration of the playbook. The value is a JSON array.
      *
      * >  For more information, see [DescribePlaybookInputOutput](~~DescribePlaybookInputOutput~~).
+     *
      * @example [
+     * {
+     * "typeName": "String",
+     * "dataClass": "normal",
+     * "dataType": "String",
+     * "description": "period",
+     * "example": "",
+     * "name": "period",
+     * "required": false
+     * }
      * ]
+     *
      * @var string
      */
     public $inputParams;
@@ -41,9 +52,7 @@ class playbooks extends Model
         'inputParams' => 'InputParams',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

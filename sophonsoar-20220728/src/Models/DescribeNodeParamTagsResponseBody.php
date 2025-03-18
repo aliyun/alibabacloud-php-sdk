@@ -26,12 +26,10 @@ class DescribeNodeParamTagsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'paramReferredPaths' => 'ParamReferredPaths',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeNodeParamTagsResponseBody extends Model
         if (isset($map['ParamReferredPaths'])) {
             if (!empty($map['ParamReferredPaths'])) {
                 $model->paramReferredPaths = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['ParamReferredPaths'] as $item) {
                     $model->paramReferredPaths[$n++] = null !== $item ? paramReferredPaths::fromMap($item) : $item;
                 }

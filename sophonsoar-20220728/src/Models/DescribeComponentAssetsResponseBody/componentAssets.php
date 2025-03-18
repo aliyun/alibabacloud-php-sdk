@@ -66,24 +66,40 @@ class componentAssets extends Model
      * @description The configurations of the asset in the JSON string format. DescribeComponentAssetForm
      *
      * >  For more information, see [DescribeComponentAssetForm](~~DescribeComponentAssetForm~~).
+     *
      * @example [
+     * {
+     * "name": "authMethod",
+     * "value": "ak"
+     * },
+     * {
+     * "name": "accessKeyId",
+     * "value": "xxxxxxx"
+     * },
+     * {
+     * "name": "accessKeySecret",
+     * "value": "xxxxx"
+     * },
+     * {
+     * "name": "roleArn",
+     * "value": ""
+     * }
      * ]
+     *
      * @var string
      */
     public $params;
     protected $_name = [
-        'assetUuid'     => 'AssetUuid',
+        'assetUuid' => 'AssetUuid',
         'componentname' => 'Componentname',
-        'gmtCreate'     => 'GmtCreate',
-        'gmtModified'   => 'GmtModified',
-        'id'            => 'Id',
-        'name'          => 'Name',
-        'params'        => 'Params',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'name' => 'Name',
+        'params' => 'Params',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -24,13 +24,11 @@ class paramReferredPaths extends Model
      */
     public $referredPath;
     protected $_name = [
-        'paramName'    => 'ParamName',
+        'paramName' => 'ParamName',
         'referredPath' => 'ReferredPath',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

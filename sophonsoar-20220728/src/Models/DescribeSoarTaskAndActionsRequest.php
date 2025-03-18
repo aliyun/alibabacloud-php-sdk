@@ -29,13 +29,11 @@ class DescribeSoarTaskAndActionsRequest extends Model
      */
     public $requestUuid;
     protected $_name = [
-        'lang'        => 'Lang',
+        'lang' => 'Lang',
         'requestUuid' => 'RequestUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

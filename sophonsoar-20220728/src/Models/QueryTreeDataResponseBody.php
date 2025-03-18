@@ -12,7 +12,15 @@ class QueryTreeDataResponseBody extends Model
      * @description The returned information about the playbook. The value is a JSON string.
      *
      * @example [
+     * {
+     * "playbook": {
+     * "active": false,
+     * "displayName": "test_playbook",
+     * "playbookUuid": "09a20455-3d3a-424c-a1df-xxxxxx"
+     * }
+     * }
      * ]
+     *
      * @var string
      */
     public $playbooks;
@@ -30,9 +38,7 @@ class QueryTreeDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

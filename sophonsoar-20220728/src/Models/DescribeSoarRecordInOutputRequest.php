@@ -11,7 +11,10 @@ class DescribeSoarRecordInOutputRequest extends Model
     /**
      * @description The UUID of the component action.
      *
+     * >  You can call the [DescribeSoarTaskAndActions](~~DescribeSoarTaskAndActions~~) operation to query the UUIDs of component actions.
+     *
      * This parameter is required.
+     *
      * @example 0531ff66-dd05-4f24-84bf-xxxxxxxx
      *
      * @var string
@@ -31,12 +34,10 @@ class DescribeSoarRecordInOutputRequest extends Model
     public $lang;
     protected $_name = [
         'actionUuid' => 'ActionUuid',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

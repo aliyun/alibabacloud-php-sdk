@@ -48,9 +48,15 @@ class DescribeProcessTasksRequest extends Model
     public $entityUuid;
 
     /**
+     * @var string
+     */
+    public $eventUuid;
+
+    /**
      * @description The field that you use to sort the result.
      *
      * >  You can obtain the field from the response result.
+     *
      * @example gmtCreate
      *
      * @var string
@@ -62,7 +68,7 @@ class DescribeProcessTasksRequest extends Model
      *
      * @example 1
      *
-     * @var string
+     * @var int
      */
     public $pageNumber;
 
@@ -70,6 +76,7 @@ class DescribeProcessTasksRequest extends Model
      * @description The number of entries per page. Default value: 10. If you do not specify the PageSize parameter, 10 entries are returned by default.
      *
      * >  We recommend that you do not leave this parameter empty.
+     *
      * @example 10
      *
      * @var int
@@ -125,6 +132,7 @@ class DescribeProcessTasksRequest extends Model
      * @description The UUID of the handling policy.
      *
      * >  You can call the [ListDisposeStrategy](https://help.aliyun.com/document_detail/2584440.html) operation to query the UUID of the handling policy.
+     *
      * @example 92af3c79-1754-4646-9366-9ddbd1e45536_xxxx
      *
      * @var string
@@ -135,6 +143,7 @@ class DescribeProcessTasksRequest extends Model
      * @description The scenario code of the handling task.
      *
      * >  You can call the [DescribeEnumItems](~~DescribeEnumItems~~) operation to query the scenario code of the handling task. This parameter is available when you set **EnumType** to **process**.
+     *
      * @example event_xxx_whole_process
      *
      * @var string
@@ -169,6 +178,7 @@ class DescribeProcessTasksRequest extends Model
      * @description The unique identifier of the handling task.
      *
      * >  This parameter is used to query a specific task. You can obtain the value from the response result.
+     *
      * @example 150xxxxxxxxx95066
      *
      * @var string
@@ -195,6 +205,11 @@ class DescribeProcessTasksRequest extends Model
     public $taskStatus;
 
     /**
+     * @var string
+     */
+    public $triggerSource;
+
+    /**
      * @description The cloud service that is associated with the handling task. The value is a string. Valid values:
      *
      *   **WAF**: Web Application Firewall (WAF)
@@ -207,30 +222,30 @@ class DescribeProcessTasksRequest extends Model
      */
     public $yunCode;
     protected $_name = [
-        'direction'           => 'Direction',
-        'entityName'          => 'EntityName',
-        'entityType'          => 'EntityType',
-        'entityUuid'          => 'EntityUuid',
-        'orderField'          => 'OrderField',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'paramContent'        => 'ParamContent',
-        'processActionEnd'    => 'ProcessActionEnd',
-        'processActionStart'  => 'ProcessActionStart',
-        'processRemoveEnd'    => 'ProcessRemoveEnd',
-        'processRemoveStart'  => 'ProcessRemoveStart',
+        'direction' => 'Direction',
+        'entityName' => 'EntityName',
+        'entityType' => 'EntityType',
+        'entityUuid' => 'EntityUuid',
+        'eventUuid' => 'EventUuid',
+        'orderField' => 'OrderField',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'paramContent' => 'ParamContent',
+        'processActionEnd' => 'ProcessActionEnd',
+        'processActionStart' => 'ProcessActionStart',
+        'processRemoveEnd' => 'ProcessRemoveEnd',
+        'processRemoveStart' => 'ProcessRemoveStart',
         'processStrategyUuid' => 'ProcessStrategyUuid',
-        'sceneCode'           => 'SceneCode',
-        'scope'               => 'Scope',
-        'source'              => 'Source',
-        'taskId'              => 'TaskId',
-        'taskStatus'          => 'TaskStatus',
-        'yunCode'             => 'YunCode',
+        'sceneCode' => 'SceneCode',
+        'scope' => 'Scope',
+        'source' => 'Source',
+        'taskId' => 'TaskId',
+        'taskStatus' => 'TaskStatus',
+        'triggerSource' => 'TriggerSource',
+        'yunCode' => 'YunCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -246,6 +261,9 @@ class DescribeProcessTasksRequest extends Model
         }
         if (null !== $this->entityUuid) {
             $res['EntityUuid'] = $this->entityUuid;
+        }
+        if (null !== $this->eventUuid) {
+            $res['EventUuid'] = $this->eventUuid;
         }
         if (null !== $this->orderField) {
             $res['OrderField'] = $this->orderField;
@@ -289,6 +307,9 @@ class DescribeProcessTasksRequest extends Model
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
+        if (null !== $this->triggerSource) {
+            $res['TriggerSource'] = $this->triggerSource;
+        }
         if (null !== $this->yunCode) {
             $res['YunCode'] = $this->yunCode;
         }
@@ -315,6 +336,9 @@ class DescribeProcessTasksRequest extends Model
         }
         if (isset($map['EntityUuid'])) {
             $model->entityUuid = $map['EntityUuid'];
+        }
+        if (isset($map['EventUuid'])) {
+            $model->eventUuid = $map['EventUuid'];
         }
         if (isset($map['OrderField'])) {
             $model->orderField = $map['OrderField'];
@@ -357,6 +381,9 @@ class DescribeProcessTasksRequest extends Model
         }
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
+        }
+        if (isset($map['TriggerSource'])) {
+            $model->triggerSource = $map['TriggerSource'];
         }
         if (isset($map['YunCode'])) {
             $model->yunCode = $map['YunCode'];

@@ -61,16 +61,14 @@ class openApiMetaList extends Model
      */
     public $type;
     protected $_name = [
-        'description'  => 'Description',
+        'description' => 'Description',
         'exampleValue' => 'ExampleValue',
-        'name'         => 'Name',
-        'required'     => 'Required',
-        'type'         => 'Type',
+        'name' => 'Name',
+        'required' => 'Required',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

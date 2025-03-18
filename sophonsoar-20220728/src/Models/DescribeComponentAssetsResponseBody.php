@@ -26,12 +26,10 @@ class DescribeComponentAssetsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'componentAssets' => 'ComponentAssets',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeComponentAssetsResponseBody extends Model
         if (isset($map['ComponentAssets'])) {
             if (!empty($map['ComponentAssets'])) {
                 $model->componentAssets = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['ComponentAssets'] as $item) {
                     $model->componentAssets[$n++] = null !== $item ? componentAssets::fromMap($item) : $item;
                 }

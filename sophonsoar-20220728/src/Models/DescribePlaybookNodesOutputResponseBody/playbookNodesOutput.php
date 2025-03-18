@@ -21,18 +21,31 @@ class playbookNodesOutput extends Model
      * @description The historical output data of the component node. The value is in the JSON string format. If no data is found, the parameter is left empty.
      *
      * @example {
+     * "datalist": [
+     * {
+     * "score": "10",
+     * "ip": "1.1.1.1"
      * }
+     * ],
+     * "total_data_successful": 1,
+     * "filter_total_data": 1,
+     * "total_data": 1,
+     * "total_exe_successful": 1,
+     * "total_exe": 1,
+     * "total_data_with_dup": 1,
+     * "filter_total_data_successful": 1,
+     * "status": true
+     * }
+     *
      * @var string
      */
     public $nodeOutput;
     protected $_name = [
-        'nodeName'   => 'NodeName',
+        'nodeName' => 'NodeName',
         'nodeOutput' => 'NodeOutput',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

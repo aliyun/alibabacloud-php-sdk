@@ -38,7 +38,10 @@ class details extends Model
      * @description The request parameters of the task.
      *
      * @example {
+     * "input1": "xx.xx.xx.xx",
+     * "input2": "7d"
      * }
+     *
      * @var string
      */
     public $rawEventReq;
@@ -141,25 +144,23 @@ class details extends Model
      */
     public $triggerUser;
     protected $_name = [
-        'actions'       => 'Actions',
-        'endTime'       => 'EndTime',
-        'errorMsg'      => 'ErrorMsg',
-        'rawEventReq'   => 'RawEventReq',
-        'requestUuid'   => 'RequestUuid',
-        'resultLevel'   => 'ResultLevel',
+        'actions' => 'Actions',
+        'endTime' => 'EndTime',
+        'errorMsg' => 'ErrorMsg',
+        'rawEventReq' => 'RawEventReq',
+        'requestUuid' => 'RequestUuid',
+        'resultLevel' => 'ResultLevel',
         'resultMessage' => 'ResultMessage',
-        'startTime'     => 'StartTime',
-        'status'        => 'Status',
-        'taskFlowMd5'   => 'TaskFlowMd5',
-        'taskName'      => 'TaskName',
-        'taskTenantId'  => 'TaskTenantId',
-        'triggerType'   => 'TriggerType',
-        'triggerUser'   => 'TriggerUser',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'taskFlowMd5' => 'TaskFlowMd5',
+        'taskName' => 'TaskName',
+        'taskTenantId' => 'TaskTenantId',
+        'triggerType' => 'TriggerType',
+        'triggerUser' => 'TriggerUser',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -227,7 +228,7 @@ class details extends Model
         if (isset($map['Actions'])) {
             if (!empty($map['Actions'])) {
                 $model->actions = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Actions'] as $item) {
                     $model->actions[$n++] = null !== $item ? actions::fromMap($item) : $item;
                 }

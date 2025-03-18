@@ -12,6 +12,7 @@ class DescribePopApiRequest extends Model
      * @description The operation name of the Alibaba Cloud service.
      *
      * This parameter is required.
+     *
      * @example DescribeInstanceInfo
      *
      * @var string
@@ -21,7 +22,10 @@ class DescribePopApiRequest extends Model
     /**
      * @description The version number of the API.
      *
+     * >  You can call the [DescribePopApiVersionList](~~DescribePopApiVersionList~~) operation to query the version number.
+     *
      * This parameter is required.
+     *
      * @example 2021-10-01
      *
      * @var string
@@ -32,6 +36,7 @@ class DescribePopApiRequest extends Model
      * @description The environment in which the API operation parameter is used. Set the value to online.
      *
      * This parameter is required.
+     *
      * @example online
      *
      * @var string
@@ -41,22 +46,23 @@ class DescribePopApiRequest extends Model
     /**
      * @description The POP code of the Alibaba Cloud service.
      *
+     * >  You can call the [DescribeApiList](~~DescribeApiList~~) operation to query the POP code.
+     *
      * This parameter is required.
+     *
      * @example Sas
      *
      * @var string
      */
     public $popCode;
     protected $_name = [
-        'apiName'    => 'ApiName',
+        'apiName' => 'ApiName',
         'apiVersion' => 'ApiVersion',
-        'env'        => 'Env',
-        'popCode'    => 'PopCode',
+        'env' => 'Env',
+        'popCode' => 'PopCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

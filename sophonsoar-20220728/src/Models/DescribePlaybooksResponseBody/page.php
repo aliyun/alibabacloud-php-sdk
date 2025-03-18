@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class page extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number in pagination queries.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class page extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of items per page in pagination queries.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class page extends Model
     public $pageSize;
 
     /**
-     * @description The total number of entries returned.
+     * @description The total number of items found.
      *
      * @example 100
      *
@@ -36,13 +36,11 @@ class page extends Model
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

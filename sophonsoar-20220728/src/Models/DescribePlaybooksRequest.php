@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribePlaybooksRequest extends Model
 {
     /**
-     * @description The status of the playbook. Valid values:
+     * @description Activation status of the playbook. Values:
      *
-     *   **1**: enabled
-     *   **0**: disabled
+     * - **1**: Indicates the playbook is activated.
+     * - **0**: Indicates the playbook is not activated.
      *
      * @example 1
      *
@@ -21,7 +21,7 @@ class DescribePlaybooksRequest extends Model
     public $active;
 
     /**
-     * @description The end of the time range to query. The value is a 13-digit timestamp.
+     * @description End time for the query, in 13-digit timestamp format.
      *
      * @example 1683858064361
      *
@@ -30,10 +30,9 @@ class DescribePlaybooksRequest extends Model
     public $endMillis;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
+     * @description Specifies the language type for the request and response, default is **zh**. Values:
+     * - **zh**: Chinese.
+     * - **en**: English.
      *
      * @example zh
      *
@@ -51,10 +50,9 @@ class DescribePlaybooksRequest extends Model
     public $name;
 
     /**
-     * @description The sorting order. Default value: desc. Valid values:
-     *
-     *   desc: descending order
-     *   asc: ascending order
+     * @description The sorting logic, with a default value of **desc**. Values:
+     * - **desc**: Descending order.
+     * - **asc**: Ascending order.
      *
      * @example desc
      *
@@ -63,10 +61,10 @@ class DescribePlaybooksRequest extends Model
     public $order;
 
     /**
-     * @description The type of the playbook. Valid values:
+     * @description Type of the playbook. Values:
      *
-     *   **preset**: predefined playbook
-     *   **user**: custom playbook
+     * - **preset**: Predefined playbook.
+     * - **user**: Custom playbook.
      *
      * @example user
      *
@@ -75,35 +73,46 @@ class DescribePlaybooksRequest extends Model
     public $ownType;
 
     /**
-     * @description The page number. Default value: 1. Pages start from page 1.
+     * @description Sets the page number from which to start displaying the query results. The default value is 1, indicating the first page.
      *
      * @example 1
      *
-     * @var string
+     * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: 10. If you leave this parameter empty, 10 entries are returned on each page.
+     * @description Specifies the maximum number of items to display per page in a paginated query. The default number of items per page is 20. If the PageSize parameter is empty, it will return 10 items by default.
+     * > It is recommended that the PageSize value is not empty.
      *
-     * >  We recommend that you do not leave this parameter empty.
      * @example 10
      *
-     * @var string
+     * @var int
      */
     public $pageSize;
 
     /**
+     * @description The trigger method for the playbook, with a default value of **query all**. Values:
+     * - **template-incident**: Security incident.
+     * - **template-ip**: IP entity.
+     * - **template-file**: File entity.
+     * - **template-process**: Process entity.
+     * - **template-alert**: Security alert.
+     * - **template-domain**: Domain entity.
+     * - **template-container**: Container entity.
+     * - **template-host**: Host entity.
+     * - **template-custom**: Custom.
+     *
+     * @example template-alert
+     *
      * @var string
      */
     public $paramTypes;
 
     /**
-     * @description The playbook UUID.
-     *
-     * >  You can use the UUID to query the information about a specific playbook.
-     *
-     *   You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
+     * @description The UUID of the playbook.
+     * > You can use the UUID to query specific playbook information.
+     * > - Call the [DescribePlaybooks](~~DescribePlaybooks~~) API to obtain this parameter.
      *
      * @example 8baa6cff-319e-4ede-97bc-1xxxxxx
      *
@@ -112,10 +121,21 @@ class DescribePlaybooksRequest extends Model
     public $playbookUuid;
 
     /**
-     * @description The sorting basis. Default value: 1. Valid values:
+     * @description UUID List of the playbook.
      *
-     *   1: last modification time
-     *   2: last execution time
+     * Note You can use the UUID list to query specific playbook information.
+     * Call the DescribePlaybooks API to obtain this parameter.
+     *
+     * @example 8baa6cff-319e-4ede-97bc-1xxxxxx,7745e6cff-319e-4ede-97bc-1xxxxxx
+     *
+     * @var string
+     */
+    public $playbookUuids;
+
+    /**
+     * @description The sorting basis, with a default value of **1**. Values:
+     * - **1**: Last modified time.
+     * - **2**: Most recent execution time.
      *
      * @example 1
      *
@@ -124,7 +144,7 @@ class DescribePlaybooksRequest extends Model
     public $sort;
 
     /**
-     * @description The beginning of the time range to query. The value is a 13-digit timestamp.
+     * @description Start time for the query, in 13-digit timestamp format.
      *
      * @example 1683526277415
      *
@@ -132,23 +152,22 @@ class DescribePlaybooksRequest extends Model
      */
     public $startMillis;
     protected $_name = [
-        'active'       => 'Active',
-        'endMillis'    => 'EndMillis',
-        'lang'         => 'Lang',
-        'name'         => 'Name',
-        'order'        => 'Order',
-        'ownType'      => 'OwnType',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'paramTypes'   => 'ParamTypes',
+        'active' => 'Active',
+        'endMillis' => 'EndMillis',
+        'lang' => 'Lang',
+        'name' => 'Name',
+        'order' => 'Order',
+        'ownType' => 'OwnType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'paramTypes' => 'ParamTypes',
         'playbookUuid' => 'PlaybookUuid',
-        'sort'         => 'Sort',
-        'startMillis'  => 'StartMillis',
+        'playbookUuids' => 'PlaybookUuids',
+        'sort' => 'Sort',
+        'startMillis' => 'StartMillis',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -182,6 +201,9 @@ class DescribePlaybooksRequest extends Model
         }
         if (null !== $this->playbookUuid) {
             $res['PlaybookUuid'] = $this->playbookUuid;
+        }
+        if (null !== $this->playbookUuids) {
+            $res['PlaybookUuids'] = $this->playbookUuids;
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
@@ -230,6 +252,9 @@ class DescribePlaybooksRequest extends Model
         }
         if (isset($map['PlaybookUuid'])) {
             $model->playbookUuid = $map['PlaybookUuid'];
+        }
+        if (isset($map['PlaybookUuids'])) {
+            $model->playbookUuids = $map['PlaybookUuids'];
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];

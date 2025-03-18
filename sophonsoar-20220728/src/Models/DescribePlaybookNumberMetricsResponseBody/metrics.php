@@ -27,12 +27,10 @@ class metrics extends Model
     public $totalNum;
     protected $_name = [
         'startUpNum' => 'StartUpNum',
-        'totalNum'   => 'TotalNum',
+        'totalNum' => 'TotalNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

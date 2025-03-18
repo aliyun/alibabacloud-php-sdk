@@ -45,13 +45,11 @@ class data extends Model
     protected $_name = [
         'description' => 'Description',
         'displayName' => 'DisplayName',
-        'name'        => 'Name',
+        'name' => 'Name',
         'paramConfig' => 'ParamConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class data extends Model
         if (isset($map['ParamConfig'])) {
             if (!empty($map['ParamConfig'])) {
                 $model->paramConfig = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ParamConfig'] as $item) {
                     $model->paramConfig[$n++] = null !== $item ? paramConfig::fromMap($item) : $item;
                 }

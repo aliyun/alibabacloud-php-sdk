@@ -23,20 +23,21 @@ class DescribeComponentListRequest extends Model
     /**
      * @description The UUID of the playbook.
      *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
+     *
      * This parameter is required.
+     *
      * @example b724d2b0-3c3b-4223-9bfd-xxxxx
      *
      * @var string
      */
     public $playbookUuid;
     protected $_name = [
-        'lang'         => 'Lang',
+        'lang' => 'Lang',
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

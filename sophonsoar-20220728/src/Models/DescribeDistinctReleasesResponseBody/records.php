@@ -38,14 +38,12 @@ class records extends Model
      */
     public $taskflowType;
     protected $_name = [
-        'description'  => 'Description',
-        'taskflowMd5'  => 'TaskflowMd5',
+        'description' => 'Description',
+        'taskflowMd5' => 'TaskflowMd5',
         'taskflowType' => 'TaskflowType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class TriggerSophonPlaybookRequest extends Model
      * @description The name of the command that you want to trigger.
      *
      * >  You can call the [DescribeSophonCommands](~~DescribeSophonCommands~~) operation to query the command name.
+     *
      * @example waf_process_command
      *
      * @var string
@@ -22,8 +23,12 @@ class TriggerSophonPlaybookRequest extends Model
      * @description The input parameters of the command or playbook that you want to trigger.
      *
      * This parameter is required.
+     *
      * @example {
+     * "param1": "xx.xx.xx.xx",
+     * "param2": "7d"
      * }
+     *
      * @var string
      */
     public $inputParams;
@@ -53,22 +58,21 @@ class TriggerSophonPlaybookRequest extends Model
      * @description The UUID of the playbook.
      *
      * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+     *
      * @example f916b93e-e814-459f-9662-xxxxxxxxxx
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'commandName'  => 'CommandName',
-        'inputParams'  => 'InputParams',
+        'commandName' => 'CommandName',
+        'inputParams' => 'InputParams',
         'sophonTaskId' => 'SophonTaskId',
-        'triggerType'  => 'TriggerType',
-        'uuid'         => 'Uuid',
+        'triggerType' => 'TriggerType',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

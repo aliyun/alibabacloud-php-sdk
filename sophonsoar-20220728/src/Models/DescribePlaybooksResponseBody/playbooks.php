@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class playbooks extends Model
 {
     /**
-     * @description The playbook status. Valid values:
+     * @description The status indicator of the playbook. Values:
      *
-     *   **1**: The playbook is started.
-     *   **0**: The playbook is stopped.
+     * - **1**: Indicates the playbook is activated.
+     * - **0**: Indicates the playbook is deactivated.
      *
      * @example 1
      *
@@ -30,7 +30,7 @@ class playbooks extends Model
     public $displayName;
 
     /**
-     * @description The time when the playbook was created. The value is a 13-digit timestamp.
+     * @description The creation time of the playbook, in 13-digit timestamp format.
      *
      * @example 1683526277415
      *
@@ -39,7 +39,7 @@ class playbooks extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the playbook was modified.
+     * @description The modification time of the playbook.
      *
      * @example 1681396398000
      *
@@ -48,7 +48,7 @@ class playbooks extends Model
     public $gmtModified;
 
     /**
-     * @description The time when the playbook was last run. The value is a 13-digit timestamp.
+     * @description The last execution time of the playbook, in 13-digit timestamp format.
      *
      * @example 1683526277415
      *
@@ -57,10 +57,10 @@ class playbooks extends Model
     public $lastRuntime;
 
     /**
-     * @description The type of the playbook. Valid values:
+     * @description The type of the playbook. Values:
      *
-     *   **preset**: predefined playbook
-     *   **user**: custom playbook
+     * - **preset**: Predefined playbook.
+     * - **user**: Custom playbook.
      *
      * @example user
      *
@@ -69,6 +69,18 @@ class playbooks extends Model
     public $ownType;
 
     /**
+     * @description The trigger method for the playbook, with a default value of **query all**. Possible values are:
+     * - **template-incident**: Security incident.
+     * - **template-ip**: IP entity.
+     * - **template-file**: File entity.
+     * - **template-process**: Process entity.
+     * - **template-alert**: Security alert.
+     * - **template-domain**: Domain entity.
+     * - **template-container**: Container entity.
+     * - **template-host**: Host entity.
+     *
+     * @example template-alert
+     *
      * @var string
      */
     public $paramType;
@@ -82,19 +94,17 @@ class playbooks extends Model
      */
     public $playbookUuid;
     protected $_name = [
-        'active'       => 'Active',
-        'displayName'  => 'DisplayName',
-        'gmtCreate'    => 'GmtCreate',
-        'gmtModified'  => 'GmtModified',
-        'lastRuntime'  => 'LastRuntime',
-        'ownType'      => 'OwnType',
-        'paramType'    => 'ParamType',
+        'active' => 'Active',
+        'displayName' => 'DisplayName',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'lastRuntime' => 'LastRuntime',
+        'ownType' => 'OwnType',
+        'paramType' => 'ParamType',
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

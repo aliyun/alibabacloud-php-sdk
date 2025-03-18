@@ -23,20 +23,21 @@ class DeletePlaybookRequest extends Model
     /**
      * @description The UUID of the playbook.
      *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+     *
      * This parameter is required.
+     *
      * @example e99dab31-499b-4307-9248-xxxxxx
      *
      * @var string
      */
     public $playbookUuid;
     protected $_name = [
-        'lang'         => 'Lang',
+        'lang' => 'Lang',
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,13 +26,11 @@ class DebugPlaybookResponseBody extends Model
      */
     public $requestUuid;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'requestUuid' => 'RequestUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class DeleteComponentAssetRequest extends Model
     /**
      * @description The ID of the asset.
      *
+     * >  You can call the [DescribeComponentAssets](~~DescribeComponentAssets~~) operation to query the ID.
+     *
      * This parameter is required.
+     *
      * @example 12x
      *
      * @var int
@@ -31,12 +34,10 @@ class DeleteComponentAssetRequest extends Model
     public $lang;
     protected $_name = [
         'assetId' => 'AssetId',
-        'lang'    => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,8 +12,14 @@ class VerifyPythonFileRequest extends Model
      * @description The Python code snippet.
      *
      * This parameter is required.
+     *
      * @example import logging
+     * def execute (params):
+     * success=True
+     * message=\\"OK\\"
+     * data=[]
      * return (success,message,data)
+     *
      * @var string
      */
     public $content;
@@ -21,9 +27,7 @@ class VerifyPythonFileRequest extends Model
         'content' => 'Content',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

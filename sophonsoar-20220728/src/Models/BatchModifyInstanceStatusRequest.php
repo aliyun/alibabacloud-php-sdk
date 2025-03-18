@@ -15,6 +15,7 @@ class BatchModifyInstanceStatusRequest extends Model
      *   **1**: starts the playbook.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -36,21 +37,22 @@ class BatchModifyInstanceStatusRequest extends Model
     /**
      * @description The playbook UUID. If you want to specify multiple playbooks, separate the playbook UUIDs with commas (,).
      *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+     *
      * This parameter is required.
+     *
      * @example 8baa6cff-319e-4ede-97bc-1xxxxxx,s8df2e-s8dfs-xxxx
      *
      * @var string
      */
     public $playbookUuid;
     protected $_name = [
-        'active'       => 'Active',
-        'lang'         => 'Lang',
+        'active' => 'Active',
+        'lang' => 'Lang',
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

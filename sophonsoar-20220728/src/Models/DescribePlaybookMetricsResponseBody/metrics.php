@@ -104,21 +104,19 @@ class metrics extends Model
      */
     public $succNum;
     protected $_name = [
-        'active'       => 'Active',
-        'description'  => 'Description',
-        'displayName'  => 'DisplayName',
-        'failNum'      => 'FailNum',
-        'gmtCreate'    => 'GmtCreate',
-        'historyMd5'   => 'HistoryMd5',
-        'lastRuntime'  => 'LastRuntime',
-        'ownType'      => 'OwnType',
+        'active' => 'Active',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'failNum' => 'FailNum',
+        'gmtCreate' => 'GmtCreate',
+        'historyMd5' => 'HistoryMd5',
+        'lastRuntime' => 'LastRuntime',
+        'ownType' => 'OwnType',
         'playbookUuid' => 'PlaybookUuid',
-        'succNum'      => 'SuccNum',
+        'succNum' => 'SuccNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

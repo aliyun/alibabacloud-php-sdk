@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreatePlaybookRequest extends Model
 {
     /**
-     * @description The description of the playbook.
+     * @description Description of the playbook.
      *
      * @example This is a new version
      *
@@ -18,9 +18,10 @@ class CreatePlaybookRequest extends Model
     public $description;
 
     /**
-     * @description The name of the playbook.
+     * @description Name of the playbook.
      *
      * This parameter is required.
+     *
      * @example test09
      *
      * @var string
@@ -28,10 +29,10 @@ class CreatePlaybookRequest extends Model
     public $displayName;
 
     /**
-     * @description The language of the content within the response. Valid values:
+     * @description Language type for receiving messages. Values:
      *
-     *   **zh** (default): Chinese
-     *   **en**: English
+     * - **zh** (default): Chinese
+     * - **en**: English
      *
      * @example zh
      *
@@ -40,19 +41,23 @@ class CreatePlaybookRequest extends Model
     public $lang;
 
     /**
+     * @description Playbook TaskFlow type.
+     * - **x6** : x6
+     * - **bpmn**: bpmn
+     *
+     * @example x6
+     *
      * @var string
      */
     public $taskflowType;
     protected $_name = [
-        'description'  => 'Description',
-        'displayName'  => 'DisplayName',
-        'lang'         => 'Lang',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'lang' => 'Lang',
         'taskflowType' => 'TaskflowType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

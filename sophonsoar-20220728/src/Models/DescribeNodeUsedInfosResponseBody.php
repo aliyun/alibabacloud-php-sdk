@@ -17,9 +17,21 @@ class DescribeNodeUsedInfosResponseBody extends Model
      *   **inputParams**: the parameter settings of the referencing node.
      *
      * @example {
+     * "action": [
+     * {
+     * "name": "query_books",
+     * "inputParams": [
+     * {
      * "referInfos": [
      * "${play_group.datalist.*.ids}"
+     * ],
+     * "name": "querySql"
      * }
+     * ]
+     * }
+     * ]
+     * }
+     *
      * @var string
      */
     public $nodeUsedInfos;
@@ -34,12 +46,10 @@ class DescribeNodeUsedInfosResponseBody extends Model
     public $requestId;
     protected $_name = [
         'nodeUsedInfos' => 'NodeUsedInfos',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

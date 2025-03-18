@@ -48,14 +48,12 @@ class paramConfig extends Model
     public $value;
     protected $_name = [
         'checkField' => 'CheckField',
-        'field'      => 'Field',
-        'necessary'  => 'Necessary',
-        'value'      => 'Value',
+        'field' => 'Field',
+        'necessary' => 'Necessary',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

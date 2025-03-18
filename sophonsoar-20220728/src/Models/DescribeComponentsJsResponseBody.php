@@ -12,7 +12,13 @@ class DescribeComponentsJsResponseBody extends Model
      * @description The configuration of the JavaScript file for the component.
      *
      * @example [
+     * {
+     * "js": "https://xxxxx.oss-cn-zhangjiakou.aliyuncs.com/componentUpload/xxxxx",
+     * "name": "python3",
+     * "ownType": "sys"
+     * }
      * ]
+     *
      * @var string
      */
     public $componentsJs;
@@ -27,12 +33,10 @@ class DescribeComponentsJsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'componentsJs' => 'ComponentsJs',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

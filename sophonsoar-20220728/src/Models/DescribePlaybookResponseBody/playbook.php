@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class playbook extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account that is used to create the playbook.
-     *
-     * @example 124xxxxx3435
-     *
-     * @var string
-     */
-    public $creator;
-
-    /**
      * @description The description of the playbook.
      *
      * @example demo playbook
@@ -66,8 +57,19 @@ class playbook extends Model
      * @description The input parameter configuration of the playbook. The value is a JSON array.
      *
      * >  For more information, see [DescribePlaybookInputOutput](~~DescribePlaybookInputOutput~~).
+     *
      * @example [
+     * {
+     * "typeName": "String",
+     * "dataClass": "normal",
+     * "dataType": "String",
+     * "description": "period",
+     * "example": "",
+     * "name": "period",
+     * "required": false
+     * }
      * ]
+     *
      * @var string
      */
     public $inputParams;
@@ -80,15 +82,6 @@ class playbook extends Model
      * @var int
      */
     public $lastExeTime;
-
-    /**
-     * @description The ID of the Alibaba Cloud account that is used to modify the playbook.
-     *
-     * @example 124xxxxx3435
-     *
-     * @var string
-     */
-    public $modifier;
 
     /**
      * @description The status of the playbook. Valid values:
@@ -161,34 +154,27 @@ class playbook extends Model
      */
     public $taskflowType;
     protected $_name = [
-        'creator'                  => 'Creator',
-        'description'              => 'Description',
-        'displayName'              => 'DisplayName',
-        'failExeNum'               => 'FailExeNum',
-        'gmtCreate'                => 'GmtCreate',
-        'gmtModified'              => 'GmtModified',
-        'inputParams'              => 'InputParams',
-        'lastExeTime'              => 'LastExeTime',
-        'modifier'                 => 'Modifier',
-        'onlineActive'             => 'OnlineActive',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'failExeNum' => 'FailExeNum',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'inputParams' => 'InputParams',
+        'lastExeTime' => 'LastExeTime',
+        'onlineActive' => 'OnlineActive',
         'onlineReleaseTaskflowMd5' => 'OnlineReleaseTaskflowMd5',
-        'ownType'                  => 'OwnType',
-        'playbookUuid'             => 'PlaybookUuid',
-        'successExeNum'            => 'SuccessExeNum',
-        'taskflow'                 => 'Taskflow',
-        'taskflowType'             => 'TaskflowType',
+        'ownType' => 'OwnType',
+        'playbookUuid' => 'PlaybookUuid',
+        'successExeNum' => 'SuccessExeNum',
+        'taskflow' => 'Taskflow',
+        'taskflowType' => 'TaskflowType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creator) {
-            $res['Creator'] = $this->creator;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -209,9 +195,6 @@ class playbook extends Model
         }
         if (null !== $this->lastExeTime) {
             $res['LastExeTime'] = $this->lastExeTime;
-        }
-        if (null !== $this->modifier) {
-            $res['Modifier'] = $this->modifier;
         }
         if (null !== $this->onlineActive) {
             $res['OnlineActive'] = $this->onlineActive;
@@ -246,9 +229,6 @@ class playbook extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Creator'])) {
-            $model->creator = $map['Creator'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -269,9 +249,6 @@ class playbook extends Model
         }
         if (isset($map['LastExeTime'])) {
             $model->lastExeTime = $map['LastExeTime'];
-        }
-        if (isset($map['Modifier'])) {
-            $model->modifier = $map['Modifier'];
         }
         if (isset($map['OnlineActive'])) {
             $model->onlineActive = $map['OnlineActive'];

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribePopApiVersionListResponse extends Model
+class RunNotifyComponentWithEmailResponse extends Model
 {
     /**
      * @var string[]
@@ -19,18 +19,16 @@ class DescribePopApiVersionListResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribePopApiVersionListResponseBody
+     * @var RunNotifyComponentWithEmailResponseBody
      */
     public $body;
     protected $_name = [
-        'headers'    => 'headers',
+        'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'body' => 'body',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -51,7 +49,7 @@ class DescribePopApiVersionListResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribePopApiVersionListResponse
+     * @return RunNotifyComponentWithEmailResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +61,7 @@ class DescribePopApiVersionListResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribePopApiVersionListResponseBody::fromMap($map['body']);
+            $model->body = RunNotifyComponentWithEmailResponseBody::fromMap($map['body']);
         }
 
         return $model;

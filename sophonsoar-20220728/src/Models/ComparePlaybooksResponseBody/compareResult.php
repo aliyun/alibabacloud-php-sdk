@@ -30,7 +30,10 @@ class compareResult extends Model
     public $new;
 
     /**
-     * @description Indicates whether the configurations of the two versions are the same. Valid values: **true** and **false**.
+     * @description Indicates whether the configurations of the two versions are the same. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -39,13 +42,11 @@ class compareResult extends Model
     public $same;
     protected $_name = [
         'description' => 'Description',
-        'new'         => 'New',
-        'same'        => 'Same',
+        'new' => 'New',
+        'same' => 'Same',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

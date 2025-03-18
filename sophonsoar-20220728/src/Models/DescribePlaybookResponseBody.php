@@ -25,13 +25,11 @@ class DescribePlaybookResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'playbook'  => 'Playbook',
+        'playbook' => 'Playbook',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

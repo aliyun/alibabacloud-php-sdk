@@ -62,17 +62,15 @@ class records extends Model
      */
     public $taskflowMd5;
     protected $_name = [
-        'creator'     => 'Creator',
+        'creator' => 'Creator',
         'description' => 'Description',
-        'gmtCreate'   => 'GmtCreate',
+        'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
-        'id'          => 'Id',
+        'id' => 'Id',
         'taskflowMd5' => 'TaskflowMd5',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,13 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeProcessTaskCountRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Collection of entity UUIDs.
+     *
+     * This parameter is required.
      *
      * @var string[]
      */
     public $entityUuidList;
 
     /**
+     * @description Language type for request and response messages. Values:
+     *
+     * - **zh** (default): Chinese.
+     *
+     * - **en**: English.
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +31,8 @@ class DescribeProcessTaskCountRequest extends Model
     public $lang;
 
     /**
+     * @description User ID for administrators to switch to other member\\"s perspective.
+     *
      * @example 104739******259
      *
      * @var int
@@ -30,6 +40,11 @@ class DescribeProcessTaskCountRequest extends Model
     public $roleFor;
 
     /**
+     * @description View type.
+     *
+     * - **0**: Current Alibaba Cloud account view.
+     * - **1**: View for all accounts under the enterprise.
+     *
      * @example 0
      *
      * @var string
@@ -37,14 +52,12 @@ class DescribeProcessTaskCountRequest extends Model
     public $roleType;
     protected $_name = [
         'entityUuidList' => 'EntityUuidList',
-        'lang'           => 'Lang',
-        'roleFor'        => 'RoleFor',
-        'roleType'       => 'RoleType',
+        'lang' => 'Lang',
+        'roleFor' => 'RoleFor',
+        'roleType' => 'RoleType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

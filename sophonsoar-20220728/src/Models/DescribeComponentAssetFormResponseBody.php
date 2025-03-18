@@ -17,7 +17,14 @@ class DescribeComponentAssetFormResponseBody extends Model
      *   **required**: indicates whether the parameter is required. Valid values: **true** and **false**.
      *
      * @example [
+     * {
+     * "defaultValue": "",
+     * "description": "assetname",
+     * "name": "assetname",
+     * "required": true
+     * }
      * ]
+     *
      * @var string
      */
     public $componentAssetForm;
@@ -32,12 +39,10 @@ class DescribeComponentAssetFormResponseBody extends Model
     public $requestId;
     protected $_name = [
         'componentAssetForm' => 'ComponentAssetForm',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

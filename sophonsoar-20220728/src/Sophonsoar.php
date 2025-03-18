@@ -10,6 +10,10 @@ use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\BatchModifyInstanceStatusReques
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\BatchModifyInstanceStatusResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ComparePlaybooksRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ComparePlaybooksResponse;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ConvertPlaybookRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ConvertPlaybookResponse;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\CopyPlaybookRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\CopyPlaybookResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\CreatePlaybookRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\CreatePlaybookResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DebugPlaybookRequest;
@@ -18,8 +22,6 @@ use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DeleteComponentAssetRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DeleteComponentAssetResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DeletePlaybookRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DeletePlaybookResponse;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeApiListRequest;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeApiListResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeComponentAssetFormRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeComponentAssetFormResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeComponentAssetsRequest;
@@ -38,12 +40,20 @@ use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeExecutePlaybooksRequest
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeExecutePlaybooksResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeFieldRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeFieldResponse;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeGroupProductionsRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeGroupProductionsResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeLatestRecordSchemaRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeLatestRecordSchemaResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeNodeParamTagsRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeNodeParamTagsResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeNodeUsedInfosRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeNodeUsedInfosResponse;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeNotifyTemplateListRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeNotifyTemplateListResponse;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeOpenApiInfoRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeOpenApiInfoResponse;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeOpenApiListRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeOpenApiListResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePlaybookInputOutputRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePlaybookInputOutputResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePlaybookMetricsRequest;
@@ -62,8 +72,8 @@ use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiItemListRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiItemListResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiResponse;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiVersionListRequest;
-use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribePopApiVersionListResponse;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeProcessStatisticsRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeProcessStatisticsResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeProcessTaskCountRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeProcessTaskCountResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeProcessTasksRequest;
@@ -80,6 +90,8 @@ use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeSoarTaskAndActionsReque
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeSoarTaskAndActionsResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeSophonCommandsRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeSophonCommandsResponse;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeVendorApiListRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\DescribeVendorApiListResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ModifyComponentAssetRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ModifyComponentAssetResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\ModifyPlaybookInputOutputRequest;
@@ -96,6 +108,12 @@ use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RenamePlaybookNodeRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RenamePlaybookNodeResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RevertPlaybookReleaseRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RevertPlaybookReleaseResponse;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RunNotifyComponentWithEmailRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RunNotifyComponentWithEmailResponse;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RunNotifyComponentWithMessageCenterRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RunNotifyComponentWithMessageCenterResponse;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RunNotifyComponentWithWebhookRequest;
+use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RunNotifyComponentWithWebhookResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RunPython3ScriptRequest;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\RunPython3ScriptResponse;
 use AlibabaCloud\SDK\Sophonsoar\V20220728\Models\TriggerPlaybookRequest;
@@ -171,21 +189,24 @@ class Sophonsoar extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchModifyInstanceStatus',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchModifyInstanceStatus',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchModifyInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchModifyInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchModifyInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -230,18 +251,21 @@ class Sophonsoar extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ComparePlaybooks',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ComparePlaybooks',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ComparePlaybooksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ComparePlaybooksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ComparePlaybooksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -259,7 +283,144 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Creates a playbook.
+     * @summary Convert XML configuration.
+     *  *
+     * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the orchestration product before using this interface.
+     *  *
+     * @param ConvertPlaybookRequest $request ConvertPlaybookRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ConvertPlaybookResponse ConvertPlaybookResponse
+     */
+    public function convertPlaybookWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $query['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->taskflow)) {
+            $body['Taskflow'] = $request->taskflow;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ConvertPlaybook',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ConvertPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ConvertPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Convert XML configuration.
+     *  *
+     * @description Please ensure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the orchestration product before using this interface.
+     *  *
+     * @param ConvertPlaybookRequest $request ConvertPlaybookRequest
+     *
+     * @return ConvertPlaybookResponse ConvertPlaybookResponse
+     */
+    public function convertPlaybook($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->convertPlaybookWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 剧本复制
+     *  *
+     * @param CopyPlaybookRequest $request CopyPlaybookRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CopyPlaybookResponse CopyPlaybookResponse
+     */
+    public function copyPlaybookWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $query['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['DisplayName'] = $request->displayName;
+        }
+        if (!Utils::isUnset($request->releaseVersion)) {
+            $body['ReleaseVersion'] = $request->releaseVersion;
+        }
+        if (!Utils::isUnset($request->sourcePlaybookUuid)) {
+            $body['SourcePlaybookUuid'] = $request->sourcePlaybookUuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CopyPlaybook',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CopyPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CopyPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 剧本复制
+     *  *
+     * @param CopyPlaybookRequest $request CopyPlaybookRequest
+     *
+     * @return CopyPlaybookResponse CopyPlaybookResponse
+     */
+    public function copyPlaybook($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->copyPlaybookWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary New Playbook.
+     *  *
+     * @description Create Playbook.
      *  *
      * @param CreatePlaybookRequest $request CreatePlaybookRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -286,22 +447,27 @@ class Sophonsoar extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreatePlaybook',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePlaybook',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreatePlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePlaybookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a playbook.
+     * @summary New Playbook.
+     *  *
+     * @description Create Playbook.
      *  *
      * @param CreatePlaybookRequest $request CreatePlaybookRequest
      *
@@ -342,18 +508,21 @@ class Sophonsoar extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DebugPlaybook',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DebugPlaybook',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DebugPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DebugPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DebugPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -392,18 +561,21 @@ class Sophonsoar extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteComponentAsset',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteComponentAsset',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteComponentAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteComponentAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteComponentAssetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -442,18 +614,21 @@ class Sophonsoar extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeletePlaybook',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePlaybook',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeletePlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePlaybookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -471,50 +646,6 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the API operations of the cloud service.
-     *  *
-     * @param DescribeApiListRequest $request DescribeApiListRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeApiListResponse DescribeApiListResponse
-     */
-    public function describeApiListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeApiList',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeApiListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the API operations of the cloud service.
-     *  *
-     * @param DescribeApiListRequest $request DescribeApiListRequest
-     *
-     * @return DescribeApiListResponse DescribeApiListResponse
-     */
-    public function describeApiList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeApiListWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Queries the metadata of assets in a component. The metadata of an asset refers to the fields that describe the asset.
      *  *
      * @param DescribeComponentAssetFormRequest $request DescribeComponentAssetFormRequest
@@ -526,22 +657,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeComponentAssetForm',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeComponentAssetForm',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeComponentAssetFormResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeComponentAssetFormResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeComponentAssetFormResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -570,22 +704,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeComponentAssets',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeComponentAssets',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeComponentAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeComponentAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeComponentAssetsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -614,22 +751,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeComponentList',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeComponentList',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeComponentListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeComponentListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeComponentListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -658,22 +798,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeComponentPlaybook',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeComponentPlaybook',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeComponentPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeComponentPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeComponentPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -702,22 +845,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeComponentsJs',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeComponentsJs',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeComponentsJsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeComponentsJsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeComponentsJsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -746,22 +892,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDistinctReleases',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDistinctReleases',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDistinctReleasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDistinctReleasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDistinctReleasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -790,22 +939,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEnumItems',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEnumItems',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeEnumItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeEnumItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEnumItemsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -834,22 +986,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExecutePlaybooks',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExecutePlaybooks',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeExecutePlaybooksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeExecutePlaybooksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeExecutePlaybooksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -878,22 +1033,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeField',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeField',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFieldResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -911,6 +1069,53 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
+     * @summary 获取OpenAPI的产品列表
+     *  *
+     * @param DescribeGroupProductionsRequest $request DescribeGroupProductionsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeGroupProductionsResponse DescribeGroupProductionsResponse
+     */
+    public function describeGroupProductionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeGroupProductions',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeGroupProductionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeGroupProductionsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取OpenAPI的产品列表
+     *  *
+     * @param DescribeGroupProductionsRequest $request DescribeGroupProductionsRequest
+     *
+     * @return DescribeGroupProductionsResponse DescribeGroupProductionsResponse
+     */
+    public function describeGroupProductions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGroupProductionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the output structure information of each node in a playbook based on the most recent running record of the playbook.
      *  *
      * @param DescribeLatestRecordSchemaRequest $request DescribeLatestRecordSchemaRequest
@@ -922,22 +1127,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLatestRecordSchema',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLatestRecordSchema',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeLatestRecordSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeLatestRecordSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeLatestRecordSchemaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -966,22 +1174,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNodeParamTags',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNodeParamTags',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeNodeParamTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeNodeParamTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeNodeParamTagsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1010,22 +1221,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNodeUsedInfos',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNodeUsedInfos',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeNodeUsedInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeNodeUsedInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeNodeUsedInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1043,6 +1257,147 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
+     * @summary 查询通知消息模版列表
+     *  *
+     * @param DescribeNotifyTemplateListRequest $request DescribeNotifyTemplateListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeNotifyTemplateListResponse DescribeNotifyTemplateListResponse
+     */
+    public function describeNotifyTemplateListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNotifyTemplateList',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeNotifyTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeNotifyTemplateListResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询通知消息模版列表
+     *  *
+     * @param DescribeNotifyTemplateListRequest $request DescribeNotifyTemplateListRequest
+     *
+     * @return DescribeNotifyTemplateListResponse DescribeNotifyTemplateListResponse
+     */
+    public function describeNotifyTemplateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNotifyTemplateListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取产品接口的详情
+     *  *
+     * @param DescribeOpenApiInfoRequest $request DescribeOpenApiInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeOpenApiInfoResponse DescribeOpenApiInfoResponse
+     */
+    public function describeOpenApiInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOpenApiInfo',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeOpenApiInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeOpenApiInfoResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取产品接口的详情
+     *  *
+     * @param DescribeOpenApiInfoRequest $request DescribeOpenApiInfoRequest
+     *
+     * @return DescribeOpenApiInfoResponse DescribeOpenApiInfoResponse
+     */
+    public function describeOpenApiInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOpenApiInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取产品的接口列表
+     *  *
+     * @param DescribeOpenApiListRequest $request DescribeOpenApiListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeOpenApiListResponse DescribeOpenApiListResponse
+     */
+    public function describeOpenApiListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOpenApiList',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeOpenApiListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeOpenApiListResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取产品的接口列表
+     *  *
+     * @param DescribeOpenApiListRequest $request DescribeOpenApiListRequest
+     *
+     * @return DescribeOpenApiListResponse DescribeOpenApiListResponse
+     */
+    public function describeOpenApiList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOpenApiListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the XML configuration of a playbook.
      *  *
      * @param DescribePlaybookRequest $request DescribePlaybookRequest
@@ -1054,22 +1409,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePlaybook',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePlaybook',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePlaybookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1098,22 +1456,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePlaybookInputOutput',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePlaybookInputOutput',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePlaybookInputOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePlaybookInputOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePlaybookInputOutputResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1142,22 +1503,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePlaybookMetrics',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePlaybookMetrics',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePlaybookMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePlaybookMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePlaybookMetricsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1186,22 +1550,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePlaybookNodesOutput',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePlaybookNodesOutput',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePlaybookNodesOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePlaybookNodesOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePlaybookNodesOutputResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1230,22 +1597,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePlaybookNumberMetrics',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePlaybookNumberMetrics',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePlaybookNumberMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePlaybookNumberMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePlaybookNumberMetricsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1274,22 +1644,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePlaybookReleases',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePlaybookReleases',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePlaybookReleasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePlaybookReleasesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePlaybookReleasesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1307,7 +1680,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries playbooks.
+     * @summary Retrieve the list of playbooks.
      *  *
      * @param DescribePlaybooksRequest $request DescribePlaybooksRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1318,26 +1691,29 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePlaybooks',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePlaybooks',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePlaybooksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePlaybooksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePlaybooksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries playbooks.
+     * @summary Retrieve the list of playbooks.
      *  *
      * @param DescribePlaybooksRequest $request DescribePlaybooksRequest
      *
@@ -1362,22 +1738,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePopApi',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePopApi',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePopApiResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePopApiResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePopApiResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1406,22 +1785,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePopApiItemList',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePopApiItemList',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePopApiItemListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePopApiItemListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePopApiItemListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1439,51 +1821,54 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the version information of API operations for an Alibaba Cloud service.
+     * @summary 获取统计信息
      *  *
-     * @param DescribePopApiVersionListRequest $request DescribePopApiVersionListRequest
+     * @param DescribeProcessStatisticsRequest $request DescribeProcessStatisticsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePopApiVersionListResponse DescribePopApiVersionListResponse
+     * @return DescribeProcessStatisticsResponse DescribeProcessStatisticsResponse
      */
-    public function describePopApiVersionListWithOptions($request, $runtime)
+    public function describeProcessStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePopApiVersionList',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProcessStatistics',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeProcessStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePopApiVersionListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProcessStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the version information of API operations for an Alibaba Cloud service.
+     * @summary 获取统计信息
      *  *
-     * @param DescribePopApiVersionListRequest $request DescribePopApiVersionListRequest
+     * @param DescribeProcessStatisticsRequest $request DescribeProcessStatisticsRequest
      *
-     * @return DescribePopApiVersionListResponse DescribePopApiVersionListResponse
+     * @return DescribeProcessStatisticsResponse DescribeProcessStatisticsResponse
      */
-    public function describePopApiVersionList($request)
+    public function describeProcessStatistics($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describePopApiVersionListWithOptions($request, $runtime);
+        return $this->describeProcessStatisticsWithOptions($request, $runtime);
     }
 
     /**
-     * @summary 根据实体uuid查询关联的处置任务数
+     * @summary Query the number of associated disposal tasks based on the entity UUID.
      *  *
      * @param DescribeProcessTaskCountRequest $request DescribeProcessTaskCountRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1494,26 +1879,29 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProcessTaskCount',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProcessTaskCount',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeProcessTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProcessTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProcessTaskCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据实体uuid查询关联的处置任务数
+     * @summary Query the number of associated disposal tasks based on the entity UUID.
      *  *
      * @param DescribeProcessTaskCountRequest $request DescribeProcessTaskCountRequest
      *
@@ -1537,23 +1925,89 @@ class Sophonsoar extends OpenApiClient
     public function describeProcessTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->entityName)) {
+            $query['EntityName'] = $request->entityName;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->entityUuid)) {
+            $query['EntityUuid'] = $request->entityUuid;
+        }
+        if (!Utils::isUnset($request->eventUuid)) {
+            $query['EventUuid'] = $request->eventUuid;
+        }
+        if (!Utils::isUnset($request->orderField)) {
+            $query['OrderField'] = $request->orderField;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->paramContent)) {
+            $query['ParamContent'] = $request->paramContent;
+        }
+        if (!Utils::isUnset($request->processActionEnd)) {
+            $query['ProcessActionEnd'] = $request->processActionEnd;
+        }
+        if (!Utils::isUnset($request->processActionStart)) {
+            $query['ProcessActionStart'] = $request->processActionStart;
+        }
+        if (!Utils::isUnset($request->processRemoveEnd)) {
+            $query['ProcessRemoveEnd'] = $request->processRemoveEnd;
+        }
+        if (!Utils::isUnset($request->processRemoveStart)) {
+            $query['ProcessRemoveStart'] = $request->processRemoveStart;
+        }
+        if (!Utils::isUnset($request->processStrategyUuid)) {
+            $query['ProcessStrategyUuid'] = $request->processStrategyUuid;
+        }
+        if (!Utils::isUnset($request->sceneCode)) {
+            $query['SceneCode'] = $request->sceneCode;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskStatus)) {
+            $query['TaskStatus'] = $request->taskStatus;
+        }
+        if (!Utils::isUnset($request->triggerSource)) {
+            $query['TriggerSource'] = $request->triggerSource;
+        }
+        if (!Utils::isUnset($request->yunCode)) {
+            $query['YunCode'] = $request->yunCode;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProcessTasks',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProcessTasks',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeProcessTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProcessTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProcessTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1582,22 +2036,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSoarRecordActionOutputList',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSoarRecordActionOutputList',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeSoarRecordActionOutputListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSoarRecordActionOutputListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSoarRecordActionOutputListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1626,22 +2083,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSoarRecordInOutput',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSoarRecordInOutput',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeSoarRecordInOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSoarRecordInOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSoarRecordInOutputResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1659,7 +2119,7 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
-     * @summary Queries the execution records of a playbook.
+     * @summary Get the execution records of a playbook.
      *  *
      * @param DescribeSoarRecordsRequest $request DescribeSoarRecordsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1670,26 +2130,29 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSoarRecords',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSoarRecords',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeSoarRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSoarRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSoarRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the execution records of a playbook.
+     * @summary Get the execution records of a playbook.
      *  *
      * @param DescribeSoarRecordsRequest $request DescribeSoarRecordsRequest
      *
@@ -1714,22 +2177,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSoarTaskAndActions',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSoarTaskAndActions',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeSoarTaskAndActionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSoarTaskAndActionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSoarTaskAndActionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1765,18 +2231,21 @@ class Sophonsoar extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSophonCommands',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSophonCommands',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeSophonCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSophonCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSophonCommandsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1794,6 +2263,71 @@ class Sophonsoar extends OpenApiClient
     }
 
     /**
+     * @summary 查询云厂商OpenApi列表
+     *  *
+     * @param DescribeVendorApiListRequest $request DescribeVendorApiListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeVendorApiListResponse DescribeVendorApiListResponse
+     */
+    public function describeVendorApiListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiName)) {
+            $query['ApiName'] = $request->apiName;
+        }
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->vendorCode)) {
+            $query['VendorCode'] = $request->vendorCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVendorApiList',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVendorApiListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeVendorApiListResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询云厂商OpenApi列表
+     *  *
+     * @param DescribeVendorApiListRequest $request DescribeVendorApiListRequest
+     *
+     * @return DescribeVendorApiListResponse DescribeVendorApiListResponse
+     */
+    public function describeVendorApiList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVendorApiListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the operational logs of a Python3 script by using the UUID that is returned when the script is run. The UUID is specified by requestUuid.
      *  *
      * @param DescriberPython3ScriptLogsRequest $request DescriberPython3ScriptLogsRequest
@@ -1805,22 +2339,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescriberPython3ScriptLogs',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescriberPython3ScriptLogs',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescriberPython3ScriptLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescriberPython3ScriptLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescriberPython3ScriptLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1859,18 +2396,21 @@ class Sophonsoar extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyComponentAsset',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyComponentAsset',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyComponentAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyComponentAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyComponentAssetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1918,18 +2458,21 @@ class Sophonsoar extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPlaybook',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPlaybook',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1980,18 +2523,21 @@ class Sophonsoar extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPlaybookInputOutput',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPlaybookInputOutput',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyPlaybookInputOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyPlaybookInputOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyPlaybookInputOutputResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2032,21 +2578,24 @@ class Sophonsoar extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPlaybookInstanceStatus',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPlaybookInstanceStatus',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyPlaybookInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyPlaybookInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyPlaybookInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2085,18 +2634,21 @@ class Sophonsoar extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PublishPlaybook',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PublishPlaybook',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PublishPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PublishPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2125,22 +2677,25 @@ class Sophonsoar extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryTreeData',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryTreeData',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryTreeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryTreeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryTreeDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2185,18 +2740,21 @@ class Sophonsoar extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RenamePlaybookNode',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RenamePlaybookNode',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RenamePlaybookNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RenamePlaybookNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenamePlaybookNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2238,18 +2796,21 @@ class Sophonsoar extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RevertPlaybookRelease',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevertPlaybookRelease',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RevertPlaybookReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RevertPlaybookReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevertPlaybookReleaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2264,6 +2825,252 @@ class Sophonsoar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revertPlaybookReleaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 执行通知组件-email发送消息
+     *  *
+     * @param RunNotifyComponentWithEmailRequest $request RunNotifyComponentWithEmailRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunNotifyComponentWithEmailResponse RunNotifyComponentWithEmailResponse
+     */
+    public function runNotifyComponentWithEmailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->actionName)) {
+            $query['ActionName'] = $request->actionName;
+        }
+        if (!Utils::isUnset($request->assetId)) {
+            $query['AssetId'] = $request->assetId;
+        }
+        if (!Utils::isUnset($request->componentName)) {
+            $query['ComponentName'] = $request->componentName;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->nodeName)) {
+            $query['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->playbookUuid)) {
+            $query['PlaybookUuid'] = $request->playbookUuid;
+        }
+        if (!Utils::isUnset($request->receivers)) {
+            $query['Receivers'] = $request->receivers;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $query['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $query['Subject'] = $request->subject;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RunNotifyComponentWithEmail',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RunNotifyComponentWithEmailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RunNotifyComponentWithEmailResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 执行通知组件-email发送消息
+     *  *
+     * @param RunNotifyComponentWithEmailRequest $request RunNotifyComponentWithEmailRequest
+     *
+     * @return RunNotifyComponentWithEmailResponse RunNotifyComponentWithEmailResponse
+     */
+    public function runNotifyComponentWithEmail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runNotifyComponentWithEmailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 执行通知组件-消息中心发送消息
+     *  *
+     * @param RunNotifyComponentWithMessageCenterRequest $request RunNotifyComponentWithMessageCenterRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunNotifyComponentWithMessageCenterResponse RunNotifyComponentWithMessageCenterResponse
+     */
+    public function runNotifyComponentWithMessageCenterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->actionName)) {
+            $query['ActionName'] = $request->actionName;
+        }
+        if (!Utils::isUnset($request->aliuid)) {
+            $query['Aliuid'] = $request->aliuid;
+        }
+        if (!Utils::isUnset($request->assetId)) {
+            $query['AssetId'] = $request->assetId;
+        }
+        if (!Utils::isUnset($request->channelTypeList)) {
+            $query['ChannelTypeList'] = $request->channelTypeList;
+        }
+        if (!Utils::isUnset($request->componentName)) {
+            $query['ComponentName'] = $request->componentName;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $query['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->nodeName)) {
+            $query['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->playbookUuid)) {
+            $query['PlaybookUuid'] = $request->playbookUuid;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $query['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RunNotifyComponentWithMessageCenter',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RunNotifyComponentWithMessageCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RunNotifyComponentWithMessageCenterResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 执行通知组件-消息中心发送消息
+     *  *
+     * @param RunNotifyComponentWithMessageCenterRequest $request RunNotifyComponentWithMessageCenterRequest
+     *
+     * @return RunNotifyComponentWithMessageCenterResponse RunNotifyComponentWithMessageCenterResponse
+     */
+    public function runNotifyComponentWithMessageCenter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runNotifyComponentWithMessageCenterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 执行通知组件-webhook发送消息
+     *  *
+     * @param RunNotifyComponentWithWebhookRequest $request RunNotifyComponentWithWebhookRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunNotifyComponentWithWebhookResponse RunNotifyComponentWithWebhookResponse
+     */
+    public function runNotifyComponentWithWebhookWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->actionName)) {
+            $query['ActionName'] = $request->actionName;
+        }
+        if (!Utils::isUnset($request->assetId)) {
+            $query['AssetId'] = $request->assetId;
+        }
+        if (!Utils::isUnset($request->componentName)) {
+            $query['ComponentName'] = $request->componentName;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->msgType)) {
+            $query['MsgType'] = $request->msgType;
+        }
+        if (!Utils::isUnset($request->nodeName)) {
+            $query['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->playbookUuid)) {
+            $query['PlaybookUuid'] = $request->playbookUuid;
+        }
+        if (!Utils::isUnset($request->roleFor)) {
+            $query['RoleFor'] = $request->roleFor;
+        }
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
+        }
+        if (!Utils::isUnset($request->secret)) {
+            $query['Secret'] = $request->secret;
+        }
+        if (!Utils::isUnset($request->webhook)) {
+            $query['Webhook'] = $request->webhook;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RunNotifyComponentWithWebhook',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RunNotifyComponentWithWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RunNotifyComponentWithWebhookResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 执行通知组件-webhook发送消息
+     *  *
+     * @param RunNotifyComponentWithWebhookRequest $request RunNotifyComponentWithWebhookRequest
+     *
+     * @return RunNotifyComponentWithWebhookResponse RunNotifyComponentWithWebhookResponse
+     */
+    public function runNotifyComponentWithWebhook($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runNotifyComponentWithWebhookWithOptions($request, $runtime);
     }
 
     /**
@@ -2296,18 +3103,21 @@ class Sophonsoar extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunPython3Script',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RunPython3Script',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RunPython3ScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunPython3ScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunPython3ScriptResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2350,18 +3160,21 @@ class Sophonsoar extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TriggerPlaybook',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TriggerPlaybook',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return TriggerPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TriggerPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TriggerPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2401,21 +3214,24 @@ class Sophonsoar extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TriggerProcessTask',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TriggerProcessTask',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return TriggerProcessTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TriggerProcessTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TriggerProcessTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2465,18 +3281,21 @@ class Sophonsoar extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TriggerSophonPlaybook',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TriggerSophonPlaybook',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return TriggerSophonPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TriggerSophonPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TriggerSophonPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2517,18 +3336,21 @@ class Sophonsoar extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'VerifyPlaybook',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyPlaybook',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return VerifyPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return VerifyPlaybookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return VerifyPlaybookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2564,18 +3386,21 @@ class Sophonsoar extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'VerifyPythonFile',
-            'version'     => '2022-07-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VerifyPythonFile',
+            'version' => '2022-07-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return VerifyPythonFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return VerifyPythonFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return VerifyPythonFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

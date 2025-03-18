@@ -21,7 +21,13 @@ class RunPython3ScriptResponseBody extends Model
      * @description The execution result of the Python3 script.
      *
      * @example {
+     * "requestUuid": "fe240b98-27b1-4a36-aec1-550b894318d9",
+     * "content": {
+     * "resultData": [],
+     * "success": true
      * }
+     * }
+     *
      * @var string
      */
     public $runResult;
@@ -30,9 +36,7 @@ class RunPython3ScriptResponseBody extends Model
         'runResult' => 'RunResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

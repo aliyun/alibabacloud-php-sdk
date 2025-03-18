@@ -105,6 +105,7 @@ class actions extends Model
      * @description The status of the triggered component action.
      *
      * >  This parameter is disabled and left empty.
+     *
      * @example NULL
      *
      * @var string
@@ -120,23 +121,21 @@ class actions extends Model
      */
     public $triggerUser;
     protected $_name = [
-        'action'      => 'Action',
-        'actionUuid'  => 'ActionUuid',
-        'assetName'   => 'AssetName',
-        'component'   => 'Component',
-        'endTime'     => 'EndTime',
-        'nodeName'    => 'NodeName',
+        'action' => 'Action',
+        'actionUuid' => 'ActionUuid',
+        'assetName' => 'AssetName',
+        'component' => 'Component',
+        'endTime' => 'EndTime',
+        'nodeName' => 'NodeName',
         'requestUuid' => 'RequestUuid',
-        'startTime'   => 'StartTime',
-        'status'      => 'Status',
-        'taskName'    => 'TaskName',
-        'taskStatus'  => 'TaskStatus',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'taskName' => 'TaskName',
+        'taskStatus' => 'TaskStatus',
         'triggerUser' => 'TriggerUser',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

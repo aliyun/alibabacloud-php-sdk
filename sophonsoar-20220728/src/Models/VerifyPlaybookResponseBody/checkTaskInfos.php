@@ -39,14 +39,12 @@ class checkTaskInfos extends Model
      */
     public $riskLevel;
     protected $_name = [
-        'detail'    => 'Detail',
-        'nodeName'  => 'NodeName',
+        'detail' => 'Detail',
+        'nodeName' => 'NodeName',
         'riskLevel' => 'RiskLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

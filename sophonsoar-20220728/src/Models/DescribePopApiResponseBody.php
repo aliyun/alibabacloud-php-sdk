@@ -52,16 +52,14 @@ class DescribePopApiResponseBody extends Model
      */
     public $version;
     protected $_name = [
-        'apiName'         => 'ApiName',
+        'apiName' => 'ApiName',
         'openApiMetaList' => 'OpenApiMetaList',
-        'popCode'         => 'PopCode',
-        'requestId'       => 'RequestId',
-        'version'         => 'Version',
+        'popCode' => 'PopCode',
+        'requestId' => 'RequestId',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +103,7 @@ class DescribePopApiResponseBody extends Model
         if (isset($map['OpenApiMetaList'])) {
             if (!empty($map['OpenApiMetaList'])) {
                 $model->openApiMetaList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['OpenApiMetaList'] as $item) {
                     $model->openApiMetaList[$n++] = null !== $item ? openApiMetaList::fromMap($item) : $item;
                 }

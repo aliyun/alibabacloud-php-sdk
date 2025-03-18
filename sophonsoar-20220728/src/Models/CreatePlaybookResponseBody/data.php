@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The UUID of the playbook.
+     * @description UUID of the newly created playbook.
      *
      * @example 9e38111e-9794-4784-9ca8-xxxxxxx
      *
@@ -20,9 +20,7 @@ class data extends Model
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

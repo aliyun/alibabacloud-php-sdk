@@ -23,7 +23,10 @@ class DescribeDistinctReleasesRequest extends Model
     /**
      * @description The playbook UUID.
      *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+     *
      * This parameter is required.
+     *
      * @example bc0b8424-535c-4ed5-bd94-xxxxxx
      *
      * @var string
@@ -39,14 +42,12 @@ class DescribeDistinctReleasesRequest extends Model
      */
     public $taskflowMd5;
     protected $_name = [
-        'lang'         => 'Lang',
+        'lang' => 'Lang',
         'playbookUuid' => 'PlaybookUuid',
-        'taskflowMd5'  => 'TaskflowMd5',
+        'taskflowMd5' => 'TaskflowMd5',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

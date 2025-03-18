@@ -12,8 +12,15 @@ class DescribeSoarRecordActionOutputListResponseBody extends Model
      * @description The data that is returned when the component action is performed. The value is a JSON array.
      *
      * >  The format of the output data is determined by the component that is configured when the playbook is written.
+     *
      * @example [
+     * {
+     * "a": "a",
+     * "taskname": "92af3c79-1754-4646-9366-9ddbd1e45536_xxxx",
+     * "log_time": 1699868849000
+     * }
      * ]
+     *
      * @var string
      */
     public $actionOutputs;
@@ -55,15 +62,13 @@ class DescribeSoarRecordActionOutputListResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'actionOutputs' => 'ActionOutputs',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

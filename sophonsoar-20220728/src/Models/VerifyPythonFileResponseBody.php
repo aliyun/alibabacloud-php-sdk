@@ -26,12 +26,10 @@ class VerifyPythonFileResponseBody extends Model
     public $syntax;
     protected $_name = [
         'requestId' => 'RequestId',
-        'syntax'    => 'Syntax',
+        'syntax' => 'Syntax',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class VerifyPythonFileResponseBody extends Model
         if (isset($map['Syntax'])) {
             if (!empty($map['Syntax'])) {
                 $model->syntax = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Syntax'] as $item) {
                     $model->syntax[$n++] = null !== $item ? syntax::fromMap($item) : $item;
                 }

@@ -30,8 +30,19 @@ class playbookMetrics extends Model
      * @description The configuration of the input parameter. The value is a JSON array.
      *
      * >  For more information, see [DescribePlaybookInputOutput](~~DescribePlaybookInputOutput~~).
+     *
      * @example [
+     * {
+     * "typeName": "String",
+     * "dataClass": "normal",
+     * "dataType": "String",
+     * "description": "period",
+     * "example": "",
+     * "name": "period",
+     * "required": false
+     * }
      * ]
+     *
      * @var string
      */
     public $paramConfig;
@@ -62,13 +73,11 @@ class playbookMetrics extends Model
         'description' => 'Description',
         'displayName' => 'DisplayName',
         'paramConfig' => 'ParamConfig',
-        'paramType'   => 'ParamType',
-        'uuid'        => 'Uuid',
+        'paramType' => 'ParamType',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class DescribeSoarTaskAndActionsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'details'   => 'Details',
+        'details' => 'Details',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

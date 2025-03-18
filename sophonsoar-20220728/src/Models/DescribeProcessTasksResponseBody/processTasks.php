@@ -68,6 +68,11 @@ class processTasks extends Model
     public $errTip;
 
     /**
+     * @var string
+     */
+    public $eventUuid;
+
+    /**
      * @description The creation time of the handling task. The value is a 13-digit timestamp.
      *
      * @example 1700031183572
@@ -120,6 +125,11 @@ class processTasks extends Model
      * @var int
      */
     public $removeTime;
+
+    /**
+     * @var string
+     */
+    public $reqUuid;
 
     /**
      * @description The scenario code of the handling task.
@@ -176,6 +186,11 @@ class processTasks extends Model
     public $taskStatus;
 
     /**
+     * @var string
+     */
+    public $triggerSource;
+
+    /**
      * @description The code of the cloud service that is associated with the handling task.
      *
      * @example WAF
@@ -184,31 +199,32 @@ class processTasks extends Model
      */
     public $yunCode;
     protected $_name = [
-        'creator'             => 'Creator',
-        'entityName'          => 'EntityName',
-        'entityType'          => 'EntityType',
-        'entityUuid'          => 'EntityUuid',
-        'errCode'             => 'ErrCode',
-        'errMsg'              => 'ErrMsg',
-        'errTip'              => 'ErrTip',
-        'gmtCreateMillis'     => 'GmtCreateMillis',
-        'gmtModifiedMillis'   => 'GmtModifiedMillis',
-        'inputParams'         => 'InputParams',
+        'creator' => 'Creator',
+        'entityName' => 'EntityName',
+        'entityType' => 'EntityType',
+        'entityUuid' => 'EntityUuid',
+        'errCode' => 'ErrCode',
+        'errMsg' => 'ErrMsg',
+        'errTip' => 'ErrTip',
+        'eventUuid' => 'EventUuid',
+        'gmtCreateMillis' => 'GmtCreateMillis',
+        'gmtModifiedMillis' => 'GmtModifiedMillis',
+        'inputParams' => 'InputParams',
         'processStrategyUuid' => 'ProcessStrategyUuid',
-        'processTime'         => 'ProcessTime',
-        'removeTime'          => 'RemoveTime',
-        'sceneCode'           => 'SceneCode',
-        'sceneName'           => 'SceneName',
-        'scope'               => 'Scope',
-        'source'              => 'Source',
-        'taskId'              => 'TaskId',
-        'taskStatus'          => 'TaskStatus',
-        'yunCode'             => 'YunCode',
+        'processTime' => 'ProcessTime',
+        'removeTime' => 'RemoveTime',
+        'reqUuid' => 'ReqUuid',
+        'sceneCode' => 'SceneCode',
+        'sceneName' => 'SceneName',
+        'scope' => 'Scope',
+        'source' => 'Source',
+        'taskId' => 'TaskId',
+        'taskStatus' => 'TaskStatus',
+        'triggerSource' => 'TriggerSource',
+        'yunCode' => 'YunCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -234,6 +250,9 @@ class processTasks extends Model
         if (null !== $this->errTip) {
             $res['ErrTip'] = $this->errTip;
         }
+        if (null !== $this->eventUuid) {
+            $res['EventUuid'] = $this->eventUuid;
+        }
         if (null !== $this->gmtCreateMillis) {
             $res['GmtCreateMillis'] = $this->gmtCreateMillis;
         }
@@ -252,6 +271,9 @@ class processTasks extends Model
         if (null !== $this->removeTime) {
             $res['RemoveTime'] = $this->removeTime;
         }
+        if (null !== $this->reqUuid) {
+            $res['ReqUuid'] = $this->reqUuid;
+        }
         if (null !== $this->sceneCode) {
             $res['SceneCode'] = $this->sceneCode;
         }
@@ -269,6 +291,9 @@ class processTasks extends Model
         }
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
+        }
+        if (null !== $this->triggerSource) {
+            $res['TriggerSource'] = $this->triggerSource;
         }
         if (null !== $this->yunCode) {
             $res['YunCode'] = $this->yunCode;
@@ -306,6 +331,9 @@ class processTasks extends Model
         if (isset($map['ErrTip'])) {
             $model->errTip = $map['ErrTip'];
         }
+        if (isset($map['EventUuid'])) {
+            $model->eventUuid = $map['EventUuid'];
+        }
         if (isset($map['GmtCreateMillis'])) {
             $model->gmtCreateMillis = $map['GmtCreateMillis'];
         }
@@ -324,6 +352,9 @@ class processTasks extends Model
         if (isset($map['RemoveTime'])) {
             $model->removeTime = $map['RemoveTime'];
         }
+        if (isset($map['ReqUuid'])) {
+            $model->reqUuid = $map['ReqUuid'];
+        }
         if (isset($map['SceneCode'])) {
             $model->sceneCode = $map['SceneCode'];
         }
@@ -341,6 +372,9 @@ class processTasks extends Model
         }
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
+        }
+        if (isset($map['TriggerSource'])) {
+            $model->triggerSource = $map['TriggerSource'];
         }
         if (isset($map['YunCode'])) {
             $model->yunCode = $map['YunCode'];

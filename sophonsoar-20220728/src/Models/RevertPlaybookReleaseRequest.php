@@ -23,7 +23,10 @@ class RevertPlaybookReleaseRequest extends Model
     /**
      * @description The version of the playbook that you want to publish.
      *
+     * >  You can call the [DescribePlaybookReleases](~~DescribePlaybookReleases~~) operation to query the playbook version.
+     *
      * This parameter is required.
+     *
      * @example 3f97b56e-064e-47e7-a309-xxxxxxx
      *
      * @var int
@@ -33,21 +36,22 @@ class RevertPlaybookReleaseRequest extends Model
     /**
      * @description The UUID of the playbook.
      *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the playbook UUID.
+     *
      * This parameter is required.
+     *
      * @example 185295a1-c987-4b64-8796-xxxxxxxx
      *
      * @var string
      */
     public $playbookUuid;
     protected $_name = [
-        'isPublish'     => 'IsPublish',
+        'isPublish' => 'IsPublish',
         'playReleaseId' => 'PlayReleaseId',
-        'playbookUuid'  => 'PlaybookUuid',
+        'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

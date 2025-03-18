@@ -23,20 +23,21 @@ class DescribeLatestRecordSchemaRequest extends Model
     /**
      * @description The UUID of the playbook.
      *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
+     *
      * This parameter is required.
+     *
      * @example c5c88b5e-97ca-435d-8c20-xxxxxx
      *
      * @var string
      */
     public $playbookUuid;
     protected $_name = [
-        'lang'         => 'Lang',
+        'lang' => 'Lang',
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

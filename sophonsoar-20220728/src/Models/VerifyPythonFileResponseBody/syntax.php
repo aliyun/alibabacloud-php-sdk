@@ -65,17 +65,15 @@ class syntax extends Model
      */
     public $startLineNumber;
     protected $_name = [
-        'endColumn'       => 'EndColumn',
-        'endLineNumber'   => 'EndLineNumber',
-        'message'         => 'Message',
-        'severity'        => 'Severity',
-        'startColumn'     => 'StartColumn',
+        'endColumn' => 'EndColumn',
+        'endLineNumber' => 'EndLineNumber',
+        'message' => 'Message',
+        'severity' => 'Severity',
+        'startColumn' => 'StartColumn',
         'startLineNumber' => 'StartLineNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

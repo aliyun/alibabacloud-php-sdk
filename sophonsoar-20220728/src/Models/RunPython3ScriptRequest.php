@@ -21,7 +21,10 @@ class RunPython3ScriptRequest extends Model
      * @description The input parameters of the Python3 script.
      *
      * @example {
+     * "input1": "xx.xx.xx.xx",
+     * "input2": "7d"
      * }
+     *
      * @var string
      */
     public $params;
@@ -30,6 +33,7 @@ class RunPython3ScriptRequest extends Model
      * @description The UUID of the playbook.
      *
      * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the UUIDs of playbooks.
+     *
      * @example 8baa6cff-319e-4ede-97bc-xxxxxxx
      *
      * @var string
@@ -40,20 +44,25 @@ class RunPython3ScriptRequest extends Model
      * @description The Python3 script.
      *
      * @example import logging
+     * def execute (params):
+     * #ip = params[\\"ip\\"]
+     * #logging.info("enter execute,ip is "+ip)
+     * success=True
+     * message=\\"OK\\"
+     * data=[]
      * return (success,message,data)
+     *
      * @var string
      */
     public $pythonScript;
     protected $_name = [
-        'nodeName'     => 'NodeName',
-        'params'       => 'Params',
+        'nodeName' => 'NodeName',
+        'params' => 'Params',
         'playbookUuid' => 'PlaybookUuid',
         'pythonScript' => 'PythonScript',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

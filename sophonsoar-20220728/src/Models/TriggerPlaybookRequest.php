@@ -12,8 +12,12 @@ class TriggerPlaybookRequest extends Model
      * @description The input parameters of the playbook.
      *
      * This parameter is required.
+     *
      * @example {
+     * "input1": "xx.xx.xx.xx",
+     * "input2": "7d"
      * }
+     *
      * @var string
      */
     public $inputParam;
@@ -21,20 +25,21 @@ class TriggerPlaybookRequest extends Model
     /**
      * @description The playbook UUID.
      *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
+     *
      * This parameter is required.
+     *
      * @example 2a687089-d4dd-47d4-9709-xxxxxxxx
      *
      * @var string
      */
     public $playbookUuid;
     protected $_name = [
-        'inputParam'   => 'InputParam',
+        'inputParam' => 'InputParam',
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

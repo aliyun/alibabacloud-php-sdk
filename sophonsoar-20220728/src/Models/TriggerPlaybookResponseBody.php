@@ -26,13 +26,11 @@ class TriggerPlaybookResponseBody extends Model
      */
     public $triggerUuid;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'triggerUuid' => 'TriggerUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -35,7 +35,10 @@ class DescribePlaybookRequest extends Model
     /**
      * @description The UUID of the playbook.
      *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~)operation to query the UUIDs of playbooks.
+     *
      * This parameter is required.
+     *
      * @example 9030076b-6733-4842-b05a-xxxxx
      *
      * @var string
@@ -51,15 +54,13 @@ class DescribePlaybookRequest extends Model
      */
     public $taskflowMd5;
     protected $_name = [
-        'debugFlag'    => 'DebugFlag',
-        'lang'         => 'Lang',
+        'debugFlag' => 'DebugFlag',
+        'lang' => 'Lang',
         'playbookUuid' => 'PlaybookUuid',
-        'taskflowMd5'  => 'TaskflowMd5',
+        'taskflowMd5' => 'TaskflowMd5',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,8 +12,26 @@ class ModifyComponentAssetRequest extends Model
      * @description The configuration of the asset. The value is a JSON object.
      *
      * This parameter is required.
+     *
      * @example {
+     * "name": "test asset",
+     * "componentName": "SLS",
+     * "params": [
+     * {
+     * "name": "end_point",
+     * "value": "xxx"
+     * },
+     * {
+     * "name": "sub_id",
+     * "value": "xxxx"
+     * },
+     * {
+     * "name": "access_key",
+     * "value": "xxxx"
      * }
+     * ]
+     * }
+     *
      * @var string
      */
     public $assetConfig;
@@ -31,12 +49,10 @@ class ModifyComponentAssetRequest extends Model
     public $lang;
     protected $_name = [
         'assetConfig' => 'AssetConfig',
-        'lang'        => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

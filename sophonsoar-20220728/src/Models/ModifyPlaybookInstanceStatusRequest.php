@@ -15,6 +15,7 @@ class ModifyPlaybookInstanceStatusRequest extends Model
      *   **0**: stops the playbook.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -36,21 +37,22 @@ class ModifyPlaybookInstanceStatusRequest extends Model
     /**
      * @description The playbook UUID.
      *
+     * >  You can call the [DescribePlaybooks](~~DescribePlaybooks~~) operation to query the playbook UUID.
+     *
      * This parameter is required.
+     *
      * @example 9fcd3829-80ff-4681-be1e-xxxxxxxx
      *
      * @var string
      */
     public $playbookUuid;
     protected $_name = [
-        'active'       => 'Active',
-        'lang'         => 'Lang',
+        'active' => 'Active',
+        'lang' => 'Lang',
         'playbookUuid' => 'PlaybookUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

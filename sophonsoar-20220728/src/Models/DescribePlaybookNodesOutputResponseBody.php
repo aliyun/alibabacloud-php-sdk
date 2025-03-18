@@ -26,12 +26,10 @@ class DescribePlaybookNodesOutputResponseBody extends Model
     public $requestId;
     protected $_name = [
         'playbookNodesOutput' => 'PlaybookNodesOutput',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

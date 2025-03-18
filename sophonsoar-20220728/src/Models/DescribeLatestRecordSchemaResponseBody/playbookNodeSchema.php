@@ -19,9 +19,7 @@ class playbookNodeSchema extends Model
         'nodeSchema' => 'NodeSchema',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class playbookNodeSchema extends Model
         if (isset($map['NodeSchema'])) {
             if (!empty($map['NodeSchema'])) {
                 $model->nodeSchema = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['NodeSchema'] as $item) {
                     $model->nodeSchema[$n++] = null !== $item ? nodeSchema::fromMap($item) : $item;
                 }

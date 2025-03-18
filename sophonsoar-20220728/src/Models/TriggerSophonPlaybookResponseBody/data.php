@@ -20,9 +20,7 @@ class data extends Model
         'sophonTaskId' => 'SophonTaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

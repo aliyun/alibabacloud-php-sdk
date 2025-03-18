@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sophonsoar\V20220728\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeApiListResponse extends Model
+class CopyPlaybookResponse extends Model
 {
     /**
      * @var string[]
@@ -19,18 +19,16 @@ class DescribeApiListResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeApiListResponseBody
+     * @var CopyPlaybookResponseBody
      */
     public $body;
     protected $_name = [
-        'headers'    => 'headers',
+        'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'body' => 'body',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -51,7 +49,7 @@ class DescribeApiListResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeApiListResponse
+     * @return CopyPlaybookResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +61,7 @@ class DescribeApiListResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeApiListResponseBody::fromMap($map['body']);
+            $model->body = CopyPlaybookResponseBody::fromMap($map['body']);
         }
 
         return $model;

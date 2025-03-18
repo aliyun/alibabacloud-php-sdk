@@ -26,12 +26,10 @@ class VerifyPlaybookResponseBody extends Model
     public $requestId;
     protected $_name = [
         'checkTaskInfos' => 'CheckTaskInfos',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class VerifyPlaybookResponseBody extends Model
         if (isset($map['CheckTaskInfos'])) {
             if (!empty($map['CheckTaskInfos'])) {
                 $model->checkTaskInfos = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['CheckTaskInfos'] as $item) {
                     $model->checkTaskInfos[$n++] = null !== $item ? checkTaskInfos::fromMap($item) : $item;
                 }

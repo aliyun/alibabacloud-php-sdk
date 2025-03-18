@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Count.
+     *
      * @example 67
      *
      * @var int
@@ -16,19 +18,19 @@ class data extends Model
     public $count;
 
     /**
+     * @description Entity UUID.
+     *
      * @example a680c9ae-****-4c39-****-0302****fc8e
      *
      * @var string
      */
     public $entityUuid;
     protected $_name = [
-        'count'      => 'Count',
+        'count' => 'Count',
         'entityUuid' => 'EntityUuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -14,6 +14,7 @@ class DescribeEnumItemsRequest extends Model
      *   **process**: scenarios
      *
      * This parameter is required.
+     *
      * @example process
      *
      * @var string
@@ -33,12 +34,10 @@ class DescribeEnumItemsRequest extends Model
     public $lang;
     protected $_name = [
         'enumType' => 'EnumType',
-        'lang'     => 'Lang',
+        'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

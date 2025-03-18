@@ -33,14 +33,12 @@ class DescribePlaybookReleasesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'page'      => 'Page',
-        'records'   => 'Records',
+        'page' => 'Page',
+        'records' => 'Records',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,7 +76,7 @@ class DescribePlaybookReleasesResponseBody extends Model
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Records'] as $item) {
                     $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
                 }
