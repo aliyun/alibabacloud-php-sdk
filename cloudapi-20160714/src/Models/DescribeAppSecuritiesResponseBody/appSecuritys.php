@@ -17,9 +17,7 @@ class appSecuritys extends Model
         'appSecurity' => 'AppSecurity',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class appSecuritys extends Model
         if (isset($map['AppSecurity'])) {
             if (!empty($map['AppSecurity'])) {
                 $model->appSecurity = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['AppSecurity'] as $item) {
                     $model->appSecurity[$n++] = null !== $item ? appSecurity::fromMap($item) : $item;
                 }

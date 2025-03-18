@@ -17,9 +17,7 @@ class systemParams extends Model
         'systemParamItem' => 'SystemParamItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class systemParams extends Model
         if (isset($map['SystemParamItem'])) {
             if (!empty($map['SystemParamItem'])) {
                 $model->systemParamItem = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['SystemParamItem'] as $item) {
                     $model->systemParamItem[$n++] = null !== $item ? systemParamItem::fromMap($item) : $item;
                 }

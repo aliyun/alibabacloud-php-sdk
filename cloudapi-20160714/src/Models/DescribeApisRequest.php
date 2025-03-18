@@ -138,25 +138,23 @@ class DescribeApisRequest extends Model
      */
     public $visibility;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'apiMethod'     => 'ApiMethod',
-        'apiName'       => 'ApiName',
-        'apiPath'       => 'ApiPath',
-        'catalogId'     => 'CatalogId',
+        'apiId' => 'ApiId',
+        'apiMethod' => 'ApiMethod',
+        'apiName' => 'ApiName',
+        'apiPath' => 'ApiPath',
+        'catalogId' => 'CatalogId',
         'enableTagAuth' => 'EnableTagAuth',
-        'groupId'       => 'GroupId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'groupId' => 'GroupId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
-        'tag'           => 'Tag',
-        'unDeployed'    => 'UnDeployed',
-        'visibility'    => 'Visibility',
+        'stageName' => 'StageName',
+        'tag' => 'Tag',
+        'unDeployed' => 'UnDeployed',
+        'visibility' => 'Visibility',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -257,7 +255,7 @@ class DescribeApisRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

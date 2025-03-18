@@ -24,6 +24,7 @@ class UntagResourcesRequest extends Model
      * @description The resource IDs.
      *
      * This parameter is required.
+     *
      * @example 285bb759342649a1b70c2093a772e087
      *
      * @var string[]
@@ -38,6 +39,7 @@ class UntagResourcesRequest extends Model
      *   **app**
      *
      * This parameter is required.
+     *
      * @example apiGroup
      *
      * @var string
@@ -62,16 +64,14 @@ class UntagResourcesRequest extends Model
      */
     public $tagKey;
     protected $_name = [
-        'all'           => 'All',
-        'resourceId'    => 'ResourceId',
-        'resourceType'  => 'ResourceType',
+        'all' => 'All',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
         'securityToken' => 'SecurityToken',
-        'tagKey'        => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

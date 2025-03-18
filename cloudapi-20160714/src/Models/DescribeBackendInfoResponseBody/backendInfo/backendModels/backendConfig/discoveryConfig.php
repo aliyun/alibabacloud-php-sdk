@@ -33,14 +33,12 @@ class discoveryConfig extends Model
      */
     public $zookeeperConfig;
     protected $_name = [
-        'nacosConfig'     => 'NacosConfig',
-        'rcType'          => 'RcType',
+        'nacosConfig' => 'NacosConfig',
+        'rcType' => 'RcType',
         'zookeeperConfig' => 'ZookeeperConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

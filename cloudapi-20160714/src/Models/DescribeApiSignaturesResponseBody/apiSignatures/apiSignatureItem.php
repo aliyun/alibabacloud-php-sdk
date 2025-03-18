@@ -53,16 +53,14 @@ class apiSignatureItem extends Model
      */
     public $signatureName;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'apiName'       => 'ApiName',
-        'boundTime'     => 'BoundTime',
-        'signatureId'   => 'SignatureId',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'boundTime' => 'BoundTime',
+        'signatureId' => 'SignatureId',
         'signatureName' => 'SignatureName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

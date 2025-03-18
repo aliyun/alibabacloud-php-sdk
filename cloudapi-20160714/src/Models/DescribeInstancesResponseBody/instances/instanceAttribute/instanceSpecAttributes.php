@@ -17,9 +17,7 @@ class instanceSpecAttributes extends Model
         'specAttribute' => 'SpecAttribute',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class instanceSpecAttributes extends Model
         if (isset($map['SpecAttribute'])) {
             if (!empty($map['SpecAttribute'])) {
                 $model->specAttribute = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['SpecAttribute'] as $item) {
                     $model->specAttribute[$n++] = null !== $item ? specAttribute::fromMap($item) : $item;
                 }

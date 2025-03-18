@@ -52,16 +52,14 @@ class DescribeAccessControlListsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'acls'       => 'Acls',
+        'acls' => 'Acls',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

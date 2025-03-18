@@ -43,16 +43,14 @@ class pluginSchema extends Model
      */
     public $title;
     protected $_name = [
-        'description'    => 'Description',
-        'documentId'     => 'DocumentId',
-        'name'           => 'Name',
+        'description' => 'Description',
+        'documentId' => 'DocumentId',
+        'name' => 'Name',
         'supportClassic' => 'SupportClassic',
-        'title'          => 'Title',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

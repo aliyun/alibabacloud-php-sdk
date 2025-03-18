@@ -25,13 +25,11 @@ class DescribeGroupTrafficResponseBody extends Model
      */
     public $trafficPerSecond;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'trafficPerSecond' => 'TrafficPerSecond',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -101,21 +101,19 @@ class apiHisItem extends Model
      */
     public $status;
     protected $_name = [
-        'apiId'          => 'ApiId',
-        'apiName'        => 'ApiName',
-        'deployedTime'   => 'DeployedTime',
-        'description'    => 'Description',
-        'groupId'        => 'GroupId',
-        'groupName'      => 'GroupName',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'deployedTime' => 'DeployedTime',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
         'historyVersion' => 'HistoryVersion',
-        'regionId'       => 'RegionId',
-        'stageName'      => 'StageName',
-        'status'         => 'Status',
+        'regionId' => 'RegionId',
+        'stageName' => 'StageName',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

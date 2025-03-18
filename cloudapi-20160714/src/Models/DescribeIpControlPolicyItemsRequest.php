@@ -49,16 +49,14 @@ class DescribeIpControlPolicyItemsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'ipControlId'   => 'IpControlId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'policyItemId'  => 'PolicyItemId',
+        'ipControlId' => 'IpControlId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'policyItemId' => 'PolicyItemId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

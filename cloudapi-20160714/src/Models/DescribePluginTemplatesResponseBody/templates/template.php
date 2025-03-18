@@ -53,16 +53,14 @@ class template extends Model
      */
     public $title;
     protected $_name = [
-        'description'    => 'Description',
+        'description' => 'Description',
         'documentAnchor' => 'DocumentAnchor',
-        'documentId'     => 'DocumentId',
-        'sample'         => 'Sample',
-        'title'          => 'Title',
+        'documentId' => 'DocumentId',
+        'sample' => 'Sample',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

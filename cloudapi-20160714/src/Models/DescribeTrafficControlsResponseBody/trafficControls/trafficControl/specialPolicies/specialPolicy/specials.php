@@ -17,9 +17,7 @@ class specials extends Model
         'special' => 'Special',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class specials extends Model
         if (isset($map['Special'])) {
             if (!empty($map['Special'])) {
                 $model->special = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Special'] as $item) {
                     $model->special[$n++] = null !== $item ? special::fromMap($item) : $item;
                 }

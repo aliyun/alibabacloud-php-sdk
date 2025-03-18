@@ -20,9 +20,7 @@ class apiProductInfo extends Model
         'apiProductId' => 'ApiProductId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

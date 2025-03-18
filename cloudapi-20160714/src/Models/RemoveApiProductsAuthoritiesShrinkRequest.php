@@ -12,6 +12,7 @@ class RemoveApiProductsAuthoritiesShrinkRequest extends Model
      * @description The API products.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $apiProductIdsShrink;
@@ -20,6 +21,7 @@ class RemoveApiProductsAuthoritiesShrinkRequest extends Model
      * @description The application ID.
      *
      * This parameter is required.
+     *
      * @example 110982490
      *
      * @var int
@@ -32,13 +34,11 @@ class RemoveApiProductsAuthoritiesShrinkRequest extends Model
     public $securityToken;
     protected $_name = [
         'apiProductIdsShrink' => 'ApiProductIds',
-        'appId'               => 'AppId',
-        'securityToken'       => 'SecurityToken',
+        'appId' => 'AppId',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

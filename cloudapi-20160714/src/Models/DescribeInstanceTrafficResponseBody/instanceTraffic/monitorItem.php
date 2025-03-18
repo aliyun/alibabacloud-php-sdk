@@ -38,14 +38,12 @@ class monitorItem extends Model
      */
     public $itemValue;
     protected $_name = [
-        'item'      => 'Item',
-        'itemTime'  => 'ItemTime',
+        'item' => 'Item',
+        'itemTime' => 'ItemTime',
         'itemValue' => 'ItemValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

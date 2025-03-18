@@ -51,17 +51,15 @@ class CreateApiGroupRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'basePath'      => 'BasePath',
-        'description'   => 'Description',
-        'groupName'     => 'GroupName',
-        'instanceId'    => 'InstanceId',
+        'basePath' => 'BasePath',
+        'description' => 'Description',
+        'groupName' => 'GroupName',
+        'instanceId' => 'InstanceId',
         'securityToken' => 'SecurityToken',
-        'tag'           => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -120,7 +118,7 @@ class CreateApiGroupRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

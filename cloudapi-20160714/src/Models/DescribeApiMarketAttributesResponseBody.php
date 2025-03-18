@@ -44,15 +44,13 @@ class DescribeApiMarketAttributesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'apiId'              => 'ApiId',
+        'apiId' => 'ApiId',
         'marketChargingMode' => 'MarketChargingMode',
-        'needCharging'       => 'NeedCharging',
-        'requestId'          => 'RequestId',
+        'needCharging' => 'NeedCharging',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

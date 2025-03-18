@@ -27,14 +27,12 @@ class SetGroupAuthAppCodeRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'authAppCode'   => 'AuthAppCode',
-        'groupId'       => 'GroupId',
+        'authAppCode' => 'AuthAppCode',
+        'groupId' => 'GroupId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -114,23 +114,21 @@ class DescribeInstanceClusterInfoResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'createdTime'              => 'CreatedTime',
-        'description'              => 'Description',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
         'instanceClusterAttribute' => 'InstanceClusterAttribute',
-        'instanceClusterId'        => 'InstanceClusterId',
-        'instanceClusterName'      => 'InstanceClusterName',
-        'instanceClusterStatus'    => 'InstanceClusterStatus',
-        'instanceClusterType'      => 'InstanceClusterType',
-        'instanceClusterVersion'   => 'InstanceClusterVersion',
-        'instanceList'             => 'InstanceList',
-        'modifiedTime'             => 'ModifiedTime',
-        'regionId'                 => 'RegionId',
-        'requestId'                => 'RequestId',
+        'instanceClusterId' => 'InstanceClusterId',
+        'instanceClusterName' => 'InstanceClusterName',
+        'instanceClusterStatus' => 'InstanceClusterStatus',
+        'instanceClusterType' => 'InstanceClusterType',
+        'instanceClusterVersion' => 'InstanceClusterVersion',
+        'instanceList' => 'InstanceList',
+        'modifiedTime' => 'ModifiedTime',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

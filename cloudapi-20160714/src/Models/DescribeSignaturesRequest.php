@@ -49,16 +49,14 @@ class DescribeSignaturesRequest extends Model
      */
     public $signatureName;
     protected $_name = [
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'signatureId'   => 'SignatureId',
+        'signatureId' => 'SignatureId',
         'signatureName' => 'SignatureName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

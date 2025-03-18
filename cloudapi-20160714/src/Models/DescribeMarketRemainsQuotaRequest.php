@@ -12,6 +12,7 @@ class DescribeMarketRemainsQuotaRequest extends Model
      * @description The custom domain name.
      *
      * This parameter is required.
+     *
      * @example *.demo.com
      *
      * @var string
@@ -23,13 +24,11 @@ class DescribeMarketRemainsQuotaRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainName'    => 'DomainName',
+        'domainName' => 'DomainName',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

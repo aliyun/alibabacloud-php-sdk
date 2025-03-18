@@ -68,24 +68,23 @@ class groupPluginSummary extends Model
      * - **RELEASE**: Production
      * - **PRE**: Pre-release
      * - **TEST**: Testing
+     *
      * @example RELEASE
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'basePath'    => 'BasePath',
+        'basePath' => 'BasePath',
         'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
-        'regionId'    => 'RegionId',
-        'stageAlias'  => 'StageAlias',
-        'stageName'   => 'StageName',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'regionId' => 'RegionId',
+        'stageAlias' => 'StageAlias',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

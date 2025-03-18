@@ -116,22 +116,20 @@ class authorizedApi extends Model
      */
     public $stageName;
     protected $_name = [
-        'apiId'               => 'ApiId',
-        'apiName'             => 'ApiName',
-        'authVaildTime'       => 'AuthVaildTime',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'authVaildTime' => 'AuthVaildTime',
         'authorizationSource' => 'AuthorizationSource',
-        'authorizedTime'      => 'AuthorizedTime',
-        'description'         => 'Description',
-        'groupId'             => 'GroupId',
-        'groupName'           => 'GroupName',
-        'operator'            => 'Operator',
-        'regionId'            => 'RegionId',
-        'stageName'           => 'StageName',
+        'authorizedTime' => 'AuthorizedTime',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'operator' => 'Operator',
+        'regionId' => 'RegionId',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

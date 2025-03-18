@@ -52,16 +52,14 @@ class DescribeAppsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'apps'       => 'Apps',
+        'apps' => 'Apps',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

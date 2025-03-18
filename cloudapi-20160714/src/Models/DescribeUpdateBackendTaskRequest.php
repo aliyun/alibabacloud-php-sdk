@@ -22,13 +22,11 @@ class DescribeUpdateBackendTaskRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'operationUid'  => 'OperationUid',
+        'operationUid' => 'OperationUid',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,6 +30,7 @@ class DescribeHistoryApisRequest extends Model
      * @description The ID of the API group.
      *
      * This parameter is required.
+     *
      * @example 0ccb66aadb5345b78a40f57d192d8aa4
      *
      * @var string
@@ -71,18 +72,16 @@ class DescribeHistoryApisRequest extends Model
      */
     public $stageName;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'apiName'       => 'ApiName',
-        'groupId'       => 'GroupId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'groupId' => 'GroupId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

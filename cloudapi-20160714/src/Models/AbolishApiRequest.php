@@ -12,6 +12,7 @@ class AbolishApiRequest extends Model
      * @description The ID of the specified API.
      *
      * This parameter is required.
+     *
      * @example d6f679aeb3be4b91b3688e887ca1fe16
      *
      * @var string
@@ -39,21 +40,20 @@ class AbolishApiRequest extends Model
      *   **TEST**
      *
      * This parameter is required.
+     *
      * @example RELEASE
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'groupId'       => 'GroupId',
+        'apiId' => 'ApiId',
+        'groupId' => 'GroupId',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -71,18 +71,16 @@ class edasConfig extends Model
      */
     public $serviceName;
     protected $_name = [
-        'edasAppId'                 => 'EdasAppId',
-        'microserviceNamespace'     => 'MicroserviceNamespace',
-        'microserviceNamespaceId'   => 'MicroserviceNamespaceId',
+        'edasAppId' => 'EdasAppId',
+        'microserviceNamespace' => 'MicroserviceNamespace',
+        'microserviceNamespaceId' => 'MicroserviceNamespaceId',
         'microserviceNamespaceName' => 'MicroserviceNamespaceName',
-        'mseInstanceId'             => 'MseInstanceId',
-        'registryType'              => 'RegistryType',
-        'serviceName'               => 'ServiceName',
+        'mseInstanceId' => 'MseInstanceId',
+        'registryType' => 'RegistryType',
+        'serviceName' => 'ServiceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

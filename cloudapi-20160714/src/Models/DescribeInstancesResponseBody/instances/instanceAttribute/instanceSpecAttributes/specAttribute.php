@@ -27,12 +27,10 @@ class specAttribute extends Model
     public $value;
     protected $_name = [
         'localName' => 'LocalName',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

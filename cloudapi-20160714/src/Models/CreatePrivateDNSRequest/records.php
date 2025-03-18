@@ -30,9 +30,7 @@ class records extends Model
         'weight' => 'Weight',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

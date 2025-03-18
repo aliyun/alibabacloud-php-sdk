@@ -27,12 +27,10 @@ class aclEntry extends Model
     public $aclEntryIp;
     protected $_name = [
         'aclEntryComment' => 'AclEntryComment',
-        'aclEntryIp'      => 'AclEntryIp',
+        'aclEntryIp' => 'AclEntryIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

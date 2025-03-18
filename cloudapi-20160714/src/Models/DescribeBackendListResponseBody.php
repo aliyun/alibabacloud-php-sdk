@@ -53,15 +53,13 @@ class DescribeBackendListResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'backendInfoList' => 'BackendInfoList',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeBackendListResponseBody extends Model
         if (isset($map['BackendInfoList'])) {
             if (!empty($map['BackendInfoList'])) {
                 $model->backendInfoList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['BackendInfoList'] as $item) {
                     $model->backendInfoList[$n++] = null !== $item ? backendInfoList::fromMap($item) : $item;
                 }

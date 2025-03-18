@@ -49,16 +49,14 @@ class DescribeAccessControlListsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'aclName'          => 'AclName',
+        'aclName' => 'AclName',
         'addressIPVersion' => 'AddressIPVersion',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'securityToken'    => 'SecurityToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

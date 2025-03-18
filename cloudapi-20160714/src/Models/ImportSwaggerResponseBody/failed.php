@@ -17,9 +17,7 @@ class failed extends Model
         'apiImportSwaggerFailed' => 'ApiImportSwaggerFailed',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class failed extends Model
         if (isset($map['ApiImportSwaggerFailed'])) {
             if (!empty($map['ApiImportSwaggerFailed'])) {
                 $model->apiImportSwaggerFailed = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['ApiImportSwaggerFailed'] as $item) {
                     $model->apiImportSwaggerFailed[$n++] = null !== $item ? apiImportSwaggerFailed::fromMap($item) : $item;
                 }

@@ -70,18 +70,16 @@ class backendInfo extends Model
      */
     public $modifiedTime;
     protected $_name = [
-        'backendId'     => 'BackendId',
+        'backendId' => 'BackendId',
         'backendModels' => 'BackendModels',
-        'backendName'   => 'BackendName',
-        'backendType'   => 'BackendType',
-        'createdTime'   => 'CreatedTime',
-        'description'   => 'Description',
-        'modifiedTime'  => 'ModifiedTime',
+        'backendName' => 'BackendName',
+        'backendType' => 'BackendType',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'modifiedTime' => 'ModifiedTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -131,7 +129,7 @@ class backendInfo extends Model
         if (isset($map['BackendModels'])) {
             if (!empty($map['BackendModels'])) {
                 $model->backendModels = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['BackendModels'] as $item) {
                     $model->backendModels[$n++] = null !== $item ? backendModels::fromMap($item) : $item;
                 }

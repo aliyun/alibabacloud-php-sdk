@@ -58,17 +58,15 @@ class DryRunSwaggerResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'failed'          => 'Failed',
+        'failed' => 'Failed',
         'globalCondition' => 'GlobalCondition',
-        'modelFailed'     => 'ModelFailed',
-        'modelSuccess'    => 'ModelSuccess',
-        'requestId'       => 'RequestId',
-        'success'         => 'Success',
+        'modelFailed' => 'ModelFailed',
+        'modelSuccess' => 'ModelSuccess',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

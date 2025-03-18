@@ -17,9 +17,7 @@ class tagResources extends Model
         'tagResource' => 'TagResource',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class tagResources extends Model
         if (isset($map['TagResource'])) {
             if (!empty($map['TagResource'])) {
                 $model->tagResource = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['TagResource'] as $item) {
                     $model->tagResource[$n++] = null !== $item ? tagResource::fromMap($item) : $item;
                 }

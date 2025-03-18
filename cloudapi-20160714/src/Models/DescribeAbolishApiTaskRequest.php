@@ -12,6 +12,7 @@ class DescribeAbolishApiTaskRequest extends Model
      * @description The ID of the unpublishing operation.
      *
      * This parameter is required.
+     *
      * @example fc54****dd4c4***ad7edd7****39401
      *
      * @var string
@@ -23,13 +24,11 @@ class DescribeAbolishApiTaskRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'operationUid'  => 'OperationUid',
+        'operationUid' => 'OperationUid',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

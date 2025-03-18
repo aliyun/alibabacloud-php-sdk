@@ -17,9 +17,7 @@ class apiSummarys extends Model
         'apiPluginSummary' => 'ApiPluginSummary',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class apiSummarys extends Model
         if (isset($map['ApiPluginSummary'])) {
             if (!empty($map['ApiPluginSummary'])) {
                 $model->apiPluginSummary = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ApiPluginSummary'] as $item) {
                     $model->apiPluginSummary[$n++] = null !== $item ? apiPluginSummary::fromMap($item) : $item;
                 }

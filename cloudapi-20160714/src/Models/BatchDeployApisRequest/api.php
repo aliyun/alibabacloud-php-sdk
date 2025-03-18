@@ -12,6 +12,7 @@ class api extends Model
      * @description The API ID.
      *
      * This parameter is required.
+     *
      * @example 2b35dd68345b472f8051647306a16415
      *
      * @var string
@@ -22,19 +23,18 @@ class api extends Model
      * @description The API group ID.
      *
      * This parameter is required.
+     *
      * @example b4f5c342b8bc4ef88ccda0332402e0fa
      *
      * @var string
      */
     public $groupId;
     protected $_name = [
-        'apiUid'  => 'ApiUid',
+        'apiUid' => 'ApiUid',
         'groupId' => 'GroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

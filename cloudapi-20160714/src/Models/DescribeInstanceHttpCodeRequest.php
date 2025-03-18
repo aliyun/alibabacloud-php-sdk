@@ -12,6 +12,7 @@ class DescribeInstanceHttpCodeRequest extends Model
      * @description The end time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
      *
      * This parameter is required.
+     *
      * @example 2022-07-21T06:05:52Z
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeInstanceHttpCodeRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example apigateway-cn-m7r227yy2004
      *
      * @var string
@@ -41,6 +43,7 @@ class DescribeInstanceHttpCodeRequest extends Model
      *   **TEST**: the test environment
      *
      * This parameter is required.
+     *
      * @example RELEASE
      *
      * @var string
@@ -51,22 +54,21 @@ class DescribeInstanceHttpCodeRequest extends Model
      * @description The start time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
      *
      * This parameter is required.
+     *
      * @example 2022-04-14T02:12:10Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'instanceId'    => 'InstanceId',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
-        'startTime'     => 'StartTime',
+        'stageName' => 'StageName',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ModifyApiGroupNetworkPolicyRequest extends Model
      * @description The ID of the API group.
      *
      * This parameter is required.
+     *
      * @example b0162c75d7d34ff48506f1aff878b05e
      *
      * @var string
@@ -80,19 +81,17 @@ class ModifyApiGroupNetworkPolicyRequest extends Model
      */
     public $vpcSlbIntranetEnable;
     protected $_name = [
-        'groupId'              => 'GroupId',
-        'httpsPolicy'          => 'HttpsPolicy',
-        'innerDomainEnable'    => 'InnerDomainEnable',
-        'internetEnable'       => 'InternetEnable',
-        'internetIPV6Enable'   => 'InternetIPV6Enable',
-        'securityToken'        => 'SecurityToken',
-        'vpcIntranetEnable'    => 'VpcIntranetEnable',
+        'groupId' => 'GroupId',
+        'httpsPolicy' => 'HttpsPolicy',
+        'innerDomainEnable' => 'InnerDomainEnable',
+        'internetEnable' => 'InternetEnable',
+        'internetIPV6Enable' => 'InternetIPV6Enable',
+        'securityToken' => 'SecurityToken',
+        'vpcIntranetEnable' => 'VpcIntranetEnable',
         'vpcSlbIntranetEnable' => 'VpcSlbIntranetEnable',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

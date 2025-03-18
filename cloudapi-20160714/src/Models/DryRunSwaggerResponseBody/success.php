@@ -17,9 +17,7 @@ class success extends Model
         'apiDryRunSwaggerSuccess' => 'ApiDryRunSwaggerSuccess',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class success extends Model
         if (isset($map['ApiDryRunSwaggerSuccess'])) {
             if (!empty($map['ApiDryRunSwaggerSuccess'])) {
                 $model->apiDryRunSwaggerSuccess = [];
-                $n                              = 0;
+                $n = 0;
                 foreach ($map['ApiDryRunSwaggerSuccess'] as $item) {
                     $model->apiDryRunSwaggerSuccess[$n++] = null !== $item ? apiDryRunSwaggerSuccess::fromMap($item) : $item;
                 }

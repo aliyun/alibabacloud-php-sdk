@@ -100,22 +100,20 @@ class backendConfig extends Model
      */
     public $vpcConfig;
     protected $_name = [
-        'discoveryConfig'       => 'DiscoveryConfig',
-        'edasConfig'            => 'EdasConfig',
-        'eventBridgeConfig'     => 'EventBridgeConfig',
+        'discoveryConfig' => 'DiscoveryConfig',
+        'edasConfig' => 'EdasConfig',
+        'eventBridgeConfig' => 'EventBridgeConfig',
         'functionComputeConfig' => 'FunctionComputeConfig',
-        'httpTargetHostName'    => 'HttpTargetHostName',
-        'mockConfig'            => 'MockConfig',
-        'ossConfig'             => 'OssConfig',
-        'serviceAddress'        => 'ServiceAddress',
-        'serviceTimeout'        => 'ServiceTimeout',
-        'type'                  => 'Type',
-        'vpcConfig'             => 'VpcConfig',
+        'httpTargetHostName' => 'HttpTargetHostName',
+        'mockConfig' => 'MockConfig',
+        'ossConfig' => 'OssConfig',
+        'serviceAddress' => 'ServiceAddress',
+        'serviceTimeout' => 'ServiceTimeout',
+        'type' => 'Type',
+        'vpcConfig' => 'VpcConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

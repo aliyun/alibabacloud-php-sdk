@@ -127,23 +127,21 @@ class serviceConfig extends Model
     public $vpcId;
     protected $_name = [
         'functionComputeConfig' => 'FunctionComputeConfig',
-        'mock'                  => 'Mock',
-        'mockHeaders'           => 'MockHeaders',
-        'mockResult'            => 'MockResult',
-        'mockStatusCode'        => 'MockStatusCode',
-        'serviceAddress'        => 'ServiceAddress',
-        'serviceHttpMethod'     => 'ServiceHttpMethod',
-        'servicePath'           => 'ServicePath',
-        'serviceProtocol'       => 'ServiceProtocol',
-        'serviceTimeout'        => 'ServiceTimeout',
-        'serviceVpcEnable'      => 'ServiceVpcEnable',
-        'vpcConfig'             => 'VpcConfig',
-        'vpcId'                 => 'VpcId',
+        'mock' => 'Mock',
+        'mockHeaders' => 'MockHeaders',
+        'mockResult' => 'MockResult',
+        'mockStatusCode' => 'MockStatusCode',
+        'serviceAddress' => 'ServiceAddress',
+        'serviceHttpMethod' => 'ServiceHttpMethod',
+        'servicePath' => 'ServicePath',
+        'serviceProtocol' => 'ServiceProtocol',
+        'serviceTimeout' => 'ServiceTimeout',
+        'serviceVpcEnable' => 'ServiceVpcEnable',
+        'vpcConfig' => 'VpcConfig',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

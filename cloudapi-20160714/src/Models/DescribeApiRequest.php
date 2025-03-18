@@ -12,6 +12,7 @@ class DescribeApiRequest extends Model
      * @description The ID of the API.
      *
      * This parameter is required.
+     *
      * @example 8afff6c8c4c6447abb035812e4d66b65
      *
      * @var string
@@ -32,14 +33,12 @@ class DescribeApiRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'groupId'       => 'GroupId',
+        'apiId' => 'ApiId',
+        'groupId' => 'GroupId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -31,14 +31,12 @@ class SdkGenerateByAppRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'appId'         => 'AppId',
-        'language'      => 'Language',
+        'appId' => 'AppId',
+        'language' => 'Language',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DescribePluginsByApiRequest extends Model
      * @description The ID of the API.
      *
      * This parameter is required.
+     *
      * @example 93f4ead4080c4b2da70b7f81f50ae459
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribePluginsByApiRequest extends Model
      * @description The ID of the group to which the API belongs.
      *
      * This parameter is required.
+     *
      * @example 3c7a38392e764718ad7673e7b7f535d4
      *
      * @var string
@@ -59,23 +61,22 @@ class DescribePluginsByApiRequest extends Model
      *   **TEST**: test
      *
      * This parameter is required.
+     *
      * @example RELEASE
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'groupId'       => 'GroupId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'apiId' => 'ApiId',
+        'groupId' => 'GroupId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,6 +30,7 @@ class DescribeApisWithStageNameIntegratedByAppRequest extends Model
      * @description The application ID.
      *
      * This parameter is required.
+     *
      * @example 2386789
      *
      * @var int
@@ -86,20 +87,18 @@ class DescribeApisWithStageNameIntegratedByAppRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'apiName'       => 'ApiName',
-        'apiUid'        => 'ApiUid',
-        'appId'         => 'AppId',
-        'description'   => 'Description',
-        'method'        => 'Method',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'path'          => 'Path',
+        'apiName' => 'ApiName',
+        'apiUid' => 'ApiUid',
+        'appId' => 'AppId',
+        'description' => 'Description',
+        'method' => 'Method',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'path' => 'Path',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

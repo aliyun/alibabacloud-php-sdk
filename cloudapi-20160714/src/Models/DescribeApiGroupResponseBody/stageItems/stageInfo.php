@@ -36,13 +36,11 @@ class stageInfo extends Model
     public $stageName;
     protected $_name = [
         'description' => 'Description',
-        'stageId'     => 'StageId',
-        'stageName'   => 'StageName',
+        'stageId' => 'StageId',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

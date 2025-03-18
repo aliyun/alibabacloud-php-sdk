@@ -21,6 +21,7 @@ class ModifySignatureRequest extends Model
      * @description The ID of the signature key that you want to manage.
      *
      * This parameter is required.
+     *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
      * @var string
@@ -54,16 +55,14 @@ class ModifySignatureRequest extends Model
      */
     public $signatureSecret;
     protected $_name = [
-        'securityToken'   => 'SecurityToken',
-        'signatureId'     => 'SignatureId',
-        'signatureKey'    => 'SignatureKey',
-        'signatureName'   => 'SignatureName',
+        'securityToken' => 'SecurityToken',
+        'signatureId' => 'SignatureId',
+        'signatureKey' => 'SignatureKey',
+        'signatureName' => 'SignatureName',
         'signatureSecret' => 'SignatureSecret',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

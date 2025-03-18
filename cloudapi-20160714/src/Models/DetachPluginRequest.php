@@ -45,16 +45,14 @@ class DetachPluginRequest extends Model
      */
     public $stageName;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'groupId'       => 'GroupId',
-        'pluginId'      => 'PluginId',
+        'apiId' => 'ApiId',
+        'groupId' => 'GroupId',
+        'pluginId' => 'PluginId',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

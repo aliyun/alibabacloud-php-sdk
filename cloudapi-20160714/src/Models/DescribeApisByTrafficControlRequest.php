@@ -39,21 +39,20 @@ class DescribeApisByTrafficControlRequest extends Model
      * @description The ID of the throttling policy that you want to query.
      *
      * This parameter is required.
+     *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
      * @var string
      */
     public $trafficControlId;
     protected $_name = [
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'securityToken'    => 'SecurityToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'securityToken' => 'SecurityToken',
         'trafficControlId' => 'TrafficControlId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

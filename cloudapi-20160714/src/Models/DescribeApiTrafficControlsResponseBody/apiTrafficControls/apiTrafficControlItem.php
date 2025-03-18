@@ -53,16 +53,14 @@ class apiTrafficControlItem extends Model
      */
     public $trafficControlName;
     protected $_name = [
-        'apiId'              => 'ApiId',
-        'apiName'            => 'ApiName',
-        'boundTime'          => 'BoundTime',
-        'trafficControlId'   => 'TrafficControlId',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'boundTime' => 'BoundTime',
+        'trafficControlId' => 'TrafficControlId',
         'trafficControlName' => 'TrafficControlName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

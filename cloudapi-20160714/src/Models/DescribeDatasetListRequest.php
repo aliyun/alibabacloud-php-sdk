@@ -19,6 +19,11 @@ class DescribeDatasetListRequest extends Model
     public $datasetIds;
 
     /**
+     * @var string
+     */
+    public $datasetName;
+
+    /**
      * @description The number of the page to return. Pages start from page 1. Default value: 1.
      *
      * @example 1
@@ -48,22 +53,24 @@ class DescribeDatasetListRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'datasetIds'    => 'DatasetIds',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'datasetIds' => 'DatasetIds',
+        'datasetName' => 'DatasetName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'tag'           => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->datasetIds) {
             $res['DatasetIds'] = $this->datasetIds;
+        }
+        if (null !== $this->datasetName) {
+            $res['DatasetName'] = $this->datasetName;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -98,6 +105,9 @@ class DescribeDatasetListRequest extends Model
         if (isset($map['DatasetIds'])) {
             $model->datasetIds = $map['DatasetIds'];
         }
+        if (isset($map['DatasetName'])) {
+            $model->datasetName = $map['DatasetName'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -110,7 +120,7 @@ class DescribeDatasetListRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

@@ -82,19 +82,17 @@ class DescribePurchasedApiGroupResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'description'   => 'Description',
-        'domains'       => 'Domains',
-        'groupId'       => 'GroupId',
-        'groupName'     => 'GroupName',
+        'description' => 'Description',
+        'domains' => 'Domains',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
         'purchasedTime' => 'PurchasedTime',
-        'regionId'      => 'RegionId',
-        'requestId'     => 'RequestId',
-        'status'        => 'Status',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

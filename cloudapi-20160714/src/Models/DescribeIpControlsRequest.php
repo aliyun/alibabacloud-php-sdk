@@ -61,17 +61,15 @@ class DescribeIpControlsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'ipControlId'   => 'IpControlId',
+        'ipControlId' => 'IpControlId',
         'ipControlName' => 'IpControlName',
         'ipControlType' => 'IpControlType',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

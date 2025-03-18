@@ -121,22 +121,20 @@ class functionComputeConfig extends Model
     public $serviceName;
     protected $_name = [
         'contentTypeCatagory' => 'ContentTypeCatagory',
-        'contentTypeValue'    => 'ContentTypeValue',
-        'fcBaseUrl'           => 'FcBaseUrl',
-        'fcType'              => 'FcType',
-        'functionName'        => 'FunctionName',
-        'method'              => 'Method',
-        'onlyBusinessPath'    => 'OnlyBusinessPath',
-        'path'                => 'Path',
-        'qualifier'           => 'Qualifier',
-        'regionId'            => 'RegionId',
-        'roleArn'             => 'RoleArn',
-        'serviceName'         => 'ServiceName',
+        'contentTypeValue' => 'ContentTypeValue',
+        'fcBaseUrl' => 'FcBaseUrl',
+        'fcType' => 'FcType',
+        'functionName' => 'FunctionName',
+        'method' => 'Method',
+        'onlyBusinessPath' => 'OnlyBusinessPath',
+        'path' => 'Path',
+        'qualifier' => 'Qualifier',
+        'regionId' => 'RegionId',
+        'roleArn' => 'RoleArn',
+        'serviceName' => 'ServiceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

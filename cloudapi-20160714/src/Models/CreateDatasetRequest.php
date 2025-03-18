@@ -13,6 +13,7 @@ class CreateDatasetRequest extends Model
      * @description The name of the dataset.
      *
      * This parameter is required.
+     *
      * @example DatasetName
      *
      * @var string
@@ -27,6 +28,7 @@ class CreateDatasetRequest extends Model
      * PARAMETER_ACCESS : parameter-based access control
      *
      * This parameter is required.
+     *
      * @example JWT_BLOCKING
      *
      * @var string
@@ -45,15 +47,13 @@ class CreateDatasetRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'datasetName'   => 'DatasetName',
-        'datasetType'   => 'DatasetType',
+        'datasetName' => 'DatasetName',
+        'datasetType' => 'DatasetType',
         'securityToken' => 'SecurityToken',
-        'tag'           => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -100,7 +100,7 @@ class CreateDatasetRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

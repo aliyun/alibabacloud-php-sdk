@@ -23,12 +23,10 @@ class DescribeInstanceClusterInfoRequest extends Model
     public $securityToken;
     protected $_name = [
         'instanceClusterName' => 'InstanceClusterName',
-        'securityToken'       => 'SecurityToken',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

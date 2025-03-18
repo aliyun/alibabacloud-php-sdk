@@ -27,6 +27,7 @@ class ModifyIpControlPolicyItemRequest extends Model
      * @description The IP address or CIDR block that is defined in a policy. Separate multiple IP addresses or CIDR blocks with semicolons (;). You can add a maximum of 10 IP addresses or CIDR blocks.
      *
      * This parameter is required.
+     *
      * @example 113.125.1.101;101.11.1.1
      *
      * @var string
@@ -37,6 +38,7 @@ class ModifyIpControlPolicyItemRequest extends Model
      * @description The ID of the ACL. The ID is unique.
      *
      * This parameter is required.
+     *
      * @example 7ea91319a34d48a09b5c9c871d9768b1
      *
      * @var string
@@ -47,6 +49,7 @@ class ModifyIpControlPolicyItemRequest extends Model
      * @description The ID of the policy.
      *
      * This parameter is required.
+     *
      * @example P151617000829241
      *
      * @var string
@@ -58,16 +61,14 @@ class ModifyIpControlPolicyItemRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'appId'         => 'AppId',
-        'cidrIp'        => 'CidrIp',
-        'ipControlId'   => 'IpControlId',
-        'policyItemId'  => 'PolicyItemId',
+        'appId' => 'AppId',
+        'cidrIp' => 'CidrIp',
+        'ipControlId' => 'IpControlId',
+        'policyItemId' => 'PolicyItemId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,13 +36,11 @@ class zookeeperConfig extends Model
     public $serviceName;
     protected $_name = [
         'connectString' => 'ConnectString',
-        'namespace'     => 'Namespace',
-        'serviceName'   => 'ServiceName',
+        'namespace' => 'Namespace',
+        'serviceName' => 'ServiceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

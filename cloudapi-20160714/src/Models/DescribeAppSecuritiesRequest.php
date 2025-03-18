@@ -12,6 +12,7 @@ class DescribeAppSecuritiesRequest extends Model
      * @description The application ID.
      *
      * This parameter is required.
+     *
      * @example 110862931
      *
      * @var int
@@ -23,13 +24,11 @@ class DescribeAppSecuritiesRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'appId'         => 'AppId',
+        'appId' => 'AppId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

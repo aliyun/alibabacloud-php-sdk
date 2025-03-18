@@ -104,7 +104,9 @@ class DescribeApiGroupResponseBody extends Model
     /**
      * @description The type of exclusive instance where the group is located
      *
+     * - VPC fusion type exclusive instance: vpc_connect
      * - Traditional type exclusive instance: normal
+     *
      * @example normal
      *
      * @var string
@@ -223,7 +225,10 @@ class DescribeApiGroupResponseBody extends Model
     /**
      * @description Group migration instance task status
      *
+     * - Running
+     * - Success
      * - Failed
+     *
      * @example Fail
      *
      * @var string
@@ -330,45 +335,43 @@ class DescribeApiGroupResponseBody extends Model
      */
     public $vpcSlbIntranetDomain;
     protected $_name = [
-        'basePath'              => 'BasePath',
-        'billingStatus'         => 'BillingStatus',
-        'cloudMarketCommodity'  => 'CloudMarketCommodity',
-        'cmsMonitorGroup'       => 'CmsMonitorGroup',
-        'compatibleFlags'       => 'CompatibleFlags',
-        'createdTime'           => 'CreatedTime',
-        'customAppCodeConfig'   => 'CustomAppCodeConfig',
-        'customDomains'         => 'CustomDomains',
-        'customTraceConfig'     => 'CustomTraceConfig',
-        'customerConfigs'       => 'CustomerConfigs',
+        'basePath' => 'BasePath',
+        'billingStatus' => 'BillingStatus',
+        'cloudMarketCommodity' => 'CloudMarketCommodity',
+        'cmsMonitorGroup' => 'CmsMonitorGroup',
+        'compatibleFlags' => 'CompatibleFlags',
+        'createdTime' => 'CreatedTime',
+        'customAppCodeConfig' => 'CustomAppCodeConfig',
+        'customDomains' => 'CustomDomains',
+        'customTraceConfig' => 'CustomTraceConfig',
+        'customerConfigs' => 'CustomerConfigs',
         'dedicatedInstanceType' => 'DedicatedInstanceType',
-        'defaultDomain'         => 'DefaultDomain',
-        'description'           => 'Description',
-        'disableInnerDomain'    => 'DisableInnerDomain',
-        'groupId'               => 'GroupId',
-        'groupName'             => 'GroupName',
-        'httpsPolicy'           => 'HttpsPolicy',
-        'illegalStatus'         => 'IllegalStatus',
-        'instanceId'            => 'InstanceId',
-        'instanceType'          => 'InstanceType',
-        'ipv6Status'            => 'Ipv6Status',
-        'migrationError'        => 'MigrationError',
-        'migrationStatus'       => 'MigrationStatus',
-        'modifiedTime'          => 'ModifiedTime',
-        'passthroughHeaders'    => 'PassthroughHeaders',
-        'regionId'              => 'RegionId',
-        'requestId'             => 'RequestId',
-        'stageItems'            => 'StageItems',
-        'status'                => 'Status',
-        'subDomain'             => 'SubDomain',
-        'trafficLimit'          => 'TrafficLimit',
-        'userLogConfig'         => 'UserLogConfig',
-        'vpcDomain'             => 'VpcDomain',
-        'vpcSlbIntranetDomain'  => 'VpcSlbIntranetDomain',
+        'defaultDomain' => 'DefaultDomain',
+        'description' => 'Description',
+        'disableInnerDomain' => 'DisableInnerDomain',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'httpsPolicy' => 'HttpsPolicy',
+        'illegalStatus' => 'IllegalStatus',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'ipv6Status' => 'Ipv6Status',
+        'migrationError' => 'MigrationError',
+        'migrationStatus' => 'MigrationStatus',
+        'modifiedTime' => 'ModifiedTime',
+        'passthroughHeaders' => 'PassthroughHeaders',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'stageItems' => 'StageItems',
+        'status' => 'Status',
+        'subDomain' => 'SubDomain',
+        'trafficLimit' => 'TrafficLimit',
+        'userLogConfig' => 'UserLogConfig',
+        'vpcDomain' => 'VpcDomain',
+        'vpcSlbIntranetDomain' => 'VpcSlbIntranetDomain',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

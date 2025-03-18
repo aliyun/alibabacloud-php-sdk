@@ -141,6 +141,7 @@ class DescribeApiHistoryResponseBody extends Model
      * @description The sample error codes returned by the backend service.
      *
      * For more information, see [ErrorCodeSample](https://help.aliyun.com/document_detail/44392.html).
+     *
      * @var errorCodeSamples
      */
     public $errorCodeSamples;
@@ -211,6 +212,7 @@ class DescribeApiHistoryResponseBody extends Model
      * @description The configuration items of API requests sent by the consumer to API Gateway.
      *
      * For more information, see [RequestConfig](https://help.aliyun.com/document_detail/43985.html).
+     *
      * @var requestConfig
      */
     public $requestConfig;
@@ -228,6 +230,7 @@ class DescribeApiHistoryResponseBody extends Model
      * @description The parameters of API requests sent by the consumer to API Gateway.
      *
      * For more information, see [RequestParameter](https://help.aliyun.com/document_detail/43986.html).
+     *
      * @var requestParameters
      */
     public $requestParameters;
@@ -277,6 +280,7 @@ class DescribeApiHistoryResponseBody extends Model
      * @description The parameters of API requests sent by API Gateway to the backend service.
      *
      * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
+     *
      * @var serviceParameters
      */
     public $serviceParameters;
@@ -285,6 +289,7 @@ class DescribeApiHistoryResponseBody extends Model
      * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
      *
      * For more information, see [ServiceParameterMap](https://help.aliyun.com/document_detail/43989.html).
+     *
      * @var serviceParametersMap
      */
     public $serviceParametersMap;
@@ -344,46 +349,44 @@ class DescribeApiHistoryResponseBody extends Model
      */
     public $webSocketApiType;
     protected $_name = [
-        'allowSignatureMethod'   => 'AllowSignatureMethod',
-        'apiId'                  => 'ApiId',
-        'apiName'                => 'ApiName',
-        'appCodeAuthType'        => 'AppCodeAuthType',
-        'authType'               => 'AuthType',
-        'backendConfig'          => 'BackendConfig',
-        'backendEnable'          => 'BackendEnable',
-        'constantParameters'     => 'ConstantParameters',
+        'allowSignatureMethod' => 'AllowSignatureMethod',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'appCodeAuthType' => 'AppCodeAuthType',
+        'authType' => 'AuthType',
+        'backendConfig' => 'BackendConfig',
+        'backendEnable' => 'BackendEnable',
+        'constantParameters' => 'ConstantParameters',
         'customSystemParameters' => 'CustomSystemParameters',
-        'deployedTime'           => 'DeployedTime',
-        'description'            => 'Description',
-        'disableInternet'        => 'DisableInternet',
-        'errorCodeSamples'       => 'ErrorCodeSamples',
-        'failResultSample'       => 'FailResultSample',
-        'forceNonceCheck'        => 'ForceNonceCheck',
-        'groupId'                => 'GroupId',
-        'groupName'              => 'GroupName',
-        'historyVersion'         => 'HistoryVersion',
-        'openIdConnectConfig'    => 'OpenIdConnectConfig',
-        'regionId'               => 'RegionId',
-        'requestConfig'          => 'RequestConfig',
-        'requestId'              => 'RequestId',
-        'requestParameters'      => 'RequestParameters',
-        'resultBodyModel'        => 'ResultBodyModel',
-        'resultDescriptions'     => 'ResultDescriptions',
-        'resultSample'           => 'ResultSample',
-        'resultType'             => 'ResultType',
-        'serviceConfig'          => 'ServiceConfig',
-        'serviceParameters'      => 'ServiceParameters',
-        'serviceParametersMap'   => 'ServiceParametersMap',
-        'stageName'              => 'StageName',
-        'status'                 => 'Status',
-        'systemParameters'       => 'SystemParameters',
-        'visibility'             => 'Visibility',
-        'webSocketApiType'       => 'WebSocketApiType',
+        'deployedTime' => 'DeployedTime',
+        'description' => 'Description',
+        'disableInternet' => 'DisableInternet',
+        'errorCodeSamples' => 'ErrorCodeSamples',
+        'failResultSample' => 'FailResultSample',
+        'forceNonceCheck' => 'ForceNonceCheck',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'historyVersion' => 'HistoryVersion',
+        'openIdConnectConfig' => 'OpenIdConnectConfig',
+        'regionId' => 'RegionId',
+        'requestConfig' => 'RequestConfig',
+        'requestId' => 'RequestId',
+        'requestParameters' => 'RequestParameters',
+        'resultBodyModel' => 'ResultBodyModel',
+        'resultDescriptions' => 'ResultDescriptions',
+        'resultSample' => 'ResultSample',
+        'resultType' => 'ResultType',
+        'serviceConfig' => 'ServiceConfig',
+        'serviceParameters' => 'ServiceParameters',
+        'serviceParametersMap' => 'ServiceParametersMap',
+        'stageName' => 'StageName',
+        'status' => 'Status',
+        'systemParameters' => 'SystemParameters',
+        'visibility' => 'Visibility',
+        'webSocketApiType' => 'WebSocketApiType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -101,6 +101,7 @@ class DescribeDeployedApiResponseBody extends Model
      *   If you set DisableInternet to **false**, the limit is lifted.
      *
      * >  If you do not set this parameter, the original value is not modified.
+     *
      * @example true
      *
      * @var bool
@@ -111,6 +112,7 @@ class DescribeDeployedApiResponseBody extends Model
      * @description The sample error codes returned by the backend service.
      *
      * For more information, see [ErrorCodeSample](https://help.aliyun.com/document_detail/44392.html).
+     *
      * @var errorCodeSamples
      */
     public $errorCodeSamples;
@@ -172,6 +174,7 @@ class DescribeDeployedApiResponseBody extends Model
      * @description Configuration items of API requests sent by the consumer to API Gateway.
      *
      * For more information, see [RequestConfig](https://help.aliyun.com/document_detail/43985.html).
+     *
      * @var requestConfig
      */
     public $requestConfig;
@@ -189,6 +192,7 @@ class DescribeDeployedApiResponseBody extends Model
      * @description The parameters of API requests sent by the consumer to API Gateway.
      *
      * For more information, see [RequestParameter](https://help.aliyun.com/document_detail/43986.html).
+     *
      * @var requestParameters
      */
     public $requestParameters;
@@ -231,6 +235,7 @@ class DescribeDeployedApiResponseBody extends Model
      * @description The configuration items of API requests sent by API Gateway to the backend service.
      *
      * For more information, see [ServiceConfig](https://help.aliyun.com/document_detail/43987.html).
+     *
      * @var serviceConfig
      */
     public $serviceConfig;
@@ -239,6 +244,7 @@ class DescribeDeployedApiResponseBody extends Model
      * @description The parameters of API requests sent by API Gateway to the backend service.
      *
      * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
+     *
      * @var serviceParameters
      */
     public $serviceParameters;
@@ -247,6 +253,7 @@ class DescribeDeployedApiResponseBody extends Model
      * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
      *
      * For more information, see [ServiceParameterMap](https://help.aliyun.com/document_detail/43989.html).
+     *
      * @var serviceParametersMap
      */
     public $serviceParametersMap;
@@ -283,40 +290,38 @@ class DescribeDeployedApiResponseBody extends Model
      */
     public $visibility;
     protected $_name = [
-        'allowSignatureMethod'   => 'AllowSignatureMethod',
-        'apiId'                  => 'ApiId',
-        'apiName'                => 'ApiName',
-        'authType'               => 'AuthType',
-        'constantParameters'     => 'ConstantParameters',
+        'allowSignatureMethod' => 'AllowSignatureMethod',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'authType' => 'AuthType',
+        'constantParameters' => 'ConstantParameters',
         'customSystemParameters' => 'CustomSystemParameters',
-        'deployedTime'           => 'DeployedTime',
-        'description'            => 'Description',
-        'disableInternet'        => 'DisableInternet',
-        'errorCodeSamples'       => 'ErrorCodeSamples',
-        'failResultSample'       => 'FailResultSample',
-        'forceNonceCheck'        => 'ForceNonceCheck',
-        'groupId'                => 'GroupId',
-        'groupName'              => 'GroupName',
-        'openIdConnectConfig'    => 'OpenIdConnectConfig',
-        'regionId'               => 'RegionId',
-        'requestConfig'          => 'RequestConfig',
-        'requestId'              => 'RequestId',
-        'requestParameters'      => 'RequestParameters',
-        'resultBodyModel'        => 'ResultBodyModel',
-        'resultDescriptions'     => 'ResultDescriptions',
-        'resultSample'           => 'ResultSample',
-        'resultType'             => 'ResultType',
-        'serviceConfig'          => 'ServiceConfig',
-        'serviceParameters'      => 'ServiceParameters',
-        'serviceParametersMap'   => 'ServiceParametersMap',
-        'stageName'              => 'StageName',
-        'systemParameters'       => 'SystemParameters',
-        'visibility'             => 'Visibility',
+        'deployedTime' => 'DeployedTime',
+        'description' => 'Description',
+        'disableInternet' => 'DisableInternet',
+        'errorCodeSamples' => 'ErrorCodeSamples',
+        'failResultSample' => 'FailResultSample',
+        'forceNonceCheck' => 'ForceNonceCheck',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'openIdConnectConfig' => 'OpenIdConnectConfig',
+        'regionId' => 'RegionId',
+        'requestConfig' => 'RequestConfig',
+        'requestId' => 'RequestId',
+        'requestParameters' => 'RequestParameters',
+        'resultBodyModel' => 'ResultBodyModel',
+        'resultDescriptions' => 'ResultDescriptions',
+        'resultSample' => 'ResultSample',
+        'resultType' => 'ResultType',
+        'serviceConfig' => 'ServiceConfig',
+        'serviceParameters' => 'ServiceParameters',
+        'serviceParametersMap' => 'ServiceParametersMap',
+        'stageName' => 'StageName',
+        'systemParameters' => 'SystemParameters',
+        'visibility' => 'Visibility',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

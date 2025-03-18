@@ -57,16 +57,14 @@ class datasetInfo extends Model
      */
     public $modifiedTime;
     protected $_name = [
-        'createdTime'  => 'CreatedTime',
-        'datasetId'    => 'DatasetId',
-        'datasetName'  => 'DatasetName',
-        'datasetType'  => 'DatasetType',
+        'createdTime' => 'CreatedTime',
+        'datasetId' => 'DatasetId',
+        'datasetName' => 'DatasetName',
+        'datasetType' => 'DatasetType',
         'modifiedTime' => 'ModifiedTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class signatures extends Model
         'signatureItem' => 'SignatureItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class signatures extends Model
         if (isset($map['SignatureItem'])) {
             if (!empty($map['SignatureItem'])) {
                 $model->signatureItem = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['SignatureItem'] as $item) {
                     $model->signatureItem[$n++] = null !== $item ? signatureItem::fromMap($item) : $item;
                 }

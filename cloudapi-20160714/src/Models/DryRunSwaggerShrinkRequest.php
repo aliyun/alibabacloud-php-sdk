@@ -12,6 +12,7 @@ class DryRunSwaggerShrinkRequest extends Model
      * @description The Swagger text content.
      *
      * This parameter is required.
+     *
      * @example "A Swagger API definition in YAML"
      *
      * @var string
@@ -25,6 +26,7 @@ class DryRunSwaggerShrinkRequest extends Model
      *   yaml
      *
      * This parameter is required.
+     *
      * @example yaml
      *
      * @var string
@@ -44,6 +46,7 @@ class DryRunSwaggerShrinkRequest extends Model
      * @description The ID of the API group.
      *
      * This parameter is required.
+     *
      * @example d633cf5524f841b9950e245b191bdabf
      *
      * @var string
@@ -53,7 +56,10 @@ class DryRunSwaggerShrinkRequest extends Model
     /**
      * @description Specifies whether to overwrite the existing API.
      *
+     * APIs with the same HTTP request type and backend request path are considered the same.
+     *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -65,17 +71,15 @@ class DryRunSwaggerShrinkRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'data'                  => 'Data',
-        'dataFormat'            => 'DataFormat',
+        'data' => 'Data',
+        'dataFormat' => 'DataFormat',
         'globalConditionShrink' => 'GlobalCondition',
-        'groupId'               => 'GroupId',
-        'overwrite'             => 'Overwrite',
-        'securityToken'         => 'SecurityToken',
+        'groupId' => 'GroupId',
+        'overwrite' => 'Overwrite',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -71,18 +71,16 @@ class ipControlInfo extends Model
      */
     public $regionId;
     protected $_name = [
-        'createTime'    => 'CreateTime',
-        'description'   => 'Description',
-        'ipControlId'   => 'IpControlId',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'ipControlId' => 'IpControlId',
         'ipControlName' => 'IpControlName',
         'ipControlType' => 'IpControlType',
-        'modifiedTime'  => 'ModifiedTime',
-        'regionId'      => 'RegionId',
+        'modifiedTime' => 'ModifiedTime',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

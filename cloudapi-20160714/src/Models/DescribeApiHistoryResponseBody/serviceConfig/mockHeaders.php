@@ -17,9 +17,7 @@ class mockHeaders extends Model
         'mockHeader' => 'MockHeader',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class mockHeaders extends Model
         if (isset($map['MockHeader'])) {
             if (!empty($map['MockHeader'])) {
                 $model->mockHeader = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['MockHeader'] as $item) {
                     $model->mockHeader[$n++] = null !== $item ? mockHeader::fromMap($item) : $item;
                 }

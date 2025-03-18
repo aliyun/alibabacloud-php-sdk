@@ -22,13 +22,11 @@ class DescribeBackendInfoRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'backendId'     => 'BackendId',
+        'backendId' => 'BackendId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

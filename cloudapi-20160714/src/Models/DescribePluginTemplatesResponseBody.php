@@ -29,9 +29,7 @@ class DescribePluginTemplatesResponseBody extends Model
         'templates' => 'Templates',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

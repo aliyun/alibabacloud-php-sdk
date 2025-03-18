@@ -86,19 +86,17 @@ class apiResult extends Model
      */
     public $updateStatus;
     protected $_name = [
-        'apiId'        => 'ApiId',
-        'apiName'      => 'ApiName',
-        'description'  => 'Description',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'description' => 'Description',
         'errorMessage' => 'ErrorMessage',
-        'groupId'      => 'GroupId',
-        'method'       => 'Method',
-        'path'         => 'Path',
+        'groupId' => 'GroupId',
+        'method' => 'Method',
+        'path' => 'Path',
         'updateStatus' => 'UpdateStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

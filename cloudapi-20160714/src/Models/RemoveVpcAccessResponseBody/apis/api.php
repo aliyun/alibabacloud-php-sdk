@@ -35,14 +35,12 @@ class api extends Model
      */
     public $stageId;
     protected $_name = [
-        'apiId'   => 'ApiId',
+        'apiId' => 'ApiId',
         'groupId' => 'GroupId',
         'stageId' => 'StageId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

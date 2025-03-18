@@ -44,15 +44,13 @@ class logInfo extends Model
      */
     public $slsProject;
     protected $_name = [
-        'logType'     => 'LogType',
-        'regionId'    => 'RegionId',
+        'logType' => 'LogType',
+        'regionId' => 'RegionId',
         'slsLogStore' => 'SlsLogStore',
-        'slsProject'  => 'SlsProject',
+        'slsProject' => 'SlsProject',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

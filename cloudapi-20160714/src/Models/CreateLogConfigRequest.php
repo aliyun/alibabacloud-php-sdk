@@ -39,6 +39,7 @@ class CreateLogConfigRequest extends Model
      * @description slslogstore
      *
      * This parameter is required.
+     *
      * @example api-gateway
      *
      * @var string
@@ -49,22 +50,21 @@ class CreateLogConfigRequest extends Model
      * @description The name of the Log Service project.
      *
      * This parameter is required.
+     *
      * @example rec-lq-sls
      *
      * @var string
      */
     public $slsProject;
     protected $_name = [
-        'createSlr'     => 'CreateSlr',
-        'logType'       => 'LogType',
+        'createSlr' => 'CreateSlr',
+        'logType' => 'LogType',
         'securityToken' => 'SecurityToken',
-        'slsLogStore'   => 'SlsLogStore',
-        'slsProject'    => 'SlsProject',
+        'slsLogStore' => 'SlsLogStore',
+        'slsProject' => 'SlsProject',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

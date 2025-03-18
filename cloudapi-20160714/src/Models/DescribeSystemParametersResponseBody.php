@@ -25,13 +25,11 @@ class DescribeSystemParametersResponseBody extends Model
      */
     public $systemParams;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'systemParams' => 'SystemParams',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

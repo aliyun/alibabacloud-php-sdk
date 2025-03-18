@@ -26,13 +26,11 @@ class mockHeaders extends Model
      */
     public $headerValue;
     protected $_name = [
-        'headerName'  => 'HeaderName',
+        'headerName' => 'HeaderName',
         'headerValue' => 'HeaderValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

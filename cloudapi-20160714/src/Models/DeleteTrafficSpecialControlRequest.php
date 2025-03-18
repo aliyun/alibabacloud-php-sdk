@@ -21,6 +21,7 @@ class DeleteTrafficSpecialControlRequest extends Model
      * @description The ID of the app or Alibaba Cloud account. You can view your account ID on the [Account Management](https://account.console.aliyun.com/?spm=a2c4g.11186623.2.15.343130a8sDi8cO#/secure) page.
      *
      * This parameter is required.
+     *
      * @example 3382463
      *
      * @var string
@@ -34,6 +35,7 @@ class DeleteTrafficSpecialControlRequest extends Model
      *   **USER**
      *
      * This parameter is required.
+     *
      * @example APP
      *
      * @var string
@@ -44,21 +46,20 @@ class DeleteTrafficSpecialControlRequest extends Model
      * @description The ID of the throttling policy.
      *
      * This parameter is required.
+     *
      * @example tf123456
      *
      * @var string
      */
     public $trafficControlId;
     protected $_name = [
-        'securityToken'    => 'SecurityToken',
-        'specialKey'       => 'SpecialKey',
-        'specialType'      => 'SpecialType',
+        'securityToken' => 'SecurityToken',
+        'specialKey' => 'SpecialKey',
+        'specialType' => 'SpecialType',
         'trafficControlId' => 'TrafficControlId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

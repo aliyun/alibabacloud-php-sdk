@@ -27,12 +27,10 @@ class CreateIntranetDomainResponseBody extends Model
     public $requestId;
     protected $_name = [
         'domainName' => 'DomainName',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class specialPolicies extends Model
         'specialPolicy' => 'SpecialPolicy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class specialPolicies extends Model
         if (isset($map['SpecialPolicy'])) {
             if (!empty($map['SpecialPolicy'])) {
                 $model->specialPolicy = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['SpecialPolicy'] as $item) {
                     $model->specialPolicy[$n++] = null !== $item ? specialPolicy::fromMap($item) : $item;
                 }

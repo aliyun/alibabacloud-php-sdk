@@ -17,9 +17,7 @@ class modelDetails extends Model
         'modelDetail' => 'ModelDetail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class modelDetails extends Model
         if (isset($map['ModelDetail'])) {
             if (!empty($map['ModelDetail'])) {
                 $model->modelDetail = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ModelDetail'] as $item) {
                     $model->modelDetail[$n++] = null !== $item ? modelDetail::fromMap($item) : $item;
                 }

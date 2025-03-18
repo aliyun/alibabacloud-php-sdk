@@ -26,13 +26,11 @@ class special extends Model
      */
     public $trafficValue;
     protected $_name = [
-        'specialKey'   => 'SpecialKey',
+        'specialKey' => 'SpecialKey',
         'trafficValue' => 'TrafficValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

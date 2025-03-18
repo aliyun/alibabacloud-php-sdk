@@ -13,6 +13,7 @@ class BatchAbolishApisRequest extends Model
      * @description The APIs that you want to operate.
      *
      * This parameter is required.
+     *
      * @var api[]
      */
     public $api;
@@ -22,13 +23,11 @@ class BatchAbolishApisRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'api'           => 'Api',
+        'api' => 'Api',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -60,7 +59,7 @@ class BatchAbolishApisRequest extends Model
         if (isset($map['Api'])) {
             if (!empty($map['Api'])) {
                 $model->api = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Api'] as $item) {
                     $model->api[$n++] = null !== $item ? api::fromMap($item) : $item;
                 }

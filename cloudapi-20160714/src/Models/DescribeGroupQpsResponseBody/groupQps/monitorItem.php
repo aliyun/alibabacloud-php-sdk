@@ -26,13 +26,11 @@ class monitorItem extends Model
      */
     public $itemValue;
     protected $_name = [
-        'itemTime'  => 'ItemTime',
+        'itemTime' => 'ItemTime',
         'itemValue' => 'ItemValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

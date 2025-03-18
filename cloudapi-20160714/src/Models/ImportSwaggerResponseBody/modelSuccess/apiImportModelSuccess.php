@@ -44,15 +44,13 @@ class apiImportModelSuccess extends Model
      */
     public $modelUid;
     protected $_name = [
-        'groupId'        => 'GroupId',
-        'modelName'      => 'ModelName',
+        'groupId' => 'GroupId',
+        'modelName' => 'ModelName',
         'modelOperation' => 'ModelOperation',
-        'modelUid'       => 'ModelUid',
+        'modelUid' => 'ModelUid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

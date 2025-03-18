@@ -12,6 +12,7 @@ class tag extends Model
      * @description The key of the tag.
      *
      * This parameter is required.
+     *
      * @example appname
      *
      * @var string
@@ -27,13 +28,11 @@ class tag extends Model
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

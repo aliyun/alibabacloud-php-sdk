@@ -12,6 +12,7 @@ class CreateAppKeyRequest extends Model
      * @description The application ID.
      *
      * This parameter is required.
+     *
      * @example 111053351
      *
      * @var string
@@ -36,14 +37,12 @@ class CreateAppKeyRequest extends Model
      */
     public $appSecret;
     protected $_name = [
-        'appId'     => 'AppId',
-        'appKey'    => 'AppKey',
+        'appId' => 'AppId',
+        'appKey' => 'AppKey',
         'appSecret' => 'AppSecret',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

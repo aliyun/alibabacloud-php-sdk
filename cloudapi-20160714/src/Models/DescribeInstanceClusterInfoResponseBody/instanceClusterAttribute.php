@@ -216,33 +216,31 @@ class instanceClusterAttribute extends Model
      */
     public $vpcSlbIntranetEnable;
     protected $_name = [
-        'connectCidrBlocks'     => 'ConnectCidrBlocks',
-        'connectVpcId'          => 'ConnectVpcId',
-        'egressIpv6Enable'      => 'EgressIpv6Enable',
-        'httpsPolicies'         => 'HttpsPolicies',
-        'IPV4AclId'             => 'IPV4AclId',
-        'IPV4AclName'           => 'IPV4AclName',
-        'IPV4AclStatus'         => 'IPV4AclStatus',
-        'IPV4AclType'           => 'IPV4AclType',
-        'IPV6AclId'             => 'IPV6AclId',
-        'IPV6AclName'           => 'IPV6AclName',
-        'IPV6AclStatus'         => 'IPV6AclStatus',
-        'IPV6AclType'           => 'IPV6AclType',
+        'connectCidrBlocks' => 'ConnectCidrBlocks',
+        'connectVpcId' => 'ConnectVpcId',
+        'egressIpv6Enable' => 'EgressIpv6Enable',
+        'httpsPolicies' => 'HttpsPolicies',
+        'IPV4AclId' => 'IPV4AclId',
+        'IPV4AclName' => 'IPV4AclName',
+        'IPV4AclStatus' => 'IPV4AclStatus',
+        'IPV4AclType' => 'IPV4AclType',
+        'IPV6AclId' => 'IPV6AclId',
+        'IPV6AclName' => 'IPV6AclName',
+        'IPV6AclStatus' => 'IPV6AclStatus',
+        'IPV6AclType' => 'IPV6AclType',
         'internetEgressAddress' => 'InternetEgressAddress',
         'intranetEgressAddress' => 'IntranetEgressAddress',
-        'intranetSegments'      => 'IntranetSegments',
-        'supportIpv6'           => 'SupportIpv6',
-        'userVpcId'             => 'UserVpcId',
-        'userVswitchId'         => 'UserVswitchId',
-        'vipTypeList'           => 'VipTypeList',
-        'vpcIntranetEnable'     => 'VpcIntranetEnable',
-        'vpcOwnerId'            => 'VpcOwnerId',
-        'vpcSlbIntranetEnable'  => 'VpcSlbIntranetEnable',
+        'intranetSegments' => 'IntranetSegments',
+        'supportIpv6' => 'SupportIpv6',
+        'userVpcId' => 'UserVpcId',
+        'userVswitchId' => 'UserVswitchId',
+        'vipTypeList' => 'VipTypeList',
+        'vpcIntranetEnable' => 'VpcIntranetEnable',
+        'vpcOwnerId' => 'VpcOwnerId',
+        'vpcSlbIntranetEnable' => 'VpcSlbIntranetEnable',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

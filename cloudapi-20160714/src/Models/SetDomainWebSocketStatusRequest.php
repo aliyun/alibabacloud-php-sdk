@@ -12,6 +12,7 @@ class SetDomainWebSocketStatusRequest extends Model
      * @description The action.
      *
      * This parameter is required.
+     *
      * @example OPEN
      *
      * @var string
@@ -22,6 +23,7 @@ class SetDomainWebSocketStatusRequest extends Model
      * @description The custom domain name.
      *
      * This parameter is required.
+     *
      * @example ac.fluvet.cn
      *
      * @var string
@@ -32,6 +34,7 @@ class SetDomainWebSocketStatusRequest extends Model
      * @description The ID of the API group.
      *
      * This parameter is required.
+     *
      * @example cf976e63b70c4993807e7bb9345d4695
      *
      * @var string
@@ -52,16 +55,14 @@ class SetDomainWebSocketStatusRequest extends Model
      */
     public $WSSEnable;
     protected $_name = [
-        'actionValue'   => 'ActionValue',
-        'domainName'    => 'DomainName',
-        'groupId'       => 'GroupId',
+        'actionValue' => 'ActionValue',
+        'domainName' => 'DomainName',
+        'groupId' => 'GroupId',
         'securityToken' => 'SecurityToken',
-        'WSSEnable'     => 'WSSEnable',
+        'WSSEnable' => 'WSSEnable',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

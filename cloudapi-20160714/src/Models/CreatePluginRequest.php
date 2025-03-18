@@ -22,6 +22,7 @@ class CreatePluginRequest extends Model
      * @description The plug-in definition. Supported formats: JSON and YAML.
      *
      * This parameter is required.
+     *
      * @example Plugin definition
      *
      * @var string
@@ -32,6 +33,7 @@ class CreatePluginRequest extends Model
      * @description The name of the plug-in. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (_). However, it cannot start with an underscore.
      *
      * This parameter is required.
+     *
      * @example NewCors
      *
      * @var string
@@ -49,6 +51,7 @@ class CreatePluginRequest extends Model
      *   **caching**
      *
      * This parameter is required.
+     *
      * @example cors
      *
      * @var string
@@ -69,17 +72,15 @@ class CreatePluginRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'description'   => 'Description',
-        'pluginData'    => 'PluginData',
-        'pluginName'    => 'PluginName',
-        'pluginType'    => 'PluginType',
+        'description' => 'Description',
+        'pluginData' => 'PluginData',
+        'pluginName' => 'PluginName',
+        'pluginType' => 'PluginType',
         'securityToken' => 'SecurityToken',
-        'tag'           => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -138,7 +139,7 @@ class CreatePluginRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

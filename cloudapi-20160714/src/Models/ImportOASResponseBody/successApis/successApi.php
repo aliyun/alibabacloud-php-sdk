@@ -44,15 +44,13 @@ class successApi extends Model
      */
     public $path;
     protected $_name = [
-        'apiId'        => 'ApiId',
+        'apiId' => 'ApiId',
         'apiOperation' => 'ApiOperation',
-        'httpMethod'   => 'HttpMethod',
-        'path'         => 'Path',
+        'httpMethod' => 'HttpMethod',
+        'path' => 'Path',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class logInfos extends Model
         'logInfo' => 'LogInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class logInfos extends Model
         if (isset($map['LogInfo'])) {
             if (!empty($map['LogInfo'])) {
                 $model->logInfo = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['LogInfo'] as $item) {
                     $model->logInfo[$n++] = null !== $item ? logInfo::fromMap($item) : $item;
                 }

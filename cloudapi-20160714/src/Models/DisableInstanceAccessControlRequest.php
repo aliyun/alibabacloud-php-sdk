@@ -12,6 +12,7 @@ class DisableInstanceAccessControlRequest extends Model
      * @description The ID of the access control policy.
      *
      * This parameter is required.
+     *
      * @example acl-grgqc0mnuhkqciwtam
      *
      * @var string
@@ -31,6 +32,7 @@ class DisableInstanceAccessControlRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example apigateway-cn-v6419k43xxxxx
      *
      * @var string
@@ -42,15 +44,13 @@ class DisableInstanceAccessControlRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'aclId'            => 'AclId',
+        'aclId' => 'AclId',
         'addressIPVersion' => 'AddressIPVersion',
-        'instanceId'       => 'InstanceId',
-        'securityToken'    => 'SecurityToken',
+        'instanceId' => 'InstanceId',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

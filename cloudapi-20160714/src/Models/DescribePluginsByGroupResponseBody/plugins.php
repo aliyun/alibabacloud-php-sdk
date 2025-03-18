@@ -17,9 +17,7 @@ class plugins extends Model
         'pluginAttribute' => 'PluginAttribute',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class plugins extends Model
         if (isset($map['PluginAttribute'])) {
             if (!empty($map['PluginAttribute'])) {
                 $model->pluginAttribute = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['PluginAttribute'] as $item) {
                     $model->pluginAttribute[$n++] = null !== $item ? pluginAttribute::fromMap($item) : $item;
                 }

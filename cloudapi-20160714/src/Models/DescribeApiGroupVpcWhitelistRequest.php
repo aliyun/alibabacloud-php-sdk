@@ -12,6 +12,7 @@ class DescribeApiGroupVpcWhitelistRequest extends Model
      * @description The ID of the API group.
      *
      * This parameter is required.
+     *
      * @example f6c64214dc27400196eef954575d60d3
      *
      * @var string
@@ -23,13 +24,11 @@ class DescribeApiGroupVpcWhitelistRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'groupId'       => 'GroupId',
+        'groupId' => 'GroupId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

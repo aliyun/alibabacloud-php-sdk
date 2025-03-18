@@ -12,6 +12,7 @@ class CreatePrivateDNSShrinkRequest extends Model
      * @description The internal domain name.
      *
      * This parameter is required.
+     *
      * @example api.demo.com
      *
      * @var string
@@ -37,6 +38,7 @@ class CreatePrivateDNSShrinkRequest extends Model
      *   A: resolution that supports A records. A resolution of this type can be bound only to VPC integration dedicated instances.
      *
      * This parameter is required.
+     *
      * @example A
      *
      * @var string
@@ -44,14 +46,12 @@ class CreatePrivateDNSShrinkRequest extends Model
     public $type;
     protected $_name = [
         'intranetDomain' => 'IntranetDomain',
-        'recordsShrink'  => 'Records',
-        'securityToken'  => 'SecurityToken',
-        'type'           => 'Type',
+        'recordsShrink' => 'Records',
+        'securityToken' => 'SecurityToken',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

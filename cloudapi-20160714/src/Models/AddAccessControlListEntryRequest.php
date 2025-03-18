@@ -15,6 +15,7 @@ class AddAccessControlListEntryRequest extends Model
      *   comment: the description of the ACL.
      *
      * > You can add at most 50 IP addresses or CIDR blocks to an ACL in each call. If the IP address or CIDR block that you want to add to an ACL already exists, the IP address or CIDR block is not added. The entries that you add must be CIDR blocks.
+     *
      * @example [{\\"entry\\": \\"192.168.1.0/24\\", \\"comment\\": \\"test\\"}]
      *
      * @var string
@@ -25,6 +26,7 @@ class AddAccessControlListEntryRequest extends Model
      * @description The ID of the access control list (ACL).
      *
      * This parameter is required.
+     *
      * @example acl-bp1ohqkonqybecf4llbrc
      *
      * @var string
@@ -36,14 +38,12 @@ class AddAccessControlListEntryRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'aclEntrys'     => 'AclEntrys',
-        'aclId'         => 'AclId',
+        'aclEntrys' => 'AclEntrys',
+        'aclId' => 'AclId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

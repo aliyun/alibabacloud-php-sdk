@@ -124,6 +124,7 @@ class functionComputeConfig extends Model
      * @description The name of the trigger.
      *
      * You can specify the TriggerName or TriggerUrl parameter. The TriggerName parameter is optional.
+     *
      * @example test1
      *
      * @var string
@@ -131,23 +132,21 @@ class functionComputeConfig extends Model
     public $triggerName;
     protected $_name = [
         'contentTypeCatagory' => 'ContentTypeCatagory',
-        'contentTypeValue'    => 'ContentTypeValue',
-        'fcBaseUrl'           => 'FcBaseUrl',
-        'fcType'              => 'FcType',
-        'functionName'        => 'FunctionName',
-        'method'              => 'Method',
-        'onlyBusinessPath'    => 'OnlyBusinessPath',
-        'path'                => 'Path',
-        'qualifier'           => 'Qualifier',
-        'regionId'            => 'RegionId',
-        'roleArn'             => 'RoleArn',
-        'serviceName'         => 'ServiceName',
-        'triggerName'         => 'TriggerName',
+        'contentTypeValue' => 'ContentTypeValue',
+        'fcBaseUrl' => 'FcBaseUrl',
+        'fcType' => 'FcType',
+        'functionName' => 'FunctionName',
+        'method' => 'Method',
+        'onlyBusinessPath' => 'OnlyBusinessPath',
+        'path' => 'Path',
+        'qualifier' => 'Qualifier',
+        'regionId' => 'RegionId',
+        'roleArn' => 'RoleArn',
+        'serviceName' => 'ServiceName',
+        'triggerName' => 'TriggerName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

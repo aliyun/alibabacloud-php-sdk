@@ -36,8 +36,91 @@ class ImportOASRequest extends Model
      * @description The OAS-compliant text file or OSS object URL.
      *
      * This parameter is required.
+     *
      * @example swagger: "2.0"
+     * info:
+     * version: "1.0.0"
+     * title: "Swagger Petstore 2.0"
+     * basePath: "/"
+     * schemes:
+     * - "https"
+     * - "http"
+     * paths:
+     * /pet/findByStatus:
+     * get:
+     * tags:
+     * - "pet"
+     * summary: "Finds Pets by status"
+     * operationId: "findPetsByStatus"
+     * parameters:
+     * - name: "status"
+     * in: "query"
+     * required: true
+     * type: "array"
+     * items:
+     * type: "string"
+     * enum:
+     * - "available"
+     * - "pending"
      * - "sold"
+     * default: "available"
+     * collectionFormat: "multi"
+     * responses:
+     * "200":
+     * description: "successful operation"
+     * schema:
+     * type: "array"
+     * items:
+     * $ref: "#/definitions/Pet"
+     * "400":
+     * description: "Invalid status value"
+     * definitions:
+     * Category:
+     * type: "object"
+     * properties:
+     * id:
+     * type: "integer"
+     * format: "int64"
+     * name:
+     * type: "string"
+     * Tag:
+     * type: "object"
+     * properties:
+     * id:
+     * type: "integer"
+     * format: "int64"
+     * name:
+     * type: "string"
+     * Pet:
+     * type: "object"
+     * required:
+     * - "name"
+     * - "photoUrls"
+     * properties:
+     * id:
+     * type: "integer"
+     * format: "int64"
+     * category:
+     * $ref: "#/definitions/Category"
+     * name:
+     * type: "string"
+     * example: "doggie"
+     * photoUrls:
+     * type: "array"
+     * items:
+     * type: "string"
+     * tags:
+     * type: "array"
+     * items:
+     * $ref: "#/definitions/Tag"
+     * status:
+     * type: "string"
+     * description: "pet status in the store"
+     * enum:
+     * - "available"
+     * - "pending"
+     * - "sold"
+     *
      * @var string
      */
     public $data;
@@ -46,6 +129,7 @@ class ImportOASRequest extends Model
      * @description The ID of the API group.
      *
      * This parameter is required.
+     *
      * @example 08ae4aa0f95e4321849ee57f4e0b3077
      *
      * @var string
@@ -73,7 +157,10 @@ class ImportOASRequest extends Model
     /**
      * @description Specifies whether to overwrite an existing API.
      *
+     * If an existing API has the same HTTP request type and backend request path as the API to be imported, the existing API is overwritten.
+     *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -106,21 +193,19 @@ class ImportOASRequest extends Model
      */
     public $skipDryRun;
     protected $_name = [
-        'authType'      => 'AuthType',
-        'backendName'   => 'BackendName',
-        'data'          => 'Data',
-        'groupId'       => 'GroupId',
+        'authType' => 'AuthType',
+        'backendName' => 'BackendName',
+        'data' => 'Data',
+        'groupId' => 'GroupId',
         'ignoreWarning' => 'IgnoreWarning',
-        'OASVersion'    => 'OASVersion',
-        'overwrite'     => 'Overwrite',
-        'requestMode'   => 'RequestMode',
+        'OASVersion' => 'OASVersion',
+        'overwrite' => 'Overwrite',
+        'requestMode' => 'RequestMode',
         'securityToken' => 'SecurityToken',
-        'skipDryRun'    => 'SkipDryRun',
+        'skipDryRun' => 'SkipDryRun',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

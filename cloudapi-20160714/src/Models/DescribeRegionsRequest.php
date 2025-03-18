@@ -26,13 +26,11 @@ class DescribeRegionsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'language'      => 'Language',
+        'language' => 'Language',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

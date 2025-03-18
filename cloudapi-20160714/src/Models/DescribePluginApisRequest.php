@@ -65,6 +65,7 @@ class DescribePluginApisRequest extends Model
     /**
      * @description The number of entries returned per page.
      * Default value:10.
+     *
      * @example 10
      *
      * @var int
@@ -84,6 +85,7 @@ class DescribePluginApisRequest extends Model
      * @description The ID of the gateway plug-in.
      *
      * This parameter is required.
+     *
      * @example bf6583efcef44c51adb00c4e********
      *
      * @var string
@@ -95,21 +97,19 @@ class DescribePluginApisRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'apiName'       => 'ApiName',
-        'description'   => 'Description',
-        'groupId'       => 'GroupId',
-        'method'        => 'Method',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'path'          => 'Path',
-        'pluginId'      => 'PluginId',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'method' => 'Method',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'path' => 'Path',
+        'pluginId' => 'PluginId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

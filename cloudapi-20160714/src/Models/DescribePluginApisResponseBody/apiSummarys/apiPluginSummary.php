@@ -102,21 +102,19 @@ class apiPluginSummary extends Model
      */
     public $stageName;
     protected $_name = [
-        'apiId'       => 'ApiId',
-        'apiName'     => 'ApiName',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
         'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
-        'method'      => 'Method',
-        'path'        => 'Path',
-        'regionId'    => 'RegionId',
-        'stageAlias'  => 'StageAlias',
-        'stageName'   => 'StageName',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'method' => 'Method',
+        'path' => 'Path',
+        'regionId' => 'RegionId',
+        'stageAlias' => 'StageAlias',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

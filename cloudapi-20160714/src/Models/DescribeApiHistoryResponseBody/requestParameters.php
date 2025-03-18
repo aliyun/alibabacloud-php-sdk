@@ -17,9 +17,7 @@ class requestParameters extends Model
         'requestParameter' => 'RequestParameter',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class requestParameters extends Model
         if (isset($map['RequestParameter'])) {
             if (!empty($map['RequestParameter'])) {
                 $model->requestParameter = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['RequestParameter'] as $item) {
                     $model->requestParameter[$n++] = null !== $item ? requestParameter::fromMap($item) : $item;
                 }

@@ -98,21 +98,19 @@ class nacosConfig extends Model
      */
     public $userName;
     protected $_name = [
-        'accessKey'     => 'AccessKey',
-        'authType'      => 'AuthType',
-        'clusters'      => 'Clusters',
-        'groupName'     => 'GroupName',
-        'namespace'     => 'Namespace',
-        'password'      => 'Password',
-        'secretKey'     => 'SecretKey',
+        'accessKey' => 'AccessKey',
+        'authType' => 'AuthType',
+        'clusters' => 'Clusters',
+        'groupName' => 'GroupName',
+        'namespace' => 'Namespace',
+        'password' => 'Password',
+        'secretKey' => 'SecretKey',
         'serverAddress' => 'ServerAddress',
-        'serviceName'   => 'ServiceName',
-        'userName'      => 'UserName',
+        'serviceName' => 'ServiceName',
+        'userName' => 'UserName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

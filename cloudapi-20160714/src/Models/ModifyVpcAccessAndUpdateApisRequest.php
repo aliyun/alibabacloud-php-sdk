@@ -27,6 +27,7 @@ class ModifyVpcAccessAndUpdateApisRequest extends Model
      *   You must set this parameter to the name of the current VPC authorization.
      *
      * This parameter is required.
+     *
      * @example VpcName
      *
      * @var string
@@ -35,11 +36,7 @@ class ModifyVpcAccessAndUpdateApisRequest extends Model
 
     /**
      * @description Specifies whether to update the associated API.
-     *
-     **
-     *
      **Warning:** If you want to update the VPC authorization of a published API, you must set this parameter to true. Otherwise, the update will not be synchronized to the backend service of the API.
-     *
      * @example true
      *
      * @var bool
@@ -100,20 +97,18 @@ class ModifyVpcAccessAndUpdateApisRequest extends Model
      */
     public $vpcTargetHostName;
     protected $_name = [
-        'instanceId'        => 'InstanceId',
-        'name'              => 'Name',
-        'needBatchWork'     => 'NeedBatchWork',
-        'port'              => 'Port',
-        'refresh'           => 'Refresh',
-        'securityToken'     => 'SecurityToken',
-        'token'             => 'Token',
-        'vpcId'             => 'VpcId',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'needBatchWork' => 'NeedBatchWork',
+        'port' => 'Port',
+        'refresh' => 'Refresh',
+        'securityToken' => 'SecurityToken',
+        'token' => 'Token',
+        'vpcId' => 'VpcId',
         'vpcTargetHostName' => 'VpcTargetHostName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

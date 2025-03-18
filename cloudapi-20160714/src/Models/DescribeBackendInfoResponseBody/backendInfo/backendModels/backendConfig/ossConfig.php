@@ -26,13 +26,11 @@ class ossConfig extends Model
      */
     public $ossRegionId;
     protected $_name = [
-        'bucketName'  => 'BucketName',
+        'bucketName' => 'BucketName',
         'ossRegionId' => 'OssRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

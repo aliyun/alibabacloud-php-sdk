@@ -35,21 +35,20 @@ class DescribeApisBySignatureRequest extends Model
      * @description The ID of the signature key.
      *
      * This parameter is required.
+     *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
      * @var string
      */
     public $signatureId;
     protected $_name = [
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'signatureId'   => 'SignatureId',
+        'signatureId' => 'SignatureId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

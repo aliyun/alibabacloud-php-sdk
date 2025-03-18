@@ -48,14 +48,12 @@ class openIdConnectConfig extends Model
     public $publicKeyId;
     protected $_name = [
         'idTokenParamName' => 'IdTokenParamName',
-        'openIdApiType'    => 'OpenIdApiType',
-        'publicKey'        => 'PublicKey',
-        'publicKeyId'      => 'PublicKeyId',
+        'openIdApiType' => 'OpenIdApiType',
+        'publicKey' => 'PublicKey',
+        'publicKeyId' => 'PublicKeyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

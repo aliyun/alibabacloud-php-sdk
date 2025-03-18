@@ -55,18 +55,16 @@ class ModifyBackendModelRequest extends Model
      */
     public $stageName;
     protected $_name = [
-        'backendId'        => 'BackendId',
+        'backendId' => 'BackendId',
         'backendModelData' => 'BackendModelData',
-        'backendModelId'   => 'BackendModelId',
-        'backendType'      => 'BackendType',
-        'description'      => 'Description',
-        'securityToken'    => 'SecurityToken',
-        'stageName'        => 'StageName',
+        'backendModelId' => 'BackendModelId',
+        'backendType' => 'BackendType',
+        'description' => 'Description',
+        'securityToken' => 'SecurityToken',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

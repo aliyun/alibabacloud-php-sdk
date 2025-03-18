@@ -21,6 +21,7 @@ class CreateAppCodeRequest extends Model
      * @description The application ID.
      *
      * This parameter is required.
+     *
      * @example 111203109
      *
      * @var string
@@ -28,12 +29,10 @@ class CreateAppCodeRequest extends Model
     public $appId;
     protected $_name = [
         'appCode' => 'AppCode',
-        'appId'   => 'AppId',
+        'appId' => 'AppId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

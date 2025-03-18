@@ -26,13 +26,11 @@ class CreateTrafficControlResponseBody extends Model
      */
     public $trafficControlId;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'trafficControlId' => 'TrafficControlId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

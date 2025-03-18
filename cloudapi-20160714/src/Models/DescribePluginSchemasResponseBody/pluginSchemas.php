@@ -17,9 +17,7 @@ class pluginSchemas extends Model
         'pluginSchema' => 'PluginSchema',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class pluginSchemas extends Model
         if (isset($map['PluginSchema'])) {
             if (!empty($map['PluginSchema'])) {
                 $model->pluginSchema = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PluginSchema'] as $item) {
                     $model->pluginSchema[$n++] = null !== $item ? pluginSchema::fromMap($item) : $item;
                 }

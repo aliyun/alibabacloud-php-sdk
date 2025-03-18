@@ -21,19 +21,18 @@ class DeleteAllTrafficSpecialControlRequest extends Model
      * @description The ID of the throttling policy.
      *
      * This parameter is required.
+     *
      * @example tf123456
      *
      * @var string
      */
     public $trafficControlId;
     protected $_name = [
-        'securityToken'    => 'SecurityToken',
+        'securityToken' => 'SecurityToken',
         'trafficControlId' => 'TrafficControlId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

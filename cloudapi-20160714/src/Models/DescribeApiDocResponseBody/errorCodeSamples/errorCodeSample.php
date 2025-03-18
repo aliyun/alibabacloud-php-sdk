@@ -35,14 +35,12 @@ class errorCodeSample extends Model
      */
     public $message;
     protected $_name = [
-        'code'        => 'Code',
+        'code' => 'Code',
         'description' => 'Description',
-        'message'     => 'Message',
+        'message' => 'Message',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

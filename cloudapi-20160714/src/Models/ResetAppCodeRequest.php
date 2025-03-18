@@ -12,6 +12,7 @@ class ResetAppCodeRequest extends Model
      * @description The AppCode of the app.
      *
      * This parameter is required.
+     *
      * @example 3aaf905a0a1f4f0eabc6d891dfa08afc
      *
      * @var string
@@ -32,14 +33,12 @@ class ResetAppCodeRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'appCode'       => 'AppCode',
-        'newAppCode'    => 'NewAppCode',
+        'appCode' => 'AppCode',
+        'newAppCode' => 'NewAppCode',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

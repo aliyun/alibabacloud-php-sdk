@@ -31,14 +31,12 @@ class SdkGenerateByGroupRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'groupId'       => 'GroupId',
-        'language'      => 'Language',
+        'groupId' => 'GroupId',
+        'language' => 'Language',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

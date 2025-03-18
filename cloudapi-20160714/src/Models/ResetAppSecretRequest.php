@@ -12,6 +12,7 @@ class ResetAppSecretRequest extends Model
      * @description The key of the application that is used to make an API call.
      *
      * This parameter is required.
+     *
      * @example 60030986
      *
      * @var string
@@ -41,15 +42,13 @@ class ResetAppSecretRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'appKey'        => 'AppKey',
-        'newAppKey'     => 'NewAppKey',
-        'newAppSecret'  => 'NewAppSecret',
+        'appKey' => 'AppKey',
+        'newAppKey' => 'NewAppKey',
+        'newAppSecret' => 'NewAppSecret',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

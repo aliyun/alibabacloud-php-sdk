@@ -49,6 +49,7 @@ class ModifyInstanceAttributeRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example apigateway-ht-8xxxxxxxxx
      *
      * @var string
@@ -116,23 +117,21 @@ class ModifyInstanceAttributeRequest extends Model
      */
     public $vpcSlbIntranetEnable;
     protected $_name = [
-        'deleteVpcIpBlock'     => 'DeleteVpcIpBlock',
-        'egressIpv6Enable'     => 'EgressIpv6Enable',
-        'httpsPolicy'          => 'HttpsPolicy',
-        'IPV6Enabled'          => 'IPV6Enabled',
-        'instanceId'           => 'InstanceId',
-        'instanceName'         => 'InstanceName',
-        'intranetSegments'     => 'IntranetSegments',
-        'maintainEndTime'      => 'MaintainEndTime',
-        'maintainStartTime'    => 'MaintainStartTime',
-        'toConnectVpcIpBlock'  => 'ToConnectVpcIpBlock',
-        'token'                => 'Token',
+        'deleteVpcIpBlock' => 'DeleteVpcIpBlock',
+        'egressIpv6Enable' => 'EgressIpv6Enable',
+        'httpsPolicy' => 'HttpsPolicy',
+        'IPV6Enabled' => 'IPV6Enabled',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'intranetSegments' => 'IntranetSegments',
+        'maintainEndTime' => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
+        'toConnectVpcIpBlock' => 'ToConnectVpcIpBlock',
+        'token' => 'Token',
         'vpcSlbIntranetEnable' => 'VpcSlbIntranetEnable',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DissociateInstanceWithPrivateDNSRequest extends Model
      * @description The instance ID.
      *
      * This parameter is required.
+     *
      * @example apigateway-hz-ead4f4b0bac8
      *
      * @var string
@@ -22,6 +23,7 @@ class DissociateInstanceWithPrivateDNSRequest extends Model
      * @description The internal domain names included in the resolution.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $intranetDomains;
@@ -31,14 +33,12 @@ class DissociateInstanceWithPrivateDNSRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'intranetDomains' => 'IntranetDomains',
-        'securityToken'   => 'SecurityToken',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

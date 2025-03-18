@@ -12,6 +12,7 @@ class CreateIntranetDomainRequest extends Model
      * @description The custom domain name.
      *
      * This parameter is required.
+     *
      * @example 927d50c0f2e54b359919923d908bb015
      *
      * @var string
@@ -23,13 +24,11 @@ class CreateIntranetDomainRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'groupId'       => 'GroupId',
+        'groupId' => 'GroupId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

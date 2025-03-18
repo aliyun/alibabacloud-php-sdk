@@ -35,14 +35,12 @@ class appItem extends Model
      */
     public $description;
     protected $_name = [
-        'appId'       => 'AppId',
-        'appName'     => 'AppName',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
         'description' => 'Description',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

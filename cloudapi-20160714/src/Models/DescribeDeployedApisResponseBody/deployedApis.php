@@ -17,9 +17,7 @@ class deployedApis extends Model
         'deployedApiItem' => 'DeployedApiItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class deployedApis extends Model
         if (isset($map['DeployedApiItem'])) {
             if (!empty($map['DeployedApiItem'])) {
                 $model->deployedApiItem = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['DeployedApiItem'] as $item) {
                     $model->deployedApiItem[$n++] = null !== $item ? deployedApiItem::fromMap($item) : $item;
                 }

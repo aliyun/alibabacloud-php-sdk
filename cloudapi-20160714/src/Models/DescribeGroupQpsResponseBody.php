@@ -25,13 +25,11 @@ class DescribeGroupQpsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'groupQps'  => 'GroupQps',
+        'groupQps' => 'GroupQps',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

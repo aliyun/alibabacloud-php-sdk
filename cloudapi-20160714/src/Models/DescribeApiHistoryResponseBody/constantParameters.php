@@ -17,9 +17,7 @@ class constantParameters extends Model
         'constantParameter' => 'ConstantParameter',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class constantParameters extends Model
         if (isset($map['ConstantParameter'])) {
             if (!empty($map['ConstantParameter'])) {
                 $model->constantParameter = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['ConstantParameter'] as $item) {
                     $model->constantParameter[$n++] = null !== $item ? constantParameter::fromMap($item) : $item;
                 }

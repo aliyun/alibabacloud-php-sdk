@@ -12,6 +12,7 @@ class DetachGroupPluginRequest extends Model
      * @description API group ID
      *
      * This parameter is required.
+     *
      * @example 0009db9c828549768a200320714b8930
      *
      * @var string
@@ -22,6 +23,7 @@ class DetachGroupPluginRequest extends Model
      * @description API Gateway plugin ID
      *
      * This parameter is required.
+     *
      * @example a96926e82f994915a8da40a119374537
      *
      * @var string
@@ -41,21 +43,20 @@ class DetachGroupPluginRequest extends Model
      * - **TEST**: Test
      *
      * This parameter is required.
+     *
      * @example RELEASE
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'groupId'       => 'GroupId',
-        'pluginId'      => 'PluginId',
+        'groupId' => 'GroupId',
+        'pluginId' => 'PluginId',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

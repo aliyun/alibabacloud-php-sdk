@@ -52,16 +52,14 @@ class DescribeVpcAccessesResponseBody extends Model
      */
     public $vpcAccessAttributes;
     protected $_name = [
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'requestId'           => 'RequestId',
-        'totalCount'          => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'vpcAccessAttributes' => 'VpcAccessAttributes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

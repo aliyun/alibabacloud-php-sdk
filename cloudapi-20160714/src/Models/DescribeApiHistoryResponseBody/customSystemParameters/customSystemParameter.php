@@ -53,16 +53,14 @@ class customSystemParameter extends Model
      */
     public $serviceParameterName;
     protected $_name = [
-        'demoValue'            => 'DemoValue',
-        'description'          => 'Description',
-        'location'             => 'Location',
-        'parameterName'        => 'ParameterName',
+        'demoValue' => 'DemoValue',
+        'description' => 'Description',
+        'location' => 'Location',
+        'parameterName' => 'ParameterName',
         'serviceParameterName' => 'ServiceParameterName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

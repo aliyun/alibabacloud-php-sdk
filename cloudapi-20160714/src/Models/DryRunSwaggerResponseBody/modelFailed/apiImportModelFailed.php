@@ -35,14 +35,12 @@ class apiImportModelFailed extends Model
      */
     public $modelName;
     protected $_name = [
-        'errorMsg'  => 'ErrorMsg',
-        'groupId'   => 'GroupId',
+        'errorMsg' => 'ErrorMsg',
+        'groupId' => 'GroupId',
         'modelName' => 'ModelName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

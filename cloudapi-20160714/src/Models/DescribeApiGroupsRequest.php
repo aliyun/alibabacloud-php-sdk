@@ -96,21 +96,19 @@ class DescribeApiGroupsRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'basePath'      => 'BasePath',
+        'basePath' => 'BasePath',
         'enableTagAuth' => 'EnableTagAuth',
-        'groupId'       => 'GroupId',
-        'groupName'     => 'GroupName',
-        'instanceId'    => 'InstanceId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'sort'          => 'Sort',
-        'tag'           => 'Tag',
+        'sort' => 'Sort',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -193,7 +191,7 @@ class DescribeApiGroupsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

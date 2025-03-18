@@ -17,9 +17,7 @@ class trafficPerSecond extends Model
         'monitorItem' => 'MonitorItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class trafficPerSecond extends Model
         if (isset($map['MonitorItem'])) {
             if (!empty($map['MonitorItem'])) {
                 $model->monitorItem = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['MonitorItem'] as $item) {
                     $model->monitorItem[$n++] = null !== $item ? monitorItem::fromMap($item) : $item;
                 }

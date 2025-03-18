@@ -17,9 +17,7 @@ class successApis extends Model
         'successApi' => 'SuccessApi',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class successApis extends Model
         if (isset($map['SuccessApi'])) {
             if (!empty($map['SuccessApi'])) {
                 $model->successApi = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['SuccessApi'] as $item) {
                     $model->successApi[$n++] = null !== $item ? successApi::fromMap($item) : $item;
                 }

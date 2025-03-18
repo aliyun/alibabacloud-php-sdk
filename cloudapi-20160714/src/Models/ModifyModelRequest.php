@@ -21,6 +21,7 @@ class ModifyModelRequest extends Model
      * @description The ID of the API group to which the model belongs.
      *
      * This parameter is required.
+     *
      * @example 30e792398d6c4569b04c0e53a3494381
      *
      * @var string
@@ -31,6 +32,7 @@ class ModifyModelRequest extends Model
      * @description The name of the model.
      *
      * This parameter is required.
+     *
      * @example Test
      *
      * @var string
@@ -55,16 +57,14 @@ class ModifyModelRequest extends Model
      */
     public $schema;
     protected $_name = [
-        'description'  => 'Description',
-        'groupId'      => 'GroupId',
-        'modelName'    => 'ModelName',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'modelName' => 'ModelName',
         'newModelName' => 'NewModelName',
-        'schema'       => 'Schema',
+        'schema' => 'Schema',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

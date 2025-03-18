@@ -12,6 +12,7 @@ class DescribeDatasetItemListRequest extends Model
      * @description The ID of the dataset.
      *
      * This parameter is required.
+     *
      * @example 602e1f6b3543200eaab0a89e********
      *
      * @var string
@@ -50,16 +51,14 @@ class DescribeDatasetItemListRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'datasetId'      => 'DatasetId',
+        'datasetId' => 'DatasetId',
         'datasetItemIds' => 'DatasetItemIds',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'securityToken'  => 'SecurityToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

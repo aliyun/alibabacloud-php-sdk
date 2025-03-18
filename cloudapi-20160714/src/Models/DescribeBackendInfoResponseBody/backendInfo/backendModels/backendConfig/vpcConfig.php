@@ -71,18 +71,16 @@ class vpcConfig extends Model
      */
     public $vpcTargetHostName;
     protected $_name = [
-        'instanceId'        => 'InstanceId',
-        'name'              => 'Name',
-        'port'              => 'Port',
-        'vpcAccessId'       => 'VpcAccessId',
-        'vpcId'             => 'VpcId',
-        'vpcScheme'         => 'VpcScheme',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'port' => 'Port',
+        'vpcAccessId' => 'VpcAccessId',
+        'vpcId' => 'VpcId',
+        'vpcScheme' => 'VpcScheme',
         'vpcTargetHostName' => 'VpcTargetHostName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class DescribeSignaturesByApiResponseBody extends Model
      */
     public $signatures;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'signatures' => 'Signatures',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

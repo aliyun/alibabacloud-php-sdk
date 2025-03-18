@@ -44,15 +44,13 @@ class zoneVSwitchSecurityGroup extends Model
      */
     public $zoneId;
     protected $_name = [
-        'cidrBlock'       => 'CidrBlock',
+        'cidrBlock' => 'CidrBlock',
         'securityGroupId' => 'SecurityGroupId',
-        'vSwitchId'       => 'VSwitchId',
-        'zoneId'          => 'ZoneId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

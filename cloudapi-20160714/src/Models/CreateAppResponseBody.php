@@ -35,14 +35,12 @@ class CreateAppResponseBody extends Model
      */
     public $tagStatus;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'requestId' => 'RequestId',
         'tagStatus' => 'TagStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

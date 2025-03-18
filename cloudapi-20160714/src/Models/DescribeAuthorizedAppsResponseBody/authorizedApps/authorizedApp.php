@@ -116,22 +116,20 @@ class authorizedApp extends Model
      */
     public $tag;
     protected $_name = [
-        'appDescription'      => 'AppDescription',
-        'appId'               => 'AppId',
-        'appName'             => 'AppName',
-        'authVaildTime'       => 'AuthVaildTime',
+        'appDescription' => 'AppDescription',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'authVaildTime' => 'AuthVaildTime',
         'authorizationSource' => 'AuthorizationSource',
-        'authorizedTime'      => 'AuthorizedTime',
-        'description'         => 'Description',
-        'operator'            => 'Operator',
-        'stageAlias'          => 'StageAlias',
-        'stageName'           => 'StageName',
-        'tag'                 => 'Tag',
+        'authorizedTime' => 'AuthorizedTime',
+        'description' => 'Description',
+        'operator' => 'Operator',
+        'stageAlias' => 'StageAlias',
+        'stageName' => 'StageName',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

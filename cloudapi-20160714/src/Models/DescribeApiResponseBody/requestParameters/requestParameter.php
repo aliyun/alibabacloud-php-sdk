@@ -161,28 +161,26 @@ class requestParameter extends Model
      */
     public $required;
     protected $_name = [
-        'apiParameterName'  => 'ApiParameterName',
-        'arrayItemsType'    => 'ArrayItemsType',
-        'defaultValue'      => 'DefaultValue',
-        'demoValue'         => 'DemoValue',
-        'description'       => 'Description',
-        'docOrder'          => 'DocOrder',
-        'docShow'           => 'DocShow',
-        'enumValue'         => 'EnumValue',
-        'jsonScheme'        => 'JsonScheme',
-        'location'          => 'Location',
-        'maxLength'         => 'MaxLength',
-        'maxValue'          => 'MaxValue',
-        'minLength'         => 'MinLength',
-        'minValue'          => 'MinValue',
-        'parameterType'     => 'ParameterType',
+        'apiParameterName' => 'ApiParameterName',
+        'arrayItemsType' => 'ArrayItemsType',
+        'defaultValue' => 'DefaultValue',
+        'demoValue' => 'DemoValue',
+        'description' => 'Description',
+        'docOrder' => 'DocOrder',
+        'docShow' => 'DocShow',
+        'enumValue' => 'EnumValue',
+        'jsonScheme' => 'JsonScheme',
+        'location' => 'Location',
+        'maxLength' => 'MaxLength',
+        'maxValue' => 'MaxValue',
+        'minLength' => 'MinLength',
+        'minValue' => 'MinValue',
+        'parameterType' => 'ParameterType',
         'regularExpression' => 'RegularExpression',
-        'required'          => 'Required',
+        'required' => 'Required',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

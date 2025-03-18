@@ -114,22 +114,20 @@ class purchasedApi extends Model
      */
     public $visibility;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'apiName'       => 'ApiName',
-        'deployedTime'  => 'DeployedTime',
-        'description'   => 'Description',
-        'groupId'       => 'GroupId',
-        'groupName'     => 'GroupName',
-        'modifiedTime'  => 'ModifiedTime',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'deployedTime' => 'DeployedTime',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'modifiedTime' => 'ModifiedTime',
         'purchasedTime' => 'PurchasedTime',
-        'regionId'      => 'RegionId',
-        'stageName'     => 'StageName',
-        'visibility'    => 'Visibility',
+        'regionId' => 'RegionId',
+        'stageName' => 'StageName',
+        'visibility' => 'Visibility',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,15 +44,13 @@ class systemParamItem extends Model
      */
     public $paramType;
     protected $_name = [
-        'demoValue'   => 'DemoValue',
+        'demoValue' => 'DemoValue',
         'description' => 'Description',
-        'paramName'   => 'ParamName',
-        'paramType'   => 'ParamType',
+        'paramName' => 'ParamName',
+        'paramType' => 'ParamType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

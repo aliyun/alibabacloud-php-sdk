@@ -47,16 +47,14 @@ class RemoveVpcAccessAndAbolishApisRequest extends Model
      */
     public $vpcId;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'needBatchWork' => 'NeedBatchWork',
-        'port'          => 'Port',
+        'port' => 'Port',
         'securityToken' => 'SecurityToken',
-        'vpcId'         => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

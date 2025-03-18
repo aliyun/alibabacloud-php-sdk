@@ -62,17 +62,15 @@ class DescribeAppSecurityResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'appCode'      => 'AppCode',
-        'appKey'       => 'AppKey',
-        'appSecret'    => 'AppSecret',
-        'createdTime'  => 'CreatedTime',
+        'appCode' => 'AppCode',
+        'appKey' => 'AppKey',
+        'appSecret' => 'AppSecret',
+        'createdTime' => 'CreatedTime',
         'modifiedTime' => 'ModifiedTime',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

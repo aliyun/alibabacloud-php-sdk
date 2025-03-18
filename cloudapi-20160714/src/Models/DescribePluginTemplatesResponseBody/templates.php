@@ -17,9 +17,7 @@ class templates extends Model
         'template' => 'Template',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class templates extends Model
         if (isset($map['Template'])) {
             if (!empty($map['Template'])) {
                 $model->template = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Template'] as $item) {
                     $model->template[$n++] = null !== $item ? template::fromMap($item) : $item;
                 }

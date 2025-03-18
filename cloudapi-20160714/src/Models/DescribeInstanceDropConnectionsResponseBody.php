@@ -26,12 +26,10 @@ class DescribeInstanceDropConnectionsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'instanceDropConnections' => 'InstanceDropConnections',
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

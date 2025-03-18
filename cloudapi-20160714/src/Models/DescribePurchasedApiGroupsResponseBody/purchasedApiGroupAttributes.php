@@ -17,9 +17,7 @@ class purchasedApiGroupAttributes extends Model
         'purchasedApiGroupAttribute' => 'PurchasedApiGroupAttribute',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class purchasedApiGroupAttributes extends Model
         if (isset($map['PurchasedApiGroupAttribute'])) {
             if (!empty($map['PurchasedApiGroupAttribute'])) {
                 $model->purchasedApiGroupAttribute = [];
-                $n                                 = 0;
+                $n = 0;
                 foreach ($map['PurchasedApiGroupAttribute'] as $item) {
                     $model->purchasedApiGroupAttribute[$n++] = null !== $item ? purchasedApiGroupAttribute::fromMap($item) : $item;
                 }

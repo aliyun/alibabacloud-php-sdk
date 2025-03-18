@@ -33,14 +33,12 @@ class DescribeApiQpsDataResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'callFails'     => 'CallFails',
+        'callFails' => 'CallFails',
         'callSuccesses' => 'CallSuccesses',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

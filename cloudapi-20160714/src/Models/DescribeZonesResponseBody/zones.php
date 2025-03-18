@@ -17,9 +17,7 @@ class zones extends Model
         'zone' => 'Zone',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class zones extends Model
         if (isset($map['Zone'])) {
             if (!empty($map['Zone'])) {
                 $model->zone = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Zone'] as $item) {
                     $model->zone[$n++] = null !== $item ? zone::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class requestConfig extends Model
      * @description This parameter takes effect only when the RequestMode parameter is set to MAPPING.********
      *
      * The server data transmission method used for POST and PUT requests. Valid values: FORM and STREAM. FORM indicates that data in key-value pairs is transmitted as forms. STREAM indicates that data is transmitted as byte streams.
+     *
      * @example STREAM
      *
      * @var string
@@ -76,18 +77,16 @@ class requestConfig extends Model
      */
     public $requestProtocol;
     protected $_name = [
-        'bodyFormat'          => 'BodyFormat',
-        'escapePathParam'     => 'EscapePathParam',
+        'bodyFormat' => 'BodyFormat',
+        'escapePathParam' => 'EscapePathParam',
         'postBodyDescription' => 'PostBodyDescription',
-        'requestHttpMethod'   => 'RequestHttpMethod',
-        'requestMode'         => 'RequestMode',
-        'requestPath'         => 'RequestPath',
-        'requestProtocol'     => 'RequestProtocol',
+        'requestHttpMethod' => 'RequestHttpMethod',
+        'requestMode' => 'RequestMode',
+        'requestPath' => 'RequestPath',
+        'requestProtocol' => 'RequestProtocol',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

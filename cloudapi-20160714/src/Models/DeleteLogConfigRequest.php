@@ -22,13 +22,11 @@ class DeleteLogConfigRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'logType'       => 'LogType',
+        'logType' => 'LogType',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -31,6 +31,7 @@ class CreateAppRequest extends Model
      * @description The name of the application. The name must be 4 to 26 characters in length. The name can contain letters, digits, and underscores (_), and must start with a letter.
      *
      * This parameter is required.
+     *
      * @example CreateAppTest
      *
      * @var string
@@ -78,19 +79,17 @@ class CreateAppRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'appCode'       => 'AppCode',
-        'appKey'        => 'AppKey',
-        'appName'       => 'AppName',
-        'appSecret'     => 'AppSecret',
-        'description'   => 'Description',
-        'extend'        => 'Extend',
+        'appCode' => 'AppCode',
+        'appKey' => 'AppKey',
+        'appName' => 'AppName',
+        'appSecret' => 'AppSecret',
+        'description' => 'Description',
+        'extend' => 'Extend',
         'securityToken' => 'SecurityToken',
-        'tag'           => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -161,7 +160,7 @@ class CreateAppRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

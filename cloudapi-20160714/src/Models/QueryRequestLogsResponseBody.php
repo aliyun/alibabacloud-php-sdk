@@ -25,13 +25,11 @@ class QueryRequestLogsResponseBody extends Model
      */
     public $requestLogs;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'requestLogs' => 'RequestLogs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

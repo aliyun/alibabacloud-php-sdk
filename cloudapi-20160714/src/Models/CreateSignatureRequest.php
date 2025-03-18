@@ -21,6 +21,7 @@ class CreateSignatureRequest extends Model
      * @description The Key value of the key. The value must be 6 to 20 characters in length and can contain letters, digits, and underscores (_). It must start with a letter.
      *
      * This parameter is required.
+     *
      * @example qwertyuiop
      *
      * @var string
@@ -31,6 +32,7 @@ class CreateSignatureRequest extends Model
      * @description The displayed name of the key. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (_). It must start with a letter.
      *
      * This parameter is required.
+     *
      * @example backendsignature
      *
      * @var string
@@ -41,21 +43,20 @@ class CreateSignatureRequest extends Model
      * @description The Secret value of the key. The value must be 6 to 30 characters in length and can contain letters, digits, and special characters. Special characters include underscores (_), at signs (@), number signs (#), exclamation points (!), and asterisks (\\*). The value must start with a letter.
      *
      * This parameter is required.
+     *
      * @example asdfghjkl
      *
      * @var string
      */
     public $signatureSecret;
     protected $_name = [
-        'securityToken'   => 'SecurityToken',
-        'signatureKey'    => 'SignatureKey',
-        'signatureName'   => 'SignatureName',
+        'securityToken' => 'SecurityToken',
+        'signatureKey' => 'SignatureKey',
+        'signatureName' => 'SignatureName',
         'signatureSecret' => 'SignatureSecret',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

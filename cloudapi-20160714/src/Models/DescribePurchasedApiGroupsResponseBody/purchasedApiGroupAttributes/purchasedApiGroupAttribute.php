@@ -101,21 +101,19 @@ class purchasedApiGroupAttribute extends Model
      */
     public $status;
     protected $_name = [
-        'billingType'    => 'BillingType',
-        'description'    => 'Description',
-        'expireTime'     => 'ExpireTime',
-        'groupId'        => 'GroupId',
-        'groupName'      => 'GroupName',
+        'billingType' => 'BillingType',
+        'description' => 'Description',
+        'expireTime' => 'ExpireTime',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
         'invokeTimesMax' => 'InvokeTimesMax',
         'invokeTimesNow' => 'InvokeTimesNow',
-        'purchasedTime'  => 'PurchasedTime',
-        'regionId'       => 'RegionId',
-        'status'         => 'Status',
+        'purchasedTime' => 'PurchasedTime',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

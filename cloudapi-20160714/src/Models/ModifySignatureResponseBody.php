@@ -35,14 +35,12 @@ class ModifySignatureResponseBody extends Model
      */
     public $signatureName;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'signatureId'   => 'SignatureId',
+        'requestId' => 'RequestId',
+        'signatureId' => 'SignatureId',
         'signatureName' => 'SignatureName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

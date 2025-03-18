@@ -13,6 +13,7 @@ class CreatePrivateDNSRequest extends Model
      * @description The internal domain name.
      *
      * This parameter is required.
+     *
      * @example api.demo.com
      *
      * @var string
@@ -38,6 +39,7 @@ class CreatePrivateDNSRequest extends Model
      *   A: resolution that supports A records. A resolution of this type can be bound only to VPC integration dedicated instances.
      *
      * This parameter is required.
+     *
      * @example A
      *
      * @var string
@@ -45,14 +47,12 @@ class CreatePrivateDNSRequest extends Model
     public $type;
     protected $_name = [
         'intranetDomain' => 'IntranetDomain',
-        'records'        => 'Records',
-        'securityToken'  => 'SecurityToken',
-        'type'           => 'Type',
+        'records' => 'Records',
+        'securityToken' => 'SecurityToken',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -93,7 +93,7 @@ class CreatePrivateDNSRequest extends Model
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Records'] as $item) {
                     $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
                 }

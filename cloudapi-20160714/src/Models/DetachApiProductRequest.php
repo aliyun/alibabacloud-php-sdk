@@ -13,6 +13,7 @@ class DetachApiProductRequest extends Model
      * @description The ID of the API product.
      *
      * This parameter is required.
+     *
      * @example 117b7a64a8b3f064eaa4a47ac62aac5e
      *
      * @var string
@@ -23,6 +24,7 @@ class DetachApiProductRequest extends Model
      * @description The APIs that you want to detach from the API product.
      *
      * This parameter is required.
+     *
      * @var apis[]
      */
     public $apis;
@@ -32,14 +34,12 @@ class DetachApiProductRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'apiProductId'  => 'ApiProductId',
-        'apis'          => 'Apis',
+        'apiProductId' => 'ApiProductId',
+        'apis' => 'Apis',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -77,7 +77,7 @@ class DetachApiProductRequest extends Model
         if (isset($map['Apis'])) {
             if (!empty($map['Apis'])) {
                 $model->apis = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Apis'] as $item) {
                     $model->apis[$n++] = null !== $item ? apis::fromMap($item) : $item;
                 }

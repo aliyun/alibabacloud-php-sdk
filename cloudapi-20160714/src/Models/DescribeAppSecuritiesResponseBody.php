@@ -26,12 +26,10 @@ class DescribeAppSecuritiesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'appSecuritys' => 'AppSecuritys',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

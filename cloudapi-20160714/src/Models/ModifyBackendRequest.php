@@ -47,16 +47,14 @@ class ModifyBackendRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'backendId'     => 'BackendId',
-        'backendName'   => 'BackendName',
-        'backendType'   => 'BackendType',
-        'description'   => 'Description',
+        'backendId' => 'BackendId',
+        'backendName' => 'BackendName',
+        'backendType' => 'BackendType',
+        'description' => 'Description',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

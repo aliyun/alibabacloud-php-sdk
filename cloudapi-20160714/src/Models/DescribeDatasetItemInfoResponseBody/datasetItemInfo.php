@@ -71,18 +71,16 @@ class datasetItemInfo extends Model
      */
     public $value;
     protected $_name = [
-        'createdTime'   => 'CreatedTime',
-        'datasetId'     => 'DatasetId',
+        'createdTime' => 'CreatedTime',
+        'datasetId' => 'DatasetId',
         'datasetItemId' => 'DatasetItemId',
-        'description'   => 'Description',
-        'expiredTime'   => 'ExpiredTime',
-        'modifiedTime'  => 'ModifiedTime',
-        'value'         => 'Value',
+        'description' => 'Description',
+        'expiredTime' => 'ExpiredTime',
+        'modifiedTime' => 'ModifiedTime',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

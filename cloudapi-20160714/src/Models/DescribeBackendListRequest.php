@@ -57,17 +57,15 @@ class DescribeBackendListRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'backendName'   => 'BackendName',
-        'backendType'   => 'BackendType',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'backendName' => 'BackendName',
+        'backendType' => 'BackendType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'tag'           => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -126,7 +124,7 @@ class DescribeBackendListRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

@@ -34,14 +34,12 @@ class mockConfig extends Model
      */
     public $mockStatusCode;
     protected $_name = [
-        'mockHeaders'    => 'MockHeaders',
-        'mockResult'     => 'MockResult',
+        'mockHeaders' => 'MockHeaders',
+        'mockResult' => 'MockResult',
         'mockStatusCode' => 'MockStatusCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class mockConfig extends Model
         if (isset($map['MockHeaders'])) {
             if (!empty($map['MockHeaders'])) {
                 $model->mockHeaders = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['MockHeaders'] as $item) {
                     $model->mockHeaders[$n++] = null !== $item ? mockHeaders::fromMap($item) : $item;
                 }

@@ -71,18 +71,16 @@ class apiInfo extends Model
      */
     public $path;
     protected $_name = [
-        'apiId'       => 'ApiId',
-        'apiName'     => 'ApiName',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
         'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
-        'method'      => 'Method',
-        'path'        => 'Path',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'method' => 'Method',
+        'path' => 'Path',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

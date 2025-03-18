@@ -40,15 +40,13 @@ class DescribeApisByVpcAccessRequest extends Model
      */
     public $vpcName;
     protected $_name = [
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'vpcName'       => 'VpcName',
+        'vpcName' => 'VpcName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

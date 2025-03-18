@@ -30,9 +30,7 @@ class serviceParameterMap extends Model
         'serviceParameterName' => 'ServiceParameterName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

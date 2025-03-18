@@ -26,12 +26,10 @@ class DescribeInstanceHttpCodeResponseBody extends Model
     public $requestId;
     protected $_name = [
         'instanceHttpCode' => 'InstanceHttpCode',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

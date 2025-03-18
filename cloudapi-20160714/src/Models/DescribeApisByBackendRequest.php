@@ -12,6 +12,7 @@ class DescribeApisByBackendRequest extends Model
      * @description The ID of the backend service.
      *
      * This parameter is required.
+     *
      * @example 4ac69b7a17524781b275ed4c5eb25c54
      *
      * @var string
@@ -49,22 +50,21 @@ class DescribeApisByBackendRequest extends Model
      *   **TEST**
      *
      * If you do not specify this parameter, APIs in the draft state are returned.
+     *
      * @example PRE
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'backendId'     => 'BackendId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'backendId' => 'BackendId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

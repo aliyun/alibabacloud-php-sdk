@@ -81,18 +81,16 @@ class resultDescription extends Model
     public $type;
     protected $_name = [
         'description' => 'Description',
-        'hasChild'    => 'HasChild',
-        'id'          => 'Id',
-        'key'         => 'Key',
-        'mandatory'   => 'Mandatory',
-        'name'        => 'Name',
-        'pid'         => 'Pid',
-        'type'        => 'Type',
+        'hasChild' => 'HasChild',
+        'id' => 'Id',
+        'key' => 'Key',
+        'mandatory' => 'Mandatory',
+        'name' => 'Name',
+        'pid' => 'Pid',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

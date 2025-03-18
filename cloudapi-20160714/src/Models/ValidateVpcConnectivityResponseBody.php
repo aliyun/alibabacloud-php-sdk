@@ -43,13 +43,11 @@ class ValidateVpcConnectivityResponseBody extends Model
     public $requestId;
     protected $_name = [
         'connected' => 'Connected',
-        'ipType'    => 'IpType',
+        'ipType' => 'IpType',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

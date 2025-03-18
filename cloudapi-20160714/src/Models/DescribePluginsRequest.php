@@ -68,18 +68,16 @@ class DescribePluginsRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'pluginId'      => 'PluginId',
-        'pluginName'    => 'PluginName',
-        'pluginType'    => 'PluginType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'pluginId' => 'PluginId',
+        'pluginName' => 'PluginName',
+        'pluginType' => 'PluginType',
         'securityToken' => 'SecurityToken',
-        'tag'           => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -144,7 +142,7 @@ class DescribePluginsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

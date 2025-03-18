@@ -85,18 +85,16 @@ class ExportOASShrinkRequest extends Model
     public $withXExtensions;
     protected $_name = [
         'apiIdListShrink' => 'ApiIdList',
-        'dataFormat'      => 'DataFormat',
-        'groupId'         => 'GroupId',
-        'oasVersion'      => 'OasVersion',
-        'pageNumber'      => 'PageNumber',
-        'securityToken'   => 'SecurityToken',
-        'stageName'       => 'StageName',
+        'dataFormat' => 'DataFormat',
+        'groupId' => 'GroupId',
+        'oasVersion' => 'OasVersion',
+        'pageNumber' => 'PageNumber',
+        'securityToken' => 'SecurityToken',
+        'stageName' => 'StageName',
         'withXExtensions' => 'WithXExtensions',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

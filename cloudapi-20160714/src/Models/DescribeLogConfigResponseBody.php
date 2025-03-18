@@ -25,13 +25,11 @@ class DescribeLogConfigResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'logInfos'  => 'LogInfos',
+        'logInfos' => 'LogInfos',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

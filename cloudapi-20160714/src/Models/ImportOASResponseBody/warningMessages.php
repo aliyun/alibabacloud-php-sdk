@@ -16,9 +16,7 @@ class warningMessages extends Model
         'warningMessage' => 'WarningMessage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

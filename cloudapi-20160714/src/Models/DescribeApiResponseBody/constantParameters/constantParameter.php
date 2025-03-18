@@ -44,15 +44,13 @@ class constantParameter extends Model
      */
     public $serviceParameterName;
     protected $_name = [
-        'constantValue'        => 'ConstantValue',
-        'description'          => 'Description',
-        'location'             => 'Location',
+        'constantValue' => 'ConstantValue',
+        'description' => 'Description',
+        'location' => 'Location',
         'serviceParameterName' => 'ServiceParameterName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

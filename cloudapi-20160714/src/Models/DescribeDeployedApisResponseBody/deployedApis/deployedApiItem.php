@@ -113,22 +113,20 @@ class deployedApiItem extends Model
      */
     public $visibility;
     protected $_name = [
-        'apiId'        => 'ApiId',
-        'apiMethod'    => 'ApiMethod',
-        'apiName'      => 'ApiName',
-        'apiPath'      => 'ApiPath',
+        'apiId' => 'ApiId',
+        'apiMethod' => 'ApiMethod',
+        'apiName' => 'ApiName',
+        'apiPath' => 'ApiPath',
         'deployedTime' => 'DeployedTime',
-        'description'  => 'Description',
-        'groupId'      => 'GroupId',
-        'groupName'    => 'GroupName',
-        'regionId'     => 'RegionId',
-        'stageName'    => 'StageName',
-        'visibility'   => 'Visibility',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'regionId' => 'RegionId',
+        'stageName' => 'StageName',
+        'visibility' => 'Visibility',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

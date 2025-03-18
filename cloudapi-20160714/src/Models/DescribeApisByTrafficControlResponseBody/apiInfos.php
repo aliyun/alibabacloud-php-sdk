@@ -17,9 +17,7 @@ class apiInfos extends Model
         'apiInfo' => 'ApiInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class apiInfos extends Model
         if (isset($map['ApiInfo'])) {
             if (!empty($map['ApiInfo'])) {
                 $model->apiInfo = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['ApiInfo'] as $item) {
                     $model->apiInfo[$n++] = null !== $item ? apiInfo::fromMap($item) : $item;
                 }

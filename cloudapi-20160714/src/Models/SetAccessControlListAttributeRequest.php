@@ -31,14 +31,12 @@ class SetAccessControlListAttributeRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'aclId'         => 'AclId',
-        'aclName'       => 'AclName',
+        'aclId' => 'AclId',
+        'aclName' => 'AclName',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

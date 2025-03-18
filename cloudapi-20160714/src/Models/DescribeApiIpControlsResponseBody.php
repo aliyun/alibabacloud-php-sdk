@@ -53,15 +53,13 @@ class DescribeApiIpControlsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'apiIpControls' => 'ApiIpControls',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

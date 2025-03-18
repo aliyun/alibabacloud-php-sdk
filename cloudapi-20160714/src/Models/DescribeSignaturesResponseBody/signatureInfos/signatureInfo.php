@@ -71,18 +71,16 @@ class signatureInfo extends Model
      */
     public $signatureSecret;
     protected $_name = [
-        'createdTime'     => 'CreatedTime',
-        'modifiedTime'    => 'ModifiedTime',
-        'regionId'        => 'RegionId',
-        'signatureId'     => 'SignatureId',
-        'signatureKey'    => 'SignatureKey',
-        'signatureName'   => 'SignatureName',
+        'createdTime' => 'CreatedTime',
+        'modifiedTime' => 'ModifiedTime',
+        'regionId' => 'RegionId',
+        'signatureId' => 'SignatureId',
+        'signatureKey' => 'SignatureKey',
+        'signatureName' => 'SignatureName',
         'signatureSecret' => 'SignatureSecret',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

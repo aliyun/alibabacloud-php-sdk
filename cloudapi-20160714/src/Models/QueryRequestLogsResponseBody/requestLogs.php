@@ -17,9 +17,7 @@ class requestLogs extends Model
         'requestLog' => 'RequestLog',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class requestLogs extends Model
         if (isset($map['RequestLog'])) {
             if (!empty($map['RequestLog'])) {
                 $model->requestLog = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['RequestLog'] as $item) {
                     $model->requestLog[$n++] = null !== $item ? requestLog::fromMap($item) : $item;
                 }

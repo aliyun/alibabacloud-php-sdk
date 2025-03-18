@@ -34,13 +34,11 @@ class DescribeApiTrafficDataResponseBody extends Model
     public $requestId;
     protected $_name = [
         'callDownloads' => 'CallDownloads',
-        'callUploads'   => 'CallUploads',
-        'requestId'     => 'RequestId',
+        'callUploads' => 'CallUploads',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -70,18 +70,16 @@ class backendInfoList extends Model
      */
     public $tags;
     protected $_name = [
-        'backendId'    => 'BackendId',
-        'backendName'  => 'BackendName',
-        'backendType'  => 'BackendType',
-        'createdTime'  => 'CreatedTime',
-        'description'  => 'Description',
+        'backendId' => 'BackendId',
+        'backendName' => 'BackendName',
+        'backendType' => 'BackendType',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
         'modifiedTime' => 'ModifiedTime',
-        'tags'         => 'Tags',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -146,7 +144,7 @@ class backendInfoList extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

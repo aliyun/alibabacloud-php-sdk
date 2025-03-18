@@ -52,16 +52,14 @@ class ListPrivateDNSResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'privateDNSList' => 'PrivateDNSList',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +106,7 @@ class ListPrivateDNSResponseBody extends Model
         if (isset($map['PrivateDNSList'])) {
             if (!empty($map['PrivateDNSList'])) {
                 $model->privateDNSList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['PrivateDNSList'] as $item) {
                     $model->privateDNSList[$n++] = null !== $item ? privateDNSList::fromMap($item) : $item;
                 }

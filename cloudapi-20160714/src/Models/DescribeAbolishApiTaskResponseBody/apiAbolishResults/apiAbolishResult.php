@@ -84,18 +84,16 @@ class apiAbolishResult extends Model
     public $stageName;
     protected $_name = [
         'abolishStatus' => 'AbolishStatus',
-        'apiName'       => 'ApiName',
-        'apiUid'        => 'ApiUid',
-        'errorMsg'      => 'ErrorMsg',
-        'groupId'       => 'GroupId',
-        'groupName'     => 'GroupName',
-        'stageId'       => 'StageId',
-        'stageName'     => 'StageName',
+        'apiName' => 'ApiName',
+        'apiUid' => 'ApiUid',
+        'errorMsg' => 'ErrorMsg',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'stageId' => 'StageId',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

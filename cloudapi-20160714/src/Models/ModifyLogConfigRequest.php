@@ -33,6 +33,7 @@ class ModifyLogConfigRequest extends Model
      * @description The name of the Logstore.
      *
      * This parameter is required.
+     *
      * @example logs-gateway
      *
      * @var string
@@ -43,21 +44,20 @@ class ModifyLogConfigRequest extends Model
      * @description The name of the Log Service project.
      *
      * This parameter is required.
+     *
      * @example ford-api-gateway-log
      *
      * @var string
      */
     public $slsProject;
     protected $_name = [
-        'logType'       => 'LogType',
+        'logType' => 'LogType',
         'securityToken' => 'SecurityToken',
-        'slsLogStore'   => 'SlsLogStore',
-        'slsProject'    => 'SlsProject',
+        'slsLogStore' => 'SlsLogStore',
+        'slsProject' => 'SlsProject',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

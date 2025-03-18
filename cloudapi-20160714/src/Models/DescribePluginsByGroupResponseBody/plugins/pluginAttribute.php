@@ -80,19 +80,17 @@ class pluginAttribute extends Model
      */
     public $regionId;
     protected $_name = [
-        'createdTime'  => 'CreatedTime',
-        'description'  => 'Description',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
         'modifiedTime' => 'ModifiedTime',
-        'pluginData'   => 'PluginData',
-        'pluginId'     => 'PluginId',
-        'pluginName'   => 'PluginName',
-        'pluginType'   => 'PluginType',
-        'regionId'     => 'RegionId',
+        'pluginData' => 'PluginData',
+        'pluginId' => 'PluginId',
+        'pluginName' => 'PluginName',
+        'pluginType' => 'PluginType',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

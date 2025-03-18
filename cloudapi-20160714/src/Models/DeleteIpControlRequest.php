@@ -12,6 +12,7 @@ class DeleteIpControlRequest extends Model
      * @description The ID of the ACL. The ID is unique.
      *
      * This parameter is required.
+     *
      * @example 7ea91319a34d48a09b5c9c871d9768b1
      *
      * @var string
@@ -23,13 +24,11 @@ class DeleteIpControlRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'ipControlId'   => 'IpControlId',
+        'ipControlId' => 'IpControlId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

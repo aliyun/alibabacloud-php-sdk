@@ -152,26 +152,24 @@ class DescribeDomainResponseBody extends Model
      */
     public $subDomain;
     protected $_name = [
-        'certificateBody'       => 'CertificateBody',
-        'certificateId'         => 'CertificateId',
-        'certificateName'       => 'CertificateName',
+        'certificateBody' => 'CertificateBody',
+        'certificateId' => 'CertificateId',
+        'certificateName' => 'CertificateName',
         'certificatePrivateKey' => 'CertificatePrivateKey',
-        'certificateValidEnd'   => 'CertificateValidEnd',
+        'certificateValidEnd' => 'CertificateValidEnd',
         'certificateValidStart' => 'CertificateValidStart',
-        'domainBindingStatus'   => 'DomainBindingStatus',
-        'domainCNAMEStatus'     => 'DomainCNAMEStatus',
-        'domainLegalStatus'     => 'DomainLegalStatus',
-        'domainName'            => 'DomainName',
-        'domainRemark'          => 'DomainRemark',
+        'domainBindingStatus' => 'DomainBindingStatus',
+        'domainCNAMEStatus' => 'DomainCNAMEStatus',
+        'domainLegalStatus' => 'DomainLegalStatus',
+        'domainName' => 'DomainName',
+        'domainRemark' => 'DomainRemark',
         'domainWebSocketStatus' => 'DomainWebSocketStatus',
-        'groupId'               => 'GroupId',
-        'requestId'             => 'RequestId',
-        'subDomain'             => 'SubDomain',
+        'groupId' => 'GroupId',
+        'requestId' => 'RequestId',
+        'subDomain' => 'SubDomain',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

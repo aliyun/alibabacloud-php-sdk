@@ -39,14 +39,12 @@ class deployedInfo extends Model
      */
     public $stageName;
     protected $_name = [
-        'deployedStatus'   => 'DeployedStatus',
+        'deployedStatus' => 'DeployedStatus',
         'effectiveVersion' => 'EffectiveVersion',
-        'stageName'        => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

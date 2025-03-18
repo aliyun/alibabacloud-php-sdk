@@ -12,6 +12,7 @@ class EnableInstanceAccessControlRequest extends Model
      * @description The ID of the access control policy.
      *
      * This parameter is required.
+     *
      * @example acl-bp11escro2et2tioscy52
      *
      * @var string
@@ -25,6 +26,7 @@ class EnableInstanceAccessControlRequest extends Model
      *   white: whitelist
      *
      * This parameter is required.
+     *
      * @example black
      *
      * @var string
@@ -44,6 +46,7 @@ class EnableInstanceAccessControlRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example apigateway-cn-v6419k43xxxxx
      *
      * @var string
@@ -55,16 +58,14 @@ class EnableInstanceAccessControlRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'aclId'            => 'AclId',
-        'aclType'          => 'AclType',
+        'aclId' => 'AclId',
+        'aclType' => 'AclType',
         'addressIPVersion' => 'AddressIPVersion',
-        'instanceId'       => 'InstanceId',
-        'securityToken'    => 'SecurityToken',
+        'instanceId' => 'InstanceId',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

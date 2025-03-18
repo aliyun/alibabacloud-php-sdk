@@ -57,6 +57,7 @@ class DescribePluginGroupsRequest extends Model
      * @description API Gateway plugin ID
      *
      * This parameter is required.
+     *
      * @example 1f3bde29b43d4d53989248327ff737f2
      *
      * @var string
@@ -68,18 +69,16 @@ class DescribePluginGroupsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'description'   => 'Description',
-        'groupId'       => 'GroupId',
-        'groupName'     => 'GroupName',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'pluginId'      => 'PluginId',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'pluginId' => 'PluginId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

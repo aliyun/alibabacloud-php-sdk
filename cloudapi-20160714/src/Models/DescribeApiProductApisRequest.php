@@ -12,6 +12,7 @@ class DescribeApiProductApisRequest extends Model
      * @description The ID of the API product.
      *
      * This parameter is required.
+     *
      * @example 117b7a64a8b3f064eaa4a47ac62aac5e
      *
      * @var string
@@ -41,15 +42,13 @@ class DescribeApiProductApisRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'apiProductId'  => 'ApiProductId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'apiProductId' => 'ApiProductId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

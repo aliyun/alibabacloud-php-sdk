@@ -17,9 +17,7 @@ class appApiRelationInfos extends Model
         'appApiRelationInfo' => 'AppApiRelationInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class appApiRelationInfos extends Model
         if (isset($map['AppApiRelationInfo'])) {
             if (!empty($map['AppApiRelationInfo'])) {
                 $model->appApiRelationInfo = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['AppApiRelationInfo'] as $item) {
                     $model->appApiRelationInfo[$n++] = null !== $item ? appApiRelationInfo::fromMap($item) : $item;
                 }

@@ -17,9 +17,7 @@ class deployedInfos extends Model
         'deployedInfo' => 'DeployedInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class deployedInfos extends Model
         if (isset($map['DeployedInfo'])) {
             if (!empty($map['DeployedInfo'])) {
                 $model->deployedInfo = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['DeployedInfo'] as $item) {
                     $model->deployedInfo[$n++] = null !== $item ? deployedInfo::fromMap($item) : $item;
                 }

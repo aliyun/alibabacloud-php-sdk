@@ -12,6 +12,7 @@ class DescribeApiDocRequest extends Model
      * @description The ID of the API.
      *
      * This parameter is required.
+     *
      * @example 3b81fd160f5645e097cc8855d75a1cf6
      *
      * @var string
@@ -39,21 +40,20 @@ class DescribeApiDocRequest extends Model
      *   **TEST**
      *
      * If this parameter is not specified, the default value RELEASE is used.
+     *
      * @example RELEASE
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'groupId'       => 'GroupId',
+        'apiId' => 'ApiId',
+        'groupId' => 'GroupId',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

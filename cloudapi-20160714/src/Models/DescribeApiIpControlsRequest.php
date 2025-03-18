@@ -21,6 +21,7 @@ class DescribeApiIpControlsRequest extends Model
      * @description The ID of the API group.
      *
      * This parameter is required.
+     *
      * @example 0009db9c828549768a200320714b8930
      *
      * @var string
@@ -57,23 +58,22 @@ class DescribeApiIpControlsRequest extends Model
      *   **TEST**
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'apiIds'        => 'ApiIds',
-        'groupId'       => 'GroupId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'apiIds' => 'ApiIds',
+        'groupId' => 'GroupId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

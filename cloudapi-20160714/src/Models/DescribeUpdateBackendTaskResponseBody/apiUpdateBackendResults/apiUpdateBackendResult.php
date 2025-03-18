@@ -71,20 +71,18 @@ class apiUpdateBackendResult extends Model
      */
     public $updateStatus;
     protected $_name = [
-        'apiName'      => 'ApiName',
-        'apiUid'       => 'ApiUid',
-        'backendId'    => 'BackendId',
-        'errorMsg'     => 'ErrorMsg',
-        'groupId'      => 'GroupId',
-        'groupName'    => 'GroupName',
-        'stageId'      => 'StageId',
-        'stageName'    => 'StageName',
+        'apiName' => 'ApiName',
+        'apiUid' => 'ApiUid',
+        'backendId' => 'BackendId',
+        'errorMsg' => 'ErrorMsg',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'stageId' => 'StageId',
+        'stageName' => 'StageName',
         'updateStatus' => 'UpdateStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

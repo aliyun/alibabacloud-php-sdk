@@ -17,9 +17,7 @@ class purchasedApis extends Model
         'purchasedApi' => 'PurchasedApi',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class purchasedApis extends Model
         if (isset($map['PurchasedApi'])) {
             if (!empty($map['PurchasedApi'])) {
                 $model->purchasedApi = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PurchasedApi'] as $item) {
                     $model->purchasedApi[$n++] = null !== $item ? purchasedApi::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class ModifyDatasetRequest extends Model
      * @description The ID of the dataset.
      *
      * This parameter is required.
+     *
      * @example a25a6589b2584ff490e891cc********
      *
      * @var string
@@ -22,6 +23,7 @@ class ModifyDatasetRequest extends Model
      * @description The name of the dataset.
      *
      * This parameter is required.
+     *
      * @example NewDatasetName
      *
      * @var string
@@ -33,14 +35,12 @@ class ModifyDatasetRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'datasetId'     => 'DatasetId',
-        'datasetName'   => 'DatasetName',
+        'datasetId' => 'DatasetId',
+        'datasetName' => 'DatasetName',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

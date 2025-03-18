@@ -94,20 +94,18 @@ class DescribeVpcAccessesRequest extends Model
     public $vpcId;
     protected $_name = [
         'accurateQuery' => 'AccurateQuery',
-        'instanceId'    => 'InstanceId',
-        'name'          => 'Name',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'port'          => 'Port',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'port' => 'Port',
         'securityToken' => 'SecurityToken',
-        'tag'           => 'Tag',
-        'vpcAccessId'   => 'VpcAccessId',
-        'vpcId'         => 'VpcId',
+        'tag' => 'Tag',
+        'vpcAccessId' => 'VpcAccessId',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -184,7 +182,7 @@ class DescribeVpcAccessesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

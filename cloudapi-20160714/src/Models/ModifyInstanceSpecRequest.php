@@ -15,6 +15,7 @@ class ModifyInstanceSpecRequest extends Model
      *   **False**: Automatic payment is disabled. You have to manually pay in the console. Log on to the console. In the upper-right corner, choose **Expenses > User Center**. In the left-side navigation pane, click **Orders**. On the page that appears, find your order and complete the payment.
      *
      * Default value: **False**.
+     *
      * @example true
      *
      * @var bool
@@ -25,6 +26,7 @@ class ModifyInstanceSpecRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example apigateway-cn-v6419k43xxxxx
      *
      * @var string
@@ -35,6 +37,7 @@ class ModifyInstanceSpecRequest extends Model
      * @description The specifications of the instance.
      *
      * This parameter is required.
+     *
      * @example api.s1.small
      *
      * @var string
@@ -48,6 +51,7 @@ class ModifyInstanceSpecRequest extends Model
      *   **DOWNGRADE**
      *
      * Default value: **UPGRADE**.
+     *
      * @example UPGRADE
      *
      * @var string
@@ -67,23 +71,22 @@ class ModifyInstanceSpecRequest extends Model
      * @description The password.
      *
      * This parameter is required.
+     *
      * @example b5845042-2f2f-4e96-bd5c-36c6e5c2a68c
      *
      * @var string
      */
     public $token;
     protected $_name = [
-        'autoPay'        => 'AutoPay',
-        'instanceId'     => 'InstanceId',
-        'instanceSpec'   => 'InstanceSpec',
-        'modifyAction'   => 'ModifyAction',
+        'autoPay' => 'AutoPay',
+        'instanceId' => 'InstanceId',
+        'instanceSpec' => 'InstanceSpec',
+        'modifyAction' => 'ModifyAction',
         'skipWaitSwitch' => 'SkipWaitSwitch',
-        'token'          => 'Token',
+        'token' => 'Token',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

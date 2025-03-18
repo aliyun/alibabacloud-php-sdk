@@ -28,12 +28,10 @@ class DescribeZonesResponseBody extends Model
     public $zones;
     protected $_name = [
         'requestId' => 'RequestId',
-        'zones'     => 'Zones',
+        'zones' => 'Zones',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

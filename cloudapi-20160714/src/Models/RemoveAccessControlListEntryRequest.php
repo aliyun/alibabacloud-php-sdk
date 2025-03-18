@@ -29,14 +29,12 @@ class RemoveAccessControlListEntryRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'aclEntrys'     => 'AclEntrys',
-        'aclId'         => 'AclId',
+        'aclEntrys' => 'AclEntrys',
+        'aclId' => 'AclId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

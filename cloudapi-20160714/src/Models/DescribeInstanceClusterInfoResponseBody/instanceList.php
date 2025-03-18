@@ -17,9 +17,7 @@ class instanceList extends Model
         'instance' => 'Instance',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class instanceList extends Model
         if (isset($map['Instance'])) {
             if (!empty($map['Instance'])) {
                 $model->instance = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Instance'] as $item) {
                     $model->instance[$n++] = null !== $item ? instance::fromMap($item) : $item;
                 }

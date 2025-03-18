@@ -12,6 +12,7 @@ class DescribeDeployedApiRequest extends Model
      * @description The ID of the API.
      *
      * This parameter is required.
+     *
      * @example ab7c95a01a7e42f28718f34497bbf47c
      *
      * @var string
@@ -40,21 +41,20 @@ class DescribeDeployedApiRequest extends Model
      *   **TEST**
      *
      * This parameter is required.
+     *
      * @example RELEASE
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'groupId'       => 'GroupId',
+        'apiId' => 'ApiId',
+        'groupId' => 'GroupId',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

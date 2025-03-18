@@ -53,16 +53,14 @@ class privateDNSList extends Model
      */
     public $type;
     protected $_name = [
-        'bindInstances'  => 'BindInstances',
-        'createdTime'    => 'CreatedTime',
+        'bindInstances' => 'BindInstances',
+        'createdTime' => 'CreatedTime',
         'intranetDomain' => 'IntranetDomain',
-        'records'        => 'Records',
-        'type'           => 'Type',
+        'records' => 'Records',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -114,7 +112,7 @@ class privateDNSList extends Model
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Records'] as $item) {
                     $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
                 }

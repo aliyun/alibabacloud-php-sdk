@@ -12,6 +12,7 @@ class DeleteModelRequest extends Model
      * @description The ID of the API group to which the model belongs.
      *
      * This parameter is required.
+     *
      * @example 30e792398d6c4569b04c0e53a3494381
      *
      * @var string
@@ -22,19 +23,18 @@ class DeleteModelRequest extends Model
      * @description The name of the model.
      *
      * This parameter is required.
+     *
      * @example Test
      *
      * @var string
      */
     public $modelName;
     protected $_name = [
-        'groupId'   => 'GroupId',
+        'groupId' => 'GroupId',
         'modelName' => 'ModelName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

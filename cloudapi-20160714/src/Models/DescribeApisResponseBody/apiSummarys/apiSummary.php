@@ -126,24 +126,22 @@ class apiSummary extends Model
      */
     public $visibility;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'apiMethod'     => 'ApiMethod',
-        'apiName'       => 'ApiName',
-        'apiPath'       => 'ApiPath',
-        'createdTime'   => 'CreatedTime',
+        'apiId' => 'ApiId',
+        'apiMethod' => 'ApiMethod',
+        'apiName' => 'ApiName',
+        'apiPath' => 'ApiPath',
+        'createdTime' => 'CreatedTime',
         'deployedInfos' => 'DeployedInfos',
-        'description'   => 'Description',
-        'groupId'       => 'GroupId',
-        'groupName'     => 'GroupName',
-        'modifiedTime'  => 'ModifiedTime',
-        'regionId'      => 'RegionId',
-        'tagList'       => 'TagList',
-        'visibility'    => 'Visibility',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'modifiedTime' => 'ModifiedTime',
+        'regionId' => 'RegionId',
+        'tagList' => 'TagList',
+        'visibility' => 'Visibility',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

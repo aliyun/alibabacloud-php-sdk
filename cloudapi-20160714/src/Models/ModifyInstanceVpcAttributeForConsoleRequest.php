@@ -10,7 +10,9 @@ class ModifyInstanceVpcAttributeForConsoleRequest extends Model
 {
     /**
      * @description Whether delete instance client VPC.
+     * - FALSE: set or modify instance client VPC
      * - TRUE: delete instance client VPC
+     *
      * @example false
      *
      * @var bool
@@ -21,6 +23,7 @@ class ModifyInstanceVpcAttributeForConsoleRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example apigateway-bj-f28baxxxxb51
      *
      * @var string
@@ -40,6 +43,7 @@ class ModifyInstanceVpcAttributeForConsoleRequest extends Model
      * @description The ID of the VPC.
      *
      * This parameter is required.
+     *
      * @example vpc-8vbnnd66xxxx2xb5oig4f
      *
      * @var string
@@ -65,16 +69,14 @@ class ModifyInstanceVpcAttributeForConsoleRequest extends Model
     public $vswitchId;
     protected $_name = [
         'deleteVpcAccess' => 'DeleteVpcAccess',
-        'instanceId'      => 'InstanceId',
-        'token'           => 'Token',
-        'vpcId'           => 'VpcId',
-        'vpcOwnerId'      => 'VpcOwnerId',
-        'vswitchId'       => 'VswitchId',
+        'instanceId' => 'InstanceId',
+        'token' => 'Token',
+        'vpcId' => 'VpcId',
+        'vpcOwnerId' => 'VpcOwnerId',
+        'vswitchId' => 'VswitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

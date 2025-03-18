@@ -53,15 +53,13 @@ class DescribePluginsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'plugins'    => 'Plugins',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'plugins' => 'Plugins',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

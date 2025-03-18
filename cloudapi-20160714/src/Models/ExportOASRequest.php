@@ -84,19 +84,17 @@ class ExportOASRequest extends Model
      */
     public $withXExtensions;
     protected $_name = [
-        'apiIdList'       => 'ApiIdList',
-        'dataFormat'      => 'DataFormat',
-        'groupId'         => 'GroupId',
-        'oasVersion'      => 'OasVersion',
-        'pageNumber'      => 'PageNumber',
-        'securityToken'   => 'SecurityToken',
-        'stageName'       => 'StageName',
+        'apiIdList' => 'ApiIdList',
+        'dataFormat' => 'DataFormat',
+        'groupId' => 'GroupId',
+        'oasVersion' => 'OasVersion',
+        'pageNumber' => 'PageNumber',
+        'securityToken' => 'SecurityToken',
+        'stageName' => 'StageName',
         'withXExtensions' => 'WithXExtensions',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

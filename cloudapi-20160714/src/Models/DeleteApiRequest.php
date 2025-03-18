@@ -12,6 +12,7 @@ class DeleteApiRequest extends Model
      * @description The ID of the API.
      *
      * This parameter is required.
+     *
      * @example d6f679aeb3be4b91b3688e887ca1fe16
      *
      * @var string
@@ -32,14 +33,12 @@ class DeleteApiRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'groupId'       => 'GroupId',
+        'apiId' => 'ApiId',
+        'groupId' => 'GroupId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

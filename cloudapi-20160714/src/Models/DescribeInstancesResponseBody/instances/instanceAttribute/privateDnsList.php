@@ -16,9 +16,7 @@ class privateDnsList extends Model
         'privateDns' => 'PrivateDns',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

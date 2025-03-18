@@ -53,16 +53,14 @@ class apiIpControlItem extends Model
      */
     public $ipControlName;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'apiName'       => 'ApiName',
-        'boundTime'     => 'BoundTime',
-        'ipControlId'   => 'IpControlId',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'boundTime' => 'BoundTime',
+        'ipControlId' => 'IpControlId',
         'ipControlName' => 'IpControlName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

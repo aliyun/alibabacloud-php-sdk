@@ -57,15 +57,13 @@ class DescribeImportOASTaskResponseBody extends Model
      */
     public $taskStatus;
     protected $_name = [
-        'apiResults'   => 'ApiResults',
+        'apiResults' => 'ApiResults',
         'modelResults' => 'ModelResults',
-        'requestId'    => 'RequestId',
-        'taskStatus'   => 'TaskStatus',
+        'requestId' => 'RequestId',
+        'taskStatus' => 'TaskStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

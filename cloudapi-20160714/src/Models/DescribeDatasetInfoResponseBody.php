@@ -26,12 +26,10 @@ class DescribeDatasetInfoResponseBody extends Model
     public $requestId;
     protected $_name = [
         'datasetInfo' => 'DatasetInfo',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

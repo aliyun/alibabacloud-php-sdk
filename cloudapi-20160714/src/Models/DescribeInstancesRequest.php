@@ -53,15 +53,13 @@ class DescribeInstancesRequest extends Model
     public $tag;
     protected $_name = [
         'enableTagAuthorization' => 'EnableTagAuthorization',
-        'instanceId'             => 'InstanceId',
-        'language'               => 'Language',
-        'securityToken'          => 'SecurityToken',
-        'tag'                    => 'Tag',
+        'instanceId' => 'InstanceId',
+        'language' => 'Language',
+        'securityToken' => 'SecurityToken',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -114,7 +112,7 @@ class DescribeInstancesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

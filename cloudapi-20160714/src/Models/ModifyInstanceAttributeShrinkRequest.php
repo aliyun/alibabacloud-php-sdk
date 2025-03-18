@@ -48,6 +48,7 @@ class ModifyInstanceAttributeShrinkRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example apigateway-ht-8xxxxxxxxx
      *
      * @var string
@@ -115,23 +116,21 @@ class ModifyInstanceAttributeShrinkRequest extends Model
      */
     public $vpcSlbIntranetEnable;
     protected $_name = [
-        'deleteVpcIpBlock'          => 'DeleteVpcIpBlock',
-        'egressIpv6Enable'          => 'EgressIpv6Enable',
-        'httpsPolicy'               => 'HttpsPolicy',
-        'IPV6Enabled'               => 'IPV6Enabled',
-        'instanceId'                => 'InstanceId',
-        'instanceName'              => 'InstanceName',
-        'intranetSegments'          => 'IntranetSegments',
-        'maintainEndTime'           => 'MaintainEndTime',
-        'maintainStartTime'         => 'MaintainStartTime',
+        'deleteVpcIpBlock' => 'DeleteVpcIpBlock',
+        'egressIpv6Enable' => 'EgressIpv6Enable',
+        'httpsPolicy' => 'HttpsPolicy',
+        'IPV6Enabled' => 'IPV6Enabled',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'intranetSegments' => 'IntranetSegments',
+        'maintainEndTime' => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
         'toConnectVpcIpBlockShrink' => 'ToConnectVpcIpBlock',
-        'token'                     => 'Token',
-        'vpcSlbIntranetEnable'      => 'VpcSlbIntranetEnable',
+        'token' => 'Token',
+        'vpcSlbIntranetEnable' => 'VpcSlbIntranetEnable',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

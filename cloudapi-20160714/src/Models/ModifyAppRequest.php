@@ -13,6 +13,7 @@ class ModifyAppRequest extends Model
      * @description The ID of the app.
      *
      * This parameter is required.
+     *
      * @example 20112314518278
      *
      * @var int
@@ -23,6 +24,7 @@ class ModifyAppRequest extends Model
      * @description The value must be 4 to 26 characters in length and can contain letters, digits, and underscores (_). It must start with a letter.
      *
      * This parameter is required only when you want to modify the value.
+     *
      * @example jiedian_pord
      *
      * @var string
@@ -33,6 +35,7 @@ class ModifyAppRequest extends Model
      * @description The description of the app. The description can contain a maximum of 180 characters in length.
      *
      * This parameter is required only when you want to modify the value.
+     *
      * @example modidyTest
      *
      * @var string
@@ -62,17 +65,15 @@ class ModifyAppRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'appId'         => 'AppId',
-        'appName'       => 'AppName',
-        'description'   => 'Description',
-        'extend'        => 'Extend',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'description' => 'Description',
+        'extend' => 'Extend',
         'securityToken' => 'SecurityToken',
-        'tag'           => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -131,7 +132,7 @@ class ModifyAppRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

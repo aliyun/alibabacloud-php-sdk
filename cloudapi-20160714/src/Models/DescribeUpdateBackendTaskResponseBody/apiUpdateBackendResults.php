@@ -17,9 +17,7 @@ class apiUpdateBackendResults extends Model
         'apiUpdateBackendResult' => 'ApiUpdateBackendResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class apiUpdateBackendResults extends Model
         if (isset($map['ApiUpdateBackendResult'])) {
             if (!empty($map['ApiUpdateBackendResult'])) {
                 $model->apiUpdateBackendResult = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['ApiUpdateBackendResult'] as $item) {
                     $model->apiUpdateBackendResult[$n++] = null !== $item ? apiUpdateBackendResult::fromMap($item) : $item;
                 }

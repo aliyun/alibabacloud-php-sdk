@@ -26,13 +26,11 @@ class CreateAccessControlListResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'aclId'     => 'AclId',
+        'aclId' => 'AclId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

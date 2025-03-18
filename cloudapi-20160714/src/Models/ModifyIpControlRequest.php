@@ -21,6 +21,7 @@ class ModifyIpControlRequest extends Model
      * @description The ID of the ACL. The ID is unique.
      *
      * This parameter is required.
+     *
      * @example 7ea91319a34d48a09b5c9c871d9768b1
      *
      * @var string
@@ -41,15 +42,13 @@ class ModifyIpControlRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'description'   => 'Description',
-        'ipControlId'   => 'IpControlId',
+        'description' => 'Description',
+        'ipControlId' => 'IpControlId',
         'ipControlName' => 'IpControlName',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

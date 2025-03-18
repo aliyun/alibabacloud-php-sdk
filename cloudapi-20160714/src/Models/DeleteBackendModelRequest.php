@@ -21,6 +21,7 @@ class DeleteBackendModelRequest extends Model
      * @description The ID of the backend model.
      *
      * This parameter is required.
+     *
      * @example 4be6b110b7aa40b0bf0c83cc00b3bd86
      *
      * @var string
@@ -45,15 +46,13 @@ class DeleteBackendModelRequest extends Model
      */
     public $stageName;
     protected $_name = [
-        'backendId'      => 'BackendId',
+        'backendId' => 'BackendId',
         'backendModelId' => 'BackendModelId',
-        'securityToken'  => 'SecurityToken',
-        'stageName'      => 'StageName',
+        'securityToken' => 'SecurityToken',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

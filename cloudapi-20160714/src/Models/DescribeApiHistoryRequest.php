@@ -12,6 +12,7 @@ class DescribeApiHistoryRequest extends Model
      * @description The ID of the API.
      *
      * This parameter is required.
+     *
      * @example dc6e17ee3120404c839bbcd7622ab6ed
      *
      * @var string
@@ -31,6 +32,7 @@ class DescribeApiHistoryRequest extends Model
      * @description Specifies the version number that you want to query.
      *
      * This parameter is required.
+     *
      * @example 20211122155403834
      *
      * @var string
@@ -50,22 +52,21 @@ class DescribeApiHistoryRequest extends Model
      *   **PRE**: the pre-release environment
      *
      * This parameter is required.
+     *
      * @example RELEASE
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'apiId'          => 'ApiId',
-        'groupId'        => 'GroupId',
+        'apiId' => 'ApiId',
+        'groupId' => 'GroupId',
         'historyVersion' => 'HistoryVersion',
-        'securityToken'  => 'SecurityToken',
-        'stageName'      => 'StageName',
+        'securityToken' => 'SecurityToken',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

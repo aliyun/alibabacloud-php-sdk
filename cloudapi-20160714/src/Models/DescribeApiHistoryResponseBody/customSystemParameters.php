@@ -17,9 +17,7 @@ class customSystemParameters extends Model
         'customSystemParameter' => 'CustomSystemParameter',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class customSystemParameters extends Model
         if (isset($map['CustomSystemParameter'])) {
             if (!empty($map['CustomSystemParameter'])) {
                 $model->customSystemParameter = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['CustomSystemParameter'] as $item) {
                     $model->customSystemParameter[$n++] = null !== $item ? customSystemParameter::fromMap($item) : $item;
                 }

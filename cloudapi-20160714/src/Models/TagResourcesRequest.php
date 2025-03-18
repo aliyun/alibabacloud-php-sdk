@@ -13,6 +13,7 @@ class TagResourcesRequest extends Model
      * @description The ID of the resource.
      *
      * This parameter is required.
+     *
      * @example 285bb759342649a1b70c2093a772e087
      *
      * @var string[]
@@ -27,6 +28,7 @@ class TagResourcesRequest extends Model
      *   **app**
      *
      * This parameter is required.
+     *
      * @example apiGroup
      *
      * @var string
@@ -42,21 +44,20 @@ class TagResourcesRequest extends Model
      * @description The tag of objects that match the lifecycle rule. You can specify multiple tags.
      *
      * This parameter is required.
+     *
      * @example 2021022811
      *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'resourceId'    => 'ResourceId',
-        'resourceType'  => 'ResourceType',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
         'securityToken' => 'SecurityToken',
-        'tag'           => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -105,7 +106,7 @@ class TagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

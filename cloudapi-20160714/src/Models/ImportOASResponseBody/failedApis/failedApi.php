@@ -35,14 +35,12 @@ class failedApi extends Model
      */
     public $path;
     protected $_name = [
-        'errorMsg'   => 'ErrorMsg',
+        'errorMsg' => 'ErrorMsg',
         'httpMethod' => 'HttpMethod',
-        'path'       => 'Path',
+        'path' => 'Path',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DescribeApiTrafficDataRequest extends Model
      * @description The ID of the API.
      *
      * This parameter is required.
+     *
      * @example d6f679aeb3be4b91b3688e887ca1fe16
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeApiTrafficDataRequest extends Model
      * @description The end time in UTC. Format: YYYY-MM-DDThh:mm:ssZ
      *
      * This parameter is required.
+     *
      * @example 2016-07-23T09:28:48Z
      *
      * @var string
@@ -59,23 +61,22 @@ class DescribeApiTrafficDataRequest extends Model
      * @description The start time in UTC. Format: YYYY-MM-DDThh:mm:ssZ
      *
      * This parameter is required.
+     *
      * @example 2016-07-23T08:28:48Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'endTime'       => 'EndTime',
-        'groupId'       => 'GroupId',
+        'apiId' => 'ApiId',
+        'endTime' => 'EndTime',
+        'groupId' => 'GroupId',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
-        'startTime'     => 'StartTime',
+        'stageName' => 'StageName',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

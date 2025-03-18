@@ -88,20 +88,18 @@ class modelDetail extends Model
      */
     public $tags;
     protected $_name = [
-        'createdTime'  => 'CreatedTime',
-        'description'  => 'Description',
-        'groupId'      => 'GroupId',
-        'modelId'      => 'ModelId',
-        'modelName'    => 'ModelName',
-        'modelRef'     => 'ModelRef',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'modelId' => 'ModelId',
+        'modelName' => 'ModelName',
+        'modelRef' => 'ModelRef',
         'modifiedTime' => 'ModifiedTime',
-        'schema'       => 'Schema',
-        'tags'         => 'Tags',
+        'schema' => 'Schema',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

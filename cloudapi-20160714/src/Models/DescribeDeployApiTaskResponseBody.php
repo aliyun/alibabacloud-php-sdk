@@ -26,12 +26,10 @@ class DescribeDeployApiTaskResponseBody extends Model
     public $requestId;
     protected $_name = [
         'deployedResults' => 'DeployedResults',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,13 +22,11 @@ class DeleteDatasetRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'datasetId'     => 'DatasetId',
+        'datasetId' => 'DatasetId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

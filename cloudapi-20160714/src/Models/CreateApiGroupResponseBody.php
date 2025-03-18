@@ -71,20 +71,18 @@ class CreateApiGroupResponseBody extends Model
      */
     public $tagStatus;
     protected $_name = [
-        'basePath'     => 'BasePath',
-        'description'  => 'Description',
-        'groupId'      => 'GroupId',
-        'groupName'    => 'GroupName',
-        'instanceId'   => 'InstanceId',
+        'basePath' => 'BasePath',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'requestId'    => 'RequestId',
-        'subDomain'    => 'SubDomain',
-        'tagStatus'    => 'TagStatus',
+        'requestId' => 'RequestId',
+        'subDomain' => 'SubDomain',
+        'tagStatus' => 'TagStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

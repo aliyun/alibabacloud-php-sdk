@@ -17,9 +17,7 @@ class stageItems extends Model
         'stageInfo' => 'StageInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class stageItems extends Model
         if (isset($map['StageInfo'])) {
             if (!empty($map['StageInfo'])) {
                 $model->stageInfo = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['StageInfo'] as $item) {
                     $model->stageInfo[$n++] = null !== $item ? stageInfo::fromMap($item) : $item;
                 }

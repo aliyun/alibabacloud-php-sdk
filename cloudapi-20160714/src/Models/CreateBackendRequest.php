@@ -13,6 +13,7 @@ class CreateBackendRequest extends Model
      * @description The name of the backend service.
      *
      * This parameter is required.
+     *
      * @example testBackendService
      *
      * @var string
@@ -23,6 +24,7 @@ class CreateBackendRequest extends Model
      * @description The type of the backend service.
      *
      * This parameter is required.
+     *
      * @example HTTP
      *
      * @var string
@@ -68,18 +70,16 @@ class CreateBackendRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'backendName'                        => 'BackendName',
-        'backendType'                        => 'BackendType',
+        'backendName' => 'BackendName',
+        'backendType' => 'BackendType',
         'createEventBridgeServiceLinkedRole' => 'CreateEventBridgeServiceLinkedRole',
-        'createSlr'                          => 'CreateSlr',
-        'description'                        => 'Description',
-        'securityToken'                      => 'SecurityToken',
-        'tag'                                => 'Tag',
+        'createSlr' => 'CreateSlr',
+        'description' => 'Description',
+        'securityToken' => 'SecurityToken',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -144,7 +144,7 @@ class CreateBackendRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

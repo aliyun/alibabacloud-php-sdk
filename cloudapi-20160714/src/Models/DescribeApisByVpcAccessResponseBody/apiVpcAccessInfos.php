@@ -17,9 +17,7 @@ class apiVpcAccessInfos extends Model
         'apiVpcAccessInfo' => 'ApiVpcAccessInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class apiVpcAccessInfos extends Model
         if (isset($map['ApiVpcAccessInfo'])) {
             if (!empty($map['ApiVpcAccessInfo'])) {
                 $model->apiVpcAccessInfo = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ApiVpcAccessInfo'] as $item) {
                     $model->apiVpcAccessInfo[$n++] = null !== $item ? apiVpcAccessInfo::fromMap($item) : $item;
                 }

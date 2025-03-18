@@ -12,6 +12,7 @@ class DescribeGroupQpsRequest extends Model
      * @description The end time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
      *
      * This parameter is required.
+     *
      * @example 2022-08-23T07:27:44Z
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeGroupQpsRequest extends Model
      * @description The API group ID.
      *
      * This parameter is required.
+     *
      * @example 264c60db9f764345a13ac5c825b229b9
      *
      * @var string
@@ -41,6 +43,7 @@ class DescribeGroupQpsRequest extends Model
      *   **TEST**: the test environment
      *
      * This parameter is required.
+     *
      * @example RELEASE
      *
      * @var string
@@ -51,22 +54,21 @@ class DescribeGroupQpsRequest extends Model
      * @description The start time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
      *
      * This parameter is required.
+     *
      * @example 2022-08-12T06:09:52Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'groupId'       => 'GroupId',
+        'endTime' => 'EndTime',
+        'groupId' => 'GroupId',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
-        'startTime'     => 'StartTime',
+        'stageName' => 'StageName',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

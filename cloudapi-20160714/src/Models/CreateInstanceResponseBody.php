@@ -36,13 +36,11 @@ class CreateInstanceResponseBody extends Model
     public $tagStatus;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'requestId'  => 'RequestId',
-        'tagStatus'  => 'TagStatus',
+        'requestId' => 'RequestId',
+        'tagStatus' => 'TagStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

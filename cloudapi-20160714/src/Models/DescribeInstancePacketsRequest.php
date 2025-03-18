@@ -12,6 +12,7 @@ class DescribeInstancePacketsRequest extends Model
      * @description The end time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
      *
      * This parameter is required.
+     *
      * @example 2022-05-24T10:14:53Z
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeInstancePacketsRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example apigateway-cn-2r426lavr001
      *
      * @var string
@@ -36,6 +38,7 @@ class DescribeInstancePacketsRequest extends Model
      *   Average
      *
      * This parameter is required.
+     *
      * @example Maximum
      *
      * @var string
@@ -51,22 +54,21 @@ class DescribeInstancePacketsRequest extends Model
      * @description The start time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
      *
      * This parameter is required.
+     *
      * @example 2022-05-18T01:14:26Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'instanceId'    => 'InstanceId',
-        'sbcName'       => 'SbcName',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'sbcName' => 'SbcName',
         'securityToken' => 'SecurityToken',
-        'startTime'     => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

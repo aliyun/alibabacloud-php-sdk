@@ -24,6 +24,7 @@ class DeletePrivateDNSRequest extends Model
      * @description The internal domain name.
      *
      * This parameter is required.
+     *
      * @example api.demo.com
      *
      * @var string
@@ -42,21 +43,20 @@ class DeletePrivateDNSRequest extends Model
      *   A: resolution that supports A records. A resolution of this type can be bound only to VPC integration dedicated instances.
      *
      * This parameter is required.
+     *
      * @example A
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'force'          => 'Force',
+        'force' => 'Force',
         'intranetDomain' => 'IntranetDomain',
-        'securityToken'  => 'SecurityToken',
-        'type'           => 'Type',
+        'securityToken' => 'SecurityToken',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

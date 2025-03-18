@@ -22,13 +22,11 @@ class DescribeAppRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'appId'         => 'AppId',
+        'appId' => 'AppId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

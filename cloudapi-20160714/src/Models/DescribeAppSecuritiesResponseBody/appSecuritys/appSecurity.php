@@ -53,16 +53,14 @@ class appSecurity extends Model
      */
     public $modifiedTime;
     protected $_name = [
-        'appCode'      => 'AppCode',
-        'appKey'       => 'AppKey',
-        'appSecret'    => 'AppSecret',
-        'createdTime'  => 'CreatedTime',
+        'appCode' => 'AppCode',
+        'appKey' => 'AppKey',
+        'appSecret' => 'AppSecret',
+        'createdTime' => 'CreatedTime',
         'modifiedTime' => 'ModifiedTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

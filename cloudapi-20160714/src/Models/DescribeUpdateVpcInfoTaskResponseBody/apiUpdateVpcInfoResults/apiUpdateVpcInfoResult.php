@@ -64,19 +64,17 @@ class apiUpdateVpcInfoResult extends Model
      */
     public $updateStatus;
     protected $_name = [
-        'apiName'      => 'ApiName',
-        'apiUid'       => 'ApiUid',
-        'errorMsg'     => 'ErrorMsg',
-        'groupId'      => 'GroupId',
-        'groupName'    => 'GroupName',
-        'stageId'      => 'StageId',
-        'stageName'    => 'StageName',
+        'apiName' => 'ApiName',
+        'apiUid' => 'ApiUid',
+        'errorMsg' => 'ErrorMsg',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'stageId' => 'StageId',
+        'stageName' => 'StageName',
         'updateStatus' => 'UpdateStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

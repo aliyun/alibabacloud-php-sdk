@@ -117,23 +117,21 @@ class appApiRelationInfo extends Model
      */
     public $stageNameAndAuth;
     protected $_name = [
-        'apiId'               => 'ApiId',
-        'apiName'             => 'ApiName',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
         'authorizationSource' => 'AuthorizationSource',
-        'createdTime'         => 'CreatedTime',
-        'description'         => 'Description',
-        'groupId'             => 'GroupId',
-        'groupName'           => 'GroupName',
-        'method'              => 'Method',
-        'operator'            => 'Operator',
-        'path'                => 'Path',
-        'regionId'            => 'RegionId',
-        'stageNameAndAuth'    => 'StageNameAndAuth',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'method' => 'Method',
+        'operator' => 'Operator',
+        'path' => 'Path',
+        'regionId' => 'RegionId',
+        'stageNameAndAuth' => 'StageNameAndAuth',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

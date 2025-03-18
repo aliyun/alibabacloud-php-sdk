@@ -31,6 +31,7 @@ class ModifyPluginRequest extends Model
      * @description The ID of the plug-in whose information you want to modify.
      *
      * This parameter is required.
+     *
      * @example a96926e82f994915a8da40a119374537
      *
      * @var string
@@ -60,17 +61,15 @@ class ModifyPluginRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'description'   => 'Description',
-        'pluginData'    => 'PluginData',
-        'pluginId'      => 'PluginId',
-        'pluginName'    => 'PluginName',
+        'description' => 'Description',
+        'pluginData' => 'PluginData',
+        'pluginId' => 'PluginId',
+        'pluginName' => 'PluginName',
         'securityToken' => 'SecurityToken',
-        'tag'           => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -129,7 +128,7 @@ class ModifyPluginRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

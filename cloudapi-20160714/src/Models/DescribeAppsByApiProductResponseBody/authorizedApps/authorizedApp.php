@@ -62,17 +62,15 @@ class authorizedApp extends Model
      */
     public $extend;
     protected $_name = [
-        'appId'          => 'AppId',
-        'appName'        => 'AppName',
-        'authValidTime'  => 'AuthValidTime',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'authValidTime' => 'AuthValidTime',
         'authorizedTime' => 'AuthorizedTime',
-        'description'    => 'Description',
-        'extend'         => 'Extend',
+        'description' => 'Description',
+        'extend' => 'Extend',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

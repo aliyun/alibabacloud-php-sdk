@@ -26,13 +26,11 @@ class CreateApiResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'apiId'     => 'ApiId',
+        'apiId' => 'ApiId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

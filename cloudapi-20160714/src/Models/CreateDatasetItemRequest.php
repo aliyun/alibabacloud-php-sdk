@@ -43,16 +43,14 @@ class CreateDatasetItemRequest extends Model
      */
     public $value;
     protected $_name = [
-        'datasetId'     => 'DatasetId',
-        'description'   => 'Description',
-        'expiredTime'   => 'ExpiredTime',
+        'datasetId' => 'DatasetId',
+        'description' => 'Description',
+        'expiredTime' => 'ExpiredTime',
         'securityToken' => 'SecurityToken',
-        'value'         => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

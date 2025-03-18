@@ -17,9 +17,7 @@ class apps extends Model
         'appItem' => 'AppItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class apps extends Model
         if (isset($map['AppItem'])) {
             if (!empty($map['AppItem'])) {
                 $model->appItem = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['AppItem'] as $item) {
                     $model->appItem[$n++] = null !== $item ? appItem::fromMap($item) : $item;
                 }

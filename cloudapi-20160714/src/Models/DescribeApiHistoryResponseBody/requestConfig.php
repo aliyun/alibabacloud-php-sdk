@@ -84,19 +84,17 @@ class requestConfig extends Model
      */
     public $requestProtocol;
     protected $_name = [
-        'bodyFormat'          => 'BodyFormat',
-        'bodyModel'           => 'BodyModel',
-        'escapePathParam'     => 'EscapePathParam',
+        'bodyFormat' => 'BodyFormat',
+        'bodyModel' => 'BodyModel',
+        'escapePathParam' => 'EscapePathParam',
         'postBodyDescription' => 'PostBodyDescription',
-        'requestHttpMethod'   => 'RequestHttpMethod',
-        'requestMode'         => 'RequestMode',
-        'requestPath'         => 'RequestPath',
-        'requestProtocol'     => 'RequestProtocol',
+        'requestHttpMethod' => 'RequestHttpMethod',
+        'requestMode' => 'RequestMode',
+        'requestPath' => 'RequestPath',
+        'requestProtocol' => 'RequestProtocol',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

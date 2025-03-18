@@ -17,9 +17,7 @@ class errorCodeSamples extends Model
         'errorCodeSample' => 'ErrorCodeSample',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class errorCodeSamples extends Model
         if (isset($map['ErrorCodeSample'])) {
             if (!empty($map['ErrorCodeSample'])) {
                 $model->errorCodeSample = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['ErrorCodeSample'] as $item) {
                     $model->errorCodeSample[$n++] = null !== $item ? errorCodeSample::fromMap($item) : $item;
                 }

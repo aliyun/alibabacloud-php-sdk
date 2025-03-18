@@ -17,9 +17,7 @@ class groupSummarys extends Model
         'groupPluginSummary' => 'GroupPluginSummary',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class groupSummarys extends Model
         if (isset($map['GroupPluginSummary'])) {
             if (!empty($map['GroupPluginSummary'])) {
                 $model->groupPluginSummary = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['GroupPluginSummary'] as $item) {
                     $model->groupPluginSummary[$n++] = null !== $item ? groupPluginSummary::fromMap($item) : $item;
                 }

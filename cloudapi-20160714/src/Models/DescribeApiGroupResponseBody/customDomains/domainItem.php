@@ -152,26 +152,24 @@ class domainItem extends Model
      */
     public $wildcardDomainPatterns;
     protected $_name = [
-        'bindStageAlias'         => 'BindStageAlias',
-        'bindStageName'          => 'BindStageName',
-        'certificateId'          => 'CertificateId',
-        'certificateName'        => 'CertificateName',
-        'certificateValidEnd'    => 'CertificateValidEnd',
-        'certificateValidStart'  => 'CertificateValidStart',
-        'customDomainType'       => 'CustomDomainType',
-        'domainBindingStatus'    => 'DomainBindingStatus',
-        'domainCNAMEStatus'      => 'DomainCNAMEStatus',
-        'domainLegalStatus'      => 'DomainLegalStatus',
-        'domainName'             => 'DomainName',
-        'domainRemark'           => 'DomainRemark',
-        'domainWebSocketStatus'  => 'DomainWebSocketStatus',
-        'isHttpRedirectToHttps'  => 'IsHttpRedirectToHttps',
+        'bindStageAlias' => 'BindStageAlias',
+        'bindStageName' => 'BindStageName',
+        'certificateId' => 'CertificateId',
+        'certificateName' => 'CertificateName',
+        'certificateValidEnd' => 'CertificateValidEnd',
+        'certificateValidStart' => 'CertificateValidStart',
+        'customDomainType' => 'CustomDomainType',
+        'domainBindingStatus' => 'DomainBindingStatus',
+        'domainCNAMEStatus' => 'DomainCNAMEStatus',
+        'domainLegalStatus' => 'DomainLegalStatus',
+        'domainName' => 'DomainName',
+        'domainRemark' => 'DomainRemark',
+        'domainWebSocketStatus' => 'DomainWebSocketStatus',
+        'isHttpRedirectToHttps' => 'IsHttpRedirectToHttps',
         'wildcardDomainPatterns' => 'WildcardDomainPatterns',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

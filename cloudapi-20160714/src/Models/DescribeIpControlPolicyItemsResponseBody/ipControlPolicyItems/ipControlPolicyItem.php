@@ -53,16 +53,14 @@ class ipControlPolicyItem extends Model
      */
     public $policyItemId;
     protected $_name = [
-        'appId'        => 'AppId',
-        'cidrIp'       => 'CidrIp',
-        'createTime'   => 'CreateTime',
+        'appId' => 'AppId',
+        'cidrIp' => 'CidrIp',
+        'createTime' => 'CreateTime',
         'modifiedTime' => 'ModifiedTime',
         'policyItemId' => 'PolicyItemId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

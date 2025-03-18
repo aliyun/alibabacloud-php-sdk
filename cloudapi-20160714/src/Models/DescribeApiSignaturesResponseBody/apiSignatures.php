@@ -17,9 +17,7 @@ class apiSignatures extends Model
         'apiSignatureItem' => 'ApiSignatureItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class apiSignatures extends Model
         if (isset($map['ApiSignatureItem'])) {
             if (!empty($map['ApiSignatureItem'])) {
                 $model->apiSignatureItem = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ApiSignatureItem'] as $item) {
                     $model->apiSignatureItem[$n++] = null !== $item ? apiSignatureItem::fromMap($item) : $item;
                 }

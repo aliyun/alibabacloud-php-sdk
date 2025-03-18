@@ -12,6 +12,7 @@ class DescribeApiProductsByAppRequest extends Model
      * @description The application ID.
      *
      * This parameter is required.
+     *
      * @example 110962435
      *
      * @var int
@@ -41,15 +42,13 @@ class DescribeApiProductsByAppRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'appId'         => 'AppId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'appId' => 'AppId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

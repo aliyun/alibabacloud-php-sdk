@@ -35,14 +35,12 @@ class backendConfig extends Model
      */
     public $backendType;
     protected $_name = [
-        'backendId'   => 'BackendId',
+        'backendId' => 'BackendId',
         'backendName' => 'BackendName',
         'backendType' => 'BackendType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

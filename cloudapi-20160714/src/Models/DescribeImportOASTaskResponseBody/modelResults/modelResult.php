@@ -60,15 +60,13 @@ class modelResult extends Model
     public $updateStatus;
     protected $_name = [
         'errorMessage' => 'ErrorMessage',
-        'groupId'      => 'GroupId',
-        'modelId'      => 'ModelId',
-        'modelName'    => 'ModelName',
+        'groupId' => 'GroupId',
+        'modelId' => 'ModelId',
+        'modelName' => 'ModelName',
         'updateStatus' => 'UpdateStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

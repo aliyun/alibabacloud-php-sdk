@@ -71,18 +71,16 @@ class DescribeAppResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'appId'        => 'AppId',
-        'appName'      => 'AppName',
-        'createdTime'  => 'CreatedTime',
-        'description'  => 'Description',
-        'extend'       => 'Extend',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'extend' => 'Extend',
         'modifiedTime' => 'ModifiedTime',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

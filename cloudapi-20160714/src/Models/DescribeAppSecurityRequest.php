@@ -13,6 +13,7 @@ class DescribeAppSecurityRequest extends Model
      * @description The ID of the app.
      *
      * This parameter is required.
+     *
      * @example 20112314518278
      *
      * @var int
@@ -33,14 +34,12 @@ class DescribeAppSecurityRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'appId'         => 'AppId',
+        'appId' => 'AppId',
         'securityToken' => 'SecurityToken',
-        'tag'           => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +80,7 @@ class DescribeAppSecurityRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

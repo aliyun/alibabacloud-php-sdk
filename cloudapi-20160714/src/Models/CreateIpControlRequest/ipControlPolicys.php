@@ -37,13 +37,11 @@ class ipControlPolicys extends Model
      */
     public $cidrIp;
     protected $_name = [
-        'appId'  => 'AppId',
+        'appId' => 'AppId',
         'cidrIp' => 'CidrIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

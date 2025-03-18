@@ -86,19 +86,17 @@ class SetDomainResponseBody extends Model
      */
     public $subDomain;
     protected $_name = [
-        'domainBindingStatus'   => 'DomainBindingStatus',
-        'domainLegalStatus'     => 'DomainLegalStatus',
-        'domainName'            => 'DomainName',
-        'domainRemark'          => 'DomainRemark',
+        'domainBindingStatus' => 'DomainBindingStatus',
+        'domainLegalStatus' => 'DomainLegalStatus',
+        'domainName' => 'DomainName',
+        'domainRemark' => 'DomainRemark',
         'domainWebSocketStatus' => 'DomainWebSocketStatus',
-        'groupId'               => 'GroupId',
-        'requestId'             => 'RequestId',
-        'subDomain'             => 'SubDomain',
+        'groupId' => 'GroupId',
+        'requestId' => 'RequestId',
+        'subDomain' => 'SubDomain',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

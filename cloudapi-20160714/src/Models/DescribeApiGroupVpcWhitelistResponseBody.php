@@ -27,12 +27,10 @@ class DescribeApiGroupVpcWhitelistResponseBody extends Model
     public $vpcIds;
     protected $_name = [
         'requestId' => 'RequestId',
-        'vpcIds'    => 'VpcIds',
+        'vpcIds' => 'VpcIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class CreateAccessControlListRequest extends Model
      * @description The name of the ACL. The name must be 1 to 30 characters in length, and can contain letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (_). The name must be unique within the region.
      *
      * This parameter is required.
+     *
      * @example testAcl
      *
      * @var string
@@ -35,14 +36,12 @@ class CreateAccessControlListRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'aclName'          => 'AclName',
+        'aclName' => 'AclName',
         'addressIPVersion' => 'AddressIPVersion',
-        'securityToken'    => 'SecurityToken',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,15 +44,13 @@ class networkInterfaceAttribute extends Model
      */
     public $zoneId;
     protected $_name = [
-        'cidrBlock'       => 'CidrBlock',
+        'cidrBlock' => 'CidrBlock',
         'securityGroupId' => 'SecurityGroupId',
-        'vswitchId'       => 'VswitchId',
-        'zoneId'          => 'ZoneId',
+        'vswitchId' => 'VswitchId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

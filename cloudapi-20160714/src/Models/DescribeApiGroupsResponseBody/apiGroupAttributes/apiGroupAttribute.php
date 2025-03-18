@@ -148,26 +148,24 @@ class apiGroupAttribute extends Model
      */
     public $trafficLimit;
     protected $_name = [
-        'basePath'      => 'BasePath',
+        'basePath' => 'BasePath',
         'billingStatus' => 'BillingStatus',
-        'createdTime'   => 'CreatedTime',
-        'description'   => 'Description',
-        'groupId'       => 'GroupId',
-        'groupName'     => 'GroupName',
-        'httpsPolicy'   => 'HttpsPolicy',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'httpsPolicy' => 'HttpsPolicy',
         'illegalStatus' => 'IllegalStatus',
-        'instanceId'    => 'InstanceId',
-        'instanceType'  => 'InstanceType',
-        'modifiedTime'  => 'ModifiedTime',
-        'regionId'      => 'RegionId',
-        'subDomain'     => 'SubDomain',
-        'tags'          => 'Tags',
-        'trafficLimit'  => 'TrafficLimit',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'modifiedTime' => 'ModifiedTime',
+        'regionId' => 'RegionId',
+        'subDomain' => 'SubDomain',
+        'tags' => 'Tags',
+        'trafficLimit' => 'TrafficLimit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

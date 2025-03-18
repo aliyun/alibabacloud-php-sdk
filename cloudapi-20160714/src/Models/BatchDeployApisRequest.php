@@ -20,6 +20,7 @@ class BatchDeployApisRequest extends Model
      * @description The description.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -39,21 +40,20 @@ class BatchDeployApisRequest extends Model
      *   PRE: the pre-release environment
      *
      * This parameter is required.
+     *
      * @example RELEASE
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'api'           => 'Api',
-        'description'   => 'Description',
+        'api' => 'Api',
+        'description' => 'Description',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -91,7 +91,7 @@ class BatchDeployApisRequest extends Model
         if (isset($map['Api'])) {
             if (!empty($map['Api'])) {
                 $model->api = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Api'] as $item) {
                     $model->api[$n++] = null !== $item ? api::fromMap($item) : $item;
                 }

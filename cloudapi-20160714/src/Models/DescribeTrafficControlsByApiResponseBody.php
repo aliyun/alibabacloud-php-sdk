@@ -25,13 +25,11 @@ class DescribeTrafficControlsByApiResponseBody extends Model
      */
     public $trafficControlItems;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'trafficControlItems' => 'TrafficControlItems',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

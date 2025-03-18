@@ -17,9 +17,7 @@ class serviceParameters extends Model
         'serviceParameter' => 'ServiceParameter',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class serviceParameters extends Model
         if (isset($map['ServiceParameter'])) {
             if (!empty($map['ServiceParameter'])) {
                 $model->serviceParameter = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ServiceParameter'] as $item) {
                     $model->serviceParameter[$n++] = null !== $item ? serviceParameter::fromMap($item) : $item;
                 }

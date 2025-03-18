@@ -101,21 +101,19 @@ class trafficControl extends Model
      */
     public $userDefault;
     protected $_name = [
-        'apiDefault'         => 'ApiDefault',
-        'appDefault'         => 'AppDefault',
-        'createdTime'        => 'CreatedTime',
-        'description'        => 'Description',
-        'modifiedTime'       => 'ModifiedTime',
-        'specialPolicies'    => 'SpecialPolicies',
-        'trafficControlId'   => 'TrafficControlId',
+        'apiDefault' => 'ApiDefault',
+        'appDefault' => 'AppDefault',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'modifiedTime' => 'ModifiedTime',
+        'specialPolicies' => 'SpecialPolicies',
+        'trafficControlId' => 'TrafficControlId',
         'trafficControlName' => 'TrafficControlName',
         'trafficControlUnit' => 'TrafficControlUnit',
-        'userDefault'        => 'UserDefault',
+        'userDefault' => 'UserDefault',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

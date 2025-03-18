@@ -83,19 +83,17 @@ class DescribeTrafficControlsRequest extends Model
      */
     public $trafficControlName;
     protected $_name = [
-        'apiId'              => 'ApiId',
-        'groupId'            => 'GroupId',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'securityToken'      => 'SecurityToken',
-        'stageName'          => 'StageName',
-        'trafficControlId'   => 'TrafficControlId',
+        'apiId' => 'ApiId',
+        'groupId' => 'GroupId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'securityToken' => 'SecurityToken',
+        'stageName' => 'StageName',
+        'trafficControlId' => 'TrafficControlId',
         'trafficControlName' => 'TrafficControlName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

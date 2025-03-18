@@ -35,14 +35,12 @@ class serviceParameter extends Model
      */
     public $serviceParameterName;
     protected $_name = [
-        'location'             => 'Location',
-        'parameterType'        => 'ParameterType',
+        'location' => 'Location',
+        'parameterType' => 'ParameterType',
         'serviceParameterName' => 'ServiceParameterName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

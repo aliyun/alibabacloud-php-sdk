@@ -95,20 +95,18 @@ class apiInfo extends Model
      */
     public $visibility;
     protected $_name = [
-        'apiId'       => 'ApiId',
-        'apiName'     => 'ApiName',
-        'boundTime'   => 'BoundTime',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'boundTime' => 'BoundTime',
         'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
-        'regionId'    => 'RegionId',
-        'stageName'   => 'StageName',
-        'visibility'  => 'Visibility',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'regionId' => 'RegionId',
+        'stageName' => 'StageName',
+        'visibility' => 'Visibility',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

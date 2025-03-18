@@ -88,20 +88,18 @@ class pluginAttribute extends Model
      */
     public $tags;
     protected $_name = [
-        'createdTime'  => 'CreatedTime',
-        'description'  => 'Description',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
         'modifiedTime' => 'ModifiedTime',
-        'pluginData'   => 'PluginData',
-        'pluginId'     => 'PluginId',
-        'pluginName'   => 'PluginName',
-        'pluginType'   => 'PluginType',
-        'regionId'     => 'RegionId',
-        'tags'         => 'Tags',
+        'pluginData' => 'PluginData',
+        'pluginId' => 'PluginId',
+        'pluginName' => 'PluginName',
+        'pluginType' => 'PluginType',
+        'regionId' => 'RegionId',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

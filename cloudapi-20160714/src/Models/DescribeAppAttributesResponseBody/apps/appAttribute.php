@@ -70,18 +70,16 @@ class appAttribute extends Model
      */
     public $tags;
     protected $_name = [
-        'appId'        => 'AppId',
-        'appName'      => 'AppName',
-        'createdTime'  => 'CreatedTime',
-        'description'  => 'Description',
-        'extend'       => 'Extend',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'extend' => 'Extend',
         'modifiedTime' => 'ModifiedTime',
-        'tags'         => 'Tags',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

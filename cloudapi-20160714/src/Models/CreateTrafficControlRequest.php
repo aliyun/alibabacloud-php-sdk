@@ -12,6 +12,7 @@ class CreateTrafficControlRequest extends Model
      * @description The default throttling value for each API.
      *
      * This parameter is required.
+     *
      * @example 10000
      *
      * @var int
@@ -49,6 +50,7 @@ class CreateTrafficControlRequest extends Model
      * @description The name of the throttling policy. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (_). It cannot start with an underscore.
      *
      * This parameter is required.
+     *
      * @example ThrottlingTest
      *
      * @var string
@@ -64,6 +66,7 @@ class CreateTrafficControlRequest extends Model
      *   **DAY**
      *
      * This parameter is required.
+     *
      * @example MINUTE
      *
      * @var string
@@ -79,18 +82,16 @@ class CreateTrafficControlRequest extends Model
      */
     public $userDefault;
     protected $_name = [
-        'apiDefault'         => 'ApiDefault',
-        'appDefault'         => 'AppDefault',
-        'description'        => 'Description',
-        'securityToken'      => 'SecurityToken',
+        'apiDefault' => 'ApiDefault',
+        'appDefault' => 'AppDefault',
+        'description' => 'Description',
+        'securityToken' => 'SecurityToken',
         'trafficControlName' => 'TrafficControlName',
         'trafficControlUnit' => 'TrafficControlUnit',
-        'userDefault'        => 'UserDefault',
+        'userDefault' => 'UserDefault',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

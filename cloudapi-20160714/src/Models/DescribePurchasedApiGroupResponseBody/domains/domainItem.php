@@ -20,9 +20,7 @@ class domainItem extends Model
         'domainName' => 'DomainName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

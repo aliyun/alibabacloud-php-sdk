@@ -62,17 +62,15 @@ class ModifyApiGroupResponseBody extends Model
      */
     public $subDomain;
     protected $_name = [
-        'basePath'    => 'BasePath',
+        'basePath' => 'BasePath',
         'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
-        'requestId'   => 'RequestId',
-        'subDomain'   => 'SubDomain',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'requestId' => 'RequestId',
+        'subDomain' => 'SubDomain',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

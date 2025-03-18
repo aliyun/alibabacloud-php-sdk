@@ -138,25 +138,23 @@ class apiVpcAccessInfo extends Model
      */
     public $vpcName;
     protected $_name = [
-        'apiId'       => 'ApiId',
-        'apiName'     => 'ApiName',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
         'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
-        'instanceId'  => 'InstanceId',
-        'method'      => 'Method',
-        'path'        => 'Path',
-        'port'        => 'Port',
-        'regionId'    => 'RegionId',
-        'stageId'     => 'StageId',
-        'stageName'   => 'StageName',
-        'vpcId'       => 'VpcId',
-        'vpcName'     => 'VpcName',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'instanceId' => 'InstanceId',
+        'method' => 'Method',
+        'path' => 'Path',
+        'port' => 'Port',
+        'regionId' => 'RegionId',
+        'stageId' => 'StageId',
+        'stageName' => 'StageName',
+        'vpcId' => 'VpcId',
+        'vpcName' => 'VpcName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

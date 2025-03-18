@@ -22,6 +22,7 @@ class ListTagResourcesRequest extends Model
      * @description The ID of the resource.
      *
      * Valid values of N: `[1,50]`.
+     *
      * @example 285bb759342649a1b70c2093a772e087
      *
      * @var string[]
@@ -39,6 +40,7 @@ class ListTagResourcesRequest extends Model
      *   **api**
      *
      * This parameter is required.
+     *
      * @example apiGroup
      *
      * @var string
@@ -52,15 +54,13 @@ class ListTagResourcesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'nextToken'    => 'NextToken',
-        'resourceId'   => 'ResourceId',
+        'nextToken' => 'NextToken',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -109,7 +109,7 @@ class ListTagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

@@ -26,13 +26,11 @@ class SetVpcAccessResponseBody extends Model
      */
     public $vpcAccessId;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'vpcAccessId' => 'VpcAccessId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class SwitchApiRequest extends Model
      * @description The API ID.
      *
      * This parameter is required.
+     *
      * @example d6f679aeb3be4b91b3688e887ca1fe16
      *
      * @var string
@@ -22,6 +23,7 @@ class SwitchApiRequest extends Model
      * @description The description. The description can be up to 200 characters in length.
      *
      * This parameter is required.
+     *
      * @example for_demo
      *
      * @var string
@@ -41,6 +43,7 @@ class SwitchApiRequest extends Model
      * @description The historical version number of the API.
      *
      * This parameter is required.
+     *
      * @example 20160705104552292
      *
      * @var string
@@ -60,23 +63,22 @@ class SwitchApiRequest extends Model
      *   **TEST**: the test environment
      *
      * This parameter is required.
+     *
      * @example RELEASE
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'apiId'          => 'ApiId',
-        'description'    => 'Description',
-        'groupId'        => 'GroupId',
+        'apiId' => 'ApiId',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
         'historyVersion' => 'HistoryVersion',
-        'securityToken'  => 'SecurityToken',
-        'stageName'      => 'StageName',
+        'securityToken' => 'SecurityToken',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -164,28 +164,26 @@ class serviceConfig extends Model
      */
     public $vpcConfig;
     protected $_name = [
-        'aoneAppName'           => 'AoneAppName',
-        'contentTypeCatagory'   => 'ContentTypeCatagory',
-        'contentTypeValue'      => 'ContentTypeValue',
-        'eventBridgeConfig'     => 'EventBridgeConfig',
+        'aoneAppName' => 'AoneAppName',
+        'contentTypeCatagory' => 'ContentTypeCatagory',
+        'contentTypeValue' => 'ContentTypeValue',
+        'eventBridgeConfig' => 'EventBridgeConfig',
         'functionComputeConfig' => 'FunctionComputeConfig',
-        'mock'                  => 'Mock',
-        'mockHeaders'           => 'MockHeaders',
-        'mockResult'            => 'MockResult',
-        'mockStatusCode'        => 'MockStatusCode',
-        'ossConfig'             => 'OssConfig',
-        'serviceAddress'        => 'ServiceAddress',
-        'serviceHttpMethod'     => 'ServiceHttpMethod',
-        'servicePath'           => 'ServicePath',
-        'serviceProtocol'       => 'ServiceProtocol',
-        'serviceTimeout'        => 'ServiceTimeout',
-        'serviceVpcEnable'      => 'ServiceVpcEnable',
-        'vpcConfig'             => 'VpcConfig',
+        'mock' => 'Mock',
+        'mockHeaders' => 'MockHeaders',
+        'mockResult' => 'MockResult',
+        'mockStatusCode' => 'MockStatusCode',
+        'ossConfig' => 'OssConfig',
+        'serviceAddress' => 'ServiceAddress',
+        'serviceHttpMethod' => 'ServiceHttpMethod',
+        'servicePath' => 'ServicePath',
+        'serviceProtocol' => 'ServiceProtocol',
+        'serviceTimeout' => 'ServiceTimeout',
+        'serviceVpcEnable' => 'ServiceVpcEnable',
+        'vpcConfig' => 'VpcConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

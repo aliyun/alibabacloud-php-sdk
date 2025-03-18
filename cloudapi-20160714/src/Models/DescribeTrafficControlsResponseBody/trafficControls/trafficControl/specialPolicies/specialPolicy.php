@@ -29,12 +29,10 @@ class specialPolicy extends Model
     public $specials;
     protected $_name = [
         'specialType' => 'SpecialType',
-        'specials'    => 'Specials',
+        'specials' => 'Specials',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

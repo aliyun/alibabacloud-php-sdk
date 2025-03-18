@@ -56,16 +56,14 @@ class deployedResult extends Model
      */
     public $stageName;
     protected $_name = [
-        'apiUid'         => 'ApiUid',
+        'apiUid' => 'ApiUid',
         'deployedStatus' => 'DeployedStatus',
-        'errorMsg'       => 'ErrorMsg',
-        'groupId'        => 'GroupId',
-        'stageName'      => 'StageName',
+        'errorMsg' => 'ErrorMsg',
+        'groupId' => 'GroupId',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

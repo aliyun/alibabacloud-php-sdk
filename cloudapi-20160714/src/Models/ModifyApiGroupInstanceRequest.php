@@ -13,6 +13,7 @@ class ModifyApiGroupInstanceRequest extends Model
      * @description The ID of the API group.
      *
      * This parameter is required.
+     *
      * @example 01c97ed08a614118849b00079753d1e2
      *
      * @var string
@@ -44,22 +45,21 @@ class ModifyApiGroupInstanceRequest extends Model
      * @description The ID of the instance to which you want to migrate the API group.
      *
      * This parameter is required.
+     *
      * @example apigateway-bj-c325375b1ebe
      *
      * @var string
      */
     public $targetInstanceId;
     protected $_name = [
-        'groupId'          => 'GroupId',
-        'remark'           => 'Remark',
-        'securityToken'    => 'SecurityToken',
-        'tag'              => 'Tag',
+        'groupId' => 'GroupId',
+        'remark' => 'Remark',
+        'securityToken' => 'SecurityToken',
+        'tag' => 'Tag',
         'targetInstanceId' => 'TargetInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -109,7 +109,7 @@ class ModifyApiGroupInstanceRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

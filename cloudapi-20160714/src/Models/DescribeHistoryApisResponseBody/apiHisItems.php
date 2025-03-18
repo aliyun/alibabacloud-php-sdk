@@ -17,9 +17,7 @@ class apiHisItems extends Model
         'apiHisItem' => 'ApiHisItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class apiHisItems extends Model
         if (isset($map['ApiHisItem'])) {
             if (!empty($map['ApiHisItem'])) {
                 $model->apiHisItem = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ApiHisItem'] as $item) {
                     $model->apiHisItem[$n++] = null !== $item ? apiHisItem::fromMap($item) : $item;
                 }

@@ -70,18 +70,16 @@ class backendModels extends Model
      */
     public $stageName;
     protected $_name = [
-        'backendConfig'  => 'BackendConfig',
+        'backendConfig' => 'BackendConfig',
         'backendModelId' => 'BackendModelId',
-        'description'    => 'Description',
-        'gmtCreate'      => 'GmtCreate',
-        'gmtModified'    => 'GmtModified',
-        'stageModeId'    => 'StageModeId',
-        'stageName'      => 'StageName',
+        'description' => 'Description',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'stageModeId' => 'StageModeId',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -45,14 +45,12 @@ class eventBridgeConfig extends Model
     public $roleArn;
     protected $_name = [
         'eventBridgeRegionId' => 'EventBridgeRegionId',
-        'eventBus'            => 'EventBus',
-        'eventSource'         => 'EventSource',
-        'roleArn'             => 'RoleArn',
+        'eventBus' => 'EventBus',
+        'eventSource' => 'EventSource',
+        'roleArn' => 'RoleArn',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

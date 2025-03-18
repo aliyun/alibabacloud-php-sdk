@@ -17,9 +17,7 @@ class apiGroupAttributes extends Model
         'apiGroupAttribute' => 'ApiGroupAttribute',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class apiGroupAttributes extends Model
         if (isset($map['ApiGroupAttribute'])) {
             if (!empty($map['ApiGroupAttribute'])) {
                 $model->apiGroupAttribute = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['ApiGroupAttribute'] as $item) {
                     $model->apiGroupAttribute[$n++] = null !== $item ? apiGroupAttribute::fromMap($item) : $item;
                 }

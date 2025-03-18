@@ -12,6 +12,7 @@ class RemoveVpcAccessRequest extends Model
      * @description The ID of an ECS or SLB instance in the VPC.
      *
      * This parameter is required.
+     *
      * @example i-uf6bzcg1pr4oh5jjmxxx
      *
      * @var string
@@ -31,6 +32,7 @@ class RemoveVpcAccessRequest extends Model
      * @description The port number that corresponds to the instance.
      *
      * This parameter is required.
+     *
      * @example 80
      *
      * @var int
@@ -46,22 +48,21 @@ class RemoveVpcAccessRequest extends Model
      * @description The ID of the VPC.
      *
      * This parameter is required.
+     *
      * @example vpc-uf657qec7lx42paw3qxxx
      *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'needBatchWork' => 'NeedBatchWork',
-        'port'          => 'Port',
+        'port' => 'Port',
         'securityToken' => 'SecurityToken',
-        'vpcId'         => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

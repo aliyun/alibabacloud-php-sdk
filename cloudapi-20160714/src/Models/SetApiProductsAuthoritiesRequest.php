@@ -12,6 +12,7 @@ class SetApiProductsAuthoritiesRequest extends Model
      * @description The API products.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $apiProductIds;
@@ -20,6 +21,7 @@ class SetApiProductsAuthoritiesRequest extends Model
      * @description The application ID.
      *
      * This parameter is required.
+     *
      * @example 111385984
      *
      * @var int
@@ -50,15 +52,13 @@ class SetApiProductsAuthoritiesRequest extends Model
     public $securityToken;
     protected $_name = [
         'apiProductIds' => 'ApiProductIds',
-        'appId'         => 'AppId',
+        'appId' => 'AppId',
         'authValidTime' => 'AuthValidTime',
-        'description'   => 'Description',
+        'description' => 'Description',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

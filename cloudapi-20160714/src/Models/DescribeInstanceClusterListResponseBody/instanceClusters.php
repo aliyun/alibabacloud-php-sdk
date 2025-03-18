@@ -17,9 +17,7 @@ class instanceClusters extends Model
         'instanceCluster' => 'InstanceCluster',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class instanceClusters extends Model
         if (isset($map['InstanceCluster'])) {
             if (!empty($map['InstanceCluster'])) {
                 $model->instanceCluster = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['InstanceCluster'] as $item) {
                     $model->instanceCluster[$n++] = null !== $item ? instanceCluster::fromMap($item) : $item;
                 }

@@ -35,14 +35,12 @@ class trafficControlItem extends Model
      */
     public $trafficControlItemName;
     protected $_name = [
-        'boundTime'              => 'BoundTime',
-        'trafficControlItemId'   => 'TrafficControlItemId',
+        'boundTime' => 'BoundTime',
+        'trafficControlItemId' => 'TrafficControlItemId',
         'trafficControlItemName' => 'TrafficControlItemName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

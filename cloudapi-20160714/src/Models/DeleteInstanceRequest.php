@@ -13,6 +13,7 @@ class DeleteInstanceRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example apigateway-sh-ae502ee79ef8
      *
      * @var string
@@ -29,12 +30,10 @@ class DeleteInstanceRequest extends Model
     public $tag;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'tag'        => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -69,7 +68,7 @@ class DeleteInstanceRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

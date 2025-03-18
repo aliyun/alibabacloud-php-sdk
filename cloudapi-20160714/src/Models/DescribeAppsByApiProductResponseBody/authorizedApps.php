@@ -17,9 +17,7 @@ class authorizedApps extends Model
         'authorizedApp' => 'AuthorizedApp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class authorizedApps extends Model
         if (isset($map['AuthorizedApp'])) {
             if (!empty($map['AuthorizedApp'])) {
                 $model->authorizedApp = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['AuthorizedApp'] as $item) {
                     $model->authorizedApp[$n++] = null !== $item ? authorizedApp::fromMap($item) : $item;
                 }

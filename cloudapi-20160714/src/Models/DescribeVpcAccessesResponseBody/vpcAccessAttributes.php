@@ -17,9 +17,7 @@ class vpcAccessAttributes extends Model
         'vpcAccessAttribute' => 'VpcAccessAttribute',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class vpcAccessAttributes extends Model
         if (isset($map['VpcAccessAttribute'])) {
             if (!empty($map['VpcAccessAttribute'])) {
                 $model->vpcAccessAttribute = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['VpcAccessAttribute'] as $item) {
                     $model->vpcAccessAttribute[$n++] = null !== $item ? vpcAccessAttribute::fromMap($item) : $item;
                 }

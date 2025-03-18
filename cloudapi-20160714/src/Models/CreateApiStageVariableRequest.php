@@ -12,6 +12,7 @@ class CreateApiStageVariableRequest extends Model
      * @description The ID of the API group.
      *
      * This parameter is required.
+     *
      * @example 523e8dc7bbe04613b5b1d726c2a7889d
      *
      * @var string
@@ -27,6 +28,7 @@ class CreateApiStageVariableRequest extends Model
      * @description The ID of the runtime environment.
      *
      * This parameter is required.
+     *
      * @example 6EF60BEC-0242-43AF-BB20-270359FB54A7
      *
      * @var string
@@ -37,7 +39,19 @@ class CreateApiStageVariableRequest extends Model
      * @description The routing model of the environment.
      *
      * @example {
+     * "location": "HEAD",
+     * "parameterCatalog": "CUSTOM",
+     * "parameterType": "String",
+     * "serviceParameterName": "TestConstant",
+     * "routeMatchSymbol": "IN",
+     * "routeRules": [
+     * {
+     * "conditionValue": "aaa,bbb",
+     * "resultValue": "apigateway-test.com"
      * }
+     * ]
+     * }
+     *
      * @deprecated
      *
      * @var string
@@ -57,6 +71,7 @@ class CreateApiStageVariableRequest extends Model
      * @description The name of the variable to be added. This parameter is case-sensitive.
      *
      * This parameter is required.
+     *
      * @example serverName
      *
      * @var string
@@ -72,18 +87,16 @@ class CreateApiStageVariableRequest extends Model
      */
     public $variableValue;
     protected $_name = [
-        'groupId'         => 'GroupId',
-        'securityToken'   => 'SecurityToken',
-        'stageId'         => 'StageId',
+        'groupId' => 'GroupId',
+        'securityToken' => 'SecurityToken',
+        'stageId' => 'StageId',
         'stageRouteModel' => 'StageRouteModel',
-        'supportRoute'    => 'SupportRoute',
-        'variableName'    => 'VariableName',
-        'variableValue'   => 'VariableValue',
+        'supportRoute' => 'SupportRoute',
+        'variableName' => 'VariableName',
+        'variableValue' => 'VariableValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

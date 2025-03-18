@@ -84,26 +84,25 @@ class functionComputeConfig extends Model
      * @description The name of the trigger.
      *
      * You can specify the TriggerName or TriggerUrl parameter. The TriggerName parameter is optional.
+     *
      * @example test1
      *
      * @var string
      */
     public $triggerName;
     protected $_name = [
-        'fcBaseUrl'        => 'FcBaseUrl',
-        'fcRegionId'       => 'FcRegionId',
-        'fcType'           => 'FcType',
-        'functionName'     => 'FunctionName',
+        'fcBaseUrl' => 'FcBaseUrl',
+        'fcRegionId' => 'FcRegionId',
+        'fcType' => 'FcType',
+        'functionName' => 'FunctionName',
         'onlyBusinessPath' => 'OnlyBusinessPath',
-        'qualifier'        => 'Qualifier',
-        'roleArn'          => 'RoleArn',
-        'serviceName'      => 'ServiceName',
-        'triggerName'      => 'TriggerName',
+        'qualifier' => 'Qualifier',
+        'roleArn' => 'RoleArn',
+        'serviceName' => 'ServiceName',
+        'triggerName' => 'TriggerName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

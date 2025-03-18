@@ -107,22 +107,20 @@ class DescribeAppAttributesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'appCode'       => 'AppCode',
-        'appId'         => 'AppId',
-        'appKey'        => 'AppKey',
-        'appName'       => 'AppName',
+        'appCode' => 'AppCode',
+        'appId' => 'AppId',
+        'appKey' => 'AppKey',
+        'appName' => 'AppName',
         'enableTagAuth' => 'EnableTagAuth',
-        'extend'        => 'Extend',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'extend' => 'Extend',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'sort'          => 'Sort',
-        'tag'           => 'Tag',
+        'sort' => 'Sort',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -211,7 +209,7 @@ class DescribeAppAttributesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

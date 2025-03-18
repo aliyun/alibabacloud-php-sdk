@@ -54,15 +54,13 @@ class vpcConfig extends Model
     public $vpcScheme;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'name'       => 'Name',
-        'port'       => 'Port',
-        'vpcId'      => 'VpcId',
-        'vpcScheme'  => 'VpcScheme',
+        'name' => 'Name',
+        'port' => 'Port',
+        'vpcId' => 'VpcId',
+        'vpcScheme' => 'VpcScheme',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

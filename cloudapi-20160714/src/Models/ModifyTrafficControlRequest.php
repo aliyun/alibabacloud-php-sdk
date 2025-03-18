@@ -48,6 +48,7 @@ class ModifyTrafficControlRequest extends Model
      * @description The ID of the throttling policy.
      *
      * This parameter is required.
+     *
      * @example tf123456
      *
      * @var string
@@ -86,19 +87,17 @@ class ModifyTrafficControlRequest extends Model
      */
     public $userDefault;
     protected $_name = [
-        'apiDefault'         => 'ApiDefault',
-        'appDefault'         => 'AppDefault',
-        'description'        => 'Description',
-        'securityToken'      => 'SecurityToken',
-        'trafficControlId'   => 'TrafficControlId',
+        'apiDefault' => 'ApiDefault',
+        'appDefault' => 'AppDefault',
+        'description' => 'Description',
+        'securityToken' => 'SecurityToken',
+        'trafficControlId' => 'TrafficControlId',
         'trafficControlName' => 'TrafficControlName',
         'trafficControlUnit' => 'TrafficControlUnit',
-        'userDefault'        => 'UserDefault',
+        'userDefault' => 'UserDefault',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

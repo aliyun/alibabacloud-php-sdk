@@ -25,13 +25,11 @@ class RemoveVpcAccessResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'apis'      => 'Apis',
+        'apis' => 'Apis',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

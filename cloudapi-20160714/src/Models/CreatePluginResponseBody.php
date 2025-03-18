@@ -35,14 +35,12 @@ class CreatePluginResponseBody extends Model
      */
     public $tagStatus;
     protected $_name = [
-        'pluginId'  => 'PluginId',
+        'pluginId' => 'PluginId',
         'requestId' => 'RequestId',
         'tagStatus' => 'TagStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

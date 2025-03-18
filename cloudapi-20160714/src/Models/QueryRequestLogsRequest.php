@@ -12,6 +12,7 @@ class QueryRequestLogsRequest extends Model
      * @description The ID of the request log.
      *
      * This parameter is required.
+     *
      * @example 95657ED9-2F6F-426F-BD99-79C8********
      *
      * @var string
@@ -23,13 +24,11 @@ class QueryRequestLogsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'requestLogId'  => 'RequestLogId',
+        'requestLogId' => 'RequestLogId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

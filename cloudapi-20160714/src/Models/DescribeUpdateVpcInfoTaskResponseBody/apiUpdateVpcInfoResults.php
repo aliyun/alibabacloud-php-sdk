@@ -17,9 +17,7 @@ class apiUpdateVpcInfoResults extends Model
         'apiUpdateVpcInfoResult' => 'ApiUpdateVpcInfoResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class apiUpdateVpcInfoResults extends Model
         if (isset($map['ApiUpdateVpcInfoResult'])) {
             if (!empty($map['ApiUpdateVpcInfoResult'])) {
                 $model->apiUpdateVpcInfoResult = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['ApiUpdateVpcInfoResult'] as $item) {
                     $model->apiUpdateVpcInfoResult[$n++] = null !== $item ? apiUpdateVpcInfoResult::fromMap($item) : $item;
                 }

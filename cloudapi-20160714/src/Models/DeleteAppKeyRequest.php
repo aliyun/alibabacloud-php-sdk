@@ -12,6 +12,7 @@ class DeleteAppKeyRequest extends Model
      * @description The application ID.
      *
      * This parameter is required.
+     *
      * @example 110840611
      *
      * @var string
@@ -22,19 +23,18 @@ class DeleteAppKeyRequest extends Model
      * @description The AppKey of the application. The AppKey is used for calling an API.
      *
      * This parameter is required.
+     *
      * @example 203708622
      *
      * @var string
      */
     public $appKey;
     protected $_name = [
-        'appId'  => 'AppId',
+        'appId' => 'AppId',
         'appKey' => 'AppKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

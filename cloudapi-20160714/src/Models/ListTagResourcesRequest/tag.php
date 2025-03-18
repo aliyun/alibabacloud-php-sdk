@@ -12,6 +12,7 @@ class tag extends Model
      * @description The key of the tag.
      *
      * Valid values of N: `[1,20]`.
+     *
      * @example env
      *
      * @var string
@@ -22,19 +23,18 @@ class tag extends Model
      * @description The value of the tag. If the parameter has a value, a value is also required for the tag key of the same N in the corresponding **tag.N.Key**. Otherwise, an error is reported.
      *
      * Valid values of N: `[1,20]`.
+     *
      * @example product
      *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -13,7 +13,11 @@ class CreateInstanceRequest extends Model
     /**
      * @description Whether to automatically pay when renewing. Value:
      *
+     * - True: Automatic payment. Please ensure that your account has sufficient balance.
+     * - False: Console manual payment. The specific operation is to log in to the console, select Expenses in the upper right corner, enter the Expense Center, and find the target order in Order Management to make payment.
+     *
      * Default value: False.
+     *
      * @example false
      *
      * @var bool
@@ -24,8 +28,10 @@ class CreateInstanceRequest extends Model
      * @description The billing method of the instance. Valid values: PostPaid (pay-as-you-go) and PrePaid (subscription).
      *
      * This parameter is required.
+     *
      * @example PostPaid
      * PrePaid
+     *
      * @var string
      */
     public $chargeType;
@@ -37,6 +43,7 @@ class CreateInstanceRequest extends Model
      *   If PricingCycle is set to **Year**, set this parameter to an integer ranges from **1** to **3**.
      *
      * >  This parameter is valid and required only if the ChargeType parameter is set to **PrePaid**.
+     *
      * @example 1
      *
      * @var int
@@ -57,11 +64,6 @@ class CreateInstanceRequest extends Model
      *
      *   192.168.0.0/16
      *   172.16.0.0/12
-     *
-     **
-     *
-     **Warning** The VPC integration instance is connected to the specified CIDR block. Plan your CIDR block carefully to prevent overlaps with the private IP addresses of cloud services.
-     *
      * >  This parameter is in invitational preview and not available for public use.
      * @example 172.16.0.0/12
      *
@@ -73,6 +75,7 @@ class CreateInstanceRequest extends Model
      * @description Instance Name
      *
      * This parameter is required.
+     *
      * @example ApigatewayInstance
      *
      * @var string
@@ -83,6 +86,7 @@ class CreateInstanceRequest extends Model
      * @description Instance specifications
      *
      * This parameter is required.
+     *
      * @example api.s1.small
      *
      * @var string
@@ -96,6 +100,7 @@ class CreateInstanceRequest extends Model
      *   normal: a conventional dedicated instance
      *
      * >  This parameter is in invitational preview and not available for public use.
+     *
      * @example vpc_connect
      *
      * @var string
@@ -109,6 +114,7 @@ class CreateInstanceRequest extends Model
      *   **month**
      *
      * >  This parameter is required if the ChargeType parameter is set to Prepaid.
+     *
      * @example Month
      *
      * @var string
@@ -126,6 +132,7 @@ class CreateInstanceRequest extends Model
      * @description Passwords are used to prevent duplicate requests from being submitted, please do not reuse them.
      *
      * This parameter is required.
+     *
      * @example c20d86c4-1eb3-4d0b-afe9-c586df1e2136
      *
      * @var string
@@ -136,6 +143,7 @@ class CreateInstanceRequest extends Model
      * @description The ID of the user\\"s VPC to be connected by the VPC integration instance.
      *
      * >  This parameter is in invitational preview and not available for public use.
+     *
      * @example vpc-m5eo7khlb4h4f8y9egsdg
      *
      * @var string
@@ -155,29 +163,28 @@ class CreateInstanceRequest extends Model
      * @description The network information when the instance is a VPC integration instance, such as the zone, vSwitch, and security group.
      *
      * >  This parameter is in invitational preview and not available for public use.
+     *
      * @var zoneVSwitchSecurityGroup[]
      */
     public $zoneVSwitchSecurityGroup;
     protected $_name = [
-        'autoPay'                  => 'AutoPay',
-        'chargeType'               => 'ChargeType',
-        'duration'                 => 'Duration',
-        'httpsPolicy'              => 'HttpsPolicy',
-        'instanceCidr'             => 'InstanceCidr',
-        'instanceName'             => 'InstanceName',
-        'instanceSpec'             => 'InstanceSpec',
-        'instanceType'             => 'InstanceType',
-        'pricingCycle'             => 'PricingCycle',
-        'tag'                      => 'Tag',
-        'token'                    => 'Token',
-        'userVpcId'                => 'UserVpcId',
-        'zoneId'                   => 'ZoneId',
+        'autoPay' => 'AutoPay',
+        'chargeType' => 'ChargeType',
+        'duration' => 'Duration',
+        'httpsPolicy' => 'HttpsPolicy',
+        'instanceCidr' => 'InstanceCidr',
+        'instanceName' => 'InstanceName',
+        'instanceSpec' => 'InstanceSpec',
+        'instanceType' => 'InstanceType',
+        'pricingCycle' => 'PricingCycle',
+        'tag' => 'Tag',
+        'token' => 'Token',
+        'userVpcId' => 'UserVpcId',
+        'zoneId' => 'ZoneId',
         'zoneVSwitchSecurityGroup' => 'ZoneVSwitchSecurityGroup',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -278,7 +285,7 @@ class CreateInstanceRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
@@ -296,7 +303,7 @@ class CreateInstanceRequest extends Model
         if (isset($map['ZoneVSwitchSecurityGroup'])) {
             if (!empty($map['ZoneVSwitchSecurityGroup'])) {
                 $model->zoneVSwitchSecurityGroup = [];
-                $n                               = 0;
+                $n = 0;
                 foreach ($map['ZoneVSwitchSecurityGroup'] as $item) {
                     $model->zoneVSwitchSecurityGroup[$n++] = null !== $item ? zoneVSwitchSecurityGroup::fromMap($item) : $item;
                 }

@@ -181,30 +181,28 @@ class DescribeApiDocResponseBody extends Model
      */
     public $visibility;
     protected $_name = [
-        'apiId'             => 'ApiId',
-        'apiName'           => 'ApiName',
-        'authType'          => 'AuthType',
-        'deployedTime'      => 'DeployedTime',
-        'description'       => 'Description',
-        'disableInternet'   => 'DisableInternet',
-        'errorCodeSamples'  => 'ErrorCodeSamples',
-        'failResultSample'  => 'FailResultSample',
-        'forceNonceCheck'   => 'ForceNonceCheck',
-        'groupId'           => 'GroupId',
-        'groupName'         => 'GroupName',
-        'regionId'          => 'RegionId',
-        'requestConfig'     => 'RequestConfig',
-        'requestId'         => 'RequestId',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'authType' => 'AuthType',
+        'deployedTime' => 'DeployedTime',
+        'description' => 'Description',
+        'disableInternet' => 'DisableInternet',
+        'errorCodeSamples' => 'ErrorCodeSamples',
+        'failResultSample' => 'FailResultSample',
+        'forceNonceCheck' => 'ForceNonceCheck',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'regionId' => 'RegionId',
+        'requestConfig' => 'RequestConfig',
+        'requestId' => 'RequestId',
         'requestParameters' => 'RequestParameters',
-        'resultSample'      => 'ResultSample',
-        'resultType'        => 'ResultType',
-        'stageName'         => 'StageName',
-        'visibility'        => 'Visibility',
+        'resultSample' => 'ResultSample',
+        'resultType' => 'ResultType',
+        'stageName' => 'StageName',
+        'visibility' => 'Visibility',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

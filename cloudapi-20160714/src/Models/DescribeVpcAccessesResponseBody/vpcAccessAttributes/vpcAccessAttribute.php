@@ -97,21 +97,19 @@ class vpcAccessAttribute extends Model
      */
     public $vpcTargetHostName;
     protected $_name = [
-        'createdTime'       => 'CreatedTime',
-        'description'       => 'Description',
-        'instanceId'        => 'InstanceId',
-        'name'              => 'Name',
-        'port'              => 'Port',
-        'regionId'          => 'RegionId',
-        'tags'              => 'Tags',
-        'vpcAccessId'       => 'VpcAccessId',
-        'vpcId'             => 'VpcId',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'port' => 'Port',
+        'regionId' => 'RegionId',
+        'tags' => 'Tags',
+        'vpcAccessId' => 'VpcAccessId',
+        'vpcId' => 'VpcId',
         'vpcTargetHostName' => 'VpcTargetHostName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

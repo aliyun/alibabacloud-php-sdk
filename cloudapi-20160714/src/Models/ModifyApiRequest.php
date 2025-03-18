@@ -26,6 +26,7 @@ class ModifyApiRequest extends Model
      * @description The ID of the API.
      *
      * This parameter is required.
+     *
      * @example 8afff6c8c4c6447abb035812e4d66b65
      *
      * @var string
@@ -36,6 +37,7 @@ class ModifyApiRequest extends Model
      * @description The name of the API. The name must be unique within the API group. The name must be 4 to 50 characters in length. It must start with a letter and can contain letters, digits, and underscores (_).
      *
      * This parameter is required.
+     *
      * @example ApiName
      *
      * @var string
@@ -121,6 +123,7 @@ class ModifyApiRequest extends Model
      *   If you set DisableInternet to **false**, the limit if lifted.
      *
      * >  If you do not set this parameter, the original value is used.
+     *
      * @example true
      *
      * @var bool
@@ -152,6 +155,7 @@ class ModifyApiRequest extends Model
      * @description The configuration items of API requests sent by API Gateway to the backend service.
      *
      * This parameter is required.
+     *
      * @example {"RequestProtocol":"HTTP","RequestHttpMethod":"GET","RequestPath":"/v3/getUserTest/[userId]","BodyFormat":"FORM","PostBodyDescription":""}
      *
      * @var string
@@ -201,6 +205,7 @@ class ModifyApiRequest extends Model
      * @description The parameters of API requests sent by the consumer to API Gateway.
      *
      * This parameter is required.
+     *
      * @example {"ServiceProtocol":"HTTP","ServiceHttpMethod":"GET","ServiceAddress":"http://www.customerdomain.com","ServiceTimeout":"1000","ServicePath":"/v3/getUserTest/[userId]"}
      *
      * @var string
@@ -229,6 +234,7 @@ class ModifyApiRequest extends Model
      *   **PRIVATE**: Make the API private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
      *
      * This parameter is required.
+     *
      * @example PUBLIC
      *
      * @var string
@@ -245,38 +251,36 @@ class ModifyApiRequest extends Model
     public $webSocketApiType;
     protected $_name = [
         'allowSignatureMethod' => 'AllowSignatureMethod',
-        'apiId'                => 'ApiId',
-        'apiName'              => 'ApiName',
-        'appCodeAuthType'      => 'AppCodeAuthType',
-        'authType'             => 'AuthType',
-        'backendEnable'        => 'BackendEnable',
-        'backendId'            => 'BackendId',
-        'constantParameters'   => 'ConstantParameters',
-        'description'          => 'Description',
-        'disableInternet'      => 'DisableInternet',
-        'errorCodeSamples'     => 'ErrorCodeSamples',
-        'failResultSample'     => 'FailResultSample',
-        'forceNonceCheck'      => 'ForceNonceCheck',
-        'groupId'              => 'GroupId',
-        'openIdConnectConfig'  => 'OpenIdConnectConfig',
-        'requestConfig'        => 'RequestConfig',
-        'requestParameters'    => 'RequestParameters',
-        'resultBodyModel'      => 'ResultBodyModel',
-        'resultDescriptions'   => 'ResultDescriptions',
-        'resultSample'         => 'ResultSample',
-        'resultType'           => 'ResultType',
-        'securityToken'        => 'SecurityToken',
-        'serviceConfig'        => 'ServiceConfig',
-        'serviceParameters'    => 'ServiceParameters',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'appCodeAuthType' => 'AppCodeAuthType',
+        'authType' => 'AuthType',
+        'backendEnable' => 'BackendEnable',
+        'backendId' => 'BackendId',
+        'constantParameters' => 'ConstantParameters',
+        'description' => 'Description',
+        'disableInternet' => 'DisableInternet',
+        'errorCodeSamples' => 'ErrorCodeSamples',
+        'failResultSample' => 'FailResultSample',
+        'forceNonceCheck' => 'ForceNonceCheck',
+        'groupId' => 'GroupId',
+        'openIdConnectConfig' => 'OpenIdConnectConfig',
+        'requestConfig' => 'RequestConfig',
+        'requestParameters' => 'RequestParameters',
+        'resultBodyModel' => 'ResultBodyModel',
+        'resultDescriptions' => 'ResultDescriptions',
+        'resultSample' => 'ResultSample',
+        'resultType' => 'ResultType',
+        'securityToken' => 'SecurityToken',
+        'serviceConfig' => 'ServiceConfig',
+        'serviceParameters' => 'ServiceParameters',
         'serviceParametersMap' => 'ServiceParametersMap',
-        'systemParameters'     => 'SystemParameters',
-        'visibility'           => 'Visibility',
-        'webSocketApiType'     => 'WebSocketApiType',
+        'systemParameters' => 'SystemParameters',
+        'visibility' => 'Visibility',
+        'webSocketApiType' => 'WebSocketApiType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

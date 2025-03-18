@@ -12,6 +12,7 @@ class DescribePluginsByGroupRequest extends Model
      * @description Group ID
      *
      * This parameter is required.
+     *
      * @example 08ae4aa0f95e4321849ee57f4e0b3077
      *
      * @var string
@@ -49,22 +50,21 @@ class DescribePluginsByGroupRequest extends Model
      * - **TEST**: Test
      *
      * This parameter is required.
+     *
      * @example RELEASE
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'groupId'       => 'GroupId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'groupId' => 'GroupId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

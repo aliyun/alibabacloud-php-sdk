@@ -22,6 +22,7 @@ class CreateIpControlRequest extends Model
      * @description The name of the ACL. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (_). The name cannot start with an underscore (_).``
      *
      * This parameter is required.
+     *
      * @example controlNameTest
      *
      * @var string
@@ -42,6 +43,7 @@ class CreateIpControlRequest extends Model
      *   **REFUSE**: an IP address blacklist
      *
      * This parameter is required.
+     *
      * @example ALLOW
      *
      * @var string
@@ -53,16 +55,14 @@ class CreateIpControlRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'description'      => 'Description',
-        'ipControlName'    => 'IpControlName',
+        'description' => 'Description',
+        'ipControlName' => 'IpControlName',
         'ipControlPolicys' => 'IpControlPolicys',
-        'ipControlType'    => 'IpControlType',
-        'securityToken'    => 'SecurityToken',
+        'ipControlType' => 'IpControlType',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -109,7 +109,7 @@ class CreateIpControlRequest extends Model
         if (isset($map['IpControlPolicys'])) {
             if (!empty($map['IpControlPolicys'])) {
                 $model->ipControlPolicys = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['IpControlPolicys'] as $item) {
                     $model->ipControlPolicys[$n++] = null !== $item ? ipControlPolicys::fromMap($item) : $item;
                 }

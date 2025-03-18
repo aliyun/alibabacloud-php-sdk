@@ -22,6 +22,7 @@ class SetVpcAccessRequest extends Model
      * @description The ID of an ECS or SLB instance in the VPC.
      *
      * This parameter is required.
+     *
      * @example i-uf6bzcg1pr4oh5jjmxxx
      *
      * @var string
@@ -32,6 +33,7 @@ class SetVpcAccessRequest extends Model
      * @description The name of the authorization. The name must be unique.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -42,6 +44,7 @@ class SetVpcAccessRequest extends Model
      * @description The port number that corresponds to the instance.
      *
      * This parameter is required.
+     *
      * @example 80
      *
      * @var int
@@ -64,6 +67,7 @@ class SetVpcAccessRequest extends Model
      * @description The ID of the VPC. The VPC must be an available one that belongs to the same account as the API.
      *
      * This parameter is required.
+     *
      * @example vpc-uf657qec7lx42paw3qxxx
      *
      * @var string
@@ -79,19 +83,17 @@ class SetVpcAccessRequest extends Model
      */
     public $vpcTargetHostName;
     protected $_name = [
-        'description'       => 'Description',
-        'instanceId'        => 'InstanceId',
-        'name'              => 'Name',
-        'port'              => 'Port',
-        'securityToken'     => 'SecurityToken',
-        'tag'               => 'Tag',
-        'vpcId'             => 'VpcId',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'port' => 'Port',
+        'securityToken' => 'SecurityToken',
+        'tag' => 'Tag',
+        'vpcId' => 'VpcId',
         'vpcTargetHostName' => 'VpcTargetHostName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -156,7 +158,7 @@ class SetVpcAccessRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

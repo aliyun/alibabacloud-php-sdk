@@ -17,9 +17,7 @@ class apiIpControls extends Model
         'apiIpControlItem' => 'ApiIpControlItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class apiIpControls extends Model
         if (isset($map['ApiIpControlItem'])) {
             if (!empty($map['ApiIpControlItem'])) {
                 $model->apiIpControlItem = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ApiIpControlItem'] as $item) {
                     $model->apiIpControlItem[$n++] = null !== $item ? apiIpControlItem::fromMap($item) : $item;
                 }

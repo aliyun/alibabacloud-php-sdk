@@ -49,16 +49,14 @@ class DescribeAppsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'appId'         => 'AppId',
-        'appOwner'      => 'AppOwner',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'appId' => 'AppId',
+        'appOwner' => 'AppOwner',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

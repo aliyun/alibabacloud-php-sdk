@@ -48,17 +48,15 @@ class CreateBackendModelRequest extends Model
      */
     public $stageName;
     protected $_name = [
-        'backendId'        => 'BackendId',
+        'backendId' => 'BackendId',
         'backendModelData' => 'BackendModelData',
-        'backendType'      => 'BackendType',
-        'description'      => 'Description',
-        'securityToken'    => 'SecurityToken',
-        'stageName'        => 'StageName',
+        'backendType' => 'BackendType',
+        'description' => 'Description',
+        'securityToken' => 'SecurityToken',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

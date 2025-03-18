@@ -80,19 +80,17 @@ class instanceCluster extends Model
      */
     public $regionId;
     protected $_name = [
-        'createdTime'           => 'CreatedTime',
-        'description'           => 'Description',
-        'instanceClusterId'     => 'InstanceClusterId',
-        'instanceClusterName'   => 'InstanceClusterName',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'instanceClusterId' => 'InstanceClusterId',
+        'instanceClusterName' => 'InstanceClusterName',
         'instanceClusterStatus' => 'InstanceClusterStatus',
-        'instanceClusterType'   => 'InstanceClusterType',
-        'modifiedTime'          => 'ModifiedTime',
-        'regionId'              => 'RegionId',
+        'instanceClusterType' => 'InstanceClusterType',
+        'modifiedTime' => 'ModifiedTime',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

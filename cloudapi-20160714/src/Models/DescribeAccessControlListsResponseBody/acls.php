@@ -17,9 +17,7 @@ class acls extends Model
         'acl' => 'Acl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class acls extends Model
         if (isset($map['Acl'])) {
             if (!empty($map['Acl'])) {
                 $model->acl = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Acl'] as $item) {
                     $model->acl[$n++] = null !== $item ? acl::fromMap($item) : $item;
                 }

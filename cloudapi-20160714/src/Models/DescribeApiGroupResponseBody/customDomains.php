@@ -17,9 +17,7 @@ class customDomains extends Model
         'domainItem' => 'DomainItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class customDomains extends Model
         if (isset($map['DomainItem'])) {
             if (!empty($map['DomainItem'])) {
                 $model->domainItem = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['DomainItem'] as $item) {
                     $model->domainItem[$n++] = null !== $item ? domainItem::fromMap($item) : $item;
                 }

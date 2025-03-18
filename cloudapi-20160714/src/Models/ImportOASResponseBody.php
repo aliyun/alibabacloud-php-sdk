@@ -74,19 +74,17 @@ class ImportOASResponseBody extends Model
      */
     public $warningMessages;
     protected $_name = [
-        'errorMessages'   => 'ErrorMessages',
-        'failedApis'      => 'FailedApis',
-        'failedModels'    => 'FailedModels',
-        'operationId'     => 'OperationId',
-        'requestId'       => 'RequestId',
-        'successApis'     => 'SuccessApis',
-        'successModels'   => 'SuccessModels',
+        'errorMessages' => 'ErrorMessages',
+        'failedApis' => 'FailedApis',
+        'failedModels' => 'FailedModels',
+        'operationId' => 'OperationId',
+        'requestId' => 'RequestId',
+        'successApis' => 'SuccessApis',
+        'successModels' => 'SuccessModels',
         'warningMessages' => 'WarningMessages',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

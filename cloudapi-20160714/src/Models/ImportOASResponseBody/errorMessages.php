@@ -16,9 +16,7 @@ class errorMessages extends Model
         'errorMessage' => 'ErrorMessage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

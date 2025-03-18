@@ -27,6 +27,7 @@ class CreateApiRequest extends Model
      * @description The name of the API that you want to create. The name must be unique within the API group. The name must be 4 to 50 characters in length. It must start with a letter and can contain letters, digits, and underscores (_).
      *
      * This parameter is required.
+     *
      * @example ApiName
      *
      * @var string
@@ -46,6 +47,7 @@ class CreateApiRequest extends Model
      * @description The configuration items of API requests sent by the consumer to API Gateway.
      *
      * For more information, see [RequestConfig](https://help.aliyun.com/document_detail/43985.html).
+     *
      * @example APP
      *
      * @var string
@@ -122,6 +124,7 @@ class CreateApiRequest extends Model
      * @description The ID of the API group.
      *
      * This parameter is required.
+     *
      * @example 08ae4aa0f95e4321849ee57f4e0b3077
      *
      * @var string
@@ -143,7 +146,10 @@ class CreateApiRequest extends Model
     /**
      * @description The configuration items of API requests sent by API Gateway to the backend service.
      *
+     * For more information, see [ServiceConfig](https://help.aliyun.com/document_detail/43987.html).
+     *
      * This parameter is required.
+     *
      * @example {"RequestProtocol":"HTTP","RequestHttpMethod":"GET","RequestPath":"/v3/getUserTest/[userId]","BodyFormat":"FORM","PostBodyDescription":""}
      *
      * @var string
@@ -192,7 +198,10 @@ class CreateApiRequest extends Model
     /**
      * @description The parameters of API requests sent by the consumer to API Gateway.
      *
+     * For more information, see [RequestParameter](https://help.aliyun.com/document_detail/43986.html).
+     *
      * This parameter is required.
+     *
      * @example {"ServiceProtocol":"HTTP","ServiceHttpMethod":"GET","ServiceAddress":"http://www.customerdomain.com","ServiceTimeout":"1000","ServicePath":"/v3/getUserTest/[userId]"}
      *
      * @var string
@@ -228,6 +237,7 @@ class CreateApiRequest extends Model
      *   **PRIVATE**: Make the API private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
      *
      * This parameter is required.
+     *
      * @example PUBLIC
      *
      * @var string
@@ -244,38 +254,36 @@ class CreateApiRequest extends Model
     public $webSocketApiType;
     protected $_name = [
         'allowSignatureMethod' => 'AllowSignatureMethod',
-        'apiName'              => 'ApiName',
-        'appCodeAuthType'      => 'AppCodeAuthType',
-        'authType'             => 'AuthType',
-        'backendEnable'        => 'BackendEnable',
-        'backendId'            => 'BackendId',
-        'constantParameters'   => 'ConstantParameters',
-        'description'          => 'Description',
-        'disableInternet'      => 'DisableInternet',
-        'errorCodeSamples'     => 'ErrorCodeSamples',
-        'failResultSample'     => 'FailResultSample',
-        'forceNonceCheck'      => 'ForceNonceCheck',
-        'groupId'              => 'GroupId',
-        'openIdConnectConfig'  => 'OpenIdConnectConfig',
-        'requestConfig'        => 'RequestConfig',
-        'requestParameters'    => 'RequestParameters',
-        'resultBodyModel'      => 'ResultBodyModel',
-        'resultDescriptions'   => 'ResultDescriptions',
-        'resultSample'         => 'ResultSample',
-        'resultType'           => 'ResultType',
-        'securityToken'        => 'SecurityToken',
-        'serviceConfig'        => 'ServiceConfig',
-        'serviceParameters'    => 'ServiceParameters',
+        'apiName' => 'ApiName',
+        'appCodeAuthType' => 'AppCodeAuthType',
+        'authType' => 'AuthType',
+        'backendEnable' => 'BackendEnable',
+        'backendId' => 'BackendId',
+        'constantParameters' => 'ConstantParameters',
+        'description' => 'Description',
+        'disableInternet' => 'DisableInternet',
+        'errorCodeSamples' => 'ErrorCodeSamples',
+        'failResultSample' => 'FailResultSample',
+        'forceNonceCheck' => 'ForceNonceCheck',
+        'groupId' => 'GroupId',
+        'openIdConnectConfig' => 'OpenIdConnectConfig',
+        'requestConfig' => 'RequestConfig',
+        'requestParameters' => 'RequestParameters',
+        'resultBodyModel' => 'ResultBodyModel',
+        'resultDescriptions' => 'ResultDescriptions',
+        'resultSample' => 'ResultSample',
+        'resultType' => 'ResultType',
+        'securityToken' => 'SecurityToken',
+        'serviceConfig' => 'ServiceConfig',
+        'serviceParameters' => 'ServiceParameters',
         'serviceParametersMap' => 'ServiceParametersMap',
-        'systemParameters'     => 'SystemParameters',
-        'tag'                  => 'Tag',
-        'visibility'           => 'Visibility',
-        'webSocketApiType'     => 'WebSocketApiType',
+        'systemParameters' => 'SystemParameters',
+        'tag' => 'Tag',
+        'visibility' => 'Visibility',
+        'webSocketApiType' => 'WebSocketApiType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -460,7 +468,7 @@ class CreateApiRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

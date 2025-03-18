@@ -24,6 +24,7 @@ class ModifyApiConfigurationRequest extends Model
      * @description The ID of the API.
      *
      * This parameter is required.
+     *
      * @example baacc592e63a4cb6a41920d9d3f91f38
      *
      * @var string
@@ -58,7 +59,9 @@ class ModifyApiConfigurationRequest extends Model
      *
      * - **APP**：只允许已授权的APP调用
      * - **ANONYMOUS**：允许匿名调用，设置为允许匿名调用需要注意：
+     * - 任何能够获取该API服务信息的人，都将能够调用该API。网关不会对调用者做身份认证，也无法设置按用户的流量控制，若开放该API请设置好按API的流量控制；
      * - AppCodeAuthType的值不会生效。
+     *
      * @example APP
      *
      * @var string
@@ -78,6 +81,7 @@ class ModifyApiConfigurationRequest extends Model
      * @description This parameter takes effect only when the **RequestMode** parameter is set to **MAPPING**.
      *
      * The format in which data is transmitted to the server for POST and PUT requests. Valid values: **FORM** and **STREAM**. FORM indicates that data is transmitted in the key-value pair format. STREAM indicates that data is transmitted as byte streams.
+     *
      * @example STREAM
      *
      * @var string
@@ -137,6 +141,7 @@ class ModifyApiConfigurationRequest extends Model
      * @description The sample error codes returned by the backend service.
      *
      * For more information, see [ErrorCodeSample](https://help.aliyun.com/document_detail/44392.html).
+     *
      * @example [{"Code":"400","Message":"Missing the userId","Description":"param invalid"}]
      *
      * @var string
@@ -242,6 +247,7 @@ class ModifyApiConfigurationRequest extends Model
      * @description The parameters of API requests sent by the consumer to API Gateway.
      *
      * For more information, see [RequestParameter](https://help.aliyun.com/document_detail/43986.html).
+     *
      * @example [{"ParameterLocation":{"name":"Head","orderNumber":2},"ParameterType":"String","Required":"OPTIONAL","isHide":false,"ApiParameterName":"header1","DefaultValue":"123124","Location":"Head"},{"ParameterLocation":{"name":"Head","orderNumber":2},"ParameterType":"String","Required":"REQUIRED","isHide":false,"ApiParameterName":"header2","DefaultValue":"","Location":"Head"},{"ParameterLocation":{"name":"Query","orderNumber":3},"ParameterType":"String","Required":"OPTIONAL","isHide":false,"ApiParameterName":"query1","DefaultValue":"1245","Location":"Query"},{"ApiParameterName":"CaClientIp","ParameterLocation":{"name":"Query","orderNumber":0},"Location":"Query","ParameterType":"String","Required":"REQUIRED","Description":"ClientIP"},{"ApiParameterName":"testConstant","ParameterLocation":{"name":"Head","orderNumber":0},"Location":"Head","ParameterType":"String","Required":"REQUIRED","DefaultValue":"111"}]
      *
      * @var string
@@ -293,6 +299,7 @@ class ModifyApiConfigurationRequest extends Model
      * @description The parameters of API requests sent by API Gateway to the backend service.
      *
      * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
+     *
      * @example [{"ServiceParameterName":"header1","Location":"Head","Type":"String","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"header2","Location":"Query","Type":"String","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"query1","Location":"Head","Type":"String","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"ipp","Location":"Query","Type":"String","ParameterCatalog":"SYSTEM"},{"ServiceParameterName":"testConstant","Location":"Head","Type":"String","ParameterCatalog":"CONSTANT"}]
      *
      * @var string
@@ -303,6 +310,7 @@ class ModifyApiConfigurationRequest extends Model
      * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
      *
      * For more information, see [ServiceParameterMap](https://help.aliyun.com/document_detail/43989.html).
+     *
      * @example [{"ServiceParameterName":"header1","RequestParameterName":"header1"},{"ServiceParameterName":"header2","RequestParameterName":"header2"},{"ServiceParameterName":"query1","RequestParameterName":"query1"},{"ServiceParameterName":"ipp","RequestParameterName":"CaClientIp"},{"ServiceParameterName":"testConstant","RequestParameterName":"testConstant"}]
      *
      * @var string
@@ -320,6 +328,7 @@ class ModifyApiConfigurationRequest extends Model
      *   EventBridge: for EventBridge
      *
      * You must specify the config value for the corresponding backend service.
+     *
      * @example HTTP
      *
      * @var string
@@ -368,47 +377,45 @@ class ModifyApiConfigurationRequest extends Model
      */
     public $vpcConfig;
     protected $_name = [
-        'allowSignatureMethod'  => 'AllowSignatureMethod',
-        'apiId'                 => 'ApiId',
-        'apiName'               => 'ApiName',
-        'appCodeAuthType'       => 'AppCodeAuthType',
-        'authType'              => 'AuthType',
-        'backendName'           => 'BackendName',
-        'bodyFormat'            => 'BodyFormat',
-        'bodyModel'             => 'BodyModel',
-        'contentTypeCategory'   => 'ContentTypeCategory',
-        'contentTypeValue'      => 'ContentTypeValue',
-        'description'           => 'Description',
-        'disableInternet'       => 'DisableInternet',
-        'errorCodeSamples'      => 'ErrorCodeSamples',
-        'failResultSample'      => 'FailResultSample',
-        'forceNonceCheck'       => 'ForceNonceCheck',
+        'allowSignatureMethod' => 'AllowSignatureMethod',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'appCodeAuthType' => 'AppCodeAuthType',
+        'authType' => 'AuthType',
+        'backendName' => 'BackendName',
+        'bodyFormat' => 'BodyFormat',
+        'bodyModel' => 'BodyModel',
+        'contentTypeCategory' => 'ContentTypeCategory',
+        'contentTypeValue' => 'ContentTypeValue',
+        'description' => 'Description',
+        'disableInternet' => 'DisableInternet',
+        'errorCodeSamples' => 'ErrorCodeSamples',
+        'failResultSample' => 'FailResultSample',
+        'forceNonceCheck' => 'ForceNonceCheck',
         'functionComputeConfig' => 'FunctionComputeConfig',
-        'httpConfig'            => 'HttpConfig',
-        'mockConfig'            => 'MockConfig',
-        'modelName'             => 'ModelName',
-        'ossConfig'             => 'OssConfig',
-        'postBodyDescription'   => 'PostBodyDescription',
-        'requestHttpMethod'     => 'RequestHttpMethod',
-        'requestMode'           => 'RequestMode',
-        'requestParameters'     => 'RequestParameters',
-        'requestPath'           => 'RequestPath',
-        'requestProtocol'       => 'RequestProtocol',
-        'resultSample'          => 'ResultSample',
-        'resultType'            => 'ResultType',
-        'securityToken'         => 'SecurityToken',
-        'serviceParameters'     => 'ServiceParameters',
-        'serviceParametersMap'  => 'ServiceParametersMap',
-        'serviceProtocol'       => 'ServiceProtocol',
-        'serviceTimeout'        => 'ServiceTimeout',
-        'useBackendService'     => 'UseBackendService',
-        'visibility'            => 'Visibility',
-        'vpcConfig'             => 'VpcConfig',
+        'httpConfig' => 'HttpConfig',
+        'mockConfig' => 'MockConfig',
+        'modelName' => 'ModelName',
+        'ossConfig' => 'OssConfig',
+        'postBodyDescription' => 'PostBodyDescription',
+        'requestHttpMethod' => 'RequestHttpMethod',
+        'requestMode' => 'RequestMode',
+        'requestParameters' => 'RequestParameters',
+        'requestPath' => 'RequestPath',
+        'requestProtocol' => 'RequestProtocol',
+        'resultSample' => 'ResultSample',
+        'resultType' => 'ResultType',
+        'securityToken' => 'SecurityToken',
+        'serviceParameters' => 'ServiceParameters',
+        'serviceParametersMap' => 'ServiceParametersMap',
+        'serviceProtocol' => 'ServiceProtocol',
+        'serviceTimeout' => 'ServiceTimeout',
+        'useBackendService' => 'UseBackendService',
+        'visibility' => 'Visibility',
+        'vpcConfig' => 'VpcConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

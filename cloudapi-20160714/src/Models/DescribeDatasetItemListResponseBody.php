@@ -53,15 +53,13 @@ class DescribeDatasetItemListResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'datasetItemInfoList' => 'DatasetItemInfoList',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'requestId'           => 'RequestId',
-        'totalCount'          => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeDatasetItemListResponseBody extends Model
         if (isset($map['DatasetItemInfoList'])) {
             if (!empty($map['DatasetItemInfoList'])) {
                 $model->datasetItemInfoList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['DatasetItemInfoList'] as $item) {
                     $model->datasetItemInfoList[$n++] = null !== $item ? datasetItemInfoList::fromMap($item) : $item;
                 }

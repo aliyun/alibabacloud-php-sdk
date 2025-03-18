@@ -49,16 +49,14 @@ class ImportSwaggerResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'failed'       => 'Failed',
-        'modelFailed'  => 'ModelFailed',
+        'failed' => 'Failed',
+        'modelFailed' => 'ModelFailed',
         'modelSuccess' => 'ModelSuccess',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

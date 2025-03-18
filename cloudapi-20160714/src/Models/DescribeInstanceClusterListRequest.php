@@ -49,16 +49,14 @@ class DescribeInstanceClusterListRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'instanceClusterId'   => 'InstanceClusterId',
+        'instanceClusterId' => 'InstanceClusterId',
         'instanceClusterName' => 'InstanceClusterName',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'securityToken'       => 'SecurityToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

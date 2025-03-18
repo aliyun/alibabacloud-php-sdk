@@ -65,17 +65,15 @@ class datasetInfoList extends Model
      */
     public $tags;
     protected $_name = [
-        'createdTime'  => 'CreatedTime',
-        'datasetId'    => 'DatasetId',
-        'datasetName'  => 'DatasetName',
-        'datasetType'  => 'DatasetType',
+        'createdTime' => 'CreatedTime',
+        'datasetId' => 'DatasetId',
+        'datasetName' => 'DatasetName',
+        'datasetType' => 'DatasetType',
         'modifiedTime' => 'ModifiedTime',
-        'tags'         => 'Tags',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -134,7 +132,7 @@ class datasetInfoList extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

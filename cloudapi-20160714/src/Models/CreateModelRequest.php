@@ -22,6 +22,7 @@ class CreateModelRequest extends Model
      * @description The ID of the API group to which the model belongs.
      *
      * This parameter is required.
+     *
      * @example 30e792398d6c4569b04c0e53a3494381
      *
      * @var string
@@ -32,6 +33,7 @@ class CreateModelRequest extends Model
      * @description The name of the model. The name must be unique within the group.
      *
      * This parameter is required.
+     *
      * @example Test
      *
      * @var string
@@ -42,6 +44,7 @@ class CreateModelRequest extends Model
      * @description The definition of the model in JSON Schema.
      *
      * This parameter is required.
+     *
      * @example {"type":"object","properties":{"id":{"format":"int64","maximum":100,"exclusiveMaximum":true,"type":"integer"},"name":{"maxLength":10,"type":"string"}}}
      *
      * @var string
@@ -56,15 +59,13 @@ class CreateModelRequest extends Model
     public $tag;
     protected $_name = [
         'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'modelName'   => 'ModelName',
-        'schema'      => 'Schema',
-        'tag'         => 'Tag',
+        'groupId' => 'GroupId',
+        'modelName' => 'ModelName',
+        'schema' => 'Schema',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -117,7 +118,7 @@ class CreateModelRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

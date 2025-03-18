@@ -98,21 +98,19 @@ class CreateModelResponseBody extends Model
      */
     public $schema;
     protected $_name = [
-        'createdTime'  => 'CreatedTime',
-        'description'  => 'Description',
-        'groupId'      => 'GroupId',
-        'modelId'      => 'ModelId',
-        'modelName'    => 'ModelName',
-        'modelRef'     => 'ModelRef',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'modelId' => 'ModelId',
+        'modelName' => 'ModelName',
+        'modelRef' => 'ModelRef',
         'modifiedTime' => 'ModifiedTime',
-        'regionId'     => 'RegionId',
-        'requestId'    => 'RequestId',
-        'schema'       => 'Schema',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'schema' => 'Schema',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

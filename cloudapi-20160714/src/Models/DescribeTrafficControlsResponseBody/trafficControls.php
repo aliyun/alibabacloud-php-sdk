@@ -17,9 +17,7 @@ class trafficControls extends Model
         'trafficControl' => 'TrafficControl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class trafficControls extends Model
         if (isset($map['TrafficControl'])) {
             if (!empty($map['TrafficControl'])) {
                 $model->trafficControl = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['TrafficControl'] as $item) {
                     $model->trafficControl[$n++] = null !== $item ? trafficControl::fromMap($item) : $item;
                 }

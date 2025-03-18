@@ -13,6 +13,7 @@ class DescribeModelsRequest extends Model
      * @description The ID of the API group.
      *
      * This parameter is required.
+     *
      * @example 30e792398d6c4569b04c0e53a3494381
      *
      * @var string
@@ -62,17 +63,15 @@ class DescribeModelsRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'groupId'    => 'GroupId',
-        'modelId'    => 'ModelId',
-        'modelName'  => 'ModelName',
+        'groupId' => 'GroupId',
+        'modelId' => 'ModelId',
+        'modelName' => 'ModelName',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'tag'        => 'Tag',
+        'pageSize' => 'PageSize',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -131,7 +130,7 @@ class DescribeModelsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

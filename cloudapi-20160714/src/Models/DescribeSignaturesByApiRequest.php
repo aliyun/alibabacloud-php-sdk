@@ -12,6 +12,7 @@ class DescribeSignaturesByApiRequest extends Model
      * @description The ID of the API.
      *
      * This parameter is required.
+     *
      * @example 3b81fd160f5645e097cc8855d75a1cf6
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeSignaturesByApiRequest extends Model
      * @description The ID of the group to which the API belongs.
      *
      * This parameter is required.
+     *
      * @example 0009db9c828549768a200320714b8930
      *
      * @var string
@@ -40,21 +42,20 @@ class DescribeSignaturesByApiRequest extends Model
      *   **TEST**
      *
      * This parameter is required.
+     *
      * @example TEST
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'groupId'       => 'GroupId',
+        'apiId' => 'ApiId',
+        'groupId' => 'GroupId',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

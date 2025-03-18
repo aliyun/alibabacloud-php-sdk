@@ -24,6 +24,7 @@ class RemoveTrafficControlApisRequest extends Model
      * @description The ID of the API group containing the APIs from which you want to unbind a specified throttling policy.
      *
      * This parameter is required.
+     *
      * @example 0009db9c828549768a200320714b8930
      *
      * @var string
@@ -46,6 +47,7 @@ class RemoveTrafficControlApisRequest extends Model
      *   **TEST**
      *
      * This parameter is required.
+     *
      * @example TEST
      *
      * @var string
@@ -56,22 +58,21 @@ class RemoveTrafficControlApisRequest extends Model
      * @description The ID of the throttling policy that you want to unbind from APIs.
      *
      * This parameter is required.
+     *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
      * @var string
      */
     public $trafficControlId;
     protected $_name = [
-        'apiIds'           => 'ApiIds',
-        'groupId'          => 'GroupId',
-        'securityToken'    => 'SecurityToken',
-        'stageName'        => 'StageName',
+        'apiIds' => 'ApiIds',
+        'groupId' => 'GroupId',
+        'securityToken' => 'SecurityToken',
+        'stageName' => 'StageName',
         'trafficControlId' => 'TrafficControlId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

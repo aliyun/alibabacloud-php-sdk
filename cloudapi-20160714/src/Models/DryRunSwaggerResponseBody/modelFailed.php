@@ -17,9 +17,7 @@ class modelFailed extends Model
         'apiImportModelFailed' => 'ApiImportModelFailed',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class modelFailed extends Model
         if (isset($map['ApiImportModelFailed'])) {
             if (!empty($map['ApiImportModelFailed'])) {
                 $model->apiImportModelFailed = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['ApiImportModelFailed'] as $item) {
                     $model->apiImportModelFailed[$n++] = null !== $item ? apiImportModelFailed::fromMap($item) : $item;
                 }

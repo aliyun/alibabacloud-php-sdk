@@ -30,20 +30,19 @@ class acl extends Model
      * @description 访问控制策略组的IP版本。
      * - **IPv4**。
      * - **IPv6**。
+     *
      * @example ipv4
      *
      * @var string
      */
     public $addressIPVersion;
     protected $_name = [
-        'aclId'            => 'AclId',
-        'aclName'          => 'AclName',
+        'aclId' => 'AclId',
+        'aclName' => 'AclName',
         'addressIPVersion' => 'AddressIPVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

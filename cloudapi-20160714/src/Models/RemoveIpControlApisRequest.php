@@ -24,6 +24,7 @@ class RemoveIpControlApisRequest extends Model
      * @description The ID of the API group.
      *
      * This parameter is required.
+     *
      * @example 0009db9c828549768a200320714b8930
      *
      * @var string
@@ -34,6 +35,7 @@ class RemoveIpControlApisRequest extends Model
      * @description The ID of the ACL.
      *
      * This parameter is required.
+     *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
      * @var string
@@ -52,22 +54,21 @@ class RemoveIpControlApisRequest extends Model
      *   **TEST**
      *
      * This parameter is required.
+     *
      * @example TEST
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'apiIds'        => 'ApiIds',
-        'groupId'       => 'GroupId',
-        'ipControlId'   => 'IpControlId',
+        'apiIds' => 'ApiIds',
+        'groupId' => 'GroupId',
+        'ipControlId' => 'IpControlId',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class DescribeApiLatencyDataResponseBody extends Model
     public $requestId;
     protected $_name = [
         'callLatencys' => 'CallLatencys',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

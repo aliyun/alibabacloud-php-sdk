@@ -39,6 +39,7 @@ class AttachPluginRequest extends Model
      * @description The ID of the plug-in to be bound.
      *
      * This parameter is required.
+     *
      * @example 9a3f1a5279434f2ba74ccd91c295af9f
      *
      * @var string
@@ -58,23 +59,22 @@ class AttachPluginRequest extends Model
      *   **TEST**
      *
      * This parameter is required.
+     *
      * @example TEST
      *
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'apiId'         => 'ApiId',
-        'apiIds'        => 'ApiIds',
-        'groupId'       => 'GroupId',
-        'pluginId'      => 'PluginId',
+        'apiId' => 'ApiId',
+        'apiIds' => 'ApiIds',
+        'groupId' => 'GroupId',
+        'pluginId' => 'PluginId',
         'securityToken' => 'SecurityToken',
-        'stageName'     => 'StageName',
+        'stageName' => 'StageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

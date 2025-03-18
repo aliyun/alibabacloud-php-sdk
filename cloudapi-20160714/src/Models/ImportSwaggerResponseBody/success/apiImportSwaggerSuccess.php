@@ -45,14 +45,12 @@ class apiImportSwaggerSuccess extends Model
     public $path;
     protected $_name = [
         'apiOperation' => 'ApiOperation',
-        'apiUid'       => 'ApiUid',
-        'httpMethod'   => 'HttpMethod',
-        'path'         => 'Path',
+        'apiUid' => 'ApiUid',
+        'httpMethod' => 'HttpMethod',
+        'path' => 'Path',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

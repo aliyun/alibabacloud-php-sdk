@@ -45,15 +45,13 @@ class ListPrivateDNSRequest extends Model
     public $type;
     protected $_name = [
         'intranetDomain' => 'IntranetDomain',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'securityToken'  => 'SecurityToken',
-        'type'           => 'Type',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'securityToken' => 'SecurityToken',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

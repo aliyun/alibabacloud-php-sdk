@@ -63,16 +63,14 @@ class DescribeSummaryDataResponseBody extends Model
     public $usageInstanceNum;
     protected $_name = [
         'expireInstanceNum' => 'ExpireInstanceNum',
-        'region'            => 'Region',
-        'requestId'         => 'RequestId',
-        'usageApiNum'       => 'UsageApiNum',
-        'usageGroupNum'     => 'UsageGroupNum',
-        'usageInstanceNum'  => 'UsageInstanceNum',
+        'region' => 'Region',
+        'requestId' => 'RequestId',
+        'usageApiNum' => 'UsageApiNum',
+        'usageGroupNum' => 'UsageGroupNum',
+        'usageInstanceNum' => 'UsageInstanceNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

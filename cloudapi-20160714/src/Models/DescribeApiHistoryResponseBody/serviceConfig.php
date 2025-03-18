@@ -145,6 +145,7 @@ class serviceConfig extends Model
      *   FALSE: The VPC channel is not enabled.
      *
      * You must create the corresponding VPC access authorization before you can enable a VPC channel.
+     *
      * @example TRUE
      *
      * @var string
@@ -167,28 +168,26 @@ class serviceConfig extends Model
      */
     public $vpcId;
     protected $_name = [
-        'contentTypeCatagory'   => 'ContentTypeCatagory',
-        'contentTypeValue'      => 'ContentTypeValue',
-        'eventBridgeConfig'     => 'EventBridgeConfig',
+        'contentTypeCatagory' => 'ContentTypeCatagory',
+        'contentTypeValue' => 'ContentTypeValue',
+        'eventBridgeConfig' => 'EventBridgeConfig',
         'functionComputeConfig' => 'FunctionComputeConfig',
-        'mock'                  => 'Mock',
-        'mockHeaders'           => 'MockHeaders',
-        'mockResult'            => 'MockResult',
-        'mockStatusCode'        => 'MockStatusCode',
-        'ossConfig'             => 'OssConfig',
-        'serviceAddress'        => 'ServiceAddress',
-        'serviceHttpMethod'     => 'ServiceHttpMethod',
-        'servicePath'           => 'ServicePath',
-        'serviceProtocol'       => 'ServiceProtocol',
-        'serviceTimeout'        => 'ServiceTimeout',
-        'serviceVpcEnable'      => 'ServiceVpcEnable',
-        'vpcConfig'             => 'VpcConfig',
-        'vpcId'                 => 'VpcId',
+        'mock' => 'Mock',
+        'mockHeaders' => 'MockHeaders',
+        'mockResult' => 'MockResult',
+        'mockStatusCode' => 'MockStatusCode',
+        'ossConfig' => 'OssConfig',
+        'serviceAddress' => 'ServiceAddress',
+        'serviceHttpMethod' => 'ServiceHttpMethod',
+        'servicePath' => 'ServicePath',
+        'serviceProtocol' => 'ServiceProtocol',
+        'serviceTimeout' => 'ServiceTimeout',
+        'serviceVpcEnable' => 'ServiceVpcEnable',
+        'vpcConfig' => 'VpcConfig',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
