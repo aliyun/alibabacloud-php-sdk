@@ -1296,6 +1296,9 @@ class QuanMiaoLightApp extends OpenApiClient
         if (!Utils::isUnset($request->snapshotInterval)) {
             $body['snapshotInterval'] = $request->snapshotInterval;
         }
+        if (!Utils::isUnset($request->splitInterval)) {
+            $body['splitInterval'] = $request->splitInterval;
+        }
         if (!Utils::isUnset($request->taskId)) {
             $body['taskId'] = $request->taskId;
         }
@@ -1493,6 +1496,9 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         if (!Utils::isUnset($request->snapshotInterval)) {
             $body['snapshotInterval'] = $request->snapshotInterval;
+        }
+        if (!Utils::isUnset($request->splitInterval)) {
+            $body['splitInterval'] = $request->splitInterval;
         }
         if (!Utils::isUnset($request->textProcessTasksShrink)) {
             $body['textProcessTasks'] = $request->textProcessTasksShrink;

@@ -57,6 +57,13 @@ class SubmitVideoAnalysisTaskShrinkRequest extends Model
     public $snapshotInterval;
 
     /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $splitInterval;
+
+    /**
      * @var string
      */
     public $textProcessTasksShrink;
@@ -105,6 +112,7 @@ class SubmitVideoAnalysisTaskShrinkRequest extends Model
         'modelCustomPromptTemplateId' => 'modelCustomPromptTemplateId',
         'modelId' => 'modelId',
         'snapshotInterval' => 'snapshotInterval',
+        'splitInterval' => 'splitInterval',
         'textProcessTasksShrink' => 'textProcessTasks',
         'videoExtraInfo' => 'videoExtraInfo',
         'videoModelCustomPromptTemplate' => 'videoModelCustomPromptTemplate',
@@ -142,6 +150,9 @@ class SubmitVideoAnalysisTaskShrinkRequest extends Model
         }
         if (null !== $this->snapshotInterval) {
             $res['snapshotInterval'] = $this->snapshotInterval;
+        }
+        if (null !== $this->splitInterval) {
+            $res['splitInterval'] = $this->splitInterval;
         }
         if (null !== $this->textProcessTasksShrink) {
             $res['textProcessTasks'] = $this->textProcessTasksShrink;
@@ -199,6 +210,9 @@ class SubmitVideoAnalysisTaskShrinkRequest extends Model
         }
         if (isset($map['snapshotInterval'])) {
             $model->snapshotInterval = $map['snapshotInterval'];
+        }
+        if (isset($map['splitInterval'])) {
+            $model->splitInterval = $map['splitInterval'];
         }
         if (isset($map['textProcessTasks'])) {
             $model->textProcessTasksShrink = $map['textProcessTasks'];
