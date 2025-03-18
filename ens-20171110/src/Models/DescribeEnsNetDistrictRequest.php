@@ -11,7 +11,10 @@ class DescribeEnsNetDistrictRequest extends Model
     /**
      * @description The code of the region.
      *
+     * If you do not specify this parameter, only nodes in the regions of the level that is specified by the NetLevelCode parameter are queried.
+     *
      * If you specify this parameter, only nodes in the regions of the level that is specified by this parameter are queried.
+     *
      * @example 100106
      *
      * @var string
@@ -26,6 +29,7 @@ class DescribeEnsNetDistrictRequest extends Model
      *   **Small**: city
      *
      * This parameter is required.
+     *
      * @example Big
      *
      * @var string
@@ -33,12 +37,10 @@ class DescribeEnsNetDistrictRequest extends Model
     public $netLevelCode;
     protected $_name = [
         'netDistrictCode' => 'NetDistrictCode',
-        'netLevelCode'    => 'NetLevelCode',
+        'netLevelCode' => 'NetLevelCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,9 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ModifyForwardEntryRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $externalIp;
+
+    /**
+     * @var string
+     */
+    public $externalPort;
+
+    /**
      * @description The ID of the DNAT entry.
      *
      * This parameter is required.
+     *
      * @example dnat-5tfjp3537mi6iokl59g5c****
      *
      * @var string
@@ -35,19 +46,43 @@ class ModifyForwardEntryRequest extends Model
      * @var int
      */
     public $healthCheckPort;
+
+    /**
+     * @var string
+     */
+    public $internalIp;
+
+    /**
+     * @var string
+     */
+    public $internalPort;
+
+    /**
+     * @var string
+     */
+    public $ipProtocol;
     protected $_name = [
-        'forwardEntryId'   => 'ForwardEntryId',
+        'externalIp' => 'ExternalIp',
+        'externalPort' => 'ExternalPort',
+        'forwardEntryId' => 'ForwardEntryId',
         'forwardEntryName' => 'ForwardEntryName',
-        'healthCheckPort'  => 'HealthCheckPort',
+        'healthCheckPort' => 'HealthCheckPort',
+        'internalIp' => 'InternalIp',
+        'internalPort' => 'InternalPort',
+        'ipProtocol' => 'IpProtocol',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->externalIp) {
+            $res['ExternalIp'] = $this->externalIp;
+        }
+        if (null !== $this->externalPort) {
+            $res['ExternalPort'] = $this->externalPort;
+        }
         if (null !== $this->forwardEntryId) {
             $res['ForwardEntryId'] = $this->forwardEntryId;
         }
@@ -56,6 +91,15 @@ class ModifyForwardEntryRequest extends Model
         }
         if (null !== $this->healthCheckPort) {
             $res['HealthCheckPort'] = $this->healthCheckPort;
+        }
+        if (null !== $this->internalIp) {
+            $res['InternalIp'] = $this->internalIp;
+        }
+        if (null !== $this->internalPort) {
+            $res['InternalPort'] = $this->internalPort;
+        }
+        if (null !== $this->ipProtocol) {
+            $res['IpProtocol'] = $this->ipProtocol;
         }
 
         return $res;
@@ -69,6 +113,12 @@ class ModifyForwardEntryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExternalIp'])) {
+            $model->externalIp = $map['ExternalIp'];
+        }
+        if (isset($map['ExternalPort'])) {
+            $model->externalPort = $map['ExternalPort'];
+        }
         if (isset($map['ForwardEntryId'])) {
             $model->forwardEntryId = $map['ForwardEntryId'];
         }
@@ -77,6 +127,15 @@ class ModifyForwardEntryRequest extends Model
         }
         if (isset($map['HealthCheckPort'])) {
             $model->healthCheckPort = $map['HealthCheckPort'];
+        }
+        if (isset($map['InternalIp'])) {
+            $model->internalIp = $map['InternalIp'];
+        }
+        if (isset($map['InternalPort'])) {
+            $model->internalPort = $map['InternalPort'];
+        }
+        if (isset($map['IpProtocol'])) {
+            $model->ipProtocol = $map['IpProtocol'];
         }
 
         return $model;

@@ -36,13 +36,11 @@ class PrepareUploadResponseBody extends Model
     public $requestId;
     protected $_name = [
         'bucketName' => 'BucketName',
-        'endpoint'   => 'Endpoint',
-        'requestId'  => 'RequestId',
+        'endpoint' => 'Endpoint',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

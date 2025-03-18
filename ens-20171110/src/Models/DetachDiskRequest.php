@@ -12,6 +12,7 @@ class DetachDiskRequest extends Model
      * @description The ID of the disk.
      *
      * This parameter is required.
+     *
      * @example d-5r7v69e0bejrnzger09w7****
      *
      * @var string
@@ -22,19 +23,18 @@ class DetachDiskRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example i-5inkeimcipxk26yqtzm4q****
      *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'diskId'     => 'DiskId',
+        'diskId' => 'DiskId',
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

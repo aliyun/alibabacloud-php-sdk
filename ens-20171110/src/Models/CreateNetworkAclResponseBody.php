@@ -27,12 +27,10 @@ class CreateNetworkAclResponseBody extends Model
     public $requestId;
     protected $_name = [
         'networkAclId' => 'NetworkAclId',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

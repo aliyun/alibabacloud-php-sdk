@@ -12,6 +12,7 @@ class DeleteObjectRequest extends Model
      * @description The name of the bucket.
      *
      * This parameter is required.
+     *
      * @example tets
      *
      * @var string
@@ -22,6 +23,7 @@ class DeleteObjectRequest extends Model
      * @description The name of the file.
      *
      * This parameter is required.
+     *
      * @example image5
      *
      * @var string
@@ -29,12 +31,10 @@ class DeleteObjectRequest extends Model
     public $objectKey;
     protected $_name = [
         'bucketName' => 'BucketName',
-        'objectKey'  => 'ObjectKey',
+        'objectKey' => 'ObjectKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

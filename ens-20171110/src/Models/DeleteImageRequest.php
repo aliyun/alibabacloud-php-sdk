@@ -11,7 +11,10 @@ class DeleteImageRequest extends Model
     /**
      * @description The ID of the image. You can specify only one image ID.
      *
+     * You can delete only custom images that you created.
+     *
      * This parameter is required.
+     *
      * @example m-5taesrgwpo9zqj9cjqu792****
      *
      * @var string
@@ -21,9 +24,7 @@ class DeleteImageRequest extends Model
         'imageId' => 'ImageId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

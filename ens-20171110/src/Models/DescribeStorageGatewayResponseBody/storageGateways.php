@@ -103,21 +103,19 @@ class storageGateways extends Model
      */
     public $vpcId;
     protected $_name = [
-        'cidrBlock'          => 'CidrBlock',
-        'creationTime'       => 'CreationTime',
-        'description'        => 'Description',
-        'ensRegionId'        => 'EnsRegionId',
-        'serviceIp'          => 'ServiceIp',
-        'status'             => 'Status',
-        'storageGatewayId'   => 'StorageGatewayId',
+        'cidrBlock' => 'CidrBlock',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'ensRegionId' => 'EnsRegionId',
+        'serviceIp' => 'ServiceIp',
+        'status' => 'Status',
+        'storageGatewayId' => 'StorageGatewayId',
         'storageGatewayName' => 'StorageGatewayName',
         'storageGatewayType' => 'StorageGatewayType',
-        'vpcId'              => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

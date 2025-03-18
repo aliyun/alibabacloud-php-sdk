@@ -12,6 +12,7 @@ class UpgradeAICInstanceImageRequest extends Model
      * @description The ID of the AIC image.
      *
      * This parameter is required.
+     *
      * @example m-****
      *
      * @var string
@@ -22,6 +23,7 @@ class UpgradeAICInstanceImageRequest extends Model
      * @description The IDs of the servers.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $serverIds;
@@ -35,14 +37,12 @@ class UpgradeAICInstanceImageRequest extends Model
      */
     public $timeout;
     protected $_name = [
-        'imageId'   => 'ImageId',
+        'imageId' => 'ImageId',
         'serverIds' => 'ServerIds',
-        'timeout'   => 'Timeout',
+        'timeout' => 'Timeout',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

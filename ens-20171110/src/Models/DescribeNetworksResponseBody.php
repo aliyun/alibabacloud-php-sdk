@@ -52,16 +52,14 @@ class DescribeNetworksResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'networks'   => 'Networks',
+        'networks' => 'Networks',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

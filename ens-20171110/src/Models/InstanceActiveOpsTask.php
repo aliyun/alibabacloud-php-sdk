@@ -18,13 +18,11 @@ class InstanceActiveOpsTask extends Model
      */
     public $instanceActiveOpsTaskStatus;
     protected $_name = [
-        'instanceActiveOpsTaskId'     => 'InstanceActiveOpsTaskId',
+        'instanceActiveOpsTaskId' => 'InstanceActiveOpsTaskId',
         'instanceActiveOpsTaskStatus' => 'InstanceActiveOpsTaskStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

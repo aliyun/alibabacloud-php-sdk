@@ -22,13 +22,11 @@ class conditionControls extends Model
      */
     public $conditionControlModuleValue;
     protected $_name = [
-        'conditionControlModuleCode'  => 'ConditionControlModuleCode',
+        'conditionControlModuleCode' => 'ConditionControlModuleCode',
         'conditionControlModuleValue' => 'ConditionControlModuleValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

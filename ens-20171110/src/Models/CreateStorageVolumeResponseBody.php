@@ -25,12 +25,10 @@ class CreateStorageVolumeResponseBody extends Model
     public $volumeId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'volumeId'  => 'VolumeId',
+        'volumeId' => 'VolumeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

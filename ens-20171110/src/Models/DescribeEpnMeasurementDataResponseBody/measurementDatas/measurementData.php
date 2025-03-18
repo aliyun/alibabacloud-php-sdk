@@ -56,15 +56,13 @@ class measurementData extends Model
     public $costStartTime;
     protected $_name = [
         'bandWidthFeeDatas' => 'BandWidthFeeDatas',
-        'chargeModel'       => 'ChargeModel',
-        'costCycle'         => 'CostCycle',
-        'costEndTime'       => 'CostEndTime',
-        'costStartTime'     => 'CostStartTime',
+        'chargeModel' => 'ChargeModel',
+        'costCycle' => 'CostCycle',
+        'costEndTime' => 'CostEndTime',
+        'costStartTime' => 'CostStartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class CreateStorageGatewayShrinkRequest extends Model
      * @description The array of orders.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $orderDetailsShrink;
@@ -19,9 +20,7 @@ class CreateStorageGatewayShrinkRequest extends Model
         'orderDetailsShrink' => 'OrderDetails',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

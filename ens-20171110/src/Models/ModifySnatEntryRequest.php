@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifySnatEntryRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $eipAffinity;
+
+    /**
      * @example true
      *
      * @var bool
@@ -30,19 +35,27 @@ class ModifySnatEntryRequest extends Model
      * @var string
      */
     public $snatEntryName;
+
+    /**
+     * @var string
+     */
+    public $snatIp;
     protected $_name = [
-        'ispAffinity'   => 'IspAffinity',
-        'snatEntryId'   => 'SnatEntryId',
+        'eipAffinity' => 'EipAffinity',
+        'ispAffinity' => 'IspAffinity',
+        'snatEntryId' => 'SnatEntryId',
         'snatEntryName' => 'SnatEntryName',
+        'snatIp' => 'SnatIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->eipAffinity) {
+            $res['EipAffinity'] = $this->eipAffinity;
+        }
         if (null !== $this->ispAffinity) {
             $res['IspAffinity'] = $this->ispAffinity;
         }
@@ -51,6 +64,9 @@ class ModifySnatEntryRequest extends Model
         }
         if (null !== $this->snatEntryName) {
             $res['SnatEntryName'] = $this->snatEntryName;
+        }
+        if (null !== $this->snatIp) {
+            $res['SnatIp'] = $this->snatIp;
         }
 
         return $res;
@@ -64,6 +80,9 @@ class ModifySnatEntryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EipAffinity'])) {
+            $model->eipAffinity = $map['EipAffinity'];
+        }
         if (isset($map['IspAffinity'])) {
             $model->ispAffinity = $map['IspAffinity'];
         }
@@ -72,6 +91,9 @@ class ModifySnatEntryRequest extends Model
         }
         if (isset($map['SnatEntryName'])) {
             $model->snatEntryName = $map['SnatEntryName'];
+        }
+        if (isset($map['SnatIp'])) {
+            $model->snatIp = $map['SnatIp'];
         }
 
         return $model;

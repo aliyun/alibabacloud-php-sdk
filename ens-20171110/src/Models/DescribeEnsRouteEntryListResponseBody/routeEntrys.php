@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class routeEntrys extends Model
 {
     /**
+     * @var string
+     */
+    public $creationTime;
+
+    /**
      * @description Enter a description for the route.
      *
      * @example test
@@ -62,6 +67,11 @@ class routeEntrys extends Model
     public $routeTableId;
 
     /**
+     * @var string
+     */
+    public $sourceCidrBlock;
+
+    /**
      * @description The status of the route entry. Valid values:
      *
      * @example Available
@@ -79,23 +89,26 @@ class routeEntrys extends Model
      */
     public $type;
     protected $_name = [
-        'description'          => 'Description',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'nextHops'             => 'NextHops',
-        'routeEntryId'         => 'RouteEntryId',
-        'routeEntryName'       => 'RouteEntryName',
-        'routeTableId'         => 'RouteTableId',
-        'status'               => 'Status',
-        'type'                 => 'Type',
+        'nextHops' => 'NextHops',
+        'routeEntryId' => 'RouteEntryId',
+        'routeEntryName' => 'RouteEntryName',
+        'routeTableId' => 'RouteTableId',
+        'sourceCidrBlock' => 'SourceCidrBlock',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -120,6 +133,9 @@ class routeEntrys extends Model
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
         }
+        if (null !== $this->sourceCidrBlock) {
+            $res['SourceCidrBlock'] = $this->sourceCidrBlock;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -138,6 +154,9 @@ class routeEntrys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -147,7 +166,7 @@ class routeEntrys extends Model
         if (isset($map['NextHops'])) {
             if (!empty($map['NextHops'])) {
                 $model->nextHops = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['NextHops'] as $item) {
                     $model->nextHops[$n++] = null !== $item ? nextHops::fromMap($item) : $item;
                 }
@@ -161,6 +180,9 @@ class routeEntrys extends Model
         }
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
+        }
+        if (isset($map['SourceCidrBlock'])) {
+            $model->sourceCidrBlock = $map['SourceCidrBlock'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

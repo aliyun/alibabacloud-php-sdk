@@ -30,13 +30,11 @@ class sdgDeployInfo extends Model
      */
     public $status;
     protected $_name = [
-        'SDGId'  => 'SDGId',
+        'SDGId' => 'SDGId',
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

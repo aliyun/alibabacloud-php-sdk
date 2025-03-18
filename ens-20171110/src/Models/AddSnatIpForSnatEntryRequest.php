@@ -12,6 +12,7 @@ class AddSnatIpForSnatEntryRequest extends Model
      * @description The ID of the SNAT entry.
      *
      * This parameter is required.
+     *
      * @example snat-5xkzf89dndkzh8yg9stzqz9m4
      *
      * @var string
@@ -22,6 +23,7 @@ class AddSnatIpForSnatEntryRequest extends Model
      * @description The EIP specified in the SNAT entry.
      *
      * This parameter is required.
+     *
      * @example 219.152.82.144
      *
      * @var string
@@ -29,12 +31,10 @@ class AddSnatIpForSnatEntryRequest extends Model
     public $snatIp;
     protected $_name = [
         'snatEntryId' => 'SnatEntryId',
-        'snatIp'      => 'SnatIp',
+        'snatIp' => 'SnatIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

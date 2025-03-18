@@ -25,19 +25,18 @@ class DeleteKeyPairsRequest extends Model
      *   The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * Before you delete a key pair, you can call the DescribeKeyPairs operation to query existing key pairs.
+     *
      * @example TestKeyPairName
      *
      * @var string
      */
     public $keyPairName;
     protected $_name = [
-        'keyPairId'   => 'KeyPairId',
+        'keyPairId' => 'KeyPairId',
         'keyPairName' => 'KeyPairName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

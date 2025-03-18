@@ -12,6 +12,7 @@ class UnloadRegionSDGShrinkRequest extends Model
      * @description The destination nodes.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $destinationRegionIdsShrink;
@@ -27,6 +28,7 @@ class UnloadRegionSDGShrinkRequest extends Model
      * @description Deletes the shared data group (SDG) ID of the preloaded data.
      *
      * This parameter is required.
+     *
      * @example sdg-xxxx
      *
      * @var string
@@ -34,13 +36,11 @@ class UnloadRegionSDGShrinkRequest extends Model
     public $SDGId;
     protected $_name = [
         'destinationRegionIdsShrink' => 'DestinationRegionIds',
-        'namespacesShrink'           => 'Namespaces',
-        'SDGId'                      => 'SDGId',
+        'namespacesShrink' => 'Namespaces',
+        'SDGId' => 'SDGId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

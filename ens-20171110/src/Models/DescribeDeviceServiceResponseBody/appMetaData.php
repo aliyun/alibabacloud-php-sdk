@@ -74,18 +74,16 @@ class appMetaData extends Model
      */
     public $description;
     protected $_name = [
-        'appId'            => 'AppId',
-        'appName'          => 'AppName',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
         'appStableVersion' => 'AppStableVersion',
-        'appType'          => 'AppType',
-        'clusterName'      => 'ClusterName',
-        'createTime'       => 'CreateTime',
-        'description'      => 'Description',
+        'appType' => 'AppType',
+        'clusterName' => 'ClusterName',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

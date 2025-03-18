@@ -26,12 +26,10 @@ class DescribeEnsResourceUsageResponseBody extends Model
     public $requestId;
     protected $_name = [
         'ensResourceUsage' => 'EnsResourceUsage',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeEnsResourceUsageResponseBody extends Model
         if (isset($map['EnsResourceUsage'])) {
             if (!empty($map['EnsResourceUsage'])) {
                 $model->ensResourceUsage = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['EnsResourceUsage'] as $item) {
                     $model->ensResourceUsage[$n++] = null !== $item ? ensResourceUsage::fromMap($item) : $item;
                 }

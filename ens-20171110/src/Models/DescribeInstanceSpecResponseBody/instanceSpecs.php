@@ -17,9 +17,7 @@ class instanceSpecs extends Model
         'instanceSpec' => 'InstanceSpec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class instanceSpecs extends Model
         if (isset($map['InstanceSpec'])) {
             if (!empty($map['InstanceSpec'])) {
                 $model->instanceSpec = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['InstanceSpec'] as $item) {
                     $model->instanceSpec[$n++] = null !== $item ? instanceSpec::fromMap($item) : $item;
                 }

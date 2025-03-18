@@ -36,6 +36,7 @@ class ListApplicationsRequest extends Model
      *   RegionId: edge node
      *
      * Default value: National.
+     *
      * @example National
      *
      * @var string
@@ -87,19 +88,17 @@ class ListApplicationsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'appVersions'      => 'AppVersions',
-        'clusterNames'     => 'ClusterNames',
-        'level'            => 'Level',
-        'maxDate'          => 'MaxDate',
-        'minDate'          => 'MinDate',
+        'appVersions' => 'AppVersions',
+        'clusterNames' => 'ClusterNames',
+        'level' => 'Level',
+        'maxDate' => 'MaxDate',
+        'minDate' => 'MinDate',
         'outAppInfoParams' => 'OutAppInfoParams',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

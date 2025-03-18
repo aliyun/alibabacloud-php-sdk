@@ -28,6 +28,7 @@ class DescribeEnsNetSaleDistrictRequest extends Model
      *   **Small**: city
      *
      * This parameter is required.
+     *
      * @example Big
      *
      * @var string
@@ -35,12 +36,10 @@ class DescribeEnsNetSaleDistrictRequest extends Model
     public $netLevelCode;
     protected $_name = [
         'netDistrictCode' => 'NetDistrictCode',
-        'netLevelCode'    => 'NetLevelCode',
+        'netLevelCode' => 'NetLevelCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

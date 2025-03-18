@@ -12,6 +12,7 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
      * @description Specifies whether to enable the auto-renewal feature. Valid values: **True and False**. Default value: False.
      *
      * This parameter is required.
+     *
      * @example false
      *
      * @var string
@@ -31,6 +32,7 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
      * @description The IDs of the instances. Separate IDs with semicolons (;).
      *
      * This parameter is required.
+     *
      * @example instance-test
      *
      * @var string
@@ -50,22 +52,21 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
      *   NotRenewal: The instance is not renewed.
      *
      * The system no longer sends an expiration notification but sends only a renewal notification three days before the instance expires. To renew the instance, you can change the value of this parameter from NotRenewal to Normal and then manually renew the instance, or change the value of this parameter from NotRenewal to AutoRenewal.
+     *
      * @example Normal
      *
      * @var string
      */
     public $renewalStatus;
     protected $_name = [
-        'autoRenew'     => 'AutoRenew',
-        'duration'      => 'Duration',
-        'instanceIds'   => 'InstanceIds',
-        'ownerId'       => 'OwnerId',
+        'autoRenew' => 'AutoRenew',
+        'duration' => 'Duration',
+        'instanceIds' => 'InstanceIds',
+        'ownerId' => 'OwnerId',
         'renewalStatus' => 'RenewalStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

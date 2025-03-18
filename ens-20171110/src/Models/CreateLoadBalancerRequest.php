@@ -9,9 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The ID of the Edge Node Service (ENS) node.
      *
      * This parameter is required.
+     *
      * @example cn-chengdu-telecom
      *
      * @var string
@@ -22,6 +28,7 @@ class CreateLoadBalancerRequest extends Model
      * @description The name of the ELB instance. The name must be 1 to 80 characters in length. If you leave this parameter empty, the system randomly allocates a name as the value of this parameter.
      *
      * >  The value cannot start with `http://` or `https://`.
+     *
      * @example gcs-pre-websocket-eslb-telecom
      *
      * @var string
@@ -32,6 +39,7 @@ class CreateLoadBalancerRequest extends Model
      * @description The specification of the ELB instance.
      *
      * This parameter is required.
+     *
      * @example elb.s2.medium
      *
      * @var string
@@ -42,6 +50,7 @@ class CreateLoadBalancerRequest extends Model
      * @description The network ID of the created ELB instance.
      *
      * This parameter is required.
+     *
      * @example n-5sax03dh2eyagujgsn7z9****
      *
      * @var string
@@ -52,6 +61,7 @@ class CreateLoadBalancerRequest extends Model
      * @description The billing method of the cluster. Valid value: PostPaid. PostPaid specifies the pay-as-you-go billing method.
      *
      * This parameter is required.
+     *
      * @example PostPaid
      *
      * @var string
@@ -62,27 +72,30 @@ class CreateLoadBalancerRequest extends Model
      * @description The ID of the vSwitch to which the internal-facing ELB instance belongs.
      *
      * This parameter is required.
+     *
      * @example vsw-5s78haoys9oylle6ln71m****
      *
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'ensRegionId'      => 'EnsRegionId',
+        'clientToken' => 'ClientToken',
+        'ensRegionId' => 'EnsRegionId',
         'loadBalancerName' => 'LoadBalancerName',
         'loadBalancerSpec' => 'LoadBalancerSpec',
-        'networkId'        => 'NetworkId',
-        'payType'          => 'PayType',
-        'vSwitchId'        => 'VSwitchId',
+        'networkId' => 'NetworkId',
+        'payType' => 'PayType',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
@@ -113,6 +126,9 @@ class CreateLoadBalancerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }

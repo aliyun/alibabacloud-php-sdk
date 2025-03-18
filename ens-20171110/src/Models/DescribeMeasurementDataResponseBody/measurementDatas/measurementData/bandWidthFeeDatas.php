@@ -17,9 +17,7 @@ class bandWidthFeeDatas extends Model
         'bandWidthFeeData' => 'BandWidthFeeData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class bandWidthFeeDatas extends Model
         if (isset($map['BandWidthFeeData'])) {
             if (!empty($map['BandWidthFeeData'])) {
                 $model->bandWidthFeeData = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['BandWidthFeeData'] as $item) {
                     $model->bandWidthFeeData[$n++] = null !== $item ? bandWidthFeeData::fromMap($item) : $item;
                 }

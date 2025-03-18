@@ -12,6 +12,7 @@ class DescribeExportImageStatusRequest extends Model
      * @description The ID of the image.
      *
      * This parameter is required.
+     *
      * @example centos_6_08_64_20G_alibase_****
      *
      * @var string
@@ -21,9 +22,7 @@ class DescribeExportImageStatusRequest extends Model
         'imageId' => 'ImageId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

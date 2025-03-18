@@ -94,20 +94,18 @@ class ensRegionIdResource extends Model
      */
     public $VCpu;
     protected $_name = [
-        'area'              => 'Area',
-        'areaCode'          => 'AreaCode',
-        'bizDate'           => 'BizDate',
-        'ensRegionId'       => 'EnsRegionId',
-        'ensRegionIdName'   => 'EnsRegionIdName',
-        'instanceCount'     => 'InstanceCount',
+        'area' => 'Area',
+        'areaCode' => 'AreaCode',
+        'bizDate' => 'BizDate',
+        'ensRegionId' => 'EnsRegionId',
+        'ensRegionIdName' => 'EnsRegionIdName',
+        'instanceCount' => 'InstanceCount',
         'internetBandwidth' => 'InternetBandwidth',
-        'isp'               => 'Isp',
-        'VCpu'              => 'VCpu',
+        'isp' => 'Isp',
+        'VCpu' => 'VCpu',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

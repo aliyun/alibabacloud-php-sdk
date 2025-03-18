@@ -44,15 +44,13 @@ class DescribeEpnInstancesRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'EPNInstanceId'   => 'EPNInstanceId',
+        'EPNInstanceId' => 'EPNInstanceId',
         'EPNInstanceName' => 'EPNInstanceName',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

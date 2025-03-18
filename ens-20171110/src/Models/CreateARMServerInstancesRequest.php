@@ -12,6 +12,7 @@ class CreateARMServerInstancesRequest extends Model
      * @description The number of instances to create. Valid values: **1** to **100**.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -46,6 +47,7 @@ class CreateARMServerInstancesRequest extends Model
      * @description The ID of the Edge Node Service (ENS) node.
      *
      * This parameter is required.
+     *
      * @example cn-guiyang-12
      *
      * @var string
@@ -53,6 +55,10 @@ class CreateARMServerInstancesRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description Set one or more environment variables during EAIS instance initialization.
+     *
+     * @example [object Object]
+     *
      * @var string
      */
     public $environmentVar;
@@ -70,6 +76,7 @@ class CreateARMServerInstancesRequest extends Model
      * @description The ID of the image.
      *
      * This parameter is required.
+     *
      * @example yourImage ID
      *
      * @var string
@@ -102,6 +109,7 @@ class CreateARMServerInstancesRequest extends Model
      *   ens.a6c2
      *
      * This parameter is required.
+     *
      * @example aic.cf53r.c6.np
      *
      * @var string
@@ -129,7 +137,10 @@ class CreateARMServerInstancesRequest extends Model
     /**
      * @description The billing method. Set the value to **PrePaid**. PrePaid specifies the subscription billing method.
      *
+     * >  Only PrePaid is supported.
+     *
      * This parameter is required.
+     *
      * @example PrePaid
      *
      * @var string
@@ -144,6 +155,7 @@ class CreateARMServerInstancesRequest extends Model
      *   If you set PeriodUnit to Month, you can set Period to a value within the range of [1,9], or set the value to 12.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -158,6 +170,7 @@ class CreateARMServerInstancesRequest extends Model
      *   If you set PeriodUnit to Month, you can set Period to a value within the range of [1,9], or set the value to 12.
      *
      * This parameter is required.
+     *
      * @example Month
      *
      * @var string
@@ -177,6 +190,7 @@ class CreateARMServerInstancesRequest extends Model
      *   864\\*1920
      *
      * This parameter is required.
+     *
      * @example 720*1280
      *
      * @var string
@@ -202,33 +216,32 @@ class CreateARMServerInstancesRequest extends Model
      *   ens.afq-c2m3i.medium
      *
      * This parameter is required.
+     *
      * @example cas.cf53r
      *
      * @var string
      */
     public $serverType;
     protected $_name = [
-        'amount'         => 'Amount',
-        'autoRenew'      => 'AutoRenew',
-        'autoUseCoupon'  => 'AutoUseCoupon',
-        'ensRegionId'    => 'EnsRegionId',
+        'amount' => 'Amount',
+        'autoRenew' => 'AutoRenew',
+        'autoUseCoupon' => 'AutoUseCoupon',
+        'ensRegionId' => 'EnsRegionId',
         'environmentVar' => 'EnvironmentVar',
-        'frequency'      => 'Frequency',
-        'imageId'        => 'ImageId',
-        'instanceType'   => 'InstanceType',
-        'keyPairName'    => 'KeyPairName',
-        'nameSpace'      => 'NameSpace',
-        'payType'        => 'PayType',
-        'period'         => 'Period',
-        'periodUnit'     => 'PeriodUnit',
-        'resolution'     => 'Resolution',
-        'serverName'     => 'ServerName',
-        'serverType'     => 'ServerType',
+        'frequency' => 'Frequency',
+        'imageId' => 'ImageId',
+        'instanceType' => 'InstanceType',
+        'keyPairName' => 'KeyPairName',
+        'nameSpace' => 'NameSpace',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'resolution' => 'Resolution',
+        'serverName' => 'ServerName',
+        'serverType' => 'ServerType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

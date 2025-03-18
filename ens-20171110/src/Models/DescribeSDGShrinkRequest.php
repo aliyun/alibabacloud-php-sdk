@@ -21,6 +21,7 @@ class DescribeSDGShrinkRequest extends Model
      * @description The number of entries per page.
      *
      * Default value: 10
+     *
      * @example 10
      *
      * @var int
@@ -34,14 +35,12 @@ class DescribeSDGShrinkRequest extends Model
      */
     public $SDGIdsShrink;
     protected $_name = [
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'SDGIdsShrink' => 'SDGIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -16,6 +16,7 @@ class CreateDiskRequest extends Model
      *   cloud_ssd: all-flash disk.
      *
      * This parameter is required.
+     *
      * @example cloud_efficiency
      *
      * @var string
@@ -47,6 +48,7 @@ class CreateDiskRequest extends Model
      * @description The ID of the edge node.
      *
      * This parameter is required.
+     *
      * @example cn-chengdu-telecom
      *
      * @var string
@@ -57,6 +59,7 @@ class CreateDiskRequest extends Model
      * @description The billing method of the instance. Set the value to **PostPaid**.
      *
      * This parameter is required.
+     *
      * @example PostPaid
      *
      * @var string
@@ -67,6 +70,7 @@ class CreateDiskRequest extends Model
      * @description The ID of the Key Management Service (KMS) key that is used by the cloud disk.
      *
      * >  If you set the **Encrypted** parameter to **true**, the default service key is used when the **KMSKeyId** parameter is empty.
+     *
      * @example 0e478b7a-4262-4802-b8cb-00d3fxxxxx
      *
      * @var string
@@ -97,24 +101,26 @@ class CreateDiskRequest extends Model
     public $snapshotId;
 
     /**
+     * @description The tags.
+     *
+     * You can specify at most 20 tags.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'category'           => 'Category',
-        'diskName'           => 'DiskName',
-        'encrypted'          => 'Encrypted',
-        'ensRegionId'        => 'EnsRegionId',
+        'category' => 'Category',
+        'diskName' => 'DiskName',
+        'encrypted' => 'Encrypted',
+        'ensRegionId' => 'EnsRegionId',
         'instanceChargeType' => 'InstanceChargeType',
-        'KMSKeyId'           => 'KMSKeyId',
-        'size'               => 'Size',
-        'snapshotId'         => 'SnapshotId',
-        'tag'                => 'Tag',
+        'KMSKeyId' => 'KMSKeyId',
+        'size' => 'Size',
+        'snapshotId' => 'SnapshotId',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -191,7 +197,7 @@ class CreateDiskRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

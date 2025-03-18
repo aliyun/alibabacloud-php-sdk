@@ -44,15 +44,13 @@ class keyPair extends Model
      */
     public $keyPairName;
     protected $_name = [
-        'creationTime'       => 'CreationTime',
+        'creationTime' => 'CreationTime',
         'keyPairFingerPrint' => 'KeyPairFingerPrint',
-        'keyPairId'          => 'KeyPairId',
-        'keyPairName'        => 'KeyPairName',
+        'keyPairId' => 'KeyPairId',
+        'keyPairName' => 'KeyPairName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

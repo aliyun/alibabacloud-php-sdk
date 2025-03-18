@@ -12,6 +12,7 @@ class PrepareUploadRequest extends Model
      * @description The name of the bucket.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -28,12 +29,10 @@ class PrepareUploadRequest extends Model
     public $clientIp;
     protected $_name = [
         'bucketName' => 'BucketName',
-        'clientIp'   => 'ClientIp',
+        'clientIp' => 'ClientIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

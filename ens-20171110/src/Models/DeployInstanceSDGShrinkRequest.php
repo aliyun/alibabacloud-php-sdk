@@ -21,6 +21,7 @@ class DeployInstanceSDGShrinkRequest extends Model
      * @description The IDs of the instances. The value is a JSON array that consists of up to 100 IDs.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $instanceIdsShrink;
@@ -29,20 +30,19 @@ class DeployInstanceSDGShrinkRequest extends Model
      * @description The ID of the SDG.
      *
      * This parameter is required.
+     *
      * @example sdg-xxxx
      *
      * @var string
      */
     public $SDGId;
     protected $_name = [
-        'deploymentType'    => 'DeploymentType',
+        'deploymentType' => 'DeploymentType',
         'instanceIdsShrink' => 'InstanceIds',
-        'SDGId'             => 'SDGId',
+        'SDGId' => 'SDGId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

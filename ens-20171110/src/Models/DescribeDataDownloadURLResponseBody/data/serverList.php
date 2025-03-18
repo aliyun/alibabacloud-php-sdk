@@ -26,13 +26,11 @@ class serverList extends Model
      */
     public $regionId;
     protected $_name = [
-        'host'     => 'Host',
+        'host' => 'Host',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

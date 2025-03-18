@@ -163,28 +163,26 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'address'                   => 'Address',
-        'addressIPVersion'          => 'AddressIPVersion',
-        'backendServers'            => 'BackendServers',
-        'bandwidth'                 => 'Bandwidth',
-        'createTime'                => 'CreateTime',
-        'endTime'                   => 'EndTime',
-        'ensRegionId'               => 'EnsRegionId',
-        'listenerPorts'             => 'ListenerPorts',
+        'address' => 'Address',
+        'addressIPVersion' => 'AddressIPVersion',
+        'backendServers' => 'BackendServers',
+        'bandwidth' => 'Bandwidth',
+        'createTime' => 'CreateTime',
+        'endTime' => 'EndTime',
+        'ensRegionId' => 'EnsRegionId',
+        'listenerPorts' => 'ListenerPorts',
         'listenerPortsAndProtocols' => 'ListenerPortsAndProtocols',
-        'loadBalancerId'            => 'LoadBalancerId',
-        'loadBalancerName'          => 'LoadBalancerName',
-        'loadBalancerSpec'          => 'LoadBalancerSpec',
-        'loadBalancerStatus'        => 'LoadBalancerStatus',
-        'networkId'                 => 'NetworkId',
-        'payType'                   => 'PayType',
-        'requestId'                 => 'RequestId',
-        'vSwitchId'                 => 'VSwitchId',
+        'loadBalancerId' => 'LoadBalancerId',
+        'loadBalancerName' => 'LoadBalancerName',
+        'loadBalancerSpec' => 'LoadBalancerSpec',
+        'loadBalancerStatus' => 'LoadBalancerStatus',
+        'networkId' => 'NetworkId',
+        'payType' => 'PayType',
+        'requestId' => 'RequestId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -273,7 +271,7 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
         if (isset($map['BackendServers'])) {
             if (!empty($map['BackendServers'])) {
                 $model->backendServers = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['BackendServers'] as $item) {
                     $model->backendServers[$n++] = null !== $item ? backendServers::fromMap($item) : $item;
                 }
@@ -299,7 +297,7 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
         if (isset($map['ListenerPortsAndProtocols'])) {
             if (!empty($map['ListenerPortsAndProtocols'])) {
                 $model->listenerPortsAndProtocols = [];
-                $n                                = 0;
+                $n = 0;
                 foreach ($map['ListenerPortsAndProtocols'] as $item) {
                     $model->listenerPortsAndProtocols[$n++] = null !== $item ? listenerPortsAndProtocols::fromMap($item) : $item;
                 }

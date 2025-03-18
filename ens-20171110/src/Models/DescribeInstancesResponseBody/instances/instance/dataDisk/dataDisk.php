@@ -49,11 +49,22 @@ class dataDisk extends Model
     public $diskSize;
 
     /**
+     * @description The KMS key ID used by the cloud drive.
+     *
+     * @example 0e478b7a-4262-4802-b8cb-00d3fxxxxx
+     *
      * @var string
      */
     public $encryptKeyId;
 
     /**
+     * @description Specifies whether to encrypt the new system disk. Valid values:
+     *
+     *   **true**
+     *   **false** (default): no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $encrypted;
@@ -118,23 +129,21 @@ class dataDisk extends Model
      */
     public $uuid;
     protected $_name = [
-        'category'     => 'Category',
-        'diskId'       => 'DiskId',
-        'diskName'     => 'DiskName',
-        'diskSize'     => 'DiskSize',
+        'category' => 'Category',
+        'diskId' => 'DiskId',
+        'diskName' => 'DiskName',
+        'diskSize' => 'DiskSize',
         'encryptKeyId' => 'EncryptKeyId',
-        'encrypted'    => 'Encrypted',
-        'size'         => 'Size',
-        'deviceType'   => 'device_type',
-        'diskType'     => 'disk_type',
-        'name'         => 'name',
-        'storage'      => 'storage',
-        'uuid'         => 'uuid',
+        'encrypted' => 'Encrypted',
+        'size' => 'Size',
+        'deviceType' => 'device_type',
+        'diskType' => 'disk_type',
+        'name' => 'name',
+        'storage' => 'storage',
+        'uuid' => 'uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

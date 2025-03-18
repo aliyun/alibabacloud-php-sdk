@@ -37,7 +37,7 @@ class DescribeEnsRouteEntryListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the route.
+     * @description The information about the routes.
      *
      * @var routeEntrys[]
      */
@@ -52,16 +52,14 @@ class DescribeEnsRouteEntryListResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'routeEntrys' => 'RouteEntrys',
-        'totalCount'  => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class DescribeEnsRouteEntryListResponseBody extends Model
         if (isset($map['RouteEntrys'])) {
             if (!empty($map['RouteEntrys'])) {
                 $model->routeEntrys = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['RouteEntrys'] as $item) {
                     $model->routeEntrys[$n++] = null !== $item ? routeEntrys::fromMap($item) : $item;
                 }

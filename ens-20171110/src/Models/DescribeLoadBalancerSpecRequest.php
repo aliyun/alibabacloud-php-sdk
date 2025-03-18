@@ -20,9 +20,7 @@ class DescribeLoadBalancerSpecRequest extends Model
         'loadBalancerSpec' => 'LoadBalancerSpec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

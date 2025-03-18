@@ -104,21 +104,19 @@ class loadBalancer extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'address'            => 'Address',
-        'addressIPVersion'   => 'AddressIPVersion',
-        'createTime'         => 'CreateTime',
-        'ensRegionId'        => 'EnsRegionId',
-        'loadBalancerId'     => 'LoadBalancerId',
-        'loadBalancerName'   => 'LoadBalancerName',
+        'address' => 'Address',
+        'addressIPVersion' => 'AddressIPVersion',
+        'createTime' => 'CreateTime',
+        'ensRegionId' => 'EnsRegionId',
+        'loadBalancerId' => 'LoadBalancerId',
+        'loadBalancerName' => 'LoadBalancerName',
         'loadBalancerStatus' => 'LoadBalancerStatus',
-        'networkId'          => 'NetworkId',
-        'payType'            => 'PayType',
-        'vSwitchId'          => 'VSwitchId',
+        'networkId' => 'NetworkId',
+        'payType' => 'PayType',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

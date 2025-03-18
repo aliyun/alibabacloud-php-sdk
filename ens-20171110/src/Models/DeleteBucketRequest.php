@@ -12,6 +12,7 @@ class DeleteBucketRequest extends Model
      * @description The name of the bucket that you want to delete. You can delete only one bucket at a time.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteBucketRequest extends Model
         'bucketName' => 'BucketName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

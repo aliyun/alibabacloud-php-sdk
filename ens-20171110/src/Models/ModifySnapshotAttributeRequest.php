@@ -21,6 +21,7 @@ class ModifySnapshotAttributeRequest extends Model
      * @description The ID of the snapshot.
      *
      * This parameter is required.
+     *
      * @example sp-bp199lyny9bb47pa****
      *
      * @var string
@@ -31,20 +32,19 @@ class ModifySnapshotAttributeRequest extends Model
      * @description The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * The name cannot start with **auto** because snapshots whose names start with auto are recognized as automatic snapshots.
+     *
      * @example testSnapshotName
      *
      * @var string
      */
     public $snapshotName;
     protected $_name = [
-        'description'  => 'Description',
-        'snapshotId'   => 'SnapshotId',
+        'description' => 'Description',
+        'snapshotId' => 'SnapshotId',
         'snapshotName' => 'SnapshotName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

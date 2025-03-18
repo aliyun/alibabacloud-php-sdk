@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSDGStatusRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the AIC instance.
+     *
+     * This parameter is required.
      *
      * @example aic-xxxxx
      *
@@ -18,6 +20,8 @@ class DescribeInstanceSDGStatusRequest extends Model
     public $instanceId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +29,8 @@ class DescribeInstanceSDGStatusRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -32,11 +38,15 @@ class DescribeInstanceSDGStatusRequest extends Model
     public $pageSize;
 
     /**
+     * @description The IDs of SDGs that you want to query. By default, all SDGs are queried.
+     *
      * @var string[]
      */
     public $SDGIds;
 
     /**
+     * @description The deployment status of the SDG.
+     *
      * @example success
      *
      * @var string
@@ -45,14 +55,12 @@ class DescribeInstanceSDGStatusRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'SDGIds'     => 'SDGIds',
-        'status'     => 'Status',
+        'pageSize' => 'PageSize',
+        'SDGIds' => 'SDGIds',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -117,6 +117,7 @@ class DescribeInstancesRequest extends Model
      * @description The method that you want to use to sort instances. The value of this parameter is in the JSON format.
      *
      * You can sort instances by name, expiration time, node ID, or creation time. You can specify one or more methods.
+     *
      * @example {"InstanceNameSort":"asc","ExpireTimeSort":"asc","CreationTimeSort":"desc"}}
      *
      * @var string
@@ -127,6 +128,7 @@ class DescribeInstancesRequest extends Model
      * @description The page number. Pages start from page **1**.
      *
      * Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -137,6 +139,7 @@ class DescribeInstancesRequest extends Model
      * @description The number of entries to return on each page. The maximum value is **100**.
      *
      * Default value: **10**.
+     *
      * @example 10
      *
      * @var string
@@ -162,6 +165,8 @@ class DescribeInstancesRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description The status of the service. Valid values.
+     *
      * @var string[]
      */
     public $serviceStatus;
@@ -195,31 +200,29 @@ class DescribeInstancesRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'ensRegionId'          => 'EnsRegionId',
-        'ensRegionIds'         => 'EnsRegionIds',
-        'ensServiceId'         => 'EnsServiceId',
-        'imageId'              => 'ImageId',
-        'instanceId'           => 'InstanceId',
-        'instanceIds'          => 'InstanceIds',
-        'instanceName'         => 'InstanceName',
+        'ensRegionId' => 'EnsRegionId',
+        'ensRegionIds' => 'EnsRegionIds',
+        'ensServiceId' => 'EnsServiceId',
+        'imageId' => 'ImageId',
+        'instanceId' => 'InstanceId',
+        'instanceIds' => 'InstanceIds',
+        'instanceName' => 'InstanceName',
         'instanceResourceType' => 'InstanceResourceType',
-        'instanceType'         => 'InstanceType',
-        'intranetIp'           => 'IntranetIp',
-        'networkId'            => 'NetworkId',
-        'orderByParams'        => 'OrderByParams',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'searchKey'            => 'SearchKey',
-        'securityGroupId'      => 'SecurityGroupId',
-        'serviceStatus'        => 'ServiceStatus',
-        'status'               => 'Status',
-        'tags'                 => 'Tags',
-        'vSwitchId'            => 'VSwitchId',
+        'instanceType' => 'InstanceType',
+        'intranetIp' => 'IntranetIp',
+        'networkId' => 'NetworkId',
+        'orderByParams' => 'OrderByParams',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'searchKey' => 'SearchKey',
+        'securityGroupId' => 'SecurityGroupId',
+        'serviceStatus' => 'ServiceStatus',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -361,7 +364,7 @@ class DescribeInstancesRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

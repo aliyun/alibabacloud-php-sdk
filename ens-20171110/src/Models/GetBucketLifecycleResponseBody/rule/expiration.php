@@ -27,12 +27,10 @@ class expiration extends Model
     public $days;
     protected $_name = [
         'createdBeforeDate' => 'CreatedBeforeDate',
-        'days'              => 'Days',
+        'days' => 'Days',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

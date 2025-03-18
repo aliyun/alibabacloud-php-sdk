@@ -12,6 +12,7 @@ class DescribeServcieScheduleRequest extends Model
      * @description The ID of the application.
      *
      * This parameter is required.
+     *
      * @example 474bdef0-d149-4695-abfb-52912d91****
      *
      * @var string
@@ -31,20 +32,19 @@ class DescribeServcieScheduleRequest extends Model
      * @description The unique ID of the device.
      *
      * This parameter is required.
+     *
      * @example hdm_f022bf160dc69e2d8eb421e508eb****
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'appId'         => 'AppId',
+        'appId' => 'AppId',
         'podConfigName' => 'PodConfigName',
-        'uuid'          => 'Uuid',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

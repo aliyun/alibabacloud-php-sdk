@@ -17,9 +17,7 @@ class statusStatS extends Model
         'statusStat' => 'StatusStat',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class statusStatS extends Model
         if (isset($map['StatusStat'])) {
             if (!empty($map['StatusStat'])) {
                 $model->statusStat = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['StatusStat'] as $item) {
                     $model->statusStat[$n++] = null !== $item ? statusStat::fromMap($item) : $item;
                 }

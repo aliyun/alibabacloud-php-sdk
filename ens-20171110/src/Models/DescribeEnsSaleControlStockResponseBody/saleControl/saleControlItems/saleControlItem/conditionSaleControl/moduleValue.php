@@ -22,9 +22,7 @@ class moduleValue extends Model
         'moduleMinValue' => 'ModuleMinValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,6 +17,7 @@ class CreateNetworkRequest extends Model
      *   192.168.0.0/16
      *
      * This parameter is required.
+     *
      * @example 192.168.0.0/24
      *
      * @var string
@@ -27,6 +28,7 @@ class CreateNetworkRequest extends Model
      * @description The description of the network.
      *
      * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with http:// or https://.
+     *
      * @example this is my first network
      *
      * @var string
@@ -37,6 +39,7 @@ class CreateNetworkRequest extends Model
      * @description The ID of the edge node.
      *
      * This parameter is required.
+     *
      * @example cn-beijing-telecom
      *
      * @var string
@@ -57,20 +60,20 @@ class CreateNetworkRequest extends Model
     public $networkName;
 
     /**
+     * @description The resource tags.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'cidrBlock'   => 'CidrBlock',
+        'cidrBlock' => 'CidrBlock',
         'description' => 'Description',
         'ensRegionId' => 'EnsRegionId',
         'networkName' => 'NetworkName',
-        'tag'         => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -123,7 +126,7 @@ class CreateNetworkRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

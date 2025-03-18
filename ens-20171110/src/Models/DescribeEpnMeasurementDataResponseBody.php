@@ -26,12 +26,10 @@ class DescribeEpnMeasurementDataResponseBody extends Model
     public $requestId;
     protected $_name = [
         'measurementDatas' => 'MeasurementDatas',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

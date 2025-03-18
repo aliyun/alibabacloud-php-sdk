@@ -112,21 +112,19 @@ class ensResourceUsage extends Model
     public $storageSum;
     protected $_name = [
         'computeResourceCount' => 'ComputeResourceCount',
-        'cpuSum'               => 'CpuSum',
-        'diskCount'            => 'DiskCount',
-        'downCount'            => 'DownCount',
-        'expiredCount'         => 'ExpiredCount',
-        'expiringCount'        => 'ExpiringCount',
-        'gpuSum'               => 'GpuSum',
-        'instanceCount'        => 'InstanceCount',
-        'runningCount'         => 'RunningCount',
-        'serviceType'          => 'ServiceType',
-        'storageSum'           => 'StorageSum',
+        'cpuSum' => 'CpuSum',
+        'diskCount' => 'DiskCount',
+        'downCount' => 'DownCount',
+        'expiredCount' => 'ExpiredCount',
+        'expiringCount' => 'ExpiringCount',
+        'gpuSum' => 'GpuSum',
+        'instanceCount' => 'InstanceCount',
+        'runningCount' => 'RunningCount',
+        'serviceType' => 'ServiceType',
+        'storageSum' => 'StorageSum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

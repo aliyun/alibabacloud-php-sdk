@@ -89,20 +89,18 @@ class diskIopsList extends Model
      */
     public $writeOps;
     protected $_name = [
-        'bizTime'      => 'BizTime',
-        'diskId'       => 'DiskId',
-        'readBytes'    => 'ReadBytes',
-        'readLatency'  => 'ReadLatency',
-        'readOps'      => 'ReadOps',
-        'regionId'     => 'RegionId',
-        'writeBytes'   => 'WriteBytes',
+        'bizTime' => 'BizTime',
+        'diskId' => 'DiskId',
+        'readBytes' => 'ReadBytes',
+        'readLatency' => 'ReadLatency',
+        'readOps' => 'ReadOps',
+        'regionId' => 'RegionId',
+        'writeBytes' => 'WriteBytes',
         'writeLatency' => 'WriteLatency',
-        'writeOps'     => 'WriteOps',
+        'writeOps' => 'WriteOps',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

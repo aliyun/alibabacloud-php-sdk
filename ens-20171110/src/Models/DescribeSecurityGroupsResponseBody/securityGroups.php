@@ -17,9 +17,7 @@ class securityGroups extends Model
         'securityGroup' => 'SecurityGroup',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class securityGroups extends Model
         if (isset($map['SecurityGroup'])) {
             if (!empty($map['SecurityGroup'])) {
                 $model->securityGroup = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['SecurityGroup'] as $item) {
                     $model->securityGroup[$n++] = null !== $item ? securityGroup::fromMap($item) : $item;
                 }

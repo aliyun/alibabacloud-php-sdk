@@ -25,13 +25,11 @@ class DescribeRegionIspsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'isps'      => 'Isps',
+        'isps' => 'Isps',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeRegionIspsResponseBody extends Model
         if (isset($map['Isps'])) {
             if (!empty($map['Isps'])) {
                 $model->isps = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Isps'] as $item) {
                     $model->isps[$n++] = null !== $item ? isps::fromMap($item) : $item;
                 }

@@ -68,23 +68,21 @@ class HealthCheck extends Model
      */
     public $unhealthyThreshold;
     protected $_name = [
-        'healthCheck'               => 'HealthCheck',
-        'healthCheckConnectPort'    => 'HealthCheckConnectPort',
+        'healthCheck' => 'HealthCheck',
+        'healthCheckConnectPort' => 'HealthCheckConnectPort',
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
-        'healthCheckDomain'         => 'HealthCheckDomain',
-        'healthCheckHttpCode'       => 'HealthCheckHttpCode',
-        'healthCheckInterval'       => 'HealthCheckInterval',
-        'healthCheckMethod'         => 'HealthCheckMethod',
-        'healthCheckTimeout'        => 'HealthCheckTimeout',
-        'healthCheckType'           => 'HealthCheckType',
-        'healthCheckURI'            => 'HealthCheckURI',
-        'healthyThreshold'          => 'HealthyThreshold',
-        'unhealthyThreshold'        => 'UnhealthyThreshold',
+        'healthCheckDomain' => 'HealthCheckDomain',
+        'healthCheckHttpCode' => 'HealthCheckHttpCode',
+        'healthCheckInterval' => 'HealthCheckInterval',
+        'healthCheckMethod' => 'HealthCheckMethod',
+        'healthCheckTimeout' => 'HealthCheckTimeout',
+        'healthCheckType' => 'HealthCheckType',
+        'healthCheckURI' => 'HealthCheckURI',
+        'healthyThreshold' => 'HealthyThreshold',
+        'unhealthyThreshold' => 'UnhealthyThreshold',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -82,20 +82,18 @@ class supportResource extends Model
      */
     public $systemDiskMinSize;
     protected $_name = [
-        'bandwidthTypes'      => 'BandwidthTypes',
-        'dataDiskMaxSize'     => 'DataDiskMaxSize',
-        'dataDiskMinSize'     => 'DataDiskMinSize',
-        'ensRegionIds'        => 'EnsRegionIds',
+        'bandwidthTypes' => 'BandwidthTypes',
+        'dataDiskMaxSize' => 'DataDiskMaxSize',
+        'dataDiskMinSize' => 'DataDiskMinSize',
+        'ensRegionIds' => 'EnsRegionIds',
         'ensRegionIdsExtends' => 'EnsRegionIdsExtends',
-        'instanceSpeces'      => 'InstanceSpeces',
-        'isp'                 => 'Isp',
-        'systemDiskMaxSize'   => 'SystemDiskMaxSize',
-        'systemDiskMinSize'   => 'SystemDiskMinSize',
+        'instanceSpeces' => 'InstanceSpeces',
+        'isp' => 'Isp',
+        'systemDiskMaxSize' => 'SystemDiskMaxSize',
+        'systemDiskMinSize' => 'SystemDiskMinSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

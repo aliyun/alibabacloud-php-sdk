@@ -12,6 +12,7 @@ class DeleteEnsRouteEntryRequest extends Model
      * @description The ID of the route that you want to delete.
      *
      * This parameter is required.
+     *
      * @example rte-8vbmb2890wiret5maqq25
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteEnsRouteEntryRequest extends Model
         'routeEntryId' => 'RouteEntryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

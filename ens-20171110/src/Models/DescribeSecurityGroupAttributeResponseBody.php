@@ -52,16 +52,14 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
      */
     public $securityGroupName;
     protected $_name = [
-        'description'       => 'Description',
-        'permissions'       => 'Permissions',
-        'requestId'         => 'RequestId',
-        'securityGroupId'   => 'SecurityGroupId',
+        'description' => 'Description',
+        'permissions' => 'Permissions',
+        'requestId' => 'RequestId',
+        'securityGroupId' => 'SecurityGroupId',
         'securityGroupName' => 'SecurityGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

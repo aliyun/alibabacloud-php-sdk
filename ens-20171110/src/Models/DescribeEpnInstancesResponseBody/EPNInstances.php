@@ -17,9 +17,7 @@ class EPNInstances extends Model
         'EPNInstance' => 'EPNInstance',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class EPNInstances extends Model
         if (isset($map['EPNInstance'])) {
             if (!empty($map['EPNInstance'])) {
                 $model->EPNInstance = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['EPNInstance'] as $item) {
                     $model->EPNInstance[$n++] = null !== $item ? EPNInstance::fromMap($item) : $item;
                 }

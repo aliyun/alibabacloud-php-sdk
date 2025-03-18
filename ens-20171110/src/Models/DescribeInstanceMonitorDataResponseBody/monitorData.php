@@ -17,9 +17,7 @@ class monitorData extends Model
         'instanceMonitorData' => 'InstanceMonitorData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class monitorData extends Model
         if (isset($map['InstanceMonitorData'])) {
             if (!empty($map['InstanceMonitorData'])) {
                 $model->instanceMonitorData = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['InstanceMonitorData'] as $item) {
                     $model->instanceMonitorData[$n++] = null !== $item ? instanceMonitorData::fromMap($item) : $item;
                 }

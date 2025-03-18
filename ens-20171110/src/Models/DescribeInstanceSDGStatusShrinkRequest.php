@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSDGStatusShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the AIC instance.
+     *
+     * This parameter is required.
      *
      * @example aic-xxxxx
      *
@@ -18,6 +20,8 @@ class DescribeInstanceSDGStatusShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +29,8 @@ class DescribeInstanceSDGStatusShrinkRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -32,27 +38,29 @@ class DescribeInstanceSDGStatusShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description The IDs of SDGs that you want to query. By default, all SDGs are queried.
+     *
      * @var string
      */
     public $SDGIdsShrink;
 
     /**
+     * @description The deployment status of the SDG.
+     *
      * @example success
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'SDGIdsShrink' => 'SDGIds',
-        'status'       => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

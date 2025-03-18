@@ -38,13 +38,11 @@ class data extends Model
     public $success;
     protected $_name = [
         'message' => 'Message',
-        'result'  => 'Result',
+        'result' => 'Result',
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class backendServers extends Model
         'backendServer' => 'BackendServer',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class backendServers extends Model
         if (isset($map['BackendServer'])) {
             if (!empty($map['BackendServer'])) {
                 $model->backendServer = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['BackendServer'] as $item) {
                     $model->backendServer[$n++] = null !== $item ? backendServer::fromMap($item) : $item;
                 }

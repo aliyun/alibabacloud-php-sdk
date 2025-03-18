@@ -27,12 +27,10 @@ class DescribeEnsSaleControlAvailableResourceRequest extends Model
     protected $_name = [
         'commodityCode' => 'CommodityCode',
         'customAccount' => 'CustomAccount',
-        'orderType'     => 'OrderType',
+        'orderType' => 'OrderType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

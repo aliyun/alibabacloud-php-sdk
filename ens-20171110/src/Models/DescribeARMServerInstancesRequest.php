@@ -74,6 +74,7 @@ class DescribeARMServerInstancesRequest extends Model
      * @description The sorting order of the results to return. Valid values: ServerIdSort, ServerNameSort, ExpireTimeSort, CreationTimeSort, and EnsRegionIdSort.
      *
      * asc: ascending order. desc: descending order.
+     *
      * @example {"ServerIdSort":"desc","ServerNameSort":"desc","ExpireTimeSort":"asc","CreationTimeSort":"asc","EnsRegionIdSort":"asc"}
      *
      * @var string
@@ -84,6 +85,7 @@ class DescribeARMServerInstancesRequest extends Model
      * @description The page number. Pages start from page **1**.
      *
      * Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -94,6 +96,7 @@ class DescribeARMServerInstancesRequest extends Model
      * @description The number of entries per page. The maximum value is **100**.
      *
      * Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -121,24 +124,22 @@ class DescribeARMServerInstancesRequest extends Model
      */
     public $states;
     protected $_name = [
-        'AICSpecs'             => 'AICSpecs',
+        'AICSpecs' => 'AICSpecs',
         'describeAICInstances' => 'DescribeAICInstances',
-        'ensRegionIds'         => 'EnsRegionIds',
-        'maxDate'              => 'MaxDate',
-        'minDate'              => 'MinDate',
-        'name'                 => 'Name',
-        'namespace'            => 'Namespace',
-        'orderByParams'        => 'OrderByParams',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'serverIds'            => 'ServerIds',
-        'serverSpecs'          => 'ServerSpecs',
-        'states'               => 'States',
+        'ensRegionIds' => 'EnsRegionIds',
+        'maxDate' => 'MaxDate',
+        'minDate' => 'MinDate',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'orderByParams' => 'OrderByParams',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'serverIds' => 'ServerIds',
+        'serverSpecs' => 'ServerSpecs',
+        'states' => 'States',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

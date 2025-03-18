@@ -24,6 +24,7 @@ class DescribeEpnBandWidthDataRequest extends Model
      *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
      *
      * This parameter is required.
+     *
      * @example 2021-12-16T16:00:00Z
      *
      * @var string
@@ -79,6 +80,7 @@ class DescribeEpnBandWidthDataRequest extends Model
      * @description The precision of the monitoring data that you want to obtain. Valid values: 300, 1200, 3600, and 14400. Default value: 300. Unit: seconds.
      *
      * This parameter is required.
+     *
      * @example 300
      *
      * @var string
@@ -92,25 +94,24 @@ class DescribeEpnBandWidthDataRequest extends Model
      *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
      *
      * This parameter is required.
+     *
      * @example 2021-12-15T16:00:00Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'EPNInstanceId'   => 'EPNInstanceId',
-        'endTime'         => 'EndTime',
-        'ensRegionId'     => 'EnsRegionId',
-        'instanceId'      => 'InstanceId',
-        'isp'             => 'Isp',
+        'EPNInstanceId' => 'EPNInstanceId',
+        'endTime' => 'EndTime',
+        'ensRegionId' => 'EnsRegionId',
+        'instanceId' => 'InstanceId',
+        'isp' => 'Isp',
         'networkingModel' => 'NetworkingModel',
-        'period'          => 'Period',
-        'startTime'       => 'StartTime',
+        'period' => 'Period',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

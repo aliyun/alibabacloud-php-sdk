@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class elbAvailableResourceInfo extends Model
 {
     /**
+     * @var string[]
+     */
+    public $ability;
+
+    /**
      * @description The ID of the region.
      *
      * @example SouthEast
@@ -69,22 +74,24 @@ class elbAvailableResourceInfo extends Model
      */
     public $province;
     protected $_name = [
-        'area'             => 'Area',
-        'canBuyCount'      => 'CanBuyCount',
-        'enName'           => 'EnName',
-        'ensRegionId'      => 'EnsRegionId',
+        'ability' => 'Ability',
+        'area' => 'Area',
+        'canBuyCount' => 'CanBuyCount',
+        'enName' => 'EnName',
+        'ensRegionId' => 'EnsRegionId',
         'loadBalancerSpec' => 'LoadBalancerSpec',
-        'name'             => 'Name',
-        'province'         => 'Province',
+        'name' => 'Name',
+        'province' => 'Province',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ability) {
+            $res['Ability'] = $this->ability;
+        }
         if (null !== $this->area) {
             $res['Area'] = $this->area;
         }
@@ -118,6 +125,11 @@ class elbAvailableResourceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ability'])) {
+            if (!empty($map['Ability'])) {
+                $model->ability = $map['Ability'];
+            }
+        }
         if (isset($map['Area'])) {
             $model->area = $map['Area'];
         }

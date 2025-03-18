@@ -36,13 +36,11 @@ class privateIpAddress extends Model
     public $isp;
     protected $_name = [
         'gateWay' => 'GateWay',
-        'ip'      => 'Ip',
-        'isp'     => 'Isp',
+        'ip' => 'Ip',
+        'isp' => 'Isp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

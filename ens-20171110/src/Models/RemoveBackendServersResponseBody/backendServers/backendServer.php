@@ -51,22 +51,21 @@ class backendServer extends Model
      * @description The weight of the backend server.
      *
      * >  The value 0 indicates that requests are not forwarded to the backend server.
+     *
      * @example 50
      *
      * @var int
      */
     public $weight;
     protected $_name = [
-        'ip'       => 'Ip',
-        'port'     => 'Port',
+        'ip' => 'Ip',
+        'port' => 'Port',
         'serverId' => 'ServerId',
-        'type'     => 'Type',
-        'weight'   => 'Weight',
+        'type' => 'Type',
+        'weight' => 'Weight',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -49,15 +49,13 @@ class pushResult extends Model
      */
     public $version;
     protected $_name = [
-        'name'          => 'Name',
-        'resultCode'    => 'ResultCode',
+        'name' => 'Name',
+        'resultCode' => 'ResultCode',
         'resultDescrip' => 'ResultDescrip',
-        'version'       => 'Version',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

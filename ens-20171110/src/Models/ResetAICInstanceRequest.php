@@ -27,12 +27,10 @@ class ResetAICInstanceRequest extends Model
     public $serverId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'serverId'   => 'ServerId',
+        'serverId' => 'ServerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -15,6 +15,7 @@ class orderDetails extends Model
      *   PostPaid: pay-as-you-go.
      *
      * This parameter is required.
+     *
      * @example PostPaid
      *
      * @var string
@@ -25,6 +26,7 @@ class orderDetails extends Model
      * @description The ID of the edge node.
      *
      * This parameter is required.
+     *
      * @example cn-suzhou-telecom
      *
      * @var string
@@ -35,6 +37,7 @@ class orderDetails extends Model
      * @description The name of the file system. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
      *
      * This parameter is required.
+     *
      * @example nasFile
      *
      * @var string
@@ -45,6 +48,7 @@ class orderDetails extends Model
      * @description The name of the mount target. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
      *
      * This parameter is required.
+     *
      * @example nasMount
      *
      * @var string
@@ -55,6 +59,7 @@ class orderDetails extends Model
      * @description The ID of the VPC.
      *
      * This parameter is required.
+     *
      * @example vpc-xxx
      *
      * @var string
@@ -65,6 +70,7 @@ class orderDetails extends Model
      * @description The type of the order. Set the value to BUY.
      *
      * This parameter is required.
+     *
      * @example BUY
      *
      * @var string
@@ -75,6 +81,7 @@ class orderDetails extends Model
      * @description The storage protocol. Set the value to nfs.
      *
      * This parameter is required.
+     *
      * @example nfs
      *
      * @var string
@@ -88,25 +95,24 @@ class orderDetails extends Model
      *   Performance.
      *
      * This parameter is required.
+     *
      * @example capacity
      *
      * @var string
      */
     public $storgeType;
     protected $_name = [
-        'chargeType'        => 'ChargeType',
-        'ensRegionId'       => 'EnsRegionId',
-        'fileSystemName'    => 'FileSystemName',
+        'chargeType' => 'ChargeType',
+        'ensRegionId' => 'EnsRegionId',
+        'fileSystemName' => 'FileSystemName',
         'mountTargetDomain' => 'MountTargetDomain',
-        'networkId'         => 'NetworkId',
-        'orderType'         => 'OrderType',
-        'protocolType'      => 'ProtocolType',
-        'storgeType'        => 'StorgeType',
+        'networkId' => 'NetworkId',
+        'orderType' => 'OrderType',
+        'protocolType' => 'ProtocolType',
+        'storgeType' => 'StorgeType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

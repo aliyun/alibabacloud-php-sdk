@@ -21,17 +21,23 @@ class DescribeClusterKubeConfigResponseBody extends Model
      * @description The cluster certificate.
      *
      * @example apiVersion: v1
+     * clusters:
      * - cluster:
      * certificate-authority-data:***
      * server: https://****:6443
+     * name: kubernetes
+     * contexts:
+     * - context:
      * cluster: kubernetes
      * user: "2580306074811*****"
      * name: 258*******
+     * kind: Config
      * users:
      * - name: "2580306074811*****"
      * user:
      * client-certificate-data:***
      * client-key-data: ***
+     *
      * @var string
      */
     public $kubeconfig;
@@ -45,14 +51,12 @@ class DescribeClusterKubeConfigResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'kubeconfig' => 'Kubeconfig',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

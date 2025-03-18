@@ -61,17 +61,15 @@ class DescribeImageSharePermissionResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'accounts'   => 'Accounts',
-        'imageId'    => 'ImageId',
+        'accounts' => 'Accounts',
+        'imageId' => 'ImageId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

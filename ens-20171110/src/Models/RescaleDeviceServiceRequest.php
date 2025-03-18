@@ -42,6 +42,7 @@ class RescaleDeviceServiceRequest extends Model
      * @description The region level of the scale-out. Set the value to RegionId. RegionId specifies that resource scale-out is performed based on the ID of the edge node.
      *
      * This parameter is required.
+     *
      * @example RegionId
      *
      * @var string
@@ -52,6 +53,7 @@ class RescaleDeviceServiceRequest extends Model
      * @description The scaling operation. Set the value to Add to add new resources.
      *
      * This parameter is required.
+     *
      * @example Add
      *
      * @var string
@@ -71,6 +73,7 @@ class RescaleDeviceServiceRequest extends Model
      * @description The required resources. The value must be a JSON string.
      *
      * This parameter is required.
+     *
      * @example [{\\"regionCode\\": \\"cn-wuxi-telecom_unicom_cmcc-3\\",    \\"ispCode\\": \\"telecom\\",    \\"count\\": 2	},{    \\"regionCode\\": \\"cn-shanghai-cmcc\\",    \\"count\\": 4	}]
      *
      * @var string
@@ -104,21 +107,19 @@ class RescaleDeviceServiceRequest extends Model
      */
     public $timeout;
     protected $_name = [
-        'appId'            => 'AppId',
-        'imageId'          => 'ImageId',
-        'ipType'           => 'IpType',
-        'rescaleLevel'     => 'RescaleLevel',
-        'rescaleType'      => 'RescaleType',
-        'resourceInfo'     => 'ResourceInfo',
+        'appId' => 'AppId',
+        'imageId' => 'ImageId',
+        'ipType' => 'IpType',
+        'rescaleLevel' => 'RescaleLevel',
+        'rescaleType' => 'RescaleType',
+        'resourceInfo' => 'ResourceInfo',
         'resourceSelector' => 'ResourceSelector',
-        'resourceSpec'     => 'ResourceSpec',
-        'serviceId'        => 'ServiceId',
-        'timeout'          => 'Timeout',
+        'resourceSpec' => 'ResourceSpec',
+        'serviceId' => 'ServiceId',
+        'timeout' => 'Timeout',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -24,6 +24,7 @@ class PutBucketLifecycleRequest extends Model
      * @description The name of the bucket.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -33,7 +34,10 @@ class PutBucketLifecycleRequest extends Model
     /**
      * @description The expiration time. EOS executes a lifecycle rule for objects that were last updated before the expiration time.
      *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * >  ExpirationDays and CreateBeforeDate are mutually exclusive.
+     *
      * @example 2023-10-12T05:45:00Z
      *
      * @var string
@@ -44,6 +48,7 @@ class PutBucketLifecycleRequest extends Model
      * @description The number of days from when the objects were last modified to when the lifecycle rule takes effect. The value must be a positive integer that is greater than 0.
      *
      * >  ExpirationDays and CreateBeforeDate are mutually exclusive.
+     *
      * @example 5
      *
      * @var int
@@ -81,6 +86,7 @@ class PutBucketLifecycleRequest extends Model
      *   **Disabled**
      *
      * This parameter is required.
+     *
      * @example Enabled
      *
      * @var string
@@ -88,17 +94,15 @@ class PutBucketLifecycleRequest extends Model
     public $status;
     protected $_name = [
         'allowSameActionOverlap' => 'AllowSameActionOverlap',
-        'bucketName'             => 'BucketName',
-        'createdBeforeDate'      => 'CreatedBeforeDate',
-        'expirationDays'         => 'ExpirationDays',
-        'prefix'                 => 'Prefix',
-        'ruleId'                 => 'RuleId',
-        'status'                 => 'Status',
+        'bucketName' => 'BucketName',
+        'createdBeforeDate' => 'CreatedBeforeDate',
+        'expirationDays' => 'ExpirationDays',
+        'prefix' => 'Prefix',
+        'ruleId' => 'RuleId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteStorageGatewayRequest extends Model
      * @description The ID of the gateway.
      *
      * This parameter is required.
+     *
      * @example sgw-****
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteStorageGatewayRequest extends Model
         'gatewayId' => 'GatewayId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -40,6 +40,8 @@ class image extends Model
     public $creationTime;
 
     /**
+     * @description The mappings between the disk and the snapshot in the image.
+     *
      * @var diskDeviceMappings
      */
     public $diskDeviceMappings;
@@ -127,6 +129,15 @@ class image extends Model
     public $platform;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-shenzhen
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description The snapshot ID.
      *
      * @example sp-5yt3bdedxzdz6t6uuw****
@@ -153,25 +164,24 @@ class image extends Model
      */
     public $status;
     protected $_name = [
-        'architecture'       => 'Architecture',
-        'computeType'        => 'ComputeType',
-        'creationTime'       => 'CreationTime',
+        'architecture' => 'Architecture',
+        'computeType' => 'ComputeType',
+        'creationTime' => 'CreationTime',
         'diskDeviceMappings' => 'DiskDeviceMappings',
-        'imageId'            => 'ImageId',
-        'imageName'          => 'ImageName',
-        'imageOwnerAlias'    => 'ImageOwnerAlias',
-        'imageSize'          => 'ImageSize',
-        'imageStorageSize'   => 'ImageStorageSize',
-        'instanceId'         => 'InstanceId',
-        'osVersion'          => 'OsVersion',
-        'platform'           => 'Platform',
-        'snapshotId'         => 'SnapshotId',
-        'status'             => 'Status',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
+        'imageOwnerAlias' => 'ImageOwnerAlias',
+        'imageSize' => 'ImageSize',
+        'imageStorageSize' => 'ImageStorageSize',
+        'instanceId' => 'InstanceId',
+        'osVersion' => 'OsVersion',
+        'platform' => 'Platform',
+        'regionId' => 'RegionId',
+        'snapshotId' => 'SnapshotId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -211,6 +221,9 @@ class image extends Model
         }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
@@ -265,6 +278,9 @@ class image extends Model
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];

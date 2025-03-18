@@ -63,16 +63,14 @@ class DescribeStorageGatewayRequest extends Model
     public $vpcId;
     protected $_name = [
         'ensRegionId' => 'EnsRegionId',
-        'gatewayId'   => 'GatewayId',
+        'gatewayId' => 'GatewayId',
         'gatewayType' => 'GatewayType',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'vpcId'       => 'VpcId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

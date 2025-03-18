@@ -26,6 +26,7 @@ class AddDeviceInternetPortRequest extends Model
      * @description The ID of the instance. You can specify the ID of the server or container.
      *
      * This parameter is required.
+     *
      * @example i-5saiou41t6ude2ia56ri902ke
      *
      * @var string
@@ -36,6 +37,7 @@ class AddDeviceInternetPortRequest extends Model
      * @description The private IP address of the simple application server.
      *
      * This parameter is required.
+     *
      * @example 10.0.0.50
      *
      * @var string
@@ -58,6 +60,7 @@ class AddDeviceInternetPortRequest extends Model
      *   DNAT
      *
      * This parameter is required.
+     *
      * @example DNAT
      *
      * @var string
@@ -68,23 +71,22 @@ class AddDeviceInternetPortRequest extends Model
      * @description The ID of the Edge Node Service (ENS) node.
      *
      * This parameter is required.
+     *
      * @example cn-wuxi-5
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'ISP'          => 'ISP',
-        'instanceId'   => 'InstanceId',
-        'internalIp'   => 'InternalIp',
+        'ISP' => 'ISP',
+        'instanceId' => 'InstanceId',
+        'internalIp' => 'InternalIp',
         'internalPort' => 'InternalPort',
-        'natType'      => 'NatType',
-        'regionId'     => 'RegionId',
+        'natType' => 'NatType',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

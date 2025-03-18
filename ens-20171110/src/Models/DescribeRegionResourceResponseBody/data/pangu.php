@@ -68,23 +68,21 @@ class pangu extends Model
      */
     public $usedRatio;
     protected $_name = [
-        'display'             => 'Display',
-        'oversellRatio'       => 'OversellRatio',
-        'remain'              => 'Remain',
-        'reserveDisable'      => 'ReserveDisable',
+        'display' => 'Display',
+        'oversellRatio' => 'OversellRatio',
+        'remain' => 'Remain',
+        'reserveDisable' => 'ReserveDisable',
         'reserveDisableTotal' => 'ReserveDisableTotal',
-        'reserved'            => 'Reserved',
-        'statusDisable'       => 'StatusDisable',
-        'statusDisableTotal'  => 'StatusDisableTotal',
-        'total'               => 'Total',
-        'type'                => 'Type',
-        'used'                => 'Used',
-        'usedRatio'           => 'UsedRatio',
+        'reserved' => 'Reserved',
+        'statusDisable' => 'StatusDisable',
+        'statusDisableTotal' => 'StatusDisableTotal',
+        'total' => 'Total',
+        'type' => 'Type',
+        'used' => 'Used',
+        'usedRatio' => 'UsedRatio',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -27,12 +27,10 @@ class DescribeInstanceVncUrlResponseBody extends Model
     public $vncUrl;
     protected $_name = [
         'requestId' => 'RequestId',
-        'vncUrl'    => 'VncUrl',
+        'vncUrl' => 'VncUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteNetworkRequest extends Model
      * @description The ID of the network.
      *
      * This parameter is required.
+     *
      * @example n-5***
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteNetworkRequest extends Model
         'networkId' => 'NetworkId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

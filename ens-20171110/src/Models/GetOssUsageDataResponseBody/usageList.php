@@ -71,18 +71,16 @@ class usageList extends Model
      */
     public $wanTxBw;
     protected $_name = [
-        'lanRxBw'          => 'LanRxBw',
-        'lanTxBw'          => 'LanTxBw',
-        'point'            => 'Point',
-        'pointTs'          => 'PointTs',
+        'lanRxBw' => 'LanRxBw',
+        'lanTxBw' => 'LanTxBw',
+        'point' => 'Point',
+        'pointTs' => 'PointTs',
         'storageUsageByte' => 'StorageUsageByte',
-        'wanRxBw'          => 'WanRxBw',
-        'wanTxBw'          => 'WanTxBw',
+        'wanRxBw' => 'WanRxBw',
+        'wanTxBw' => 'WanTxBw',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

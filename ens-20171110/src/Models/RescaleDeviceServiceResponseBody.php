@@ -41,15 +41,13 @@ class RescaleDeviceServiceResponseBody extends Model
      */
     public $resourceDetailInfos;
     protected $_name = [
-        'deviceIds'           => 'DeviceIds',
-        'orderId'             => 'OrderId',
-        'requestId'           => 'RequestId',
+        'deviceIds' => 'DeviceIds',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
         'resourceDetailInfos' => 'ResourceDetailInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class RescaleDeviceServiceResponseBody extends Model
         if (isset($map['ResourceDetailInfos'])) {
             if (!empty($map['ResourceDetailInfos'])) {
                 $model->resourceDetailInfos = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['ResourceDetailInfos'] as $item) {
                     $model->resourceDetailInfos[$n++] = null !== $item ? resourceDetailInfos::fromMap($item) : $item;
                 }

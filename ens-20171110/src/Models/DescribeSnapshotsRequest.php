@@ -27,6 +27,10 @@ class DescribeSnapshotsRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The node information.
+     *
+     * @example ["cn-suzhou-telecom","cn-chengdu-telecom"]
+     *
      * @var string
      */
     public $ensRegionIds;
@@ -41,7 +45,7 @@ class DescribeSnapshotsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -68,23 +72,25 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotId;
 
     /**
+     * @description The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     *
+     * @example testSnapshotName
+     *
      * @var string
      */
     public $snapshotName;
     protected $_name = [
-        'diskId'       => 'DiskId',
-        'ensRegionId'  => 'EnsRegionId',
+        'diskId' => 'DiskId',
+        'ensRegionId' => 'EnsRegionId',
         'ensRegionIds' => 'EnsRegionIds',
-        'instanceId'   => 'InstanceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'snapshotId'   => 'SnapshotId',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'snapshotId' => 'SnapshotId',
         'snapshotName' => 'SnapshotName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

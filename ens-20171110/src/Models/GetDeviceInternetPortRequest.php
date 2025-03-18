@@ -12,6 +12,7 @@ class GetDeviceInternetPortRequest extends Model
      * @description The ID of the instance. You can specify the ID of the server or container. You can specify only one ID.
      *
      * This parameter is required.
+     *
      * @example i-5s6xbnx9srb3vm6tp9hg9o64e
      *
      * @var string
@@ -25,6 +26,7 @@ class GetDeviceInternetPortRequest extends Model
      *   DNAT
      *
      * This parameter is required.
+     *
      * @example DNAT
      *
      * @var string
@@ -41,13 +43,11 @@ class GetDeviceInternetPortRequest extends Model
     public $ruleId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'natType'    => 'NatType',
-        'ruleId'     => 'RuleId',
+        'natType' => 'NatType',
+        'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

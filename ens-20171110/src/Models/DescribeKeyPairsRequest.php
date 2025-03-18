@@ -48,15 +48,13 @@ class DescribeKeyPairsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'keyPairId'   => 'KeyPairId',
+        'keyPairId' => 'KeyPairId',
         'keyPairName' => 'KeyPairName',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

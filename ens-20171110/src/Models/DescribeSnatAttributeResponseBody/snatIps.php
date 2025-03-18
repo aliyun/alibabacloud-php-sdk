@@ -42,13 +42,11 @@ class snatIps extends Model
     public $status;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'ip'           => 'Ip',
-        'status'       => 'Status',
+        'ip' => 'Ip',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

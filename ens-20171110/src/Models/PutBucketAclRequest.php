@@ -16,6 +16,7 @@ class PutBucketAclRequest extends Model
      *   **private** (default)
      *
      * This parameter is required.
+     *
      * @example private
      *
      * @var string
@@ -26,19 +27,18 @@ class PutBucketAclRequest extends Model
      * @description The name of the bucket.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
      */
     public $bucketName;
     protected $_name = [
-        'bucketAcl'  => 'BucketAcl',
+        'bucketAcl' => 'BucketAcl',
         'bucketName' => 'BucketName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -35,14 +35,12 @@ class instanceMonitorData extends Model
      */
     public $memory;
     protected $_name = [
-        'CPU'        => 'CPU',
+        'CPU' => 'CPU',
         'instanceId' => 'InstanceId',
-        'memory'     => 'Memory',
+        'memory' => 'Memory',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

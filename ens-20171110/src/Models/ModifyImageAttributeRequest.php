@@ -12,6 +12,7 @@ class ModifyImageAttributeRequest extends Model
      * @description The ID of the image.
      *
      * This parameter is required.
+     *
      * @example m-5t4xwkfkbs0uxv0kymdb6uip7
      *
      * @var string
@@ -22,19 +23,18 @@ class ModifyImageAttributeRequest extends Model
      * @description The name of the image.
      *
      * This parameter is required.
+     *
      * @example Image Name
      *
      * @var string
      */
     public $imageName;
     protected $_name = [
-        'imageId'   => 'ImageId',
+        'imageId' => 'ImageId',
         'imageName' => 'ImageName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

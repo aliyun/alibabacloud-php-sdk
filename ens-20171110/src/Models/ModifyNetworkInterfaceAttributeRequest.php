@@ -21,6 +21,7 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
      * @description The ID of the ENI.
      *
      * This parameter is required.
+     *
      * @example eni-5f6533jbifugr5fo***
      *
      * @var string
@@ -36,14 +37,12 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
      */
     public $networkInterfaceName;
     protected $_name = [
-        'description'          => 'Description',
-        'networkInterfaceId'   => 'NetworkInterfaceId',
+        'description' => 'Description',
+        'networkInterfaceId' => 'NetworkInterfaceId',
         'networkInterfaceName' => 'NetworkInterfaceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

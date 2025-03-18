@@ -21,6 +21,7 @@ class CreateEpnInstanceRequest extends Model
      * @description The type of the EPN instance. Set the value to **EdgeToEdge**.
      *
      * This parameter is required.
+     *
      * @example EdgeToEdge
      *
      * @var string
@@ -35,7 +36,10 @@ class CreateEpnInstanceRequest extends Model
      *   **PayByBandwidth4thMonth**: Pay by monthly fourth peak bandwidth.
      *   **PayByBandwidth**: Pay by fixed bandwidth.
      *
+     * You can specify only one metering method for network usage and cannot overwrite the existing metering method.
+     *
      * This parameter is required.
+     *
      * @example BandwidthByDay
      *
      * @var string
@@ -46,6 +50,7 @@ class CreateEpnInstanceRequest extends Model
      * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 1 to 100.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -60,22 +65,21 @@ class CreateEpnInstanceRequest extends Model
      *   **SpeedUpAndConnection**: intelligent acceleration network and internal network
      *
      * This parameter is required.
+     *
      * @example SpeedUp
      *
      * @var string
      */
     public $networkingModel;
     protected $_name = [
-        'EPNInstanceName'         => 'EPNInstanceName',
-        'EPNInstanceType'         => 'EPNInstanceType',
-        'internetChargeType'      => 'InternetChargeType',
+        'EPNInstanceName' => 'EPNInstanceName',
+        'EPNInstanceType' => 'EPNInstanceType',
+        'internetChargeType' => 'InternetChargeType',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
-        'networkingModel'         => 'NetworkingModel',
+        'networkingModel' => 'NetworkingModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

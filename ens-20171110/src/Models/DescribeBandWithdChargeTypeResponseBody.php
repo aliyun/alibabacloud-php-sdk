@@ -56,16 +56,14 @@ class DescribeBandWithdChargeTypeResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'bandWithTypeInfo'   => 'BandWithTypeInfo',
+        'bandWithTypeInfo' => 'BandWithTypeInfo',
         'chargeContractType' => 'ChargeContractType',
-        'chargeCycleInfo'    => 'ChargeCycleInfo',
-        'code'               => 'Code',
-        'requestId'          => 'RequestId',
+        'chargeCycleInfo' => 'ChargeCycleInfo',
+        'code' => 'Code',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

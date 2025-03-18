@@ -17,9 +17,7 @@ class permissions extends Model
         'permission' => 'Permission',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class permissions extends Model
         if (isset($map['Permission'])) {
             if (!empty($map['Permission'])) {
                 $model->permission = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Permission'] as $item) {
                     $model->permission[$n++] = null !== $item ? permission::fromMap($item) : $item;
                 }

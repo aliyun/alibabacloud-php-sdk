@@ -19,13 +19,11 @@ class commodityCodesInfo extends Model
      */
     public $moduleCodesInfo;
     protected $_name = [
-        'commodityCode'   => 'CommodityCode',
+        'commodityCode' => 'CommodityCode',
         'moduleCodesInfo' => 'ModuleCodesInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -60,7 +58,7 @@ class commodityCodesInfo extends Model
         if (isset($map['ModuleCodesInfo'])) {
             if (!empty($map['ModuleCodesInfo'])) {
                 $model->moduleCodesInfo = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['ModuleCodesInfo'] as $item) {
                     $model->moduleCodesInfo[$n++] = null !== $item ? moduleCodesInfo::fromMap($item) : $item;
                 }

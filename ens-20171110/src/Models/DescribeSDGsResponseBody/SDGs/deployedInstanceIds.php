@@ -51,15 +51,13 @@ class deployedInstanceIds extends Model
      */
     public $status;
     protected $_name = [
-        'creationTime'   => 'CreationTime',
+        'creationTime' => 'CreationTime',
         'deploymentType' => 'DeploymentType',
-        'instanceId'     => 'InstanceId',
-        'status'         => 'Status',
+        'instanceId' => 'InstanceId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

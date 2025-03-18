@@ -20,9 +20,7 @@ class publicIps extends Model
         'ip' => 'Ip',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

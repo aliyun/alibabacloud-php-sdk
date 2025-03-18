@@ -19,13 +19,11 @@ class DescribeEnsSaleControlAvailableResourceResponseBody extends Model
      */
     public $saleControlAvailableResource;
     protected $_name = [
-        'requestId'                    => 'RequestId',
+        'requestId' => 'RequestId',
         'saleControlAvailableResource' => 'SaleControlAvailableResource',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -60,7 +58,7 @@ class DescribeEnsSaleControlAvailableResourceResponseBody extends Model
         if (isset($map['SaleControlAvailableResource'])) {
             if (!empty($map['SaleControlAvailableResource'])) {
                 $model->saleControlAvailableResource = [];
-                $n                                   = 0;
+                $n = 0;
                 foreach ($map['SaleControlAvailableResource'] as $item) {
                     $model->saleControlAvailableResource[$n++] = null !== $item ? saleControlAvailableResource::fromMap($item) : $item;
                 }

@@ -24,6 +24,7 @@ class DeploySDGShrinkRequest extends Model
      * @description The IDs of instances on which you want to deploy SDGs. You can deploy SDGs on a maximum of 100 instances at a time.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $instanceIdsShrink;
@@ -32,20 +33,19 @@ class DeploySDGShrinkRequest extends Model
      * @description The SDG ID. This parameter is used to create a disk, which is attached to an instance.
      *
      * This parameter is required.
+     *
      * @example sdg-xxxxx
      *
      * @var string
      */
     public $SDGId;
     protected $_name = [
-        'deploymentType'    => 'DeploymentType',
+        'deploymentType' => 'DeploymentType',
         'instanceIdsShrink' => 'InstanceIds',
-        'SDGId'             => 'SDGId',
+        'SDGId' => 'SDGId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

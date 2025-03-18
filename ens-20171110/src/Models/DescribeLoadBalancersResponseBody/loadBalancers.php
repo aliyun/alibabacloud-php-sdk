@@ -17,9 +17,7 @@ class loadBalancers extends Model
         'loadBalancer' => 'LoadBalancer',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class loadBalancers extends Model
         if (isset($map['LoadBalancer'])) {
             if (!empty($map['LoadBalancer'])) {
                 $model->loadBalancer = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['LoadBalancer'] as $item) {
                     $model->loadBalancer[$n++] = null !== $item ? loadBalancer::fromMap($item) : $item;
                 }

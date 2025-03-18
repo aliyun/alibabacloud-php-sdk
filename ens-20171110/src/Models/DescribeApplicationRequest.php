@@ -12,6 +12,7 @@ class DescribeApplicationRequest extends Model
      * @description The ID of the application. You can call the ListApplications operation to obtain the application ID.
      *
      * This parameter is required.
+     *
      * @example a2bac6f4-75dc-455e-8389-2dc8e47526d3
      *
      * @var string
@@ -37,6 +38,7 @@ class DescribeApplicationRequest extends Model
      *   RegionId: edge node
      *
      * Default value: National.
+     *
      * @example National
      *
      * @var string
@@ -61,16 +63,14 @@ class DescribeApplicationRequest extends Model
      */
     public $resourceSelector;
     protected $_name = [
-        'appId'               => 'AppId',
-        'appVersions'         => 'AppVersions',
-        'level'               => 'Level',
+        'appId' => 'AppId',
+        'appVersions' => 'AppVersions',
+        'level' => 'Level',
         'outDetailStatParams' => 'OutDetailStatParams',
-        'resourceSelector'    => 'ResourceSelector',
+        'resourceSelector' => 'ResourceSelector',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

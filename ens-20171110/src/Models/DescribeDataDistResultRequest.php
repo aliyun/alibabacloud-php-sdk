@@ -12,6 +12,7 @@ class DescribeDataDistResultRequest extends Model
      * @description The ID of the application.
      *
      * This parameter is required.
+     *
      * @example e76f8985-7965-41fc-925b-9648bb6bf650
      *
      * @var string
@@ -88,20 +89,18 @@ class DescribeDataDistResultRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'appId'        => 'AppId',
-        'dataNames'    => 'DataNames',
+        'appId' => 'AppId',
+        'dataNames' => 'DataNames',
         'dataVersions' => 'DataVersions',
         'ensRegionIds' => 'EnsRegionIds',
-        'instanceIds'  => 'InstanceIds',
-        'maxDate'      => 'MaxDate',
-        'minDate'      => 'MinDate',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'instanceIds' => 'InstanceIds',
+        'maxDate' => 'MaxDate',
+        'minDate' => 'MinDate',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

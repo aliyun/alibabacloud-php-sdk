@@ -9,16 +9,14 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\dataDisk\dataDisk[]
+     * @var dataDisk\dataDisk[]
      */
     public $dataDisk;
     protected $_name = [
         'dataDisk' => 'DataDisk',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -47,9 +45,9 @@ class dataDisk extends Model
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {
                 $model->dataDisk = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['DataDisk'] as $item) {
-                    $model->dataDisk[$n++] = null !== $item ? \AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\dataDisk\dataDisk::fromMap($item) : $item;
+                    $model->dataDisk[$n++] = null !== $item ? dataDisk\dataDisk::fromMap($item) : $item;
                 }
             }
         }

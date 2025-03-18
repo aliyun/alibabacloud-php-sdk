@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSDGStatusResponseBody extends Model
 {
     /**
+     * @description The deployment information of the SDGs.
+     *
      * @var deploymentStatus[]
      */
     public $deploymentStatus;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeInstanceSDGStatusResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
      * @example 10
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeInstanceSDGStatusResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example C0003E8B-B930-4F59-ADC0-0E209A9012A8
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeInstanceSDGStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of queried deployment records.
+     *
      * @example 1
      *
      * @var string
@@ -43,15 +53,13 @@ class DescribeInstanceSDGStatusResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'deploymentStatus' => 'DeploymentStatus',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'requestId'        => 'RequestId',
-        'totalCount'       => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +100,7 @@ class DescribeInstanceSDGStatusResponseBody extends Model
         if (isset($map['DeploymentStatus'])) {
             if (!empty($map['DeploymentStatus'])) {
                 $model->deploymentStatus = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['DeploymentStatus'] as $item) {
                     $model->deploymentStatus[$n++] = null !== $item ? deploymentStatus::fromMap($item) : $item;
                 }

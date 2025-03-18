@@ -12,6 +12,7 @@ class GetBucketLifecycleRequest extends Model
      * @description The name of the bucket.
      *
      * This parameter is required.
+     *
      * @example tese
      *
      * @var string
@@ -28,12 +29,10 @@ class GetBucketLifecycleRequest extends Model
     public $ruleId;
     protected $_name = [
         'bucketName' => 'BucketName',
-        'ruleId'     => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

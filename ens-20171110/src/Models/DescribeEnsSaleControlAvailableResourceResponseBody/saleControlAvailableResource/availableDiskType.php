@@ -22,9 +22,7 @@ class availableDiskType extends Model
         'diskType' => 'DiskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

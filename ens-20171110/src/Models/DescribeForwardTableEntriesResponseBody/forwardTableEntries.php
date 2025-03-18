@@ -129,23 +129,21 @@ class forwardTableEntries extends Model
      */
     public $status;
     protected $_name = [
-        'externalIp'        => 'ExternalIp',
-        'externalPort'      => 'ExternalPort',
-        'forwardEntryId'    => 'ForwardEntryId',
-        'forwardEntryName'  => 'ForwardEntryName',
-        'healthCheckPort'   => 'HealthCheckPort',
-        'internalIp'        => 'InternalIp',
-        'internalPort'      => 'InternalPort',
-        'ipProtocol'        => 'IpProtocol',
-        'natGatewayId'      => 'NatGatewayId',
+        'externalIp' => 'ExternalIp',
+        'externalPort' => 'ExternalPort',
+        'forwardEntryId' => 'ForwardEntryId',
+        'forwardEntryName' => 'ForwardEntryName',
+        'healthCheckPort' => 'HealthCheckPort',
+        'internalIp' => 'InternalIp',
+        'internalPort' => 'InternalPort',
+        'ipProtocol' => 'IpProtocol',
+        'natGatewayId' => 'NatGatewayId',
         'standbyExternalIp' => 'StandbyExternalIp',
-        'standbyStatus'     => 'StandbyStatus',
-        'status'            => 'Status',
+        'standbyStatus' => 'StandbyStatus',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

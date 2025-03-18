@@ -79,18 +79,16 @@ class instances extends Model
      */
     public $status;
     protected $_name = [
-        'ensRegionId'      => 'EnsRegionId',
-        'instanceId'       => 'InstanceId',
-        'instanceName'     => 'InstanceName',
-        'isp'              => 'Isp',
+        'ensRegionId' => 'EnsRegionId',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'isp' => 'Isp',
         'privateIpAddress' => 'PrivateIpAddress',
-        'publicIpAddress'  => 'PublicIpAddress',
-        'status'           => 'Status',
+        'publicIpAddress' => 'PublicIpAddress',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -53,20 +53,18 @@ class SecurityGroupRule extends Model
      */
     public $priority;
     protected $_name = [
-        'description'     => 'Description',
-        'destCidrIp'      => 'DestCidrIp',
-        'direction'       => 'Direction',
-        'ipProtocol'      => 'IpProtocol',
-        'policy'          => 'Policy',
-        'portRange'       => 'PortRange',
-        'sourceCidrIp'    => 'SourceCidrIp',
+        'description' => 'Description',
+        'destCidrIp' => 'DestCidrIp',
+        'direction' => 'Direction',
+        'ipProtocol' => 'IpProtocol',
+        'policy' => 'Policy',
+        'portRange' => 'PortRange',
+        'sourceCidrIp' => 'SourceCidrIp',
         'sourcePortRange' => 'SourcePortRange',
-        'priority'        => 'priority',
+        'priority' => 'priority',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

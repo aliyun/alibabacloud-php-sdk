@@ -23,14 +23,12 @@ class pager extends Model
      */
     public $total;
     protected $_name = [
-        'page'  => 'Page',
-        'size'  => 'Size',
+        'page' => 'Page',
+        'size' => 'Size',
         'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

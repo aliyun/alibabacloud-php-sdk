@@ -33,16 +33,14 @@ class UdpCheck extends Model
      */
     public $unhealthyThreshold;
     protected $_name = [
-        'healthCheckConnectPort'    => 'HealthCheckConnectPort',
+        'healthCheckConnectPort' => 'HealthCheckConnectPort',
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
-        'healthCheckInterval'       => 'HealthCheckInterval',
-        'healthyThreshold'          => 'HealthyThreshold',
-        'unhealthyThreshold'        => 'UnhealthyThreshold',
+        'healthCheckInterval' => 'HealthCheckInterval',
+        'healthyThreshold' => 'HealthyThreshold',
+        'unhealthyThreshold' => 'UnhealthyThreshold',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

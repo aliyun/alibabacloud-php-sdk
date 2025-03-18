@@ -16,9 +16,7 @@ class DescribeEnsCommodityCodeRequest extends Model
         'commodityCode' => 'CommodityCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,9 +18,7 @@ class DeleteHaVipsShrinkRequest extends Model
         'haVipIdsShrink' => 'HaVipIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

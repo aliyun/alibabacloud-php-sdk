@@ -26,13 +26,11 @@ class CreateApplicationResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

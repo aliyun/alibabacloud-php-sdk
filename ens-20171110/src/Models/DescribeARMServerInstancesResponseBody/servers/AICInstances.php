@@ -116,22 +116,20 @@ class AICInstances extends Model
      */
     public $status;
     protected $_name = [
-        'frequency'         => 'Frequency',
-        'imageId'           => 'ImageId',
-        'instanceId'        => 'InstanceId',
-        'latestAction'      => 'LatestAction',
-        'name'              => 'Name',
+        'frequency' => 'Frequency',
+        'imageId' => 'ImageId',
+        'instanceId' => 'InstanceId',
+        'latestAction' => 'LatestAction',
+        'name' => 'Name',
         'networkAttributes' => 'NetworkAttributes',
-        'resolution'        => 'Resolution',
-        'sdgDeployInfo'     => 'SdgDeployInfo',
-        'spec'              => 'Spec',
-        'state'             => 'State',
-        'status'            => 'Status',
+        'resolution' => 'Resolution',
+        'sdgDeployInfo' => 'SdgDeployInfo',
+        'spec' => 'Spec',
+        'state' => 'State',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

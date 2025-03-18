@@ -34,14 +34,12 @@ class DescribeImageInfosResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'images'    => 'Images',
+        'code' => 'Code',
+        'images' => 'Images',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

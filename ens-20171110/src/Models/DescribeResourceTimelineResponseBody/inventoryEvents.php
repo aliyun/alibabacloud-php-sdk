@@ -28,15 +28,13 @@ class inventoryEvents extends Model
      */
     public $type;
     protected $_name = [
-        'name'           => 'Name',
+        'name' => 'Name',
         'occurrenceTime' => 'OccurrenceTime',
-        'reason'         => 'Reason',
-        'type'           => 'Type',
+        'reason' => 'Reason',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

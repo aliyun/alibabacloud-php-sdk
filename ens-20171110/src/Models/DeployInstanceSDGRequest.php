@@ -21,6 +21,7 @@ class DeployInstanceSDGRequest extends Model
      * @description The IDs of the instances. The value is a JSON array that consists of up to 100 IDs.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $instanceIds;
@@ -29,6 +30,7 @@ class DeployInstanceSDGRequest extends Model
      * @description The ID of the SDG.
      *
      * This parameter is required.
+     *
      * @example sdg-xxxx
      *
      * @var string
@@ -36,13 +38,11 @@ class DeployInstanceSDGRequest extends Model
     public $SDGId;
     protected $_name = [
         'deploymentType' => 'DeploymentType',
-        'instanceIds'    => 'InstanceIds',
-        'SDGId'          => 'SDGId',
+        'instanceIds' => 'InstanceIds',
+        'SDGId' => 'SDGId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

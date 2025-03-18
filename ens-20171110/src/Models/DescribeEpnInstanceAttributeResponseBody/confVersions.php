@@ -30,9 +30,7 @@ class confVersions extends Model
         'ensRegionId' => 'EnsRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

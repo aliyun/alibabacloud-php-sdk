@@ -16,9 +16,7 @@ class systemDiskSizes extends Model
         'systemDiskSize' => 'SystemDiskSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

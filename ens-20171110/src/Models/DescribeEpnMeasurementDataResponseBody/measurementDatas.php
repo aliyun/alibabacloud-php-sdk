@@ -17,9 +17,7 @@ class measurementDatas extends Model
         'measurementData' => 'MeasurementData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class measurementDatas extends Model
         if (isset($map['MeasurementData'])) {
             if (!empty($map['MeasurementData'])) {
                 $model->measurementData = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['MeasurementData'] as $item) {
                     $model->measurementData[$n++] = null !== $item ? measurementData::fromMap($item) : $item;
                 }

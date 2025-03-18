@@ -97,19 +97,17 @@ class DescribeAICImagesRequest extends Model
     public $status;
     protected $_name = [
         'description' => 'Description',
-        'imageId'     => 'ImageId',
-        'imageType'   => 'ImageType',
-        'imageUrl'    => 'ImageUrl',
-        'maxDate'     => 'MaxDate',
-        'minDate'     => 'MinDate',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'status'      => 'Status',
+        'imageId' => 'ImageId',
+        'imageType' => 'ImageType',
+        'imageUrl' => 'ImageUrl',
+        'maxDate' => 'MaxDate',
+        'minDate' => 'MinDate',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

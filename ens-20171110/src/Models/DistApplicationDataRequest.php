@@ -12,6 +12,7 @@ class DistApplicationDataRequest extends Model
      * @description The ID of the application. To obtain the application ID, call the ListApplications operation.
      *
      * This parameter is required.
+     *
      * @example e76f8985-7965-41fc-925b-9648bb6bf650
      *
      * @var string
@@ -22,6 +23,7 @@ class DistApplicationDataRequest extends Model
      * @description The list of data files that you want to distribute. The value must be a JSON string.
      *
      * This parameter is required.
+     *
      * @example [{\\"name\\":\\"app01\\",        \\"version\\":\\"1.0\\",        \\"destPath\\":\\"/root/installed\\",        \\"decompress\\":true,        \\"targetDirName\\":\\"target01\\",        \\"fileMode\\":755,        \\"timeout\\":1000    },    {        \\"name\\":\\"app02\\",        \\"version\\":\\"1.1\\",        \\"destPath\\":\\"/tmp/test.txt\\",        \\"decompress\\":false    }]
      *
      * @var string
@@ -37,14 +39,12 @@ class DistApplicationDataRequest extends Model
      */
     public $distStrategy;
     protected $_name = [
-        'appId'        => 'AppId',
-        'data'         => 'Data',
+        'appId' => 'AppId',
+        'data' => 'Data',
         'distStrategy' => 'DistStrategy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

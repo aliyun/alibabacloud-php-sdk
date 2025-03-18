@@ -44,15 +44,13 @@ class vSwitches extends Model
      */
     public $vSwitchName;
     protected $_name = [
-        'cidrBlock'   => 'CidrBlock',
+        'cidrBlock' => 'CidrBlock',
         'ensRegionId' => 'EnsRegionId',
-        'vSwitchId'   => 'VSwitchId',
+        'vSwitchId' => 'VSwitchId',
         'vSwitchName' => 'VSwitchName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

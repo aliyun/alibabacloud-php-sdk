@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerHTTPListenerRequest extends Model
 {
     /**
-     * @description 负载均衡实例后端服务器使用的端口，取值：**1**~**65535**。
+     * @description The port used by the backend ELB server of the ELB instance. Valid values: **1** to **65535**.
      *
      * @example 8080
      *
@@ -21,6 +21,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      * @description The name of the listener. The value must be **1** to **80** characters in length.
      *
      * >  The value cannot start with `http://` or `https://`.
+     *
      * @example Monitoring instructions
      *
      * @var string
@@ -43,6 +44,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      *   **off** (default)
      *
      * This parameter is required.
+     *
      * @example on
      *
      * @var string
@@ -53,6 +55,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      * @description The backend port that is used for health checks. Valid values: **1** to **65535**.
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example 30040
      *
      * @var int
@@ -63,6 +66,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      * @description The domain name that you want to use for health checks.
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example www.aliyundoc.com
      *
      * @var string
@@ -78,6 +82,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      *   **http_5xx**
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example http_2xx
      *
      * @var string
@@ -88,6 +93,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      * @description The interval at which health checks are performed. Valid values: **1** to **50**. Default value: **2**. Unit: seconds.
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example 2
      *
      * @var int
@@ -101,6 +107,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      *   **get**
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example head
      *
      * @var string
@@ -145,6 +152,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      * @description The number of consecutive successful health checks that must occur before an unhealthy and inaccessible backend server is declared healthy and accessible. Valid values: **2** to **10**. Default value: **3**.
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example 3
      *
      * @var int
@@ -155,6 +163,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      * @description The timeout period for idle connections. Default value: 15. Valid values: **1** to **60**. Unit: seconds.
      *
      * >  If no request is received within the specified timeout period, ELB closes the connection. When a request is received, ELB creates a new connection.
+     *
      * @example 15
      *
      * @var int
@@ -176,7 +185,10 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     /**
      * @description The listener port that is used by Edge Load Balancer (ELB) to receive requests and forward the requests to backend servers. Valid values: **1** to **65535**.
      *
+     * >  We recommend that you use port 80 for HTTP.
+     *
      * This parameter is required.
+     *
      * @example 8080
      *
      * @var int
@@ -187,6 +199,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      * @description The ID of the Edge Load Balancer (ELB) instance.
      *
      * This parameter is required.
+     *
      * @example lb-5s7crik3yo3bp03gqrbp5****
      *
      * @var string
@@ -197,6 +210,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      * @description The timeout period of a request. Default value: 60. Valid values: **1** to **180**. Unit: seconds.
      *
      * >  If no response is received from the backend server within the specified timeout period, ALB returns an HTTP 504 error code to the client.
+     *
      * @example 60
      *
      * @var int
@@ -223,6 +237,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      * @description The number of consecutive failed health checks that must occur before a healthy and accessible backend server is declared unhealthy and inaccessible. Valid values: **2** to **10**. Default value: **3**.
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example 3
      *
      * @var int
@@ -241,31 +256,29 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      */
     public $XForwardedFor;
     protected $_name = [
-        'backendServerPort'      => 'BackendServerPort',
-        'description'            => 'Description',
-        'forwardPort'            => 'ForwardPort',
-        'healthCheck'            => 'HealthCheck',
+        'backendServerPort' => 'BackendServerPort',
+        'description' => 'Description',
+        'forwardPort' => 'ForwardPort',
+        'healthCheck' => 'HealthCheck',
         'healthCheckConnectPort' => 'HealthCheckConnectPort',
-        'healthCheckDomain'      => 'HealthCheckDomain',
-        'healthCheckHttpCode'    => 'HealthCheckHttpCode',
-        'healthCheckInterval'    => 'HealthCheckInterval',
-        'healthCheckMethod'      => 'HealthCheckMethod',
-        'healthCheckTimeout'     => 'HealthCheckTimeout',
-        'healthCheckURI'         => 'HealthCheckURI',
-        'healthyThreshold'       => 'HealthyThreshold',
-        'idleTimeout'            => 'IdleTimeout',
-        'listenerForward'        => 'ListenerForward',
-        'listenerPort'           => 'ListenerPort',
-        'loadBalancerId'         => 'LoadBalancerId',
-        'requestTimeout'         => 'RequestTimeout',
-        'scheduler'              => 'Scheduler',
-        'unhealthyThreshold'     => 'UnhealthyThreshold',
-        'XForwardedFor'          => 'XForwardedFor',
+        'healthCheckDomain' => 'HealthCheckDomain',
+        'healthCheckHttpCode' => 'HealthCheckHttpCode',
+        'healthCheckInterval' => 'HealthCheckInterval',
+        'healthCheckMethod' => 'HealthCheckMethod',
+        'healthCheckTimeout' => 'HealthCheckTimeout',
+        'healthCheckURI' => 'HealthCheckURI',
+        'healthyThreshold' => 'HealthyThreshold',
+        'idleTimeout' => 'IdleTimeout',
+        'listenerForward' => 'ListenerForward',
+        'listenerPort' => 'ListenerPort',
+        'loadBalancerId' => 'LoadBalancerId',
+        'requestTimeout' => 'RequestTimeout',
+        'scheduler' => 'Scheduler',
+        'unhealthyThreshold' => 'UnhealthyThreshold',
+        'XForwardedFor' => 'XForwardedFor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

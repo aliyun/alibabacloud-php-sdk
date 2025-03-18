@@ -85,22 +85,20 @@ class bandwidths extends Model
      */
     public $txBw;
     protected $_name = [
-        'aliUid'       => 'AliUid',
-        'bizTime'      => 'BizTime',
-        'ensRegionId'  => 'EnsRegionId',
-        'flowType'     => 'FlowType',
-        'instanceId'   => 'InstanceId',
+        'aliUid' => 'AliUid',
+        'bizTime' => 'BizTime',
+        'ensRegionId' => 'EnsRegionId',
+        'flowType' => 'FlowType',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'ip'           => 'Ip',
-        'isp'          => 'Isp',
-        'rxBw'         => 'RxBw',
-        'serviceType'  => 'ServiceType',
-        'txBw'         => 'TxBw',
+        'ip' => 'Ip',
+        'isp' => 'Isp',
+        'rxBw' => 'RxBw',
+        'serviceType' => 'ServiceType',
+        'txBw' => 'TxBw',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

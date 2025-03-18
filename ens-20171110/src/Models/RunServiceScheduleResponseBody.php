@@ -79,19 +79,17 @@ class RunServiceScheduleResponseBody extends Model
      */
     public $tcpPorts;
     protected $_name = [
-        'commandResults'  => 'CommandResults',
-        'index'           => 'Index',
-        'instanceId'      => 'InstanceId',
-        'instanceIp'      => 'InstanceIp',
-        'instancePort'    => 'InstancePort',
-        'requestId'       => 'RequestId',
+        'commandResults' => 'CommandResults',
+        'index' => 'Index',
+        'instanceId' => 'InstanceId',
+        'instanceIp' => 'InstanceIp',
+        'instancePort' => 'InstancePort',
+        'requestId' => 'RequestId',
         'requestRepeated' => 'RequestRepeated',
-        'tcpPorts'        => 'TcpPorts',
+        'tcpPorts' => 'TcpPorts',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DescribeDiskIopsListRequest extends Model
      * @description The ID of the disk. Format: d-\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*\\*.
      *
      * This parameter is required.
+     *
      * @example d-5tzm9wnhzlhjzcbtxo465****
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeDiskIopsListRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss. The time range specified by the StartTime and EndTime parameters cannot exceed one day for a query.
      *
      * This parameter is required.
+     *
      * @example 2023-12-14 23:59:59
      *
      * @var string
@@ -32,20 +34,19 @@ class DescribeDiskIopsListRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
      *
      * This parameter is required.
+     *
      * @example 2023-12-14 00:00:00
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'diskId'    => 'DiskId',
-        'endTime'   => 'EndTime',
+        'diskId' => 'DiskId',
+        'endTime' => 'EndTime',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

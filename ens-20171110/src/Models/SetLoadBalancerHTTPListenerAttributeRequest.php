@@ -12,6 +12,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      * @description The name of the listener. The value must be **1** to **80** characters in length.
      *
      * >  The value cannot start with `http://` or `https://`.
+     *
      * @example http_8080
      *
      * @var string
@@ -34,6 +35,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      * @description The port that is used for health checks. Valid values: **1** to **65535**. If you leave this parameter empty, the port specified by BackendServerPort is used for health checks.
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example 65500
      *
      * @var int
@@ -44,6 +46,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      * @description The domain name that is used for health checks.
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example www.aliyundoc.com
      *
      * @var string
@@ -59,6 +62,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      *   **http_5xx**
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example http_2xx
      *
      * @var string
@@ -69,6 +73,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      * @description The interval at which health checks are performed. Valid values: **1** to **50**. Unit: seconds.
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example 2
      *
      * @var int
@@ -82,6 +87,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      *   **get**
      *
      * >  This parameter takes effect only if the HealthCheck parameter is set to on.
+     *
      * @example head
      *
      * @var string
@@ -126,6 +132,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      * @description The number of consecutive successful health checks that must occur before an unhealthy and inaccessible backend server is declared healthy and accessible. Valid values: **2** to **10**.
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example 3
      *
      * @var int
@@ -136,6 +143,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      * @description The timeout period for idle connections. Default value: 15. Valid values: **1** to **60**. Unit: seconds.
      *
      * >  If no request is received within the specified timeout period, ELB closes the connection. When another request is received, CLB establishes a new connection.
+     *
      * @example 15
      *
      * @var int
@@ -146,6 +154,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      * @description The listener port whose attributes are to be modified. Valid values: **1** to **65535**.
      *
      * This parameter is required.
+     *
      * @example 8080
      *
      * @var int
@@ -156,6 +165,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      * @description The ID of the Edge Load Balancer (ELB) instance.
      *
      * This parameter is required.
+     *
      * @example lb-5snthcyu1x10g7tywj7iu****
      *
      * @var string
@@ -166,6 +176,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      * @description The timeout period of requests. Default value: 60. Valid values: **1** to **180**. Unit: seconds.
      *
      * >  If no response is received from the backend server within the specified timeout period, ELB returns an HTTP 504 error code to the client.
+     *
      * @example 60
      *
      * @var int
@@ -192,6 +203,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      * @description The number of consecutive failed health checks that must occur before a healthy and accessible backend server is declared unhealthy and inaccessible. Valid values: **2** to **10**.
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example 3
      *
      * @var int
@@ -210,28 +222,26 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
      */
     public $XForwardedFor;
     protected $_name = [
-        'description'            => 'Description',
-        'healthCheck'            => 'HealthCheck',
+        'description' => 'Description',
+        'healthCheck' => 'HealthCheck',
         'healthCheckConnectPort' => 'HealthCheckConnectPort',
-        'healthCheckDomain'      => 'HealthCheckDomain',
-        'healthCheckHttpCode'    => 'HealthCheckHttpCode',
-        'healthCheckInterval'    => 'HealthCheckInterval',
-        'healthCheckMethod'      => 'HealthCheckMethod',
-        'healthCheckTimeout'     => 'HealthCheckTimeout',
-        'healthCheckURI'         => 'HealthCheckURI',
-        'healthyThreshold'       => 'HealthyThreshold',
-        'idleTimeout'            => 'IdleTimeout',
-        'listenerPort'           => 'ListenerPort',
-        'loadBalancerId'         => 'LoadBalancerId',
-        'requestTimeout'         => 'RequestTimeout',
-        'scheduler'              => 'Scheduler',
-        'unhealthyThreshold'     => 'UnhealthyThreshold',
-        'XForwardedFor'          => 'XForwardedFor',
+        'healthCheckDomain' => 'HealthCheckDomain',
+        'healthCheckHttpCode' => 'HealthCheckHttpCode',
+        'healthCheckInterval' => 'HealthCheckInterval',
+        'healthCheckMethod' => 'HealthCheckMethod',
+        'healthCheckTimeout' => 'HealthCheckTimeout',
+        'healthCheckURI' => 'HealthCheckURI',
+        'healthyThreshold' => 'HealthyThreshold',
+        'idleTimeout' => 'IdleTimeout',
+        'listenerPort' => 'ListenerPort',
+        'loadBalancerId' => 'LoadBalancerId',
+        'requestTimeout' => 'RequestTimeout',
+        'scheduler' => 'Scheduler',
+        'unhealthyThreshold' => 'UnhealthyThreshold',
+        'XForwardedFor' => 'XForwardedFor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

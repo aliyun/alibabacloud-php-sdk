@@ -71,18 +71,16 @@ class measurementData extends Model
      */
     public $resourceFeeDataDetails;
     protected $_name = [
-        'bandWidthFeeDatas'      => 'BandWidthFeeDatas',
-        'chargeModel'            => 'ChargeModel',
-        'costCycle'              => 'CostCycle',
-        'costEndTime'            => 'CostEndTime',
-        'costStartTime'          => 'CostStartTime',
-        'resourceFeeData'        => 'ResourceFeeData',
+        'bandWidthFeeDatas' => 'BandWidthFeeDatas',
+        'chargeModel' => 'ChargeModel',
+        'costCycle' => 'CostCycle',
+        'costEndTime' => 'CostEndTime',
+        'costStartTime' => 'CostStartTime',
+        'resourceFeeData' => 'ResourceFeeData',
         'resourceFeeDataDetails' => 'ResourceFeeDataDetails',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

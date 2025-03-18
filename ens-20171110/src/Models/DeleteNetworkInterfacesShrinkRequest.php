@@ -18,9 +18,7 @@ class DeleteNetworkInterfacesShrinkRequest extends Model
         'networkInterfaceIdsShrink' => 'NetworkInterfaceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

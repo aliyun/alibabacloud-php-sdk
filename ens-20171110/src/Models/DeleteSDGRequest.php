@@ -12,6 +12,7 @@ class DeleteSDGRequest extends Model
      * @description The IDs of the SDGs that you want to delete.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $SDGId;
@@ -19,9 +20,7 @@ class DeleteSDGRequest extends Model
         'SDGId' => 'SDGId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

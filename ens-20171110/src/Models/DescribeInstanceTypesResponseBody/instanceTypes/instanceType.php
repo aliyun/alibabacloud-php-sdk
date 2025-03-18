@@ -44,15 +44,13 @@ class instanceType extends Model
      */
     public $memorySize;
     protected $_name = [
-        'cpuCoreCount'     => 'CpuCoreCount',
-        'instanceTypeId'   => 'InstanceTypeId',
+        'cpuCoreCount' => 'CpuCoreCount',
+        'instanceTypeId' => 'InstanceTypeId',
         'instanceTypeName' => 'InstanceTypeName',
-        'memorySize'       => 'MemorySize',
+        'memorySize' => 'MemorySize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

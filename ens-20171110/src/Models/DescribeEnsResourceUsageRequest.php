@@ -26,13 +26,11 @@ class DescribeEnsResourceUsageRequest extends Model
      */
     public $expiredStartTime;
     protected $_name = [
-        'expiredEndTime'   => 'ExpiredEndTime',
+        'expiredEndTime' => 'ExpiredEndTime',
         'expiredStartTime' => 'ExpiredStartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

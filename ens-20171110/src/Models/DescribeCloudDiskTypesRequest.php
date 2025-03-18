@@ -18,17 +18,17 @@ class DescribeCloudDiskTypesRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The edge nodes.
+     *
      * @var string[]
      */
     public $ensRegionIds;
     protected $_name = [
-        'ensRegionId'  => 'EnsRegionId',
+        'ensRegionId' => 'EnsRegionId',
         'ensRegionIds' => 'EnsRegionIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

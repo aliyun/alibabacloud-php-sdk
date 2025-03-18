@@ -19,6 +19,15 @@ class CreateEipInstanceRequest extends Model
     public $bandwidth;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 26C28756-2586-17AF-B802-0DC50D8FDEBB
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The description of the EIP.
      *
      * @example yourDescription
@@ -31,6 +40,7 @@ class CreateEipInstanceRequest extends Model
      * @description The ID of the Edge Node Service (ENS) node.
      *
      * This parameter is required.
+     *
      * @example cn-suzhou-telecom
      *
      * @var string
@@ -41,6 +51,7 @@ class CreateEipInstanceRequest extends Model
      * @description The billing method of the EIP. Set the value to **PostPaid**.
      *
      * This parameter is required.
+     *
      * @example PostPaid
      *
      * @var string
@@ -51,6 +62,7 @@ class CreateEipInstanceRequest extends Model
      * @description The metering method of the EIP. Set the value to **95BandwidthByMonth**.
      *
      * This parameter is required.
+     *
      * @example 95BandwidthByMonth
      *
      * @var string
@@ -80,29 +92,33 @@ class CreateEipInstanceRequest extends Model
     public $name;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'bandwidth'          => 'Bandwidth',
-        'description'        => 'Description',
-        'ensRegionId'        => 'EnsRegionId',
+        'bandwidth' => 'Bandwidth',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'ensRegionId' => 'EnsRegionId',
         'instanceChargeType' => 'InstanceChargeType',
         'internetChargeType' => 'InternetChargeType',
-        'isp'                => 'Isp',
-        'name'               => 'Name',
-        'tag'                => 'Tag',
+        'isp' => 'Isp',
+        'name' => 'Name',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -146,6 +162,9 @@ class CreateEipInstanceRequest extends Model
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -167,7 +186,7 @@ class CreateEipInstanceRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

@@ -54,15 +54,13 @@ class CreateKeyPairResponseBody extends Model
     public $requestId;
     protected $_name = [
         'keyPairFingerPrint' => 'KeyPairFingerPrint',
-        'keyPairId'          => 'KeyPairId',
-        'keyPairName'        => 'KeyPairName',
-        'privateKeyBody'     => 'PrivateKeyBody',
-        'requestId'          => 'RequestId',
+        'keyPairId' => 'KeyPairId',
+        'keyPairName' => 'KeyPairName',
+        'privateKeyBody' => 'PrivateKeyBody',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

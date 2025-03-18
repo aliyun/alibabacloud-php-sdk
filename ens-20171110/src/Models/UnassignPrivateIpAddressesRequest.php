@@ -12,6 +12,7 @@ class UnassignPrivateIpAddressesRequest extends Model
      * @description The ID of the ENI.
      *
      * This parameter is required.
+     *
      * @example eni-f8z57orgmt6d144t****
      *
      * @var string
@@ -22,17 +23,16 @@ class UnassignPrivateIpAddressesRequest extends Model
      * @description The secondary private IP addresses to unassign.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $privateIpAddress;
     protected $_name = [
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'privateIpAddress'   => 'PrivateIpAddress',
+        'privateIpAddress' => 'PrivateIpAddress',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

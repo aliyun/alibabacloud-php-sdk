@@ -13,6 +13,7 @@ class RunInstancesShrinkRequest extends Model
      * @description The number of instances that you want to create. Valid values: 1 to 100.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -26,6 +27,7 @@ class RunInstancesShrinkRequest extends Model
      *   The specified time must be at least one hour later than the current time.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2023-06-28T14:38:52Z
      *
      * @var string
@@ -33,12 +35,13 @@ class RunInstancesShrinkRequest extends Model
     public $autoReleaseTime;
 
     /**
-     * @description Specifies whether to enable auto-renewal. Valid values:
+     * @description Specifies whether to enable auto-renewal for the premium bandwidth plan. Examples:
      *
      *   **true**.
      *   **false** (default).
      *
      * >  This parameter is not available when InstanceChargeType is set to PostPaid.
+     *
      * @example true
      *
      * @var bool
@@ -70,6 +73,7 @@ class RunInstancesShrinkRequest extends Model
      * @description The Internet service provider (ISP).
      *
      * >  This parameter is not available if ScheduleAreaLevel is set to Region and is required if ScheduleAreaLevel is set to other values.
+     *
      * @example telecom
      *
      * @var string
@@ -87,6 +91,7 @@ class RunInstancesShrinkRequest extends Model
      * @description The ID of the node.
      *
      * >  This parameter is required if ScheduleAreaLevel is set to Region and is not available if ScheduleAreaLevel is set to other values.
+     *
      * @example cn-foshan-telecom
      *
      * @var string
@@ -124,12 +129,13 @@ class RunInstancesShrinkRequest extends Model
     public $instanceChargeStrategy;
 
     /**
-     * @description The billing method of the instance. Valid values:
+     * @description The billing method of the instance. Examples:
      *
      *   **PrePaid**: subscription.
      *   **PostPaid**: pay-as-you-go.
      *
      * This parameter is required.
+     *
      * @example PostPaid
      *
      * @var string
@@ -140,6 +146,7 @@ class RunInstancesShrinkRequest extends Model
      * @description The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * The default value of this parameter is the value of the InstanceId parameter.
+     *
      * @example TestName
      *
      * @var string
@@ -150,6 +157,7 @@ class RunInstancesShrinkRequest extends Model
      * @description The instance type.
      *
      * This parameter is required.
+     *
      * @example ens.sn1.small
      *
      * @var string
@@ -163,6 +171,7 @@ class RunInstancesShrinkRequest extends Model
      *   **95BandwidthByMonth**: pay by monthly 95th percentile bandwidth
      *
      * >  This parameter is required if you purchase an ENS instance for the first time. The value that you specified is used as the default value for subsequent purchases.
+     *
      * @example BandwidthByDay
      *
      * @var string
@@ -173,6 +182,7 @@ class RunInstancesShrinkRequest extends Model
      * @description The maximum public bandwidth. If the value of this parameter is greater than 0, a public IP address is assigned to the instance.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -180,11 +190,12 @@ class RunInstancesShrinkRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description The type of the IP address. Examples:
+     * @description The type of the IP address. Valid values:
      *
      *   **ipv4** (default).
      *   **ipv6**.
-     *   **ipv4Andipv6**.
+     *   **ipv4Andipv6** (single stack).
+     *   **ipv4Withipv6** (dual stack).
      *
      * @example ipv4
      *
@@ -196,6 +207,7 @@ class RunInstancesShrinkRequest extends Model
      * @description The name of the key pair.
      *
      * >  You need to specify at least one of **Password**, **KeyPairName**, and **PasswordInherit**.
+     *
      * @example wx2-jumpserver
      *
      * @var string
@@ -206,6 +218,7 @@ class RunInstancesShrinkRequest extends Model
      * @description The code of the region.
      *
      * >  This parameter is not available if ScheduleAreaLevel is set to Region and is required if ScheduleAreaLevel is set to other values.
+     *
      * @example 350000
      *
      * @var string
@@ -216,6 +229,7 @@ class RunInstancesShrinkRequest extends Model
      * @description The ID of the network.
      *
      * >  This parameter is available only if ScheduleAreaLevel is set to Region and cannot be configured if ScheduleAreaLevel is set to other values. Otherwise, an error occurs.
+     *
      * @example net-id
      *
      * @var string
@@ -226,6 +240,7 @@ class RunInstancesShrinkRequest extends Model
      * @description The password that is used to connect to the instance.
      *
      * >  You need to specify at least one of **Password**, **KeyPairName**, and **PasswordInherit**.
+     *
      * @example testPassword
      *
      * @var string
@@ -239,6 +254,7 @@ class RunInstancesShrinkRequest extends Model
      *   **false**
      *
      * >  You need to specify at least one of **Password**, **KeyPairName**, and **PasswordInherit**.
+     *
      * @example false
      *
      * @var bool
@@ -273,6 +289,7 @@ class RunInstancesShrinkRequest extends Model
      * @description The private IP address.
      *
      * >  This parameter is available only if ScheduleAreaLevel is set to Region and cannot be configured if ScheduleAreaLevel is set to other values. Otherwise, an error occurs. If you specify a private IP address, the number of instances must be 1. The private IP address takes effect only when the private IP address and the vSwitch ID are not empty.
+     *
      * @example 10.0.0.120
      *
      * @var string
@@ -297,6 +314,7 @@ class RunInstancesShrinkRequest extends Model
      *   **Region**: node
      *
      * This parameter is required.
+     *
      * @example Region
      *
      * @var string
@@ -304,7 +322,7 @@ class RunInstancesShrinkRequest extends Model
     public $scheduleAreaLevel;
 
     /**
-     * @description The scheduling price policy. Valid values:
+     * @description The scheduling price policy. Examples:
      *
      *   **PriceHighPriority**: The high price prevails.
      *   **PriceLowPriority**: The low price prevails.
@@ -322,6 +340,7 @@ class RunInstancesShrinkRequest extends Model
      *   **Disperse**
      *
      * >  If ScheduleAreaLevel is set to Region, set this parameter to **Concentrate**. If ScheduleAreaLevel is set to other values, set this parameter to Concentrate or Disperse based on your business requirements.
+     *
      * @example concentrate
      *
      * @var string
@@ -338,6 +357,15 @@ class RunInstancesShrinkRequest extends Model
     public $securityId;
 
     /**
+     * @description The protection period of the preemptible instance. Unit: hours. Default value: 1. Valid values:
+     *
+     *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *
+     * Alibaba Cloud sends an ECS system event to notify you 5 minutes before the instance is released. Preemptible instances are billed by second. We recommend that you specify an appropriate protection period based on your business requirements.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $spotDuration;
@@ -345,10 +373,11 @@ class RunInstancesShrinkRequest extends Model
     /**
      * @description The bidding policy for the pay-as-you-go instance. This parameter is valid only when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
      *
-     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
+     *   NoSpot: The elastic container instances are pay-as-you-go instances.
      *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
      *
      * Default value: NoSpot.
+     *
      * @example SpotAsPriceGo
      *
      * @var string
@@ -391,54 +420,53 @@ class RunInstancesShrinkRequest extends Model
      * @description The ID of the vSwitch.
      *
      * >  This parameter is available only if ScheduleAreaLevel is set to Region and cannot be configured if ScheduleAreaLevel is set to other values. Otherwise, an error occurs.
+     *
      * @example vsw-5sagnw7m613oulalkd10nv0ob
      *
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'amount'                  => 'Amount',
-        'autoReleaseTime'         => 'AutoReleaseTime',
-        'autoRenew'               => 'AutoRenew',
-        'autoUseCoupon'           => 'AutoUseCoupon',
-        'billingCycle'            => 'BillingCycle',
-        'carrier'                 => 'Carrier',
-        'dataDiskShrink'          => 'DataDisk',
-        'ensRegionId'             => 'EnsRegionId',
-        'hostName'                => 'HostName',
-        'imageId'                 => 'ImageId',
-        'instanceChargeStrategy'  => 'InstanceChargeStrategy',
-        'instanceChargeType'      => 'InstanceChargeType',
-        'instanceName'            => 'InstanceName',
-        'instanceType'            => 'InstanceType',
-        'internetChargeType'      => 'InternetChargeType',
+        'amount' => 'Amount',
+        'autoReleaseTime' => 'AutoReleaseTime',
+        'autoRenew' => 'AutoRenew',
+        'autoUseCoupon' => 'AutoUseCoupon',
+        'billingCycle' => 'BillingCycle',
+        'carrier' => 'Carrier',
+        'dataDiskShrink' => 'DataDisk',
+        'ensRegionId' => 'EnsRegionId',
+        'hostName' => 'HostName',
+        'imageId' => 'ImageId',
+        'instanceChargeStrategy' => 'InstanceChargeStrategy',
+        'instanceChargeType' => 'InstanceChargeType',
+        'instanceName' => 'InstanceName',
+        'instanceType' => 'InstanceType',
+        'internetChargeType' => 'InternetChargeType',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
-        'ipType'                  => 'IpType',
-        'keyPairName'             => 'KeyPairName',
-        'netDistrictCode'         => 'NetDistrictCode',
-        'netWorkId'               => 'NetWorkId',
-        'password'                => 'Password',
-        'passwordInherit'         => 'PasswordInherit',
-        'period'                  => 'Period',
-        'periodUnit'              => 'PeriodUnit',
-        'privateIpAddress'        => 'PrivateIpAddress',
-        'publicIpIdentification'  => 'PublicIpIdentification',
-        'scheduleAreaLevel'       => 'ScheduleAreaLevel',
+        'ipType' => 'IpType',
+        'keyPairName' => 'KeyPairName',
+        'netDistrictCode' => 'NetDistrictCode',
+        'netWorkId' => 'NetWorkId',
+        'password' => 'Password',
+        'passwordInherit' => 'PasswordInherit',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'publicIpIdentification' => 'PublicIpIdentification',
+        'scheduleAreaLevel' => 'ScheduleAreaLevel',
         'schedulingPriceStrategy' => 'SchedulingPriceStrategy',
-        'schedulingStrategy'      => 'SchedulingStrategy',
-        'securityId'              => 'SecurityId',
-        'spotDuration'            => 'SpotDuration',
-        'spotStrategy'            => 'SpotStrategy',
-        'systemDiskShrink'        => 'SystemDisk',
-        'tag'                     => 'Tag',
-        'uniqueSuffix'            => 'UniqueSuffix',
-        'userData'                => 'UserData',
-        'vSwitchId'               => 'VSwitchId',
+        'schedulingStrategy' => 'SchedulingStrategy',
+        'securityId' => 'SecurityId',
+        'spotDuration' => 'SpotDuration',
+        'spotStrategy' => 'SpotStrategy',
+        'systemDiskShrink' => 'SystemDisk',
+        'tag' => 'Tag',
+        'uniqueSuffix' => 'UniqueSuffix',
+        'userData' => 'UserData',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -674,7 +702,7 @@ class RunInstancesShrinkRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

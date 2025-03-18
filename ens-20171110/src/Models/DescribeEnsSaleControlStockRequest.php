@@ -38,13 +38,11 @@ class DescribeEnsSaleControlStockRequest extends Model
         'aliUidAccount' => 'AliUidAccount',
         'commodityCode' => 'CommodityCode',
         'customAccount' => 'CustomAccount',
-        'moduleCode'    => 'ModuleCode',
-        'orderType'     => 'OrderType',
+        'moduleCode' => 'ModuleCode',
+        'orderType' => 'OrderType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

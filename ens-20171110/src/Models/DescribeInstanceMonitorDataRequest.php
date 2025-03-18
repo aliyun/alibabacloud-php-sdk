@@ -12,6 +12,7 @@ class DescribeInstanceMonitorDataRequest extends Model
      * @description The end of the time range to query.
      *
      * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+     *
      * @example 2019-10-30T08:00:00Z
      *
      * @var string
@@ -40,21 +41,20 @@ class DescribeInstanceMonitorDataRequest extends Model
      * @description The beginning of the time range to query.
      *
      * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of the seconds place is not 00, the start time is automatically set to the next minute.
+     *
      * @example 2019-10-29T23:00:00Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'period'     => 'Period',
-        'startTime'  => 'StartTime',
+        'period' => 'Period',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

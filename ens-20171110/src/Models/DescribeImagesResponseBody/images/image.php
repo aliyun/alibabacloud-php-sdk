@@ -28,6 +28,8 @@ class image extends Model
     public $creationTime;
 
     /**
+     * @description The mappings between the disk and the snapshot in the image.
+     *
      * @var diskDeviceMappings
      */
     public $diskDeviceMappings;
@@ -85,6 +87,15 @@ class image extends Model
     public $platform;
 
     /**
+     * @description The ID of the Edge Node Service (ENS) node.
+     *
+     * @example cn-qingdao
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description The ID of the snapshot.
      *
      * @example mock-clone_snapshot_id
@@ -93,20 +104,19 @@ class image extends Model
      */
     public $snapshotId;
     protected $_name = [
-        'architecture'       => 'Architecture',
-        'creationTime'       => 'CreationTime',
+        'architecture' => 'Architecture',
+        'creationTime' => 'CreationTime',
         'diskDeviceMappings' => 'DiskDeviceMappings',
-        'imageId'            => 'ImageId',
-        'imageName'          => 'ImageName',
-        'imageOwnerAlias'    => 'ImageOwnerAlias',
-        'imageSize'          => 'ImageSize',
-        'platform'           => 'Platform',
-        'snapshotId'         => 'SnapshotId',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
+        'imageOwnerAlias' => 'ImageOwnerAlias',
+        'imageSize' => 'ImageSize',
+        'platform' => 'Platform',
+        'regionId' => 'RegionId',
+        'snapshotId' => 'SnapshotId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -134,6 +144,9 @@ class image extends Model
         }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
@@ -173,6 +186,9 @@ class image extends Model
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];

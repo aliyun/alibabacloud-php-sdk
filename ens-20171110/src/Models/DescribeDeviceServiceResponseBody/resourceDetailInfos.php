@@ -99,20 +99,18 @@ class resourceDetailInfos extends Model
     public $type;
     protected $_name = [
         'deviceName' => 'DeviceName',
-        'ID'         => 'ID',
-        'IP'         => 'IP',
-        'ISP'        => 'ISP',
-        'imageID'    => 'ImageID',
-        'mac'        => 'Mac',
-        'regionID'   => 'RegionID',
-        'server'     => 'Server',
-        'status'     => 'Status',
-        'type'       => 'Type',
+        'ID' => 'ID',
+        'IP' => 'IP',
+        'ISP' => 'ISP',
+        'imageID' => 'ImageID',
+        'mac' => 'Mac',
+        'regionID' => 'RegionID',
+        'server' => 'Server',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

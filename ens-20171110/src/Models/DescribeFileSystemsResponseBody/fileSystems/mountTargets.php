@@ -50,14 +50,12 @@ class mountTargets extends Model
     public $status;
     protected $_name = [
         'mountTargetDomain' => 'MountTargetDomain',
-        'mountTargetName'   => 'MountTargetName',
-        'netWorkId'         => 'NetWorkId',
-        'status'            => 'Status',
+        'mountTargetName' => 'MountTargetName',
+        'netWorkId' => 'NetWorkId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

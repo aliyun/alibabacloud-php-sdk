@@ -26,13 +26,11 @@ class associatedEipAddresses extends Model
      */
     public $eipId;
     protected $_name = [
-        'eip'   => 'Eip',
+        'eip' => 'Eip',
         'eipId' => 'EipId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

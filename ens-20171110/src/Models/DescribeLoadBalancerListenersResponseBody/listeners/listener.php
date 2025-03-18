@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class listener extends Model
 {
     /**
+     * @var int
+     */
+    public $backendServerPort;
+
+    /**
      * @description The timestamp when the listener was created.
      *
      * @example 2022-08-15T08:42:57Z
@@ -91,23 +96,25 @@ class listener extends Model
      */
     public $status;
     protected $_name = [
-        'createTime'      => 'CreateTime',
-        'description'     => 'Description',
-        'forwardPort'     => 'ForwardPort',
+        'backendServerPort' => 'BackendServerPort',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'forwardPort' => 'ForwardPort',
         'listenerForward' => 'ListenerForward',
-        'listenerPort'    => 'ListenerPort',
-        'loadBalancerId'  => 'LoadBalancerId',
-        'protocol'        => 'Protocol',
-        'status'          => 'Status',
+        'listenerPort' => 'ListenerPort',
+        'loadBalancerId' => 'LoadBalancerId',
+        'protocol' => 'Protocol',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backendServerPort) {
+            $res['BackendServerPort'] = $this->backendServerPort;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -144,6 +151,9 @@ class listener extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendServerPort'])) {
+            $model->backendServerPort = $map['BackendServerPort'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

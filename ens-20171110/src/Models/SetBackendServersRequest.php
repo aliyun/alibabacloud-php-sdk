@@ -13,6 +13,7 @@ class SetBackendServersRequest extends Model
      * @description The list of backend servers that you want to add. You can modify at most 20 backend servers.
      *
      * This parameter is required.
+     *
      * @var backendServers[]
      */
     public $backendServers;
@@ -21,6 +22,7 @@ class SetBackendServersRequest extends Model
      * @description The ID of the Edge Load Balancer (ELB) instance.
      *
      * This parameter is required.
+     *
      * @example lb-5s7crik3yo3bp03gqrbp5****
      *
      * @var string
@@ -31,9 +33,7 @@ class SetBackendServersRequest extends Model
         'loadBalancerId' => 'LoadBalancerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -65,7 +65,7 @@ class SetBackendServersRequest extends Model
         if (isset($map['BackendServers'])) {
             if (!empty($map['BackendServers'])) {
                 $model->backendServers = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['BackendServers'] as $item) {
                     $model->backendServers[$n++] = null !== $item ? backendServers::fromMap($item) : $item;
                 }

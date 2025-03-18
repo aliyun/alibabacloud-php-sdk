@@ -53,15 +53,13 @@ class DescribeMountTargetsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'mountTargets' => 'MountTargets',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeMountTargetsResponseBody extends Model
         if (isset($map['MountTargets'])) {
             if (!empty($map['MountTargets'])) {
                 $model->mountTargets = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['MountTargets'] as $item) {
                     $model->mountTargets[$n++] = null !== $item ? mountTargets::fromMap($item) : $item;
                 }

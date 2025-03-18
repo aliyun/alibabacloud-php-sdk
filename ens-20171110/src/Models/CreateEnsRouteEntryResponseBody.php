@@ -26,13 +26,11 @@ class CreateEnsRouteEntryResponseBody extends Model
      */
     public $routeEntryId;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'routeEntryId' => 'RouteEntryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

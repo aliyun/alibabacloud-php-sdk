@@ -53,16 +53,14 @@ class backendServers extends Model
      */
     public $weight;
     protected $_name = [
-        'ip'       => 'Ip',
-        'port'     => 'Port',
+        'ip' => 'Ip',
+        'port' => 'Port',
         'serverId' => 'ServerId',
-        'type'     => 'Type',
-        'weight'   => 'Weight',
+        'type' => 'Type',
+        'weight' => 'Weight',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

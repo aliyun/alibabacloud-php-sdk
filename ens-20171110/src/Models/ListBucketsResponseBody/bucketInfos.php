@@ -75,18 +75,16 @@ class bucketInfos extends Model
      */
     public $modifyTime;
     protected $_name = [
-        'bucketAcl'         => 'BucketAcl',
-        'bucketName'        => 'BucketName',
-        'comment'           => 'Comment',
-        'createTime'        => 'CreateTime',
-        'ensRegionId'       => 'EnsRegionId',
+        'bucketAcl' => 'BucketAcl',
+        'bucketName' => 'BucketName',
+        'comment' => 'Comment',
+        'createTime' => 'CreateTime',
+        'ensRegionId' => 'EnsRegionId',
         'logicalBucketType' => 'LogicalBucketType',
-        'modifyTime'        => 'ModifyTime',
+        'modifyTime' => 'ModifyTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

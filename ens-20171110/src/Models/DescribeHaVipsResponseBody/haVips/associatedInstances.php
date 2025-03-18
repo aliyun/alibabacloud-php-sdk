@@ -61,15 +61,13 @@ class associatedInstances extends Model
     public $status;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'ipAddress'    => 'IpAddress',
-        'status'       => 'Status',
+        'ipAddress' => 'IpAddress',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

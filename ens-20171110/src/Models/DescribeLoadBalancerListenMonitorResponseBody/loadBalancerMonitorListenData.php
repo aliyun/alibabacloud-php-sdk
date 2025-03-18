@@ -197,32 +197,30 @@ class loadBalancerMonitorListenData extends Model
      */
     public $vni;
     protected $_name = [
-        'actConns'       => 'ActConns',
-        'bizTime'        => 'BizTime',
-        'conns'          => 'Conns',
-        'dropConns'      => 'DropConns',
-        'ensRegionId'    => 'EnsRegionId',
-        'inActConns'     => 'InActConns',
-        'inBytes'        => 'InBytes',
-        'inDropBytes'    => 'InDropBytes',
-        'inDropPkts'     => 'InDropPkts',
-        'inPkts'         => 'InPkts',
-        'inValidRsNum'   => 'InValidRsNum',
+        'actConns' => 'ActConns',
+        'bizTime' => 'BizTime',
+        'conns' => 'Conns',
+        'dropConns' => 'DropConns',
+        'ensRegionId' => 'EnsRegionId',
+        'inActConns' => 'InActConns',
+        'inBytes' => 'InBytes',
+        'inDropBytes' => 'InDropBytes',
+        'inDropPkts' => 'InDropPkts',
+        'inPkts' => 'InPkts',
+        'inValidRsNum' => 'InValidRsNum',
         'loadBalancerId' => 'LoadBalancerId',
-        'outBytes'       => 'OutBytes',
-        'outDropBytes'   => 'OutDropBytes',
-        'outDropPkts'    => 'OutDropPkts',
-        'outPkts'        => 'OutPkts',
-        'proto'          => 'Proto',
-        'VPort'          => 'VPort',
-        'validRsNum'     => 'ValidRsNum',
-        'vip'            => 'Vip',
-        'vni'            => 'Vni',
+        'outBytes' => 'OutBytes',
+        'outDropBytes' => 'OutDropBytes',
+        'outDropPkts' => 'OutDropPkts',
+        'outPkts' => 'OutPkts',
+        'proto' => 'Proto',
+        'VPort' => 'VPort',
+        'validRsNum' => 'ValidRsNum',
+        'vip' => 'Vip',
+        'vni' => 'Vni',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

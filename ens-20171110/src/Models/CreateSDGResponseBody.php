@@ -27,12 +27,10 @@ class CreateSDGResponseBody extends Model
     public $SDGId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'SDGId'     => 'SDGId',
+        'SDGId' => 'SDGId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

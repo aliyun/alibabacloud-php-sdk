@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class DescribeVSwitchesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries in the list.
+     * @description The total number of entries returned.
      *
      * @example 3
      *
@@ -53,15 +53,13 @@ class DescribeVSwitchesResponseBody extends Model
     public $vSwitches;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
-        'vSwitches'  => 'VSwitches',
+        'vSwitches' => 'VSwitches',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

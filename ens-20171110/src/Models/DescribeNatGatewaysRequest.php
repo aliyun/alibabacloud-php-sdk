@@ -18,6 +18,11 @@ class DescribeNatGatewaysRequest extends Model
     public $ensRegionId;
 
     /**
+     * @var string[]
+     */
+    public $ensRegionIds;
+
+    /**
      * @description The name of the NAT gateway.
      *
      * @example test0
@@ -36,6 +41,11 @@ class DescribeNatGatewaysRequest extends Model
     public $natGatewayId;
 
     /**
+     * @var string[]
+     */
+    public $natGatewayIds;
+
+    /**
      * @description The ID of the network.
      *
      * @example n-2zeuphj08tt7q3brd****
@@ -48,6 +58,7 @@ class DescribeNatGatewaysRequest extends Model
      * @description The page number. Pages start from page **1**.
      *
      * Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +69,7 @@ class DescribeNatGatewaysRequest extends Model
      * @description The number of entries per page. The maximum value is **100**.
      *
      * Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -73,18 +85,18 @@ class DescribeNatGatewaysRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'ensRegionId'  => 'EnsRegionId',
-        'name'         => 'Name',
+        'ensRegionId' => 'EnsRegionId',
+        'ensRegionIds' => 'EnsRegionIds',
+        'name' => 'Name',
         'natGatewayId' => 'NatGatewayId',
-        'networkId'    => 'NetworkId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'vSwitchId'    => 'VSwitchId',
+        'natGatewayIds' => 'NatGatewayIds',
+        'networkId' => 'NetworkId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,11 +104,17 @@ class DescribeNatGatewaysRequest extends Model
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+        if (null !== $this->ensRegionIds) {
+            $res['EnsRegionIds'] = $this->ensRegionIds;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
+        }
+        if (null !== $this->natGatewayIds) {
+            $res['NatGatewayIds'] = $this->natGatewayIds;
         }
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
@@ -125,11 +143,21 @@ class DescribeNatGatewaysRequest extends Model
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+        if (isset($map['EnsRegionIds'])) {
+            if (!empty($map['EnsRegionIds'])) {
+                $model->ensRegionIds = $map['EnsRegionIds'];
+            }
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
+        }
+        if (isset($map['NatGatewayIds'])) {
+            if (!empty($map['NatGatewayIds'])) {
+                $model->natGatewayIds = $map['NatGatewayIds'];
+            }
         }
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];

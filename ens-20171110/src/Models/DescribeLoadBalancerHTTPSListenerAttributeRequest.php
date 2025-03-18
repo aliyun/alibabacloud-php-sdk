@@ -12,6 +12,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeRequest extends Model
      * @description The listening port that you want to query. Valid values: **1** to **65535**.
      *
      * This parameter is required.
+     *
      * @example 443
      *
      * @var int
@@ -22,19 +23,18 @@ class DescribeLoadBalancerHTTPSListenerAttributeRequest extends Model
      * @description The ID of the ELB instance.
      *
      * This parameter is required.
+     *
      * @example lb-5qoxu2rsr0ytanpn4r3i****
      *
      * @var string
      */
     public $loadBalancerId;
     protected $_name = [
-        'listenerPort'   => 'ListenerPort',
+        'listenerPort' => 'ListenerPort',
         'loadBalancerId' => 'LoadBalancerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

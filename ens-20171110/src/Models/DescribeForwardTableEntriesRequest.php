@@ -61,6 +61,7 @@ class DescribeForwardTableEntriesRequest extends Model
      * @description The ID of the NAT gateway.
      *
      * This parameter is required.
+     *
      * @example nat-5t7nh1cfm6kxiszlttr38****
      *
      * @var string
@@ -71,6 +72,7 @@ class DescribeForwardTableEntriesRequest extends Model
      * @description The page number. Pages start from page **1**.
      *
      * Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -81,25 +83,24 @@ class DescribeForwardTableEntriesRequest extends Model
      * @description The number of entries per page. Maximum value: **100**.
      *
      * Default value: **10**.
+     *
      * @example 10
      *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'externalIp'       => 'ExternalIp',
-        'forwardEntryId'   => 'ForwardEntryId',
+        'externalIp' => 'ExternalIp',
+        'forwardEntryId' => 'ForwardEntryId',
         'forwardEntryName' => 'ForwardEntryName',
-        'internalIp'       => 'InternalIp',
-        'ipProtocol'       => 'IpProtocol',
-        'natGatewayId'     => 'NatGatewayId',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
+        'internalIp' => 'InternalIp',
+        'ipProtocol' => 'IpProtocol',
+        'natGatewayId' => 'NatGatewayId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

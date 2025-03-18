@@ -34,14 +34,12 @@ class distResult extends Model
      */
     public $version;
     protected $_name = [
-        'name'        => 'Name',
+        'name' => 'Name',
         'statusStats' => 'StatusStats',
-        'version'     => 'Version',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

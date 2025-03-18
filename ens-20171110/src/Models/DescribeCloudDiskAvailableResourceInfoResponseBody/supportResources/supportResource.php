@@ -4,10 +4,18 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskAvailableResourceInfoResponseBody\supportResources;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeCloudDiskAvailableResourceInfoResponseBody\supportResources\supportResource\ability;
 use AlibabaCloud\Tea\Model;
 
 class supportResource extends Model
 {
+    /**
+     * @description Node product capability.
+     *
+     * @var ability
+     */
+    public $ability;
+
     /**
      * @description The number of disks that you can purchase.
      *
@@ -76,22 +84,24 @@ class supportResource extends Model
      */
     public $ensRegionName;
     protected $_name = [
-        'canBuyCount'     => 'CanBuyCount',
-        'category'        => 'Category',
+        'ability' => 'Ability',
+        'canBuyCount' => 'CanBuyCount',
+        'category' => 'Category',
         'defaultDiskSize' => 'DefaultDiskSize',
-        'diskMaxSize'     => 'DiskMaxSize',
-        'diskMinSize'     => 'DiskMinSize',
-        'ensRegionId'     => 'EnsRegionId',
-        'ensRegionName'   => 'EnsRegionName',
+        'diskMaxSize' => 'DiskMaxSize',
+        'diskMinSize' => 'DiskMinSize',
+        'ensRegionId' => 'EnsRegionId',
+        'ensRegionName' => 'EnsRegionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ability) {
+            $res['Ability'] = null !== $this->ability ? $this->ability->toMap() : null;
+        }
         if (null !== $this->canBuyCount) {
             $res['CanBuyCount'] = $this->canBuyCount;
         }
@@ -125,6 +135,9 @@ class supportResource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ability'])) {
+            $model->ability = ability::fromMap($map['Ability']);
+        }
         if (isset($map['CanBuyCount'])) {
             $model->canBuyCount = $map['CanBuyCount'];
         }

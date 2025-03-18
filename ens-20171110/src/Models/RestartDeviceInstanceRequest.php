@@ -12,6 +12,7 @@ class RestartDeviceInstanceRequest extends Model
      * @description The ID of the application. To obtain the application ID, call the ListApplications operation. For more information, see the API documentation of ListApplications.
      *
      * This parameter is required.
+     *
      * @example f829265e-2f6f-4088-a4be-c1fb95ab45f9
      *
      * @var string
@@ -22,19 +23,18 @@ class RestartDeviceInstanceRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example i-5slvdwcxf6ch81nl4r7p04j5q
      *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'appId'      => 'AppId',
+        'appId' => 'AppId',
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

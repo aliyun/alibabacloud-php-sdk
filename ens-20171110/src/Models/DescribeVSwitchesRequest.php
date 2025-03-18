@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesRequest extends Model
 {
     /**
-     * @description The ID of the edge node.
+     * @description The ID of the ENS node.
      *
      * @example cn-xian-unicom
      *
@@ -18,7 +18,14 @@ class DescribeVSwitchesRequest extends Model
     public $ensRegionId;
 
     /**
-     * @description The ID of the VPC to which the vSwitches belong.
+     * @description The node information.
+     *
+     * @var string[]
+     */
+    public $ensRegionIds;
+
+    /**
+     * @description The ID of the VPC to which the vSwitch belongs.
      *
      * @example vpc-25cdvfeq58pl****
      *
@@ -27,17 +34,7 @@ class DescribeVSwitchesRequest extends Model
     public $networkId;
 
     /**
-     * @description The order in which you want to sort the returned data. Example: {"EnsRegionId":"desc"}.
-     *
-     * By default, the nodes are sorted by IDs in descending order.
-     * @example {"EnsRegionId":"desc"}
-     *
-     * @var string
-     */
-    public $orderByParams;
-
-    /**
-     * @description The page number of the returned page. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -46,7 +43,7 @@ class DescribeVSwitchesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: **1 to 50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -64,6 +61,13 @@ class DescribeVSwitchesRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The list of vSwitches in the network.
+     *
+     * @var string[]
+     */
+    public $vSwitchIds;
+
+    /**
      * @description The name of the vSwitch.
      *
      * @example testVSwitchName
@@ -72,18 +76,17 @@ class DescribeVSwitchesRequest extends Model
      */
     public $vSwitchName;
     protected $_name = [
-        'ensRegionId'   => 'EnsRegionId',
-        'networkId'     => 'NetworkId',
-        'orderByParams' => 'OrderByParams',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'vSwitchId'     => 'VSwitchId',
-        'vSwitchName'   => 'VSwitchName',
+        'ensRegionId' => 'EnsRegionId',
+        'ensRegionIds' => 'EnsRegionIds',
+        'networkId' => 'NetworkId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'vSwitchId' => 'VSwitchId',
+        'vSwitchIds' => 'VSwitchIds',
+        'vSwitchName' => 'VSwitchName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -91,11 +94,11 @@ class DescribeVSwitchesRequest extends Model
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+        if (null !== $this->ensRegionIds) {
+            $res['EnsRegionIds'] = $this->ensRegionIds;
+        }
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
-        }
-        if (null !== $this->orderByParams) {
-            $res['OrderByParams'] = $this->orderByParams;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -105,6 +108,9 @@ class DescribeVSwitchesRequest extends Model
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vSwitchIds) {
+            $res['VSwitchIds'] = $this->vSwitchIds;
         }
         if (null !== $this->vSwitchName) {
             $res['VSwitchName'] = $this->vSwitchName;
@@ -124,11 +130,13 @@ class DescribeVSwitchesRequest extends Model
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+        if (isset($map['EnsRegionIds'])) {
+            if (!empty($map['EnsRegionIds'])) {
+                $model->ensRegionIds = $map['EnsRegionIds'];
+            }
+        }
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
-        }
-        if (isset($map['OrderByParams'])) {
-            $model->orderByParams = $map['OrderByParams'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -138,6 +146,11 @@ class DescribeVSwitchesRequest extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VSwitchIds'])) {
+            if (!empty($map['VSwitchIds'])) {
+                $model->vSwitchIds = $map['VSwitchIds'];
+            }
         }
         if (isset($map['VSwitchName'])) {
             $model->vSwitchName = $map['VSwitchName'];

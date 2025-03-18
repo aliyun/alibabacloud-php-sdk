@@ -48,17 +48,15 @@ class DescribeResourceTimelineResponseBody extends Model
     public $reserveEvents;
     protected $_name = [
         'availableEvents' => 'AvailableEvents',
-        'bizEvents'       => 'BizEvents',
-        'desc'            => 'Desc',
+        'bizEvents' => 'BizEvents',
+        'desc' => 'Desc',
         'inventoryEvents' => 'InventoryEvents',
-        'msg'             => 'Msg',
-        'requestId'       => 'RequestId',
-        'reserveEvents'   => 'ReserveEvents',
+        'msg' => 'Msg',
+        'requestId' => 'RequestId',
+        'reserveEvents' => 'ReserveEvents',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -123,7 +121,7 @@ class DescribeResourceTimelineResponseBody extends Model
         if (isset($map['AvailableEvents'])) {
             if (!empty($map['AvailableEvents'])) {
                 $model->availableEvents = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['AvailableEvents'] as $item) {
                     $model->availableEvents[$n++] = null !== $item ? availableEvents::fromMap($item) : $item;
                 }
@@ -132,7 +130,7 @@ class DescribeResourceTimelineResponseBody extends Model
         if (isset($map['BizEvents'])) {
             if (!empty($map['BizEvents'])) {
                 $model->bizEvents = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['BizEvents'] as $item) {
                     $model->bizEvents[$n++] = null !== $item ? bizEvents::fromMap($item) : $item;
                 }
@@ -144,7 +142,7 @@ class DescribeResourceTimelineResponseBody extends Model
         if (isset($map['InventoryEvents'])) {
             if (!empty($map['InventoryEvents'])) {
                 $model->inventoryEvents = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['InventoryEvents'] as $item) {
                     $model->inventoryEvents[$n++] = null !== $item ? inventoryEvents::fromMap($item) : $item;
                 }
@@ -159,7 +157,7 @@ class DescribeResourceTimelineResponseBody extends Model
         if (isset($map['ReserveEvents'])) {
             if (!empty($map['ReserveEvents'])) {
                 $model->reserveEvents = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ReserveEvents'] as $item) {
                     $model->reserveEvents[$n++] = null !== $item ? reserveEvents::fromMap($item) : $item;
                 }

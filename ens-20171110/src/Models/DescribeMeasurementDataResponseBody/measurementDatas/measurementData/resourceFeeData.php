@@ -35,14 +35,12 @@ class resourceFeeData extends Model
      */
     public $vcpu;
     protected $_name = [
-        'memory'  => 'Memory',
+        'memory' => 'Memory',
         'storage' => 'Storage',
-        'vcpu'    => 'Vcpu',
+        'vcpu' => 'Vcpu',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

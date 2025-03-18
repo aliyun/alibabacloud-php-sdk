@@ -27,12 +27,10 @@ class cloudResourceSetType extends Model
     public $resourceType;
     protected $_name = [
         'resourceCount' => 'ResourceCount',
-        'resourceType'  => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

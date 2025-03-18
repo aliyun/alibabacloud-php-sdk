@@ -32,12 +32,10 @@ class instanceCreateResult extends Model
     public $instanceId;
     protected $_name = [
         'instanceCreateStatus' => 'InstanceCreateStatus',
-        'instanceId'           => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

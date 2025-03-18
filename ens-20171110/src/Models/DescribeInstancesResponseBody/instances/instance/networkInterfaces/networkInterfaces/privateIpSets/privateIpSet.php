@@ -9,22 +9,33 @@ use AlibabaCloud\Tea\Model;
 class privateIpSet extends Model
 {
     /**
+     * @description Indicates whether the IP address is the primary private IP address. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $primary;
 
     /**
+     * @description The private IP address.
+     *
+     * >  This parameter is available only if ScheduleAreaLevel is set to Region and cannot be configured if ScheduleAreaLevel is set to other values. Otherwise, an error occurs. If you specify a private IP address, the number of instances must be 1. The private IP address takes effect only when the private IP address and the vSwitch ID are not empty.
+     *
+     * @example 10.75.66.***
+     *
      * @var string
      */
     public $privateIpAddress;
     protected $_name = [
-        'primary'          => 'Primary',
+        'primary' => 'Primary',
         'privateIpAddress' => 'PrivateIpAddress',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

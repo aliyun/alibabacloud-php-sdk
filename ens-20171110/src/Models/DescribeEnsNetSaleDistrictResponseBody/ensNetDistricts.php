@@ -17,9 +17,7 @@ class ensNetDistricts extends Model
         'ensNetDistrict' => 'EnsNetDistrict',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class ensNetDistricts extends Model
         if (isset($map['EnsNetDistrict'])) {
             if (!empty($map['EnsNetDistrict'])) {
                 $model->ensNetDistrict = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['EnsNetDistrict'] as $item) {
                     $model->ensNetDistrict[$n++] = null !== $item ? ensNetDistrict::fromMap($item) : $item;
                 }

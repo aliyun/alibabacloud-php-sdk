@@ -28,6 +28,11 @@ class DescribeSnatAttributeResponseBody extends Model
     public $destCIDR;
 
     /**
+     * @var bool
+     */
+    public $eipAffinity;
+
+    /**
      * @description The timeout period. Unit: seconds.
      *
      * @example 10
@@ -37,6 +42,12 @@ class DescribeSnatAttributeResponseBody extends Model
     public $idleTimeout;
 
     /**
+     * @description Whether to enable operator affinity. Value taking:
+     * - false:Do not open.
+     * - true:Open.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ispAffinity;
@@ -150,26 +161,25 @@ class DescribeSnatAttributeResponseBody extends Model
      */
     public $type;
     protected $_name = [
-        'creationTime'  => 'CreationTime',
-        'destCIDR'      => 'DestCIDR',
-        'idleTimeout'   => 'IdleTimeout',
-        'ispAffinity'   => 'IspAffinity',
-        'natGatewayId'  => 'NatGatewayId',
-        'requestId'     => 'RequestId',
-        'snatEntryId'   => 'SnatEntryId',
+        'creationTime' => 'CreationTime',
+        'destCIDR' => 'DestCIDR',
+        'eipAffinity' => 'EipAffinity',
+        'idleTimeout' => 'IdleTimeout',
+        'ispAffinity' => 'IspAffinity',
+        'natGatewayId' => 'NatGatewayId',
+        'requestId' => 'RequestId',
+        'snatEntryId' => 'SnatEntryId',
         'snatEntryName' => 'SnatEntryName',
-        'snatIp'        => 'SnatIp',
-        'snatIps'       => 'SnatIps',
-        'sourceCIDR'    => 'SourceCIDR',
+        'snatIp' => 'SnatIp',
+        'snatIps' => 'SnatIps',
+        'sourceCIDR' => 'SourceCIDR',
         'standbySnatIp' => 'StandbySnatIp',
         'standbyStatus' => 'StandbyStatus',
-        'status'        => 'Status',
-        'type'          => 'Type',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -179,6 +189,9 @@ class DescribeSnatAttributeResponseBody extends Model
         }
         if (null !== $this->destCIDR) {
             $res['DestCIDR'] = $this->destCIDR;
+        }
+        if (null !== $this->eipAffinity) {
+            $res['EipAffinity'] = $this->eipAffinity;
         }
         if (null !== $this->idleTimeout) {
             $res['IdleTimeout'] = $this->idleTimeout;
@@ -243,6 +256,9 @@ class DescribeSnatAttributeResponseBody extends Model
         if (isset($map['DestCIDR'])) {
             $model->destCIDR = $map['DestCIDR'];
         }
+        if (isset($map['EipAffinity'])) {
+            $model->eipAffinity = $map['EipAffinity'];
+        }
         if (isset($map['IdleTimeout'])) {
             $model->idleTimeout = $map['IdleTimeout'];
         }
@@ -267,7 +283,7 @@ class DescribeSnatAttributeResponseBody extends Model
         if (isset($map['SnatIps'])) {
             if (!empty($map['SnatIps'])) {
                 $model->snatIps = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['SnatIps'] as $item) {
                     $model->snatIps[$n++] = null !== $item ? snatIps::fromMap($item) : $item;
                 }

@@ -18,6 +18,13 @@ class DescribeNetworksRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The node information.
+     *
+     * @var string[]
+     */
+    public $ensRegionIds;
+
+    /**
      * @description The ID of the network.
      *
      * @example n-5***
@@ -25,6 +32,13 @@ class DescribeNetworksRequest extends Model
      * @var string
      */
     public $networkId;
+
+    /**
+     * @description The ID of Network.
+     *
+     * @var string[]
+     */
+    public $networkIds;
 
     /**
      * @description The name of the network.
@@ -54,15 +68,15 @@ class DescribeNetworksRequest extends Model
     public $pageSize;
     protected $_name = [
         'ensRegionId' => 'EnsRegionId',
-        'networkId'   => 'NetworkId',
+        'ensRegionIds' => 'EnsRegionIds',
+        'networkId' => 'NetworkId',
+        'networkIds' => 'NetworkIds',
         'networkName' => 'NetworkName',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -70,8 +84,14 @@ class DescribeNetworksRequest extends Model
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+        if (null !== $this->ensRegionIds) {
+            $res['EnsRegionIds'] = $this->ensRegionIds;
+        }
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
+        }
+        if (null !== $this->networkIds) {
+            $res['NetworkIds'] = $this->networkIds;
         }
         if (null !== $this->networkName) {
             $res['NetworkName'] = $this->networkName;
@@ -97,8 +117,18 @@ class DescribeNetworksRequest extends Model
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+        if (isset($map['EnsRegionIds'])) {
+            if (!empty($map['EnsRegionIds'])) {
+                $model->ensRegionIds = $map['EnsRegionIds'];
+            }
+        }
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
+        }
+        if (isset($map['NetworkIds'])) {
+            if (!empty($map['NetworkIds'])) {
+                $model->networkIds = $map['NetworkIds'];
+            }
         }
         if (isset($map['NetworkName'])) {
             $model->networkName = $map['NetworkName'];

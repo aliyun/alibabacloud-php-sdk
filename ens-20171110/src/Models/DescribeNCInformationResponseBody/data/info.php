@@ -28,15 +28,13 @@ class info extends Model
      */
     public $uuid;
     protected $_name = [
-        'ip'   => 'Ip',
+        'ip' => 'Ip',
         'name' => 'Name',
-        'tag'  => 'Tag',
+        'tag' => 'Tag',
         'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

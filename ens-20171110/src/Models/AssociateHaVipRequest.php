@@ -12,6 +12,7 @@ class AssociateHaVipRequest extends Model
      * @description The ID of the HAVIP.
      *
      * This parameter is required.
+     *
      * @example havip-5p14t****
      *
      * @var string
@@ -22,6 +23,7 @@ class AssociateHaVipRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example i-50c4****
      *
      * @var string
@@ -40,14 +42,12 @@ class AssociateHaVipRequest extends Model
      */
     public $instanceType;
     protected $_name = [
-        'haVipId'      => 'HaVipId',
-        'instanceId'   => 'InstanceId',
+        'haVipId' => 'HaVipId',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

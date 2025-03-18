@@ -33,14 +33,12 @@ class RebootAICInstanceRequest extends Model
      */
     public $serverId;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceIds' => 'InstanceIds',
-        'serverId'    => 'ServerId',
+        'serverId' => 'ServerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

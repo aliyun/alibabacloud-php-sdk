@@ -32,6 +32,10 @@ class deploymentStatus extends Model
     public $mountType;
 
     /**
+     * @description The deployment phase of the SDG.
+     *
+     * @example attach
+     *
      * @var string
      */
     public $phase;
@@ -46,7 +50,7 @@ class deploymentStatus extends Model
     public $regionId;
 
     /**
-     * @description the deployment status of the shared data group SDG.
+     * @description The deployment status of the SDG.
      *
      * Valid values:
      *
@@ -70,16 +74,14 @@ class deploymentStatus extends Model
     public $updateTime;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'mountType'  => 'MountType',
-        'phase'      => 'Phase',
-        'regionId'   => 'RegionId',
-        'status'     => 'Status',
+        'mountType' => 'MountType',
+        'phase' => 'Phase',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

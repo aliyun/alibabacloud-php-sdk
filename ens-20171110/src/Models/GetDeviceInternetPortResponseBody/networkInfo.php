@@ -62,17 +62,15 @@ class networkInfo extends Model
      */
     public $status;
     protected $_name = [
-        'externalIp'   => 'ExternalIp',
+        'externalIp' => 'ExternalIp',
         'externalPort' => 'ExternalPort',
-        'ISP'          => 'ISP',
-        'internalIp'   => 'InternalIp',
+        'ISP' => 'ISP',
+        'internalIp' => 'InternalIp',
         'internalPort' => 'InternalPort',
-        'status'       => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

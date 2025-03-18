@@ -18,7 +18,7 @@ class vSwitch extends Model
     public $cidrBlock;
 
     /**
-     * @description The time when the vSwitch was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the VPC was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2020-06-16T06:33:15Z
      *
@@ -36,7 +36,7 @@ class vSwitch extends Model
     public $description;
 
     /**
-     * @description The ID of the edge node.
+     * @description The ID of the ENS node.
      *
      * @example cn-xian-unicom
      *
@@ -54,7 +54,7 @@ class vSwitch extends Model
     public $freeIpCount;
 
     /**
-     * @description The ID of the network.
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-25cdvfeq58pl****
      *
@@ -92,20 +92,18 @@ class vSwitch extends Model
      */
     public $vSwitchName;
     protected $_name = [
-        'cidrBlock'   => 'CidrBlock',
+        'cidrBlock' => 'CidrBlock',
         'createdTime' => 'CreatedTime',
         'description' => 'Description',
         'ensRegionId' => 'EnsRegionId',
         'freeIpCount' => 'FreeIpCount',
-        'networkId'   => 'NetworkId',
-        'status'      => 'Status',
-        'vSwitchId'   => 'VSwitchId',
+        'networkId' => 'NetworkId',
+        'status' => 'Status',
+        'vSwitchId' => 'VSwitchId',
         'vSwitchName' => 'VSwitchName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
      * @description The name of the listener. The valuemust be **1** to **80** characters in length.
      *
      * >  The value cannot start with `http://` or `https://`.
+     *
      * @example example
      *
      * @var string
@@ -56,6 +57,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
      *   Unit: seconds.
      *
      * >  If the value of the HealthCheckTimeout property is smaller than the value of the HealthCheckInterval property, the timeout period specified by the HealthCheckTimeout property becomes invalid and the value of the HealthCheckInterval property is used as the timeout period.
+     *
      * @example 100
      *
      * @var int
@@ -102,6 +104,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
      * @description The listener port whose attributes are to be modified. Valid values: **1** to **65535**.
      *
      * This parameter is required.
+     *
      * @example 80
      *
      * @var int
@@ -112,6 +115,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
      * @description The ID of the Edge Load Balancer (ELB) instance.
      *
      * This parameter is required.
+     *
      * @example lb-5pzipr2fszqtl2xf64uy5****
      *
      * @var string
@@ -143,24 +147,22 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
      */
     public $unhealthyThreshold;
     protected $_name = [
-        'description'               => 'Description',
-        'eipTransmit'               => 'EipTransmit',
-        'establishedTimeout'        => 'EstablishedTimeout',
-        'healthCheckConnectPort'    => 'HealthCheckConnectPort',
+        'description' => 'Description',
+        'eipTransmit' => 'EipTransmit',
+        'establishedTimeout' => 'EstablishedTimeout',
+        'healthCheckConnectPort' => 'HealthCheckConnectPort',
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
-        'healthCheckExp'            => 'HealthCheckExp',
-        'healthCheckInterval'       => 'HealthCheckInterval',
-        'healthCheckReq'            => 'HealthCheckReq',
-        'healthyThreshold'          => 'HealthyThreshold',
-        'listenerPort'              => 'ListenerPort',
-        'loadBalancerId'            => 'LoadBalancerId',
-        'scheduler'                 => 'Scheduler',
-        'unhealthyThreshold'        => 'UnhealthyThreshold',
+        'healthCheckExp' => 'HealthCheckExp',
+        'healthCheckInterval' => 'HealthCheckInterval',
+        'healthCheckReq' => 'HealthCheckReq',
+        'healthyThreshold' => 'HealthyThreshold',
+        'listenerPort' => 'ListenerPort',
+        'loadBalancerId' => 'LoadBalancerId',
+        'scheduler' => 'Scheduler',
+        'unhealthyThreshold' => 'UnhealthyThreshold',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

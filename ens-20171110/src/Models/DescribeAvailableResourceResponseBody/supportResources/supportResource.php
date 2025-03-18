@@ -53,16 +53,14 @@ class supportResource extends Model
      */
     public $systemDiskSize;
     protected $_name = [
-        'dataDiskSize'          => 'DataDiskSize',
-        'ensRegionId'           => 'EnsRegionId',
-        'instanceSpec'          => 'InstanceSpec',
+        'dataDiskSize' => 'DataDiskSize',
+        'ensRegionId' => 'EnsRegionId',
+        'instanceSpec' => 'InstanceSpec',
         'supportResourcesCount' => 'SupportResourcesCount',
-        'systemDiskSize'        => 'SystemDiskSize',
+        'systemDiskSize' => 'SystemDiskSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

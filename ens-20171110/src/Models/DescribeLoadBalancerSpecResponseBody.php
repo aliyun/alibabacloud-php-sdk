@@ -53,15 +53,13 @@ class DescribeLoadBalancerSpecResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'loadBalancerSpecs' => 'LoadBalancerSpecs',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'requestId'         => 'RequestId',
-        'totalCount'        => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeLoadBalancerSpecResponseBody extends Model
         if (isset($map['LoadBalancerSpecs'])) {
             if (!empty($map['LoadBalancerSpecs'])) {
                 $model->loadBalancerSpecs = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['LoadBalancerSpecs'] as $item) {
                     $model->loadBalancerSpecs[$n++] = null !== $item ? loadBalancerSpecs::fromMap($item) : $item;
                 }

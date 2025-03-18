@@ -13,6 +13,7 @@ class UnassociateNetworkAclRequest extends Model
      * @description The ID of the network ACL that you want to disassociate from a resource.
      *
      * This parameter is required.
+     *
      * @example nacl-a2do9e413e0sp****
      *
      * @var string
@@ -23,17 +24,16 @@ class UnassociateNetworkAclRequest extends Model
      * @description Resources that you want to disassociate. Valid values of **N**: 0 to 29. A maximum of 30 resources can be unbound.
      *
      * This parameter is required.
+     *
      * @var resource[]
      */
     public $resource;
     protected $_name = [
         'networkAclId' => 'NetworkAclId',
-        'resource'     => 'Resource',
+        'resource' => 'Resource',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -68,7 +68,7 @@ class UnassociateNetworkAclRequest extends Model
         if (isset($map['Resource'])) {
             if (!empty($map['Resource'])) {
                 $model->resource = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Resource'] as $item) {
                     $model->resource[$n++] = null !== $item ? resource::fromMap($item) : $item;
                 }

@@ -23,14 +23,12 @@ class ReinitInstancesShrinkRequest extends Model
      */
     public $password;
     protected $_name = [
-        'imageId'           => 'ImageId',
+        'imageId' => 'ImageId',
         'instanceIdsShrink' => 'InstanceIds',
-        'password'          => 'Password',
+        'password' => 'Password',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

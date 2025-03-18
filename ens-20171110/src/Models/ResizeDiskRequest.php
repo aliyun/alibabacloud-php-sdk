@@ -12,6 +12,7 @@ class ResizeDiskRequest extends Model
      * @description The ID of the disk that you want to resize.
      *
      * This parameter is required.
+     *
      * @example d-5tzm9wnhzlhjzcbtxo465****
      *
      * @var string
@@ -22,19 +23,18 @@ class ResizeDiskRequest extends Model
      * @description The size of the disk that you want to resize. Unit: GiB.
      *
      * This parameter is required.
+     *
      * @example 100
      *
      * @var string
      */
     public $newSize;
     protected $_name = [
-        'diskId'  => 'DiskId',
+        'diskId' => 'DiskId',
         'newSize' => 'NewSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

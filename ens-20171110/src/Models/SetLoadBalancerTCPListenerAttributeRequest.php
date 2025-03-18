@@ -12,6 +12,7 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
      * @description The description of the listener. The description must be **1** to **80** characters in length.
      *
      * >  The value cannot start with `http://` or `https://`.
+     *
      * @example example
      *
      * @var string
@@ -56,6 +57,7 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
      *   Unit: seconds.
      *
      * >  If the value of the HealthCheckConnectTimeout parameter is smaller than that of the HealthCheckInterval parameter, the timeout period specified by the HealthCheckConnectTimeout parameter is ignored and the period of time specified by the HealthCheckInterval parameter is used as the timeout period.
+     *
      * @example 100
      *
      * @var int
@@ -110,6 +112,7 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
      * @description The Uniform Resource Identifier (URI) that you want to use for health checks. The URI must be **1** to **80** characters in length.
      *
      * >  The URL must start with `/` and contain characters other than `/`.
+     *
      * @example /aliyundoc/index.html
      *
      * @var string
@@ -129,6 +132,7 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
      * @description The listener port whose attributes are to be modified. Valid values: **1** to **65535**.
      *
      * This parameter is required.
+     *
      * @example 80
      *
      * @var int
@@ -139,6 +143,7 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
      * @description The ID of the Edge Load Balancer (ELB) instance.
      *
      * This parameter is required.
+     *
      * @example lb-5snthcyu1x10g7tywj7iu****
      *
      * @var string
@@ -183,27 +188,25 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
      */
     public $unhealthyThreshold;
     protected $_name = [
-        'description'               => 'Description',
-        'eipTransmit'               => 'EipTransmit',
-        'establishedTimeout'        => 'EstablishedTimeout',
-        'healthCheckConnectPort'    => 'HealthCheckConnectPort',
+        'description' => 'Description',
+        'eipTransmit' => 'EipTransmit',
+        'establishedTimeout' => 'EstablishedTimeout',
+        'healthCheckConnectPort' => 'HealthCheckConnectPort',
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
-        'healthCheckDomain'         => 'HealthCheckDomain',
-        'healthCheckHttpCode'       => 'HealthCheckHttpCode',
-        'healthCheckInterval'       => 'HealthCheckInterval',
-        'healthCheckType'           => 'HealthCheckType',
-        'healthCheckURI'            => 'HealthCheckURI',
-        'healthyThreshold'          => 'HealthyThreshold',
-        'listenerPort'              => 'ListenerPort',
-        'loadBalancerId'            => 'LoadBalancerId',
-        'persistenceTimeout'        => 'PersistenceTimeout',
-        'scheduler'                 => 'Scheduler',
-        'unhealthyThreshold'        => 'UnhealthyThreshold',
+        'healthCheckDomain' => 'HealthCheckDomain',
+        'healthCheckHttpCode' => 'HealthCheckHttpCode',
+        'healthCheckInterval' => 'HealthCheckInterval',
+        'healthCheckType' => 'HealthCheckType',
+        'healthCheckURI' => 'HealthCheckURI',
+        'healthyThreshold' => 'HealthyThreshold',
+        'listenerPort' => 'ListenerPort',
+        'loadBalancerId' => 'LoadBalancerId',
+        'persistenceTimeout' => 'PersistenceTimeout',
+        'scheduler' => 'Scheduler',
+        'unhealthyThreshold' => 'UnhealthyThreshold',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -42,6 +42,7 @@ class CreateInstanceRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -79,6 +80,7 @@ class CreateInstanceRequest extends Model
      *   The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * If you do not specify this parameter, the instance ID is used as the instance name by default.
+     *
      * @example test:Instance_Name.1-2
      *
      * @var string
@@ -88,7 +90,10 @@ class CreateInstanceRequest extends Model
     /**
      * @description The type of the instance.
      *
+     * For more information, see [](~~66124~~).
+     *
      * This parameter is required.
+     *
      * @example ens.se1.tiny
      *
      * @var string
@@ -138,6 +143,7 @@ class CreateInstanceRequest extends Model
      * @description The password of the instance.
      *
      * The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include: ``()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/``
+     *
      * @example yourPassword:1
      *
      * @var string
@@ -150,6 +156,7 @@ class CreateInstanceRequest extends Model
      * - **true**: The password preset in the image is used, and the **Password** parameter must be null. For secure access, make sure that the selected image has a password configured.
      *
      * - **false**: does not use the password preset in the image.
+     *
      * @example false
      *
      * @var bool
@@ -169,6 +176,7 @@ class CreateInstanceRequest extends Model
      * @description The subscription period of the instance. Valid values: **1** to **9** and **12**. Unit: months.
      *
      * This parameter is required.
+     *
      * @example 12
      *
      * @var string
@@ -200,6 +208,7 @@ class CreateInstanceRequest extends Model
      * @description The number of instances.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -212,6 +221,7 @@ class CreateInstanceRequest extends Model
      * Examples: **LocalHost001** and **LocalHost002**, and **MyInstance001** and **MyInstance002**.
      *
      * Default value: **false**.
+     *
      * @example false
      *
      * @var bool
@@ -221,7 +231,10 @@ class CreateInstanceRequest extends Model
     /**
      * @description Custom data. The data starts with `#!`. The data can be at most 256 characters in length and 16 KB in size. Only custom scripts are supported and cannot be rendered by InstanceMetaData.
      *
+     * You can specify custom data. The data is encoded in Base64. The system does not encrypt your custom data when API requests are initiated. We recommend that you do not pass in confidential information such as passwords and private keys in plaintext. If you want to provide sensitive data such as passwords and private keys, encrypt the data and then encode it in Base64. The data is decrypted on the instance in the way it is encrypted.
+     *
      * For more information, see [User data formats](https://cloudinit.readthedocs.io/en/latest/topics/format.html).
+     *
      * @example #!/bin/sh  echo "Hello World.  The time is now $(date -R)!" | tee /home/output.txt
      *
      * @var string
@@ -237,34 +250,32 @@ class CreateInstanceRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'dataDisk'               => 'DataDisk',
-        'systemDisk'             => 'SystemDisk',
-        'autoRenew'              => 'AutoRenew',
-        'autoRenewPeriod'        => 'AutoRenewPeriod',
-        'ensRegionId'            => 'EnsRegionId',
-        'hostName'               => 'HostName',
-        'imageId'                => 'ImageId',
-        'instanceName'           => 'InstanceName',
-        'instanceType'           => 'InstanceType',
-        'internetChargeType'     => 'InternetChargeType',
-        'ipType'                 => 'IpType',
-        'keyPairName'            => 'KeyPairName',
-        'ownerId'                => 'OwnerId',
-        'password'               => 'Password',
-        'passwordInherit'        => 'PasswordInherit',
-        'paymentType'            => 'PaymentType',
-        'period'                 => 'Period',
-        'privateIpAddress'       => 'PrivateIpAddress',
+        'dataDisk' => 'DataDisk',
+        'systemDisk' => 'SystemDisk',
+        'autoRenew' => 'AutoRenew',
+        'autoRenewPeriod' => 'AutoRenewPeriod',
+        'ensRegionId' => 'EnsRegionId',
+        'hostName' => 'HostName',
+        'imageId' => 'ImageId',
+        'instanceName' => 'InstanceName',
+        'instanceType' => 'InstanceType',
+        'internetChargeType' => 'InternetChargeType',
+        'ipType' => 'IpType',
+        'keyPairName' => 'KeyPairName',
+        'ownerId' => 'OwnerId',
+        'password' => 'Password',
+        'passwordInherit' => 'PasswordInherit',
+        'paymentType' => 'PaymentType',
+        'period' => 'Period',
+        'privateIpAddress' => 'PrivateIpAddress',
         'publicIpIdentification' => 'PublicIpIdentification',
-        'quantity'               => 'Quantity',
-        'uniqueSuffix'           => 'UniqueSuffix',
-        'userData'               => 'UserData',
-        'vSwitchId'              => 'VSwitchId',
+        'quantity' => 'Quantity',
+        'uniqueSuffix' => 'UniqueSuffix',
+        'userData' => 'UserData',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -359,7 +370,7 @@ class CreateInstanceRequest extends Model
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {
                 $model->dataDisk = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['DataDisk'] as $item) {
                     $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
                 }

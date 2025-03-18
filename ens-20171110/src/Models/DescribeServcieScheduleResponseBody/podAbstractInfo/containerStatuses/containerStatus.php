@@ -27,12 +27,10 @@ class containerStatus extends Model
     public $name;
     protected $_name = [
         'containerId' => 'ContainerId',
-        'name'        => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

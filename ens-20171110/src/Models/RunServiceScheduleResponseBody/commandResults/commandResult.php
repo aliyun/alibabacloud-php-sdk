@@ -35,14 +35,12 @@ class commandResult extends Model
      */
     public $resultMsg;
     protected $_name = [
-        'command'       => 'Command',
+        'command' => 'Command',
         'containerName' => 'ContainerName',
-        'resultMsg'     => 'ResultMsg',
+        'resultMsg' => 'ResultMsg',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class DescribeLoadBalancerListenMonitorResponseBody extends Model
     public $requestId;
     protected $_name = [
         'loadBalancerMonitorListenData' => 'LoadBalancerMonitorListenData',
-        'requestId'                     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeLoadBalancerListenMonitorResponseBody extends Model
         if (isset($map['LoadBalancerMonitorListenData'])) {
             if (!empty($map['LoadBalancerMonitorListenData'])) {
                 $model->loadBalancerMonitorListenData = [];
-                $n                                    = 0;
+                $n = 0;
                 foreach ($map['LoadBalancerMonitorListenData'] as $item) {
                     $model->loadBalancerMonitorListenData[$n++] = null !== $item ? loadBalancerMonitorListenData::fromMap($item) : $item;
                 }

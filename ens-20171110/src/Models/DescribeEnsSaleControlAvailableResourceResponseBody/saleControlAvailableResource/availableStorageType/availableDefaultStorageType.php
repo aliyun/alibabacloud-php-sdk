@@ -22,9 +22,7 @@ class availableDefaultStorageType extends Model
         'storageType' => 'StorageType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

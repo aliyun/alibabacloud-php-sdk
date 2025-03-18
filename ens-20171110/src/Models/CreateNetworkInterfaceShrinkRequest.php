@@ -36,15 +36,13 @@ class CreateNetworkInterfaceShrinkRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'description'            => 'Description',
-        'name'                   => 'Name',
+        'description' => 'Description',
+        'name' => 'Name',
         'securityGroupIdsShrink' => 'SecurityGroupIds',
-        'vSwitchId'              => 'VSwitchId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

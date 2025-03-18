@@ -25,6 +25,7 @@ class CreateEnsRouteEntryRequest extends Model
      *   0.0.0.0/0 indicates the default CIDR block.
      *
      * This parameter is required.
+     *
      * @example 0.0.0.0/0
      *
      * @var string
@@ -35,6 +36,7 @@ class CreateEnsRouteEntryRequest extends Model
      * @description The ID of the next hop of the custom route entry.
      *
      * This parameter is required.
+     *
      * @example i-5vb7leks9z4mxy1ay258
      *
      * @var string
@@ -65,23 +67,28 @@ class CreateEnsRouteEntryRequest extends Model
      * @description The ID of the route table to which you want to add a custom route entry.
      *
      * This parameter is required.
+     *
      * @example vtb-bp1cifr72dioje82lse2j
      *
      * @var string
      */
     public $routeTableId;
+
+    /**
+     * @var string
+     */
+    public $sourceCidrBlock;
     protected $_name = [
-        'description'          => 'Description',
+        'description' => 'Description',
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'nextHopId'            => 'NextHopId',
-        'nextHopType'          => 'NextHopType',
-        'routeEntryName'       => 'RouteEntryName',
-        'routeTableId'         => 'RouteTableId',
+        'nextHopId' => 'NextHopId',
+        'nextHopType' => 'NextHopType',
+        'routeEntryName' => 'RouteEntryName',
+        'routeTableId' => 'RouteTableId',
+        'sourceCidrBlock' => 'SourceCidrBlock',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,6 +110,9 @@ class CreateEnsRouteEntryRequest extends Model
         }
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
+        }
+        if (null !== $this->sourceCidrBlock) {
+            $res['SourceCidrBlock'] = $this->sourceCidrBlock;
         }
 
         return $res;
@@ -133,6 +143,9 @@ class CreateEnsRouteEntryRequest extends Model
         }
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
+        }
+        if (isset($map['SourceCidrBlock'])) {
+            $model->sourceCidrBlock = $map['SourceCidrBlock'];
         }
 
         return $model;

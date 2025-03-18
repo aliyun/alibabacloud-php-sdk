@@ -70,18 +70,16 @@ class DescribeInstanceSpecResponseBody extends Model
      */
     public $systemDiskMaxSize;
     protected $_name = [
-        'bandwidthLimit'    => 'BandwidthLimit',
-        'code'              => 'Code',
-        'dataDiskMaxSize'   => 'DataDiskMaxSize',
-        'dataDiskMinSize'   => 'DataDiskMinSize',
-        'instanceSpecs'     => 'InstanceSpecs',
-        'requestId'         => 'RequestId',
+        'bandwidthLimit' => 'BandwidthLimit',
+        'code' => 'Code',
+        'dataDiskMaxSize' => 'DataDiskMaxSize',
+        'dataDiskMinSize' => 'DataDiskMinSize',
+        'instanceSpecs' => 'InstanceSpecs',
+        'requestId' => 'RequestId',
         'systemDiskMaxSize' => 'SystemDiskMaxSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

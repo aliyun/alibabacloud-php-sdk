@@ -17,9 +17,7 @@ class supportResources extends Model
         'supportResource' => 'SupportResource',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class supportResources extends Model
         if (isset($map['SupportResource'])) {
             if (!empty($map['SupportResource'])) {
                 $model->supportResource = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['SupportResource'] as $item) {
                     $model->supportResource[$n++] = null !== $item ? supportResource::fromMap($item) : $item;
                 }

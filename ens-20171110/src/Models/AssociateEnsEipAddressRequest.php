@@ -12,6 +12,7 @@ class AssociateEnsEipAddressRequest extends Model
      * @description The ID of the EIP that you want to associate.
      *
      * This parameter is required.
+     *
      * @example eip-5sc1sgcrsrwgwdvx44hru3p63
      *
      * @var string
@@ -21,7 +22,10 @@ class AssociateEnsEipAddressRequest extends Model
     /**
      * @description The ID of the cloud service with which the EIP is associated.
      *
+     * >  You can specify the ID of an Edge Load Balancer (ELB) instance ID.
+     *
      * This parameter is required.
+     *
      * @example lb-5saivuir6b1mupxjfbhmk1xkb
      *
      * @var string
@@ -56,14 +60,12 @@ class AssociateEnsEipAddressRequest extends Model
     public $standby;
     protected $_name = [
         'allocationId' => 'AllocationId',
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'standby'      => 'Standby',
+        'standby' => 'Standby',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -75,17 +75,15 @@ class DescribeStorageVolumeRequest extends Model
     public $volumeId;
     protected $_name = [
         'ensRegionId' => 'EnsRegionId',
-        'gatewayId'   => 'GatewayId',
-        'isEnable'    => 'IsEnable',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'storageId'   => 'StorageId',
-        'volumeId'    => 'VolumeId',
+        'gatewayId' => 'GatewayId',
+        'isEnable' => 'IsEnable',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'storageId' => 'StorageId',
+        'volumeId' => 'VolumeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

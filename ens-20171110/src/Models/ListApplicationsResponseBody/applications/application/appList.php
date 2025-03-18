@@ -17,9 +17,7 @@ class appList extends Model
         'app' => 'App',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class appList extends Model
         if (isset($map['App'])) {
             if (!empty($map['App'])) {
                 $model->app = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['App'] as $item) {
                     $model->app[$n++] = null !== $item ? app::fromMap($item) : $item;
                 }

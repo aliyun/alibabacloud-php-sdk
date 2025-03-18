@@ -35,14 +35,12 @@ class CreateSnapshotResponseBody extends Model
      */
     public $snapShotId;
     protected $_name = [
-        'orderId'    => 'OrderId',
-        'requestId'  => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
         'snapShotId' => 'SnapShotId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

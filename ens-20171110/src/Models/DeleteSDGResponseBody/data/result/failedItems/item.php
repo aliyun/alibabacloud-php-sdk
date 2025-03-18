@@ -20,9 +20,7 @@ class item extends Model
         'sdgId' => 'SdgId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

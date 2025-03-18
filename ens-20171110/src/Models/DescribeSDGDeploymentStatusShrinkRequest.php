@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSDGDeploymentStatusShrinkRequest extends Model
 {
     /**
+     * @description The deployment type.
+     *
+     * @example shared
+     *
      * @var string
      */
     public $deploymentType;
 
     /**
+     * @description IDs of Android in Container (AIC) instances.
+     *
      * @var string
      */
     public $instanceIdsShrink;
@@ -28,7 +34,7 @@ class DescribeSDGDeploymentStatusShrinkRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
+     * @description The number of entries returned on each page.
      *
      * @example 10
      *
@@ -37,6 +43,8 @@ class DescribeSDGDeploymentStatusShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description The IDs of the nodes.
+     *
      * @var string
      */
     public $regionIdsShrink;
@@ -45,6 +53,7 @@ class DescribeSDGDeploymentStatusShrinkRequest extends Model
      * @description The ID of the SDG.
      *
      * This parameter is required.
+     *
      * @example sdg-xxxx
      *
      * @var string
@@ -52,22 +61,24 @@ class DescribeSDGDeploymentStatusShrinkRequest extends Model
     public $SDGId;
 
     /**
+     * @description The deployment status of the SDG.
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'deploymentType'    => 'DeploymentType',
+        'deploymentType' => 'DeploymentType',
         'instanceIdsShrink' => 'InstanceIds',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'regionIdsShrink'   => 'RegionIds',
-        'SDGId'             => 'SDGId',
-        'status'            => 'Status',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionIdsShrink' => 'RegionIds',
+        'SDGId' => 'SDGId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

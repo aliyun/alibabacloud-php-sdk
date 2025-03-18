@@ -25,13 +25,11 @@ class DescribeCloudDiskAvailableResourceInfoResponseBody extends Model
      */
     public $supportResources;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'supportResources' => 'SupportResources',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

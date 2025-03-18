@@ -111,21 +111,19 @@ class haVips extends Model
     public $vSwitchId;
     protected $_name = [
         'associatedEipAddresses' => 'AssociatedEipAddresses',
-        'associatedInstances'    => 'AssociatedInstances',
-        'creationTime'           => 'CreationTime',
-        'description'            => 'Description',
-        'ensRegionId'            => 'EnsRegionId',
-        'haVipId'                => 'HaVipId',
-        'ipAddress'              => 'IpAddress',
-        'name'                   => 'Name',
-        'networkId'              => 'NetworkId',
-        'status'                 => 'Status',
-        'vSwitchId'              => 'VSwitchId',
+        'associatedInstances' => 'AssociatedInstances',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'ensRegionId' => 'EnsRegionId',
+        'haVipId' => 'HaVipId',
+        'ipAddress' => 'IpAddress',
+        'name' => 'Name',
+        'networkId' => 'NetworkId',
+        'status' => 'Status',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -190,7 +188,7 @@ class haVips extends Model
         if (isset($map['AssociatedEipAddresses'])) {
             if (!empty($map['AssociatedEipAddresses'])) {
                 $model->associatedEipAddresses = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['AssociatedEipAddresses'] as $item) {
                     $model->associatedEipAddresses[$n++] = null !== $item ? associatedEipAddresses::fromMap($item) : $item;
                 }
@@ -199,7 +197,7 @@ class haVips extends Model
         if (isset($map['AssociatedInstances'])) {
             if (!empty($map['AssociatedInstances'])) {
                 $model->associatedInstances = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['AssociatedInstances'] as $item) {
                     $model->associatedInstances[$n++] = null !== $item ? associatedInstances::fromMap($item) : $item;
                 }

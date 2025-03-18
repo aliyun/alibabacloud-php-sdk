@@ -15,6 +15,7 @@ class DescribeBandwitdhByInternetChargeTypeRequest extends Model
      *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
      *
      * This parameter is required.
+     *
      * @example 2022-01-18T09:39:54Z
      *
      * @var string
@@ -51,21 +52,20 @@ class DescribeBandwitdhByInternetChargeTypeRequest extends Model
      *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
      *
      * This parameter is required.
+     *
      * @example 2021-11-15T16:00:00Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'     => 'EndTime',
+        'endTime' => 'EndTime',
         'ensRegionId' => 'EnsRegionId',
-        'isp'         => 'Isp',
-        'startTime'   => 'StartTime',
+        'isp' => 'Isp',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

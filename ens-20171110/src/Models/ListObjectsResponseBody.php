@@ -134,25 +134,23 @@ class ListObjectsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'bucketName'            => 'BucketName',
-        'commonPrefixes'        => 'CommonPrefixes',
-        'contents'              => 'Contents',
-        'continuationToken'     => 'ContinuationToken',
-        'delimiter'             => 'Delimiter',
-        'encodingType'          => 'EncodingType',
-        'isTruncated'           => 'IsTruncated',
-        'keyCount'              => 'KeyCount',
-        'marker'                => 'Marker',
-        'maxKeys'               => 'MaxKeys',
+        'bucketName' => 'BucketName',
+        'commonPrefixes' => 'CommonPrefixes',
+        'contents' => 'Contents',
+        'continuationToken' => 'ContinuationToken',
+        'delimiter' => 'Delimiter',
+        'encodingType' => 'EncodingType',
+        'isTruncated' => 'IsTruncated',
+        'keyCount' => 'KeyCount',
+        'marker' => 'Marker',
+        'maxKeys' => 'MaxKeys',
         'nextContinuationToken' => 'NextContinuationToken',
-        'nextMarker'            => 'NextMarker',
-        'prefix'                => 'Prefix',
-        'requestId'             => 'RequestId',
+        'nextMarker' => 'NextMarker',
+        'prefix' => 'Prefix',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -228,7 +226,7 @@ class ListObjectsResponseBody extends Model
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
                 $model->contents = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Contents'] as $item) {
                     $model->contents[$n++] = null !== $item ? contents::fromMap($item) : $item;
                 }

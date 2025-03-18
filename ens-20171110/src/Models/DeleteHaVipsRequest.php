@@ -18,9 +18,7 @@ class DeleteHaVipsRequest extends Model
         'haVipIds' => 'HaVipIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

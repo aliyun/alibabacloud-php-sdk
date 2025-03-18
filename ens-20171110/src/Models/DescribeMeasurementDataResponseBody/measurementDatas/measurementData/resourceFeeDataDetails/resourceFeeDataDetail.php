@@ -48,15 +48,13 @@ class resourceFeeDataDetail extends Model
      */
     public $resourceType;
     protected $_name = [
-        'costCode'     => 'CostCode',
-        'costName'     => 'CostName',
-        'costVal'      => 'CostVal',
+        'costCode' => 'CostCode',
+        'costName' => 'CostName',
+        'costVal' => 'CostVal',
         'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

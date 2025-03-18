@@ -25,12 +25,10 @@ class assignedPrivateIpAddressesSet extends Model
     public $privateIpSet;
     protected $_name = [
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'privateIpSet'       => 'PrivateIpSet',
+        'privateIpSet' => 'PrivateIpSet',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

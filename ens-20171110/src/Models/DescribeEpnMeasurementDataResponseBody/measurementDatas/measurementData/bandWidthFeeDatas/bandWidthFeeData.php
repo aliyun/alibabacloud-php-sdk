@@ -59,13 +59,11 @@ class bandWidthFeeData extends Model
         'costCode' => 'CostCode',
         'costName' => 'CostName',
         'costType' => 'CostType',
-        'costVal'  => 'CostVal',
-        'ispLine'  => 'IspLine',
+        'costVal' => 'CostVal',
+        'ispLine' => 'IspLine',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

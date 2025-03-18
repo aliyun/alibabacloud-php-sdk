@@ -21,6 +21,7 @@ class AddNetworkInterfaceToInstanceRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example yourInstance ID
      *
      * @var string
@@ -31,20 +32,19 @@ class AddNetworkInterfaceToInstanceRequest extends Model
      * @description The network. The value is a JSON string. Only IPv6 is supported. Sample code of an IPv6 network: [{ "ipType": "public", "ipAddressType": "ipv6" }]
      *
      * This parameter is required.
+     *
      * @example [{"ipType": "public", "ipAddressType": "ipv6" }]
      *
      * @var string
      */
     public $networks;
     protected $_name = [
-        'autoStart'  => 'AutoStart',
+        'autoStart' => 'AutoStart',
         'instanceId' => 'InstanceId',
-        'networks'   => 'Networks',
+        'networks' => 'Networks',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

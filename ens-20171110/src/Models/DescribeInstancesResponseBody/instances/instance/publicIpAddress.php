@@ -16,9 +16,7 @@ class publicIpAddress extends Model
         'ipAddress' => 'IpAddress',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

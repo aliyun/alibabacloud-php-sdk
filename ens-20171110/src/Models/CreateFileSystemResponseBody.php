@@ -43,15 +43,13 @@ class CreateFileSystemResponseBody extends Model
      */
     public $unAllocationId;
     protected $_name = [
-        'allocationId'   => 'AllocationId',
-        'bizStatusCode'  => 'BizStatusCode',
-        'requestId'      => 'RequestId',
+        'allocationId' => 'AllocationId',
+        'bizStatusCode' => 'BizStatusCode',
+        'requestId' => 'RequestId',
         'unAllocationId' => 'UnAllocationId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

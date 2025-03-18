@@ -98,21 +98,19 @@ class permission extends Model
      */
     public $sourcePortRange;
     protected $_name = [
-        'creationTime'    => 'CreationTime',
-        'description'     => 'Description',
-        'destCidrIp'      => 'DestCidrIp',
-        'direction'       => 'Direction',
-        'ipProtocol'      => 'IpProtocol',
-        'policy'          => 'Policy',
-        'portRange'       => 'PortRange',
-        'priority'        => 'Priority',
-        'sourceCidrIp'    => 'SourceCidrIp',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'destCidrIp' => 'DestCidrIp',
+        'direction' => 'Direction',
+        'ipProtocol' => 'IpProtocol',
+        'policy' => 'Policy',
+        'portRange' => 'PortRange',
+        'priority' => 'Priority',
+        'sourceCidrIp' => 'SourceCidrIp',
         'sourcePortRange' => 'SourcePortRange',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

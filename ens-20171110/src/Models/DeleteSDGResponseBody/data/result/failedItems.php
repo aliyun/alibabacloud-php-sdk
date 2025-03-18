@@ -26,12 +26,10 @@ class failedItems extends Model
     public $item;
     protected $_name = [
         'errMessage' => 'ErrMessage',
-        'item'       => 'Item',
+        'item' => 'Item',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,9 +22,7 @@ class moduleCodesInfo extends Model
         'moduleName' => 'ModuleName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

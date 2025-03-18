@@ -15,6 +15,7 @@ class DescribeUserBandWidthDataRequest extends Model
      *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
      *
      * This parameter is required.
+     *
      * @example 2019-05-21T12:22:00Z
      *
      * @var string
@@ -57,6 +58,7 @@ class DescribeUserBandWidthDataRequest extends Model
      * @description The precision of the monitoring data that you want to obtain. Valid values: 300, 1200, 3600, and 14400. Default value: 300. Unit: seconds.
      *
      * This parameter is required.
+     *
      * @example 300
      *
      * @var string
@@ -70,23 +72,22 @@ class DescribeUserBandWidthDataRequest extends Model
      *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
      *
      * This parameter is required.
+     *
      * @example 2019-05-21T10:22:00Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'     => 'EndTime',
+        'endTime' => 'EndTime',
         'ensRegionId' => 'EnsRegionId',
-        'instanceId'  => 'InstanceId',
-        'isp'         => 'Isp',
-        'period'      => 'Period',
-        'startTime'   => 'StartTime',
+        'instanceId' => 'InstanceId',
+        'isp' => 'Isp',
+        'period' => 'Period',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -37,12 +37,10 @@ class bandWidthFeeData extends Model
     protected $_name = [
         'costCode' => 'CostCode',
         'costName' => 'CostName',
-        'costVal'  => 'CostVal',
+        'costVal' => 'CostVal',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

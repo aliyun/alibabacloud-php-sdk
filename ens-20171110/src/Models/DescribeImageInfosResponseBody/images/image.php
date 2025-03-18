@@ -33,6 +33,8 @@ class image extends Model
     public $description;
 
     /**
+     * @description The mappings between disks and snapshots in the image.
+     *
      * @var diskDeviceMappings
      */
     public $diskDeviceMappings;
@@ -81,20 +83,28 @@ class image extends Model
      * @var string
      */
     public $OSType;
+
+    /**
+     * @description The ID of the region.
+     *
+     * @example cn-shenzhen
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'computeType'        => 'ComputeType',
-        'description'        => 'Description',
+        'computeType' => 'ComputeType',
+        'description' => 'Description',
         'diskDeviceMappings' => 'DiskDeviceMappings',
-        'imageId'            => 'ImageId',
-        'imageSize'          => 'ImageSize',
-        'imageVersion'       => 'ImageVersion',
-        'OSName'             => 'OSName',
-        'OSType'             => 'OSType',
+        'imageId' => 'ImageId',
+        'imageSize' => 'ImageSize',
+        'imageVersion' => 'ImageVersion',
+        'OSName' => 'OSName',
+        'OSType' => 'OSType',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -122,6 +132,9 @@ class image extends Model
         }
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -158,6 +171,9 @@ class image extends Model
         }
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

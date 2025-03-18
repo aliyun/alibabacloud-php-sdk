@@ -48,15 +48,13 @@ class resources extends Model
      */
     public $status;
     protected $_name = [
-        'ensRegionId'  => 'EnsRegionId',
-        'resourceId'   => 'ResourceId',
+        'ensRegionId' => 'EnsRegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'status'       => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

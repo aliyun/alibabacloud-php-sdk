@@ -12,6 +12,7 @@ class backendServers extends Model
      * @description The ID of the instance that you want to use as the backend server.
      *
      * This parameter is required.
+     *
      * @example i-5ze0o05xccvbljtn****
      *
      * @var string
@@ -33,7 +34,10 @@ class backendServers extends Model
     /**
      * @description The weight of the backend server. Default value: 100. Valid values: **0** to **100**.
      *
+     * >  The value 0 indicates that requests are not forwarded to the backend server.
+     *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -41,13 +45,11 @@ class backendServers extends Model
     public $weight;
     protected $_name = [
         'serverId' => 'ServerId',
-        'type'     => 'Type',
-        'weight'   => 'Weight',
+        'type' => 'Type',
+        'weight' => 'Weight',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

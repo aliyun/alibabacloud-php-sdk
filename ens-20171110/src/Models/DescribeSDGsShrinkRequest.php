@@ -23,12 +23,10 @@ class DescribeSDGsShrinkRequest extends Model
     public $SDGIdsShrink;
     protected $_name = [
         'instanceIdsShrink' => 'InstanceIds',
-        'SDGIdsShrink'      => 'SDGIds',
+        'SDGIdsShrink' => 'SDGIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

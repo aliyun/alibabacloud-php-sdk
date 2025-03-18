@@ -33,9 +33,7 @@ class supportIpv6Info extends Model
         'supportIpv6' => 'SupportIpv6',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -43,16 +43,14 @@ class CreateHaVipRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'amount'      => 'Amount',
+        'amount' => 'Amount',
         'description' => 'Description',
-        'ipAddress'   => 'IpAddress',
-        'name'        => 'Name',
-        'vSwitchId'   => 'VSwitchId',
+        'ipAddress' => 'IpAddress',
+        'name' => 'Name',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

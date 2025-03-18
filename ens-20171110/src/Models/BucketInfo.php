@@ -85,22 +85,20 @@ class BucketInfo extends Model
      */
     public $storageClass;
     protected $_name = [
-        'bucketAcl'          => 'BucketAcl',
-        'bucketName'         => 'BucketName',
-        'comment'            => 'Comment',
-        'createTime'         => 'CreateTime',
+        'bucketAcl' => 'BucketAcl',
+        'bucketName' => 'BucketName',
+        'comment' => 'Comment',
+        'createTime' => 'CreateTime',
         'dataRedundancyType' => 'DataRedundancyType',
-        'dispatcherType'     => 'DispatcherType',
-        'endpoint'           => 'Endpoint',
-        'ensRegionId'        => 'EnsRegionId',
-        'modifyTime'         => 'ModifyTime',
-        'resourceType'       => 'ResourceType',
-        'storageClass'       => 'StorageClass',
+        'dispatcherType' => 'DispatcherType',
+        'endpoint' => 'Endpoint',
+        'ensRegionId' => 'EnsRegionId',
+        'modifyTime' => 'ModifyTime',
+        'resourceType' => 'ResourceType',
+        'storageClass' => 'StorageClass',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

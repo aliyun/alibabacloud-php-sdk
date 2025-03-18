@@ -17,9 +17,7 @@ class images extends Model
         'image' => 'Image',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class images extends Model
         if (isset($map['Image'])) {
             if (!empty($map['Image'])) {
                 $model->image = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Image'] as $item) {
                     $model->image[$n++] = null !== $item ? image::fromMap($item) : $item;
                 }

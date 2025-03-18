@@ -112,20 +112,18 @@ class SDGs extends Model
     protected $_name = [
         'avaliableRegionIds' => 'AvaliableRegionIds',
         'creationInstanceId' => 'CreationInstanceId',
-        'creationRegionId'   => 'CreationRegionId',
-        'creationTime'       => 'CreationTime',
-        'description'        => 'Description',
-        'parentSDGId'        => 'ParentSDGId',
-        'preloadInfos'       => 'PreloadInfos',
-        'SDGId'              => 'SDGId',
-        'size'               => 'Size',
-        'status'             => 'Status',
-        'updateTime'         => 'UpdateTime',
+        'creationRegionId' => 'CreationRegionId',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'parentSDGId' => 'ParentSDGId',
+        'preloadInfos' => 'PreloadInfos',
+        'SDGId' => 'SDGId',
+        'size' => 'Size',
+        'status' => 'Status',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -190,7 +188,7 @@ class SDGs extends Model
         if (isset($map['AvaliableRegionIds'])) {
             if (!empty($map['AvaliableRegionIds'])) {
                 $model->avaliableRegionIds = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['AvaliableRegionIds'] as $item) {
                     $model->avaliableRegionIds[$n++] = null !== $item ? avaliableRegionIds::fromMap($item) : $item;
                 }
@@ -214,7 +212,7 @@ class SDGs extends Model
         if (isset($map['PreloadInfos'])) {
             if (!empty($map['PreloadInfos'])) {
                 $model->preloadInfos = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PreloadInfos'] as $item) {
                     $model->preloadInfos[$n++] = null !== $item ? preloadInfos::fromMap($item) : $item;
                 }

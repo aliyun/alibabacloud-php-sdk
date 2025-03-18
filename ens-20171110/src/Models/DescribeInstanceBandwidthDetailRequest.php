@@ -68,19 +68,17 @@ class DescribeInstanceBandwidthDetailRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'ensRegionId'  => 'EnsRegionId',
-        'instanceId'   => 'InstanceId',
+        'endTime' => 'EndTime',
+        'ensRegionId' => 'EnsRegionId',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'serviceType'  => 'ServiceType',
-        'startTime'    => 'StartTime',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'serviceType' => 'ServiceType',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

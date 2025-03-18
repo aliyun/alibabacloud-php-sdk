@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSDGDeploymentStatusResponseBody extends Model
 {
     /**
-     * @description The deployment information of the SDG.
+     * @description The list of SDG deployment information.
      *
      * @var deploymentStatus[]
      */
@@ -35,7 +35,7 @@ class DescribeSDGDeploymentStatusResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 68B85217-03B8-5141-9216-EA4D7C496B9A
      *
@@ -53,15 +53,13 @@ class DescribeSDGDeploymentStatusResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'deploymentStatus' => 'DeploymentStatus',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'requestId'        => 'RequestId',
-        'totalCount'       => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeSDGDeploymentStatusResponseBody extends Model
         if (isset($map['DeploymentStatus'])) {
             if (!empty($map['DeploymentStatus'])) {
                 $model->deploymentStatus = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['DeploymentStatus'] as $item) {
                     $model->deploymentStatus[$n++] = null !== $item ? deploymentStatus::fromMap($item) : $item;
                 }

@@ -27,12 +27,10 @@ class CreateClusterRequest extends Model
     public $name;
     protected $_name = [
         'clusterVersion' => 'ClusterVersion',
-        'name'           => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

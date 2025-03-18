@@ -62,17 +62,15 @@ class DescribeDeviceServiceRequest extends Model
      */
     public $serviceId;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'ensRegionId' => 'EnsRegionId',
-        'instanceId'  => 'InstanceId',
-        'orderId'     => 'OrderId',
-        'regionId'    => 'RegionId',
-        'serviceId'   => 'ServiceId',
+        'instanceId' => 'InstanceId',
+        'orderId' => 'OrderId',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

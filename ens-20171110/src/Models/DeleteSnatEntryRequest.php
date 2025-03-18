@@ -12,6 +12,7 @@ class DeleteSnatEntryRequest extends Model
      * @description The ID of the SNAT entry that you want to delete.
      *
      * This parameter is required.
+     *
      * @example snat-5tfi6f8gds82mjmlofeym****
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteSnatEntryRequest extends Model
         'snatEntryId' => 'SnatEntryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,13 +26,11 @@ class conditionSaleControl extends Model
     public $stockValue;
     protected $_name = [
         'conditionControl' => 'ConditionControl',
-        'moduleValue'      => 'ModuleValue',
-        'stockValue'       => 'StockValue',
+        'moduleValue' => 'ModuleValue',
+        'stockValue' => 'StockValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

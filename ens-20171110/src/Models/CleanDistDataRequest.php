@@ -28,15 +28,13 @@ class CleanDistDataRequest extends Model
      */
     public $ensRegionId;
     protected $_name = [
-        'appId'       => 'AppId',
-        'dataName'    => 'DataName',
+        'appId' => 'AppId',
+        'dataName' => 'DataName',
         'dataVersion' => 'DataVersion',
         'ensRegionId' => 'EnsRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

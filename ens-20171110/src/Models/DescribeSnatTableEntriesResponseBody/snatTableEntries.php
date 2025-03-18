@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class snatTableEntries extends Model
 {
     /**
+     * @var bool
+     */
+    public $eipAffinity;
+
+    /**
      * @description The timeout period for idle connections. Valid values: **1** to **86400**. Unit: seconds.
      *
      * @example 900
@@ -18,6 +23,14 @@ class snatTableEntries extends Model
     public $idleTimeout;
 
     /**
+     * @description Whether to enable operator affinity. Value taking:
+     *
+     * - false:Do not open.
+     *
+     * - true:Open.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ispAffinity;
@@ -103,25 +116,27 @@ class snatTableEntries extends Model
      */
     public $status;
     protected $_name = [
-        'idleTimeout'   => 'IdleTimeout',
-        'ispAffinity'   => 'IspAffinity',
-        'natGatewayId'  => 'NatGatewayId',
-        'snatEntryId'   => 'SnatEntryId',
+        'eipAffinity' => 'EipAffinity',
+        'idleTimeout' => 'IdleTimeout',
+        'ispAffinity' => 'IspAffinity',
+        'natGatewayId' => 'NatGatewayId',
+        'snatEntryId' => 'SnatEntryId',
         'snatEntryName' => 'SnatEntryName',
-        'snatIp'        => 'SnatIp',
-        'sourceCIDR'    => 'SourceCIDR',
+        'snatIp' => 'SnatIp',
+        'sourceCIDR' => 'SourceCIDR',
         'standbySnatIp' => 'StandbySnatIp',
         'standbyStatus' => 'StandbyStatus',
-        'status'        => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->eipAffinity) {
+            $res['EipAffinity'] = $this->eipAffinity;
+        }
         if (null !== $this->idleTimeout) {
             $res['IdleTimeout'] = $this->idleTimeout;
         }
@@ -164,6 +179,9 @@ class snatTableEntries extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EipAffinity'])) {
+            $model->eipAffinity = $map['EipAffinity'];
+        }
         if (isset($map['IdleTimeout'])) {
             $model->idleTimeout = $map['IdleTimeout'];
         }

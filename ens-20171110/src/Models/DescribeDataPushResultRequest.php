@@ -12,6 +12,7 @@ class DescribeDataPushResultRequest extends Model
      * @description The ID of the application.
      *
      * This parameter is required.
+     *
      * @example e76f8985-7965-41fc-925b-9648bb6bf650
      *
      * @var string
@@ -81,19 +82,17 @@ class DescribeDataPushResultRequest extends Model
      */
     public $regionIds;
     protected $_name = [
-        'appId'        => 'AppId',
-        'dataNames'    => 'DataNames',
+        'appId' => 'AppId',
+        'dataNames' => 'DataNames',
         'dataVersions' => 'DataVersions',
-        'maxDate'      => 'MaxDate',
-        'minDate'      => 'MinDate',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionIds'    => 'RegionIds',
+        'maxDate' => 'MaxDate',
+        'minDate' => 'MinDate',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionIds' => 'RegionIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

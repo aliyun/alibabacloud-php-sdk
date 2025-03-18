@@ -13,7 +13,7 @@ class CreateImageRequest extends Model
      *
      *   true: The image is released when the instance is released.
      *   false: The image is retained when the instance is released.
-     *   If you leave this parameter empty, the default value is used.
+     *   If you leave this property empty, false is used by default.
      *
      * @example false
      *
@@ -25,6 +25,7 @@ class CreateImageRequest extends Model
      * @description The name of the image. The name must be 2 to 128 characters in length. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * This parameter is required.
+     *
      * @example ImageName
      *
      * @var string
@@ -48,16 +49,24 @@ class CreateImageRequest extends Model
      * @var string
      */
     public $snapshotId;
+
+    /**
+     * @description The region of the target OSS where the image is to be stored.
+     *
+     * @example cn-beijing
+     *
+     * @var string
+     */
+    public $targetOSSRegionId;
     protected $_name = [
         'deleteAfterImageUpload' => 'DeleteAfterImageUpload',
-        'imageName'              => 'ImageName',
-        'instanceId'             => 'InstanceId',
-        'snapshotId'             => 'SnapshotId',
+        'imageName' => 'ImageName',
+        'instanceId' => 'InstanceId',
+        'snapshotId' => 'SnapshotId',
+        'targetOSSRegionId' => 'TargetOSSRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -73,6 +82,9 @@ class CreateImageRequest extends Model
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
+        }
+        if (null !== $this->targetOSSRegionId) {
+            $res['TargetOSSRegionId'] = $this->targetOSSRegionId;
         }
 
         return $res;
@@ -97,6 +109,9 @@ class CreateImageRequest extends Model
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
+        }
+        if (isset($map['TargetOSSRegionId'])) {
+            $model->targetOSSRegionId = $map['TargetOSSRegionId'];
         }
 
         return $model;

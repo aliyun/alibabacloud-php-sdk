@@ -12,6 +12,7 @@ class StartLoadBalancerListenerRequest extends Model
      * @description The listener port to be enabled. Valid values: **1** to **65535**.
      *
      * This parameter is required.
+     *
      * @example 8080
      *
      * @var int
@@ -27,6 +28,7 @@ class StartLoadBalancerListenerRequest extends Model
      *   https
      *
      * >  This parameter is required if the same port is used by listeners that use different protocols.
+     *
      * @example tcp
      *
      * @var string
@@ -37,20 +39,19 @@ class StartLoadBalancerListenerRequest extends Model
      * @description The ID of the ELB instance.
      *
      * This parameter is required.
+     *
      * @example lb-5saivuir6b1mupxjfbhmk****
      *
      * @var string
      */
     public $loadBalancerId;
     protected $_name = [
-        'listenerPort'     => 'ListenerPort',
+        'listenerPort' => 'ListenerPort',
         'listenerProtocol' => 'ListenerProtocol',
-        'loadBalancerId'   => 'LoadBalancerId',
+        'loadBalancerId' => 'LoadBalancerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class CreateSDGRequest extends Model
      * @description The description of the SDG.
      *
      * >  We recommend that you specify this parameter in details for subsequent queries.
+     *
      * @example Testing SDGs
      *
      * @var string
@@ -39,6 +40,7 @@ class CreateSDGRequest extends Model
      * @description The ID of the AIC instance. You can call the [DescribeARMServerInstances](~~DescribeARMServerInstances~~) operation to query the ID.
      *
      * This parameter is required.
+     *
      * @example aic-xxxx
      *
      * @var string
@@ -63,14 +65,12 @@ class CreateSDGRequest extends Model
     public $size;
     protected $_name = [
         'description' => 'Description',
-        'fromSDGId'   => 'FromSDGId',
-        'instanceId'  => 'InstanceId',
-        'size'        => 'Size',
+        'fromSDGId' => 'FromSDGId',
+        'instanceId' => 'InstanceId',
+        'size' => 'Size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

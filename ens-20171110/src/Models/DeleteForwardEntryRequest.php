@@ -12,6 +12,7 @@ class DeleteForwardEntryRequest extends Model
      * @description The ID of the DNAT entry that you want to delete.
      *
      * This parameter is required.
+     *
      * @example fwd-5tfk8qgepr9ijjkqxt8do****
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteForwardEntryRequest extends Model
         'forwardEntryId' => 'ForwardEntryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

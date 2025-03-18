@@ -12,6 +12,7 @@ class AttachEnsInstancesRequest extends Model
      * @description The ID of the instance. You can specify only one instance ID.
      *
      * This parameter is required.
+     *
      * @example testInstacneId
      *
      * @var string
@@ -22,6 +23,7 @@ class AttachEnsInstancesRequest extends Model
      * @description The command that you want to execute on the instance. The command must be encoded in Base64 or UTF-8.
      *
      * This parameter is required.
+     *
      * @example wget d2dldCBodHRwOi8vYWxpYWNzLWs4cy1jbxxxx
      *
      * @var string
@@ -29,12 +31,10 @@ class AttachEnsInstancesRequest extends Model
     public $scripts;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'scripts'    => 'Scripts',
+        'scripts' => 'Scripts',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -20,9 +20,7 @@ class SaveSDGRequest extends Model
         'SDGId' => 'SDGId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

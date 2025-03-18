@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeEnsRouteTablesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $associateType;
+
+    /**
      * @description The ID of the ENS node.
      *
      * @example cn-xian-unicom
@@ -16,6 +21,13 @@ class DescribeEnsRouteTablesRequest extends Model
      * @var string
      */
     public $ensRegionId;
+
+    /**
+     * @description The IDs of the Edge Node Service (ENS) nodes.
+     *
+     * @var string[]
+     */
+    public $ensRegionIds;
 
     /**
      * @description The ID of the network.
@@ -52,23 +64,41 @@ class DescribeEnsRouteTablesRequest extends Model
      * @var string
      */
     public $routeTableId;
+
+    /**
+     * @var string
+     */
+    public $routeTableName;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'ensRegionId'  => 'EnsRegionId',
-        'networkId'    => 'NetworkId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'associateType' => 'AssociateType',
+        'ensRegionId' => 'EnsRegionId',
+        'ensRegionIds' => 'EnsRegionIds',
+        'networkId' => 'NetworkId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'routeTableId' => 'RouteTableId',
+        'routeTableName' => 'RouteTableName',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->associateType) {
+            $res['AssociateType'] = $this->associateType;
+        }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+        if (null !== $this->ensRegionIds) {
+            $res['EnsRegionIds'] = $this->ensRegionIds;
         }
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
@@ -82,6 +112,12 @@ class DescribeEnsRouteTablesRequest extends Model
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
         }
+        if (null !== $this->routeTableName) {
+            $res['RouteTableName'] = $this->routeTableName;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
 
         return $res;
     }
@@ -94,8 +130,16 @@ class DescribeEnsRouteTablesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssociateType'])) {
+            $model->associateType = $map['AssociateType'];
+        }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
+        }
+        if (isset($map['EnsRegionIds'])) {
+            if (!empty($map['EnsRegionIds'])) {
+                $model->ensRegionIds = $map['EnsRegionIds'];
+            }
         }
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
@@ -108,6 +152,12 @@ class DescribeEnsRouteTablesRequest extends Model
         }
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
+        }
+        if (isset($map['RouteTableName'])) {
+            $model->routeTableName = $map['RouteTableName'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

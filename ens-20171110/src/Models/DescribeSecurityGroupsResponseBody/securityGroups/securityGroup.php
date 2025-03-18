@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupsResponseBody\securityGroups;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupsResponseBody\securityGroups\securityGroup\instanceIds;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupsResponseBody\securityGroups\securityGroup\networkInterfaceIds;
 use AlibabaCloud\Tea\Model;
 
 class securityGroup extends Model
 {
     /**
-     * @description The time when the security group was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC. The format is yyyy-MM-ddThh:mmZ.
+     * @description The creation time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-11-01T06:08:46Z
      *
@@ -36,6 +38,20 @@ class securityGroup extends Model
     public $instanceCount;
 
     /**
+     * @description The list of instance IDs.
+     *
+     * @var instanceIds
+     */
+    public $instanceIds;
+
+    /**
+     * @description The IDs of ENIs.
+     *
+     * @var networkInterfaceIds
+     */
+    public $networkInterfaceIds;
+
+    /**
      * @description The ID of the security group.
      *
      * @example sg-bp67acfmxazb4ph***
@@ -53,16 +69,16 @@ class securityGroup extends Model
      */
     public $securityGroupName;
     protected $_name = [
-        'creationTime'      => 'CreationTime',
-        'description'       => 'Description',
-        'instanceCount'     => 'InstanceCount',
-        'securityGroupId'   => 'SecurityGroupId',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'instanceCount' => 'InstanceCount',
+        'instanceIds' => 'InstanceIds',
+        'networkInterfaceIds' => 'NetworkInterfaceIds',
+        'securityGroupId' => 'SecurityGroupId',
         'securityGroupName' => 'SecurityGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,6 +91,12 @@ class securityGroup extends Model
         }
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
+        }
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toMap() : null;
+        }
+        if (null !== $this->networkInterfaceIds) {
+            $res['NetworkInterfaceIds'] = null !== $this->networkInterfaceIds ? $this->networkInterfaceIds->toMap() : null;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
@@ -102,6 +124,12 @@ class securityGroup extends Model
         }
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
+        }
+        if (isset($map['InstanceIds'])) {
+            $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
+        }
+        if (isset($map['NetworkInterfaceIds'])) {
+            $model->networkInterfaceIds = networkInterfaceIds::fromMap($map['NetworkInterfaceIds']);
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];

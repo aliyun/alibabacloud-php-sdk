@@ -25,12 +25,10 @@ class DeleteDeviceInternetPortResponseBody extends Model
     public $ruleIds;
     protected $_name = [
         'requestId' => 'RequestId',
-        'ruleIds'   => 'RuleIds',
+        'ruleIds' => 'RuleIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

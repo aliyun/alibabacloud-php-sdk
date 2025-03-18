@@ -100,20 +100,18 @@ class systemDisk extends Model
      */
     public $uuid;
     protected $_name = [
-        'category'   => 'Category',
-        'diskId'     => 'DiskId',
-        'diskName'   => 'DiskName',
-        'size'       => 'Size',
+        'category' => 'Category',
+        'diskId' => 'DiskId',
+        'diskName' => 'DiskName',
+        'size' => 'Size',
         'deviceType' => 'device_type',
-        'diskType'   => 'disk_type',
-        'name'       => 'name',
-        'storage'    => 'storage',
-        'uuid'       => 'uuid',
+        'diskType' => 'disk_type',
+        'name' => 'name',
+        'storage' => 'storage',
+        'uuid' => 'uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -161,27 +161,25 @@ class networkInterfaceSet extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'creationTime'         => 'CreationTime',
-        'description'          => 'Description',
-        'ensRegionId'          => 'EnsRegionId',
-        'instanceId'           => 'InstanceId',
-        'ipv6Sets'             => 'Ipv6Sets',
-        'macAddress'           => 'MacAddress',
-        'networkId'            => 'NetworkId',
-        'networkInterfaceId'   => 'NetworkInterfaceId',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'ensRegionId' => 'EnsRegionId',
+        'instanceId' => 'InstanceId',
+        'ipv6Sets' => 'Ipv6Sets',
+        'macAddress' => 'MacAddress',
+        'networkId' => 'NetworkId',
+        'networkInterfaceId' => 'NetworkInterfaceId',
         'networkInterfaceName' => 'NetworkInterfaceName',
-        'primaryIp'            => 'PrimaryIp',
-        'primaryIpType'        => 'PrimaryIpType',
-        'privateIpSets'        => 'PrivateIpSets',
-        'securityGroupIds'     => 'SecurityGroupIds',
-        'status'               => 'Status',
-        'type'                 => 'Type',
-        'vSwitchId'            => 'VSwitchId',
+        'primaryIp' => 'PrimaryIp',
+        'primaryIpType' => 'PrimaryIpType',
+        'privateIpSets' => 'PrivateIpSets',
+        'securityGroupIds' => 'SecurityGroupIds',
+        'status' => 'Status',
+        'type' => 'Type',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -46,14 +46,12 @@ class DescribeInstanceBandwidthDetailResponseBody extends Model
     protected $_name = [
         'bandwidths' => 'Bandwidths',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -94,7 +92,7 @@ class DescribeInstanceBandwidthDetailResponseBody extends Model
         if (isset($map['Bandwidths'])) {
             if (!empty($map['Bandwidths'])) {
                 $model->bandwidths = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Bandwidths'] as $item) {
                     $model->bandwidths[$n++] = null !== $item ? bandwidths::fromMap($item) : $item;
                 }

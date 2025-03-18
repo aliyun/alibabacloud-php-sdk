@@ -109,6 +109,7 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
      * @description The interval at which health checks are performed. Valid values: **1** to **50**. Unit: seconds.
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example 5
      *
      * @var int
@@ -128,6 +129,7 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
      * @description The number of consecutive successful health checks that must occur before an unhealthy and inaccessible backend server is declared healthy and accessible. Valid values: **2** to **10**.
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example 4
      *
      * @var int
@@ -187,34 +189,33 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
      * @description The number of consecutive failed health checks that must occur before a healthy and accessible backend server is declared unhealthy and inaccessible. Valid values: **2** to **10**.
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
+     *
      * @example 4
      *
      * @var int
      */
     public $unhealthyThreshold;
     protected $_name = [
-        'backendServerPort'         => 'BackendServerPort',
-        'bandwidth'                 => 'Bandwidth',
-        'description'               => 'Description',
-        'eipTransmit'               => 'EipTransmit',
-        'establishedTimeout'        => 'EstablishedTimeout',
-        'healthCheck'               => 'HealthCheck',
-        'healthCheckConnectPort'    => 'HealthCheckConnectPort',
+        'backendServerPort' => 'BackendServerPort',
+        'bandwidth' => 'Bandwidth',
+        'description' => 'Description',
+        'eipTransmit' => 'EipTransmit',
+        'establishedTimeout' => 'EstablishedTimeout',
+        'healthCheck' => 'HealthCheck',
+        'healthCheckConnectPort' => 'HealthCheckConnectPort',
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
-        'healthCheckExp'            => 'HealthCheckExp',
-        'healthCheckInterval'       => 'HealthCheckInterval',
-        'healthCheckReq'            => 'HealthCheckReq',
-        'healthyThreshold'          => 'HealthyThreshold',
-        'listenerPort'              => 'ListenerPort',
-        'requestId'                 => 'RequestId',
-        'scheduler'                 => 'Scheduler',
-        'status'                    => 'Status',
-        'unhealthyThreshold'        => 'UnhealthyThreshold',
+        'healthCheckExp' => 'HealthCheckExp',
+        'healthCheckInterval' => 'HealthCheckInterval',
+        'healthCheckReq' => 'HealthCheckReq',
+        'healthyThreshold' => 'HealthyThreshold',
+        'listenerPort' => 'ListenerPort',
+        'requestId' => 'RequestId',
+        'scheduler' => 'Scheduler',
+        'status' => 'Status',
+        'unhealthyThreshold' => 'UnhealthyThreshold',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

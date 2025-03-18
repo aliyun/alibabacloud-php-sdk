@@ -94,20 +94,18 @@ class DescribeHaVipsRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'ensRegionId'  => 'EnsRegionId',
+        'ensRegionId' => 'EnsRegionId',
         'haVipAddress' => 'HaVipAddress',
-        'haVipId'      => 'HaVipId',
-        'name'         => 'Name',
-        'networkId'    => 'NetworkId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'status'       => 'Status',
-        'vSwitchId'    => 'VSwitchId',
+        'haVipId' => 'HaVipId',
+        'name' => 'Name',
+        'networkId' => 'NetworkId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

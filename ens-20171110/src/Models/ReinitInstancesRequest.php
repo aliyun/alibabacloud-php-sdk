@@ -23,14 +23,12 @@ class ReinitInstancesRequest extends Model
      */
     public $password;
     protected $_name = [
-        'imageId'     => 'ImageId',
+        'imageId' => 'ImageId',
         'instanceIds' => 'InstanceIds',
-        'password'    => 'Password',
+        'password' => 'Password',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

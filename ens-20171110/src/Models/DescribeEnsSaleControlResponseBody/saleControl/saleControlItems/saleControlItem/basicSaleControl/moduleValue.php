@@ -25,12 +25,10 @@ class moduleValue extends Model
     protected $_name = [
         'moduleMaxValue' => 'ModuleMaxValue',
         'moduleMinValue' => 'ModuleMinValue',
-        'moduleValue'    => 'ModuleValue',
+        'moduleValue' => 'ModuleValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

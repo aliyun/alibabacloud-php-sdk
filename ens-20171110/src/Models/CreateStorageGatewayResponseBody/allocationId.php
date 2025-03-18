@@ -27,12 +27,10 @@ class allocationId extends Model
     public $instanceId;
     protected $_name = [
         'ensRegionId' => 'EnsRegionId',
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

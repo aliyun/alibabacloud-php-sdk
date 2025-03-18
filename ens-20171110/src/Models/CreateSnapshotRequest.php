@@ -12,6 +12,7 @@ class CreateSnapshotRequest extends Model
      * @description The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
      * By default, this parameter is left empty.
+     *
      * @example testDescription
      *
      * @var string
@@ -22,6 +23,7 @@ class CreateSnapshotRequest extends Model
      * @description The ID of the cloud disk.
      *
      * This parameter is required.
+     *
      * @example d-bp1s5fnvk4gn2tws0****
      *
      * @var string
@@ -32,6 +34,7 @@ class CreateSnapshotRequest extends Model
      * @description The ID of the ENS node. You can query the node ID by calling the [DescribeEnsRegions](~~DescribeEnsRegions~~) operation.
      *
      * This parameter is required.
+     *
      * @example cn-shenzhen-3
      *
      * @var string
@@ -47,15 +50,13 @@ class CreateSnapshotRequest extends Model
      */
     public $snapshotName;
     protected $_name = [
-        'description'  => 'Description',
-        'diskId'       => 'DiskId',
-        'ensRegionId'  => 'EnsRegionId',
+        'description' => 'Description',
+        'diskId' => 'DiskId',
+        'ensRegionId' => 'EnsRegionId',
         'snapshotName' => 'SnapshotName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

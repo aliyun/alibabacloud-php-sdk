@@ -36,13 +36,11 @@ class ImportKeyPairResponseBody extends Model
     public $requestId;
     protected $_name = [
         'keyPairFingerPrint' => 'KeyPairFingerPrint',
-        'keyPairName'        => 'KeyPairName',
-        'requestId'          => 'RequestId',
+        'keyPairName' => 'KeyPairName',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

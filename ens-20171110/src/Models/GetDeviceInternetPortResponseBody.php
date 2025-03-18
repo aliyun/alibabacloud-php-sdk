@@ -34,14 +34,12 @@ class GetDeviceInternetPortResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'networkInfo' => 'NetworkInfo',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class GetDeviceInternetPortResponseBody extends Model
         if (isset($map['NetworkInfo'])) {
             if (!empty($map['NetworkInfo'])) {
                 $model->networkInfo = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['NetworkInfo'] as $item) {
                     $model->networkInfo[$n++] = null !== $item ? networkInfo::fromMap($item) : $item;
                 }

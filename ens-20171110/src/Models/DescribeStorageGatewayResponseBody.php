@@ -22,6 +22,7 @@ class DescribeStorageGatewayResponseBody extends Model
      * @description The number of entries per page.
      *
      * Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -53,16 +54,14 @@ class DescribeStorageGatewayResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'requestId'       => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'storageGateways' => 'StorageGateways',
-        'totalCount'      => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -112,7 +111,7 @@ class DescribeStorageGatewayResponseBody extends Model
         if (isset($map['StorageGateways'])) {
             if (!empty($map['StorageGateways'])) {
                 $model->storageGateways = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['StorageGateways'] as $item) {
                     $model->storageGateways[$n++] = null !== $item ? storageGateways::fromMap($item) : $item;
                 }

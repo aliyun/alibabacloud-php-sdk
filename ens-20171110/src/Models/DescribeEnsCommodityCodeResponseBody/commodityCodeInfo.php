@@ -22,9 +22,7 @@ class commodityCodeInfo extends Model
         'commodityName' => 'CommodityName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,9 +18,7 @@ class DeleteNetworkInterfacesRequest extends Model
         'networkInterfaceIds' => 'NetworkInterfaceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

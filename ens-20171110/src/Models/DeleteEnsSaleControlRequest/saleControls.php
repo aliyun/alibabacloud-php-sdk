@@ -23,12 +23,10 @@ class saleControls extends Model
     public $orderType;
     protected $_name = [
         'moduleCode' => 'ModuleCode',
-        'orderType'  => 'OrderType',
+        'orderType' => 'OrderType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

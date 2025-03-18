@@ -19,12 +19,10 @@ class RebootInstancesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'instanceResponses' => 'InstanceResponses',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -56,7 +54,7 @@ class RebootInstancesResponseBody extends Model
         if (isset($map['InstanceResponses'])) {
             if (!empty($map['InstanceResponses'])) {
                 $model->instanceResponses = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['InstanceResponses'] as $item) {
                     $model->instanceResponses[$n++] = null !== $item ? InstanceOperateResponse::fromMap($item) : $item;
                 }

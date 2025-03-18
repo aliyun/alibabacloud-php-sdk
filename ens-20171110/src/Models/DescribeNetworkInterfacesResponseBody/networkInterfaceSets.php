@@ -17,9 +17,7 @@ class networkInterfaceSets extends Model
         'networkInterfaceSet' => 'NetworkInterfaceSet',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class networkInterfaceSets extends Model
         if (isset($map['NetworkInterfaceSet'])) {
             if (!empty($map['NetworkInterfaceSet'])) {
                 $model->networkInterfaceSet = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['NetworkInterfaceSet'] as $item) {
                     $model->networkInterfaceSet[$n++] = null !== $item ? networkInterfaceSet::fromMap($item) : $item;
                 }

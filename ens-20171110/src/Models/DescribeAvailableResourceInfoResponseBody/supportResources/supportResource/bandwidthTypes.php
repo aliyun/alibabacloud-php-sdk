@@ -16,9 +16,7 @@ class bandwidthTypes extends Model
         'bandwidthType' => 'BandwidthType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

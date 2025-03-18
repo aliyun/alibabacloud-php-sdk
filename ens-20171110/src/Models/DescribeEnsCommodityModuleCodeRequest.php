@@ -19,12 +19,10 @@ class DescribeEnsCommodityModuleCodeRequest extends Model
     public $moduleCode;
     protected $_name = [
         'commodityCode' => 'CommodityCode',
-        'moduleCode'    => 'ModuleCode',
+        'moduleCode' => 'ModuleCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

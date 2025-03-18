@@ -12,6 +12,7 @@ class DescribeEnsRegionsRequest extends Model
      * @description The ID of the node.
      *
      * By default, all available node IDs are returned.
+     *
      * @example cn-dalian-unicom
      *
      * @var string
@@ -21,9 +22,7 @@ class DescribeEnsRegionsRequest extends Model
         'ensRegionId' => 'EnsRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

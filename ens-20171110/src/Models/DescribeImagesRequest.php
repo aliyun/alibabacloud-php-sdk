@@ -21,6 +21,7 @@ class DescribeImagesRequest extends Model
      * @description The ID of the image. You can specify only one image ID.
      *
      * Custom images and public images are supported.
+     *
      * @example m-5qm2r6xo7njrpdkx04q1o****
      *
      * @var string
@@ -31,6 +32,7 @@ class DescribeImagesRequest extends Model
      * @description The name of the custom image. The name must be 2 to 128 characters in length The name must start with a letter and cannot start with `acs:` or `aliyun`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (_), and hyphens (-).
      *
      * By default, this parameter is left empty, which indicates that the original name is retained.
+     *
      * @example centos_6_08_64_20G_a****
      *
      * @var string
@@ -41,6 +43,7 @@ class DescribeImagesRequest extends Model
      * @description The page number. Pages start from page **1**.
      *
      * Default value: **1**.
+     *
      * @example 1
      *
      * @var string
@@ -51,6 +54,7 @@ class DescribeImagesRequest extends Model
      * @description The number of entries per page. Maximum value: **50**.
      *
      * Default value: **10**.
+     *
      * @example 50
      *
      * @var string
@@ -76,17 +80,15 @@ class DescribeImagesRequest extends Model
     public $status;
     protected $_name = [
         'ensRegionId' => 'EnsRegionId',
-        'imageId'     => 'ImageId',
-        'imageName'   => 'ImageName',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'snapshotId'  => 'SnapshotId',
-        'status'      => 'Status',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'snapshotId' => 'SnapshotId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,15 +44,13 @@ class DescribeExportImageInfoRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'imageId'    => 'ImageId',
-        'imageName'  => 'ImageName',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

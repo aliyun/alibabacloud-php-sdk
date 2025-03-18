@@ -24,9 +24,7 @@ class availableStorageType extends Model
         'availableSpecialStorageType' => 'AvailableSpecialStorageType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -58,7 +56,7 @@ class availableStorageType extends Model
         if (isset($map['AvailableDefaultStorageType'])) {
             if (!empty($map['AvailableDefaultStorageType'])) {
                 $model->availableDefaultStorageType = [];
-                $n                                  = 0;
+                $n = 0;
                 foreach ($map['AvailableDefaultStorageType'] as $item) {
                     $model->availableDefaultStorageType[$n++] = null !== $item ? availableDefaultStorageType::fromMap($item) : $item;
                 }

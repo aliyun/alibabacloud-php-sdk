@@ -90,19 +90,17 @@ class DescribePrePaidInstanceStockResponseBody extends Model
     public $systemDiskSize;
     protected $_name = [
         'avaliableCount' => 'AvaliableCount',
-        'cores'          => 'Cores',
-        'dataDiskSize'   => 'DataDiskSize',
-        'ensRegionId'    => 'EnsRegionId',
-        'instanceSpec'   => 'InstanceSpec',
-        'memory'         => 'Memory',
-        'requestId'      => 'RequestId',
-        'resourceGap'    => 'ResourceGap',
+        'cores' => 'Cores',
+        'dataDiskSize' => 'DataDiskSize',
+        'ensRegionId' => 'EnsRegionId',
+        'instanceSpec' => 'InstanceSpec',
+        'memory' => 'Memory',
+        'requestId' => 'RequestId',
+        'resourceGap' => 'ResourceGap',
         'systemDiskSize' => 'SystemDiskSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteMountTargetRequest extends Model
      * @description The ID of the edge node.
      *
      * This parameter is required.
+     *
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -22,6 +23,7 @@ class DeleteMountTargetRequest extends Model
      * @description The ID of the file system.
      *
      * This parameter is required.
+     *
      * @example c50f8*****
      *
      * @var string
@@ -32,20 +34,19 @@ class DeleteMountTargetRequest extends Model
      * @description The name of the mount target.
      *
      * This parameter is required.
+     *
      * @example TestMountPath
      *
      * @var string
      */
     public $mountTargetName;
     protected $_name = [
-        'ensRegionId'     => 'EnsRegionId',
-        'fileSystemId'    => 'FileSystemId',
+        'ensRegionId' => 'EnsRegionId',
+        'fileSystemId' => 'FileSystemId',
         'mountTargetName' => 'MountTargetName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

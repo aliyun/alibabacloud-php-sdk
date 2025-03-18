@@ -12,6 +12,7 @@ class RecoverAICInstanceRequest extends Model
      * @description The ID of the server.
      *
      * This parameter is required.
+     *
      * @example cas-instance****
      *
      * @var string
@@ -21,9 +22,7 @@ class RecoverAICInstanceRequest extends Model
         'serverId' => 'ServerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

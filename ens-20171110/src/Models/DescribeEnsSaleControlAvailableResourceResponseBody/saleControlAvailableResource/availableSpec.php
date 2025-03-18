@@ -28,15 +28,13 @@ class availableSpec extends Model
      */
     public $specValue;
     protected $_name = [
-        'cores'     => 'Cores',
-        'memory'    => 'Memory',
-        'specName'  => 'SpecName',
+        'cores' => 'Cores',
+        'memory' => 'Memory',
+        'specName' => 'SpecName',
         'specValue' => 'SpecValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

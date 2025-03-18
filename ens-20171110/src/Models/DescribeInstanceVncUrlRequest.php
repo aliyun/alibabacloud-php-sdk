@@ -12,6 +12,7 @@ class DescribeInstanceVncUrlRequest extends Model
      * @description The ID of the instance
      *
      * This parameter is required.
+     *
      * @example i-5bp1hzoinajzkh91h****
      *
      * @var string
@@ -21,9 +22,7 @@ class DescribeInstanceVncUrlRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

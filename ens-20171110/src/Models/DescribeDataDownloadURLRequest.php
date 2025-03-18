@@ -12,6 +12,7 @@ class DescribeDataDownloadURLRequest extends Model
      * @description The ID of the application.
      *
      * This parameter is required.
+     *
      * @example 474bdef0-d149-4695-abfb-52912d9143f0
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeDataDownloadURLRequest extends Model
      * @description The name of the data file.
      *
      * This parameter is required.
+     *
      * @example mirror_file/pk-1642597182026-878199448832413.tar
      *
      * @var string
@@ -32,6 +34,7 @@ class DescribeDataDownloadURLRequest extends Model
      * @description The version number of the data file.
      *
      * This parameter is required.
+     *
      * @example 7895
      *
      * @var string
@@ -56,16 +59,14 @@ class DescribeDataDownloadURLRequest extends Model
      */
     public $serverFilterStrategy;
     protected $_name = [
-        'appId'                => 'AppId',
-        'dataName'             => 'DataName',
-        'dataVersion'          => 'DataVersion',
-        'expireTimeout'        => 'ExpireTimeout',
+        'appId' => 'AppId',
+        'dataName' => 'DataName',
+        'dataVersion' => 'DataVersion',
+        'expireTimeout' => 'ExpireTimeout',
         'serverFilterStrategy' => 'ServerFilterStrategy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

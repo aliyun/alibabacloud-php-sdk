@@ -95,20 +95,18 @@ class DescribeEnsEipAddressesRequest extends Model
      */
     public $standby;
     protected $_name = [
-        'allocationId'           => 'AllocationId',
-        'associatedInstanceId'   => 'AssociatedInstanceId',
+        'allocationId' => 'AllocationId',
+        'associatedInstanceId' => 'AssociatedInstanceId',
         'associatedInstanceType' => 'AssociatedInstanceType',
-        'eipAddress'             => 'EipAddress',
-        'eipName'                => 'EipName',
-        'ensRegionId'            => 'EnsRegionId',
-        'pageNumber'             => 'PageNumber',
-        'pageSize'               => 'PageSize',
-        'standby'                => 'Standby',
+        'eipAddress' => 'EipAddress',
+        'eipName' => 'EipName',
+        'ensRegionId' => 'EnsRegionId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'standby' => 'Standby',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

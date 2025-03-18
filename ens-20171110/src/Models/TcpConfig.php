@@ -25,12 +25,10 @@ class TcpConfig extends Model
     protected $_name = [
         'establishedTimeout' => 'EstablishedTimeout',
         'persistenceTimeout' => 'PersistenceTimeout',
-        'scheduler'          => 'Scheduler',
+        'scheduler' => 'Scheduler',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

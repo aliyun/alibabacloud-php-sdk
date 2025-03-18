@@ -24,13 +24,11 @@ class DescribeResourceTimelineRequest extends Model
     public $uuid;
     protected $_name = [
         'beginTime' => 'BeginTime',
-        'endTime'   => 'EndTime',
-        'uuid'      => 'Uuid',
+        'endTime' => 'EndTime',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

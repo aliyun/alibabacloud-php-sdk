@@ -45,15 +45,13 @@ class CopySnapshotResponseBody extends Model
      */
     public $unAllocationId;
     protected $_name = [
-        'allocationId'   => 'AllocationId',
-        'bizStatusCode'  => 'BizStatusCode',
-        'requestId'      => 'RequestId',
+        'allocationId' => 'AllocationId',
+        'bizStatusCode' => 'BizStatusCode',
+        'requestId' => 'RequestId',
         'unAllocationId' => 'UnAllocationId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -97,7 +95,7 @@ class CopySnapshotResponseBody extends Model
         if (isset($map['AllocationId'])) {
             if (!empty($map['AllocationId'])) {
                 $model->allocationId = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['AllocationId'] as $item) {
                     $model->allocationId[$n++] = null !== $item ? allocationId::fromMap($item) : $item;
                 }
@@ -112,7 +110,7 @@ class CopySnapshotResponseBody extends Model
         if (isset($map['UnAllocationId'])) {
             if (!empty($map['UnAllocationId'])) {
                 $model->unAllocationId = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['UnAllocationId'] as $item) {
                     $model->unAllocationId[$n++] = null !== $item ? unAllocationId::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class RenewInstanceRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example i-56789acfmxazb4p****
      *
      * @var string
@@ -22,6 +23,7 @@ class RenewInstanceRequest extends Model
      * @description The renewal duration of the subscription instance.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -29,12 +31,10 @@ class RenewInstanceRequest extends Model
     public $period;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'period'     => 'Period',
+        'period' => 'Period',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

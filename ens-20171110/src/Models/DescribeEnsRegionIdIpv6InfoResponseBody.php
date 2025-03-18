@@ -25,13 +25,11 @@ class DescribeEnsRegionIdIpv6InfoResponseBody extends Model
      */
     public $supportIpv6Info;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'supportIpv6Info' => 'SupportIpv6Info',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

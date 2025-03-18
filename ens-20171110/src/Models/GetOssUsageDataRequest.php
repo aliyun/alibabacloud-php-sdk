@@ -21,6 +21,7 @@ class GetOssUsageDataRequest extends Model
      * @description The end of the time range to query. The time must be in UTC. Format: 2010-01-21T09:50:23Z.
      *
      * This parameter is required.
+     *
      * @example 2022-01-12T00:00:00Z
      *
      * @var string
@@ -31,6 +32,7 @@ class GetOssUsageDataRequest extends Model
      * @description The aggregation granularity. Unit: minutes.
      *
      * Default value: 5. Valid values: 5 to 1440.
+     *
      * @example 10
      *
      * @var string
@@ -41,21 +43,20 @@ class GetOssUsageDataRequest extends Model
      * @description The beginning of the time range to query. The time must be in UTC. Format: 2010-01-21T09:50:23Z.
      *
      * This parameter is required.
+     *
      * @example 2022-01-11T00:00:00Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'bucket'    => 'Bucket',
-        'endTime'   => 'EndTime',
-        'period'    => 'Period',
+        'bucket' => 'Bucket',
+        'endTime' => 'EndTime',
+        'period' => 'Period',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

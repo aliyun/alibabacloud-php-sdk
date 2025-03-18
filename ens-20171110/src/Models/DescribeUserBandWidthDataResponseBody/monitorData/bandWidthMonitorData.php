@@ -54,15 +54,13 @@ class bandWidthMonitorData extends Model
     public $upBandWidth;
     protected $_name = [
         'downBandWidth' => 'DownBandWidth',
-        'internetRX'    => 'InternetRX',
-        'internetTX'    => 'InternetTX',
-        'timeStamp'     => 'TimeStamp',
-        'upBandWidth'   => 'UpBandWidth',
+        'internetRX' => 'InternetRX',
+        'internetTX' => 'InternetTX',
+        'timeStamp' => 'TimeStamp',
+        'upBandWidth' => 'UpBandWidth',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

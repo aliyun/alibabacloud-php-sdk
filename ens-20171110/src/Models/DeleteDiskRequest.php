@@ -12,6 +12,7 @@ class DeleteDiskRequest extends Model
      * @description The ID of the disk.
      *
      * This parameter is required.
+     *
      * @example d-5va95bg6i5f44kgkeuazyfcxm
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteDiskRequest extends Model
         'diskId' => 'DiskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

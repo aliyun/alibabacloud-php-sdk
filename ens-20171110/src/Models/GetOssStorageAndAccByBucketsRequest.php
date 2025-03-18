@@ -20,9 +20,7 @@ class GetOssStorageAndAccByBucketsRequest extends Model
         'bucketList' => 'BucketList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

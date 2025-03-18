@@ -48,6 +48,7 @@ class CreateStorageVolumeRequest extends Model
      * @description The ID of the node.
      *
      * This parameter is required.
+     *
      * @example cn-shenzhen-3
      *
      * @var string
@@ -58,6 +59,7 @@ class CreateStorageVolumeRequest extends Model
      * @description The ID of the gateway.
      *
      * This parameter is required.
+     *
      * @example sgw-****
      *
      * @var string
@@ -92,6 +94,7 @@ class CreateStorageVolumeRequest extends Model
      * @description The ID of the storage medium.
      *
      * This parameter is required.
+     *
      * @example si-****
      *
      * @var string
@@ -109,19 +112,17 @@ class CreateStorageVolumeRequest extends Model
     protected $_name = [
         'authPassword' => 'AuthPassword',
         'authProtocol' => 'AuthProtocol',
-        'authUser'     => 'AuthUser',
-        'description'  => 'Description',
-        'ensRegionId'  => 'EnsRegionId',
-        'gatewayId'    => 'GatewayId',
-        'isAuth'       => 'IsAuth',
-        'isEnable'     => 'IsEnable',
-        'storageId'    => 'StorageId',
-        'volumeName'   => 'VolumeName',
+        'authUser' => 'AuthUser',
+        'description' => 'Description',
+        'ensRegionId' => 'EnsRegionId',
+        'gatewayId' => 'GatewayId',
+        'isAuth' => 'IsAuth',
+        'isEnable' => 'IsEnable',
+        'storageId' => 'StorageId',
+        'volumeName' => 'VolumeName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class PreloadRegionSDGRequest extends Model
      * @description The IDs of the destination nodes.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $destinationRegionIds;
@@ -27,6 +28,7 @@ class PreloadRegionSDGRequest extends Model
      * @description The number of redundant replicas to support rapid deployment.
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -37,6 +39,7 @@ class PreloadRegionSDGRequest extends Model
      * @description The ID of the SDG for which data is preloaded.
      *
      * This parameter is required.
+     *
      * @example sdg-xxxx
      *
      * @var string
@@ -44,14 +47,12 @@ class PreloadRegionSDGRequest extends Model
     public $SDGId;
     protected $_name = [
         'destinationRegionIds' => 'DestinationRegionIds',
-        'namespaces'           => 'Namespaces',
-        'redundantNum'         => 'RedundantNum',
-        'SDGId'                => 'SDGId',
+        'namespaces' => 'Namespaces',
+        'redundantNum' => 'RedundantNum',
+        'SDGId' => 'SDGId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -74,6 +74,7 @@ class DescribeARMServerInstancesShrinkRequest extends Model
      * @description The sorting order of the results to return. Valid values: ServerIdSort, ServerNameSort, ExpireTimeSort, CreationTimeSort, and EnsRegionIdSort.
      *
      * asc: ascending order. desc: descending order.
+     *
      * @example {"ServerIdSort":"desc","ServerNameSort":"desc","ExpireTimeSort":"asc","CreationTimeSort":"asc","EnsRegionIdSort":"asc"}
      *
      * @var string
@@ -84,6 +85,7 @@ class DescribeARMServerInstancesShrinkRequest extends Model
      * @description The page number. Pages start from page **1**.
      *
      * Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -94,6 +96,7 @@ class DescribeARMServerInstancesShrinkRequest extends Model
      * @description The number of entries per page. The maximum value is **100**.
      *
      * Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -121,24 +124,22 @@ class DescribeARMServerInstancesShrinkRequest extends Model
      */
     public $statesShrink;
     protected $_name = [
-        'AICSpecsShrink'       => 'AICSpecs',
+        'AICSpecsShrink' => 'AICSpecs',
         'describeAICInstances' => 'DescribeAICInstances',
-        'ensRegionIdsShrink'   => 'EnsRegionIds',
-        'maxDate'              => 'MaxDate',
-        'minDate'              => 'MinDate',
-        'name'                 => 'Name',
-        'namespace'            => 'Namespace',
-        'orderByParams'        => 'OrderByParams',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'serverIdsShrink'      => 'ServerIds',
-        'serverSpecsShrink'    => 'ServerSpecs',
-        'statesShrink'         => 'States',
+        'ensRegionIdsShrink' => 'EnsRegionIds',
+        'maxDate' => 'MaxDate',
+        'minDate' => 'MinDate',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'orderByParams' => 'OrderByParams',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'serverIdsShrink' => 'ServerIds',
+        'serverSpecsShrink' => 'ServerSpecs',
+        'statesShrink' => 'States',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

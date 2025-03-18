@@ -75,18 +75,16 @@ class ensNetDistrict extends Model
      */
     public $netDistrictName;
     protected $_name = [
-        'ensRegionIdCount'      => 'EnsRegionIdCount',
-        'instanceCount'         => 'InstanceCount',
-        'netDistrictCode'       => 'NetDistrictCode',
-        'netDistrictEnName'     => 'NetDistrictEnName',
+        'ensRegionIdCount' => 'EnsRegionIdCount',
+        'instanceCount' => 'InstanceCount',
+        'netDistrictCode' => 'NetDistrictCode',
+        'netDistrictEnName' => 'NetDistrictEnName',
         'netDistrictFatherCode' => 'NetDistrictFatherCode',
-        'netDistrictLevel'      => 'NetDistrictLevel',
-        'netDistrictName'       => 'NetDistrictName',
+        'netDistrictLevel' => 'NetDistrictLevel',
+        'netDistrictName' => 'NetDistrictName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

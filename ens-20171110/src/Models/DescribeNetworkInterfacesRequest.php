@@ -18,6 +18,13 @@ class DescribeNetworkInterfacesRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The node information.
+     *
+     * @var string[]
+     */
+    public $ensRegionIds;
+
+    /**
      * @description The ID of the instance.
      *
      * @example i-5t7z99n32gplriv
@@ -50,6 +57,13 @@ class DescribeNetworkInterfacesRequest extends Model
      * @var string
      */
     public $networkInterfaceId;
+
+    /**
+     * @description A list of multicast source IDs.
+     *
+     * @var string[]
+     */
+    public $networkInterfaceIds;
 
     /**
      * @description The name of the ENI.
@@ -106,6 +120,7 @@ class DescribeNetworkInterfacesRequest extends Model
      *   Deleting: The ENI is being deleted.
      *
      * This parameter is empty by default, which indicates that ENIs in all states are queried.
+     *
      * @example Available
      *
      * @var string
@@ -115,10 +130,11 @@ class DescribeNetworkInterfacesRequest extends Model
     /**
      * @description The type of the ENI. Valid values:
      *
-     *   Primary: primary ENI.
-     *   Secondary: secondary ENI.
+     *   Primary: the primary ENI.
+     *   Secondary: the secondary ENI.
      *
      * This parameter is empty by default, which indicates that both primary and secondary ENIs are queried.
+     *
      * @example Secondary
      *
      * @var string
@@ -134,30 +150,33 @@ class DescribeNetworkInterfacesRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'ensRegionId'          => 'EnsRegionId',
-        'instanceId'           => 'InstanceId',
-        'ipv6Address'          => 'Ipv6Address',
-        'networkId'            => 'NetworkId',
-        'networkInterfaceId'   => 'NetworkInterfaceId',
+        'ensRegionId' => 'EnsRegionId',
+        'ensRegionIds' => 'EnsRegionIds',
+        'instanceId' => 'InstanceId',
+        'ipv6Address' => 'Ipv6Address',
+        'networkId' => 'NetworkId',
+        'networkInterfaceId' => 'NetworkInterfaceId',
+        'networkInterfaceIds' => 'NetworkInterfaceIds',
         'networkInterfaceName' => 'NetworkInterfaceName',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'primaryIpAddress'     => 'PrimaryIpAddress',
-        'securityGroupId'      => 'SecurityGroupId',
-        'status'               => 'Status',
-        'type'                 => 'Type',
-        'vSwitchId'            => 'VSwitchId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'primaryIpAddress' => 'PrimaryIpAddress',
+        'securityGroupId' => 'SecurityGroupId',
+        'status' => 'Status',
+        'type' => 'Type',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+        if (null !== $this->ensRegionIds) {
+            $res['EnsRegionIds'] = $this->ensRegionIds;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -170,6 +189,9 @@ class DescribeNetworkInterfacesRequest extends Model
         }
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
+        }
+        if (null !== $this->networkInterfaceIds) {
+            $res['NetworkInterfaceIds'] = $this->networkInterfaceIds;
         }
         if (null !== $this->networkInterfaceName) {
             $res['NetworkInterfaceName'] = $this->networkInterfaceName;
@@ -210,6 +232,11 @@ class DescribeNetworkInterfacesRequest extends Model
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+        if (isset($map['EnsRegionIds'])) {
+            if (!empty($map['EnsRegionIds'])) {
+                $model->ensRegionIds = $map['EnsRegionIds'];
+            }
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -223,6 +250,11 @@ class DescribeNetworkInterfacesRequest extends Model
         }
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
+        }
+        if (isset($map['NetworkInterfaceIds'])) {
+            if (!empty($map['NetworkInterfaceIds'])) {
+                $model->networkInterfaceIds = $map['NetworkInterfaceIds'];
+            }
         }
         if (isset($map['NetworkInterfaceName'])) {
             $model->networkInterfaceName = $map['NetworkInterfaceName'];

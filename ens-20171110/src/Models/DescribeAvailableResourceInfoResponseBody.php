@@ -33,14 +33,12 @@ class DescribeAvailableResourceInfoResponseBody extends Model
      */
     public $supportResources;
     protected $_name = [
-        'images'           => 'Images',
-        'requestId'        => 'RequestId',
+        'images' => 'Images',
+        'requestId' => 'RequestId',
         'supportResources' => 'SupportResources',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

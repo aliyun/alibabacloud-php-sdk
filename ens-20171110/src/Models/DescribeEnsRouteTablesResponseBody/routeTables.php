@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class routeTables extends Model
 {
     /**
+     * @var string
+     */
+    public $associateType;
+
+    /**
      * @description The time when the route table was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2024-03-08T08:35:18Z
@@ -18,6 +23,11 @@ class routeTables extends Model
     public $creationTime;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description The ID of the edge node.
      *
      * @example cn-beijing-15
@@ -25,6 +35,11 @@ class routeTables extends Model
      * @var string
      */
     public $ensRegionId;
+
+    /**
+     * @var bool
+     */
+    public $isDefaultGatewayRouteTable;
 
     /**
      * @description The ID of the network.
@@ -45,6 +60,8 @@ class routeTables extends Model
     public $routeTableId;
 
     /**
+     * @example test-tf-vtb7
+     *
      * @var string
      */
     public $routeTableName;
@@ -79,28 +96,38 @@ class routeTables extends Model
      */
     public $vSwitchIds;
     protected $_name = [
-        'creationTime'   => 'CreationTime',
-        'ensRegionId'    => 'EnsRegionId',
-        'networkId'      => 'NetworkId',
-        'routeTableId'   => 'RouteTableId',
+        'associateType' => 'AssociateType',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'ensRegionId' => 'EnsRegionId',
+        'isDefaultGatewayRouteTable' => 'IsDefaultGatewayRouteTable',
+        'networkId' => 'NetworkId',
+        'routeTableId' => 'RouteTableId',
         'routeTableName' => 'RouteTableName',
-        'status'         => 'Status',
-        'type'           => 'Type',
-        'vSwitchIds'     => 'VSwitchIds',
+        'status' => 'Status',
+        'type' => 'Type',
+        'vSwitchIds' => 'VSwitchIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->associateType) {
+            $res['AssociateType'] = $this->associateType;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+        if (null !== $this->isDefaultGatewayRouteTable) {
+            $res['IsDefaultGatewayRouteTable'] = $this->isDefaultGatewayRouteTable;
         }
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
@@ -132,11 +159,20 @@ class routeTables extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssociateType'])) {
+            $model->associateType = $map['AssociateType'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
+        }
+        if (isset($map['IsDefaultGatewayRouteTable'])) {
+            $model->isDefaultGatewayRouteTable = $map['IsDefaultGatewayRouteTable'];
         }
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];

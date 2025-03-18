@@ -20,9 +20,7 @@ class DeleteNetworkAclEntryRequest extends Model
         'networkAclEntryId' => 'NetworkAclEntryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

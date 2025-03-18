@@ -21,6 +21,7 @@ class ModifyInstanceAttributeRequest extends Model
      * @description The ID of the instance for which you want to modify attributes. You can specify only one ID.
      *
      * This parameter is required.
+     *
      * @example i-instanc****
      *
      * @var string
@@ -31,6 +32,7 @@ class ModifyInstanceAttributeRequest extends Model
      * @description The name of the instance.
      *
      * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     *
      * @example i-instanceidname
      *
      * @var string
@@ -50,22 +52,21 @@ class ModifyInstanceAttributeRequest extends Model
      * @description The user data of the instance. User data must be encoded in Base64.
      *
      * The size of your UserData cannot exceed 16 KB. We recommend that you do not pass in confidential information such as passwords and private keys in the plaintext format. If you must pass in confidential information, we recommend that you encrypt and Base64-encode the information before you pass it in. Then you can decode and decrypt the information in the same way within the instance.
+     *
      * @example /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgK****
      *
      * @var string
      */
     public $userData;
     protected $_name = [
-        'hostName'     => 'HostName',
-        'instanceId'   => 'InstanceId',
+        'hostName' => 'HostName',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'password'     => 'Password',
-        'userData'     => 'UserData',
+        'password' => 'Password',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

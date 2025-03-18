@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateSnatEntryRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $eipAffinity;
+
+    /**
      * @description The timeout period for idle connections. Valid values: **1** to **86400**. Unit: seconds.
      *
      * @example 15
@@ -18,6 +23,13 @@ class CreateSnatEntryRequest extends Model
     public $idleTimeout;
 
     /**
+     * @description Whether to enable operator affinity. Value taking:
+     *
+     * - false:Do not open.
+     * - true:Open.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ispAffinity;
@@ -26,6 +38,7 @@ class CreateSnatEntryRequest extends Model
      * @description The ID of the Network Address Translation (NAT) gateway.
      *
      * This parameter is required.
+     *
      * @example nat-5tawjw5j7sgd2deujxuk0****
      *
      * @var string
@@ -45,6 +58,7 @@ class CreateSnatEntryRequest extends Model
      * @description The elastic IP address (EIP) in the SNAT entry. Separate multiple EIPs with commas (,).
      *
      * This parameter is required.
+     *
      * @example 120.XXX.XXX.71
      *
      * @var string
@@ -55,6 +69,7 @@ class CreateSnatEntryRequest extends Model
      * @description The CIDR block. You can specify the CIDR block of a network, a vSwitch, or an instance. You can also specify a custom CIDR block. All instances within the CIDR block can access the Internet or external networks by using SNAT.
      *
      * >  If you specify **SourceVSwitchId** and **SourceCIDR**, **SourceVSwitchId** does not take effect. The value that you specified for **SourceCIDR** takes precedence.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -65,6 +80,7 @@ class CreateSnatEntryRequest extends Model
      * @description The ID of the network. This parameter specifies that all ENS instances in the network can use the SNAT entry to access the Internet.
      *
      * >  If you specify **SourceNetworkId** and **SourceVSwitchId** or **SourceCIDR**, **SourceNetworkId** does not take effect. The value that you specified for **SourceCIDR** takes precedence. Priority: **SourceCIDR** > **SourceVSwitchId** > **SourceNetworkId**.
+     *
      * @example n-2zeuphj08tt7q3brd****
      *
      * @var string
@@ -75,6 +91,7 @@ class CreateSnatEntryRequest extends Model
      * @description The ID of the vSwitch that you need to access over the Internet. This parameter specifies that Edge Node Service (ENS) instances in the vSwitch can use the SNAT entry to access the Internet.
      *
      * >  If you specify **SourceVSwitchId** and **SourceCIDR**, **SourceVSwitchId** does not take effect. The value that you specified for **SourceCIDR** takes precedence.
+     *
      * @example vsw-bp1hwx7gi495q260p****
      *
      * @var string
@@ -90,24 +107,26 @@ class CreateSnatEntryRequest extends Model
      */
     public $standbySnatIp;
     protected $_name = [
-        'idleTimeout'     => 'IdleTimeout',
-        'ispAffinity'     => 'IspAffinity',
-        'natGatewayId'    => 'NatGatewayId',
-        'snatEntryName'   => 'SnatEntryName',
-        'snatIp'          => 'SnatIp',
-        'sourceCIDR'      => 'SourceCIDR',
+        'eipAffinity' => 'EipAffinity',
+        'idleTimeout' => 'IdleTimeout',
+        'ispAffinity' => 'IspAffinity',
+        'natGatewayId' => 'NatGatewayId',
+        'snatEntryName' => 'SnatEntryName',
+        'snatIp' => 'SnatIp',
+        'sourceCIDR' => 'SourceCIDR',
         'sourceNetworkId' => 'SourceNetworkId',
         'sourceVSwitchId' => 'SourceVSwitchId',
-        'standbySnatIp'   => 'StandbySnatIp',
+        'standbySnatIp' => 'StandbySnatIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->eipAffinity) {
+            $res['EipAffinity'] = $this->eipAffinity;
+        }
         if (null !== $this->idleTimeout) {
             $res['IdleTimeout'] = $this->idleTimeout;
         }
@@ -147,6 +166,9 @@ class CreateSnatEntryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EipAffinity'])) {
+            $model->eipAffinity = $map['EipAffinity'];
+        }
         if (isset($map['IdleTimeout'])) {
             $model->idleTimeout = $map['IdleTimeout'];
         }

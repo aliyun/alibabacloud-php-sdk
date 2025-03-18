@@ -17,9 +17,7 @@ class containerStatuses extends Model
         'containerStatus' => 'ContainerStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class containerStatuses extends Model
         if (isset($map['ContainerStatus'])) {
             if (!empty($map['ContainerStatus'])) {
                 $model->containerStatus = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['ContainerStatus'] as $item) {
                     $model->containerStatus[$n++] = null !== $item ? containerStatus::fromMap($item) : $item;
                 }

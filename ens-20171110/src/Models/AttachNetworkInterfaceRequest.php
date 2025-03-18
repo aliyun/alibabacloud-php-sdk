@@ -12,6 +12,7 @@ class AttachNetworkInterfaceRequest extends Model
      * @description The ID of the instance
      *
      * This parameter is required.
+     *
      * @example i-5p67acfmxazb4p****
      *
      * @var string
@@ -22,19 +23,18 @@ class AttachNetworkInterfaceRequest extends Model
      * @description The ID of the ENI.
      *
      * This parameter is required.
+     *
      * @example eni-58z57orgmt6d1****
      *
      * @var string
      */
     public $networkInterfaceId;
     protected $_name = [
-        'instanceId'         => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'networkInterfaceId' => 'NetworkInterfaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

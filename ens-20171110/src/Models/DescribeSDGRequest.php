@@ -21,6 +21,7 @@ class DescribeSDGRequest extends Model
      * @description The number of entries per page.
      *
      * Default value: 10
+     *
      * @example 10
      *
      * @var int
@@ -35,13 +36,11 @@ class DescribeSDGRequest extends Model
     public $SDGIds;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'SDGIds'     => 'SDGIds',
+        'pageSize' => 'PageSize',
+        'SDGIds' => 'SDGIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -53,15 +53,13 @@ class DescribeNatGatewaysResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'natGateways' => 'NatGateways',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeNatGatewaysResponseBody extends Model
         if (isset($map['NatGateways'])) {
             if (!empty($map['NatGateways'])) {
                 $model->natGateways = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['NatGateways'] as $item) {
                     $model->natGateways[$n++] = null !== $item ? natGateways::fromMap($item) : $item;
                 }

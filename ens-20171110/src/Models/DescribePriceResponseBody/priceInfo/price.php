@@ -47,15 +47,13 @@ class price extends Model
      */
     public $tradePrice;
     protected $_name = [
-        'currency'      => 'Currency',
+        'currency' => 'Currency',
         'discountPrice' => 'DiscountPrice',
         'originalPrice' => 'OriginalPrice',
-        'tradePrice'    => 'TradePrice',
+        'tradePrice' => 'TradePrice',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

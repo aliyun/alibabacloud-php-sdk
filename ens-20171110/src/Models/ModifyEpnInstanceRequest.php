@@ -12,6 +12,7 @@ class ModifyEpnInstanceRequest extends Model
      * @description The ID of the EPN instance.
      *
      * This parameter is required.
+     *
      * @example epn-****
      *
      * @var string
@@ -44,21 +45,20 @@ class ModifyEpnInstanceRequest extends Model
      *   **SpeedUpAndConnection**: Intelligent acceleration network and internal network.
      *
      * >  The internal network supports only **Connection** and **SpeedUpAndConnection**.
+     *
      * @example SpeedUp
      *
      * @var string
      */
     public $networkingModel;
     protected $_name = [
-        'EPNInstanceId'           => 'EPNInstanceId',
-        'EPNInstanceName'         => 'EPNInstanceName',
+        'EPNInstanceId' => 'EPNInstanceId',
+        'EPNInstanceName' => 'EPNInstanceName',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
-        'networkingModel'         => 'NetworkingModel',
+        'networkingModel' => 'NetworkingModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

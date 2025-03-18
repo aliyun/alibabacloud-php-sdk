@@ -53,16 +53,14 @@ class CreateLoadBalancerResponseBody extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'loadBalancerId'   => 'LoadBalancerId',
+        'loadBalancerId' => 'LoadBalancerId',
         'loadBalancerName' => 'LoadBalancerName',
-        'networkId'        => 'NetworkId',
-        'requestId'        => 'RequestId',
-        'vSwitchId'        => 'VSwitchId',
+        'networkId' => 'NetworkId',
+        'requestId' => 'RequestId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class GetOssStorageAndAccByBucketsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'bucketList' => 'BucketList',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class GetOssStorageAndAccByBucketsResponseBody extends Model
         if (isset($map['BucketList'])) {
             if (!empty($map['BucketList'])) {
                 $model->bucketList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['BucketList'] as $item) {
                     $model->bucketList[$n++] = null !== $item ? bucketList::fromMap($item) : $item;
                 }

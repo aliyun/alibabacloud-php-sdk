@@ -12,6 +12,7 @@ class ModifyNetworkAttributeRequest extends Model
      * @description The description of the network.
      *
      * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with http:// or https://.
+     *
      * @example this is my first network
      *
      * @var string
@@ -22,6 +23,7 @@ class ModifyNetworkAttributeRequest extends Model
      * @description The ID of the network.
      *
      * This parameter is required.
+     *
      * @example n-****
      *
      * @var string
@@ -42,13 +44,11 @@ class ModifyNetworkAttributeRequest extends Model
     public $networkName;
     protected $_name = [
         'description' => 'Description',
-        'networkId'   => 'NetworkId',
+        'networkId' => 'NetworkId',
         'networkName' => 'NetworkName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

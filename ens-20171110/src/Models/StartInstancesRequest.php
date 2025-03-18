@@ -16,9 +16,7 @@ class StartInstancesRequest extends Model
         'instanceIds' => 'InstanceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

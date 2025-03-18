@@ -12,6 +12,7 @@ class RemoveSDGRequest extends Model
      * @description IDs of Android in Container (AIC) instances.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $instanceIds;
@@ -19,9 +20,7 @@ class RemoveSDGRequest extends Model
         'instanceIds' => 'InstanceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DescribeCreatePrePaidInstanceResultRequest extends Model
      * @description The ID of the instance. You can call the CreateIntance operation to create an instance.
      *
      * This parameter is required.
+     *
      * @example i-6ecpqvkicnchxccozrp****
      *
      * @var string
@@ -21,9 +22,7 @@ class DescribeCreatePrePaidInstanceResultRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

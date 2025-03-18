@@ -26,12 +26,10 @@ class DescribeSDGsResponseBody extends Model
     public $SDGs;
     protected $_name = [
         'requestId' => 'RequestId',
-        'SDGs'      => 'SDGs',
+        'SDGs' => 'SDGs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class DescribeSDGsResponseBody extends Model
         if (isset($map['SDGs'])) {
             if (!empty($map['SDGs'])) {
                 $model->SDGs = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['SDGs'] as $item) {
                     $model->SDGs[$n++] = null !== $item ? SDGs::fromMap($item) : $item;
                 }

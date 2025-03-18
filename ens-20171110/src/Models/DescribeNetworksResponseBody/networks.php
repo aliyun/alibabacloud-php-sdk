@@ -17,9 +17,7 @@ class networks extends Model
         'network' => 'Network',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class networks extends Model
         if (isset($map['Network'])) {
             if (!empty($map['Network'])) {
                 $model->network = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Network'] as $item) {
                     $model->network[$n++] = null !== $item ? network::fromMap($item) : $item;
                 }

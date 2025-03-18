@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The number of failed tasks.
+     *
      * @example 0
      *
      * @var int
@@ -17,25 +19,27 @@ class result extends Model
     public $failedCount;
 
     /**
+     * @description Details about failed tasks.
+     *
      * @var failedItems[]
      */
     public $failedItems;
 
     /**
+     * @description The number of successful tasks.
+     *
      * @example 1
      *
      * @var int
      */
     public $successCount;
     protected $_name = [
-        'failedCount'  => 'FailedCount',
-        'failedItems'  => 'FailedItems',
+        'failedCount' => 'FailedCount',
+        'failedItems' => 'FailedItems',
         'successCount' => 'SuccessCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -73,7 +77,7 @@ class result extends Model
         if (isset($map['FailedItems'])) {
             if (!empty($map['FailedItems'])) {
                 $model->failedItems = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['FailedItems'] as $item) {
                     $model->failedItems[$n++] = null !== $item ? failedItems::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class systemDisk extends Model
      * @description The size of the system disk. Unit: GB.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -21,9 +22,7 @@ class systemDisk extends Model
         'size' => 'Size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

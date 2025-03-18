@@ -12,6 +12,7 @@ class DeleteVSwitchRequest extends Model
      * @description The ID of the vSwitch.
      *
      * This parameter is required.
+     *
      * @example vsw-5m9xhl****
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteVSwitchRequest extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

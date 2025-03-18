@@ -21,6 +21,7 @@ class ModifySecurityGroupAttributeRequest extends Model
      * @description The ID of the security group.
      *
      * This parameter is required.
+     *
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -40,14 +41,12 @@ class ModifySecurityGroupAttributeRequest extends Model
      */
     public $securityGroupName;
     protected $_name = [
-        'description'       => 'Description',
-        'securityGroupId'   => 'SecurityGroupId',
+        'description' => 'Description',
+        'securityGroupId' => 'SecurityGroupId',
         'securityGroupName' => 'SecurityGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

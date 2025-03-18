@@ -60,6 +60,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
      * @description The port that is used for health checks. Valid values: **1** to **65535**. If an empty string is returned for this parameter, the port specified by BackendServerPort is used for health checks.
      *
      * >  This parameter is returned only if the HealthCheck parameter is set to on.
+     *
      * @example 9902
      *
      * @var int
@@ -70,6 +71,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
      * @description The domain name that is used for health checks.
      *
      * >  This parameter is returned only if the HealthCheck parameter is set to on.
+     *
      * @example www.test.com
      *
      * @var string
@@ -85,6 +87,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
      *   **http_5xx**
      *
      * >  This parameter is returned only if the HealthCheck parameter is set to on.
+     *
      * @example http_2xx
      *
      * @var string
@@ -95,6 +98,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
      * @description The interval at which health checks are performed. Valid values: **1** to **50**. Unit: seconds.
      *
      * >  This parameter is returned only if the HealthCheck parameter is set to on.
+     *
      * @example 5
      *
      * @var int
@@ -108,6 +112,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
      *   **get**: requests the specified part of the page and returns the entity body.
      *
      * >  This parameter is returned only if the HealthCheck parameter is set to on.
+     *
      * @example head
      *
      * @var string
@@ -149,6 +154,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
      * @description The number of consecutive successful health checks that must occur before an unhealthy and inaccessible backend server is declared healthy and accessible. Valid values: **2** to **10**.
      *
      * >  This parameter is returned only if the HealthCheck parameter is set to on.
+     *
      * @example 3
      *
      * @var int
@@ -159,6 +165,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
      * @description The timeout period for idle connections. Default value: 15. Valid values: **1** to **60**. Unit: seconds.
      *
      * >  If no request is received within the specified timeout period, ELB closes the connection. When another request is received, CLB establishes a new connection.
+     *
      * @example 15
      *
      * @var int
@@ -199,6 +206,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
      * @description The timeout period of requests. Default value: 60. Valid values: **1** to **180**. Unit: seconds.
      *
      * >  If no response is received from the backend server within the specified timeout period, ELB returns an HTTP 504 error code to the client.
+     *
      * @example 60
      *
      * @var int
@@ -249,39 +257,38 @@ class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends Model
      * @description The number of consecutive failed health checks that must occur before a healthy and accessible backend server is declared unhealthy and inaccessible. Valid values: **2** to **10**.
      *
      * >  This parameter is returned only if the HealthCheck parameter is set to on.
+     *
      * @example 3
      *
      * @var int
      */
     public $unhealthyThreshold;
     protected $_name = [
-        'backendServerPort'      => 'BackendServerPort',
-        'bandwidth'              => 'Bandwidth',
-        'description'            => 'Description',
-        'forwardPort'            => 'ForwardPort',
-        'healthCheck'            => 'HealthCheck',
+        'backendServerPort' => 'BackendServerPort',
+        'bandwidth' => 'Bandwidth',
+        'description' => 'Description',
+        'forwardPort' => 'ForwardPort',
+        'healthCheck' => 'HealthCheck',
         'healthCheckConnectPort' => 'HealthCheckConnectPort',
-        'healthCheckDomain'      => 'HealthCheckDomain',
-        'healthCheckHttpCode'    => 'HealthCheckHttpCode',
-        'healthCheckInterval'    => 'HealthCheckInterval',
-        'healthCheckMethod'      => 'HealthCheckMethod',
-        'healthCheckTimeout'     => 'HealthCheckTimeout',
-        'healthCheckURI'         => 'HealthCheckURI',
-        'healthyThreshold'       => 'HealthyThreshold',
-        'idleTimeout'            => 'IdleTimeout',
-        'listenerForward'        => 'ListenerForward',
-        'listenerPort'           => 'ListenerPort',
-        'requestId'              => 'RequestId',
-        'requestTimeout'         => 'RequestTimeout',
-        'scheduler'              => 'Scheduler',
-        'serverCertificateId'    => 'ServerCertificateId',
-        'status'                 => 'Status',
-        'unhealthyThreshold'     => 'UnhealthyThreshold',
+        'healthCheckDomain' => 'HealthCheckDomain',
+        'healthCheckHttpCode' => 'HealthCheckHttpCode',
+        'healthCheckInterval' => 'HealthCheckInterval',
+        'healthCheckMethod' => 'HealthCheckMethod',
+        'healthCheckTimeout' => 'HealthCheckTimeout',
+        'healthCheckURI' => 'HealthCheckURI',
+        'healthyThreshold' => 'HealthyThreshold',
+        'idleTimeout' => 'IdleTimeout',
+        'listenerForward' => 'ListenerForward',
+        'listenerPort' => 'ListenerPort',
+        'requestId' => 'RequestId',
+        'requestTimeout' => 'RequestTimeout',
+        'scheduler' => 'Scheduler',
+        'serverCertificateId' => 'ServerCertificateId',
+        'status' => 'Status',
+        'unhealthyThreshold' => 'UnhealthyThreshold',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

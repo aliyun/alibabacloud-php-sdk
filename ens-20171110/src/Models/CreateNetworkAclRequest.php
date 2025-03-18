@@ -12,6 +12,7 @@ class CreateNetworkAclRequest extends Model
      * @description The description of the network ACL.
      *
      * The description must be 1 to 256 characters in length and cannot start with http:// or https://.
+     *
      * @example This is my NetworkAcl.
      *
      * @var string
@@ -22,19 +23,18 @@ class CreateNetworkAclRequest extends Model
      * @description Enter a name for the network ACL.
      *
      * The name must be 1 to 128 characters in length and cannot start with http:// or https://.
+     *
      * @example acl-1
      *
      * @var string
      */
     public $networkAclName;
     protected $_name = [
-        'description'    => 'Description',
+        'description' => 'Description',
         'networkAclName' => 'NetworkAclName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

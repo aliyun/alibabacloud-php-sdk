@@ -35,14 +35,12 @@ class image extends Model
      */
     public $imageSize;
     protected $_name = [
-        'imageId'   => 'ImageId',
+        'imageId' => 'ImageId',
         'imageName' => 'ImageName',
         'imageSize' => 'ImageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

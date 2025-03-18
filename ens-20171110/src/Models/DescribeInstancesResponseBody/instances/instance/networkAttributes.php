@@ -34,14 +34,12 @@ class networkAttributes extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'networkId'        => 'NetworkId',
+        'networkId' => 'NetworkId',
         'privateIpAddress' => 'PrivateIpAddress',
-        'vSwitchId'        => 'VSwitchId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

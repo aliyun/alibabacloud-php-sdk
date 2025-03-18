@@ -66,17 +66,15 @@ class DescribeSecondaryPublicIpAddressesRequest extends Model
      */
     public $secondaryPublicIpId;
     protected $_name = [
-        'ensRegionId'              => 'EnsRegionId',
-        'isp'                      => 'Isp',
-        'pageNumber'               => 'PageNumber',
-        'pageSize'                 => 'PageSize',
+        'ensRegionId' => 'EnsRegionId',
+        'isp' => 'Isp',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'secondaryPublicIpAddress' => 'SecondaryPublicIpAddress',
-        'secondaryPublicIpId'      => 'SecondaryPublicIpId',
+        'secondaryPublicIpId' => 'SecondaryPublicIpId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -16,9 +16,7 @@ class distInstanceIds extends Model
         'distInstanceId' => 'DistInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -31,13 +31,11 @@ class saleControls extends Model
     public $orderType;
     protected $_name = [
         'conditionControls' => 'ConditionControls',
-        'moduleCode'        => 'ModuleCode',
-        'orderType'         => 'OrderType',
+        'moduleCode' => 'ModuleCode',
+        'orderType' => 'OrderType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -72,7 +70,7 @@ class saleControls extends Model
         if (isset($map['ConditionControls'])) {
             if (!empty($map['ConditionControls'])) {
                 $model->conditionControls = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['ConditionControls'] as $item) {
                     $model->conditionControls[$n++] = null !== $item ? conditionControls::fromMap($item) : $item;
                 }

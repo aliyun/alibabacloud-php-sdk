@@ -11,7 +11,10 @@ class ModifyInstanceChargeTypeShrinkRequest extends Model
     /**
      * @description Specifies whether to enable auto-payment when you change the billing method from pay-as-you-go to subscription. Valid values:
      *
+     * true: enables auto-payment. Make sure that your account has sufficient balance.
+     *
      * false (default): does not enable auto-payment. The order is generated but not paid.
+     *
      * @example false
      *
      * @var bool
@@ -21,7 +24,10 @@ class ModifyInstanceChargeTypeShrinkRequest extends Model
     /**
      * @description Specifies whether to enable auto-renewal when you change the billing method from pay-as-you-go to subscription. Valid values:
      *
+     * true: enables auto-renewal for the instance.
+     *
      * false
+     *
      * @example false
      *
      * @var bool
@@ -31,7 +37,10 @@ class ModifyInstanceChargeTypeShrinkRequest extends Model
     /**
      * @description Specifies whether to change the billing method of all data disks that are created with the instance to subscription when you change the billing method of the instance from pay-as-you-go to subscription. Valid values:
      *
+     * true
+     *
      * false (default)
+     *
      * @example true
      *
      * @var bool
@@ -41,7 +50,12 @@ class ModifyInstanceChargeTypeShrinkRequest extends Model
     /**
      * @description The new billing method. Valid values:
      *
+     * PrePaid
+     *
+     * PostPaid (default)
+     *
      * This parameter is required.
+     *
      * @example PostPaid
      *
      * @var string
@@ -52,6 +66,7 @@ class ModifyInstanceChargeTypeShrinkRequest extends Model
      * @description The IDs of the instances.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $instanceIdsShrink;
@@ -59,7 +74,10 @@ class ModifyInstanceChargeTypeShrinkRequest extends Model
     /**
      * @description The subscription duration. This parameter is required if you set the InstanceChargeType parameter to PrePaid. Valid values:
      *
+     * If the PeriodUnit parameter is set to Day, Period can only be set to 3.
+     *
      * If PeriodUnit is Month, Period can be set to 1 to 9 or 12.
+     *
      * @example 1
      *
      * @var string
@@ -69,25 +87,26 @@ class ModifyInstanceChargeTypeShrinkRequest extends Model
     /**
      * @description The unit of the subscription duration. This parameter is required if you set the InstanceChargeType parameter to PrePaid. Valid values:
      *
+     * Month
+     *
      * Day
+     *
      * @example Month
      *
      * @var string
      */
     public $periodUnit;
     protected $_name = [
-        'autoPay'            => 'AutoPay',
-        'autoRenew'          => 'AutoRenew',
-        'includeDataDisks'   => 'IncludeDataDisks',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'includeDataDisks' => 'IncludeDataDisks',
         'instanceChargeType' => 'InstanceChargeType',
-        'instanceIdsShrink'  => 'InstanceIds',
-        'period'             => 'Period',
-        'periodUnit'         => 'PeriodUnit',
+        'instanceIdsShrink' => 'InstanceIds',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

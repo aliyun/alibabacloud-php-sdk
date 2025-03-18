@@ -9,34 +9,53 @@ use AlibabaCloud\Tea\Model;
 class diskDeviceMapping extends Model
 {
     /**
+     * @description The format of the image.
+     *
+     * @example The format of the image.
+     * raw
+     * qcow2
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description The size of the disk. Unit: GiB.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @description The type of the disk. Valid values:
+     *
+     *   system: system disk.
+     *   data: data disk.
+     *
+     * @example Data
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The ID of image.
+     *
+     * @example i-test
+     *
      * @var string
      */
     public $imageId;
     protected $_name = [
-        'format'  => 'Format',
-        'size'    => 'Size',
-        'type'    => 'Type',
+        'format' => 'Format',
+        'size' => 'Size',
+        'type' => 'Type',
         'imageId' => 'imageId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

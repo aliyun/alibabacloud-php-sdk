@@ -106,21 +106,19 @@ class EPNInstance extends Model
      */
     public $status;
     protected $_name = [
-        'creationTime'            => 'CreationTime',
-        'EPNInstanceId'           => 'EPNInstanceId',
-        'EPNInstanceName'         => 'EPNInstanceName',
-        'EPNInstanceType'         => 'EPNInstanceType',
-        'endTime'                 => 'EndTime',
+        'creationTime' => 'CreationTime',
+        'EPNInstanceId' => 'EPNInstanceId',
+        'EPNInstanceName' => 'EPNInstanceName',
+        'EPNInstanceType' => 'EPNInstanceType',
+        'endTime' => 'EndTime',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
-        'modifyTime'              => 'ModifyTime',
-        'networkingModel'         => 'NetworkingModel',
-        'startTime'               => 'StartTime',
-        'status'                  => 'Status',
+        'modifyTime' => 'ModifyTime',
+        'networkingModel' => 'NetworkingModel',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -24,6 +24,7 @@ class ModifyVSwitchAttributeRequest extends Model
      * @description The ID of the vSwitch.
      *
      * This parameter is required.
+     *
      * @example n-****
      *
      * @var string
@@ -43,13 +44,11 @@ class ModifyVSwitchAttributeRequest extends Model
     public $vSwitchName;
     protected $_name = [
         'description' => 'Description',
-        'vSwitchId'   => 'VSwitchId',
+        'vSwitchId' => 'VSwitchId',
         'vSwitchName' => 'VSwitchName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

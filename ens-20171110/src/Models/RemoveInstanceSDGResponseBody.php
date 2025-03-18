@@ -34,14 +34,12 @@ class RemoveInstanceSDGResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
+        'code' => 'Code',
+        'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

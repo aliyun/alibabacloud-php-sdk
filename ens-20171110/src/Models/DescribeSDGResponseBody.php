@@ -53,15 +53,13 @@ class DescribeSDGResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'SDGs'       => 'SDGs',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'SDGs' => 'SDGs',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class DescribeSDGResponseBody extends Model
         if (isset($map['SDGs'])) {
             if (!empty($map['SDGs'])) {
                 $model->SDGs = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['SDGs'] as $item) {
                     $model->SDGs[$n++] = null !== $item ? SDGs::fromMap($item) : $item;
                 }

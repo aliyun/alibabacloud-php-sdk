@@ -53,16 +53,14 @@ class DescribeFileSystemsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'ensRegionId'    => 'EnsRegionId',
-        'fileSystemId'   => 'FileSystemId',
+        'ensRegionId' => 'EnsRegionId',
+        'fileSystemId' => 'FileSystemId',
         'fileSystemName' => 'FileSystemName',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

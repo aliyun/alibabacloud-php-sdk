@@ -17,9 +17,7 @@ class ensNetLevels extends Model
         'ensNetLevel' => 'EnsNetLevel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class ensNetLevels extends Model
         if (isset($map['EnsNetLevel'])) {
             if (!empty($map['EnsNetLevel'])) {
                 $model->ensNetLevel = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['EnsNetLevel'] as $item) {
                     $model->ensNetLevel[$n++] = null !== $item ? ensNetLevel::fromMap($item) : $item;
                 }

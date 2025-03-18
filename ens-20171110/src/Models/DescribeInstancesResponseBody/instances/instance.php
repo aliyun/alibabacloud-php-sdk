@@ -176,6 +176,10 @@ class instance extends Model
     public $internetMaxBandwidthOut;
 
     /**
+     * @description The name of the SSH key pair.
+     *
+     * @example terraform-example
+     *
      * @var string
      */
     public $keyPairName;
@@ -197,6 +201,8 @@ class instance extends Model
     public $networkAttributes;
 
     /**
+     * @description The ENI attached to the instance.
+     *
      * @var networkInterfaces
      */
     public $networkInterfaces;
@@ -239,6 +245,10 @@ class instance extends Model
     public $securityGroupIds;
 
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
+     * @example Deleting
+     *
      * @var string
      */
     public $serviceStatus;
@@ -285,46 +295,45 @@ class instance extends Model
      * @description The tags of the instance.
      *
      * >  This operation does not return tag information. You can call this operation in combination with the tag-related operations.
+     *
      * @var tags
      */
     public $tags;
     protected $_name = [
-        'autoReleaseTime'         => 'AutoReleaseTime',
-        'cpu'                     => 'Cpu',
-        'creationTime'            => 'CreationTime',
-        'dataDisk'                => 'DataDisk',
-        'disk'                    => 'Disk',
-        'ensRegionId'             => 'EnsRegionId',
-        'expiredTime'             => 'ExpiredTime',
-        'hostName'                => 'HostName',
-        'imageId'                 => 'ImageId',
-        'innerIpAddress'          => 'InnerIpAddress',
-        'instanceId'              => 'InstanceId',
-        'instanceName'            => 'InstanceName',
-        'instanceResourceType'    => 'InstanceResourceType',
-        'instanceTypeFamily'      => 'InstanceTypeFamily',
-        'internetMaxBandwidthIn'  => 'InternetMaxBandwidthIn',
+        'autoReleaseTime' => 'AutoReleaseTime',
+        'cpu' => 'Cpu',
+        'creationTime' => 'CreationTime',
+        'dataDisk' => 'DataDisk',
+        'disk' => 'Disk',
+        'ensRegionId' => 'EnsRegionId',
+        'expiredTime' => 'ExpiredTime',
+        'hostName' => 'HostName',
+        'imageId' => 'ImageId',
+        'innerIpAddress' => 'InnerIpAddress',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'instanceResourceType' => 'InstanceResourceType',
+        'instanceTypeFamily' => 'InstanceTypeFamily',
+        'internetMaxBandwidthIn' => 'InternetMaxBandwidthIn',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
-        'keyPairName'             => 'KeyPairName',
-        'memory'                  => 'Memory',
-        'networkAttributes'       => 'NetworkAttributes',
-        'networkInterfaces'       => 'NetworkInterfaces',
-        'OSName'                  => 'OSName',
-        'privateIpAddresses'      => 'PrivateIpAddresses',
-        'publicIpAddress'         => 'PublicIpAddress',
-        'publicIpAddresses'       => 'PublicIpAddresses',
-        'securityGroupIds'        => 'SecurityGroupIds',
-        'serviceStatus'           => 'ServiceStatus',
-        'specName'                => 'SpecName',
-        'spotStrategy'            => 'SpotStrategy',
-        'status'                  => 'Status',
-        'systemDisk'              => 'SystemDisk',
-        'tags'                    => 'Tags',
+        'keyPairName' => 'KeyPairName',
+        'memory' => 'Memory',
+        'networkAttributes' => 'NetworkAttributes',
+        'networkInterfaces' => 'NetworkInterfaces',
+        'OSName' => 'OSName',
+        'privateIpAddresses' => 'PrivateIpAddresses',
+        'publicIpAddress' => 'PublicIpAddress',
+        'publicIpAddresses' => 'PublicIpAddresses',
+        'securityGroupIds' => 'SecurityGroupIds',
+        'serviceStatus' => 'ServiceStatus',
+        'specName' => 'SpecName',
+        'spotStrategy' => 'SpotStrategy',
+        'status' => 'Status',
+        'systemDisk' => 'SystemDisk',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

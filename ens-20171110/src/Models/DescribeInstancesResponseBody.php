@@ -61,17 +61,15 @@ class DescribeInstancesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'code'       => 'Code',
-        'instances'  => 'Instances',
+        'code' => 'Code',
+        'instances' => 'Instances',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

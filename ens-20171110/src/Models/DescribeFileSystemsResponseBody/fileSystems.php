@@ -119,22 +119,20 @@ class fileSystems extends Model
      */
     public $storageType;
     protected $_name = [
-        'capacity'       => 'Capacity',
-        'creationTime'   => 'CreationTime',
-        'ensRegionId'    => 'EnsRegionId',
-        'fileSystemId'   => 'FileSystemId',
+        'capacity' => 'Capacity',
+        'creationTime' => 'CreationTime',
+        'ensRegionId' => 'EnsRegionId',
+        'fileSystemId' => 'FileSystemId',
         'fileSystemName' => 'FileSystemName',
-        'meteredSize'    => 'MeteredSize',
-        'mountTargets'   => 'MountTargets',
-        'payType'        => 'PayType',
-        'protocolType'   => 'ProtocolType',
-        'status'         => 'Status',
-        'storageType'    => 'StorageType',
+        'meteredSize' => 'MeteredSize',
+        'mountTargets' => 'MountTargets',
+        'payType' => 'PayType',
+        'protocolType' => 'ProtocolType',
+        'status' => 'Status',
+        'storageType' => 'StorageType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -211,7 +209,7 @@ class fileSystems extends Model
         if (isset($map['MountTargets'])) {
             if (!empty($map['MountTargets'])) {
                 $model->mountTargets = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['MountTargets'] as $item) {
                     $model->mountTargets[$n++] = null !== $item ? mountTargets::fromMap($item) : $item;
                 }

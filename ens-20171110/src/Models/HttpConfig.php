@@ -59,20 +59,18 @@ class HttpConfig extends Model
      */
     public $XForwardedFor;
     protected $_name = [
-        'cookie'              => 'Cookie',
-        'cookieTimeout'       => 'CookieTimeout',
-        'idleTimeout'         => 'IdleTimeout',
-        'requestTimeout'      => 'RequestTimeout',
-        'scheduler'           => 'Scheduler',
+        'cookie' => 'Cookie',
+        'cookieTimeout' => 'CookieTimeout',
+        'idleTimeout' => 'IdleTimeout',
+        'requestTimeout' => 'RequestTimeout',
+        'scheduler' => 'Scheduler',
         'serverCertificateId' => 'ServerCertificateId',
-        'stickySession'       => 'StickySession',
-        'stickySessionType'   => 'StickySessionType',
-        'XForwardedFor'       => 'XForwardedFor',
+        'stickySession' => 'StickySession',
+        'stickySessionType' => 'StickySessionType',
+        'XForwardedFor' => 'XForwardedFor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

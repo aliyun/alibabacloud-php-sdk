@@ -114,6 +114,7 @@ class DescribeDisksRequest extends Model
      * @description The number of the page to return. Pages start from page **1**.
      *
      * Default value: **1**.
+     *
      * @example 1
      *
      * @var string
@@ -124,6 +125,7 @@ class DescribeDisksRequest extends Model
      * @description The number of entries to return on each page. Maximum value: **50**.
      *
      * Default value: **10**.
+     *
      * @example 10
      *
      * @var string
@@ -170,26 +172,24 @@ class DescribeDisksRequest extends Model
      */
     public $type;
     protected $_name = [
-        'category'       => 'Category',
+        'category' => 'Category',
         'diskChargeType' => 'DiskChargeType',
-        'diskId'         => 'DiskId',
-        'diskIds'        => 'DiskIds',
-        'diskName'       => 'DiskName',
-        'diskType'       => 'DiskType',
-        'ensRegionId'    => 'EnsRegionId',
-        'ensRegionIds'   => 'EnsRegionIds',
-        'instanceId'     => 'InstanceId',
-        'orderByParams'  => 'OrderByParams',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'snapshotId'     => 'SnapshotId',
-        'status'         => 'Status',
-        'type'           => 'Type',
+        'diskId' => 'DiskId',
+        'diskIds' => 'DiskIds',
+        'diskName' => 'DiskName',
+        'diskType' => 'DiskType',
+        'ensRegionId' => 'EnsRegionId',
+        'ensRegionIds' => 'EnsRegionIds',
+        'instanceId' => 'InstanceId',
+        'orderByParams' => 'OrderByParams',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'snapshotId' => 'SnapshotId',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

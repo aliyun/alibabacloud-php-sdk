@@ -40,15 +40,13 @@ class ModifyInstanceBootConfigurationRequest extends Model
      */
     public $instanceId;
     protected $_name = [
-        'bootSet'    => 'BootSet',
-        'bootType'   => 'BootType',
-        'diskSet'    => 'DiskSet',
+        'bootSet' => 'BootSet',
+        'bootType' => 'BootType',
+        'diskSet' => 'DiskSet',
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -31,13 +31,11 @@ class supportResource extends Model
      */
     public $ensRegionId;
     protected $_name = [
-        'category'    => 'Category',
+        'category' => 'Category',
         'ensRegionId' => 'EnsRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -113,23 +113,21 @@ class resourceInfos extends Model
      */
     public $regionName;
     protected $_name = [
-        'appVersion'     => 'AppVersion',
-        'areaCode'       => 'AreaCode',
-        'areaName'       => 'AreaName',
-        'createTime'     => 'CreateTime',
-        'deviceInfos'    => 'DeviceInfos',
-        'instanceId'     => 'InstanceId',
+        'appVersion' => 'AppVersion',
+        'areaCode' => 'AreaCode',
+        'areaName' => 'AreaName',
+        'createTime' => 'CreateTime',
+        'deviceInfos' => 'DeviceInfos',
+        'instanceId' => 'InstanceId',
         'instanceStatus' => 'InstanceStatus',
-        'internalIps'    => 'InternalIps',
-        'publicIps'      => 'PublicIps',
-        'regionCode'     => 'RegionCode',
-        'regionId'       => 'RegionId',
-        'regionName'     => 'RegionName',
+        'internalIps' => 'InternalIps',
+        'publicIps' => 'PublicIps',
+        'regionCode' => 'RegionCode',
+        'regionId' => 'RegionId',
+        'regionName' => 'RegionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -215,7 +213,7 @@ class resourceInfos extends Model
         if (isset($map['DeviceInfos'])) {
             if (!empty($map['DeviceInfos'])) {
                 $model->deviceInfos = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['DeviceInfos'] as $item) {
                     $model->deviceInfos[$n++] = null !== $item ? deviceInfos::fromMap($item) : $item;
                 }
@@ -230,7 +228,7 @@ class resourceInfos extends Model
         if (isset($map['InternalIps'])) {
             if (!empty($map['InternalIps'])) {
                 $model->internalIps = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['InternalIps'] as $item) {
                     $model->internalIps[$n++] = null !== $item ? internalIps::fromMap($item) : $item;
                 }
@@ -239,7 +237,7 @@ class resourceInfos extends Model
         if (isset($map['PublicIps'])) {
             if (!empty($map['PublicIps'])) {
                 $model->publicIps = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['PublicIps'] as $item) {
                     $model->publicIps[$n++] = null !== $item ? publicIps::fromMap($item) : $item;
                 }

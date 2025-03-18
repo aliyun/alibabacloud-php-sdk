@@ -34,13 +34,11 @@ class RunInstancesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
-        'orderId'     => 'OrderId',
-        'requestId'   => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

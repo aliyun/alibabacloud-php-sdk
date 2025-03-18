@@ -52,16 +52,14 @@ class DescribeHaVipsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'haVips'     => 'HaVips',
+        'haVips' => 'HaVips',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeHaVipsResponseBody extends Model
         if (isset($map['HaVips'])) {
             if (!empty($map['HaVips'])) {
                 $model->haVips = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['HaVips'] as $item) {
                     $model->haVips[$n++] = null !== $item ? haVips::fromMap($item) : $item;
                 }

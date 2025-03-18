@@ -12,6 +12,7 @@ class DescribeSnatTableEntriesRequest extends Model
      * @description The ID of the Network Address Translation (NAT) gateway.
      *
      * This parameter is required.
+     *
      * @example nat-5tawjw5j7sgd2deujxuk0****
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeSnatTableEntriesRequest extends Model
      * @description The page number. Pages start from page **1**.
      *
      * Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -32,6 +34,7 @@ class DescribeSnatTableEntriesRequest extends Model
      * @description The number of entries per page. The maximum value is **100**.
      *
      * Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -66,6 +69,11 @@ class DescribeSnatTableEntriesRequest extends Model
     public $snatIp;
 
     /**
+     * @var string[]
+     */
+    public $snatIps;
+
+    /**
      * @description The source CIDR block specified in the SNAT entry.
      *
      * @example 10.1.0.50/32
@@ -74,18 +82,17 @@ class DescribeSnatTableEntriesRequest extends Model
      */
     public $sourceCIDR;
     protected $_name = [
-        'natGatewayId'  => 'NatGatewayId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'snatEntryId'   => 'SnatEntryId',
+        'natGatewayId' => 'NatGatewayId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'snatEntryId' => 'SnatEntryId',
         'snatEntryName' => 'SnatEntryName',
-        'snatIp'        => 'SnatIp',
-        'sourceCIDR'    => 'SourceCIDR',
+        'snatIp' => 'SnatIp',
+        'snatIps' => 'SnatIps',
+        'sourceCIDR' => 'SourceCIDR',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -107,6 +114,9 @@ class DescribeSnatTableEntriesRequest extends Model
         }
         if (null !== $this->snatIp) {
             $res['SnatIp'] = $this->snatIp;
+        }
+        if (null !== $this->snatIps) {
+            $res['SnatIps'] = $this->snatIps;
         }
         if (null !== $this->sourceCIDR) {
             $res['SourceCIDR'] = $this->sourceCIDR;
@@ -140,6 +150,11 @@ class DescribeSnatTableEntriesRequest extends Model
         }
         if (isset($map['SnatIp'])) {
             $model->snatIp = $map['SnatIp'];
+        }
+        if (isset($map['SnatIps'])) {
+            if (!empty($map['SnatIps'])) {
+                $model->snatIps = $map['SnatIps'];
+            }
         }
         if (isset($map['SourceCIDR'])) {
             $model->sourceCIDR = $map['SourceCIDR'];

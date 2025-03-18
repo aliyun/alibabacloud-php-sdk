@@ -12,6 +12,7 @@ class DescribeEnsRegionIdResourceRequest extends Model
      * @description The end time of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * This parameter is required.
+     *
      * @example 2020-06-16T06:33:15
      *
      * @var string
@@ -67,23 +68,22 @@ class DescribeEnsRegionIdResourceRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * This parameter is required.
+     *
      * @example 2020-06-16T06:33:15Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'isp'           => 'Isp',
+        'endTime' => 'EndTime',
+        'isp' => 'Isp',
         'orderByParams' => 'OrderByParams',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'startTime'     => 'StartTime',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteEpnInstanceRequest extends Model
      * @description The ID of the EPN instance.
      *
      * This parameter is required.
+     *
      * @example epn-****
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteEpnInstanceRequest extends Model
         'EPNInstanceId' => 'EPNInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

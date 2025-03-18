@@ -23,14 +23,12 @@ class InstanceOperateResponse extends Model
      */
     public $message;
     protected $_name = [
-        'code'       => 'Code',
+        'code' => 'Code',
         'instanceId' => 'InstanceId',
-        'message'    => 'Message',
+        'message' => 'Message',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

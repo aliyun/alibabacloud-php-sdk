@@ -32,12 +32,10 @@ class DescribeExportImageStatusResponseBody extends Model
     public $requestId;
     protected $_name = [
         'imageExportStatus' => 'ImageExportStatus',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

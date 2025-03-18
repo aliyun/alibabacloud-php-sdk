@@ -29,6 +29,7 @@ class DescribeAICImagesResponseBody extends Model
      * @description The number of entries per page.
      *
      * Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -53,16 +54,14 @@ class DescribeAICImagesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'images'     => 'Images',
+        'images' => 'Images',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,7 +102,7 @@ class DescribeAICImagesResponseBody extends Model
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Images'] as $item) {
                     $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
                 }

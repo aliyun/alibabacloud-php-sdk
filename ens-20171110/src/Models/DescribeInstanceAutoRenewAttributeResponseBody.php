@@ -34,14 +34,12 @@ class DescribeInstanceAutoRenewAttributeResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'                    => 'Code',
+        'code' => 'Code',
         'instanceRenewAttributes' => 'InstanceRenewAttributes',
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

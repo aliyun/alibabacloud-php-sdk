@@ -88,19 +88,17 @@ class image extends Model
      */
     public $platform;
     protected $_name = [
-        'architecture'      => 'Architecture',
-        'creationTime'      => 'CreationTime',
-        'exportedImageURL'  => 'ExportedImageURL',
+        'architecture' => 'Architecture',
+        'creationTime' => 'CreationTime',
+        'exportedImageURL' => 'ExportedImageURL',
         'imageExportStatus' => 'ImageExportStatus',
-        'imageId'           => 'ImageId',
-        'imageName'         => 'ImageName',
-        'imageOwnerAlias'   => 'ImageOwnerAlias',
-        'platform'          => 'Platform',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
+        'imageOwnerAlias' => 'ImageOwnerAlias',
+        'platform' => 'Platform',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -15,7 +15,10 @@ class ImportKeyPairRequest extends Model
      *   The name must start with a letter but cannot start with `http://` or `https://`.
      *   The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
+     * You can specify the name of only one key pair.
+     *
      * This parameter is required.
+     *
      * @example TestKeyPairName
      *
      * @var string
@@ -26,19 +29,18 @@ class ImportKeyPairRequest extends Model
      * @description The public key of the key pair. You can specify only one public key.
      *
      * This parameter is required.
+     *
      * @example ssh-rsa AAAAB****
      *
      * @var string
      */
     public $publicKeyBody;
     protected $_name = [
-        'keyPairName'   => 'KeyPairName',
+        'keyPairName' => 'KeyPairName',
         'publicKeyBody' => 'PublicKeyBody',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

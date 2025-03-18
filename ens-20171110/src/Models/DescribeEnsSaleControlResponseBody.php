@@ -19,13 +19,11 @@ class DescribeEnsSaleControlResponseBody extends Model
      */
     public $saleControl;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'saleControl' => 'SaleControl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -60,7 +58,7 @@ class DescribeEnsSaleControlResponseBody extends Model
         if (isset($map['SaleControl'])) {
             if (!empty($map['SaleControl'])) {
                 $model->saleControl = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['SaleControl'] as $item) {
                     $model->saleControl[$n++] = null !== $item ? saleControl::fromMap($item) : $item;
                 }

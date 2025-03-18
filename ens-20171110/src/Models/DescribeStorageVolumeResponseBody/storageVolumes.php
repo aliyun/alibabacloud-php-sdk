@@ -127,23 +127,21 @@ class storageVolumes extends Model
      */
     public $targetName;
     protected $_name = [
-        'authProtocol'      => 'AuthProtocol',
-        'creationTime'      => 'CreationTime',
-        'description'       => 'Description',
-        'ensRegionId'       => 'EnsRegionId',
-        'isAuth'            => 'IsAuth',
-        'isEnable'          => 'IsEnable',
-        'status'            => 'Status',
-        'storageGatewayId'  => 'StorageGatewayId',
-        'storageId'         => 'StorageId',
-        'storageVolumeId'   => 'StorageVolumeId',
+        'authProtocol' => 'AuthProtocol',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'ensRegionId' => 'EnsRegionId',
+        'isAuth' => 'IsAuth',
+        'isEnable' => 'IsEnable',
+        'status' => 'Status',
+        'storageGatewayId' => 'StorageGatewayId',
+        'storageId' => 'StorageId',
+        'storageVolumeId' => 'StorageVolumeId',
         'storageVolumeName' => 'StorageVolumeName',
-        'targetName'        => 'TargetName',
+        'targetName' => 'TargetName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

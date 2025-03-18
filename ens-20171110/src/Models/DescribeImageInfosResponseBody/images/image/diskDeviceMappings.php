@@ -17,9 +17,7 @@ class diskDeviceMappings extends Model
         'diskDeviceMapping' => 'DiskDeviceMapping',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class diskDeviceMappings extends Model
         if (isset($map['DiskDeviceMapping'])) {
             if (!empty($map['DiskDeviceMapping'])) {
                 $model->diskDeviceMapping = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['DiskDeviceMapping'] as $item) {
                     $model->diskDeviceMapping[$n++] = null !== $item ? diskDeviceMapping::fromMap($item) : $item;
                 }

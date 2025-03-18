@@ -42,15 +42,13 @@ class DistApplicationDataResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'distInstanceIds'        => 'DistInstanceIds',
+        'distInstanceIds' => 'DistInstanceIds',
         'distInstanceTotalCount' => 'DistInstanceTotalCount',
-        'distResults'            => 'DistResults',
-        'requestId'              => 'RequestId',
+        'distResults' => 'DistResults',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

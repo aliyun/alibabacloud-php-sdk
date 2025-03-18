@@ -36,12 +36,10 @@ class CreateEnsSaleControlRequest extends Model
         'aliUidAccount' => 'AliUidAccount',
         'commodityCode' => 'CommodityCode',
         'customAccount' => 'CustomAccount',
-        'saleControls'  => 'SaleControls',
+        'saleControls' => 'SaleControls',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -88,7 +86,7 @@ class CreateEnsSaleControlRequest extends Model
         if (isset($map['SaleControls'])) {
             if (!empty($map['SaleControls'])) {
                 $model->saleControls = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['SaleControls'] as $item) {
                     $model->saleControls[$n++] = null !== $item ? saleControls::fromMap($item) : $item;
                 }

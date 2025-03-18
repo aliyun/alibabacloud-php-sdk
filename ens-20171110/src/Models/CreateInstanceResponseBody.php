@@ -13,6 +13,7 @@ class CreateInstanceResponseBody extends Model
      * @description The return code. A value of 0 indicates that the request is successful.
      *
      * >  If you call this operation by using SDKs, the return value is of the integer type. If you call this operation by using common methods or HTTP requests, the return value is of the string type.
+     *
      * @example 0
      *
      * @var int
@@ -35,14 +36,12 @@ class CreateInstanceResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'        => 'Code',
+        'code' => 'Code',
         'instanceIds' => 'InstanceIds',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

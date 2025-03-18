@@ -48,14 +48,12 @@ class network extends Model
     public $protocol;
     protected $_name = [
         'containerPorts' => 'ContainerPorts',
-        'externalIp'     => 'ExternalIp',
-        'hostPorts'      => 'HostPorts',
-        'protocol'       => 'Protocol',
+        'externalIp' => 'ExternalIp',
+        'hostPorts' => 'HostPorts',
+        'protocol' => 'Protocol',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

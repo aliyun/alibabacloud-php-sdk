@@ -12,6 +12,7 @@ class ModifyEnsEipAddressAttributeRequest extends Model
      * @description The ID of the EIP.
      *
      * This parameter is required.
+     *
      * @example eip-5sw5dxzgi6umq4uexxkt8wpma
      *
      * @var string
@@ -46,14 +47,12 @@ class ModifyEnsEipAddressAttributeRequest extends Model
     public $name;
     protected $_name = [
         'allocationId' => 'AllocationId',
-        'bandwidth'    => 'Bandwidth',
-        'description'  => 'Description',
-        'name'         => 'Name',
+        'bandwidth' => 'Bandwidth',
+        'description' => 'Description',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

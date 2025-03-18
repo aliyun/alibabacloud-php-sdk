@@ -143,26 +143,24 @@ class serverLoadBalancerMonitorData extends Model
      */
     public $vport;
     protected $_name = [
-        'acc'              => 'Acc',
-        'bizTime'          => 'BizTime',
-        'ensRegionId'      => 'EnsRegionId',
-        'loadBalancerId'   => 'LoadBalancerId',
+        'acc' => 'Acc',
+        'bizTime' => 'BizTime',
+        'ensRegionId' => 'EnsRegionId',
+        'loadBalancerId' => 'LoadBalancerId',
         'loadBalancerName' => 'LoadBalancerName',
         'loadBalancerSpec' => 'LoadBalancerSpec',
-        'proto'            => 'Proto',
-        'reqs2xx'          => 'Reqs2xx',
-        'reqs3xx'          => 'Reqs3xx',
-        'reqs4xx'          => 'Reqs4xx',
-        'reqs5xx'          => 'Reqs5xx',
-        'rtAvg'            => 'RtAvg',
-        'vip'              => 'Vip',
-        'vni'              => 'Vni',
-        'vport'            => 'Vport',
+        'proto' => 'Proto',
+        'reqs2xx' => 'Reqs2xx',
+        'reqs3xx' => 'Reqs3xx',
+        'reqs4xx' => 'Reqs4xx',
+        'reqs5xx' => 'Reqs5xx',
+        'rtAvg' => 'RtAvg',
+        'vip' => 'Vip',
+        'vni' => 'Vni',
+        'vport' => 'Vport',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ReleaseAICInstanceRequest extends Model
      * @description The ID of the server.
      *
      * This parameter is required.
+     *
      * @example cas-instance****
      *
      * @var string
@@ -21,9 +22,7 @@ class ReleaseAICInstanceRequest extends Model
         'serverId' => 'ServerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

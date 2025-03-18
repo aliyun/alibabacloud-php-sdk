@@ -26,13 +26,11 @@ class tags extends Model
      */
     public $tagValue;
     protected $_name = [
-        'tagKey'   => 'TagKey',
+        'tagKey' => 'TagKey',
         'tagValue' => 'TagValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

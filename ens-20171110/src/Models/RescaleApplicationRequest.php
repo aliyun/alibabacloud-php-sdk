@@ -12,6 +12,7 @@ class RescaleApplicationRequest extends Model
      * @description The ID of the application. You can query the application ID by calling the ListApplications operation.
      *
      * This parameter is required.
+     *
      * @example 474bdef0-d149-4695-abfb-52912d9143f0
      *
      * @var string
@@ -38,6 +39,7 @@ class RescaleApplicationRequest extends Model
      *   Del: releases resources.
      *
      * This parameter is required.
+     *
      * @example Add
      *
      * @var string
@@ -48,6 +50,7 @@ class RescaleApplicationRequest extends Model
      * @description The required resources. The value must be a JSON string.
      *
      * This parameter is required.
+     *
      * @example [{\\"regionCode\\": \\"cn-wuxi-telecom_unicom_cmcc-3\\",    \\"ispCode\\": \\"telecom\\",    \\"count\\": 2	},{    \\"regionCode\\": \\"cn-shanghai-cmcc\\",    \\"count\\": 4	}]
      *
      * @var string
@@ -72,17 +75,15 @@ class RescaleApplicationRequest extends Model
      */
     public $toAppVersion;
     protected $_name = [
-        'appId'            => 'AppId',
-        'rescaleLevel'     => 'RescaleLevel',
-        'rescaleType'      => 'RescaleType',
+        'appId' => 'AppId',
+        'rescaleLevel' => 'RescaleLevel',
+        'rescaleType' => 'RescaleType',
         'resourceSelector' => 'ResourceSelector',
-        'timeout'          => 'Timeout',
-        'toAppVersion'     => 'ToAppVersion',
+        'timeout' => 'Timeout',
+        'toAppVersion' => 'ToAppVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

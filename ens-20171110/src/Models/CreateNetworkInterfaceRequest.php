@@ -36,15 +36,13 @@ class CreateNetworkInterfaceRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'description'      => 'Description',
-        'name'             => 'Name',
+        'description' => 'Description',
+        'name' => 'Name',
         'securityGroupIds' => 'SecurityGroupIds',
-        'vSwitchId'        => 'VSwitchId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

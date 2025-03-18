@@ -27,12 +27,10 @@ class systemDisk extends Model
     public $size;
     protected $_name = [
         'category' => 'Category',
-        'size'     => 'Size',
+        'size' => 'Size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class DescribeImageSharePermissionRequest extends Model
      * @description The ID of the image.
      *
      * This parameter is required.
+     *
      * @example m-5s7qotzavwbrnzaqh4unm****
      *
      * @var string
@@ -31,6 +32,7 @@ class DescribeImageSharePermissionRequest extends Model
      * @description The page number. Pages start from page **1**.
      *
      * Default value: **1**.
+     *
      * @example 1
      *
      * @var string
@@ -41,21 +43,20 @@ class DescribeImageSharePermissionRequest extends Model
      * @description The number of entries per page. Maximum value: **100**.
      *
      * Default value: **10**.
+     *
      * @example 10
      *
      * @var string
      */
     public $pageSize;
     protected $_name = [
-        'aliyunId'   => 'AliyunId',
-        'imageId'    => 'ImageId',
+        'aliyunId' => 'AliyunId',
+        'imageId' => 'ImageId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,6 +18,7 @@ class RevokeSecurityGroupRequest extends Model
      *   all: all protocols.
      *
      * This parameter is required.
+     *
      * @example all
      *
      * @var string
@@ -45,6 +46,7 @@ class RevokeSecurityGroupRequest extends Model
      *   When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
      *
      * This parameter is required.
+     *
      * @example 22/22
      *
      * @var string
@@ -64,6 +66,7 @@ class RevokeSecurityGroupRequest extends Model
      * @description The ID of the security group.
      *
      * This parameter is required.
+     *
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -74,6 +77,7 @@ class RevokeSecurityGroupRequest extends Model
      * @description The source CIDR block. CIDR blocks and IPv4 addresses are supported. Default value: 0.0.XX.XX/0.
      *
      * This parameter is required.
+     *
      * @example 10.0.XX.XX/8
      *
      * @var string
@@ -94,18 +98,16 @@ class RevokeSecurityGroupRequest extends Model
      */
     public $sourcePortRange;
     protected $_name = [
-        'ipProtocol'      => 'IpProtocol',
-        'policy'          => 'Policy',
-        'portRange'       => 'PortRange',
-        'priority'        => 'Priority',
+        'ipProtocol' => 'IpProtocol',
+        'policy' => 'Policy',
+        'portRange' => 'PortRange',
+        'priority' => 'Priority',
         'securityGroupId' => 'SecurityGroupId',
-        'sourceCidrIp'    => 'SourceCidrIp',
+        'sourceCidrIp' => 'SourceCidrIp',
         'sourcePortRange' => 'SourcePortRange',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class orderDetails extends Model
      * @description The ID of the node.
      *
      * This parameter is required.
+     *
      * @example cn-shenzhen-3
      *
      * @var string
@@ -40,6 +41,7 @@ class orderDetails extends Model
      * @description The type of the gateway. Set this parameter to **1**. **1** indicates iSCSI.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -50,6 +52,7 @@ class orderDetails extends Model
      * @description The ID of the VPC.
      *
      * This parameter is required.
+     *
      * @example n-123
      *
      * @var string
@@ -60,12 +63,10 @@ class orderDetails extends Model
         'ensRegionId' => 'EnsRegionId',
         'gatewayName' => 'GatewayName',
         'gatewayType' => 'GatewayType',
-        'vpcId'       => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

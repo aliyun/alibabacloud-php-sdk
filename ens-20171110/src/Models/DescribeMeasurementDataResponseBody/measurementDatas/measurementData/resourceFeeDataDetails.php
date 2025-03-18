@@ -17,9 +17,7 @@ class resourceFeeDataDetails extends Model
         'resourceFeeDataDetail' => 'ResourceFeeDataDetail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class resourceFeeDataDetails extends Model
         if (isset($map['ResourceFeeDataDetail'])) {
             if (!empty($map['ResourceFeeDataDetail'])) {
                 $model->resourceFeeDataDetail = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['ResourceFeeDataDetail'] as $item) {
                     $model->resourceFeeDataDetail[$n++] = null !== $item ? resourceFeeDataDetail::fromMap($item) : $item;
                 }

@@ -16,9 +16,7 @@ class isp extends Model
         'isp' => 'Isp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

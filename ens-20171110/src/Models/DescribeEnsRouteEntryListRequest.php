@@ -29,7 +29,9 @@ class DescribeEnsRouteEntryListRequest extends Model
     /**
      * @description The type of next hop of the custom route entry. Valid values:
      *
-     *   Instance: an ENS instance.
+     *   Instance (default): an ENS instance.
+     *   HaVip: a high-availability virtual IP address (HAVIP).
+     *   NetworkPeer: VPC peering connection.
      *
      * @example Instance
      *
@@ -88,7 +90,6 @@ class DescribeEnsRouteEntryListRequest extends Model
     /**
      * @description The ID of the route table that you want to query.
      *
-     * This parameter is required.
      * @example vtb-hp3wdhynneo7fsclox8hs
      *
      * @var string
@@ -96,19 +97,17 @@ class DescribeEnsRouteEntryListRequest extends Model
     public $routeTableId;
     protected $_name = [
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'nextHopId'            => 'NextHopId',
-        'nextHopType'          => 'NextHopType',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'routeEntryId'         => 'RouteEntryId',
-        'routeEntryName'       => 'RouteEntryName',
-        'routeEntryType'       => 'RouteEntryType',
-        'routeTableId'         => 'RouteTableId',
+        'nextHopId' => 'NextHopId',
+        'nextHopType' => 'NextHopType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'routeEntryId' => 'RouteEntryId',
+        'routeEntryName' => 'RouteEntryName',
+        'routeEntryType' => 'RouteEntryType',
+        'routeTableId' => 'RouteTableId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

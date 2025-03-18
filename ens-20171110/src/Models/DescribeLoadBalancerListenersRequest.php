@@ -9,9 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerListenersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var int
+     */
+    public $listenerPort;
+
+    /**
      * @description The ID of the ELB instance.
      *
      * This parameter is required.
+     *
      * @example lb-5s7crik3yo3p5****
      *
      * @var string
@@ -36,18 +47,24 @@ class DescribeLoadBalancerListenersRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'description' => 'Description',
+        'listenerPort' => 'ListenerPort',
         'loadBalancerId' => 'LoadBalancerId',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->listenerPort) {
+            $res['ListenerPort'] = $this->listenerPort;
+        }
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
@@ -69,6 +86,12 @@ class DescribeLoadBalancerListenersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['ListenerPort'])) {
+            $model->listenerPort = $map['ListenerPort'];
+        }
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }

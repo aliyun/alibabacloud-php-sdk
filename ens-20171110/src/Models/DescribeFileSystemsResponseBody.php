@@ -53,15 +53,13 @@ class DescribeFileSystemsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'fileSystems' => 'FileSystems',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeFileSystemsResponseBody extends Model
         if (isset($map['FileSystems'])) {
             if (!empty($map['FileSystems'])) {
                 $model->fileSystems = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['FileSystems'] as $item) {
                     $model->fileSystems[$n++] = null !== $item ? fileSystems::fromMap($item) : $item;
                 }

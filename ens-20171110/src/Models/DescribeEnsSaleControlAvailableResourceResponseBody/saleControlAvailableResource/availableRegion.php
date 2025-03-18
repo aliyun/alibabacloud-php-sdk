@@ -43,18 +43,16 @@ class availableRegion extends Model
      */
     public $province;
     protected $_name = [
-        'area'          => 'Area',
-        'city'          => 'City',
-        'country'       => 'Country',
-        'ensRegionId'   => 'EnsRegionId',
+        'area' => 'Area',
+        'city' => 'City',
+        'country' => 'Country',
+        'ensRegionId' => 'EnsRegionId',
         'ensRegionName' => 'EnsRegionName',
-        'isp'           => 'Isp',
-        'province'      => 'Province',
+        'isp' => 'Isp',
+        'province' => 'Province',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

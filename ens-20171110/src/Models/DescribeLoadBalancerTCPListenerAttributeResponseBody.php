@@ -72,6 +72,7 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
      * @description The port that is used for health checks. Valid values: **1** to **65535**. If an empty string is returned for this parameter, the port specified by BackendServerPort is used for health checks.
      *
      * >  This parameter is returned only if you set HealthCheck to on.
+     *
      * @example 8000
      *
      * @var int
@@ -101,6 +102,7 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
      * @description The domain name that is used for health checks.
      *
      * >  This parameter is returned only if you set HealthCheck to on.
+     *
      * @example example.com
      *
      * @var string
@@ -116,6 +118,7 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
      *   **http_5xx**
      *
      * >  This parameter is returned only if you set HealthCheck to on.
+     *
      * @example http_2xx
      *
      * @var string
@@ -162,6 +165,7 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
      * @description The number of consecutive successful health checks that must occur before an unhealthy and inaccessible backend server is declared healthy and accessible. Valid values: **2** to **10**.
      *
      * >  This parameter is returned only if you set HealthCheck to on.
+     *
      * @example 4
      *
      * @var int
@@ -234,37 +238,36 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
      * @description The number of consecutive failed health checks that must occur before a healthy and accessible backend server is declared unhealthy and inaccessible. Valid values: **2** to **10**.
      *
      * >  This parameter is returned only if you set HealthCheck to on.
+     *
      * @example 4
      *
      * @var int
      */
     public $unhealthyThreshold;
     protected $_name = [
-        'backendServerPort'         => 'BackendServerPort',
-        'bandwidth'                 => 'Bandwidth',
-        'description'               => 'Description',
-        'eipTransmit'               => 'EipTransmit',
-        'establishedTimeout'        => 'EstablishedTimeout',
-        'healthCheck'               => 'HealthCheck',
-        'healthCheckConnectPort'    => 'HealthCheckConnectPort',
+        'backendServerPort' => 'BackendServerPort',
+        'bandwidth' => 'Bandwidth',
+        'description' => 'Description',
+        'eipTransmit' => 'EipTransmit',
+        'establishedTimeout' => 'EstablishedTimeout',
+        'healthCheck' => 'HealthCheck',
+        'healthCheckConnectPort' => 'HealthCheckConnectPort',
         'healthCheckConnectTimeout' => 'HealthCheckConnectTimeout',
-        'healthCheckDomain'         => 'HealthCheckDomain',
-        'healthCheckHttpCode'       => 'HealthCheckHttpCode',
-        'healthCheckInterval'       => 'HealthCheckInterval',
-        'healthCheckType'           => 'HealthCheckType',
-        'healthCheckURI'            => 'HealthCheckURI',
-        'healthyThreshold'          => 'HealthyThreshold',
-        'listenerPort'              => 'ListenerPort',
-        'persistenceTimeout'        => 'PersistenceTimeout',
-        'requestId'                 => 'RequestId',
-        'scheduler'                 => 'Scheduler',
-        'status'                    => 'Status',
-        'unhealthyThreshold'        => 'UnhealthyThreshold',
+        'healthCheckDomain' => 'HealthCheckDomain',
+        'healthCheckHttpCode' => 'HealthCheckHttpCode',
+        'healthCheckInterval' => 'HealthCheckInterval',
+        'healthCheckType' => 'HealthCheckType',
+        'healthCheckURI' => 'HealthCheckURI',
+        'healthyThreshold' => 'HealthyThreshold',
+        'listenerPort' => 'ListenerPort',
+        'persistenceTimeout' => 'PersistenceTimeout',
+        'requestId' => 'RequestId',
+        'scheduler' => 'Scheduler',
+        'status' => 'Status',
+        'unhealthyThreshold' => 'UnhealthyThreshold',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

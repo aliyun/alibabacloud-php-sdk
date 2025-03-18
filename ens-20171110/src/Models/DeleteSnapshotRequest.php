@@ -12,6 +12,7 @@ class DeleteSnapshotRequest extends Model
      * @description The ID of the snapshot.
      *
      * This parameter is required.
+     *
      * @example sp-bp1c0doj0taqyzzl****
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteSnapshotRequest extends Model
         'snapshotId' => 'SnapshotId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

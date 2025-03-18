@@ -12,6 +12,7 @@ class RemoveSDGShrinkRequest extends Model
      * @description IDs of Android in Container (AIC) instances.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $instanceIdsShrink;
@@ -19,9 +20,7 @@ class RemoveSDGShrinkRequest extends Model
         'instanceIdsShrink' => 'InstanceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

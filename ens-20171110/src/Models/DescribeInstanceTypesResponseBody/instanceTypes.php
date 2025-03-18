@@ -17,9 +17,7 @@ class instanceTypes extends Model
         'instanceType' => 'InstanceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class instanceTypes extends Model
         if (isset($map['InstanceType'])) {
             if (!empty($map['InstanceType'])) {
                 $model->instanceType = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['InstanceType'] as $item) {
                     $model->instanceType[$n++] = null !== $item ? instanceType::fromMap($item) : $item;
                 }

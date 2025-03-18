@@ -44,15 +44,13 @@ class instance extends Model
      */
     public $updateTime;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'startTime'     => 'StartTime',
+        'instanceId' => 'InstanceId',
+        'startTime' => 'StartTime',
         'statusDescrip' => 'StatusDescrip',
-        'updateTime'    => 'UpdateTime',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

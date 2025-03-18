@@ -35,14 +35,12 @@ class CreateImageResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'imageId'   => 'ImageId',
+        'code' => 'Code',
+        'imageId' => 'ImageId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

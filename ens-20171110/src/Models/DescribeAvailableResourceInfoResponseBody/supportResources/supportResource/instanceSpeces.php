@@ -16,9 +16,7 @@ class instanceSpeces extends Model
         'instanceSpec' => 'InstanceSpec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

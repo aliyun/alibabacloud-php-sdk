@@ -26,12 +26,10 @@ class DescribeElbAvailableResourceInfoResponseBody extends Model
     public $requestId;
     protected $_name = [
         'elbAvailableResourceInfo' => 'ElbAvailableResourceInfo',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeElbAvailableResourceInfoResponseBody extends Model
         if (isset($map['ElbAvailableResourceInfo'])) {
             if (!empty($map['ElbAvailableResourceInfo'])) {
                 $model->elbAvailableResourceInfo = [];
-                $n                               = 0;
+                $n = 0;
                 foreach ($map['ElbAvailableResourceInfo'] as $item) {
                     $model->elbAvailableResourceInfo[$n++] = null !== $item ? elbAvailableResourceInfo::fromMap($item) : $item;
                 }

@@ -35,13 +35,11 @@ class monitorData extends Model
     public $maxUpBandWidth;
     protected $_name = [
         'bandWidthMonitorData' => 'BandWidthMonitorData',
-        'maxDownBandWidth'     => 'MaxDownBandWidth',
-        'maxUpBandWidth'       => 'MaxUpBandWidth',
+        'maxDownBandWidth' => 'MaxDownBandWidth',
+        'maxUpBandWidth' => 'MaxUpBandWidth',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class monitorData extends Model
         if (isset($map['BandWidthMonitorData'])) {
             if (!empty($map['BandWidthMonitorData'])) {
                 $model->bandWidthMonitorData = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['BandWidthMonitorData'] as $item) {
                     $model->bandWidthMonitorData[$n++] = null !== $item ? bandWidthMonitorData::fromMap($item) : $item;
                 }

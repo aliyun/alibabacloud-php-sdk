@@ -17,9 +17,7 @@ class eipAddresses extends Model
         'eipAddress' => 'EipAddress',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class eipAddresses extends Model
         if (isset($map['EipAddress'])) {
             if (!empty($map['EipAddress'])) {
                 $model->eipAddress = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['EipAddress'] as $item) {
                     $model->eipAddress[$n++] = null !== $item ? eipAddress::fromMap($item) : $item;
                 }

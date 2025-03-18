@@ -40,9 +40,7 @@ class networkAttributes extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

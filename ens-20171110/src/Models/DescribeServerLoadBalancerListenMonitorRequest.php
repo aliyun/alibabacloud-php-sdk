@@ -12,6 +12,7 @@ class DescribeServerLoadBalancerListenMonitorRequest extends Model
      * @description The end of the time range to query. The maximum range between StartTime and EndTime is 24 hours.
      *
      * This parameter is required.
+     *
      * @example 2024-05-16 16:00:00
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeServerLoadBalancerListenMonitorRequest extends Model
      * @description The ID of the ELB instance.
      *
      * This parameter is required.
+     *
      * @example lb-5rcvo1n1t3hykfhhjwjgqp****
      *
      * @var string
@@ -41,6 +43,7 @@ class DescribeServerLoadBalancerListenMonitorRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format.
      *
      * This parameter is required.
+     *
      * @example 2024-05-16 15:00:00
      *
      * @var string
@@ -56,16 +59,14 @@ class DescribeServerLoadBalancerListenMonitorRequest extends Model
      */
     public $VPort;
     protected $_name = [
-        'endTime'        => 'EndTime',
+        'endTime' => 'EndTime',
         'loadBalancerId' => 'LoadBalancerId',
-        'proto'          => 'Proto',
-        'startTime'      => 'StartTime',
-        'VPort'          => 'VPort',
+        'proto' => 'Proto',
+        'startTime' => 'StartTime',
+        'VPort' => 'VPort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class AssignPrivateIpAddressesRequest extends Model
      * @description The ID of the ENI.
      *
      * This parameter is required.
+     *
      * @example eni-uf6533jbifugr5fo2j1w
      *
      * @var string
@@ -28,12 +29,10 @@ class AssignPrivateIpAddressesRequest extends Model
     public $vSwitchId;
     protected $_name = [
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'vSwitchId'          => 'VSwitchId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

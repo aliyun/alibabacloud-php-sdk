@@ -52,16 +52,14 @@ class DescribeKeyPairsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'keyPairs'   => 'KeyPairs',
+        'keyPairs' => 'KeyPairs',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

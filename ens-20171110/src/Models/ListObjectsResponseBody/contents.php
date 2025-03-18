@@ -48,15 +48,13 @@ class contents extends Model
      */
     public $size;
     protected $_name = [
-        'ETag'         => 'ETag',
-        'key'          => 'Key',
+        'ETag' => 'ETag',
+        'key' => 'Key',
         'lastModified' => 'LastModified',
-        'size'         => 'Size',
+        'size' => 'Size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

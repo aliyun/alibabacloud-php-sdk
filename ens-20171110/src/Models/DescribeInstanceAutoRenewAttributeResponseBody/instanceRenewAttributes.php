@@ -17,9 +17,7 @@ class instanceRenewAttributes extends Model
         'instanceRenewAttribute' => 'InstanceRenewAttribute',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class instanceRenewAttributes extends Model
         if (isset($map['InstanceRenewAttribute'])) {
             if (!empty($map['InstanceRenewAttribute'])) {
                 $model->instanceRenewAttribute = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['InstanceRenewAttribute'] as $item) {
                     $model->instanceRenewAttribute[$n++] = null !== $item ? instanceRenewAttribute::fromMap($item) : $item;
                 }

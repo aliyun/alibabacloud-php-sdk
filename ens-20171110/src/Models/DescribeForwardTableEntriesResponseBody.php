@@ -53,15 +53,13 @@ class DescribeForwardTableEntriesResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'forwardTableEntries' => 'ForwardTableEntries',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'requestId'           => 'RequestId',
-        'totalCount'          => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeForwardTableEntriesResponseBody extends Model
         if (isset($map['ForwardTableEntries'])) {
             if (!empty($map['ForwardTableEntries'])) {
                 $model->forwardTableEntries = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['ForwardTableEntries'] as $item) {
                     $model->forwardTableEntries[$n++] = null !== $item ? forwardTableEntries::fromMap($item) : $item;
                 }

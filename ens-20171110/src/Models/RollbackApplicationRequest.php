@@ -12,6 +12,7 @@ class RollbackApplicationRequest extends Model
      * @description The ID of the application.
      *
      * This parameter is required.
+     *
      * @example 474bdef0-d149-4695-abfb-52912d91****
      *
      * @var string
@@ -22,6 +23,7 @@ class RollbackApplicationRequest extends Model
      * @description The current version number.
      *
      * This parameter is required.
+     *
      * @example v2-1
      *
      * @var string
@@ -46,15 +48,13 @@ class RollbackApplicationRequest extends Model
      */
     public $toAppVersion;
     protected $_name = [
-        'appId'          => 'AppId',
+        'appId' => 'AppId',
         'fromAppVersion' => 'FromAppVersion',
-        'timeout'        => 'Timeout',
-        'toAppVersion'   => 'ToAppVersion',
+        'timeout' => 'Timeout',
+        'toAppVersion' => 'ToAppVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

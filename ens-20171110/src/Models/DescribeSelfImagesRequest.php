@@ -39,6 +39,7 @@ class DescribeSelfImagesRequest extends Model
      * @description The number of entries per page.
      *
      * Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -54,16 +55,14 @@ class DescribeSelfImagesRequest extends Model
      */
     public $snapshotId;
     protected $_name = [
-        'imageId'    => 'ImageId',
-        'imageName'  => 'ImageName',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'snapshotId' => 'SnapshotId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

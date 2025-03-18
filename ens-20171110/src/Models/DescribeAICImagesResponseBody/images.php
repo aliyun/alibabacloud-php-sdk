@@ -63,16 +63,14 @@ class images extends Model
     public $user;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'description'  => 'Description',
-        'imageId'      => 'ImageId',
-        'imageUrl'     => 'ImageUrl',
-        'status'       => 'Status',
-        'user'         => 'User',
+        'description' => 'Description',
+        'imageId' => 'ImageId',
+        'imageUrl' => 'ImageUrl',
+        'status' => 'Status',
+        'user' => 'User',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

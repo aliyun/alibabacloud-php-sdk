@@ -17,9 +17,7 @@ class ensRegionIdsExtends extends Model
         'ensRegionId' => 'EnsRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class ensRegionIdsExtends extends Model
         if (isset($map['EnsRegionId'])) {
             if (!empty($map['EnsRegionId'])) {
                 $model->ensRegionId = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['EnsRegionId'] as $item) {
                     $model->ensRegionId[$n++] = null !== $item ? ensRegionId::fromMap($item) : $item;
                 }

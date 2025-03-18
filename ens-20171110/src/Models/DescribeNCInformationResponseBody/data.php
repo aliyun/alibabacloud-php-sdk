@@ -65,21 +65,19 @@ class data extends Model
      */
     public $virtual;
     protected $_name = [
-        'cpu'     => 'Cpu',
-        'gpu'     => 'Gpu',
-        'hdd'     => 'Hdd',
-        'info'    => 'Info',
-        'memory'  => 'Memory',
-        'nvme'    => 'Nvme',
-        'online'  => 'Online',
-        'region'  => 'Region',
-        'ssd'     => 'Ssd',
+        'cpu' => 'Cpu',
+        'gpu' => 'Gpu',
+        'hdd' => 'Hdd',
+        'info' => 'Info',
+        'memory' => 'Memory',
+        'nvme' => 'Nvme',
+        'online' => 'Online',
+        'region' => 'Region',
+        'ssd' => 'Ssd',
         'virtual' => 'Virtual',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

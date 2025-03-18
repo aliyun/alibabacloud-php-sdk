@@ -35,14 +35,12 @@ class bucketList extends Model
      */
     public $storageUsageByte;
     protected $_name = [
-        'acc'              => 'Acc',
-        'bucket'           => 'Bucket',
+        'acc' => 'Acc',
+        'bucket' => 'Bucket',
         'storageUsageByte' => 'StorageUsageByte',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,9 +30,7 @@ class CreateVSwitchResponseBody extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

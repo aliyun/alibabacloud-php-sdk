@@ -16,6 +16,7 @@ class CreateClassicNetworkRequest extends Model
      *   192.168.0.0/16
      *
      * This parameter is required.
+     *
      * @example 10.0.0.0/16
      *
      * @var string
@@ -35,6 +36,7 @@ class CreateClassicNetworkRequest extends Model
      * @description The ID of the edge node.
      *
      * This parameter is required.
+     *
      * @example cn-chengdu-xxxx-4
      *
      * @var string
@@ -54,15 +56,13 @@ class CreateClassicNetworkRequest extends Model
      */
     public $networkName;
     protected $_name = [
-        'cidrBlock'   => 'CidrBlock',
+        'cidrBlock' => 'CidrBlock',
         'description' => 'Description',
         'ensRegionId' => 'EnsRegionId',
         'networkName' => 'NetworkName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

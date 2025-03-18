@@ -51,14 +51,12 @@ class avaliableRegionIds extends Model
     public $status;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'regionId'     => 'RegionId',
-        'snapshotId'   => 'SnapshotId',
-        'status'       => 'Status',
+        'regionId' => 'RegionId',
+        'snapshotId' => 'SnapshotId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

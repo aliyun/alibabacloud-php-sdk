@@ -29,13 +29,11 @@ class privateIpSet extends Model
      */
     public $privateIpAddress;
     protected $_name = [
-        'primary'          => 'Primary',
+        'primary' => 'Primary',
         'privateIpAddress' => 'PrivateIpAddress',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

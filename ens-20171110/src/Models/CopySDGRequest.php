@@ -12,6 +12,7 @@ class CopySDGRequest extends Model
      * @description The destination nodes.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $destinationRegionIds;
@@ -20,6 +21,7 @@ class CopySDGRequest extends Model
      * @description The ID of the SDG that you want to copy.
      *
      * This parameter is required.
+     *
      * @example sdg-xxx
      *
      * @var string
@@ -27,12 +29,10 @@ class CopySDGRequest extends Model
     public $SDGId;
     protected $_name = [
         'destinationRegionIds' => 'DestinationRegionIds',
-        'SDGId'                => 'SDGId',
+        'SDGId' => 'SDGId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

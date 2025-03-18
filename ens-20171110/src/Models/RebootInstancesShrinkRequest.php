@@ -16,9 +16,7 @@ class RebootInstancesShrinkRequest extends Model
         'instanceIdsShrink' => 'InstanceIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

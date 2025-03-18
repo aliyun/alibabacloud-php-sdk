@@ -129,21 +129,19 @@ class servers extends Model
     protected $_name = [
         'AICInstances' => 'AICInstances',
         'creationTime' => 'CreationTime',
-        'ensRegionId'  => 'EnsRegionId',
-        'expiredTime'  => 'ExpiredTime',
+        'ensRegionId' => 'EnsRegionId',
+        'expiredTime' => 'ExpiredTime',
         'latestAction' => 'LatestAction',
-        'name'         => 'Name',
-        'namespace'    => 'Namespace',
-        'payType'      => 'PayType',
-        'serverId'     => 'ServerId',
-        'specName'     => 'SpecName',
-        'state'        => 'State',
-        'status'       => 'Status',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'payType' => 'PayType',
+        'serverId' => 'ServerId',
+        'specName' => 'SpecName',
+        'state' => 'State',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -205,7 +203,7 @@ class servers extends Model
         if (isset($map['AICInstances'])) {
             if (!empty($map['AICInstances'])) {
                 $model->AICInstances = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['AICInstances'] as $item) {
                     $model->AICInstances[$n++] = null !== $item ? AICInstances::fromMap($item) : $item;
                 }

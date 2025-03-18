@@ -20,13 +20,11 @@ class CreateHaVipResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'haVipIds'  => 'HaVipIds',
+        'haVipIds' => 'HaVipIds',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

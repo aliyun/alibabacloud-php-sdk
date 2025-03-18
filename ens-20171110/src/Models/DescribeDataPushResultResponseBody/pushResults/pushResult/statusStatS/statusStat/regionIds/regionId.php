@@ -44,15 +44,13 @@ class regionId extends Model
      */
     public $updateTime;
     protected $_name = [
-        'regionId'      => 'RegionId',
-        'startTime'     => 'StartTime',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
         'statusDescrip' => 'StatusDescrip',
-        'updateTime'    => 'UpdateTime',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

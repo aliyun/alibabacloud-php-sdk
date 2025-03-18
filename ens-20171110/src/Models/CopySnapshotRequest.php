@@ -12,6 +12,7 @@ class CopySnapshotRequest extends Model
      * @description The IDs of destination nodes.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $destinationRegionIds;
@@ -38,21 +39,20 @@ class CopySnapshotRequest extends Model
      * @description The ID of the source snapshot.
      *
      * This parameter is required.
+     *
      * @example sp-bp1c0doj0taqyzzl****
      *
      * @var string
      */
     public $snapshotId;
     protected $_name = [
-        'destinationRegionIds'           => 'DestinationRegionIds',
+        'destinationRegionIds' => 'DestinationRegionIds',
         'destinationSnapshotDescription' => 'DestinationSnapshotDescription',
-        'destinationSnapshotName'        => 'DestinationSnapshotName',
-        'snapshotId'                     => 'SnapshotId',
+        'destinationSnapshotName' => 'DestinationSnapshotName',
+        'snapshotId' => 'SnapshotId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

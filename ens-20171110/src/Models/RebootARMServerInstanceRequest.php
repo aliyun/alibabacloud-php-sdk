@@ -20,9 +20,7 @@ class RebootARMServerInstanceRequest extends Model
         'serverId' => 'ServerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

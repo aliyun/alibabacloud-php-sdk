@@ -19,13 +19,11 @@ class saleControlItems extends Model
      */
     public $saleControlItem;
     protected $_name = [
-        'moduleCode'      => 'ModuleCode',
+        'moduleCode' => 'ModuleCode',
         'saleControlItem' => 'SaleControlItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

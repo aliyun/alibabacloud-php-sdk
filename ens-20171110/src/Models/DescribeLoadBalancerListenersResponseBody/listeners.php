@@ -17,9 +17,7 @@ class listeners extends Model
         'listener' => 'Listener',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class listeners extends Model
         if (isset($map['Listener'])) {
             if (!empty($map['Listener'])) {
                 $model->listener = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Listener'] as $item) {
                     $model->listener[$n++] = null !== $item ? listener::fromMap($item) : $item;
                 }

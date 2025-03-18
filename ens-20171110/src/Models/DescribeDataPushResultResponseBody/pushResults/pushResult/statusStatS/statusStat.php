@@ -35,13 +35,11 @@ class statusStat extends Model
     public $status;
     protected $_name = [
         'regionIdCount' => 'RegionIdCount',
-        'regionIds'     => 'RegionIds',
-        'status'        => 'Status',
+        'regionIds' => 'RegionIds',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

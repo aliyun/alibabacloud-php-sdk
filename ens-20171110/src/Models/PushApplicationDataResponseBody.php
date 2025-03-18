@@ -26,12 +26,10 @@ class PushApplicationDataResponseBody extends Model
     public $requestId;
     protected $_name = [
         'pushResults' => 'PushResults',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

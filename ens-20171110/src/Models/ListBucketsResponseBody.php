@@ -35,13 +35,11 @@ class ListBucketsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'bucketInfos' => 'BucketInfos',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListBucketsResponseBody extends Model
         if (isset($map['BucketInfos'])) {
             if (!empty($map['BucketInfos'])) {
                 $model->bucketInfos = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['BucketInfos'] as $item) {
                     $model->bucketInfos[$n++] = null !== $item ? bucketInfos::fromMap($item) : $item;
                 }

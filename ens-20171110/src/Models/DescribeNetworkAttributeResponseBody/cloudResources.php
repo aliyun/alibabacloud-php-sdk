@@ -17,9 +17,7 @@ class cloudResources extends Model
         'cloudResourceSetType' => 'CloudResourceSetType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class cloudResources extends Model
         if (isset($map['CloudResourceSetType'])) {
             if (!empty($map['CloudResourceSetType'])) {
                 $model->cloudResourceSetType = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['CloudResourceSetType'] as $item) {
                     $model->cloudResourceSetType[$n++] = null !== $item ? cloudResourceSetType::fromMap($item) : $item;
                 }

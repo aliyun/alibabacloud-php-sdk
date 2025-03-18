@@ -12,6 +12,7 @@ class resource extends Model
      * @description The ID of the resource that you want to disassociate.
      *
      * This parameter is required.
+     *
      * @example n-5***
      *
      * @var string
@@ -24,19 +25,18 @@ class resource extends Model
      *   Network
      *
      * This parameter is required.
+     *
      * @example Network
      *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'resourceId'   => 'ResourceId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ListObjectsRequest extends Model
      * @description The name of the bucket.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -40,6 +41,7 @@ class ListObjectsRequest extends Model
      * @description The position from which the list operation starts. If this parameter is specified, objects whose names are alphabetically greater than value of Marker are returned. The Marker parameter is used to list the returned objects by page, and its value must be smaller than 1,024 bytes in length.
      *
      * Even if the value specified for Marker does not exist in the list during a conditional query, the list starts from the object whose name is alphabetically greater than the value of Marker.
+     *
      * @example a
      *
      * @var string
@@ -59,6 +61,7 @@ class ListObjectsRequest extends Model
      * @description The prefix that must be included in the names of objects you want to list. If you specify a prefix to query objects, the returned object names contain the prefix.
      *
      * The value of the parameter must be less than 1,000 bytes in length.
+     *
      * @example b
      *
      * @var string
@@ -74,18 +77,16 @@ class ListObjectsRequest extends Model
      */
     public $startAfter;
     protected $_name = [
-        'bucketName'        => 'BucketName',
+        'bucketName' => 'BucketName',
         'continuationToken' => 'ContinuationToken',
-        'encodingType'      => 'EncodingType',
-        'marker'            => 'Marker',
-        'maxKeys'           => 'MaxKeys',
-        'prefix'            => 'Prefix',
-        'startAfter'        => 'StartAfter',
+        'encodingType' => 'EncodingType',
+        'marker' => 'Marker',
+        'maxKeys' => 'MaxKeys',
+        'prefix' => 'Prefix',
+        'startAfter' => 'StartAfter',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

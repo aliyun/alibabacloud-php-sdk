@@ -41,13 +41,11 @@ class statusStat extends Model
     public $status;
     protected $_name = [
         'instanceCount' => 'InstanceCount',
-        'instances'     => 'Instances',
-        'status'        => 'Status',
+        'instances' => 'Instances',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

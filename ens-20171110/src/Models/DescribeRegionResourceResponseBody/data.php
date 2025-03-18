@@ -172,41 +172,39 @@ class data extends Model
      */
     public $virtual;
     protected $_name = [
-        'areaCode'       => 'AreaCode',
-        'areaName'       => 'AreaName',
-        'armCard'        => 'ArmCard',
-        'attributes'     => 'Attributes',
-        'bandwidth'      => 'Bandwidth',
-        'blockStorage'   => 'BlockStorage',
-        'countryCode'    => 'CountryCode',
-        'countryName'    => 'CountryName',
-        'cpu'            => 'Cpu',
-        'gpu'            => 'Gpu',
-        'hdd'            => 'Hdd',
-        'houseId'        => 'HouseId',
-        'ipv4s'          => 'Ipv4s',
-        'ipv6s'          => 'Ipv6s',
-        'ispTypes'       => 'IspTypes',
-        'memory'         => 'Memory',
-        'name'           => 'Name',
-        'nvme'           => 'Nvme',
-        'ossStorage'     => 'OssStorage',
-        'pangu'          => 'Pangu',
-        'pcfarmNum'      => 'PcfarmNum',
-        'poc'            => 'Poc',
-        'provinceCode'   => 'ProvinceCode',
-        'provinceName'   => 'ProvinceName',
+        'areaCode' => 'AreaCode',
+        'areaName' => 'AreaName',
+        'armCard' => 'ArmCard',
+        'attributes' => 'Attributes',
+        'bandwidth' => 'Bandwidth',
+        'blockStorage' => 'BlockStorage',
+        'countryCode' => 'CountryCode',
+        'countryName' => 'CountryName',
+        'cpu' => 'Cpu',
+        'gpu' => 'Gpu',
+        'hdd' => 'Hdd',
+        'houseId' => 'HouseId',
+        'ipv4s' => 'Ipv4s',
+        'ipv6s' => 'Ipv6s',
+        'ispTypes' => 'IspTypes',
+        'memory' => 'Memory',
+        'name' => 'Name',
+        'nvme' => 'Nvme',
+        'ossStorage' => 'OssStorage',
+        'pangu' => 'Pangu',
+        'pcfarmNum' => 'PcfarmNum',
+        'poc' => 'Poc',
+        'provinceCode' => 'ProvinceCode',
+        'provinceName' => 'ProvinceName',
         'reserveDisable' => 'ReserveDisable',
-        'ssd'            => 'Ssd',
-        'statusDisable'  => 'StatusDisable',
-        'type'           => 'Type',
-        'uuid'           => 'Uuid',
-        'virtual'        => 'Virtual',
+        'ssd' => 'Ssd',
+        'statusDisable' => 'StatusDisable',
+        'type' => 'Type',
+        'uuid' => 'Uuid',
+        'virtual' => 'Virtual',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -366,7 +364,7 @@ class data extends Model
         if (isset($map['Ipv4s'])) {
             if (!empty($map['Ipv4s'])) {
                 $model->ipv4s = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Ipv4s'] as $item) {
                     $model->ipv4s[$n++] = null !== $item ? ipv4s::fromMap($item) : $item;
                 }
@@ -375,7 +373,7 @@ class data extends Model
         if (isset($map['Ipv6s'])) {
             if (!empty($map['Ipv6s'])) {
                 $model->ipv6s = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Ipv6s'] as $item) {
                     $model->ipv6s[$n++] = null !== $item ? ipv6s::fromMap($item) : $item;
                 }

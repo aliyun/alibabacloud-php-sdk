@@ -20,12 +20,10 @@ class DescribeEnsCommodityCodeResponseBody extends Model
     public $requestId;
     protected $_name = [
         'commodityCodeInfo' => 'CommodityCodeInfo',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -57,7 +55,7 @@ class DescribeEnsCommodityCodeResponseBody extends Model
         if (isset($map['CommodityCodeInfo'])) {
             if (!empty($map['CommodityCodeInfo'])) {
                 $model->commodityCodeInfo = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['CommodityCodeInfo'] as $item) {
                     $model->commodityCodeInfo[$n++] = null !== $item ? commodityCodeInfo::fromMap($item) : $item;
                 }

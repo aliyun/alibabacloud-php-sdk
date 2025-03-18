@@ -52,16 +52,14 @@ class DescribeExportImageInfoResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'images'     => 'Images',
+        'images' => 'Images',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

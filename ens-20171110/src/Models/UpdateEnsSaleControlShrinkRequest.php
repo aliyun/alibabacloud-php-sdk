@@ -32,15 +32,13 @@ class UpdateEnsSaleControlShrinkRequest extends Model
      */
     public $saleControlsShrink;
     protected $_name = [
-        'aliUidAccount'      => 'AliUidAccount',
-        'commodityCode'      => 'CommodityCode',
-        'customAccount'      => 'CustomAccount',
+        'aliUidAccount' => 'AliUidAccount',
+        'commodityCode' => 'CommodityCode',
+        'customAccount' => 'CustomAccount',
         'saleControlsShrink' => 'SaleControls',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

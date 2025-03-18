@@ -103,20 +103,18 @@ class ingressAclEntries extends Model
      */
     public $type;
     protected $_name = [
-        'cidrBlock'           => 'CidrBlock',
-        'description'         => 'Description',
-        'networkAclEntryId'   => 'NetworkAclEntryId',
+        'cidrBlock' => 'CidrBlock',
+        'description' => 'Description',
+        'networkAclEntryId' => 'NetworkAclEntryId',
         'networkAclEntryName' => 'NetworkAclEntryName',
-        'policy'              => 'Policy',
-        'portRange'           => 'PortRange',
-        'priority'            => 'Priority',
-        'protocol'            => 'Protocol',
-        'type'                => 'Type',
+        'policy' => 'Policy',
+        'portRange' => 'PortRange',
+        'priority' => 'Priority',
+        'protocol' => 'Protocol',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

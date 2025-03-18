@@ -80,19 +80,17 @@ class networkAcls extends Model
      */
     public $status;
     protected $_name = [
-        'creationTime'      => 'CreationTime',
-        'description'       => 'Description',
-        'egressAclEntries'  => 'EgressAclEntries',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'egressAclEntries' => 'EgressAclEntries',
         'ingressAclEntries' => 'IngressAclEntries',
-        'networkAclId'      => 'NetworkAclId',
-        'networkAclName'    => 'NetworkAclName',
-        'resources'         => 'Resources',
-        'status'            => 'Status',
+        'networkAclId' => 'NetworkAclId',
+        'networkAclName' => 'NetworkAclName',
+        'resources' => 'Resources',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -160,7 +158,7 @@ class networkAcls extends Model
         if (isset($map['EgressAclEntries'])) {
             if (!empty($map['EgressAclEntries'])) {
                 $model->egressAclEntries = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['EgressAclEntries'] as $item) {
                     $model->egressAclEntries[$n++] = null !== $item ? egressAclEntries::fromMap($item) : $item;
                 }
@@ -169,7 +167,7 @@ class networkAcls extends Model
         if (isset($map['IngressAclEntries'])) {
             if (!empty($map['IngressAclEntries'])) {
                 $model->ingressAclEntries = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['IngressAclEntries'] as $item) {
                     $model->ingressAclEntries[$n++] = null !== $item ? ingressAclEntries::fromMap($item) : $item;
                 }
@@ -184,7 +182,7 @@ class networkAcls extends Model
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Resources'] as $item) {
                     $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
                 }

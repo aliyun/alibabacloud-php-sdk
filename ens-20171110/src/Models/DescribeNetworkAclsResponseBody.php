@@ -53,15 +53,13 @@ class DescribeNetworkAclsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'networkAcls' => 'NetworkAcls',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class DescribeNetworkAclsResponseBody extends Model
         if (isset($map['NetworkAcls'])) {
             if (!empty($map['NetworkAcls'])) {
                 $model->networkAcls = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['NetworkAcls'] as $item) {
                     $model->networkAcls[$n++] = null !== $item ? networkAcls::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class ReleaseInstanceRequest extends Model
      * @description The ID of the EIP.
      *
      * This parameter is required.
+     *
      * @example eip-****
      *
      * @var string
@@ -21,9 +22,7 @@ class ReleaseInstanceRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

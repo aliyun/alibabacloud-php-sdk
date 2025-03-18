@@ -61,17 +61,15 @@ class podAbstractInfo extends Model
      */
     public $status;
     protected $_name = [
-        'containerService'  => 'ContainerService',
+        'containerService' => 'ContainerService',
         'containerStatuses' => 'ContainerStatuses',
-        'name'              => 'Name',
-        'namespace'         => 'Namespace',
-        'resourceScope'     => 'ResourceScope',
-        'status'            => 'Status',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'resourceScope' => 'ResourceScope',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -58,16 +58,14 @@ class clusters extends Model
      */
     public $status;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'currentVersion' => 'CurrentVersion',
-        'name'           => 'Name',
-        'nextVersion'    => 'NextVersion',
-        'status'         => 'Status',
+        'name' => 'Name',
+        'nextVersion' => 'NextVersion',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

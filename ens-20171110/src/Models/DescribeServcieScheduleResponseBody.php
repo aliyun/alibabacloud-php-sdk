@@ -79,19 +79,17 @@ class DescribeServcieScheduleResponseBody extends Model
      */
     public $tcpPorts;
     protected $_name = [
-        'index'           => 'Index',
-        'instanceId'      => 'InstanceId',
-        'instanceIp'      => 'InstanceIp',
-        'instancePort'    => 'InstancePort',
+        'index' => 'Index',
+        'instanceId' => 'InstanceId',
+        'instanceIp' => 'InstanceIp',
+        'instancePort' => 'InstancePort',
         'podAbstractInfo' => 'PodAbstractInfo',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'requestRepeated' => 'RequestRepeated',
-        'tcpPorts'        => 'TcpPorts',
+        'tcpPorts' => 'TcpPorts',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

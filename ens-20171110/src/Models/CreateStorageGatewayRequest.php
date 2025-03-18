@@ -13,6 +13,7 @@ class CreateStorageGatewayRequest extends Model
      * @description The array of orders.
      *
      * This parameter is required.
+     *
      * @var orderDetails[]
      */
     public $orderDetails;
@@ -20,9 +21,7 @@ class CreateStorageGatewayRequest extends Model
         'orderDetails' => 'OrderDetails',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -51,7 +50,7 @@ class CreateStorageGatewayRequest extends Model
         if (isset($map['OrderDetails'])) {
             if (!empty($map['OrderDetails'])) {
                 $model->orderDetails = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['OrderDetails'] as $item) {
                     $model->orderDetails[$n++] = null !== $item ? orderDetails::fromMap($item) : $item;
                 }

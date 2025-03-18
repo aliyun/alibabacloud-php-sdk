@@ -12,6 +12,7 @@ class ModifyHaVipAttributeRequest extends Model
      * @description The ID of the HAVIP that you want to modify.
      *
      * This parameter is required.
+     *
      * @example havip-52y28****
      *
      * @var string
@@ -28,12 +29,10 @@ class ModifyHaVipAttributeRequest extends Model
     public $name;
     protected $_name = [
         'haVipId' => 'HaVipId',
-        'name'    => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,12 +23,10 @@ class DescribeSDGsRequest extends Model
     public $SDGIds;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
-        'SDGIds'      => 'SDGIds',
+        'SDGIds' => 'SDGIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

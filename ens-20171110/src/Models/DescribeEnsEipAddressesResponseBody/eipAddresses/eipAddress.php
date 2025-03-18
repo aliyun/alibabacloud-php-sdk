@@ -166,26 +166,24 @@ class eipAddress extends Model
      */
     public $status;
     protected $_name = [
-        'allocationId'       => 'AllocationId',
-        'allocationTime'     => 'AllocationTime',
-        'bandwidth'          => 'Bandwidth',
-        'chargeType'         => 'ChargeType',
-        'description'        => 'Description',
-        'ensRegionId'        => 'EnsRegionId',
-        'instanceId'         => 'InstanceId',
-        'instanceType'       => 'InstanceType',
+        'allocationId' => 'AllocationId',
+        'allocationTime' => 'AllocationTime',
+        'bandwidth' => 'Bandwidth',
+        'chargeType' => 'ChargeType',
+        'description' => 'Description',
+        'ensRegionId' => 'EnsRegionId',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
         'internetChargeType' => 'InternetChargeType',
-        'ipAddress'          => 'IpAddress',
-        'ipStatus'           => 'IpStatus',
-        'isp'                => 'Isp',
-        'name'               => 'Name',
-        'standby'            => 'Standby',
-        'status'             => 'Status',
+        'ipAddress' => 'IpAddress',
+        'ipStatus' => 'IpStatus',
+        'isp' => 'Isp',
+        'name' => 'Name',
+        'standby' => 'Standby',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

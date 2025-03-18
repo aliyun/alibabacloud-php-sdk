@@ -26,13 +26,11 @@ class ExportMeasurementDataResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'filePath'  => 'FilePath',
+        'filePath' => 'FilePath',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

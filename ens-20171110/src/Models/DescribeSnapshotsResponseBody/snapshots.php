@@ -129,23 +129,21 @@ class snapshots extends Model
      */
     public $status;
     protected $_name = [
-        'creationTime'       => 'CreationTime',
-        'description'        => 'Description',
-        'ensRegionId'        => 'EnsRegionId',
-        'size'               => 'Size',
-        'snapshotId'         => 'SnapshotId',
-        'snapshotName'       => 'SnapshotName',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'ensRegionId' => 'EnsRegionId',
+        'size' => 'Size',
+        'snapshotId' => 'SnapshotId',
+        'snapshotName' => 'SnapshotName',
         'sourceDiskCategory' => 'SourceDiskCategory',
-        'sourceDiskId'       => 'SourceDiskId',
-        'sourceDiskType'     => 'SourceDiskType',
-        'sourceEnsRegionId'  => 'SourceEnsRegionId',
-        'sourceSnapshotId'   => 'SourceSnapshotId',
-        'status'             => 'Status',
+        'sourceDiskId' => 'SourceDiskId',
+        'sourceDiskType' => 'SourceDiskType',
+        'sourceEnsRegionId' => 'SourceEnsRegionId',
+        'sourceSnapshotId' => 'SourceSnapshotId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class listenerPortsAndProtocols extends Model
 {
     /**
+     * @var int
+     */
+    public $backendServerPort;
+
+    /**
      * @description The description of the listener.
      *
      * @example test
@@ -53,20 +58,22 @@ class listenerPortsAndProtocols extends Model
      */
     public $listenerProtocol;
     protected $_name = [
-        'description'      => 'Description',
-        'forwardPort'      => 'ForwardPort',
-        'listenerForward'  => 'ListenerForward',
-        'listenerPort'     => 'ListenerPort',
+        'backendServerPort' => 'BackendServerPort',
+        'description' => 'Description',
+        'forwardPort' => 'ForwardPort',
+        'listenerForward' => 'ListenerForward',
+        'listenerPort' => 'ListenerPort',
         'listenerProtocol' => 'ListenerProtocol',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backendServerPort) {
+            $res['BackendServerPort'] = $this->backendServerPort;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -94,6 +101,9 @@ class listenerPortsAndProtocols extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendServerPort'])) {
+            $model->backendServerPort = $map['BackendServerPort'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

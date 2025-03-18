@@ -12,7 +12,7 @@ class DescribeSecurityGroupsRequest extends Model
      * @description The page number.
      *
      *   Pages start from page 1.
-     *   Default value: 1.
+     *   Default value: 1
      *
      * @example 1
      *
@@ -21,7 +21,7 @@ class DescribeSecurityGroupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      *   Maximum value: 50.
      *   Default value: 10
@@ -50,15 +50,13 @@ class DescribeSecurityGroupsRequest extends Model
      */
     public $securityGroupName;
     protected $_name = [
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'securityGroupId'   => 'SecurityGroupId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'securityGroupId' => 'SecurityGroupId',
         'securityGroupName' => 'SecurityGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -20,9 +20,7 @@ class ipv6Set extends Model
         'ipv6Address' => 'Ipv6Address',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

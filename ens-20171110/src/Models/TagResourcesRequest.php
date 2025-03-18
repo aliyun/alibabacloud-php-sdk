@@ -13,6 +13,7 @@ class TagResourcesRequest extends Model
      * @description The resource IDs. You can add up to 50 resource IDs in a call.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -21,6 +22,7 @@ class TagResourcesRequest extends Model
      * @description The type of the resource. Set the value to instance.
      *
      * This parameter is required.
+     *
      * @example instance
      *
      * @var string
@@ -31,18 +33,17 @@ class TagResourcesRequest extends Model
      * @description The tag that is bound to the instance.
      *
      * This parameter is required.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'resourceId'   => 'ResourceId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -85,7 +86,7 @@ class TagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

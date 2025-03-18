@@ -17,9 +17,7 @@ class distResults extends Model
         'distResult' => 'DistResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class distResults extends Model
         if (isset($map['DistResult'])) {
             if (!empty($map['DistResult'])) {
                 $model->distResult = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['DistResult'] as $item) {
                     $model->distResult[$n++] = null !== $item ? distResult::fromMap($item) : $item;
                 }

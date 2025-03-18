@@ -52,16 +52,14 @@ class DescribeStorageVolumeResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'storageVolumes' => 'StorageVolumes',
-        'totalCount'     => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class DescribeStorageVolumeResponseBody extends Model
         if (isset($map['StorageVolumes'])) {
             if (!empty($map['StorageVolumes'])) {
                 $model->storageVolumes = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['StorageVolumes'] as $item) {
                     $model->storageVolumes[$n++] = null !== $item ? storageVolumes::fromMap($item) : $item;
                 }

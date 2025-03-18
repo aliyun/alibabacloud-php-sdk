@@ -27,12 +27,10 @@ class CreateEipInstanceResponseBody extends Model
     public $requestId;
     protected $_name = [
         'allocationId' => 'AllocationId',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

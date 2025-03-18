@@ -21,6 +21,7 @@ class ModifyImageSharePermissionRequest extends Model
      * @description The ID of the image. You can specify only one image ID. Custom images and public images are supported.
      *
      * This parameter is required.
+     *
      * @example m-5s7qotzavwbrnzaqh4unm****
      *
      * @var string
@@ -36,14 +37,12 @@ class ModifyImageSharePermissionRequest extends Model
      */
     public $removeAccounts;
     protected $_name = [
-        'addAccounts'    => 'AddAccounts',
-        'imageId'        => 'ImageId',
+        'addAccounts' => 'AddAccounts',
+        'imageId' => 'ImageId',
         'removeAccounts' => 'RemoveAccounts',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

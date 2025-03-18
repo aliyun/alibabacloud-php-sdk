@@ -26,12 +26,10 @@ class basicSaleControl extends Model
     protected $_name = [
         'description' => 'Description',
         'moduleValue' => 'ModuleValue',
-        'operator'    => 'Operator',
+        'operator' => 'Operator',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

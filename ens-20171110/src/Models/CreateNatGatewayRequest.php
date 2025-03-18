@@ -13,6 +13,7 @@ class CreateNatGatewayRequest extends Model
      * @description The ID of the Edge Node Service (ENS) node.
      *
      * This parameter is required.
+     *
      * @example cn-suzhou-telecom
      *
      * @var string
@@ -41,6 +42,7 @@ class CreateNatGatewayRequest extends Model
      * @description The ID of the network.
      *
      * This parameter is required.
+     *
      * @example n-5qj7ykuxmjn7k96l090sp****
      *
      * @var string
@@ -48,6 +50,8 @@ class CreateNatGatewayRequest extends Model
     public $networkId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
@@ -56,23 +60,22 @@ class CreateNatGatewayRequest extends Model
      * @description The ID of the vSwitch.
      *
      * This parameter is required.
+     *
      * @example vsw-5savh5ngxh8sbj14bu7n****
      *
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'ensRegionId'  => 'EnsRegionId',
+        'ensRegionId' => 'EnsRegionId',
         'instanceType' => 'InstanceType',
-        'name'         => 'Name',
-        'networkId'    => 'NetworkId',
-        'tag'          => 'Tag',
-        'vSwitchId'    => 'VSwitchId',
+        'name' => 'Name',
+        'networkId' => 'NetworkId',
+        'tag' => 'Tag',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -128,7 +131,7 @@ class CreateNatGatewayRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

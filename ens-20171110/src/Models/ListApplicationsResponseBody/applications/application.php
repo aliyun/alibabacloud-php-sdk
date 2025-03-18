@@ -25,13 +25,11 @@ class application extends Model
      */
     public $clusterName;
     protected $_name = [
-        'appList'     => 'AppList',
+        'appList' => 'AppList',
         'clusterName' => 'ClusterName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

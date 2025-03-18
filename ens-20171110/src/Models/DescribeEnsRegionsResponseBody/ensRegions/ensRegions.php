@@ -53,16 +53,14 @@ class ensRegions extends Model
      */
     public $province;
     protected $_name = [
-        'area'        => 'Area',
-        'enName'      => 'EnName',
+        'area' => 'Area',
+        'enName' => 'EnName',
         'ensRegionId' => 'EnsRegionId',
-        'name'        => 'Name',
-        'province'    => 'Province',
+        'name' => 'Name',
+        'province' => 'Province',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

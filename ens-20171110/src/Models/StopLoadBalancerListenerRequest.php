@@ -12,6 +12,7 @@ class StopLoadBalancerListenerRequest extends Model
      * @description The listener port that you want to disable. Valid values: **1** to **65535**.
      *
      * This parameter is required.
+     *
      * @example 8080
      *
      * @var int
@@ -22,6 +23,7 @@ class StopLoadBalancerListenerRequest extends Model
      * @description The frontend protocol that is used by the ELB instance.
      *
      * >  This parameter is required if the same port is used by listeners that use different protocols.
+     *
      * @example tcp
      *
      * @var string
@@ -32,20 +34,19 @@ class StopLoadBalancerListenerRequest extends Model
      * @description The ID of the ELB instance.
      *
      * This parameter is required.
+     *
      * @example lb-5sc1s9zrui8lpb8u7cl4f****
      *
      * @var string
      */
     public $loadBalancerId;
     protected $_name = [
-        'listenerPort'     => 'ListenerPort',
+        'listenerPort' => 'ListenerPort',
         'listenerProtocol' => 'ListenerProtocol',
-        'loadBalancerId'   => 'LoadBalancerId',
+        'loadBalancerId' => 'LoadBalancerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

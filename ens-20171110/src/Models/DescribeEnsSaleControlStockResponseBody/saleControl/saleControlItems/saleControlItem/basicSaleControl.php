@@ -20,12 +20,10 @@ class basicSaleControl extends Model
     public $stockValue;
     protected $_name = [
         'moduleValue' => 'ModuleValue',
-        'stockValue'  => 'StockValue',
+        'stockValue' => 'StockValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

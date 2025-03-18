@@ -32,6 +32,7 @@ class DescribePriceRequest extends Model
      * @description The ID of the ENS node.
      *
      * This parameter is required.
+     *
      * @example cn-shanghai-unicom
      *
      * @var string
@@ -42,6 +43,7 @@ class DescribePriceRequest extends Model
      * @description The specifications of instances.
      *
      * This parameter is required.
+     *
      * @example ens.sn1.tiny
      *
      * @var string
@@ -57,6 +59,7 @@ class DescribePriceRequest extends Model
      *   PayByBandwidth: Pay by fixed bandwidth
      *
      * This parameter is required.
+     *
      * @example 95BandwidthByMonth
      *
      * @var string
@@ -71,6 +74,7 @@ class DescribePriceRequest extends Model
      *   If you set PeriodUnit to Month, you can set Period to a number from 1 to 9, or set Period to 12.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -93,26 +97,25 @@ class DescribePriceRequest extends Model
      * @description The number of instances.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
      */
     public $quantity;
     protected $_name = [
-        'dataDisk'           => 'DataDisk',
-        'systemDisk'         => 'SystemDisk',
-        'dataDisks'          => 'DataDisks',
-        'ensRegionId'        => 'EnsRegionId',
-        'instanceType'       => 'InstanceType',
+        'dataDisk' => 'DataDisk',
+        'systemDisk' => 'SystemDisk',
+        'dataDisks' => 'DataDisks',
+        'ensRegionId' => 'EnsRegionId',
+        'instanceType' => 'InstanceType',
         'internetChargeType' => 'InternetChargeType',
-        'period'             => 'Period',
-        'periodUnit'         => 'PeriodUnit',
-        'quantity'           => 'Quantity',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'quantity' => 'Quantity',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -171,7 +174,7 @@ class DescribePriceRequest extends Model
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {
                 $model->dataDisk = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['DataDisk'] as $item) {
                     $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
                 }
@@ -183,7 +186,7 @@ class DescribePriceRequest extends Model
         if (isset($map['DataDisks'])) {
             if (!empty($map['DataDisks'])) {
                 $model->dataDisks = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['DataDisks'] as $item) {
                     $model->dataDisks[$n++] = null !== $item ? dataDisks::fromMap($item) : $item;
                 }

@@ -67,17 +67,15 @@ class mountTargets extends Model
      */
     public $status;
     protected $_name = [
-        'ensRegionId'       => 'EnsRegionId',
-        'fileSystemId'      => 'FileSystemId',
+        'ensRegionId' => 'EnsRegionId',
+        'fileSystemId' => 'FileSystemId',
         'mountTargetDomain' => 'MountTargetDomain',
-        'mountTargetName'   => 'MountTargetName',
-        'netWorkId'         => 'NetWorkId',
-        'status'            => 'Status',
+        'mountTargetName' => 'MountTargetName',
+        'netWorkId' => 'NetWorkId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

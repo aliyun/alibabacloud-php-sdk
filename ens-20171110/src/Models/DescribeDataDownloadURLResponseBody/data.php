@@ -36,12 +36,10 @@ class data extends Model
     protected $_name = [
         'expireTime' => 'ExpireTime',
         'serverList' => 'ServerList',
-        'url'        => 'Url',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class data extends Model
         if (isset($map['ServerList'])) {
             if (!empty($map['ServerList'])) {
                 $model->serverList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['ServerList'] as $item) {
                     $model->serverList[$n++] = null !== $item ? serverList::fromMap($item) : $item;
                 }

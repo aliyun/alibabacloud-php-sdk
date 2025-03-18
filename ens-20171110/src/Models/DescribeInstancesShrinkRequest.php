@@ -116,6 +116,7 @@ class DescribeInstancesShrinkRequest extends Model
      * @description The method that you want to use to sort instances. The value of this parameter is in the JSON format.
      *
      * You can sort instances by name, expiration time, node ID, or creation time. You can specify one or more methods.
+     *
      * @example {"InstanceNameSort":"asc","ExpireTimeSort":"asc","CreationTimeSort":"desc"}}
      *
      * @var string
@@ -126,6 +127,7 @@ class DescribeInstancesShrinkRequest extends Model
      * @description The page number. Pages start from page **1**.
      *
      * Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -136,6 +138,7 @@ class DescribeInstancesShrinkRequest extends Model
      * @description The number of entries to return on each page. The maximum value is **100**.
      *
      * Default value: **10**.
+     *
      * @example 10
      *
      * @var string
@@ -161,6 +164,8 @@ class DescribeInstancesShrinkRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description The status of the service. Valid values.
+     *
      * @var string
      */
     public $serviceStatusShrink;
@@ -194,31 +199,29 @@ class DescribeInstancesShrinkRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'ensRegionId'          => 'EnsRegionId',
-        'ensRegionIds'         => 'EnsRegionIds',
-        'ensServiceId'         => 'EnsServiceId',
-        'imageId'              => 'ImageId',
-        'instanceId'           => 'InstanceId',
-        'instanceIds'          => 'InstanceIds',
-        'instanceName'         => 'InstanceName',
+        'ensRegionId' => 'EnsRegionId',
+        'ensRegionIds' => 'EnsRegionIds',
+        'ensServiceId' => 'EnsServiceId',
+        'imageId' => 'ImageId',
+        'instanceId' => 'InstanceId',
+        'instanceIds' => 'InstanceIds',
+        'instanceName' => 'InstanceName',
         'instanceResourceType' => 'InstanceResourceType',
-        'instanceType'         => 'InstanceType',
-        'intranetIp'           => 'IntranetIp',
-        'networkId'            => 'NetworkId',
-        'orderByParams'        => 'OrderByParams',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'searchKey'            => 'SearchKey',
-        'securityGroupId'      => 'SecurityGroupId',
-        'serviceStatusShrink'  => 'ServiceStatus',
-        'status'               => 'Status',
-        'tagsShrink'           => 'Tags',
-        'vSwitchId'            => 'VSwitchId',
+        'instanceType' => 'InstanceType',
+        'intranetIp' => 'IntranetIp',
+        'networkId' => 'NetworkId',
+        'orderByParams' => 'OrderByParams',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'searchKey' => 'SearchKey',
+        'securityGroupId' => 'SecurityGroupId',
+        'serviceStatusShrink' => 'ServiceStatus',
+        'status' => 'Status',
+        'tagsShrink' => 'Tags',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

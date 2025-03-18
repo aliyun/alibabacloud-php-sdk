@@ -19,6 +19,7 @@ class CreateDiskResponseBody extends Model
      * @description The ID of the order. Multiple IDs are separated by commas (,).
      *
      * >  This parameter is not returned for the pay-as-you-go billing method.
+     *
      * @example 21127020370****
      *
      * @var string
@@ -35,13 +36,11 @@ class CreateDiskResponseBody extends Model
     public $requestId;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
-        'orderId'     => 'OrderId',
-        'requestId'   => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

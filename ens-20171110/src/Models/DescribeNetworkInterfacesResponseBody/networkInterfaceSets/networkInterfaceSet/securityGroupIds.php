@@ -16,9 +16,7 @@ class securityGroupIds extends Model
         'securityGroup' => 'SecurityGroup',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

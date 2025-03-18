@@ -17,6 +17,7 @@ class CreateApplicationRequest extends Model
      *   Required resources
      *
      * This parameter is required.
+     *
      * @example {\\"appMetaData\\":{        \\"appName\\":\\"nginx\\",        \\"clusterName\\":\\"poc\\",        \\"appType\\":\\"Common\\",        \\"description\\":\\"test\\"    },    \\"resourceAttribute\\":{        \\"resourceType\\":\\"\\",        \\"instanceSpec\\":\\"ens.sn1.tiny\\",        \\"systemDiskSize\\":20,        \\"dataDiskSize\\":0,        \\"bandwithOut\\":10,        \\"areaLevel\\":\\"National\\",        \\"netSecurityStrategy\\":null,        \\"initConfig\\":null    },    \\"resourceSelector\\":[        {            \\"count\\":1        }    ],    \\"workload\\":[        {            \\"podCount\\":1,            \\"serviceConfig\\":null,            \\"name\\":\\"nginx\\",            \\"podSpec\\":{                \\"containers\\":[                    {                        \\"name\\":\\"android\\",                        \\"image\\":\\"edge-registry.alicdn.com/test/nginx\\"                    }                ]            },            \\"count\\":1        }    ]}
      *
      * @var string
@@ -33,12 +34,10 @@ class CreateApplicationRequest extends Model
     public $timeout;
     protected $_name = [
         'template' => 'Template',
-        'timeout'  => 'Timeout',
+        'timeout' => 'Timeout',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

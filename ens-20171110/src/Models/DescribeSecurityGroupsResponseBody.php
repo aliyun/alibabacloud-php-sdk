@@ -19,7 +19,7 @@ class DescribeSecurityGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -52,16 +52,14 @@ class DescribeSecurityGroupsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'securityGroups' => 'SecurityGroups',
-        'totalCount'     => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,17 +18,17 @@ class DescribeCloudDiskTypesShrinkRequest extends Model
     public $ensRegionId;
 
     /**
+     * @description The edge nodes.
+     *
      * @var string
      */
     public $ensRegionIdsShrink;
     protected $_name = [
-        'ensRegionId'        => 'EnsRegionId',
+        'ensRegionId' => 'EnsRegionId',
         'ensRegionIdsShrink' => 'EnsRegionIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

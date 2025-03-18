@@ -29,9 +29,7 @@ class GetOssUsageDataResponseBody extends Model
         'usageList' => 'UsageList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class GetOssUsageDataResponseBody extends Model
         if (isset($map['UsageList'])) {
             if (!empty($map['UsageList'])) {
                 $model->usageList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['UsageList'] as $item) {
                     $model->usageList[$n++] = null !== $item ? usageList::fromMap($item) : $item;
                 }

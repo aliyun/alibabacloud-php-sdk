@@ -52,16 +52,14 @@ class DescribeSecondaryPublicIpAddressesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'                 => 'PageNumber',
-        'pageSize'                   => 'PageSize',
-        'requestId'                  => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'secondaryPublicIpAddresses' => 'SecondaryPublicIpAddresses',
-        'totalCount'                 => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class DescribeSecondaryPublicIpAddressesResponseBody extends Model
         if (isset($map['SecondaryPublicIpAddresses'])) {
             if (!empty($map['SecondaryPublicIpAddresses'])) {
                 $model->secondaryPublicIpAddresses = [];
-                $n                                 = 0;
+                $n = 0;
                 foreach ($map['SecondaryPublicIpAddresses'] as $item) {
                     $model->secondaryPublicIpAddresses[$n++] = null !== $item ? secondaryPublicIpAddresses::fromMap($item) : $item;
                 }

@@ -16,9 +16,7 @@ class dataDiskSizes extends Model
         'dataDiskSize' => 'DataDiskSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

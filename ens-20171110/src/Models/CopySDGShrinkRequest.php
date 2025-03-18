@@ -12,6 +12,7 @@ class CopySDGShrinkRequest extends Model
      * @description The destination nodes.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $destinationRegionIdsShrink;
@@ -20,6 +21,7 @@ class CopySDGShrinkRequest extends Model
      * @description The ID of the SDG that you want to copy.
      *
      * This parameter is required.
+     *
      * @example sdg-xxx
      *
      * @var string
@@ -27,12 +29,10 @@ class CopySDGShrinkRequest extends Model
     public $SDGId;
     protected $_name = [
         'destinationRegionIdsShrink' => 'DestinationRegionIds',
-        'SDGId'                      => 'SDGId',
+        'SDGId' => 'SDGId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

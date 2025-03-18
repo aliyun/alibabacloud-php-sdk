@@ -9,16 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ensRegions extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRegionsResponseBody\ensRegions\ensRegions[]
+     * @var ensRegions\ensRegions[]
      */
     public $ensRegions;
     protected $_name = [
         'ensRegions' => 'EnsRegions',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -47,9 +45,9 @@ class ensRegions extends Model
         if (isset($map['EnsRegions'])) {
             if (!empty($map['EnsRegions'])) {
                 $model->ensRegions = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['EnsRegions'] as $item) {
-                    $model->ensRegions[$n++] = null !== $item ? \AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRegionsResponseBody\ensRegions\ensRegions::fromMap($item) : $item;
+                    $model->ensRegions[$n++] = null !== $item ? ensRegions\ensRegions::fromMap($item) : $item;
                 }
             }
         }

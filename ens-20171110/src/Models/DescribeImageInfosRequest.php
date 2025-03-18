@@ -23,9 +23,7 @@ class DescribeImageInfosRequest extends Model
         'osType' => 'OsType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

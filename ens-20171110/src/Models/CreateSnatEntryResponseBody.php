@@ -26,13 +26,11 @@ class CreateSnatEntryResponseBody extends Model
      */
     public $snatEntryId;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'snatEntryId' => 'SnatEntryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

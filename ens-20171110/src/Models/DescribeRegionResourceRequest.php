@@ -19,12 +19,10 @@ class DescribeRegionResourceRequest extends Model
     public $ispType;
     protected $_name = [
         'ensRegionId' => 'EnsRegionId',
-        'ispType'     => 'IspType',
+        'ispType' => 'IspType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

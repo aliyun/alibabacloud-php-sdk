@@ -39,13 +39,11 @@ class instanceRenewAttribute extends Model
     public $instanceId;
     protected $_name = [
         'autoRenewal' => 'AutoRenewal',
-        'duration'    => 'Duration',
-        'instanceId'  => 'InstanceId',
+        'duration' => 'Duration',
+        'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

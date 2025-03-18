@@ -24,6 +24,7 @@ class UntagResourcesRequest extends Model
      * @description The resource IDs. You can specify up to 50 resource IDs.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -41,6 +42,7 @@ class UntagResourcesRequest extends Model
      *   vswitch
      *
      * This parameter is required.
+     *
      * @example instance
      *
      * @var string
@@ -54,15 +56,13 @@ class UntagResourcesRequest extends Model
      */
     public $tagKey;
     protected $_name = [
-        'all'          => 'All',
-        'resourceId'   => 'ResourceId',
+        'all' => 'All',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tagKey'       => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

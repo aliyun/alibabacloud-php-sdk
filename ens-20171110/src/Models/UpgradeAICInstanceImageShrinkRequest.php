@@ -12,6 +12,7 @@ class UpgradeAICInstanceImageShrinkRequest extends Model
      * @description The ID of the AIC image.
      *
      * This parameter is required.
+     *
      * @example m-****
      *
      * @var string
@@ -22,6 +23,7 @@ class UpgradeAICInstanceImageShrinkRequest extends Model
      * @description The IDs of the servers.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $serverIdsShrink;
@@ -35,14 +37,12 @@ class UpgradeAICInstanceImageShrinkRequest extends Model
      */
     public $timeout;
     protected $_name = [
-        'imageId'         => 'ImageId',
+        'imageId' => 'ImageId',
         'serverIdsShrink' => 'ServerIds',
-        'timeout'         => 'Timeout',
+        'timeout' => 'Timeout',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

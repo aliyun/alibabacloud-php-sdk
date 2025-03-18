@@ -26,13 +26,11 @@ class loadBalancerSpecs extends Model
      */
     public $loadBalancerSpec;
     protected $_name = [
-        'displayName'      => 'DisplayName',
+        'displayName' => 'DisplayName',
         'loadBalancerSpec' => 'LoadBalancerSpec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class CreateFileSystemShrinkRequest extends Model
      * @description The information about the orders.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $orderDetailsShrink;
@@ -19,9 +20,7 @@ class CreateFileSystemShrinkRequest extends Model
         'orderDetailsShrink' => 'OrderDetails',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

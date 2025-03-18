@@ -24,6 +24,7 @@ class RenewARMServerInstanceRequest extends Model
      * @description The ID of the instance that you want to renew.
      *
      * This parameter is required.
+     *
      * @example yourInstance ID
      *
      * @var string
@@ -34,6 +35,7 @@ class RenewARMServerInstanceRequest extends Model
      * @description The renewal period. By default, instances are renewed on a monthly basis. Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, and 12.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -47,21 +49,20 @@ class RenewARMServerInstanceRequest extends Model
      *   Year
      *
      * This parameter is required.
+     *
      * @example Month
      *
      * @var string
      */
     public $periodUnit;
     protected $_name = [
-        'autoRenew'  => 'AutoRenew',
+        'autoRenew' => 'AutoRenew',
         'instanceId' => 'InstanceId',
-        'period'     => 'Period',
+        'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

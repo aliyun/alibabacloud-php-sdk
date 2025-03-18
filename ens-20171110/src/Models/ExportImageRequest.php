@@ -12,6 +12,7 @@ class ExportImageRequest extends Model
      * @description The ID of the image.
      *
      * This parameter is required.
+     *
      * @example m-5ragaz3s74b7go8ks7jp9****
      *
      * @var string
@@ -22,6 +23,7 @@ class ExportImageRequest extends Model
      * @description The OSS bucket to which you want to export the image.
      *
      * This parameter is required.
+     *
      * @example whxyl****
      *
      * @var string
@@ -39,6 +41,7 @@ class ExportImageRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -54,16 +57,14 @@ class ExportImageRequest extends Model
      */
     public $roleName;
     protected $_name = [
-        'imageId'     => 'ImageId',
-        'OSSBucket'   => 'OSSBucket',
-        'OSSPrefix'   => 'OSSPrefix',
+        'imageId' => 'ImageId',
+        'OSSBucket' => 'OSSBucket',
+        'OSSPrefix' => 'OSSPrefix',
         'OSSRegionId' => 'OSSRegionId',
-        'roleName'    => 'RoleName',
+        'roleName' => 'RoleName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

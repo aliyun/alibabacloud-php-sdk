@@ -12,6 +12,7 @@ class DeleteSDGShrinkRequest extends Model
      * @description The IDs of the SDGs that you want to delete.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $SDGIdShrink;
@@ -19,9 +20,7 @@ class DeleteSDGShrinkRequest extends Model
         'SDGIdShrink' => 'SDGId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

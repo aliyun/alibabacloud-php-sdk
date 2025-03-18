@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworksResponseBody\networks;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworksResponseBody\networks\network\routeTableIds;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworksResponseBody\networks\network\vSwitchIds;
 use AlibabaCloud\Tea\Model;
 
@@ -46,6 +47,11 @@ class network extends Model
     public $ensRegionId;
 
     /**
+     * @var string
+     */
+    public $gatewayRouteTableId;
+
+    /**
      * @description The ID of the network access control list (ACL).
      *
      * @example nacl-a2do9e413e0spxscd****
@@ -71,6 +77,18 @@ class network extends Model
      * @var string
      */
     public $networkName;
+
+    /**
+     * @var string
+     */
+    public $routeTableId;
+
+    /**
+     * @description The ID of the route table. Valid values of **N** are **1** to **20**, which specifies that you can disassociate a gateway endpoint from at most 20 route tables at a time.
+     *
+     * @var routeTableIds
+     */
+    public $routeTableIds;
 
     /**
      * @description The route table ID.
@@ -100,21 +118,22 @@ class network extends Model
      */
     public $vSwitchIds;
     protected $_name = [
-        'cidrBlock'     => 'CidrBlock',
-        'createdTime'   => 'CreatedTime',
-        'description'   => 'Description',
-        'ensRegionId'   => 'EnsRegionId',
-        'networkAclId'  => 'NetworkAclId',
-        'networkId'     => 'NetworkId',
-        'networkName'   => 'NetworkName',
+        'cidrBlock' => 'CidrBlock',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'ensRegionId' => 'EnsRegionId',
+        'gatewayRouteTableId' => 'GatewayRouteTableId',
+        'networkAclId' => 'NetworkAclId',
+        'networkId' => 'NetworkId',
+        'networkName' => 'NetworkName',
+        'routeTableId' => 'RouteTableId',
+        'routeTableIds' => 'RouteTableIds',
         'routerTableId' => 'RouterTableId',
-        'status'        => 'Status',
-        'vSwitchIds'    => 'VSwitchIds',
+        'status' => 'Status',
+        'vSwitchIds' => 'VSwitchIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -131,6 +150,9 @@ class network extends Model
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+        if (null !== $this->gatewayRouteTableId) {
+            $res['GatewayRouteTableId'] = $this->gatewayRouteTableId;
+        }
         if (null !== $this->networkAclId) {
             $res['NetworkAclId'] = $this->networkAclId;
         }
@@ -139,6 +161,12 @@ class network extends Model
         }
         if (null !== $this->networkName) {
             $res['NetworkName'] = $this->networkName;
+        }
+        if (null !== $this->routeTableId) {
+            $res['RouteTableId'] = $this->routeTableId;
+        }
+        if (null !== $this->routeTableIds) {
+            $res['RouteTableIds'] = null !== $this->routeTableIds ? $this->routeTableIds->toMap() : null;
         }
         if (null !== $this->routerTableId) {
             $res['RouterTableId'] = $this->routerTableId;
@@ -173,6 +201,9 @@ class network extends Model
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+        if (isset($map['GatewayRouteTableId'])) {
+            $model->gatewayRouteTableId = $map['GatewayRouteTableId'];
+        }
         if (isset($map['NetworkAclId'])) {
             $model->networkAclId = $map['NetworkAclId'];
         }
@@ -181,6 +212,12 @@ class network extends Model
         }
         if (isset($map['NetworkName'])) {
             $model->networkName = $map['NetworkName'];
+        }
+        if (isset($map['RouteTableId'])) {
+            $model->routeTableId = $map['RouteTableId'];
+        }
+        if (isset($map['RouteTableIds'])) {
+            $model->routeTableIds = routeTableIds::fromMap($map['RouteTableIds']);
         }
         if (isset($map['RouterTableId'])) {
             $model->routerTableId = $map['RouterTableId'];

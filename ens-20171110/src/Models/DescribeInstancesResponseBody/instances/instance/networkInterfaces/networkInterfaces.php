@@ -11,46 +11,67 @@ use AlibabaCloud\Tea\Model;
 class networkInterfaces extends Model
 {
     /**
+     * @description The IPv6 addresses of the ENI. This parameter has a value only when `AdditionalAttributes.N` is set to `NETWORK_PRIMARY_ENI_IP`.
+     *
      * @var ipv6Sets
      */
     public $ipv6Sets;
 
     /**
+     * @description The MAC address of the ENI.
+     *
+     * @example 00:16:3e:4f:5f:ca
+     *
      * @var string
      */
     public $macAddress;
 
     /**
+     * @description The ID of the ENI.
+     *
+     * @example eni-0wlonoy6jo8532gfzuama****
+     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
+     * @description The primary IP address of the ENI.
+     *
+     * @example ***************
+     *
      * @var string
      */
     public $primaryIpAddress;
 
     /**
+     * @description The private IP addresses of the ENI.
+     *
      * @var privateIpSets
      */
     public $privateIpSets;
 
     /**
+     * @description The type of the disk. Valid values:
+     *
+     *   system: system disk.
+     *   data: data disk.
+     *
+     * @example Secondary
+     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'ipv6Sets'           => 'Ipv6Sets',
-        'macAddress'         => 'MacAddress',
+        'ipv6Sets' => 'Ipv6Sets',
+        'macAddress' => 'MacAddress',
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'primaryIpAddress'   => 'PrimaryIpAddress',
-        'privateIpSets'      => 'PrivateIpSets',
-        'type'               => 'Type',
+        'primaryIpAddress' => 'PrimaryIpAddress',
+        'privateIpSets' => 'PrivateIpSets',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

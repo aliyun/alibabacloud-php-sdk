@@ -53,16 +53,14 @@ class DescribeNetworkAclsRequest extends Model
      */
     public $resourceId;
     protected $_name = [
-        'networkAclId'   => 'NetworkAclId',
+        'networkAclId' => 'NetworkAclId',
         'networkAclName' => 'NetworkAclName',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'resourceId'     => 'ResourceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceId' => 'ResourceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

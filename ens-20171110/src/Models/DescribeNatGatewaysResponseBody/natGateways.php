@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNatGatewaysResponseBody;
 
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNatGatewaysResponseBody\natGateways\ipLists;
 use AlibabaCloud\Tea\Model;
 
 class natGateways extends Model
@@ -25,6 +26,11 @@ class natGateways extends Model
      * @var string
      */
     public $ensRegionId;
+
+    /**
+     * @var ipLists[]
+     */
+    public $ipLists;
 
     /**
      * @description The name of the NAT gateway.
@@ -63,6 +69,11 @@ class natGateways extends Model
     public $spec;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @description The ID of the vSwitch.
      *
      * @example vsw-5szpp1os9m55myirbflfw****
@@ -72,17 +83,17 @@ class natGateways extends Model
     public $vSwitchId;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'ensRegionId'  => 'EnsRegionId',
-        'name'         => 'Name',
+        'ensRegionId' => 'EnsRegionId',
+        'ipLists' => 'IpLists',
+        'name' => 'Name',
         'natGatewayId' => 'NatGatewayId',
-        'networkId'    => 'NetworkId',
-        'spec'         => 'Spec',
-        'vSwitchId'    => 'VSwitchId',
+        'networkId' => 'NetworkId',
+        'spec' => 'Spec',
+        'status' => 'Status',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,6 +103,15 @@ class natGateways extends Model
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+        if (null !== $this->ipLists) {
+            $res['IpLists'] = [];
+            if (null !== $this->ipLists && \is_array($this->ipLists)) {
+                $n = 0;
+                foreach ($this->ipLists as $item) {
+                    $res['IpLists'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -104,6 +124,9 @@ class natGateways extends Model
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -126,6 +149,15 @@ class natGateways extends Model
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+        if (isset($map['IpLists'])) {
+            if (!empty($map['IpLists'])) {
+                $model->ipLists = [];
+                $n = 0;
+                foreach ($map['IpLists'] as $item) {
+                    $model->ipLists[$n++] = null !== $item ? ipLists::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -137,6 +169,9 @@ class natGateways extends Model
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

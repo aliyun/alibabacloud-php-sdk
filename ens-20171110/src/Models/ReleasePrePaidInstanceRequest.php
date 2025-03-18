@@ -12,6 +12,7 @@ class ReleasePrePaidInstanceRequest extends Model
      * @description The ID of the instance to be deleted. You can specify only one instance ID.
      *
      * This parameter is required.
+     *
      * @example i-instance****
      *
      * @var string
@@ -21,9 +22,7 @@ class ReleasePrePaidInstanceRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

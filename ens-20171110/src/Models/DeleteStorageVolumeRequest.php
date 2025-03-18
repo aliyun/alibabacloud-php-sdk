@@ -12,6 +12,7 @@ class DeleteStorageVolumeRequest extends Model
      * @description The ID of the volume.
      *
      * This parameter is required.
+     *
      * @example sv-***
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteStorageVolumeRequest extends Model
         'volumeId' => 'VolumeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

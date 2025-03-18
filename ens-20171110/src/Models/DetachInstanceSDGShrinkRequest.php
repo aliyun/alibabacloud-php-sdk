@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class DetachInstanceSDGShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The IDs of the instances.
+     *
+     * This parameter is required.
      *
      * @var string
      */
     public $instanceIdsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the SDG.
+     *
+     * This parameter is required.
      *
      * @example sdg-xxxxx
      *
@@ -25,12 +29,10 @@ class DetachInstanceSDGShrinkRequest extends Model
     public $SDGId;
     protected $_name = [
         'instanceIdsShrink' => 'InstanceIds',
-        'SDGId'             => 'SDGId',
+        'SDGId' => 'SDGId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -27,12 +27,10 @@ class failedItems extends Model
     public $errorMessage;
     protected $_name = [
         'destinationRegionId' => 'DestinationRegionId',
-        'errorMessage'        => 'ErrorMessage',
+        'errorMessage' => 'ErrorMessage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

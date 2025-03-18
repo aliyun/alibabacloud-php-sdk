@@ -12,6 +12,7 @@ class DescribeLoadBalancerListenMonitorRequest extends Model
      * @description The end of the time range to query.
      *
      * This parameter is required.
+     *
      * @example 2024-01-30 08:00:00
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeLoadBalancerListenMonitorRequest extends Model
      * @description The ID of the ELB instance.
      *
      * This parameter is required.
+     *
      * @example lb-5q73cv04zeyh43lh74lp4****
      *
      * @var string
@@ -41,6 +43,7 @@ class DescribeLoadBalancerListenMonitorRequest extends Model
      * @description The beginning of the time range to query.
      *
      * This parameter is required.
+     *
      * @example 2024-01-15 16:00:00
      *
      * @var string
@@ -51,22 +54,21 @@ class DescribeLoadBalancerListenMonitorRequest extends Model
      * @description The virtual IP address (VIP) port of the ELB instance.
      *
      * This parameter is required.
+     *
      * @example 80
      *
      * @var string
      */
     public $VPort;
     protected $_name = [
-        'endTime'        => 'EndTime',
+        'endTime' => 'EndTime',
         'loadBalancerId' => 'LoadBalancerId',
-        'proto'          => 'Proto',
-        'startTime'      => 'StartTime',
-        'VPort'          => 'VPort',
+        'proto' => 'Proto',
+        'startTime' => 'StartTime',
+        'VPort' => 'VPort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

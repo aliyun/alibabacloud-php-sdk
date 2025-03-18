@@ -26,12 +26,10 @@ class GetBucketLifecycleResponseBody extends Model
     public $rule;
     protected $_name = [
         'requestId' => 'RequestId',
-        'rule'      => 'Rule',
+        'rule' => 'Rule',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class GetBucketLifecycleResponseBody extends Model
         if (isset($map['Rule'])) {
             if (!empty($map['Rule'])) {
                 $model->rule = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Rule'] as $item) {
                     $model->rule[$n++] = null !== $item ? rule::fromMap($item) : $item;
                 }

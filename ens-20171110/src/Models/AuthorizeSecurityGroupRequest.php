@@ -18,6 +18,7 @@ class AuthorizeSecurityGroupRequest extends Model
      *   all: All protocols are supported.
      *
      * This parameter is required.
+     *
      * @example all
      *
      * @var string
@@ -31,6 +32,7 @@ class AuthorizeSecurityGroupRequest extends Model
      *   drop: denies access and returns no responses.
      *
      * Default value: accept.
+     *
      * @example accept
      *
      * @var string
@@ -46,6 +48,7 @@ class AuthorizeSecurityGroupRequest extends Model
      *   When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
      *
      * This parameter is required.
+     *
      * @example 22/22
      *
      * @var string
@@ -56,6 +59,7 @@ class AuthorizeSecurityGroupRequest extends Model
      * @description The priority of security group rule N. Valid values: **1** to **100**.
      *
      * Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -66,6 +70,7 @@ class AuthorizeSecurityGroupRequest extends Model
      * @description The ID of the security group.
      *
      * This parameter is required.
+     *
      * @example sg-bp67acfmxazb4ph***
      *
      * @var string
@@ -75,7 +80,10 @@ class AuthorizeSecurityGroupRequest extends Model
     /**
      * @description The source IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
      *
+     * This parameter is empty by default.
+     *
      * This parameter is required.
+     *
      * @example 10.0.XX.XX/8
      *
      * @var string
@@ -96,18 +104,16 @@ class AuthorizeSecurityGroupRequest extends Model
      */
     public $sourcePortRange;
     protected $_name = [
-        'ipProtocol'      => 'IpProtocol',
-        'policy'          => 'Policy',
-        'portRange'       => 'PortRange',
-        'priority'        => 'Priority',
+        'ipProtocol' => 'IpProtocol',
+        'policy' => 'Policy',
+        'portRange' => 'PortRange',
+        'priority' => 'Priority',
         'securityGroupId' => 'SecurityGroupId',
-        'sourceCidrIp'    => 'SourceCidrIp',
+        'sourceCidrIp' => 'SourceCidrIp',
         'sourcePortRange' => 'SourcePortRange',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

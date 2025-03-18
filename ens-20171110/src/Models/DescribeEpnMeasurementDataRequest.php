@@ -12,6 +12,7 @@ class DescribeEpnMeasurementDataRequest extends Model
      * @description The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * This parameter is required.
+     *
      * @example 2022-01-30T16:00:00Z
      *
      * @var string
@@ -22,19 +23,18 @@ class DescribeEpnMeasurementDataRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the yyyy-mm-ddthh:mm:ssz format. The time must be in UTC.
      *
      * This parameter is required.
+     *
      * @example 2021-09-30T16:00:00Z
      *
      * @var string
      */
     public $startDate;
     protected $_name = [
-        'endDate'   => 'EndDate',
+        'endDate' => 'EndDate',
         'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

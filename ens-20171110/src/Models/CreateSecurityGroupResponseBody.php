@@ -26,13 +26,11 @@ class CreateSecurityGroupResponseBody extends Model
      */
     public $securityGroupId;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'securityGroupId' => 'SecurityGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

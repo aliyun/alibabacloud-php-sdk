@@ -72,18 +72,16 @@ class DescribeEpnInstanceAttributeResponseBody extends Model
      */
     public $vSwitches;
     protected $_name = [
-        'confVersions'    => 'ConfVersions',
-        'EPNInstanceId'   => 'EPNInstanceId',
+        'confVersions' => 'ConfVersions',
+        'EPNInstanceId' => 'EPNInstanceId',
         'EPNInstanceName' => 'EPNInstanceName',
-        'instances'       => 'Instances',
+        'instances' => 'Instances',
         'networkingModel' => 'NetworkingModel',
-        'requestId'       => 'RequestId',
-        'vSwitches'       => 'VSwitches',
+        'requestId' => 'RequestId',
+        'vSwitches' => 'VSwitches',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -142,7 +140,7 @@ class DescribeEpnInstanceAttributeResponseBody extends Model
         if (isset($map['ConfVersions'])) {
             if (!empty($map['ConfVersions'])) {
                 $model->confVersions = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ConfVersions'] as $item) {
                     $model->confVersions[$n++] = null !== $item ? confVersions::fromMap($item) : $item;
                 }
@@ -157,7 +155,7 @@ class DescribeEpnInstanceAttributeResponseBody extends Model
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Instances'] as $item) {
                     $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }
@@ -172,7 +170,7 @@ class DescribeEpnInstanceAttributeResponseBody extends Model
         if (isset($map['VSwitches'])) {
             if (!empty($map['VSwitches'])) {
                 $model->vSwitches = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['VSwitches'] as $item) {
                     $model->vSwitches[$n++] = null !== $item ? vSwitches::fromMap($item) : $item;
                 }

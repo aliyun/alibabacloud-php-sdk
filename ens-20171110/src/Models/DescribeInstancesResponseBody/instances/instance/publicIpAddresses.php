@@ -17,9 +17,7 @@ class publicIpAddresses extends Model
         'publicIpAddress' => 'PublicIpAddress',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class publicIpAddresses extends Model
         if (isset($map['PublicIpAddress'])) {
             if (!empty($map['PublicIpAddress'])) {
                 $model->publicIpAddress = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['PublicIpAddress'] as $item) {
                     $model->publicIpAddress[$n++] = null !== $item ? publicIpAddress::fromMap($item) : $item;
                 }

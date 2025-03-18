@@ -9,16 +9,14 @@ use AlibabaCloud\Tea\Model;
 class networkInterfaces extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\networkInterfaces\networkInterfaces[]
+     * @var networkInterfaces\networkInterfaces[]
      */
     public $networkInterfaces;
     protected $_name = [
         'networkInterfaces' => 'NetworkInterfaces',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -47,9 +45,9 @@ class networkInterfaces extends Model
         if (isset($map['NetworkInterfaces'])) {
             if (!empty($map['NetworkInterfaces'])) {
                 $model->networkInterfaces = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['NetworkInterfaces'] as $item) {
-                    $model->networkInterfaces[$n++] = null !== $item ? \AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\networkInterfaces\networkInterfaces::fromMap($item) : $item;
+                    $model->networkInterfaces[$n++] = null !== $item ? networkInterfaces\networkInterfaces::fromMap($item) : $item;
                 }
             }
         }

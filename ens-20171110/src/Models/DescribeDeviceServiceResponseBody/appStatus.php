@@ -48,14 +48,12 @@ class appStatus extends Model
      */
     public $updateTime;
     protected $_name = [
-        'phase'         => 'Phase',
+        'phase' => 'Phase',
         'statusDescrip' => 'StatusDescrip',
-        'updateTime'    => 'UpdateTime',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

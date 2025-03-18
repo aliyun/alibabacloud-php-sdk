@@ -12,6 +12,7 @@ class RunServiceScheduleRequest extends Model
      * @description The ID of the application.
      *
      * This parameter is required.
+     *
      * @example 474bdef0-d149-4695-abfb-52912d9143f0
      *
      * @var string
@@ -22,6 +23,7 @@ class RunServiceScheduleRequest extends Model
      * @description The IP address of the client.
      *
      * This parameter is required.
+     *
      * @example 180.166.45.146
      *
      * @var string
@@ -81,6 +83,7 @@ class RunServiceScheduleRequest extends Model
      *   Console: performs the scheduling operation when the device is in the scheduling state.
      *
      * This parameter is required.
+     *
      * @example Start
      *
      * @var string
@@ -100,26 +103,25 @@ class RunServiceScheduleRequest extends Model
      * @description The UUID of the device.
      *
      * This parameter is required.
+     *
      * @example hdm_d4f1059a8e1afc0956bd71b497faa433
      *
      * @var string
      */
     public $uuid;
     protected $_name = [
-        'appId'            => 'AppId',
-        'clientIp'         => 'ClientIp',
-        'directorys'       => 'Directorys',
-        'podConfigName'    => 'PodConfigName',
+        'appId' => 'AppId',
+        'clientIp' => 'ClientIp',
+        'directorys' => 'Directorys',
+        'podConfigName' => 'PodConfigName',
         'preLockedTimeout' => 'PreLockedTimeout',
         'scheduleStrategy' => 'ScheduleStrategy',
-        'serviceAction'    => 'ServiceAction',
-        'serviceCommands'  => 'ServiceCommands',
-        'uuid'             => 'Uuid',
+        'serviceAction' => 'ServiceAction',
+        'serviceCommands' => 'ServiceCommands',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

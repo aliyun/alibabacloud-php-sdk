@@ -12,6 +12,7 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
      * @description The ID of an instance. Separate multiple IDs with semicolons (;).
      *
      * This parameter is required.
+     *
      * @example i-5ci7l7k1m9m2zmhp4iw3o****
      *
      * @var string
@@ -24,12 +25,10 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
     public $ownerId;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
-        'ownerId'     => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

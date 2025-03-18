@@ -18,13 +18,11 @@ class UdpConfig extends Model
      */
     public $scheduler;
     protected $_name = [
-        'hashKey'   => 'HashKey',
+        'hashKey' => 'HashKey',
         'scheduler' => 'Scheduler',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

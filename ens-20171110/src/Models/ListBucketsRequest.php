@@ -36,13 +36,11 @@ class ListBucketsRequest extends Model
     public $prefix;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'prefix'     => 'Prefix',
+        'pageSize' => 'PageSize',
+        'prefix' => 'Prefix',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

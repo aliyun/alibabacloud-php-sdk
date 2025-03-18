@@ -42,17 +42,15 @@ class saleControlAvailableResource extends Model
      */
     public $orderType;
     protected $_name = [
-        'availableDiskType'    => 'AvailableDiskType',
-        'availableRegion'      => 'AvailableRegion',
-        'availableSpec'        => 'AvailableSpec',
+        'availableDiskType' => 'AvailableDiskType',
+        'availableRegion' => 'AvailableRegion',
+        'availableSpec' => 'AvailableSpec',
         'availableStorageType' => 'AvailableStorageType',
-        'commodityCode'        => 'CommodityCode',
-        'orderType'            => 'OrderType',
+        'commodityCode' => 'CommodityCode',
+        'orderType' => 'OrderType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +106,7 @@ class saleControlAvailableResource extends Model
         if (isset($map['AvailableDiskType'])) {
             if (!empty($map['AvailableDiskType'])) {
                 $model->availableDiskType = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['AvailableDiskType'] as $item) {
                     $model->availableDiskType[$n++] = null !== $item ? availableDiskType::fromMap($item) : $item;
                 }
@@ -117,7 +115,7 @@ class saleControlAvailableResource extends Model
         if (isset($map['AvailableRegion'])) {
             if (!empty($map['AvailableRegion'])) {
                 $model->availableRegion = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['AvailableRegion'] as $item) {
                     $model->availableRegion[$n++] = null !== $item ? availableRegion::fromMap($item) : $item;
                 }
@@ -126,7 +124,7 @@ class saleControlAvailableResource extends Model
         if (isset($map['AvailableSpec'])) {
             if (!empty($map['AvailableSpec'])) {
                 $model->availableSpec = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['AvailableSpec'] as $item) {
                     $model->availableSpec[$n++] = null !== $item ? availableSpec::fromMap($item) : $item;
                 }

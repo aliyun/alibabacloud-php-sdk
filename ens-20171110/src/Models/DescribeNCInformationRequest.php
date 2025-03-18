@@ -19,12 +19,10 @@ class DescribeNCInformationRequest extends Model
     public $resourceId;
     protected $_name = [
         'ensRegionId' => 'EnsRegionId',
-        'resourceId'  => 'ResourceId',
+        'resourceId' => 'ResourceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

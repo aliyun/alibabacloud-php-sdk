@@ -12,6 +12,7 @@ class RemoveVSwitchesFromEpnInstanceRequest extends Model
      * @description The ID of theEPN instance.
      *
      * This parameter is required.
+     *
      * @example epn-****
      *
      * @var string
@@ -22,6 +23,7 @@ class RemoveVSwitchesFromEpnInstanceRequest extends Model
      * @description The internal networking information that you want to delete.
      *
      * This parameter is required.
+     *
      * @example VSwitchesInfo=[{"VSwitchId":"vs-ixxxx"},{"VSwitchId":"vs-ixxxx"}]
      *
      * @var string
@@ -32,9 +34,7 @@ class RemoveVSwitchesFromEpnInstanceRequest extends Model
         'vSwitchesInfo' => 'VSwitchesInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

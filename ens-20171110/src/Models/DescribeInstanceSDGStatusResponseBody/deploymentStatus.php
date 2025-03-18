@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deploymentStatus extends Model
 {
     /**
+     * @description The ID of the edge node.
+     *
      * @example cn-guangzhou-26
      *
      * @var string
@@ -16,6 +18,8 @@ class deploymentStatus extends Model
     public $ensRegionId;
 
     /**
+     * @description The ID of the AIC instance.
+     *
      * @example aic-xxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class deploymentStatus extends Model
     public $instanceId;
 
     /**
+     * @description The deployment type of the SDG.
+     *
      * @example shared
      *
      * @var string
@@ -30,6 +36,8 @@ class deploymentStatus extends Model
     public $mountType;
 
     /**
+     * @description Deployment Phase
+     *
      * @example attach
      *
      * @var string
@@ -37,6 +45,8 @@ class deploymentStatus extends Model
     public $phase;
 
     /**
+     * @description The ID of the SDG.
+     *
      * @example sdg-xxxxxxx
      *
      * @var string
@@ -44,6 +54,8 @@ class deploymentStatus extends Model
     public $SDGId;
 
     /**
+     * @description The deployment status of the SDG.
+     *
      * @example success
      *
      * @var string
@@ -51,6 +63,8 @@ class deploymentStatus extends Model
     public $status;
 
     /**
+     * @description The time when the status was last updated.
+     *
      * @example 2023-02-17T02:44:31Z
      *
      * @var string
@@ -58,17 +72,15 @@ class deploymentStatus extends Model
     public $updateTime;
     protected $_name = [
         'ensRegionId' => 'EnsRegionId',
-        'instanceId'  => 'InstanceId',
-        'mountType'   => 'MountType',
-        'phase'       => 'Phase',
-        'SDGId'       => 'SDGId',
-        'status'      => 'Status',
-        'updateTime'  => 'UpdateTime',
+        'instanceId' => 'InstanceId',
+        'mountType' => 'MountType',
+        'phase' => 'Phase',
+        'SDGId' => 'SDGId',
+        'status' => 'Status',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

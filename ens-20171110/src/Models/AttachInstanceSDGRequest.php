@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class AttachInstanceSDGRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The IDs of the instances.
+     *
+     * This parameter is required.
      *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the SDG.
+     *
+     * This parameter is required.
      *
      * @example sdg-xxxx
      *
@@ -25,12 +29,10 @@ class AttachInstanceSDGRequest extends Model
     public $SDGId;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
-        'SDGId'       => 'SDGId',
+        'SDGId' => 'SDGId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

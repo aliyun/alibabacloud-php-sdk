@@ -17,9 +17,7 @@ class ipv6Sets extends Model
         'ipv6Set' => 'Ipv6Set',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class ipv6Sets extends Model
         if (isset($map['Ipv6Set'])) {
             if (!empty($map['Ipv6Set'])) {
                 $model->ipv6Set = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Ipv6Set'] as $item) {
                     $model->ipv6Set[$n++] = null !== $item ? ipv6Set::fromMap($item) : $item;
                 }

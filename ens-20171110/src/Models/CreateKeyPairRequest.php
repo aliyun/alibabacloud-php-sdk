@@ -15,6 +15,7 @@ class CreateKeyPairRequest extends Model
      *   It must start with a letter but cannot start with `http://` or `https://`.
      *
      * This parameter is required.
+     *
      * @example TestKeyPairName
      *
      * @var string
@@ -24,9 +25,7 @@ class CreateKeyPairRequest extends Model
         'keyPairName' => 'KeyPairName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

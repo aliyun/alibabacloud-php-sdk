@@ -18,17 +18,19 @@ class PutBucketLifecycleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example b8f93xxxxx4881xxxxxc71d991
+     *
      * @var string
      */
     public $ruleId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'ruleId'    => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

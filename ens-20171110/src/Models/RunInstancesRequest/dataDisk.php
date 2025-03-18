@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
-     * @description The category of the disk. Valid values:
+     * @description The category of the disk. Examples:
      *
      *   **cloud_efficiency**: ultra disk.
      *   **cloud_ssd**: all-flash disk.
@@ -23,7 +23,7 @@ class dataDisk extends Model
     public $category;
 
     /**
-     * @description Indicates whether the cloud disk is encrypted. Valid values:
+     * @description Specifies whether to encrypt the disk. Valid values:
      *
      *   true.
      *   false (default).
@@ -41,6 +41,7 @@ class dataDisk extends Model
      *   false (default).
      *
      * >  If you set the Encrypted parameter to true, the default service key is used when the KMSKeyId parameter is empty.
+     *
      * @example false
      *
      * @var string
@@ -56,15 +57,13 @@ class dataDisk extends Model
      */
     public $size;
     protected $_name = [
-        'category'  => 'Category',
+        'category' => 'Category',
         'encrypted' => 'Encrypted',
-        'KMSKeyId'  => 'KMSKeyId',
-        'size'      => 'Size',
+        'KMSKeyId' => 'KMSKeyId',
+        'size' => 'Size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

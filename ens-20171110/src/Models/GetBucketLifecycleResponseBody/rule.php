@@ -47,14 +47,12 @@ class rule extends Model
     public $status;
     protected $_name = [
         'expiration' => 'Expiration',
-        'ID'         => 'ID',
-        'prefix'     => 'Prefix',
-        'status'     => 'Status',
+        'ID' => 'ID',
+        'prefix' => 'Prefix',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

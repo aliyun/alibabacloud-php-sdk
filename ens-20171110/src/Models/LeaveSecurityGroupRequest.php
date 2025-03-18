@@ -30,20 +30,19 @@ class LeaveSecurityGroupRequest extends Model
      * @description The ID of the security group.
      *
      * This parameter is required.
+     *
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
      */
     public $securityGroupId;
     protected $_name = [
-        'instanceId'         => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'securityGroupId'    => 'SecurityGroupId',
+        'securityGroupId' => 'SecurityGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

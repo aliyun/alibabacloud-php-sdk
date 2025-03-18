@@ -42,15 +42,13 @@ class DescribeReservedResourceResponseBody extends Model
      */
     public $supportResources;
     protected $_name = [
-        'code'             => 'Code',
-        'images'           => 'Images',
-        'requestId'        => 'RequestId',
+        'code' => 'Code',
+        'images' => 'Images',
+        'requestId' => 'RequestId',
         'supportResources' => 'SupportResources',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

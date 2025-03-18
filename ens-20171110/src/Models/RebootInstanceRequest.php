@@ -24,19 +24,18 @@ class RebootInstanceRequest extends Model
      * @description The ID of the instance that you want to reboot. You can specify only one instance ID.
      *
      * This parameter is required.
+     *
      * @example i-instanceid****
      *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'forceStop'  => 'ForceStop',
+        'forceStop' => 'ForceStop',
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

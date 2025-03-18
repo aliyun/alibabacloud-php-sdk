@@ -18,6 +18,15 @@ class nextHops extends Model
     public $nextHopId;
 
     /**
+     * @description The instance ID of the next hop.
+     *
+     * @example testInstance
+     *
+     * @var string
+     */
+    public $nextHopName;
+
+    /**
      * @description The type of the next hop. Valid values:
      *
      * @example Instance
@@ -26,19 +35,21 @@ class nextHops extends Model
      */
     public $nextHopType;
     protected $_name = [
-        'nextHopId'   => 'NextHopId',
+        'nextHopId' => 'NextHopId',
+        'nextHopName' => 'NextHopName',
         'nextHopType' => 'NextHopType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->nextHopId) {
             $res['NextHopId'] = $this->nextHopId;
+        }
+        if (null !== $this->nextHopName) {
+            $res['NextHopName'] = $this->nextHopName;
         }
         if (null !== $this->nextHopType) {
             $res['NextHopType'] = $this->nextHopType;
@@ -57,6 +68,9 @@ class nextHops extends Model
         $model = new self();
         if (isset($map['NextHopId'])) {
             $model->nextHopId = $map['NextHopId'];
+        }
+        if (isset($map['NextHopName'])) {
+            $model->nextHopName = $map['NextHopName'];
         }
         if (isset($map['NextHopType'])) {
             $model->nextHopType = $map['NextHopType'];

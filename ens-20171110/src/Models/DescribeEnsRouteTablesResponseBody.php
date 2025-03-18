@@ -52,16 +52,14 @@ class DescribeEnsRouteTablesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'routeTables' => 'RouteTables',
-        'totalCount'  => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class DescribeEnsRouteTablesResponseBody extends Model
         if (isset($map['RouteTables'])) {
             if (!empty($map['RouteTables'])) {
                 $model->routeTables = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['RouteTables'] as $item) {
                     $model->routeTables[$n++] = null !== $item ? routeTables::fromMap($item) : $item;
                 }

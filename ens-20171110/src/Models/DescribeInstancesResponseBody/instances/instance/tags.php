@@ -9,16 +9,14 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\tags\tags[]
+     * @var tags\tags[]
      */
     public $tags;
     protected $_name = [
         'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -47,9 +45,9 @@ class tags extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? \AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponseBody\instances\instance\tags\tags::fromMap($item) : $item;
+                    $model->tags[$n++] = null !== $item ? tags\tags::fromMap($item) : $item;
                 }
             }
         }

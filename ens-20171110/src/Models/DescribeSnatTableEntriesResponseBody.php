@@ -52,16 +52,14 @@ class DescribeSnatTableEntriesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'requestId'        => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'snatTableEntries' => 'SnatTableEntries',
-        'totalCount'       => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class DescribeSnatTableEntriesResponseBody extends Model
         if (isset($map['SnatTableEntries'])) {
             if (!empty($map['SnatTableEntries'])) {
                 $model->snatTableEntries = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['SnatTableEntries'] as $item) {
                     $model->snatTableEntries[$n++] = null !== $item ? snatTableEntries::fromMap($item) : $item;
                 }

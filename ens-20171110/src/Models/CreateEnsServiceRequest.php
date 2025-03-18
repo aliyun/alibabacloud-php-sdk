@@ -12,6 +12,7 @@ class CreateEnsServiceRequest extends Model
      * @description The ID of the resource that you want to obtain. You can specify only one ID in a request.
      *
      * This parameter is required.
+     *
      * @example ens-20190806****
      *
      * @var string
@@ -25,6 +26,7 @@ class CreateEnsServiceRequest extends Model
      *   **Upgrade**: change
      *
      * This parameter is required.
+     *
      * @example Buy
      *
      * @var string
@@ -32,12 +34,10 @@ class CreateEnsServiceRequest extends Model
     public $orderType;
     protected $_name = [
         'ensServiceId' => 'EnsServiceId',
-        'orderType'    => 'OrderType',
+        'orderType' => 'OrderType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

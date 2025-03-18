@@ -26,12 +26,10 @@ class DescribeDiskIopsListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'diskIopsList' => 'DiskIopsList',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class DescribeDiskIopsListResponseBody extends Model
         if (isset($map['DiskIopsList'])) {
             if (!empty($map['DiskIopsList'])) {
                 $model->diskIopsList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['DiskIopsList'] as $item) {
                     $model->diskIopsList[$n++] = null !== $item ? diskIopsList::fromMap($item) : $item;
                 }

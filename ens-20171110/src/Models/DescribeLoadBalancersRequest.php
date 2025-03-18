@@ -27,6 +27,11 @@ class DescribeLoadBalancersRequest extends Model
     public $ensRegionId;
 
     /**
+     * @var string[]
+     */
+    public $ensRegionIds;
+
+    /**
      * @description The ID of the ELB instance.
      *
      * @example lb-5q73cv04zeyh43lh74lp4****
@@ -101,21 +106,20 @@ class DescribeLoadBalancersRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
-        'address'            => 'Address',
-        'ensRegionId'        => 'EnsRegionId',
-        'loadBalancerId'     => 'LoadBalancerId',
-        'loadBalancerName'   => 'LoadBalancerName',
+        'address' => 'Address',
+        'ensRegionId' => 'EnsRegionId',
+        'ensRegionIds' => 'EnsRegionIds',
+        'loadBalancerId' => 'LoadBalancerId',
+        'loadBalancerName' => 'LoadBalancerName',
         'loadBalancerStatus' => 'LoadBalancerStatus',
-        'networkId'          => 'NetworkId',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'serverId'           => 'ServerId',
-        'vSwitchId'          => 'VSwitchId',
+        'networkId' => 'NetworkId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'serverId' => 'ServerId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -125,6 +129,9 @@ class DescribeLoadBalancersRequest extends Model
         }
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+        if (null !== $this->ensRegionIds) {
+            $res['EnsRegionIds'] = $this->ensRegionIds;
         }
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
@@ -167,6 +174,11 @@ class DescribeLoadBalancersRequest extends Model
         }
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
+        }
+        if (isset($map['EnsRegionIds'])) {
+            if (!empty($map['EnsRegionIds'])) {
+                $model->ensRegionIds = $map['EnsRegionIds'];
+            }
         }
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];

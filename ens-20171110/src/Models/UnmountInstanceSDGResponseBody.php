@@ -10,24 +10,26 @@ use AlibabaCloud\Tea\Model;
 class UnmountInstanceSDGResponseBody extends Model
 {
     /**
+     * @description The returned data object.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 125B04C7-3D0D-4245-AF96-14E3758E3F06
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

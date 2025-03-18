@@ -44,15 +44,13 @@ class instanceSpec extends Model
      */
     public $memory;
     protected $_name = [
-        'core'         => 'Core',
-        'displayName'  => 'DisplayName',
+        'core' => 'Core',
+        'displayName' => 'DisplayName',
         'instanceType' => 'InstanceType',
-        'memory'       => 'Memory',
+        'memory' => 'Memory',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -31,14 +31,12 @@ class conditionSaleControl extends Model
     public $operator;
     protected $_name = [
         'conditionControl' => 'ConditionControl',
-        'description'      => 'Description',
-        'moduleValue'      => 'ModuleValue',
-        'operator'         => 'Operator',
+        'description' => 'Description',
+        'moduleValue' => 'ModuleValue',
+        'operator' => 'Operator',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

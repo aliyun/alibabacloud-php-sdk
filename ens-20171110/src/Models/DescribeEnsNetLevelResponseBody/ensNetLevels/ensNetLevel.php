@@ -24,9 +24,7 @@ class ensNetLevel extends Model
         'ensNetLevelCode' => 'EnsNetLevelCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

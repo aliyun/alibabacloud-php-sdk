@@ -34,14 +34,12 @@ class deviceInfos extends Model
      */
     public $status;
     protected $_name = [
-        'name'    => 'Name',
+        'name' => 'Name',
         'network' => 'Network',
-        'status'  => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class deviceInfos extends Model
         if (isset($map['Network'])) {
             if (!empty($map['Network'])) {
                 $model->network = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Network'] as $item) {
                     $model->network[$n++] = null !== $item ? network::fromMap($item) : $item;
                 }

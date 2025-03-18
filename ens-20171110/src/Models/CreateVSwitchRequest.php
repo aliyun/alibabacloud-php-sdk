@@ -17,6 +17,7 @@ class CreateVSwitchRequest extends Model
      *   The CIDR block of the vSwitch cannot be the same as the destination CIDR block in a route entry of the VPC. However, it can be a subset of the destination CIDR block.
      *
      * This parameter is required.
+     *
      * @example 172.16.0.0/24
      *
      * @var string
@@ -27,6 +28,7 @@ class CreateVSwitchRequest extends Model
      * @description The description of the vSwitch.
      *
      * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with http:// or https://.
+     *
      * @example This is my vswitch.
      *
      * @var string
@@ -37,6 +39,7 @@ class CreateVSwitchRequest extends Model
      * @description The ID of the edge node.
      *
      * This parameter is required.
+     *
      * @example cn-xian-unicom
      *
      * @var string
@@ -53,6 +56,8 @@ class CreateVSwitchRequest extends Model
     public $networkId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
@@ -64,23 +69,22 @@ class CreateVSwitchRequest extends Model
      *   The name must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * Default value: null.
+     *
      * @example test
      *
      * @var string
      */
     public $vSwitchName;
     protected $_name = [
-        'cidrBlock'   => 'CidrBlock',
+        'cidrBlock' => 'CidrBlock',
         'description' => 'Description',
         'ensRegionId' => 'EnsRegionId',
-        'networkId'   => 'NetworkId',
-        'tag'         => 'Tag',
+        'networkId' => 'NetworkId',
+        'tag' => 'Tag',
         'vSwitchName' => 'VSwitchName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -136,7 +140,7 @@ class CreateVSwitchRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

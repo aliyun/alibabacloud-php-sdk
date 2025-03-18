@@ -110,22 +110,20 @@ class SDGs extends Model
      */
     public $updateTime;
     protected $_name = [
-        'avaliableRegionIds'  => 'AvaliableRegionIds',
-        'creationInstanceId'  => 'CreationInstanceId',
-        'creationRegionId'    => 'CreationRegionId',
-        'creationTime'        => 'CreationTime',
+        'avaliableRegionIds' => 'AvaliableRegionIds',
+        'creationInstanceId' => 'CreationInstanceId',
+        'creationRegionId' => 'CreationRegionId',
+        'creationTime' => 'CreationTime',
         'deployedInstanceIds' => 'DeployedInstanceIds',
-        'description'         => 'Description',
-        'parentSDGId'         => 'ParentSDGId',
-        'SDGId'               => 'SDGId',
-        'size'                => 'Size',
-        'status'              => 'Status',
-        'updateTime'          => 'UpdateTime',
+        'description' => 'Description',
+        'parentSDGId' => 'ParentSDGId',
+        'SDGId' => 'SDGId',
+        'size' => 'Size',
+        'status' => 'Status',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -190,7 +188,7 @@ class SDGs extends Model
         if (isset($map['AvaliableRegionIds'])) {
             if (!empty($map['AvaliableRegionIds'])) {
                 $model->avaliableRegionIds = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['AvaliableRegionIds'] as $item) {
                     $model->avaliableRegionIds[$n++] = null !== $item ? avaliableRegionIds::fromMap($item) : $item;
                 }
@@ -208,7 +206,7 @@ class SDGs extends Model
         if (isset($map['DeployedInstanceIds'])) {
             if (!empty($map['DeployedInstanceIds'])) {
                 $model->deployedInstanceIds = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['DeployedInstanceIds'] as $item) {
                     $model->deployedInstanceIds[$n++] = null !== $item ? deployedInstanceIds::fromMap($item) : $item;
                 }

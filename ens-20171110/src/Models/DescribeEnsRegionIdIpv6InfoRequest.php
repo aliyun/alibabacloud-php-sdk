@@ -12,6 +12,7 @@ class DescribeEnsRegionIdIpv6InfoRequest extends Model
      * @description The ID of the node. You can specify only one node ID in a call.
      *
      * This parameter is required.
+     *
      * @example cn-chengdu-xxxx-4
      *
      * @var string
@@ -21,9 +22,7 @@ class DescribeEnsRegionIdIpv6InfoRequest extends Model
         'ensRegionId' => 'EnsRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

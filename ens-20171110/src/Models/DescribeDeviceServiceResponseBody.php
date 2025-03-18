@@ -49,16 +49,14 @@ class DescribeDeviceServiceResponseBody extends Model
      */
     public $resourceInfos;
     protected $_name = [
-        'appMetaData'         => 'AppMetaData',
-        'appStatus'           => 'AppStatus',
-        'requestId'           => 'RequestId',
+        'appMetaData' => 'AppMetaData',
+        'appStatus' => 'AppStatus',
+        'requestId' => 'RequestId',
         'resourceDetailInfos' => 'ResourceDetailInfos',
-        'resourceInfos'       => 'ResourceInfos',
+        'resourceInfos' => 'ResourceInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -114,7 +112,7 @@ class DescribeDeviceServiceResponseBody extends Model
         if (isset($map['ResourceDetailInfos'])) {
             if (!empty($map['ResourceDetailInfos'])) {
                 $model->resourceDetailInfos = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['ResourceDetailInfos'] as $item) {
                     $model->resourceDetailInfos[$n++] = null !== $item ? resourceDetailInfos::fromMap($item) : $item;
                 }
@@ -123,7 +121,7 @@ class DescribeDeviceServiceResponseBody extends Model
         if (isset($map['ResourceInfos'])) {
             if (!empty($map['ResourceInfos'])) {
                 $model->resourceInfos = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ResourceInfos'] as $item) {
                     $model->resourceInfos[$n++] = null !== $item ? resourceInfos::fromMap($item) : $item;
                 }

@@ -26,6 +26,7 @@ class DescribeBandwitdhByInternetChargeTypeResponseBody extends Model
      *   PayByBandwidth: Pay by fixed bandwidth
      *
      * You can specify only one metering method for network usage and cannot overwrite the existing metering method.
+     *
      * @example 95BandwidthByMonth
      *
      * @var string
@@ -50,15 +51,13 @@ class DescribeBandwitdhByInternetChargeTypeResponseBody extends Model
      */
     public $timeStamp;
     protected $_name = [
-        'bandwidthValue'     => 'BandwidthValue',
+        'bandwidthValue' => 'BandwidthValue',
         'internetChargeType' => 'InternetChargeType',
-        'requestId'          => 'RequestId',
-        'timeStamp'          => 'TimeStamp',
+        'requestId' => 'RequestId',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

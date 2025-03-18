@@ -54,15 +54,13 @@ class preloadInfos extends Model
     public $updateTime;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'namespace'    => 'Namespace',
+        'namespace' => 'Namespace',
         'redundantNum' => 'RedundantNum',
-        'regionId'     => 'RegionId',
-        'updateTime'   => 'UpdateTime',
+        'regionId' => 'RegionId',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

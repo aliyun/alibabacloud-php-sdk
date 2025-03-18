@@ -87,19 +87,17 @@ class secondaryPublicIpAddresses extends Model
      */
     public $secondaryPublicIpId;
     protected $_name = [
-        'cidrMask'                 => 'CidrMask',
-        'creationTime'             => 'CreationTime',
-        'ensRegionId'              => 'EnsRegionId',
-        'gateway'                  => 'Gateway',
-        'ipVersion'                => 'IpVersion',
-        'isp'                      => 'Isp',
+        'cidrMask' => 'CidrMask',
+        'creationTime' => 'CreationTime',
+        'ensRegionId' => 'EnsRegionId',
+        'gateway' => 'Gateway',
+        'ipVersion' => 'IpVersion',
+        'isp' => 'Isp',
         'secondaryPublicIpAddress' => 'SecondaryPublicIpAddress',
-        'secondaryPublicIpId'      => 'SecondaryPublicIpId',
+        'secondaryPublicIpId' => 'SecondaryPublicIpId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

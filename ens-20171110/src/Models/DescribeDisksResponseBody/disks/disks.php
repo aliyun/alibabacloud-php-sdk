@@ -32,11 +32,23 @@ class disks extends Model
     public $creationTime;
 
     /**
+     * @description Specifies whether the disk to be attached is released with the instance. Valid values:
+     *
+     *   true: The disk will be released when the ECS instance is released.
+     *   false: The disk will be retained when the ECS instance is released.
+     *   If you leave this parameter empty, the default value is used.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $deleteWithInstance;
 
     /**
+     * @description The namespace description.
+     *
+     * @example disk-description
+     *
      * @var string
      */
     public $description;
@@ -192,29 +204,27 @@ class disks extends Model
      */
     public $type;
     protected $_name = [
-        'category'           => 'Category',
-        'creationTime'       => 'CreationTime',
+        'category' => 'Category',
+        'creationTime' => 'CreationTime',
         'deleteWithInstance' => 'DeleteWithInstance',
-        'description'        => 'Description',
-        'diskChargeType'     => 'DiskChargeType',
-        'diskId'             => 'DiskId',
-        'diskName'           => 'DiskName',
-        'encrypted'          => 'Encrypted',
-        'encryptedKeyId'     => 'EncryptedKeyId',
-        'ensRegionId'        => 'EnsRegionId',
-        'instanceId'         => 'InstanceId',
-        'instanceName'       => 'InstanceName',
-        'portable'           => 'Portable',
-        'serialId'           => 'SerialId',
-        'size'               => 'Size',
-        'snapshotId'         => 'SnapshotId',
-        'status'             => 'Status',
-        'type'               => 'Type',
+        'description' => 'Description',
+        'diskChargeType' => 'DiskChargeType',
+        'diskId' => 'DiskId',
+        'diskName' => 'DiskName',
+        'encrypted' => 'Encrypted',
+        'encryptedKeyId' => 'EncryptedKeyId',
+        'ensRegionId' => 'EnsRegionId',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'portable' => 'Portable',
+        'serialId' => 'SerialId',
+        'size' => 'Size',
+        'snapshotId' => 'SnapshotId',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

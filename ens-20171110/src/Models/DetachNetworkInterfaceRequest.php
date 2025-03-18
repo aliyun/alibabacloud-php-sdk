@@ -12,6 +12,7 @@ class DetachNetworkInterfaceRequest extends Model
      * @description The ID of the ENI.
      *
      * This parameter is required.
+     *
      * @example eni-58z57orgmt6d1****
      *
      * @var string
@@ -21,9 +22,7 @@ class DetachNetworkInterfaceRequest extends Model
         'networkInterfaceId' => 'NetworkInterfaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

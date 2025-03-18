@@ -78,25 +78,23 @@ class ipv4s extends Model
      */
     public $vlan;
     protected $_name = [
-        'display'             => 'Display',
-        'isp'                 => 'Isp',
-        'oversellRatio'       => 'OversellRatio',
-        'remain'              => 'Remain',
-        'reserveDisable'      => 'ReserveDisable',
+        'display' => 'Display',
+        'isp' => 'Isp',
+        'oversellRatio' => 'OversellRatio',
+        'remain' => 'Remain',
+        'reserveDisable' => 'ReserveDisable',
         'reserveDisableTotal' => 'ReserveDisableTotal',
-        'reserved'            => 'Reserved',
-        'statusDisable'       => 'StatusDisable',
-        'statusDisableTotal'  => 'StatusDisableTotal',
-        'total'               => 'Total',
-        'type'                => 'Type',
-        'used'                => 'Used',
-        'usedRatio'           => 'UsedRatio',
-        'vlan'                => 'Vlan',
+        'reserved' => 'Reserved',
+        'statusDisable' => 'StatusDisable',
+        'statusDisableTotal' => 'StatusDisableTotal',
+        'total' => 'Total',
+        'type' => 'Type',
+        'used' => 'Used',
+        'usedRatio' => 'UsedRatio',
+        'vlan' => 'Vlan',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
