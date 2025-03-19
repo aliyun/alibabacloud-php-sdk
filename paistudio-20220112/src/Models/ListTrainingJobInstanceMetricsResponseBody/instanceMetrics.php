@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobInstanceMetricsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobInstanceMetricsResponseBody\instanceMetrics\metrics;
+use AlibabaCloud\Tea\Model;
 
 class instanceMetrics extends Model
 {
@@ -13,45 +13,39 @@ class instanceMetrics extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var metrics[]
      */
     public $metrics;
+
     /**
      * @var string
      */
     public $nodeName;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'metrics'    => 'Metrics',
-        'nodeName'   => 'NodeName',
+        'metrics' => 'Metrics',
+        'nodeName' => 'NodeName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->metrics)) {
-            Model::validateArray($this->metrics);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->metrics) {
-            if (\is_array($this->metrics)) {
-                $res['Metrics'] = [];
-                $n1             = 0;
-                foreach ($this->metrics as $item1) {
-                    $res['Metrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Metrics'] = [];
+            if (null !== $this->metrics && \is_array($this->metrics)) {
+                $n = 0;
+                foreach ($this->metrics as $item) {
+                    $res['Metrics'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
@@ -59,28 +53,26 @@ class instanceMetrics extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instanceMetrics
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Metrics'])) {
             if (!empty($map['Metrics'])) {
                 $model->metrics = [];
-                $n1             = 0;
-                foreach ($map['Metrics'] as $item1) {
-                    $model->metrics[$n1++] = metrics::fromMap($item1);
+                $n = 0;
+                foreach ($map['Metrics'] as $item) {
+                    $model->metrics[$n++] = null !== $item ? metrics::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }

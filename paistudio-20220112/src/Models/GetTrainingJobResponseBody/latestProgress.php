@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\latestProgress\overallProgress;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\latestProgress\remainingTime;
+use AlibabaCloud\Tea\Model;
 
 class latestProgress extends Model
 {
@@ -14,52 +14,42 @@ class latestProgress extends Model
      * @var overallProgress
      */
     public $overallProgress;
+
     /**
      * @var remainingTime
      */
     public $remainingTime;
     protected $_name = [
         'overallProgress' => 'OverallProgress',
-        'remainingTime'   => 'RemainingTime',
+        'remainingTime' => 'RemainingTime',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->overallProgress) {
-            $this->overallProgress->validate();
-        }
-        if (null !== $this->remainingTime) {
-            $this->remainingTime->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->overallProgress) {
-            $res['OverallProgress'] = null !== $this->overallProgress ? $this->overallProgress->toArray($noStream) : $this->overallProgress;
+            $res['OverallProgress'] = null !== $this->overallProgress ? $this->overallProgress->toMap() : null;
         }
-
         if (null !== $this->remainingTime) {
-            $res['RemainingTime'] = null !== $this->remainingTime ? $this->remainingTime->toArray($noStream) : $this->remainingTime;
+            $res['RemainingTime'] = null !== $this->remainingTime ? $this->remainingTime->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return latestProgress
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OverallProgress'])) {
             $model->overallProgress = overallProgress::fromMap($map['OverallProgress']);
         }
-
         if (isset($map['RemainingTime'])) {
             $model->remainingTime = remainingTime::fromMap($map['RemainingTime']);
         }

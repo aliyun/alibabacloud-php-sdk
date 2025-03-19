@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WorkspaceSpecs extends Model
 {
@@ -12,45 +12,39 @@ class WorkspaceSpecs extends Model
      * @var string
      */
     public $product;
+
     /**
      * @var WorkspaceSpec[]
      */
     public $specs;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'product'     => 'Product',
-        'specs'       => 'Specs',
+        'product' => 'Product',
+        'specs' => 'Specs',
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->specs)) {
-            Model::validateArray($this->specs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
-
         if (null !== $this->specs) {
-            if (\is_array($this->specs)) {
-                $res['Specs'] = [];
-                $n1           = 0;
-                foreach ($this->specs as $item1) {
-                    $res['Specs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Specs'] = [];
+            if (null !== $this->specs && \is_array($this->specs)) {
+                $n = 0;
+                foreach ($this->specs as $item) {
+                    $res['Specs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -58,28 +52,26 @@ class WorkspaceSpecs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WorkspaceSpecs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }
-
         if (isset($map['Specs'])) {
             if (!empty($map['Specs'])) {
                 $model->specs = [];
-                $n1           = 0;
-                foreach ($map['Specs'] as $item1) {
-                    $model->specs[$n1++] = WorkspaceSpec::fromMap($item1);
+                $n = 0;
+                foreach ($map['Specs'] as $item) {
+                    $model->specs[$n++] = null !== $item ? WorkspaceSpec::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

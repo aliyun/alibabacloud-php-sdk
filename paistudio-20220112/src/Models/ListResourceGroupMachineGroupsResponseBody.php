@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListResourceGroupMachineGroupsResponseBody extends Model
 {
@@ -12,45 +12,43 @@ class ListResourceGroupMachineGroupsResponseBody extends Model
      * @var MachineGroup[]
      */
     public $machineGroups;
+
     /**
+     * @example E7C42CC7-2E85-508A-84F4-923B605FD10F
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example 4
+     *
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'machineGroups' => 'MachineGroups',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->machineGroups)) {
-            Model::validateArray($this->machineGroups);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->machineGroups) {
-            if (\is_array($this->machineGroups)) {
-                $res['MachineGroups'] = [];
-                $n1                   = 0;
-                foreach ($this->machineGroups as $item1) {
-                    $res['MachineGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['MachineGroups'] = [];
+            if (null !== $this->machineGroups && \is_array($this->machineGroups)) {
+                $n = 0;
+                foreach ($this->machineGroups as $item) {
+                    $res['MachineGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -58,28 +56,26 @@ class ListResourceGroupMachineGroupsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListResourceGroupMachineGroupsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MachineGroups'])) {
             if (!empty($map['MachineGroups'])) {
                 $model->machineGroups = [];
-                $n1                   = 0;
-                foreach ($map['MachineGroups'] as $item1) {
-                    $model->machineGroups[$n1++] = MachineGroup::fromMap($item1);
+                $n = 0;
+                foreach ($map['MachineGroups'] as $item) {
+                    $model->machineGroups[$n++] = null !== $item ? MachineGroup::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

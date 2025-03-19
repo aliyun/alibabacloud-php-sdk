@@ -4,35 +4,36 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TimeRangeFilter extends Model
 {
     /**
+     * @example 2023-06-22T00:00:00Z
+     *
      * @var string
      */
     public $endTime;
+
     /**
+     * @example 2023-06-22T00:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
+        'endTime' => 'EndTime',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -40,18 +41,17 @@ class TimeRangeFilter extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TimeRangeFilter
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

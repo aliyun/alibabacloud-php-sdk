@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class scheduler extends Model
 {
@@ -12,7 +12,10 @@ class scheduler extends Model
      * @var string
      */
     public $maxRunningTimeInMinutes;
+
     /**
+     * @example 0
+     *
      * @var string
      */
     public $maxRunningTimeInSeconds;
@@ -21,18 +24,14 @@ class scheduler extends Model
         'maxRunningTimeInSeconds' => 'MaxRunningTimeInSeconds',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maxRunningTimeInMinutes) {
             $res['MaxRunningTimeInMinutes'] = $this->maxRunningTimeInMinutes;
         }
-
         if (null !== $this->maxRunningTimeInSeconds) {
             $res['MaxRunningTimeInSeconds'] = $this->maxRunningTimeInSeconds;
         }
@@ -40,18 +39,17 @@ class scheduler extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return scheduler
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxRunningTimeInMinutes'])) {
             $model->maxRunningTimeInMinutes = $map['MaxRunningTimeInMinutes'];
         }
-
         if (isset($map['MaxRunningTimeInSeconds'])) {
             $model->maxRunningTimeInSeconds = $map['MaxRunningTimeInSeconds'];
         }

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteTrainingJobResponseBody extends Model
 {
     /**
+     * @example 4cc83062-9bcb-4ab3-979e-2e571a35834f
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +18,9 @@ class DeleteTrainingJobResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +30,11 @@ class DeleteTrainingJobResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteTrainingJobResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

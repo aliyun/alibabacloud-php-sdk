@@ -1,3 +1,9 @@
+2025-03-19 Version: 2.1.1
+- Update API ListNodes: add param MachineGroupIds.
+- Update API ListQuotaWorkloads: add param WithHistoricalData.
+- Update API ListResourceGroupMachineGroups: add param MachineGroupIDs.
+
+
 2025-01-23 Version: 2.1.1
 - Generated php 2022-01-12 for PaiStudio.
 

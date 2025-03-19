@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Rules extends Model
 {
@@ -16,29 +16,23 @@ class Rules extends Model
         'scheduling' => 'Scheduling',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->scheduling) {
-            $this->scheduling->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->scheduling) {
-            $res['Scheduling'] = null !== $this->scheduling ? $this->scheduling->toArray($noStream) : $this->scheduling;
+            $res['Scheduling'] = null !== $this->scheduling ? $this->scheduling->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Rules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

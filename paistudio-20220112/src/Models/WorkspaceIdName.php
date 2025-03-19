@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class WorkspaceIdName extends Model
 {
     /**
+     * @example ws123456
+     *
      * @var string
      */
     public $workspaceId;
@@ -16,12 +18,9 @@ class WorkspaceIdName extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->workspaceId) {
@@ -31,11 +30,11 @@ class WorkspaceIdName extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return WorkspaceIdName
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

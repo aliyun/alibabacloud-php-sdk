@@ -4,53 +4,55 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListResourceGroupsResponseBody extends Model
 {
     /**
+     * @example 9CFA2665-1FFE-5929-8468-C14C25890486
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @example RG1
+     *
      * @var ResourceGroup[]
      */
     public $resourceGroups;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceGroups' => 'ResourceGroups',
-        'totalCount'     => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resourceGroups)) {
-            Model::validateArray($this->resourceGroups);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resourceGroups) {
-            if (\is_array($this->resourceGroups)) {
-                $res['ResourceGroups'] = [];
-                $n1                    = 0;
-                foreach ($this->resourceGroups as $item1) {
-                    $res['ResourceGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ResourceGroups'] = [];
+            if (null !== $this->resourceGroups && \is_array($this->resourceGroups)) {
+                $n = 0;
+                foreach ($this->resourceGroups as $item) {
+                    $res['ResourceGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -58,28 +60,26 @@ class ListResourceGroupsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListResourceGroupsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ResourceGroups'])) {
             if (!empty($map['ResourceGroups'])) {
                 $model->resourceGroups = [];
-                $n1                    = 0;
-                foreach ($map['ResourceGroups'] as $item1) {
-                    $model->resourceGroups[$n1++] = ResourceGroup::fromMap($item1);
+                $n = 0;
+                foreach ($map['ResourceGroups'] as $item) {
+                    $model->resourceGroups[$n++] = null !== $item ? ResourceGroup::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

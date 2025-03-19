@@ -4,35 +4,36 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class hyperParameters extends Model
 {
     /**
+     * @example learning_rate
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @example 0.0001
+     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'name'  => 'Name',
+        'name' => 'Name',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -40,18 +41,17 @@ class hyperParameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return hyperParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,62 +4,62 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetResourceGroupTotalResponseBody extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCPU;
+
     /**
+     * @example 24
+     *
      * @var int
      */
     public $totalGPU;
+
     /**
      * @var GPUInfo[]
      */
     public $totalGPUInfos;
+
     /**
+     * @example 300
+     *
      * @var int
      */
     public $totalMemory;
     protected $_name = [
-        'totalCPU'      => 'totalCPU',
-        'totalGPU'      => 'totalGPU',
+        'totalCPU' => 'totalCPU',
+        'totalGPU' => 'totalGPU',
         'totalGPUInfos' => 'totalGPUInfos',
-        'totalMemory'   => 'totalMemory',
+        'totalMemory' => 'totalMemory',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->totalGPUInfos)) {
-            Model::validateArray($this->totalGPUInfos);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->totalCPU) {
             $res['totalCPU'] = $this->totalCPU;
         }
-
         if (null !== $this->totalGPU) {
             $res['totalGPU'] = $this->totalGPU;
         }
-
         if (null !== $this->totalGPUInfos) {
-            if (\is_array($this->totalGPUInfos)) {
-                $res['totalGPUInfos'] = [];
-                $n1                   = 0;
-                foreach ($this->totalGPUInfos as $item1) {
-                    $res['totalGPUInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['totalGPUInfos'] = [];
+            if (null !== $this->totalGPUInfos && \is_array($this->totalGPUInfos)) {
+                $n = 0;
+                foreach ($this->totalGPUInfos as $item) {
+                    $res['totalGPUInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalMemory) {
             $res['totalMemory'] = $this->totalMemory;
         }
@@ -67,32 +67,29 @@ class GetResourceGroupTotalResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetResourceGroupTotalResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['totalCPU'])) {
             $model->totalCPU = $map['totalCPU'];
         }
-
         if (isset($map['totalGPU'])) {
             $model->totalGPU = $map['totalGPU'];
         }
-
         if (isset($map['totalGPUInfos'])) {
             if (!empty($map['totalGPUInfos'])) {
                 $model->totalGPUInfos = [];
-                $n1                   = 0;
-                foreach ($map['totalGPUInfos'] as $item1) {
-                    $model->totalGPUInfos[$n1++] = GPUInfo::fromMap($item1);
+                $n = 0;
+                foreach ($map['totalGPUInfos'] as $item) {
+                    $model->totalGPUInfos[$n++] = null !== $item ? GPUInfo::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['totalMemory'])) {
             $model->totalMemory = $map['totalMemory'];
         }

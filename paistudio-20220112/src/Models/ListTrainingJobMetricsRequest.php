@@ -4,71 +4,84 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListTrainingJobMetricsRequest extends Model
 {
     /**
+     * @description Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
+     * @example 2020-11-08T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
+
     /**
+     * @example accuracy
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $order;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
+
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
+     * @example 2020-11-08T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
-        'name'       => 'Name',
-        'order'      => 'Order',
+        'endTime' => 'EndTime',
+        'name' => 'Name',
+        'order' => 'Order',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -76,34 +89,29 @@ class ListTrainingJobMetricsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListTrainingJobMetricsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

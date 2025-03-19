@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\QuotaUser;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ResourceAmount;
+use AlibabaCloud\Tea\Model;
 
 class resources extends Model
 {
@@ -13,52 +13,42 @@ class resources extends Model
      * @var ResourceAmount
      */
     public $submitted;
+
     /**
      * @var ResourceAmount
      */
     public $used;
     protected $_name = [
         'submitted' => 'Submitted',
-        'used'      => 'Used',
+        'used' => 'Used',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->submitted) {
-            $this->submitted->validate();
-        }
-        if (null !== $this->used) {
-            $this->used->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->submitted) {
-            $res['Submitted'] = null !== $this->submitted ? $this->submitted->toArray($noStream) : $this->submitted;
+            $res['Submitted'] = null !== $this->submitted ? $this->submitted->toMap() : null;
         }
-
         if (null !== $this->used) {
-            $res['Used'] = null !== $this->used ? $this->used->toArray($noStream) : $this->used;
+            $res['Used'] = null !== $this->used ? $this->used->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resources
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Submitted'])) {
             $model->submitted = ResourceAmount::fromMap($map['Submitted']);
         }
-
         if (isset($map['Used'])) {
             $model->used = ResourceAmount::fromMap($map['Used']);
         }

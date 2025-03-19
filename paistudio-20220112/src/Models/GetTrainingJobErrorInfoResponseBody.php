@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobErrorInfoResponseBody\errorInfo;
+use AlibabaCloud\Tea\Model;
 
 class GetTrainingJobErrorInfoResponseBody extends Model
 {
@@ -13,7 +13,10 @@ class GetTrainingJobErrorInfoResponseBody extends Model
      * @var errorInfo
      */
     public $errorInfo;
+
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
@@ -22,21 +25,14 @@ class GetTrainingJobErrorInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->errorInfo) {
-            $this->errorInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorInfo) {
-            $res['ErrorInfo'] = null !== $this->errorInfo ? $this->errorInfo->toArray($noStream) : $this->errorInfo;
+            $res['ErrorInfo'] = null !== $this->errorInfo ? $this->errorInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +40,17 @@ class GetTrainingJobErrorInfoResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTrainingJobErrorInfoResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorInfo'])) {
             $model->errorInfo = errorInfo::fromMap($map['ErrorInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

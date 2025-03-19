@@ -2,35 +2,29 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody;
+namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class instances extends Model
+class NodeOperationResult extends Model
 {
     /**
-     * @example train1oug3yehan4-master-0
-     *
      * @var string
      */
-    public $name;
+    public $message;
 
     /**
-     * @example master
-     *
      * @var string
      */
-    public $role;
+    public $nodeName;
 
     /**
-     * @example Succeeded
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'name' => 'Name',
-        'role' => 'Role',
+        'message' => 'Message',
+        'nodeName' => 'NodeName',
         'status' => 'Status',
     ];
 
@@ -39,11 +33,11 @@ class instances extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
+        if (null !== $this->nodeName) {
+            $res['NodeName'] = $this->nodeName;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -55,16 +49,16 @@ class instances extends Model
     /**
      * @param array $map
      *
-     * @return instances
+     * @return NodeOperationResult
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
+        if (isset($map['NodeName'])) {
+            $model->nodeName = $map['NodeName'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

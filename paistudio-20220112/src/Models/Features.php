@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\Features\quota;
+use AlibabaCloud\Tea\Model;
 
 class Features extends Model
 {
@@ -17,29 +17,23 @@ class Features extends Model
         'quota' => 'Quota',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->quota) {
-            $this->quota->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->quota) {
-            $res['Quota'] = null !== $this->quota ? $this->quota->toArray($noStream) : $this->quota;
+            $res['Quota'] = null !== $this->quota ? $this->quota->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Features
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

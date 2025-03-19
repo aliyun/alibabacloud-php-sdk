@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\AlgorithmSpec;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class customization extends Model
 {
@@ -16,12 +16,9 @@ class customization extends Model
         'codeDir' => 'CodeDir',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->codeDir) {
@@ -31,11 +28,11 @@ class customization extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return customization
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

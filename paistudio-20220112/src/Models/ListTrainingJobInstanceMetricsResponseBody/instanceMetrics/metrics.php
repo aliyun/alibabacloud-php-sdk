@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListTrainingJobInstanceMetricsResponseBody\instanceMetrics;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class metrics extends Model
 {
@@ -12,27 +12,24 @@ class metrics extends Model
      * @var string
      */
     public $time;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
-        'time'  => 'Time',
+        'time' => 'Time',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -40,18 +37,17 @@ class metrics extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return metrics
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
