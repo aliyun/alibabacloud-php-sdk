@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\serviceInfos;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class agreements extends Model
 {
     /**
+     * @description The agreement name.
+     *
+     * @example User agreement
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The agreement URL.
+     *
+     * @example https://url
+     *
      * @var string
      */
     public $url;
     protected $_name = [
         'name' => 'Name',
-        'url'  => 'Url',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -40,18 +45,17 @@ class agreements extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return agreements
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

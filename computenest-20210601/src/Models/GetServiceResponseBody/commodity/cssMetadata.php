@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\commodity;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\commodity\cssMetadata\componentsMappings;
+use AlibabaCloud\Tea\Model;
 
 class cssMetadata extends Model
 {
     /**
+     * @description The mapping information about the billing items.
+     *
      * @var componentsMappings[]
      */
     public $componentsMappings;
@@ -17,23 +19,17 @@ class cssMetadata extends Model
         'componentsMappings' => 'ComponentsMappings',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->componentsMappings)) {
-            Model::validateArray($this->componentsMappings);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->componentsMappings) {
-            if (\is_array($this->componentsMappings)) {
-                $res['ComponentsMappings'] = [];
-                $n1                        = 0;
-                foreach ($this->componentsMappings as $item1) {
-                    $res['ComponentsMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ComponentsMappings'] = [];
+            if (null !== $this->componentsMappings && \is_array($this->componentsMappings)) {
+                $n = 0;
+                foreach ($this->componentsMappings as $item) {
+                    $res['ComponentsMappings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class cssMetadata extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return cssMetadata
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComponentsMappings'])) {
             if (!empty($map['ComponentsMappings'])) {
                 $model->componentsMappings = [];
-                $n1                        = 0;
-                foreach ($map['ComponentsMappings'] as $item1) {
-                    $model->componentsMappings[$n1++] = componentsMappings::fromMap($item1);
+                $n = 0;
+                foreach ($map['ComponentsMappings'] as $item) {
+                    $model->componentsMappings[$n++] = null !== $item ? componentsMappings::fromMap($item) : $item;
                 }
             }
         }

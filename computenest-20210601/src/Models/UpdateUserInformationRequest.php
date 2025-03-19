@@ -4,39 +4,41 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateUserInformationRequest\deliverySettings;
+use AlibabaCloud\Tea\Model;
 
 class UpdateUserInformationRequest extends Model
 {
     /**
+     * @description The modified delivery settings.
+     *
      * @var deliverySettings
      */
     public $deliverySettings;
+
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'deliverySettings' => 'DeliverySettings',
-        'regionId'         => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->deliverySettings) {
-            $this->deliverySettings->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deliverySettings) {
-            $res['DeliverySettings'] = null !== $this->deliverySettings ? $this->deliverySettings->toArray($noStream) : $this->deliverySettings;
+            $res['DeliverySettings'] = null !== $this->deliverySettings ? $this->deliverySettings->toMap() : null;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -44,18 +46,17 @@ class UpdateUserInformationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateUserInformationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeliverySettings'])) {
             $model->deliverySettings = deliverySettings::fromMap($map['DeliverySettings']);
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

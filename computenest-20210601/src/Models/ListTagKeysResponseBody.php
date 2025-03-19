@@ -4,53 +4,51 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListTagKeysResponseBody extends Model
 {
     /**
+     * @description Details of the tag keys.
+     *
      * @var string[]
      */
     public $keys;
+
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
+     * @example AAAAAZ9FmxgN6wKfeK/GOKRnnjU=
+     *
      * @var string
      */
     public $nextToken;
+
     /**
+     * @description The request ID.
+     *
+     * @example 8872ACE6-0297-54A4-8AAD-3A8623EC6C5D
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'keys'      => 'Keys',
+        'keys' => 'Keys',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->keys)) {
-            Model::validateArray($this->keys);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->keys) {
-            if (\is_array($this->keys)) {
-                $res['Keys'] = [];
-                $n1          = 0;
-                foreach ($this->keys as $item1) {
-                    $res['Keys'][$n1++] = $item1;
-                }
-            }
+            $res['Keys'] = $this->keys;
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,28 +56,22 @@ class ListTagKeysResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListTagKeysResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keys'])) {
             if (!empty($map['Keys'])) {
-                $model->keys = [];
-                $n1          = 0;
-                foreach ($map['Keys'] as $item1) {
-                    $model->keys[$n1++] = $item1;
-                }
+                $model->keys = $map['Keys'];
             }
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

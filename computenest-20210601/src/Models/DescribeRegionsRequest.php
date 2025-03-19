@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeRegionsRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -16,12 +20,9 @@ class DescribeRegionsRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
@@ -31,11 +32,11 @@ class DescribeRegionsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeRegionsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

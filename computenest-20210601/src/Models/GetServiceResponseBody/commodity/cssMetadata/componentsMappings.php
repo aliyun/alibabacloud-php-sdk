@@ -4,43 +4,38 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\commodity\cssMetadata;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class componentsMappings extends Model
 {
     /**
+     * @description The mappings.
+     *
      * @var string[]
      */
     public $mappings;
+
     /**
+     * @description The template name.
+     *
+     * @example Template one.
+     *
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'mappings'     => 'Mappings',
+        'mappings' => 'Mappings',
         'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->mappings)) {
-            Model::validateArray($this->mappings);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mappings) {
-            if (\is_array($this->mappings)) {
-                $res['Mappings'] = [];
-                foreach ($this->mappings as $key1 => $value1) {
-                    $res['Mappings'][$key1] = $value1;
-                }
-            }
+            $res['Mappings'] = $this->mappings;
         }
-
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -48,23 +43,17 @@ class componentsMappings extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return componentsMappings
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mappings'])) {
-            if (!empty($map['Mappings'])) {
-                $model->mappings = [];
-                foreach ($map['Mappings'] as $key1 => $value1) {
-                    $model->mappings[$key1] = $value1;
-                }
-            }
+            $model->mappings = $map['Mappings'];
         }
-
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CancelServiceUsageRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CancelServiceUsageResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ChangeResourceGroupRequest;
@@ -43,6 +44,8 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterCon
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterConstraintsResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetUserInformationRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetUserInformationResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListPoliciesRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListPoliciesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceCategoriesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceLogsRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceLogsResponse;
@@ -89,10 +92,11 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateUserInformationResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpgradeServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpgradeServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpgradeServiceInstanceShrinkRequest;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class ComputeNest extends OpenApiClient
 {
@@ -117,60 +121,52 @@ class ComputeNest extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Cancels the application for using a service.
+     * @summary Cancels the application for using a service.
+     *  *
+     * @param CancelServiceUsageRequest $request CancelServiceUsageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelServiceUsageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CancelServiceUsageResponse
-     *
-     * @param CancelServiceUsageRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CancelServiceUsageResponse
+     * @return CancelServiceUsageResponse CancelServiceUsageResponse
      */
     public function cancelServiceUsageWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->needDelete) {
-            @$query['NeedDelete'] = $request->needDelete;
+        if (!Utils::isUnset($request->needDelete)) {
+            $query['NeedDelete'] = $request->needDelete;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelServiceUsage',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelServiceUsage',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -178,14 +174,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Cancels the application for using a service.
+     * @summary Cancels the application for using a service.
+     *  *
+     * @param CancelServiceUsageRequest $request CancelServiceUsageRequest
      *
-     * @param request - CancelServiceUsageRequest
-     * @returns CancelServiceUsageResponse
-     *
-     * @param CancelServiceUsageRequest $request
-     *
-     * @return CancelServiceUsageResponse
+     * @return CancelServiceUsageResponse CancelServiceUsageResponse
      */
     public function cancelServiceUsage($request)
     {
@@ -195,52 +188,44 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which a cloud resource belongs.
+     * @summary Changes the resource group to which a cloud resource belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ChangeResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ChangeResourceGroupResponse
-     *
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->newResourceGroupId) {
-            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -248,14 +233,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which a cloud resource belongs.
+     * @summary Changes the resource group to which a cloud resource belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @param request - ChangeResourceGroupRequest
-     * @returns ChangeResourceGroupResponse
-     *
-     * @param ChangeResourceGroupRequest $request
-     *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -265,60 +247,50 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 服务实例部署前的预检查.
+     * @summary 服务实例部署前的预检查
+     *  *
+     * @param CheckServiceDeployableRequest $request CheckServiceDeployableRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CheckServiceDeployableRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CheckServiceDeployableResponse
-     *
-     * @param CheckServiceDeployableRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CheckServiceDeployableResponse
+     * @return CheckServiceDeployableResponse CheckServiceDeployableResponse
      */
     public function checkServiceDeployableWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->postPaidAmount) {
-            @$query['PostPaidAmount'] = $request->postPaidAmount;
+        if (!Utils::isUnset($request->postPaidAmount)) {
+            $query['PostPaidAmount'] = $request->postPaidAmount;
         }
-
-        if (null !== $request->prePaidAmount) {
-            @$query['PrePaidAmount'] = $request->prePaidAmount;
+        if (!Utils::isUnset($request->prePaidAmount)) {
+            $query['PrePaidAmount'] = $request->prePaidAmount;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
-        if (null !== $request->serviceVersion) {
-            @$query['ServiceVersion'] = $request->serviceVersion;
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
         }
-
-        if (null !== $request->trialType) {
-            @$query['TrialType'] = $request->trialType;
+        if (!Utils::isUnset($request->trialType)) {
+            $query['TrialType'] = $request->trialType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckServiceDeployable',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckServiceDeployable',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CheckServiceDeployableResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -326,14 +298,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 服务实例部署前的预检查.
+     * @summary 服务实例部署前的预检查
+     *  *
+     * @param CheckServiceDeployableRequest $request CheckServiceDeployableRequest
      *
-     * @param request - CheckServiceDeployableRequest
-     * @returns CheckServiceDeployableResponse
-     *
-     * @param CheckServiceDeployableRequest $request
-     *
-     * @return CheckServiceDeployableResponse
+     * @return CheckServiceDeployableResponse CheckServiceDeployableResponse
      */
     public function checkServiceDeployable($request)
     {
@@ -343,63 +312,52 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Continues to deploy a service instance after the service instance failed to be deployed.
+     * @summary Continues to deploy a service instance after the service instance failed to be deployed.
+     *  *
+     * @description This operation is available only for service instances that belong to private services deployed by using Resource Orchestration Service (ROS).
+     *  *
+     * @param ContinueDeployServiceInstanceRequest $request ContinueDeployServiceInstanceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is available only for service instances that belong to private services deployed by using Resource Orchestration Service (ROS).
-     *
-     * @param request - ContinueDeployServiceInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ContinueDeployServiceInstanceResponse
-     *
-     * @param ContinueDeployServiceInstanceRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ContinueDeployServiceInstanceResponse
+     * @return ContinueDeployServiceInstanceResponse ContinueDeployServiceInstanceResponse
      */
     public function continueDeployServiceInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->option) {
-            @$query['Option'] = $request->option;
+        if (!Utils::isUnset($request->option)) {
+            $query['Option'] = $request->option;
         }
-
-        if (null !== $request->parameters) {
-            @$query['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ContinueDeployServiceInstance',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ContinueDeployServiceInstance',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ContinueDeployServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -407,17 +365,13 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Continues to deploy a service instance after the service instance failed to be deployed.
+     * @summary Continues to deploy a service instance after the service instance failed to be deployed.
+     *  *
+     * @description This operation is available only for service instances that belong to private services deployed by using Resource Orchestration Service (ROS).
+     *  *
+     * @param ContinueDeployServiceInstanceRequest $request ContinueDeployServiceInstanceRequest
      *
-     * @remarks
-     * This operation is available only for service instances that belong to private services deployed by using Resource Orchestration Service (ROS).
-     *
-     * @param request - ContinueDeployServiceInstanceRequest
-     * @returns ContinueDeployServiceInstanceResponse
-     *
-     * @param ContinueDeployServiceInstanceRequest $request
-     *
-     * @return ContinueDeployServiceInstanceResponse
+     * @return ContinueDeployServiceInstanceResponse ContinueDeployServiceInstanceResponse
      */
     public function continueDeployServiceInstance($request)
     {
@@ -427,118 +381,94 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Creates and deploys a service instance.
+     * @summary Creates and deploys a service instance.
+     *  *
+     * @param CreateServiceInstanceRequest $tmpReq  CreateServiceInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateServiceInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateServiceInstanceResponse
-     *
-     * @param CreateServiceInstanceRequest $tmpReq
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateServiceInstanceResponse
+     * @return CreateServiceInstanceResponse CreateServiceInstanceResponse
      */
     public function createServiceInstanceWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateServiceInstanceShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->parameters) {
-            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
-
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->commodity) {
-            @$query['Commodity'] = $request->commodity;
+        if (!Utils::isUnset($request->commodity)) {
+            $query['Commodity'] = $request->commodity;
         }
-
-        if (null !== $request->contactGroup) {
-            @$query['ContactGroup'] = $request->contactGroup;
+        if (!Utils::isUnset($request->contactGroup)) {
+            $query['ContactGroup'] = $request->contactGroup;
         }
-
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->enableInstanceOps) {
-            @$query['EnableInstanceOps'] = $request->enableInstanceOps;
+        if (!Utils::isUnset($request->enableInstanceOps)) {
+            $query['EnableInstanceOps'] = $request->enableInstanceOps;
         }
-
-        if (null !== $request->enableUserPrometheus) {
-            @$query['EnableUserPrometheus'] = $request->enableUserPrometheus;
+        if (!Utils::isUnset($request->enableUserPrometheus)) {
+            $query['EnableUserPrometheus'] = $request->enableUserPrometheus;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->operationMetadata) {
-            @$query['OperationMetadata'] = $request->operationMetadata;
+        if (!Utils::isUnset($request->operationMetadata)) {
+            $query['OperationMetadata'] = $request->operationMetadata;
         }
-
-        if (null !== $request->parametersShrink) {
-            @$query['Parameters'] = $request->parametersShrink;
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceAutoPay) {
-            @$query['ResourceAutoPay'] = $request->resourceAutoPay;
+        if (!Utils::isUnset($request->resourceAutoPay)) {
+            $query['ResourceAutoPay'] = $request->resourceAutoPay;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
-        if (null !== $request->serviceVersion) {
-            @$query['ServiceVersion'] = $request->serviceVersion;
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
         }
-
-        if (null !== $request->specificationCode) {
-            @$query['SpecificationCode'] = $request->specificationCode;
+        if (!Utils::isUnset($request->specificationCode)) {
+            $query['SpecificationCode'] = $request->specificationCode;
         }
-
-        if (null !== $request->specificationName) {
-            @$query['SpecificationName'] = $request->specificationName;
+        if (!Utils::isUnset($request->specificationName)) {
+            $query['SpecificationName'] = $request->specificationName;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->templateName) {
-            @$query['TemplateName'] = $request->templateName;
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
         }
-
-        if (null !== $request->trialType) {
-            @$query['TrialType'] = $request->trialType;
+        if (!Utils::isUnset($request->trialType)) {
+            $query['TrialType'] = $request->trialType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceInstance',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceInstance',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -546,14 +476,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Creates and deploys a service instance.
+     * @summary Creates and deploys a service instance.
+     *  *
+     * @param CreateServiceInstanceRequest $request CreateServiceInstanceRequest
      *
-     * @param request - CreateServiceInstanceRequest
-     * @returns CreateServiceInstanceResponse
-     *
-     * @param CreateServiceInstanceRequest $request
-     *
-     * @return CreateServiceInstanceResponse
+     * @return CreateServiceInstanceResponse CreateServiceInstanceResponse
      */
     public function createServiceInstance($request)
     {
@@ -563,54 +490,46 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Creates an application for using a service.
+     * @summary Creates an application for using a service.
+     *  *
+     * @param CreateServiceUsageRequest $tmpReq  CreateServiceUsageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateServiceUsageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateServiceUsageResponse
-     *
-     * @param CreateServiceUsageRequest $tmpReq
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateServiceUsageResponse
+     * @return CreateServiceUsageResponse CreateServiceUsageResponse
      */
     public function createServiceUsageWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateServiceUsageShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->userInformation) {
-            $request->userInformationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInformation, 'UserInformation', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->userInformation)) {
+            $request->userInformationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInformation, 'UserInformation', 'json');
         }
-
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
-        if (null !== $request->userInformationShrink) {
-            @$query['UserInformation'] = $request->userInformationShrink;
+        if (!Utils::isUnset($request->userInformationShrink)) {
+            $query['UserInformation'] = $request->userInformationShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceUsage',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceUsage',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -618,14 +537,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Creates an application for using a service.
+     * @summary Creates an application for using a service.
+     *  *
+     * @param CreateServiceUsageRequest $request CreateServiceUsageRequest
      *
-     * @param request - CreateServiceUsageRequest
-     * @returns CreateServiceUsageResponse
-     *
-     * @param CreateServiceUsageRequest $request
-     *
-     * @return CreateServiceUsageResponse
+     * @return CreateServiceUsageResponse CreateServiceUsageResponse
      */
     public function createServiceUsage($request)
     {
@@ -635,48 +551,41 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Delete service instances.
+     * @summary Delete service instances.
+     *  *
+     * @param DeleteServiceInstancesRequest $request DeleteServiceInstancesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteServiceInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteServiceInstancesResponse
-     *
-     * @param DeleteServiceInstancesRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DeleteServiceInstancesResponse
+     * @return DeleteServiceInstancesResponse DeleteServiceInstancesResponse
      */
     public function deleteServiceInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteServiceInstances',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteServiceInstances',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteServiceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -684,14 +593,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Delete service instances.
+     * @summary Delete service instances.
+     *  *
+     * @param DeleteServiceInstancesRequest $request DeleteServiceInstancesRequest
      *
-     * @param request - DeleteServiceInstancesRequest
-     * @returns DeleteServiceInstancesResponse
-     *
-     * @param DeleteServiceInstancesRequest $request
-     *
-     * @return DeleteServiceInstancesResponse
+     * @return DeleteServiceInstancesResponse DeleteServiceInstancesResponse
      */
     public function deleteServiceInstances($request)
     {
@@ -701,48 +607,41 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Deploy service instance in Created status.
+     * @summary Deploy service instance in Created status.
+     *  *
+     * @param DeployServiceInstanceRequest $request DeployServiceInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeployServiceInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeployServiceInstanceResponse
-     *
-     * @param DeployServiceInstanceRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeployServiceInstanceResponse
+     * @return DeployServiceInstanceResponse DeployServiceInstanceResponse
      */
     public function deployServiceInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeployServiceInstance',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeployServiceInstance',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeployServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -750,14 +649,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Deploy service instance in Created status.
+     * @summary Deploy service instance in Created status.
+     *  *
+     * @param DeployServiceInstanceRequest $request DeployServiceInstanceRequest
      *
-     * @param request - DeployServiceInstanceRequest
-     * @returns DeployServiceInstanceResponse
-     *
-     * @param DeployServiceInstanceRequest $request
-     *
-     * @return DeployServiceInstanceResponse
+     * @return DeployServiceInstanceResponse DeployServiceInstanceResponse
      */
     public function deployServiceInstance($request)
     {
@@ -767,40 +663,35 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * List available regions.
+     * @summary List available regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRegionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -808,14 +699,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * List available regions.
+     * @summary List available regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @param request - DescribeRegionsRequest
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -825,60 +713,50 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 生成并校验服务创建stack所需要的权限.
+     * @summary 生成并校验服务创建stack所需要的权限
+     *  *
+     * @param GenerateServicePolicyRequest $request GenerateServicePolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GenerateServicePolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GenerateServicePolicyResponse
-     *
-     * @param GenerateServicePolicyRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GenerateServicePolicyResponse
+     * @return GenerateServicePolicyResponse GenerateServicePolicyResponse
      */
     public function generateServicePolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->operationTypes) {
-            @$query['OperationTypes'] = $request->operationTypes;
+        if (!Utils::isUnset($request->operationTypes)) {
+            $query['OperationTypes'] = $request->operationTypes;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
-        if (null !== $request->serviceVersion) {
-            @$query['ServiceVersion'] = $request->serviceVersion;
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
         }
-
-        if (null !== $request->templateName) {
-            @$query['TemplateName'] = $request->templateName;
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
         }
-
-        if (null !== $request->trialType) {
-            @$query['TrialType'] = $request->trialType;
+        if (!Utils::isUnset($request->trialType)) {
+            $query['TrialType'] = $request->trialType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateServicePolicy',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateServicePolicy',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GenerateServicePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -886,14 +764,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 生成并校验服务创建stack所需要的权限.
+     * @summary 生成并校验服务创建stack所需要的权限
+     *  *
+     * @param GenerateServicePolicyRequest $request GenerateServicePolicyRequest
      *
-     * @param request - GenerateServicePolicyRequest
-     * @returns GenerateServicePolicyResponse
-     *
-     * @param GenerateServicePolicyRequest $request
-     *
-     * @return GenerateServicePolicyResponse
+     * @return GenerateServicePolicyResponse GenerateServicePolicyResponse
      */
     public function generateServicePolicy($request)
     {
@@ -903,60 +778,50 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about a service.
+     * @summary Queries the information about a service.
+     *  *
+     * @param GetServiceRequest $request GetServiceRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetServiceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetServiceResponse
-     *
-     * @param GetServiceRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetServiceResponse
+     * @return GetServiceResponse GetServiceResponse
      */
     public function getServiceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
-        if (null !== $request->serviceName) {
-            @$query['ServiceName'] = $request->serviceName;
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
         }
-
-        if (null !== $request->serviceVersion) {
-            @$query['ServiceVersion'] = $request->serviceVersion;
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
         }
-
-        if (null !== $request->showDetails) {
-            @$query['ShowDetails'] = $request->showDetails;
+        if (!Utils::isUnset($request->showDetails)) {
+            $query['ShowDetails'] = $request->showDetails;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetService',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetService',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -964,14 +829,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about a service.
+     * @summary Queries the information about a service.
+     *  *
+     * @param GetServiceRequest $request GetServiceRequest
      *
-     * @param request - GetServiceRequest
-     * @returns GetServiceResponse
-     *
-     * @param GetServiceRequest $request
-     *
-     * @return GetServiceResponse
+     * @return GetServiceResponse GetServiceResponse
      */
     public function getService($request)
     {
@@ -981,90 +843,73 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the estimated price for creating a service instance.
+     * @summary Queries the estimated price for creating a service instance.
+     *  *
+     * @param GetServiceEstimateCostRequest $tmpReq  GetServiceEstimateCostRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - GetServiceEstimateCostRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetServiceEstimateCostResponse
-     *
-     * @param GetServiceEstimateCostRequest $tmpReq
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetServiceEstimateCostResponse
+     * @return GetServiceEstimateCostResponse GetServiceEstimateCostResponse
      */
     public function getServiceEstimateCostWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new GetServiceEstimateCostShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->commodity) {
-            $request->commodityShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->commodity, 'Commodity', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->commodity)) {
+            $request->commodityShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commodity, 'Commodity', 'json');
         }
-
-        if (null !== $tmpReq->parameters) {
-            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
-
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->commodityShrink) {
-            @$query['Commodity'] = $request->commodityShrink;
+        if (!Utils::isUnset($request->commodityShrink)) {
+            $query['Commodity'] = $request->commodityShrink;
         }
-
-        if (null !== $request->operationName) {
-            @$query['OperationName'] = $request->operationName;
+        if (!Utils::isUnset($request->operationName)) {
+            $query['OperationName'] = $request->operationName;
         }
-
-        if (null !== $request->parametersShrink) {
-            @$query['Parameters'] = $request->parametersShrink;
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
-        if (null !== $request->serviceVersion) {
-            @$query['ServiceVersion'] = $request->serviceVersion;
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
         }
-
-        if (null !== $request->specificationName) {
-            @$query['SpecificationName'] = $request->specificationName;
+        if (!Utils::isUnset($request->specificationName)) {
+            $query['SpecificationName'] = $request->specificationName;
         }
-
-        if (null !== $request->templateName) {
-            @$query['TemplateName'] = $request->templateName;
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
         }
-
-        if (null !== $request->trialType) {
-            @$query['TrialType'] = $request->trialType;
+        if (!Utils::isUnset($request->trialType)) {
+            $query['TrialType'] = $request->trialType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceEstimateCost',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceEstimateCost',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetServiceEstimateCostResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1072,14 +917,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the estimated price for creating a service instance.
+     * @summary Queries the estimated price for creating a service instance.
+     *  *
+     * @param GetServiceEstimateCostRequest $request GetServiceEstimateCostRequest
      *
-     * @param request - GetServiceEstimateCostRequest
-     * @returns GetServiceEstimateCostResponse
-     *
-     * @param GetServiceEstimateCostRequest $request
-     *
-     * @return GetServiceEstimateCostResponse
+     * @return GetServiceEstimateCostResponse GetServiceEstimateCostResponse
      */
     public function getServiceEstimateCost($request)
     {
@@ -1089,48 +931,41 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about a service instance based on the region ID and the ID of the service instance or the Alibaba Cloud Marketplace instance. Information including the service status, template name, and involved resources are returned.
+     * @summary Queries the information about a service instance based on the region ID and the ID of the service instance or the Alibaba Cloud Marketplace instance. Information including the service status, template name, and involved resources are returned.
+     *  *
+     * @param GetServiceInstanceRequest $request GetServiceInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetServiceInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetServiceInstanceResponse
-     *
-     * @param GetServiceInstanceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetServiceInstanceResponse
+     * @return GetServiceInstanceResponse GetServiceInstanceResponse
      */
     public function getServiceInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->marketInstanceId) {
-            @$query['MarketInstanceId'] = $request->marketInstanceId;
+        if (!Utils::isUnset($request->marketInstanceId)) {
+            $query['MarketInstanceId'] = $request->marketInstanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceInstance',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceInstance',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1138,14 +973,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about a service instance based on the region ID and the ID of the service instance or the Alibaba Cloud Marketplace instance. Information including the service status, template name, and involved resources are returned.
+     * @summary Queries the information about a service instance based on the region ID and the ID of the service instance or the Alibaba Cloud Marketplace instance. Information including the service status, template name, and involved resources are returned.
+     *  *
+     * @param GetServiceInstanceRequest $request GetServiceInstanceRequest
      *
-     * @param request - GetServiceInstanceRequest
-     * @returns GetServiceInstanceResponse
-     *
-     * @param GetServiceInstanceRequest $request
-     *
-     * @return GetServiceInstanceResponse
+     * @return GetServiceInstanceResponse GetServiceInstanceResponse
      */
     public function getServiceInstance($request)
     {
@@ -1155,64 +987,53 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Query renewal prices for prepaid resources of private deployment service instance. You can query renewal prices for all prepaid resources included in a service instance, or query renewal prices for specified resources. Only one of the two methods can be used.
+     * @summary Query renewal prices for prepaid resources of private deployment service instance. You can query renewal prices for all prepaid resources included in a service instance, or query renewal prices for specified resources. Only one of the two methods can be used.
+     *  *
+     * @param GetServiceInstanceSubscriptionEstimateCostRequest $request GetServiceInstanceSubscriptionEstimateCostRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetServiceInstanceSubscriptionEstimateCostRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetServiceInstanceSubscriptionEstimateCostResponse
-     *
-     * @param GetServiceInstanceSubscriptionEstimateCostRequest $request
-     * @param RuntimeOptions                                    $runtime
-     *
-     * @return GetServiceInstanceSubscriptionEstimateCostResponse
+     * @return GetServiceInstanceSubscriptionEstimateCostResponse GetServiceInstanceSubscriptionEstimateCostResponse
      */
     public function getServiceInstanceSubscriptionEstimateCostWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->periodUnit) {
-            @$query['PeriodUnit'] = $request->periodUnit;
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourcePeriod) {
-            @$query['ResourcePeriod'] = $request->resourcePeriod;
+        if (!Utils::isUnset($request->resourcePeriod)) {
+            $query['ResourcePeriod'] = $request->resourcePeriod;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceInstanceSubscriptionEstimateCost',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceInstanceSubscriptionEstimateCost',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetServiceInstanceSubscriptionEstimateCostResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1220,14 +1041,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Query renewal prices for prepaid resources of private deployment service instance. You can query renewal prices for all prepaid resources included in a service instance, or query renewal prices for specified resources. Only one of the two methods can be used.
+     * @summary Query renewal prices for prepaid resources of private deployment service instance. You can query renewal prices for all prepaid resources included in a service instance, or query renewal prices for specified resources. Only one of the two methods can be used.
+     *  *
+     * @param GetServiceInstanceSubscriptionEstimateCostRequest $request GetServiceInstanceSubscriptionEstimateCostRequest
      *
-     * @param request - GetServiceInstanceSubscriptionEstimateCostRequest
-     * @returns GetServiceInstanceSubscriptionEstimateCostResponse
-     *
-     * @param GetServiceInstanceSubscriptionEstimateCostRequest $request
-     *
-     * @return GetServiceInstanceSubscriptionEstimateCostResponse
+     * @return GetServiceInstanceSubscriptionEstimateCostResponse GetServiceInstanceSubscriptionEstimateCostResponse
      */
     public function getServiceInstanceSubscriptionEstimateCost($request)
     {
@@ -1237,66 +1055,55 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 计算巢查询服务是否开通.
+     * @summary 计算巢查询服务是否开通
+     *  *
+     * @param GetServiceProvisionsRequest $tmpReq  GetServiceProvisionsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - GetServiceProvisionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetServiceProvisionsResponse
-     *
-     * @param GetServiceProvisionsRequest $tmpReq
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetServiceProvisionsResponse
+     * @return GetServiceProvisionsResponse GetServiceProvisionsResponse
      */
     public function getServiceProvisionsWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new GetServiceProvisionsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->parameters) {
-            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
-
         $query = [];
-        if (null !== $request->parametersShrink) {
-            @$query['Parameters'] = $request->parametersShrink;
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
-        if (null !== $request->serviceVersion) {
-            @$query['ServiceVersion'] = $request->serviceVersion;
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
         }
-
-        if (null !== $request->templateName) {
-            @$query['TemplateName'] = $request->templateName;
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
         }
-
-        if (null !== $request->trialType) {
-            @$query['TrialType'] = $request->trialType;
+        if (!Utils::isUnset($request->trialType)) {
+            $query['TrialType'] = $request->trialType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceProvisions',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceProvisions',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetServiceProvisionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1304,14 +1111,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 计算巢查询服务是否开通.
+     * @summary 计算巢查询服务是否开通
+     *  *
+     * @param GetServiceProvisionsRequest $request GetServiceProvisionsRequest
      *
-     * @param request - GetServiceProvisionsRequest
-     * @returns GetServiceProvisionsResponse
-     *
-     * @param GetServiceProvisionsRequest $request
-     *
-     * @return GetServiceProvisionsResponse
+     * @return GetServiceProvisionsResponse GetServiceProvisionsResponse
      */
     public function getServiceProvisions($request)
     {
@@ -1321,80 +1125,65 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the constraints on the parameters in an Resource Orchestration Service (ROS) template.
+     * @summary Queries the constraints on the parameters in an Resource Orchestration Service (ROS) template.
+     *  *
+     * @param GetServiceTemplateParameterConstraintsRequest $request GetServiceTemplateParameterConstraintsRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetServiceTemplateParameterConstraintsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetServiceTemplateParameterConstraintsResponse
-     *
-     * @param GetServiceTemplateParameterConstraintsRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return GetServiceTemplateParameterConstraintsResponse
+     * @return GetServiceTemplateParameterConstraintsResponse GetServiceTemplateParameterConstraintsResponse
      */
     public function getServiceTemplateParameterConstraintsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->deployRegionId) {
-            @$query['DeployRegionId'] = $request->deployRegionId;
+        if (!Utils::isUnset($request->deployRegionId)) {
+            $query['DeployRegionId'] = $request->deployRegionId;
         }
-
-        if (null !== $request->enablePrivateVpcConnection) {
-            @$query['EnablePrivateVpcConnection'] = $request->enablePrivateVpcConnection;
+        if (!Utils::isUnset($request->enablePrivateVpcConnection)) {
+            $query['EnablePrivateVpcConnection'] = $request->enablePrivateVpcConnection;
         }
-
-        if (null !== $request->parameters) {
-            @$query['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
-        if (null !== $request->serviceVersion) {
-            @$query['ServiceVersion'] = $request->serviceVersion;
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
         }
-
-        if (null !== $request->specificationName) {
-            @$query['SpecificationName'] = $request->specificationName;
+        if (!Utils::isUnset($request->specificationName)) {
+            $query['SpecificationName'] = $request->specificationName;
         }
-
-        if (null !== $request->templateName) {
-            @$query['TemplateName'] = $request->templateName;
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
         }
-
-        if (null !== $request->trialType) {
-            @$query['TrialType'] = $request->trialType;
+        if (!Utils::isUnset($request->trialType)) {
+            $query['TrialType'] = $request->trialType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceTemplateParameterConstraints',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceTemplateParameterConstraints',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetServiceTemplateParameterConstraintsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1402,14 +1191,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the constraints on the parameters in an Resource Orchestration Service (ROS) template.
+     * @summary Queries the constraints on the parameters in an Resource Orchestration Service (ROS) template.
+     *  *
+     * @param GetServiceTemplateParameterConstraintsRequest $request GetServiceTemplateParameterConstraintsRequest
      *
-     * @param request - GetServiceTemplateParameterConstraintsRequest
-     * @returns GetServiceTemplateParameterConstraintsResponse
-     *
-     * @param GetServiceTemplateParameterConstraintsRequest $request
-     *
-     * @return GetServiceTemplateParameterConstraintsResponse
+     * @return GetServiceTemplateParameterConstraintsResponse GetServiceTemplateParameterConstraintsResponse
      */
     public function getServiceTemplateParameterConstraints($request)
     {
@@ -1419,40 +1205,35 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about a customer.
+     * @summary Queries the information about a customer.
+     *  *
+     * @param GetUserInformationRequest $request GetUserInformationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetUserInformationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetUserInformationResponse
-     *
-     * @param GetUserInformationRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetUserInformationResponse
+     * @return GetUserInformationResponse GetUserInformationResponse
      */
     public function getUserInformationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUserInformation',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserInformation',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetUserInformationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1460,14 +1241,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about a customer.
+     * @summary Queries the information about a customer.
+     *  *
+     * @param GetUserInformationRequest $request GetUserInformationRequest
      *
-     * @param request - GetUserInformationRequest
-     * @returns GetUserInformationResponse
-     *
-     * @param GetUserInformationRequest $request
-     *
-     * @return GetUserInformationResponse
+     * @return GetUserInformationResponse GetUserInformationResponse
      */
     public function getUserInformation($request)
     {
@@ -1477,31 +1255,83 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询服务类别.
+     * @summary Query Permission Policy List
+     *  *
+     * @param ListPoliciesRequest $request ListPoliciesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListServiceCategoriesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListServiceCategoriesResponse
+     * @return ListPoliciesResponse ListPoliciesResponse
+     */
+    public function listPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPolicies',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Query Permission Policy List
+     *  *
+     * @param ListPoliciesRequest $request ListPoliciesRequest
      *
-     * @param RuntimeOptions $runtime
+     * @return ListPoliciesResponse ListPoliciesResponse
+     */
+    public function listPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询服务类别
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServiceCategoriesResponse
+     * @return ListServiceCategoriesResponse ListServiceCategoriesResponse
      */
     public function listServiceCategoriesWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListServiceCategories',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceCategories',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1509,11 +1339,9 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询服务类别.
-     *
-     * @returns ListServiceCategoriesResponse
-     *
-     * @return ListServiceCategoriesResponse
+     * @summary 查询服务类别
+     *  *
+     * @return ListServiceCategoriesResponse ListServiceCategoriesResponse
      */
     public function listServiceCategories()
     {
@@ -1523,68 +1351,56 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the deployment and upgrade logs of a service instance.
+     * @summary Queries the deployment and upgrade logs of a service instance.
+     *  *
+     * @param ListServiceInstanceLogsRequest $request ListServiceInstanceLogsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListServiceInstanceLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListServiceInstanceLogsResponse
-     *
-     * @param ListServiceInstanceLogsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ListServiceInstanceLogsResponse
+     * @return ListServiceInstanceLogsResponse ListServiceInstanceLogsResponse
      */
     public function listServiceInstanceLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->filter) {
-            @$query['Filter'] = $request->filter;
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
         }
-
-        if (null !== $request->logSource) {
-            @$query['LogSource'] = $request->logSource;
+        if (!Utils::isUnset($request->logSource)) {
+            $query['LogSource'] = $request->logSource;
         }
-
-        if (null !== $request->logstore) {
-            @$query['Logstore'] = $request->logstore;
+        if (!Utils::isUnset($request->logstore)) {
+            $query['Logstore'] = $request->logstore;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
-        if (null !== $request->sortOrder) {
-            @$query['SortOrder'] = $request->sortOrder;
+        if (!Utils::isUnset($request->sortOrder)) {
+            $query['SortOrder'] = $request->sortOrder;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceInstanceLogs',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceInstanceLogs',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceInstanceLogsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1592,14 +1408,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the deployment and upgrade logs of a service instance.
+     * @summary Queries the deployment and upgrade logs of a service instance.
+     *  *
+     * @param ListServiceInstanceLogsRequest $request ListServiceInstanceLogsRequest
      *
-     * @param request - ListServiceInstanceLogsRequest
-     * @returns ListServiceInstanceLogsResponse
-     *
-     * @param ListServiceInstanceLogsRequest $request
-     *
-     * @return ListServiceInstanceLogsResponse
+     * @return ListServiceInstanceLogsResponse ListServiceInstanceLogsResponse
      */
     public function listServiceInstanceLogs($request)
     {
@@ -1609,80 +1422,53 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the resources contained in a service instance.
+     * @summary Queries the resources contained in a service instance.
+     *  *
+     * @param ListServiceInstanceResourcesRequest $request ListServiceInstanceResourcesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListServiceInstanceResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListServiceInstanceResourcesResponse
-     *
-     * @param ListServiceInstanceResourcesRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ListServiceInstanceResourcesResponse
+     * @return ListServiceInstanceResourcesResponse ListServiceInstanceResourcesResponse
      */
     public function listServiceInstanceResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->expireTimeEnd) {
-            @$query['ExpireTimeEnd'] = $request->expireTimeEnd;
+        if (!Utils::isUnset($request->filters)) {
+            $query['Filters'] = $request->filters;
         }
-
-        if (null !== $request->expireTimeStart) {
-            @$query['ExpireTimeStart'] = $request->expireTimeStart;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->filters) {
-            @$query['Filters'] = $request->filters;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
-        if (null !== $request->payType) {
-            @$query['PayType'] = $request->payType;
+        if (!Utils::isUnset($request->serviceInstanceResourceType)) {
+            $query['ServiceInstanceResourceType'] = $request->serviceInstanceResourceType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->resourceARN) {
-            @$query['ResourceARN'] = $request->resourceARN;
-        }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
-        }
-
-        if (null !== $request->serviceInstanceResourceType) {
-            @$query['ServiceInstanceResourceType'] = $request->serviceInstanceResourceType;
-        }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
-        }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceInstanceResources',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceInstanceResources',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceInstanceResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1690,14 +1476,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the resources contained in a service instance.
+     * @summary Queries the resources contained in a service instance.
+     *  *
+     * @param ListServiceInstanceResourcesRequest $request ListServiceInstanceResourcesRequest
      *
-     * @param request - ListServiceInstanceResourcesRequest
-     * @returns ListServiceInstanceResourcesResponse
-     *
-     * @param ListServiceInstanceResourcesRequest $request
-     *
-     * @return ListServiceInstanceResourcesResponse
+     * @return ListServiceInstanceResourcesResponse ListServiceInstanceResourcesResponse
      */
     public function listServiceInstanceResources($request)
     {
@@ -1707,52 +1490,44 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the upgrade history of a service instance.
+     * @summary Queries the upgrade history of a service instance.
+     *  *
+     * @param ListServiceInstanceUpgradeHistoryRequest $request ListServiceInstanceUpgradeHistoryRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListServiceInstanceUpgradeHistoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListServiceInstanceUpgradeHistoryResponse
-     *
-     * @param ListServiceInstanceUpgradeHistoryRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ListServiceInstanceUpgradeHistoryResponse
+     * @return ListServiceInstanceUpgradeHistoryResponse ListServiceInstanceUpgradeHistoryResponse
      */
     public function listServiceInstanceUpgradeHistoryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceInstanceUpgradeHistory',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceInstanceUpgradeHistory',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceInstanceUpgradeHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1760,14 +1535,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the upgrade history of a service instance.
+     * @summary Queries the upgrade history of a service instance.
+     *  *
+     * @param ListServiceInstanceUpgradeHistoryRequest $request ListServiceInstanceUpgradeHistoryRequest
      *
-     * @param request - ListServiceInstanceUpgradeHistoryRequest
-     * @returns ListServiceInstanceUpgradeHistoryResponse
-     *
-     * @param ListServiceInstanceUpgradeHistoryRequest $request
-     *
-     * @return ListServiceInstanceUpgradeHistoryResponse
+     * @return ListServiceInstanceUpgradeHistoryResponse ListServiceInstanceUpgradeHistoryResponse
      */
     public function listServiceInstanceUpgradeHistory($request)
     {
@@ -1777,60 +1549,50 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * {}.
+     * @summary {}
+     *  *
+     * @param ListServiceInstancesRequest $request ListServiceInstancesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListServiceInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListServiceInstancesResponse
-     *
-     * @param ListServiceInstancesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListServiceInstancesResponse
+     * @return ListServiceInstancesResponse ListServiceInstancesResponse
      */
     public function listServiceInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->filter) {
-            @$query['Filter'] = $request->filter;
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceInstances',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceInstances',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1838,14 +1600,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * {}.
+     * @summary {}
+     *  *
+     * @param ListServiceInstancesRequest $request ListServiceInstancesRequest
      *
-     * @param request - ListServiceInstancesRequest
-     * @returns ListServiceInstancesResponse
-     *
-     * @param ListServiceInstancesRequest $request
-     *
-     * @return ListServiceInstancesResponse
+     * @return ListServiceInstancesResponse ListServiceInstancesResponse
      */
     public function listServiceInstances($request)
     {
@@ -1855,48 +1614,41 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the applications for using a service.
+     * @summary Queries the applications for using a service.
+     *  *
+     * @param ListServiceUsagesRequest $request ListServiceUsagesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListServiceUsagesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListServiceUsagesResponse
-     *
-     * @param ListServiceUsagesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListServiceUsagesResponse
+     * @return ListServiceUsagesResponse ListServiceUsagesResponse
      */
     public function listServiceUsagesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->filter) {
-            @$query['Filter'] = $request->filter;
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceUsages',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceUsages',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceUsagesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1904,14 +1656,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the applications for using a service.
+     * @summary Queries the applications for using a service.
+     *  *
+     * @param ListServiceUsagesRequest $request ListServiceUsagesRequest
      *
-     * @param request - ListServiceUsagesRequest
-     * @returns ListServiceUsagesResponse
-     *
-     * @param ListServiceUsagesRequest $request
-     *
-     * @return ListServiceUsagesResponse
+     * @return ListServiceUsagesResponse ListServiceUsagesResponse
      */
     public function listServiceUsages($request)
     {
@@ -1921,72 +1670,59 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries a list of services.
+     * @summary Queries a list of services.
+     *  *
+     * @param ListServicesRequest $request ListServicesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListServicesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListServicesResponse
-     *
-     * @param ListServicesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListServicesResponse
+     * @return ListServicesResponse ListServicesResponse
      */
     public function listServicesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->filter) {
-            @$query['Filter'] = $request->filter;
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
         }
-
-        if (null !== $request->fuzzyKeyword) {
-            @$query['FuzzyKeyword'] = $request->fuzzyKeyword;
+        if (!Utils::isUnset($request->fuzzyKeyword)) {
+            $query['FuzzyKeyword'] = $request->fuzzyKeyword;
         }
-
-        if (null !== $request->inUsed) {
-            @$query['InUsed'] = $request->inUsed;
+        if (!Utils::isUnset($request->inUsed)) {
+            $query['InUsed'] = $request->inUsed;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->orderByType) {
-            @$query['OrderByType'] = $request->orderByType;
+        if (!Utils::isUnset($request->orderByType)) {
+            $query['OrderByType'] = $request->orderByType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceAccessType) {
-            @$query['ServiceAccessType'] = $request->serviceAccessType;
+        if (!Utils::isUnset($request->serviceAccessType)) {
+            $query['ServiceAccessType'] = $request->serviceAccessType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServices',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServices',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1994,14 +1730,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries a list of services.
+     * @summary Queries a list of services.
+     *  *
+     * @param ListServicesRequest $request ListServicesRequest
      *
-     * @param request - ListServicesRequest
-     * @returns ListServicesResponse
-     *
-     * @param ListServicesRequest $request
-     *
-     * @return ListServicesResponse
+     * @return ListServicesResponse ListServicesResponse
      */
     public function listServices($request)
     {
@@ -2011,48 +1744,41 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询标签键列表.
+     * @summary 查询标签键列表
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagKeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagKeysResponse
-     *
-     * @param ListTagKeysRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagKeys',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagKeys',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2060,14 +1786,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询标签键列表.
+     * @summary 查询标签键列表
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
      *
-     * @param request - ListTagKeysRequest
-     * @returns ListTagKeysResponse
-     *
-     * @param ListTagKeysRequest $request
-     *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -2077,56 +1800,47 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询标签资源列表.
+     * @summary 查询标签资源列表
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2134,14 +1848,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询标签资源列表.
+     * @summary 查询标签资源列表
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param request - ListTagResourcesRequest
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -2151,52 +1862,44 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询标签值列表.
+     * @summary 查询标签值列表
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagValuesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagValuesResponse
-     *
-     * @param ListTagValuesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->key) {
-            @$query['Key'] = $request->key;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagValues',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagValues',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2204,14 +1907,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询标签值列表.
+     * @summary 查询标签值列表
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
      *
-     * @param request - ListTagValuesRequest
-     * @returns ListTagValuesResponse
-     *
-     * @param ListTagValuesRequest $request
-     *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -2221,60 +1921,50 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Renew the prepaid resources included in the private deployment service instance. You can renew all prepaid resources under the specified service instance ID, or you can renew the specified resources. Only one of the two renewal methods can be used.
+     * @summary Renew the prepaid resources included in the private deployment service instance. You can renew all prepaid resources under the specified service instance ID, or you can renew the specified resources. Only one of the two renewal methods can be used.
+     *  *
+     * @param RenewServiceInstanceResourcesRequest $request RenewServiceInstanceResourcesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RenewServiceInstanceResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RenewServiceInstanceResourcesResponse
-     *
-     * @param RenewServiceInstanceResourcesRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return RenewServiceInstanceResourcesResponse
+     * @return RenewServiceInstanceResourcesResponse RenewServiceInstanceResourcesResponse
      */
     public function renewServiceInstanceResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->periodUnit) {
-            @$query['PeriodUnit'] = $request->periodUnit;
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourcePeriod) {
-            @$query['ResourcePeriod'] = $request->resourcePeriod;
+        if (!Utils::isUnset($request->resourcePeriod)) {
+            $query['ResourcePeriod'] = $request->resourcePeriod;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RenewServiceInstanceResources',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RenewServiceInstanceResources',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RenewServiceInstanceResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2282,14 +1972,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Renew the prepaid resources included in the private deployment service instance. You can renew all prepaid resources under the specified service instance ID, or you can renew the specified resources. Only one of the two renewal methods can be used.
+     * @summary Renew the prepaid resources included in the private deployment service instance. You can renew all prepaid resources under the specified service instance ID, or you can renew the specified resources. Only one of the two renewal methods can be used.
+     *  *
+     * @param RenewServiceInstanceResourcesRequest $request RenewServiceInstanceResourcesRequest
      *
-     * @param request - RenewServiceInstanceResourcesRequest
-     * @returns RenewServiceInstanceResourcesResponse
-     *
-     * @param RenewServiceInstanceResourcesRequest $request
-     *
-     * @return RenewServiceInstanceResourcesResponse
+     * @return RenewServiceInstanceResourcesResponse RenewServiceInstanceResourcesResponse
      */
     public function renewServiceInstanceResources($request)
     {
@@ -2299,48 +1986,41 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+     * @summary When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+     *  *
+     * @param RestartServiceInstanceRequest $request RestartServiceInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RestartServiceInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RestartServiceInstanceResponse
-     *
-     * @param RestartServiceInstanceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return RestartServiceInstanceResponse
+     * @return RestartServiceInstanceResponse RestartServiceInstanceResponse
      */
     public function restartServiceInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartServiceInstance',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartServiceInstance',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RestartServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2348,14 +2028,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+     * @summary When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+     *  *
+     * @param RestartServiceInstanceRequest $request RestartServiceInstanceRequest
      *
-     * @param request - RestartServiceInstanceRequest
-     * @returns RestartServiceInstanceResponse
-     *
-     * @param RestartServiceInstanceRequest $request
-     *
-     * @return RestartServiceInstanceResponse
+     * @return RestartServiceInstanceResponse RestartServiceInstanceResponse
      */
     public function restartServiceInstance($request)
     {
@@ -2365,48 +2042,41 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Rolls back an upgraded service instance to the previous version.
+     * @summary Rolls back an upgraded service instance to the previous version.
+     *  *
+     * @param RollbackServiceInstanceRequest $request RollbackServiceInstanceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RollbackServiceInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RollbackServiceInstanceResponse
-     *
-     * @param RollbackServiceInstanceRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return RollbackServiceInstanceResponse
+     * @return RollbackServiceInstanceResponse RollbackServiceInstanceResponse
      */
     public function rollbackServiceInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RollbackServiceInstance',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RollbackServiceInstance',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RollbackServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2414,14 +2084,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Rolls back an upgraded service instance to the previous version.
+     * @summary Rolls back an upgraded service instance to the previous version.
+     *  *
+     * @param RollbackServiceInstanceRequest $request RollbackServiceInstanceRequest
      *
-     * @param request - RollbackServiceInstanceRequest
-     * @returns RollbackServiceInstanceResponse
-     *
-     * @param RollbackServiceInstanceRequest $request
-     *
-     * @return RollbackServiceInstanceResponse
+     * @return RollbackServiceInstanceResponse RollbackServiceInstanceResponse
      */
     public function rollbackServiceInstance($request)
     {
@@ -2431,48 +2098,41 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+     * @summary When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+     *  *
+     * @param StartServiceInstanceRequest $request StartServiceInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StartServiceInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns StartServiceInstanceResponse
-     *
-     * @param StartServiceInstanceRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return StartServiceInstanceResponse
+     * @return StartServiceInstanceResponse StartServiceInstanceResponse
      */
     public function startServiceInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartServiceInstance',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartServiceInstance',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return StartServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2480,14 +2140,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+     * @summary When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+     *  *
+     * @param StartServiceInstanceRequest $request StartServiceInstanceRequest
      *
-     * @param request - StartServiceInstanceRequest
-     * @returns StartServiceInstanceResponse
-     *
-     * @param StartServiceInstanceRequest $request
-     *
-     * @return StartServiceInstanceResponse
+     * @return StartServiceInstanceResponse StartServiceInstanceResponse
      */
     public function startServiceInstance($request)
     {
@@ -2497,48 +2154,41 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+     * @summary When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+     *  *
+     * @param StopServiceInstanceRequest $request StopServiceInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StopServiceInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns StopServiceInstanceResponse
-     *
-     * @param StopServiceInstanceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return StopServiceInstanceResponse
+     * @return StopServiceInstanceResponse StopServiceInstanceResponse
      */
     public function stopServiceInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopServiceInstance',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopServiceInstance',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return StopServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2546,14 +2196,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+     * @summary When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+     *  *
+     * @param StopServiceInstanceRequest $request StopServiceInstanceRequest
      *
-     * @param request - StopServiceInstanceRequest
-     * @returns StopServiceInstanceResponse
-     *
-     * @param StopServiceInstanceRequest $request
-     *
-     * @return StopServiceInstanceResponse
+     * @return StopServiceInstanceResponse StopServiceInstanceResponse
      */
     public function stopServiceInstance($request)
     {
@@ -2563,52 +2210,44 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 给资源打标签.
+     * @summary 给资源打标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2616,14 +2255,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 给资源打标签.
+     * @summary 给资源打标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2633,56 +2269,47 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 给资源解除标签.
+     * @summary 给资源解除标签
+     *  *
+     * @param UnTagResourcesRequest $request UnTagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UnTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UnTagResourcesResponse
-     *
-     * @param UnTagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UnTagResourcesResponse
+     * @return UnTagResourcesResponse UnTagResourcesResponse
      */
     public function unTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->all) {
-            @$query['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKey) {
-            @$query['TagKey'] = $request->tagKey;
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnTagResources',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnTagResources',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2690,14 +2317,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 给资源解除标签.
+     * @summary 给资源解除标签
+     *  *
+     * @param UnTagResourcesRequest $request UnTagResourcesRequest
      *
-     * @param request - UnTagResourcesRequest
-     * @returns UnTagResourcesResponse
-     *
-     * @param UnTagResourcesRequest $request
-     *
-     * @return UnTagResourcesResponse
+     * @return UnTagResourcesResponse UnTagResourcesResponse
      */
     public function unTagResources($request)
     {
@@ -2707,48 +2331,41 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Updates the attributes of a service instance.
+     * @summary Updates the attributes of a service instance.
+     *  *
+     * @param UpdateServiceInstanceAttributesRequest $request UpdateServiceInstanceAttributesRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateServiceInstanceAttributesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateServiceInstanceAttributesResponse
-     *
-     * @param UpdateServiceInstanceAttributesRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return UpdateServiceInstanceAttributesResponse
+     * @return UpdateServiceInstanceAttributesResponse UpdateServiceInstanceAttributesResponse
      */
     public function updateServiceInstanceAttributesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->enableOperation) {
-            @$query['EnableOperation'] = $request->enableOperation;
+        if (!Utils::isUnset($request->enableOperation)) {
+            $query['EnableOperation'] = $request->enableOperation;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceInstanceAttributes',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateServiceInstanceAttributes',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateServiceInstanceAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2756,14 +2373,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Updates the attributes of a service instance.
+     * @summary Updates the attributes of a service instance.
+     *  *
+     * @param UpdateServiceInstanceAttributesRequest $request UpdateServiceInstanceAttributesRequest
      *
-     * @param request - UpdateServiceInstanceAttributesRequest
-     * @returns UpdateServiceInstanceAttributesResponse
-     *
-     * @param UpdateServiceInstanceAttributesRequest $request
-     *
-     * @return UpdateServiceInstanceAttributesResponse
+     * @return UpdateServiceInstanceAttributesResponse UpdateServiceInstanceAttributesResponse
      */
     public function updateServiceInstanceAttributes($request)
     {
@@ -2773,78 +2387,64 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Changes the configurations of a service instance.
-     *
-     * @remarks
-     * ### [](#)Prerequisites
+     * @summary Changes the configurations of a service instance.
+     *  *
+     * @description ### [](#)Prerequisites
      * Configuration change is enabled and the related parameters are configured for the service by the service provider.
+     *  *
+     * @param UpdateServiceInstanceSpecRequest $tmpReq  UpdateServiceInstanceSpecRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateServiceInstanceSpecRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateServiceInstanceSpecResponse
-     *
-     * @param UpdateServiceInstanceSpecRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return UpdateServiceInstanceSpecResponse
+     * @return UpdateServiceInstanceSpecResponse UpdateServiceInstanceSpecResponse
      */
     public function updateServiceInstanceSpecWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateServiceInstanceSpecShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->parameters) {
-            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
-
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->commodity) {
-            @$query['Commodity'] = $request->commodity;
+        if (!Utils::isUnset($request->commodity)) {
+            $query['Commodity'] = $request->commodity;
         }
-
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->enableUserPrometheus) {
-            @$query['EnableUserPrometheus'] = $request->enableUserPrometheus;
+        if (!Utils::isUnset($request->enableUserPrometheus)) {
+            $query['EnableUserPrometheus'] = $request->enableUserPrometheus;
         }
-
-        if (null !== $request->operationName) {
-            @$query['OperationName'] = $request->operationName;
+        if (!Utils::isUnset($request->operationName)) {
+            $query['OperationName'] = $request->operationName;
         }
-
-        if (null !== $request->parametersShrink) {
-            @$query['Parameters'] = $request->parametersShrink;
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
         }
-
-        if (null !== $request->predefinedParametersName) {
-            @$query['PredefinedParametersName'] = $request->predefinedParametersName;
+        if (!Utils::isUnset($request->predefinedParametersName)) {
+            $query['PredefinedParametersName'] = $request->predefinedParametersName;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceInstanceSpec',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateServiceInstanceSpec',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateServiceInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2852,18 +2452,14 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Changes the configurations of a service instance.
-     *
-     * @remarks
-     * ### [](#)Prerequisites
+     * @summary Changes the configurations of a service instance.
+     *  *
+     * @description ### [](#)Prerequisites
      * Configuration change is enabled and the related parameters are configured for the service by the service provider.
+     *  *
+     * @param UpdateServiceInstanceSpecRequest $request UpdateServiceInstanceSpecRequest
      *
-     * @param request - UpdateServiceInstanceSpecRequest
-     * @returns UpdateServiceInstanceSpecResponse
-     *
-     * @param UpdateServiceInstanceSpecRequest $request
-     *
-     * @return UpdateServiceInstanceSpecResponse
+     * @return UpdateServiceInstanceSpecResponse UpdateServiceInstanceSpecResponse
      */
     public function updateServiceInstanceSpec($request)
     {
@@ -2873,54 +2469,46 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Updates the application for using a service.
+     * @summary Updates the application for using a service.
+     *  *
+     * @param UpdateServiceUsageRequest $tmpReq  UpdateServiceUsageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateServiceUsageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateServiceUsageResponse
-     *
-     * @param UpdateServiceUsageRequest $tmpReq
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateServiceUsageResponse
+     * @return UpdateServiceUsageResponse UpdateServiceUsageResponse
      */
     public function updateServiceUsageWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateServiceUsageShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->userInformation) {
-            $request->userInformationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userInformation, 'UserInformation', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->userInformation)) {
+            $request->userInformationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInformation, 'UserInformation', 'json');
         }
-
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->serviceId) {
-            @$query['ServiceId'] = $request->serviceId;
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
         }
-
-        if (null !== $request->userInformationShrink) {
-            @$query['UserInformation'] = $request->userInformationShrink;
+        if (!Utils::isUnset($request->userInformationShrink)) {
+            $query['UserInformation'] = $request->userInformationShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceUsage',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateServiceUsage',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2928,14 +2516,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Updates the application for using a service.
+     * @summary Updates the application for using a service.
+     *  *
+     * @param UpdateServiceUsageRequest $request UpdateServiceUsageRequest
      *
-     * @param request - UpdateServiceUsageRequest
-     * @returns UpdateServiceUsageResponse
-     *
-     * @param UpdateServiceUsageRequest $request
-     *
-     * @return UpdateServiceUsageResponse
+     * @return UpdateServiceUsageResponse UpdateServiceUsageResponse
      */
     public function updateServiceUsage($request)
     {
@@ -2945,44 +2530,38 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Updates the information about a customer.
+     * @summary Updates the information about a customer.
+     *  *
+     * @param UpdateUserInformationRequest $request UpdateUserInformationRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateUserInformationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateUserInformationResponse
-     *
-     * @param UpdateUserInformationRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UpdateUserInformationResponse
+     * @return UpdateUserInformationResponse UpdateUserInformationResponse
      */
     public function updateUserInformationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->deliverySettings) {
-            @$query['DeliverySettings'] = $request->deliverySettings;
+        if (!Utils::isUnset($request->deliverySettings)) {
+            $query['DeliverySettings'] = $request->deliverySettings;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUserInformation',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUserInformation',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateUserInformationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2990,14 +2569,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Updates the information about a customer.
+     * @summary Updates the information about a customer.
+     *  *
+     * @param UpdateUserInformationRequest $request UpdateUserInformationRequest
      *
-     * @param request - UpdateUserInformationRequest
-     * @returns UpdateUserInformationResponse
-     *
-     * @param UpdateUserInformationRequest $request
-     *
-     * @return UpdateUserInformationResponse
+     * @return UpdateUserInformationResponse UpdateUserInformationResponse
      */
     public function updateUserInformation($request)
     {
@@ -3007,66 +2583,55 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Upgrades the version of a service instance.
+     * @summary Upgrades the version of a service instance.
+     *  *
+     * @param UpgradeServiceInstanceRequest $tmpReq  UpgradeServiceInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpgradeServiceInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpgradeServiceInstanceResponse
-     *
-     * @param UpgradeServiceInstanceRequest $tmpReq
-     * @param RuntimeOptions                $runtime
-     *
-     * @return UpgradeServiceInstanceResponse
+     * @return UpgradeServiceInstanceResponse UpgradeServiceInstanceResponse
      */
     public function upgradeServiceInstanceWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpgradeServiceInstanceShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->parameters) {
-            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
-
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->parametersShrink) {
-            @$query['Parameters'] = $request->parametersShrink;
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceInstanceId) {
-            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
         }
-
-        if (null !== $request->serviceVersion) {
-            @$query['ServiceVersion'] = $request->serviceVersion;
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeServiceInstance',
-            'version'     => '2021-06-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeServiceInstance',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpgradeServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3074,14 +2639,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Upgrades the version of a service instance.
+     * @summary Upgrades the version of a service instance.
+     *  *
+     * @param UpgradeServiceInstanceRequest $request UpgradeServiceInstanceRequest
      *
-     * @param request - UpgradeServiceInstanceRequest
-     * @returns UpgradeServiceInstanceResponse
-     *
-     * @param UpgradeServiceInstanceRequest $request
-     *
-     * @return UpgradeServiceInstanceResponse
+     * @return UpgradeServiceInstanceResponse UpgradeServiceInstanceResponse
      */
     public function upgradeServiceInstance($request)
     {
