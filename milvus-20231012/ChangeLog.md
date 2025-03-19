@@ -1,3 +1,9 @@
+2025-03-19 Version: 1.1.1
+- Update API GetInstanceDetail: update response param.
+- Update API ListInstances: add param Tag.
+- Update API ListInstances: update response param.
+
+
 2025-02-26 Version: 1.1.0
 - Support API CreateDefaultRole.
 - Update API ListInstances: update response param.

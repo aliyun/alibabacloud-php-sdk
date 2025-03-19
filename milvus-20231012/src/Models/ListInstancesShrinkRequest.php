@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models;
 
-use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class ListInstancesRequest extends Model
+class ListInstancesShrinkRequest extends Model
 {
     /**
      * @example c-123xxx
@@ -52,9 +51,9 @@ class ListInstancesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $tagShrink;
     protected $_name = [
         'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
@@ -62,7 +61,7 @@ class ListInstancesRequest extends Model
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'tag' => 'Tag',
+        'tagShrink' => 'Tag',
     ];
 
     public function validate() {}
@@ -88,14 +87,8 @@ class ListInstancesRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
 
         return $res;
@@ -104,7 +97,7 @@ class ListInstancesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListInstancesRequest
+     * @return ListInstancesShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -128,13 +121,7 @@ class ListInstancesRequest extends Model
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
+            $model->tagShrink = $map['Tag'];
         }
 
         return $model;

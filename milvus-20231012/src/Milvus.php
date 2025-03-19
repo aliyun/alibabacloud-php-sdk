@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Milvus\V20231012;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateDefaultRoleResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\DescribeAccessControlListRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\DescribeAccessControlListResponse;
@@ -14,6 +15,7 @@ use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesShrinkRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ModifyInstanceConfigRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ModifyInstanceConfigResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateAccessControlListRequest;
@@ -22,10 +24,11 @@ use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateInstanceNameRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdateInstanceNameResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdatePublicNetworkStatusRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UpdatePublicNetworkStatusResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Milvus extends OpenApiClient
 {
@@ -50,28 +53,23 @@ class Milvus extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * 为用户创建AliyunServiceRoleForMilvus.
+     * @summary 为用户创建AliyunServiceRoleForMilvus
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateDefaultRoleResponse
-     *
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return CreateDefaultRoleResponse
+     * @return CreateDefaultRoleResponse CreateDefaultRoleResponse
      */
     public function createDefaultRoleWithOptions($headers, $runtime)
     {
@@ -79,17 +77,17 @@ class Milvus extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'CreateDefaultRole',
-            'version'     => '2023-10-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/webapi/user/create_default_role',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDefaultRole',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/user/create_default_role',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateDefaultRoleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -97,11 +95,9 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 为用户创建AliyunServiceRoleForMilvus.
-     *
-     * @returns CreateDefaultRoleResponse
-     *
-     * @return CreateDefaultRoleResponse
+     * @summary 为用户创建AliyunServiceRoleForMilvus
+     *  *
+     * @return CreateDefaultRoleResponse CreateDefaultRoleResponse
      */
     public function createDefaultRole()
     {
@@ -112,43 +108,37 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 获取Milvus公网访问ACL信息.
+     * @summary 获取Milvus公网访问ACL信息
+     *  *
+     * @param DescribeAccessControlListRequest $request DescribeAccessControlListRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAccessControlListRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeAccessControlListResponse
-     *
-     * @param DescribeAccessControlListRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeAccessControlListResponse
+     * @return DescribeAccessControlListResponse DescribeAccessControlListResponse
      */
     public function describeAccessControlListWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccessControlList',
-            'version'     => '2023-10-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/webapi/milvus/describe_access_control_list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeAccessControlList',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/milvus/describe_access_control_list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeAccessControlListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -156,14 +146,11 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 获取Milvus公网访问ACL信息.
+     * @summary 获取Milvus公网访问ACL信息
+     *  *
+     * @param DescribeAccessControlListRequest $request DescribeAccessControlListRequest
      *
-     * @param request - DescribeAccessControlListRequest
-     * @returns DescribeAccessControlListResponse
-     *
-     * @param DescribeAccessControlListRequest $request
-     *
-     * @return DescribeAccessControlListResponse
+     * @return DescribeAccessControlListResponse DescribeAccessControlListResponse
      */
     public function describeAccessControlList($request)
     {
@@ -174,43 +161,37 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 查询实例用户配置.
+     * @summary 查询实例用户配置
+     *  *
+     * @param DescribeInstanceConfigsRequest $request DescribeInstanceConfigsRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceConfigsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DescribeInstanceConfigsResponse
-     *
-     * @param DescribeInstanceConfigsRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeInstanceConfigsResponse
+     * @return DescribeInstanceConfigsResponse DescribeInstanceConfigsResponse
      */
     public function describeInstanceConfigsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceConfigs',
-            'version'     => '2023-10-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/webapi/config/describe_milvus_user_config',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeInstanceConfigs',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/config/describe_milvus_user_config',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DescribeInstanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -218,14 +199,11 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 查询实例用户配置.
+     * @summary 查询实例用户配置
+     *  *
+     * @param DescribeInstanceConfigsRequest $request DescribeInstanceConfigsRequest
      *
-     * @param request - DescribeInstanceConfigsRequest
-     * @returns DescribeInstanceConfigsResponse
-     *
-     * @param DescribeInstanceConfigsRequest $request
-     *
-     * @return DescribeInstanceConfigsResponse
+     * @return DescribeInstanceConfigsResponse DescribeInstanceConfigsResponse
      */
     public function describeInstanceConfigs($request)
     {
@@ -236,43 +214,37 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 根据集群ID获取集群的详细信息.
+     * @summary 根据集群ID获取集群的详细信息
+     *  *
+     * @param GetInstanceDetailRequest $request GetInstanceDetailRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetInstanceDetailRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetInstanceDetailResponse
-     *
-     * @param GetInstanceDetailRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetInstanceDetailResponse
+     * @return GetInstanceDetailResponse GetInstanceDetailResponse
      */
     public function getInstanceDetailWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceDetail',
-            'version'     => '2023-10-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/webapi/cluster/detail',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetInstanceDetail',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/cluster/detail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetInstanceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -280,14 +252,11 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 根据集群ID获取集群的详细信息.
+     * @summary 根据集群ID获取集群的详细信息
+     *  *
+     * @param GetInstanceDetailRequest $request GetInstanceDetailRequest
      *
-     * @param request - GetInstanceDetailRequest
-     * @returns GetInstanceDetailResponse
-     *
-     * @param GetInstanceDetailRequest $request
-     *
-     * @return GetInstanceDetailResponse
+     * @return GetInstanceDetailResponse GetInstanceDetailResponse
      */
     public function getInstanceDetail($request)
     {
@@ -298,63 +267,60 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 根据集群ID或者名称搜索集群.
+     * @summary 根据集群ID或者名称搜索集群
+     *  *
+     * @param ListInstancesRequest $tmpReq  ListInstancesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListInstancesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListInstancesResponse
-     *
-     * @param ListInstancesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
-    public function listInstancesWithOptions($request, $headers, $runtime)
+    public function listInstancesWithOptions($tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($tmpReq);
+        $request = new ListInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->clusterName) {
-            @$query['ClusterName'] = $request->clusterName;
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2023-10-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/webapi/order/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListInstances',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/order/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -362,14 +328,11 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 根据集群ID或者名称搜索集群.
+     * @summary 根据集群ID或者名称搜索集群
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @param request - ListInstancesRequest
-     * @returns ListInstancesResponse
-     *
-     * @param ListInstancesRequest $request
-     *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -380,51 +343,43 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 修改实例配置.
+     * @summary 修改实例配置
+     *  *
+     * @param ModifyInstanceConfigRequest $request ModifyInstanceConfigRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceConfigRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ModifyInstanceConfigResponse
-     *
-     * @param ModifyInstanceConfigRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyInstanceConfigResponse
+     * @return ModifyInstanceConfigResponse ModifyInstanceConfigResponse
      */
     public function modifyInstanceConfigWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->reason) {
-            @$query['Reason'] = $request->reason;
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
         }
-
-        if (null !== $request->userConfig) {
-            @$query['UserConfig'] = $request->userConfig;
+        if (!Utils::isUnset($request->userConfig)) {
+            $query['UserConfig'] = $request->userConfig;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyInstanceConfig',
-            'version'     => '2023-10-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/webapi/config/modify_milvus_config',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ModifyInstanceConfig',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/config/modify_milvus_config',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -432,14 +387,11 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 修改实例配置.
+     * @summary 修改实例配置
+     *  *
+     * @param ModifyInstanceConfigRequest $request ModifyInstanceConfigRequest
      *
-     * @param request - ModifyInstanceConfigRequest
-     * @returns ModifyInstanceConfigResponse
-     *
-     * @param ModifyInstanceConfigRequest $request
-     *
-     * @return ModifyInstanceConfigResponse
+     * @return ModifyInstanceConfigResponse ModifyInstanceConfigResponse
      */
     public function modifyInstanceConfig($request)
     {
@@ -450,51 +402,43 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 更新Milvus公网访问ACL信息.
+     * @summary 更新Milvus公网访问ACL信息
+     *  *
+     * @param UpdateAccessControlListRequest $request UpdateAccessControlListRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateAccessControlListRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateAccessControlListResponse
-     *
-     * @param UpdateAccessControlListRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateAccessControlListResponse
+     * @return UpdateAccessControlListResponse UpdateAccessControlListResponse
      */
     public function updateAccessControlListWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclId) {
-            @$query['AclId'] = $request->aclId;
+        if (!Utils::isUnset($request->aclId)) {
+            $query['AclId'] = $request->aclId;
         }
-
-        if (null !== $request->cidr) {
-            @$query['Cidr'] = $request->cidr;
+        if (!Utils::isUnset($request->cidr)) {
+            $query['Cidr'] = $request->cidr;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAccessControlList',
-            'version'     => '2023-10-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/webapi/milvus/update_access_control_list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateAccessControlList',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/milvus/update_access_control_list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateAccessControlListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -502,14 +446,11 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 更新Milvus公网访问ACL信息.
+     * @summary 更新Milvus公网访问ACL信息
+     *  *
+     * @param UpdateAccessControlListRequest $request UpdateAccessControlListRequest
      *
-     * @param request - UpdateAccessControlListRequest
-     * @returns UpdateAccessControlListResponse
-     *
-     * @param UpdateAccessControlListRequest $request
-     *
-     * @return UpdateAccessControlListResponse
+     * @return UpdateAccessControlListResponse UpdateAccessControlListResponse
      */
     public function updateAccessControlList($request)
     {
@@ -520,47 +461,40 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 修改集群名称.
+     * @summary 修改集群名称
+     *  *
+     * @param UpdateInstanceNameRequest $request UpdateInstanceNameRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateInstanceNameRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateInstanceNameResponse
-     *
-     * @param UpdateInstanceNameRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateInstanceNameResponse
+     * @return UpdateInstanceNameResponse UpdateInstanceNameResponse
      */
     public function updateInstanceNameWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clusterName) {
-            @$query['ClusterName'] = $request->clusterName;
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstanceName',
-            'version'     => '2023-10-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/webapi/cluster/update_name',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateInstanceName',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/cluster/update_name',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -568,14 +502,11 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 修改集群名称.
+     * @summary 修改集群名称
+     *  *
+     * @param UpdateInstanceNameRequest $request UpdateInstanceNameRequest
      *
-     * @param request - UpdateInstanceNameRequest
-     * @returns UpdateInstanceNameResponse
-     *
-     * @param UpdateInstanceNameRequest $request
-     *
-     * @return UpdateInstanceNameResponse
+     * @return UpdateInstanceNameResponse UpdateInstanceNameResponse
      */
     public function updateInstanceName($request)
     {
@@ -586,55 +517,46 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 该接口用于开通/关闭 Proxy的公网SLB。
+     * @summary 该接口用于开通/关闭 Proxy的公网SLB。
+     *  *
+     * @param UpdatePublicNetworkStatusRequest $request UpdatePublicNetworkStatusRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdatePublicNetworkStatusRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdatePublicNetworkStatusResponse
-     *
-     * @param UpdatePublicNetworkStatusRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return UpdatePublicNetworkStatusResponse
+     * @return UpdatePublicNetworkStatusResponse UpdatePublicNetworkStatusResponse
      */
     public function updatePublicNetworkStatusWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cidr) {
-            @$query['Cidr'] = $request->cidr;
+        if (!Utils::isUnset($request->cidr)) {
+            $query['Cidr'] = $request->cidr;
         }
-
-        if (null !== $request->componentType) {
-            @$query['ComponentType'] = $request->componentType;
+        if (!Utils::isUnset($request->componentType)) {
+            $query['ComponentType'] = $request->componentType;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->publicNetworkEnabled) {
-            @$query['PublicNetworkEnabled'] = $request->publicNetworkEnabled;
+        if (!Utils::isUnset($request->publicNetworkEnabled)) {
+            $query['PublicNetworkEnabled'] = $request->publicNetworkEnabled;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePublicNetworkStatus',
-            'version'     => '2023-10-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/webapi/network/updatePublicNetworkStatus',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdatePublicNetworkStatus',
+            'version' => '2023-10-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/webapi/network/updatePublicNetworkStatus',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdatePublicNetworkStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -642,14 +564,11 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 该接口用于开通/关闭 Proxy的公网SLB。
+     * @summary 该接口用于开通/关闭 Proxy的公网SLB。
+     *  *
+     * @param UpdatePublicNetworkStatusRequest $request UpdatePublicNetworkStatusRequest
      *
-     * @param request - UpdatePublicNetworkStatusRequest
-     * @returns UpdatePublicNetworkStatusResponse
-     *
-     * @param UpdatePublicNetworkStatusRequest $request
-     *
-     * @return UpdatePublicNetworkStatusResponse
+     * @return UpdatePublicNetworkStatusResponse UpdatePublicNetworkStatusResponse
      */
     public function updatePublicNetworkStatus($request)
     {
