@@ -1,11 +1,4 @@
-2025-03-18 Version: 4.3.4
-- Update API DescribeDesktops: update response param.
-- Update API DescribePolicyGroups: update response param.
-- Update API RebootDesktops: add param OsUpdate.
-- Update API StopDesktops: add param OsUpdate.
-
-
-2025-03-17 Version: 4.3.3
+2025-03-19 Version: 4.3.3
 - Update API CreateDesktops: add param ExtendInfo.
 
 

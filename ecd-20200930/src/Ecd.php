@@ -13566,9 +13566,6 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->desktopId)) {
             $query['DesktopId'] = $request->desktopId;
         }
-        if (!Utils::isUnset($request->osUpdate)) {
-            $query['OsUpdate'] = $request->osUpdate;
-        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -15074,9 +15071,6 @@ class Ecd extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->desktopId)) {
             $query['DesktopId'] = $request->desktopId;
-        }
-        if (!Utils::isUnset($request->osUpdate)) {
-            $query['OsUpdate'] = $request->osUpdate;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;

@@ -20,11 +20,6 @@ class StopDesktopsRequest extends Model
     public $desktopId;
 
     /**
-     * @var bool
-     */
-    public $osUpdate;
-
-    /**
      * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
      *
      * This parameter is required.
@@ -63,7 +58,6 @@ class StopDesktopsRequest extends Model
     public $stoppedMode;
     protected $_name = [
         'desktopId' => 'DesktopId',
-        'osUpdate' => 'OsUpdate',
         'regionId' => 'RegionId',
         'stoppedMode' => 'StoppedMode',
     ];
@@ -75,9 +69,6 @@ class StopDesktopsRequest extends Model
         $res = [];
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
-        }
-        if (null !== $this->osUpdate) {
-            $res['OsUpdate'] = $this->osUpdate;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -101,9 +92,6 @@ class StopDesktopsRequest extends Model
             if (!empty($map['DesktopId'])) {
                 $model->desktopId = $map['DesktopId'];
             }
-        }
-        if (isset($map['OsUpdate'])) {
-            $model->osUpdate = $map['OsUpdate'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

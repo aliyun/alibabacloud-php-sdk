@@ -289,11 +289,6 @@ class describePolicyGroups extends Model
     public $endUserGroupCoordinate;
 
     /**
-     * @var string
-     */
-    public $fileMigrate;
-
-    /**
      * @description Transfers files.
      *
      * @example null
@@ -1146,11 +1141,6 @@ class describePolicyGroups extends Model
     public $watermarkType;
 
     /**
-     * @var string
-     */
-    public $wuyingKeeper;
-
-    /**
      * @description Specifies whether to provide the AI Assistant function in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace desktop clients (including the Windows client and the macOS client).
      *
      * > Desktop clients of V7.7 and higher versions required.
@@ -1192,7 +1182,6 @@ class describePolicyGroups extends Model
         'edsCount' => 'EdsCount',
         'endUserApplyAdminCoordinate' => 'EndUserApplyAdminCoordinate',
         'endUserGroupCoordinate' => 'EndUserGroupCoordinate',
-        'fileMigrate' => 'FileMigrate',
         'fileTransfer' => 'FileTransfer',
         'gpuAcceleration' => 'GpuAcceleration',
         'html5Access' => 'Html5Access',
@@ -1267,7 +1256,6 @@ class describePolicyGroups extends Model
         'watermarkTransparency' => 'WatermarkTransparency',
         'watermarkTransparencyValue' => 'WatermarkTransparencyValue',
         'watermarkType' => 'WatermarkType',
-        'wuyingKeeper' => 'WuyingKeeper',
         'wyAssistant' => 'WyAssistant',
     ];
 
@@ -1389,9 +1377,6 @@ class describePolicyGroups extends Model
         }
         if (null !== $this->endUserGroupCoordinate) {
             $res['EndUserGroupCoordinate'] = $this->endUserGroupCoordinate;
-        }
-        if (null !== $this->fileMigrate) {
-            $res['FileMigrate'] = $this->fileMigrate;
         }
         if (null !== $this->fileTransfer) {
             $res['FileTransfer'] = $this->fileTransfer;
@@ -1627,9 +1612,6 @@ class describePolicyGroups extends Model
         if (null !== $this->watermarkType) {
             $res['WatermarkType'] = $this->watermarkType;
         }
-        if (null !== $this->wuyingKeeper) {
-            $res['WuyingKeeper'] = $this->wuyingKeeper;
-        }
         if (null !== $this->wyAssistant) {
             $res['WyAssistant'] = $this->wyAssistant;
         }
@@ -1760,9 +1742,6 @@ class describePolicyGroups extends Model
         }
         if (isset($map['EndUserGroupCoordinate'])) {
             $model->endUserGroupCoordinate = $map['EndUserGroupCoordinate'];
-        }
-        if (isset($map['FileMigrate'])) {
-            $model->fileMigrate = $map['FileMigrate'];
         }
         if (isset($map['FileTransfer'])) {
             $model->fileTransfer = $map['FileTransfer'];
@@ -2007,9 +1986,6 @@ class describePolicyGroups extends Model
         }
         if (isset($map['WatermarkType'])) {
             $model->watermarkType = $map['WatermarkType'];
-        }
-        if (isset($map['WuyingKeeper'])) {
-            $model->wuyingKeeper = $map['WuyingKeeper'];
         }
         if (isset($map['WyAssistant'])) {
             $model->wyAssistant = $map['WyAssistant'];
