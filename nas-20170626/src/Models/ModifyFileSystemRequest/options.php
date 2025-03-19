@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\ModifyFileSystemRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class options extends Model
 {
     /**
+     * @description Specifies whether to enable the oplock feature. Valid values:
+     *
+     *   true: enables the feature.
+     *   false: disables the feature.
+     *
+     * >  Only Server Message Block (SMB) file systems support this feature.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableOplock;
@@ -16,12 +25,9 @@ class options extends Model
         'enableOplock' => 'EnableOplock',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enableOplock) {
@@ -31,11 +37,11 @@ class options extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return options
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

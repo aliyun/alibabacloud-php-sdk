@@ -4,35 +4,46 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetDirectoryOrFilePropertiesRequest extends Model
 {
     /**
+     * @description The ID of the file system.
+     *
+     * This parameter is required.
+     *
+     * @example 31a8e4****
+     *
      * @var string
      */
     public $fileSystemId;
+
     /**
+     * @description The absolute path of the directory.
+     *
+     * The path must start with a forward slash (/) and must be a path that exists in the mount target.
+     *
+     * This parameter is required.
+     *
+     * @example /pathway/to/folder
+     *
      * @var string
      */
     public $path;
     protected $_name = [
         'fileSystemId' => 'FileSystemId',
-        'path'         => 'Path',
+        'path' => 'Path',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
@@ -40,18 +51,17 @@ class GetDirectoryOrFilePropertiesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDirectoryOrFilePropertiesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
-
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }

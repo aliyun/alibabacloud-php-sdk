@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeAccessPointRequest extends Model
 {
     /**
+     * @description The ID of the access point.
+     *
+     * This parameter is required.
+     *
+     * @example ap-ie15yd****
+     *
      * @var string
      */
     public $accessPointId;
+
     /**
+     * @description The ID of the file system.
+     *
+     * This parameter is required.
+     *
+     * @example 31a8e4****
+     *
      * @var string
      */
     public $fileSystemId;
     protected $_name = [
         'accessPointId' => 'AccessPointId',
-        'fileSystemId'  => 'FileSystemId',
+        'fileSystemId' => 'FileSystemId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessPointId) {
             $res['AccessPointId'] = $this->accessPointId;
         }
-
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
@@ -40,18 +49,17 @@ class DescribeAccessPointRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeAccessPointRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessPointId'])) {
             $model->accessPointId = $map['AccessPointId'];
         }
-
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }

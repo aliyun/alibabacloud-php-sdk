@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemStatisticsResponseBody\fileSystems\fileSystem;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemStatisticsResponseBody\fileSystems\fileSystem\packages\package;
+use AlibabaCloud\Tea\Model;
 
 class packages extends Model
 {
@@ -17,23 +17,17 @@ class packages extends Model
         'package' => 'Package',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->package)) {
-            Model::validateArray($this->package);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->package) {
-            if (\is_array($this->package)) {
-                $res['Package'] = [];
-                $n1             = 0;
-                foreach ($this->package as $item1) {
-                    $res['Package'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Package'] = [];
+            if (null !== $this->package && \is_array($this->package)) {
+                $n = 0;
+                foreach ($this->package as $item) {
+                    $res['Package'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class packages extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return packages
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Package'])) {
             if (!empty($map['Package'])) {
                 $model->package = [];
-                $n1             = 0;
-                foreach ($map['Package'] as $item1) {
-                    $model->package[$n1++] = package::fromMap($item1);
+                $n = 0;
+                foreach ($map['Package'] as $item) {
+                    $model->package[$n++] = null !== $item ? package::fromMap($item) : $item;
                 }
             }
         }

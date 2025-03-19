@@ -4,15 +4,32 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateRecycleBinAttributeRequest extends Model
 {
     /**
+     * @description The ID of the file system.
+     *
+     * This parameter is required.
+     *
+     * @example 1ca404****
+     *
      * @var string
      */
     public $fileSystemId;
+
     /**
+     * @description The retention period of the files in the recycle bin. Unit: days.
+     *
+     * Valid values: 1 to 180.
+     *
+     * Default value: 3.
+     *
+     * This parameter is required.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $reservedDays;
@@ -21,18 +38,14 @@ class UpdateRecycleBinAttributeRequest extends Model
         'reservedDays' => 'ReservedDays',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-
         if (null !== $this->reservedDays) {
             $res['ReservedDays'] = $this->reservedDays;
         }
@@ -40,18 +53,17 @@ class UpdateRecycleBinAttributeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateRecycleBinAttributeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
-
         if (isset($map['ReservedDays'])) {
             $model->reservedDays = $map['ReservedDays'];
         }

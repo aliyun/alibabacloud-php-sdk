@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeMountedClientsResponseBody\clients;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class client extends Model
 {
     /**
+     * @description The IP address of the client.
+     *
+     * @example 10.10.10.1
+     *
      * @var string
      */
     public $clientIP;
@@ -16,12 +20,9 @@ class client extends Model
         'clientIP' => 'ClientIP',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientIP) {
@@ -31,11 +32,11 @@ class client extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return client
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

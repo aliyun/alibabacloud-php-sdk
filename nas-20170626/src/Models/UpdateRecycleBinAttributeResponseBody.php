@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateRecycleBinAttributeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example BC7C825C-5F65-4B56-BEF6-98C5****546E
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class UpdateRecycleBinAttributeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class UpdateRecycleBinAttributeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateRecycleBinAttributeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

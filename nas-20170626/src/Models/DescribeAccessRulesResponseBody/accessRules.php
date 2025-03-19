@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessRulesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessRulesResponseBody\accessRules\accessRule;
+use AlibabaCloud\Tea\Model;
 
 class accessRules extends Model
 {
@@ -17,23 +17,17 @@ class accessRules extends Model
         'accessRule' => 'AccessRule',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->accessRule)) {
-            Model::validateArray($this->accessRule);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessRule) {
-            if (\is_array($this->accessRule)) {
-                $res['AccessRule'] = [];
-                $n1                = 0;
-                foreach ($this->accessRule as $item1) {
-                    $res['AccessRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AccessRule'] = [];
+            if (null !== $this->accessRule && \is_array($this->accessRule)) {
+                $n = 0;
+                foreach ($this->accessRule as $item) {
+                    $res['AccessRule'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class accessRules extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return accessRules
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessRule'])) {
             if (!empty($map['AccessRule'])) {
                 $model->accessRule = [];
-                $n1                = 0;
-                foreach ($map['AccessRule'] as $item1) {
-                    $model->accessRule[$n1++] = accessRule::fromMap($item1);
+                $n = 0;
+                foreach ($map['AccessRule'] as $item) {
+                    $model->accessRule[$n++] = null !== $item ? accessRule::fromMap($item) : $item;
                 }
             }
         }

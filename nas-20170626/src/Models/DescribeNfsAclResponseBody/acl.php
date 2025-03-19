@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeNfsAclResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class acl extends Model
 {
     /**
+     * @description Indicates whether the NFS ACL feature is enabled.
+     *
+     *   true: The NFS ACL feature is enabled.
+     *   false: The NFS ACL feature is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
@@ -16,12 +23,9 @@ class acl extends Model
         'enabled' => 'Enabled',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enabled) {
@@ -31,11 +35,11 @@ class acl extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return acl
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

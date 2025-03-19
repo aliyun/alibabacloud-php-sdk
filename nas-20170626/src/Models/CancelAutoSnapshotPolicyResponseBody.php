@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CancelAutoSnapshotPolicyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * Every response returns a unique request ID regardless of whether the request is successful.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DED****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +22,9 @@ class CancelAutoSnapshotPolicyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class CancelAutoSnapshotPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CancelAutoSnapshotPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

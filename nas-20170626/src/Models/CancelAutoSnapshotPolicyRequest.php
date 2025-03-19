@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CancelAutoSnapshotPolicyRequest extends Model
 {
     /**
+     * @description The IDs of file systems.
+     *
+     * You can specify a maximum of 100 file system IDs. If you want to remove automatic snapshot policies from multiple file systems, separate the file system IDs with commas (,).
+     *
+     * This parameter is required.
+     *
+     * @example extreme-233e6****,extreme-23vbp****,extreme-23vas****
+     *
      * @var string
      */
     public $fileSystemIds;
@@ -16,12 +24,9 @@ class CancelAutoSnapshotPolicyRequest extends Model
         'fileSystemIds' => 'FileSystemIds',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileSystemIds) {
@@ -31,11 +36,11 @@ class CancelAutoSnapshotPolicyRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CancelAutoSnapshotPolicyRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

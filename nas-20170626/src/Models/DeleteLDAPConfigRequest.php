@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteLDAPConfigRequest extends Model
 {
     /**
+     * @description The ID of the file system.
+     *
+     * This parameter is required.
+     *
+     * @example 1ca404a348
+     *
      * @var string
      */
     public $fileSystemId;
@@ -16,12 +22,9 @@ class DeleteLDAPConfigRequest extends Model
         'fileSystemId' => 'FileSystemId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileSystemId) {
@@ -31,11 +34,11 @@ class DeleteLDAPConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteLDAPConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

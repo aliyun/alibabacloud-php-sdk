@@ -4,62 +4,110 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeLifecyclePoliciesRequest extends Model
 {
     /**
+     * @description The ID of the file system.
+     *
+     * @example 31a8e4****
+     *
      * @var string
      */
     public $fileSystemId;
+
     /**
      * @var string
      */
-    public $lifecyclePolicyName;
+    public $fileSystemType;
+
     /**
+     * @var string
+     */
+    public $fsetId;
+
+    /**
+     * @description The name of the lifecycle policy. The name must meet the following conventions:
+     *
+     * The name must be 3 to 64 characters in length and must start with a letter. It can contain letters, digits, underscores (_), and hyphens (-).
+     *
+     * @example lifecyclepolicy_01
+     *
+     * @var string
+     */
+    public $lifecyclePolicyName;
+
+    /**
+     * @description The page number.
+     *
+     * Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
+
     /**
+     * @description The number of entries per page.
+     *
+     * Valid values: 1 to 100.
+     *
+     * Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The storage class.
+     *
+     *   InfrequentAccess: the Infrequent Access (IA) storage class.
+     *   Archive: the Archive storage class.
+     *
+     * >  If the StorageType parameter is not specified, data retrieval tasks of all types are returned.
+     *
+     * @example InfrequentAccess
+     *
      * @var string
      */
     public $storageType;
     protected $_name = [
-        'fileSystemId'        => 'FileSystemId',
+        'fileSystemId' => 'FileSystemId',
+        'fileSystemType' => 'FileSystemType',
+        'fsetId' => 'FsetId',
         'lifecyclePolicyName' => 'LifecyclePolicyName',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'storageType'         => 'StorageType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'storageType' => 'StorageType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-
+        if (null !== $this->fileSystemType) {
+            $res['FileSystemType'] = $this->fileSystemType;
+        }
+        if (null !== $this->fsetId) {
+            $res['FsetId'] = $this->fsetId;
+        }
         if (null !== $this->lifecyclePolicyName) {
             $res['LifecyclePolicyName'] = $this->lifecyclePolicyName;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
@@ -67,30 +115,32 @@ class DescribeLifecyclePoliciesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeLifecyclePoliciesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
-
+        if (isset($map['FileSystemType'])) {
+            $model->fileSystemType = $map['FileSystemType'];
+        }
+        if (isset($map['FsetId'])) {
+            $model->fsetId = $map['FsetId'];
+        }
         if (isset($map['LifecyclePolicyName'])) {
             $model->lifecyclePolicyName = $map['LifecyclePolicyName'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
         }

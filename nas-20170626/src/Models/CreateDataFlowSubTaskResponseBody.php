@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateDataFlowSubTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the data streaming task.
+     *
+     * @example subTaskId-370kyfmyknxcyzw****
+     *
      * @var string
      */
     public $dataFlowSubTaskId;
+
     /**
+     * @description The request ID.
+     *
+     * @example A70BEE5D-76D3-49FB-B58F-1F398211A5C3
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dataFlowSubTaskId' => 'DataFlowSubTaskId',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataFlowSubTaskId) {
             $res['DataFlowSubTaskId'] = $this->dataFlowSubTaskId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +45,17 @@ class CreateDataFlowSubTaskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateDataFlowSubTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataFlowSubTaskId'])) {
             $model->dataFlowSubTaskId = $map['DataFlowSubTaskId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

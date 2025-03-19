@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteLDAPConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5B4511A7-C99E-4071-AA8C-32E2529DA963
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteLDAPConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteLDAPConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteLDAPConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

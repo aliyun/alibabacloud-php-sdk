@@ -4,58 +4,57 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeZonesResponseBody\zones;
+use AlibabaCloud\Tea\Model;
 
 class DescribeZonesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example A70BEE5D-76D3-49FB-B58F-1F398211****
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The queried zones.
+     *
      * @var zones
      */
     public $zones;
     protected $_name = [
         'requestId' => 'RequestId',
-        'zones'     => 'Zones',
+        'zones' => 'Zones',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->zones) {
-            $this->zones->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->zones) {
-            $res['Zones'] = null !== $this->zones ? $this->zones->toArray($noStream) : $this->zones;
+            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeZonesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Zones'])) {
             $model->zones = zones::fromMap($map['Zones']);
         }

@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAutoSnapshotTasksResponseBody\autoSnapshotTasks;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class autoSnapshotTask extends Model
 {
     /**
+     * @description The ID of the automatic snapshot policy.
+     *
+     * @example sp-extreme-233e6****
+     *
      * @var string
      */
     public $autoSnapshotPolicyId;
+
     /**
+     * @description The ID of the file system.
+     *
+     * @example extreme-233e6****
+     *
      * @var string
      */
     public $sourceFileSystemId;
     protected $_name = [
         'autoSnapshotPolicyId' => 'AutoSnapshotPolicyId',
-        'sourceFileSystemId'   => 'SourceFileSystemId',
+        'sourceFileSystemId' => 'SourceFileSystemId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoSnapshotPolicyId) {
             $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
         }
-
         if (null !== $this->sourceFileSystemId) {
             $res['SourceFileSystemId'] = $this->sourceFileSystemId;
         }
@@ -40,18 +45,17 @@ class autoSnapshotTask extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return autoSnapshotTask
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoSnapshotPolicyId'])) {
             $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
         }
-
         if (isset($map['SourceFileSystemId'])) {
             $model->sourceFileSystemId = $map['SourceFileSystemId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessGroupsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessGroupsResponseBody\accessGroups\accessGroup;
+use AlibabaCloud\Tea\Model;
 
 class accessGroups extends Model
 {
@@ -17,23 +17,17 @@ class accessGroups extends Model
         'accessGroup' => 'AccessGroup',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->accessGroup)) {
-            Model::validateArray($this->accessGroup);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessGroup) {
-            if (\is_array($this->accessGroup)) {
-                $res['AccessGroup'] = [];
-                $n1                 = 0;
-                foreach ($this->accessGroup as $item1) {
-                    $res['AccessGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AccessGroup'] = [];
+            if (null !== $this->accessGroup && \is_array($this->accessGroup)) {
+                $n = 0;
+                foreach ($this->accessGroup as $item) {
+                    $res['AccessGroup'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class accessGroups extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return accessGroups
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessGroup'])) {
             if (!empty($map['AccessGroup'])) {
                 $model->accessGroup = [];
-                $n1                 = 0;
-                foreach ($map['AccessGroup'] as $item1) {
-                    $model->accessGroup[$n1++] = accessGroup::fromMap($item1);
+                $n = 0;
+                foreach ($map['AccessGroup'] as $item) {
+                    $model->accessGroup[$n++] = null !== $item ? accessGroup::fromMap($item) : $item;
                 }
             }
         }

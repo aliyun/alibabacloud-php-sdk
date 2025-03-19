@@ -4,62 +4,104 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CancelDataFlowAutoRefreshRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+     *
+     * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence?](https://help.aliyun.com/document_detail/25693.html)
+     *
+     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The value of RequestId may be different for each API request.
+     *
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
      * @var string
      */
     public $clientToken;
+
     /**
+     * @description The dataflow ID.
+     *
+     * This parameter is required.
+     *
+     * @example df-194433a5be31****
+     *
      * @var string
      */
     public $dataFlowId;
+
     /**
+     * @description Specifies whether to perform a dry run.
+     *
+     * During the dry run, the system checks whether the request parameters are valid and whether the requested resources are available. During the dry run, no file system is created and no fee is incurred.
+     *
+     * Valid values:
+     *
+     *   true: performs a dry run. The system checks the request format, service limits, prerequisites, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned. No value is returned for the DataFlowld parameter.
+     *   false (default): performs a dry run and sends the request. If the request passes the dry run, a file system is created.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
+
     /**
+     * @description The ID of the file system.
+     *
+     * This parameter is required.
+     *
+     * @example cpfs-099394bd928c****
+     *
      * @var string
      */
     public $fileSystemId;
+
     /**
+     * @description The directory for which you want to cancel AutoRefresh configurations.
+     *
+     * Limits:
+     *
+     *   The directory must be 2 to 1,024 characters in length.
+     *   The directory must be encoded in UTF-8.
+     *   The directory must start and end with a forward slash (/).
+     *
+     * >  The directory must be an existing directory in the CPFS file system and must be in a fileset where the dataflow is enabled.
+     *
+     * This parameter is required.
+     *
+     * @example /prefix1/prefix2/
+     *
      * @var string
      */
     public $refreshPath;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
-        'dataFlowId'   => 'DataFlowId',
-        'dryRun'       => 'DryRun',
+        'clientToken' => 'ClientToken',
+        'dataFlowId' => 'DataFlowId',
+        'dryRun' => 'DryRun',
         'fileSystemId' => 'FileSystemId',
-        'refreshPath'  => 'RefreshPath',
+        'refreshPath' => 'RefreshPath',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-
         if (null !== $this->dataFlowId) {
             $res['DataFlowId'] = $this->dataFlowId;
         }
-
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
-
         if (null !== $this->refreshPath) {
             $res['RefreshPath'] = $this->refreshPath;
         }
@@ -67,30 +109,26 @@ class CancelDataFlowAutoRefreshRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CancelDataFlowAutoRefreshRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-
         if (isset($map['DataFlowId'])) {
             $model->dataFlowId = $map['DataFlowId'];
         }
-
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
-
         if (isset($map['RefreshPath'])) {
             $model->refreshPath = $map['RefreshPath'];
         }

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAccessPointResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * This parameter is required.
+     *
+     * @example 70EACC9C-D07A-4A34-ADA4-77506C42****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +22,9 @@ class ModifyAccessPointResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +34,11 @@ class ModifyAccessPointResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAccessPointResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

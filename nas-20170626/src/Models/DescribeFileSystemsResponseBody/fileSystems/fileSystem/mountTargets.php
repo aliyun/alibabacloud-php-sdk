@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem\mountTargets\mountTarget;
+use AlibabaCloud\Tea\Model;
 
 class mountTargets extends Model
 {
@@ -17,23 +17,17 @@ class mountTargets extends Model
         'mountTarget' => 'MountTarget',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->mountTarget)) {
-            Model::validateArray($this->mountTarget);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mountTarget) {
-            if (\is_array($this->mountTarget)) {
-                $res['MountTarget'] = [];
-                $n1                 = 0;
-                foreach ($this->mountTarget as $item1) {
-                    $res['MountTarget'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['MountTarget'] = [];
+            if (null !== $this->mountTarget && \is_array($this->mountTarget)) {
+                $n = 0;
+                foreach ($this->mountTarget as $item) {
+                    $res['MountTarget'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class mountTargets extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mountTargets
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MountTarget'])) {
             if (!empty($map['MountTarget'])) {
                 $model->mountTarget = [];
-                $n1                 = 0;
-                foreach ($map['MountTarget'] as $item1) {
-                    $model->mountTarget[$n1++] = mountTarget::fromMap($item1);
+                $n = 0;
+                foreach ($map['MountTarget'] as $item) {
+                    $model->mountTarget[$n++] = null !== $item ? mountTarget::fromMap($item) : $item;
                 }
             }
         }

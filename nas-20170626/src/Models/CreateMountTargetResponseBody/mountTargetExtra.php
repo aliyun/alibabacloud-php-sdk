@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\CreateMountTargetResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class mountTargetExtra extends Model
 {
     /**
+     * @description The dual-stack (IPv4 and IPv6) domain name of the mount target.
+     *
+     * @example 174494b666-x****.dualstack.cn-hangzhou.nas.aliyuncs.com
+     *
      * @var string
      */
     public $dualStackMountTargetDomain;
@@ -16,12 +20,9 @@ class mountTargetExtra extends Model
         'dualStackMountTargetDomain' => 'DualStackMountTargetDomain',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dualStackMountTargetDomain) {
@@ -31,11 +32,11 @@ class mountTargetExtra extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mountTargetExtra
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

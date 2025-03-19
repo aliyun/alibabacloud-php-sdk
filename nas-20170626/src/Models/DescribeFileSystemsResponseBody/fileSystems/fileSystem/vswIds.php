@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeFileSystemsResponseBody\fileSystems\fileSystem;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class vswIds extends Model
 {
@@ -16,45 +16,29 @@ class vswIds extends Model
         'vswId' => 'VswId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->vswId)) {
-            Model::validateArray($this->vswId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vswId) {
-            if (\is_array($this->vswId)) {
-                $res['VswId'] = [];
-                $n1           = 0;
-                foreach ($this->vswId as $item1) {
-                    $res['VswId'][$n1++] = $item1;
-                }
-            }
+            $res['VswId'] = $this->vswId;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vswIds
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VswId'])) {
             if (!empty($map['VswId'])) {
-                $model->vswId = [];
-                $n1           = 0;
-                foreach ($map['VswId'] as $item1) {
-                    $model->vswId[$n1++] = $item1;
-                }
+                $model->vswId = $map['VswId'];
             }
         }
 

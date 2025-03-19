@@ -4,44 +4,61 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OpenNASServiceResponseBody extends Model
 {
     /**
+     * @description The details about the failed permission verification.
+     *
+     * @example {
+     * "PolicyType": "AccountLevelIdentityBasedPolicy",
+     * "AuthPrincipalOwnerId": "178321033379****",
+     * "EncodedDiagnosticMessage": "AJpt/382mjxDSIYIqa/cUIFvOg9tajlLyN+LJA0C78kWfKIl****",
+     * "AuthPrincipalType": "SubUser",
+     * "AuthPrincipalDisplayName": "21794847602038****",
+     * "NoPermissionType": "ImplicitDeny",
+     * "AuthAction": "nas:OpenNASService"
+     * }
+     *
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
+     * @description The order ID.
+     *
+     * @example 20671870151****
+     *
      * @var string
      */
     public $orderId;
+
     /**
+     * @description The request ID.
+     *
+     * @example 427DB0B3-9436-4A3C-B2BC-B961F95E****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'orderId'            => 'OrderId',
-        'requestId'          => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
-
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,22 +66,20 @@ class OpenNASServiceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OpenNASServiceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
-
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

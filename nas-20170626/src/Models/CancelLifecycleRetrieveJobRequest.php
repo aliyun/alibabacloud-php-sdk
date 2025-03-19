@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CancelLifecycleRetrieveJobRequest extends Model
 {
     /**
+     * @description The ID of the data retrieval task.
+     *
+     * This parameter is required.
+     *
+     * @example lrj-nfstest-ia-160****853-hshvw
+     *
      * @var string
      */
     public $jobId;
@@ -16,12 +22,9 @@ class CancelLifecycleRetrieveJobRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -31,11 +34,11 @@ class CancelLifecycleRetrieveJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CancelLifecycleRetrieveJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

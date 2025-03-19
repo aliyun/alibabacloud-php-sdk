@@ -4,63 +4,71 @@
 
 namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDirQuotasResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeDirQuotasResponseBody\dirQuotaInfos\userQuotaInfos;
+use AlibabaCloud\Tea\Model;
 
 class dirQuotaInfos extends Model
 {
     /**
+     * @description The inode number of the directory.
+     *
+     * @example 1123
+     *
      * @var string
      */
     public $dirInode;
+
     /**
+     * @description The absolute path of a directory.
+     *
+     * @example /data/sub1
+     *
      * @var string
      */
     public $path;
+
     /**
+     * @description The status of the quota created for the directory. Valid values: Initializing and Normal. The Initializing state indicates that the quota is being created. The Normal state indicates that the quota is created.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;
+
     /**
+     * @description The information about quotas for all users.
+     *
      * @var userQuotaInfos[]
      */
     public $userQuotaInfos;
     protected $_name = [
-        'dirInode'       => 'DirInode',
-        'path'           => 'Path',
-        'status'         => 'Status',
+        'dirInode' => 'DirInode',
+        'path' => 'Path',
+        'status' => 'Status',
         'userQuotaInfos' => 'UserQuotaInfos',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->userQuotaInfos)) {
-            Model::validateArray($this->userQuotaInfos);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dirInode) {
             $res['DirInode'] = $this->dirInode;
         }
-
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->userQuotaInfos) {
-            if (\is_array($this->userQuotaInfos)) {
-                $res['UserQuotaInfos'] = [];
-                $n1                    = 0;
-                foreach ($this->userQuotaInfos as $item1) {
-                    $res['UserQuotaInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['UserQuotaInfos'] = [];
+            if (null !== $this->userQuotaInfos && \is_array($this->userQuotaInfos)) {
+                $n = 0;
+                foreach ($this->userQuotaInfos as $item) {
+                    $res['UserQuotaInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -68,32 +76,29 @@ class dirQuotaInfos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dirQuotaInfos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirInode'])) {
             $model->dirInode = $map['DirInode'];
         }
-
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['UserQuotaInfos'])) {
             if (!empty($map['UserQuotaInfos'])) {
                 $model->userQuotaInfos = [];
-                $n1                    = 0;
-                foreach ($map['UserQuotaInfos'] as $item1) {
-                    $model->userQuotaInfos[$n1++] = userQuotaInfos::fromMap($item1);
+                $n = 0;
+                foreach ($map['UserQuotaInfos'] as $item) {
+                    $model->userQuotaInfos[$n++] = null !== $item ? userQuotaInfos::fromMap($item) : $item;
                 }
             }
         }
