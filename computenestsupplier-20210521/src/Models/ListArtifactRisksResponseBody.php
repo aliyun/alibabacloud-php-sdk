@@ -26,12 +26,10 @@ class ListArtifactRisksResponseBody extends Model
     public $requestId;
     protected $_name = [
         'artifactRiskList' => 'ArtifactRiskList',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListArtifactRisksResponseBody extends Model
         if (isset($map['ArtifactRiskList'])) {
             if (!empty($map['ArtifactRiskList'])) {
                 $model->artifactRiskList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ArtifactRiskList'] as $item) {
                     $model->artifactRiskList[$n++] = null !== $item ? artifactRiskList::fromMap($item) : $item;
                 }

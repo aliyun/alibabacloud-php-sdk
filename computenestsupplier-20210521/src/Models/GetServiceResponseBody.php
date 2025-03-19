@@ -18,8 +18,22 @@ class GetServiceResponseBody extends Model
      * @description The alert configurations of the service.
      *
      * >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+     *
      * @example {
+     * "TemplateUrl": "http://template.file.url",
+     * // 应用分组级别告警元数据
+     * "ApplicationGroups": [
+     * {
+     * "Name": "applicationGroup1",
+     * "TemplateUrl": "url1"
+     * },
+     * {
+     * "Name": "applicationGroup2",
+     * "TemplateUrl": "url2"
      * }
+     * ]
+     * }
+     *
      * @var string
      */
     public $alarmMetadata;
@@ -90,7 +104,10 @@ class GetServiceResponseBody extends Model
      * @description The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
      *
      * @example {\\"TemplateConfigs\\":[{\\"Name\\":\\"模板1\\",\\"Url\\":\\"oss://computenest-test/template"
+     * + ".json?RegionId=cn-beijing\\",\\"PredefinedParameters\\":[{\\"Name\\":\\"低配版\\","
+     * + "\\"Parameters\\":{\\"InstanceType\\":\\"ecs.g5.large\\",\\"DataDiskSize\\":40}},{\\"Name\\":\\"高配版\\","
      * + "\\"Parameters\\":{\\"InstanceType\\":\\"ecs.g5.large\\",\\"DataDiskSize\\":200}}]}]}
+     *
      * @var string
      */
     public $deployMetadata;
@@ -134,6 +151,7 @@ class GetServiceResponseBody extends Model
      *   false
      *
      * >  This parameter is returned if you set **ServiceType** to **private**.
+     *
      * @example false
      *
      * @var bool
@@ -343,6 +361,7 @@ class GetServiceResponseBody extends Model
      * @description The share status of the instance.
      *
      * > This parameter is discontinued.
+     *
      * @example This parameter is discontinued.
      *
      * @var string
@@ -536,64 +555,62 @@ class GetServiceResponseBody extends Model
      */
     public $virtualInternetServiceId;
     protected $_name = [
-        'alarmMetadata'               => 'AlarmMetadata',
-        'approvalType'                => 'ApprovalType',
-        'buildInfo'                   => 'BuildInfo',
-        'categories'                  => 'Categories',
-        'commodity'                   => 'Commodity',
-        'complianceMetadata'          => 'ComplianceMetadata',
-        'createTime'                  => 'CreateTime',
+        'alarmMetadata' => 'AlarmMetadata',
+        'approvalType' => 'ApprovalType',
+        'buildInfo' => 'BuildInfo',
+        'categories' => 'Categories',
+        'commodity' => 'Commodity',
+        'complianceMetadata' => 'ComplianceMetadata',
+        'createTime' => 'CreateTime',
         'crossRegionConnectionStatus' => 'CrossRegionConnectionStatus',
-        'deployMetadata'              => 'DeployMetadata',
-        'deployType'                  => 'DeployType',
-        'duration'                    => 'Duration',
-        'entitySource'                => 'EntitySource',
-        'isSupportOperated'           => 'IsSupportOperated',
-        'licenseMetadata'             => 'LicenseMetadata',
-        'logMetadata'                 => 'LogMetadata',
-        'operationMetadata'           => 'OperationMetadata',
-        'payFromType'                 => 'PayFromType',
-        'permission'                  => 'Permission',
-        'policyNames'                 => 'PolicyNames',
-        'progress'                    => 'Progress',
-        'publishTime'                 => 'PublishTime',
-        'registrationId'              => 'RegistrationId',
-        'requestId'                   => 'RequestId',
-        'resellable'                  => 'Resellable',
-        'resourceGroupId'             => 'ResourceGroupId',
-        'serviceAuditDocumentUrl'     => 'ServiceAuditDocumentUrl',
-        'serviceDiscoverable'         => 'ServiceDiscoverable',
-        'serviceDocumentInfos'        => 'ServiceDocumentInfos',
-        'serviceId'                   => 'ServiceId',
-        'serviceInfos'                => 'ServiceInfos',
-        'serviceProductUrl'           => 'ServiceProductUrl',
-        'serviceType'                 => 'ServiceType',
-        'shareType'                   => 'ShareType',
-        'shareTypeStatus'             => 'ShareTypeStatus',
-        'sourceServiceId'             => 'SourceServiceId',
-        'sourceServiceVersion'        => 'SourceServiceVersion',
-        'sourceSupplierName'          => 'SourceSupplierName',
-        'statistic'                   => 'Statistic',
-        'status'                      => 'Status',
-        'statusDetail'                => 'StatusDetail',
-        'supplierName'                => 'SupplierName',
-        'supplierUrl'                 => 'SupplierUrl',
-        'tags'                        => 'Tags',
-        'tenantType'                  => 'TenantType',
-        'testStatus'                  => 'TestStatus',
-        'trialDuration'               => 'TrialDuration',
-        'trialType'                   => 'TrialType',
-        'updateTime'                  => 'UpdateTime',
-        'upgradeMetadata'             => 'UpgradeMetadata',
-        'version'                     => 'Version',
-        'versionName'                 => 'VersionName',
-        'virtualInternetService'      => 'VirtualInternetService',
-        'virtualInternetServiceId'    => 'VirtualInternetServiceId',
+        'deployMetadata' => 'DeployMetadata',
+        'deployType' => 'DeployType',
+        'duration' => 'Duration',
+        'entitySource' => 'EntitySource',
+        'isSupportOperated' => 'IsSupportOperated',
+        'licenseMetadata' => 'LicenseMetadata',
+        'logMetadata' => 'LogMetadata',
+        'operationMetadata' => 'OperationMetadata',
+        'payFromType' => 'PayFromType',
+        'permission' => 'Permission',
+        'policyNames' => 'PolicyNames',
+        'progress' => 'Progress',
+        'publishTime' => 'PublishTime',
+        'registrationId' => 'RegistrationId',
+        'requestId' => 'RequestId',
+        'resellable' => 'Resellable',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serviceAuditDocumentUrl' => 'ServiceAuditDocumentUrl',
+        'serviceDiscoverable' => 'ServiceDiscoverable',
+        'serviceDocumentInfos' => 'ServiceDocumentInfos',
+        'serviceId' => 'ServiceId',
+        'serviceInfos' => 'ServiceInfos',
+        'serviceProductUrl' => 'ServiceProductUrl',
+        'serviceType' => 'ServiceType',
+        'shareType' => 'ShareType',
+        'shareTypeStatus' => 'ShareTypeStatus',
+        'sourceServiceId' => 'SourceServiceId',
+        'sourceServiceVersion' => 'SourceServiceVersion',
+        'sourceSupplierName' => 'SourceSupplierName',
+        'statistic' => 'Statistic',
+        'status' => 'Status',
+        'statusDetail' => 'StatusDetail',
+        'supplierName' => 'SupplierName',
+        'supplierUrl' => 'SupplierUrl',
+        'tags' => 'Tags',
+        'tenantType' => 'TenantType',
+        'testStatus' => 'TestStatus',
+        'trialDuration' => 'TrialDuration',
+        'trialType' => 'TrialType',
+        'updateTime' => 'UpdateTime',
+        'upgradeMetadata' => 'UpgradeMetadata',
+        'version' => 'Version',
+        'versionName' => 'VersionName',
+        'virtualInternetService' => 'VirtualInternetService',
+        'virtualInternetServiceId' => 'VirtualInternetServiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -871,7 +888,7 @@ class GetServiceResponseBody extends Model
         if (isset($map['ServiceDocumentInfos'])) {
             if (!empty($map['ServiceDocumentInfos'])) {
                 $model->serviceDocumentInfos = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['ServiceDocumentInfos'] as $item) {
                     $model->serviceDocumentInfos[$n++] = null !== $item ? serviceDocumentInfos::fromMap($item) : $item;
                 }
@@ -883,7 +900,7 @@ class GetServiceResponseBody extends Model
         if (isset($map['ServiceInfos'])) {
             if (!empty($map['ServiceInfos'])) {
                 $model->serviceInfos = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ServiceInfos'] as $item) {
                     $model->serviceInfos[$n++] = null !== $item ? serviceInfos::fromMap($item) : $item;
                 }
@@ -928,7 +945,7 @@ class GetServiceResponseBody extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

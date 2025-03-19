@@ -47,6 +47,7 @@ class GetServiceEstimateCostRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-16fbd358d75e49xxxxxx
      *
      * @var string
@@ -89,20 +90,18 @@ class GetServiceEstimateCostRequest extends Model
      */
     public $templateName;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'commodity'         => 'Commodity',
-        'parameters'        => 'Parameters',
-        'regionId'          => 'RegionId',
-        'serviceId'         => 'ServiceId',
+        'clientToken' => 'ClientToken',
+        'commodity' => 'Commodity',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'serviceInstanceId' => 'ServiceInstanceId',
-        'serviceVersion'    => 'ServiceVersion',
+        'serviceVersion' => 'ServiceVersion',
         'specificationName' => 'SpecificationName',
-        'templateName'      => 'TemplateName',
+        'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

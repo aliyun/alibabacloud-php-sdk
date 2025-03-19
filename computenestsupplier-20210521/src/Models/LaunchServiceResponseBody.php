@@ -20,7 +20,10 @@ class LaunchServiceResponseBody extends Model
     /**
      * @description The mode of the service online. Valid Type
      *
+     * - PublishNewVersion: Launch new version
+     * - PublishOfflineVersion:  The offline version is online again.
      * - UpdateLatestVersion: Update the latest version online
+     *
      * @example PublishNewVersion
      *
      * @var string
@@ -36,14 +39,12 @@ class LaunchServiceResponseBody extends Model
      */
     public $version;
     protected $_name = [
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
         'serviceLaunchResultType' => 'ServiceLaunchResultType',
-        'version'                 => 'Version',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

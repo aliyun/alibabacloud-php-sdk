@@ -30,6 +30,7 @@ class CreateServiceUsageRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-c2d118c9193e49xxxxxx
      *
      * @var string
@@ -37,13 +38,11 @@ class CreateServiceUsageRequest extends Model
     public $serviceId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'regionId'    => 'RegionId',
-        'serviceId'   => 'ServiceId',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

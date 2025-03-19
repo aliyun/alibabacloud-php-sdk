@@ -39,14 +39,12 @@ class commodity extends Model
      */
     public $type;
     protected $_name = [
-        'commodityCode'     => 'CommodityCode',
+        'commodityCode' => 'CommodityCode',
         'saasBoostMetadata' => 'SaasBoostMetadata',
-        'type'              => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

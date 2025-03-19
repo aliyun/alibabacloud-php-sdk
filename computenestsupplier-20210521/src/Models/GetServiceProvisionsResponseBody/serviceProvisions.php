@@ -25,6 +25,7 @@ class serviceProvisions extends Model
      * @description The URL that points to the activation page of the service.
      *
      * > This parameter is returned if Status is set to Disabled.
+     *
      * @example https://common-buy.aliyun.com/?commodityCode=sls
      *
      * @var string
@@ -50,7 +51,11 @@ class serviceProvisions extends Model
     /**
      * @description The activation status of the cloud service. Valid values:
      *
+     * - Enabled: The cloud service is activated.
+     * - EnabledByDefault: The cloud service is activated by default.
+     * - Disabled: The cloud service is not activated.
      * - Unknown: The activation status of the cloud service is unknown.
+     *
      * @example Enabled
      *
      * @var string
@@ -61,6 +66,7 @@ class serviceProvisions extends Model
      * @description The reason why the service is in the Disabled or Unknown state.
      *
      * > This parameter is returned if Status is set to Disabled or Unknown.
+     *
      * @example resource(Eip) import info missing
      *
      * @var string
@@ -68,16 +74,14 @@ class serviceProvisions extends Model
     public $statusReason;
     protected $_name = [
         'autoEnableService' => 'AutoEnableService',
-        'enableURL'         => 'EnableURL',
-        'roleProvision'     => 'RoleProvision',
-        'serviceName'       => 'ServiceName',
-        'status'            => 'Status',
-        'statusReason'      => 'StatusReason',
+        'enableURL' => 'EnableURL',
+        'roleProvision' => 'RoleProvision',
+        'serviceName' => 'ServiceName',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

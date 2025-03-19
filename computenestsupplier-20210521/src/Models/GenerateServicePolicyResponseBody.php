@@ -35,13 +35,11 @@ class GenerateServicePolicyResponseBody extends Model
     public $requestId;
     protected $_name = [
         'missingPolicy' => 'MissingPolicy',
-        'policy'        => 'Policy',
-        'requestId'     => 'RequestId',
+        'policy' => 'Policy',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class GenerateServicePolicyResponseBody extends Model
         if (isset($map['MissingPolicy'])) {
             if (!empty($map['MissingPolicy'])) {
                 $model->missingPolicy = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['MissingPolicy'] as $item) {
                     $model->missingPolicy[$n++] = null !== $item ? missingPolicy::fromMap($item) : $item;
                 }

@@ -15,6 +15,7 @@ class UnTagResourcesRequest extends Model
      *   **false**
      *
      * >  If you specify both the All and TagKey.N parameters, the All parameter does not take effect.
+     *
      * @example false
      *
      * @var bool
@@ -25,6 +26,7 @@ class UnTagResourcesRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -35,6 +37,7 @@ class UnTagResourcesRequest extends Model
      * @description The resource IDs. You can specify at most 50 resource IDs in each call.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -42,7 +45,12 @@ class UnTagResourcesRequest extends Model
     /**
      * @description The type of the resource. valid value:
      *
+     * - service
+     * - serviceinstance
+     * - artifact
+     *
      * This parameter is required.
+     *
      * @example service
      *
      * @var string
@@ -56,16 +64,14 @@ class UnTagResourcesRequest extends Model
      */
     public $tagKey;
     protected $_name = [
-        'all'          => 'All',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'all' => 'All',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tagKey'       => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

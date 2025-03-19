@@ -242,34 +242,32 @@ class serviceInstances extends Model
      */
     public $userId;
     protected $_name = [
-        'bizStatus'                 => 'BizStatus',
-        'createTime'                => 'CreateTime',
-        'enableInstanceOps'         => 'EnableInstanceOps',
-        'endTime'                   => 'EndTime',
-        'isOperated'                => 'IsOperated',
-        'name'                      => 'Name',
+        'bizStatus' => 'BizStatus',
+        'createTime' => 'CreateTime',
+        'enableInstanceOps' => 'EnableInstanceOps',
+        'endTime' => 'EndTime',
+        'isOperated' => 'IsOperated',
+        'name' => 'Name',
         'operatedServiceInstanceId' => 'OperatedServiceInstanceId',
-        'operationEndTime'          => 'OperationEndTime',
-        'operationStartTime'        => 'OperationStartTime',
-        'parameters'                => 'Parameters',
-        'payType'                   => 'PayType',
-        'progress'                  => 'Progress',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'service'                   => 'Service',
-        'serviceInstanceId'         => 'ServiceInstanceId',
-        'serviceType'               => 'ServiceType',
-        'source'                    => 'Source',
-        'status'                    => 'Status',
-        'statusDetail'              => 'StatusDetail',
-        'tags'                      => 'Tags',
-        'templateName'              => 'TemplateName',
-        'updateTime'                => 'UpdateTime',
-        'userId'                    => 'UserId',
+        'operationEndTime' => 'OperationEndTime',
+        'operationStartTime' => 'OperationStartTime',
+        'parameters' => 'Parameters',
+        'payType' => 'PayType',
+        'progress' => 'Progress',
+        'resourceGroupId' => 'ResourceGroupId',
+        'service' => 'Service',
+        'serviceInstanceId' => 'ServiceInstanceId',
+        'serviceType' => 'ServiceType',
+        'source' => 'Source',
+        'status' => 'Status',
+        'statusDetail' => 'StatusDetail',
+        'tags' => 'Tags',
+        'templateName' => 'TemplateName',
+        'updateTime' => 'UpdateTime',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -421,7 +419,7 @@ class serviceInstances extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

@@ -35,12 +35,10 @@ class ListTagValuesResponseBody extends Model
     protected $_name = [
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'values'    => 'Values',
+        'values' => 'Values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

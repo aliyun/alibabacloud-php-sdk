@@ -21,6 +21,7 @@ class CreateServiceTestCaseRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-0e6fca6a51a544xxxxxx
      *
      * @var string
@@ -31,6 +32,7 @@ class CreateServiceTestCaseRequest extends Model
      * @description The service version.
      *
      * This parameter is required.
+     *
      * @example draft
      *
      * @var string
@@ -41,6 +43,7 @@ class CreateServiceTestCaseRequest extends Model
      * @description The template name.
      *
      * This parameter is required.
+     *
      * @example Custom_Image_Ecs
      *
      * @var string
@@ -51,6 +54,7 @@ class CreateServiceTestCaseRequest extends Model
      * @description Service Test case name.
      *
      * This parameter is required.
+     *
      * @example case1
      *
      * @var string
@@ -61,23 +65,26 @@ class CreateServiceTestCaseRequest extends Model
      * @description The service test config
      *
      * This parameter is required.
+     *
      * @example ---
+     * parameters:
+     * PayType: "PostPaid"
+     * EcsInstanceType: "$[iact3-auto]"
      * InstancePassword: "$[iact3-auto]"
+     *
      * @var string
      */
     public $testConfig;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'serviceId'      => 'ServiceId',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'serviceVersion' => 'ServiceVersion',
-        'templateName'   => 'TemplateName',
-        'testCaseName'   => 'TestCaseName',
-        'testConfig'     => 'TestConfig',
+        'templateName' => 'TemplateName',
+        'testCaseName' => 'TestCaseName',
+        'testConfig' => 'TestConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class WithdrawServiceRequest extends Model
      * @description Region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -31,6 +32,7 @@ class WithdrawServiceRequest extends Model
      * @description Service ID.
      *
      * This parameter is required.
+     *
      * @example service-0e6fca6a51a544xxxxxx
      *
      * @var string
@@ -41,21 +43,20 @@ class WithdrawServiceRequest extends Model
      * @description Service version.
      *
      * This parameter is required.
+     *
      * @example 1.0
      *
      * @var string
      */
     public $serviceVersion;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'regionId'       => 'RegionId',
-        'serviceId'      => 'ServiceId',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'serviceVersion' => 'ServiceVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

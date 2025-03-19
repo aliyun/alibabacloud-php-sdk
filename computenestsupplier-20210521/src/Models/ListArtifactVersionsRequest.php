@@ -13,6 +13,7 @@ class ListArtifactVersionsRequest extends Model
      * @description The ID of the deployment package.
      *
      * This parameter is required.
+     *
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -45,14 +46,12 @@ class ListArtifactVersionsRequest extends Model
     public $nextToken;
     protected $_name = [
         'artifactId' => 'ArtifactId',
-        'filters'    => 'Filters',
+        'filters' => 'Filters',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -93,7 +92,7 @@ class ListArtifactVersionsRequest extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Filters'] as $item) {
                     $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
                 }

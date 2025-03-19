@@ -15,8 +15,22 @@ class CreateServiceRequest extends Model
      * @description The alert configurations of the service.
      *
      * >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+     *
      * @example {
+     * "TemplateUrl": "http://template.file.url",
+     * // 应用分组级别告警元数据
+     * "ApplicationGroups": [
+     * {
+     * "Name": "applicationGroup1",
+     * "TemplateUrl": "url1"
+     * },
+     * {
+     * "Name": "applicationGroup2",
+     * "TemplateUrl": "url2"
      * }
+     * ]
+     * }
+     *
      * @var string
      */
     public $alarmMetadata;
@@ -62,7 +76,10 @@ class CreateServiceRequest extends Model
      * @description The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
      *
      * @example {\\"TemplateConfigs\\":[{\\"Name\\":\\"模板1\\",\\"Url\\":\\"oss://computenest-test/template"
+     * + ".json?RegionId=cn-beijing\\",\\"PredefinedParameters\\":[{\\"Name\\":\\"低配版\\","
+     * + "\\"Parameters\\":{\\"InstanceType\\":\\"ecs.g5.large\\",\\"DataDiskSize\\":40}},{\\"Name\\":\\"高配版\\","
      * + "\\"Parameters\\":{\\"InstanceType\\":\\"ecs.g5.large\\",\\"DataDiskSize\\":200}}]}]}
+     *
      * @var string
      */
     public $deployMetadata;
@@ -77,6 +94,7 @@ class CreateServiceRequest extends Model
      *   operation: The service is deployed by using a hosted O\\&M service.
      *
      * This parameter is required.
+     *
      * @example ros
      *
      * @var string
@@ -111,6 +129,7 @@ class CreateServiceRequest extends Model
      *   false
      *
      * >  This parameter is required if you set **ServiceType** to **private**.
+     *
      * @example false
      *
      * @var bool
@@ -157,6 +176,7 @@ class CreateServiceRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -290,39 +310,37 @@ class CreateServiceRequest extends Model
      */
     public $versionName;
     protected $_name = [
-        'alarmMetadata'        => 'AlarmMetadata',
-        'approvalType'         => 'ApprovalType',
-        'buildParameters'      => 'BuildParameters',
-        'clientToken'          => 'ClientToken',
-        'complianceMetadata'   => 'ComplianceMetadata',
-        'deployMetadata'       => 'DeployMetadata',
-        'deployType'           => 'DeployType',
-        'dryRun'               => 'DryRun',
-        'duration'             => 'Duration',
-        'isSupportOperated'    => 'IsSupportOperated',
-        'licenseMetadata'      => 'LicenseMetadata',
-        'logMetadata'          => 'LogMetadata',
-        'operationMetadata'    => 'OperationMetadata',
-        'policyNames'          => 'PolicyNames',
-        'regionId'             => 'RegionId',
-        'resellable'           => 'Resellable',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'serviceId'            => 'ServiceId',
-        'serviceInfo'          => 'ServiceInfo',
-        'serviceType'          => 'ServiceType',
-        'shareType'            => 'ShareType',
-        'sourceServiceId'      => 'SourceServiceId',
+        'alarmMetadata' => 'AlarmMetadata',
+        'approvalType' => 'ApprovalType',
+        'buildParameters' => 'BuildParameters',
+        'clientToken' => 'ClientToken',
+        'complianceMetadata' => 'ComplianceMetadata',
+        'deployMetadata' => 'DeployMetadata',
+        'deployType' => 'DeployType',
+        'dryRun' => 'DryRun',
+        'duration' => 'Duration',
+        'isSupportOperated' => 'IsSupportOperated',
+        'licenseMetadata' => 'LicenseMetadata',
+        'logMetadata' => 'LogMetadata',
+        'operationMetadata' => 'OperationMetadata',
+        'policyNames' => 'PolicyNames',
+        'regionId' => 'RegionId',
+        'resellable' => 'Resellable',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serviceId' => 'ServiceId',
+        'serviceInfo' => 'ServiceInfo',
+        'serviceType' => 'ServiceType',
+        'shareType' => 'ShareType',
+        'sourceServiceId' => 'SourceServiceId',
         'sourceServiceVersion' => 'SourceServiceVersion',
-        'tag'                  => 'Tag',
-        'tenantType'           => 'TenantType',
-        'trialDuration'        => 'TrialDuration',
-        'upgradeMetadata'      => 'UpgradeMetadata',
-        'versionName'          => 'VersionName',
+        'tag' => 'Tag',
+        'tenantType' => 'TenantType',
+        'trialDuration' => 'TrialDuration',
+        'upgradeMetadata' => 'UpgradeMetadata',
+        'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -492,7 +510,7 @@ class CreateServiceRequest extends Model
         if (isset($map['ServiceInfo'])) {
             if (!empty($map['ServiceInfo'])) {
                 $model->serviceInfo = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ServiceInfo'] as $item) {
                     $model->serviceInfo[$n++] = null !== $item ? serviceInfo::fromMap($item) : $item;
                 }
@@ -513,7 +531,7 @@ class CreateServiceRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

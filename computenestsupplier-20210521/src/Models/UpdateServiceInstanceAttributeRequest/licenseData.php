@@ -20,9 +20,7 @@ class licenseData extends Model
         'customData' => 'CustomData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

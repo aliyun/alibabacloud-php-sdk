@@ -12,7 +12,10 @@ class ListServiceInstanceDeployDetailsRequest extends Model
     /**
      * @description The time zone.
      *
+     * Reference Format: "+08:00"
+     *
      * Valid Range: "-12:59" to "+13:00"
+     *
      * @example +08:00
      *
      * @var string
@@ -22,7 +25,13 @@ class ListServiceInstanceDeployDetailsRequest extends Model
     /**
      * @description Determines the time period over which data is aggregated. If no aggregation dimension is specified, the query defaults to providing detailed, unaggregated results.
      *
+     * Optional Values:
+     *
+     * - Year
+     * - Month
+     * - Day
      * - All
+     *
      * @example Month
      *
      * @var string
@@ -31,7 +40,16 @@ class ListServiceInstanceDeployDetailsRequest extends Model
 
     /**
      * @description The dimension names. (Equivalent to SQL\\"s GROUP BY Clause)
+     * Optional Values:
+     *
+     * - UserId
+     * - ServiceId
+     * - ServiceVersion
+     * - ServiceInstanceId
+     * - DeploySucceeded
+     * - ErrorType
      * - ErrorCode
+     *
      * @var string[]
      */
     public $dimension;
@@ -74,6 +92,7 @@ class ListServiceInstanceDeployDetailsRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -90,19 +109,17 @@ class ListServiceInstanceDeployDetailsRequest extends Model
     public $startTime;
     protected $_name = [
         'cycleTimeZone' => 'CycleTimeZone',
-        'cycleType'     => 'CycleType',
-        'dimension'     => 'Dimension',
-        'endTime'       => 'EndTime',
-        'filter'        => 'Filter',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'regionId'      => 'RegionId',
-        'startTime'     => 'StartTime',
+        'cycleType' => 'CycleType',
+        'dimension' => 'Dimension',
+        'endTime' => 'EndTime',
+        'filter' => 'Filter',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -169,7 +186,7 @@ class ListServiceInstanceDeployDetailsRequest extends Model
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Filter'] as $item) {
                     $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
                 }

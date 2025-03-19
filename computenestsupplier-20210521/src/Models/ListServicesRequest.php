@@ -48,6 +48,7 @@ class ListServicesRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -70,18 +71,16 @@ class ListServicesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'allVersions'     => 'AllVersions',
-        'filter'          => 'Filter',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'regionId'        => 'RegionId',
+        'allVersions' => 'AllVersions',
+        'filter' => 'Filter',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'tag'             => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -137,7 +136,7 @@ class ListServicesRequest extends Model
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Filter'] as $item) {
                     $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
                 }
@@ -158,7 +157,7 @@ class ListServicesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

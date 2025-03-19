@@ -136,24 +136,22 @@ class service extends Model
      */
     public $versionName;
     protected $_name = [
-        'deployMetadata'             => 'DeployMetadata',
-        'deployType'                 => 'DeployType',
+        'deployMetadata' => 'DeployMetadata',
+        'deployType' => 'DeployType',
         'enablePrivateVpcConnection' => 'EnablePrivateVpcConnection',
-        'publishTime'                => 'PublishTime',
-        'serviceId'                  => 'ServiceId',
-        'serviceInfos'               => 'ServiceInfos',
-        'serviceType'                => 'ServiceType',
-        'sourceSupplierName'         => 'SourceSupplierName',
-        'status'                     => 'Status',
-        'supplierName'               => 'SupplierName',
-        'supplierUrl'                => 'SupplierUrl',
-        'version'                    => 'Version',
-        'versionName'                => 'VersionName',
+        'publishTime' => 'PublishTime',
+        'serviceId' => 'ServiceId',
+        'serviceInfos' => 'ServiceInfos',
+        'serviceType' => 'ServiceType',
+        'sourceSupplierName' => 'SourceSupplierName',
+        'status' => 'Status',
+        'supplierName' => 'SupplierName',
+        'supplierUrl' => 'SupplierUrl',
+        'version' => 'Version',
+        'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -233,7 +231,7 @@ class service extends Model
         if (isset($map['ServiceInfos'])) {
             if (!empty($map['ServiceInfos'])) {
                 $model->serviceInfos = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ServiceInfos'] as $item) {
                     $model->serviceInfos[$n++] = null !== $item ? serviceInfos::fromMap($item) : $item;
                 }

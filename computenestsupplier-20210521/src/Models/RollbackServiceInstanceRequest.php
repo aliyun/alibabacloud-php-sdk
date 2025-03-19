@@ -30,20 +30,19 @@ class RollbackServiceInstanceRequest extends Model
      * @description Service instance ID.
      *
      * You can obtain the service instance ID by calling [ListServiceInstances - Query Service Instance List](https://help.aliyun.com/document_detail/396200.html).
+     *
      * @example si-3a8f9a75da074f52b969
      *
      * @var string
      */
     public $serviceInstanceId;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'regionId'          => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

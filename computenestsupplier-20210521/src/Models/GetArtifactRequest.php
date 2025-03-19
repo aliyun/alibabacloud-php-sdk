@@ -35,14 +35,12 @@ class GetArtifactRequest extends Model
      */
     public $artifactVersion;
     protected $_name = [
-        'artifactId'      => 'ArtifactId',
-        'artifactName'    => 'ArtifactName',
+        'artifactId' => 'ArtifactId',
+        'artifactName' => 'ArtifactName',
         'artifactVersion' => 'ArtifactVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

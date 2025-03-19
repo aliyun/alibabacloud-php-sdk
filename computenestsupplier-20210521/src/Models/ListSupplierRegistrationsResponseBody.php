@@ -52,16 +52,14 @@ class ListSupplierRegistrationsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'            => 'MaxResults',
-        'nextToken'             => 'NextToken',
-        'requestId'             => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'supplierRegistrations' => 'SupplierRegistrations',
-        'totalCount'            => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class ListSupplierRegistrationsResponseBody extends Model
         if (isset($map['SupplierRegistrations'])) {
             if (!empty($map['SupplierRegistrations'])) {
                 $model->supplierRegistrations = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['SupplierRegistrations'] as $item) {
                     $model->supplierRegistrations[$n++] = null !== $item ? supplierRegistrations::fromMap($item) : $item;
                 }

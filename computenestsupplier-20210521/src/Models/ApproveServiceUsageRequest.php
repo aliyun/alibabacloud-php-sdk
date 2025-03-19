@@ -39,6 +39,7 @@ class ApproveServiceUsageRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-39f4f251e94843xxxxxx
      *
      * @var string
@@ -58,6 +59,7 @@ class ApproveServiceUsageRequest extends Model
      * @description User ali uid.
      *
      * This parameter is required.
+     *
      * @example 127383705958xxxx
      *
      * @var int
@@ -65,16 +67,14 @@ class ApproveServiceUsageRequest extends Model
     public $userAliUid;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'comments'    => 'Comments',
-        'regionId'    => 'RegionId',
-        'serviceId'   => 'ServiceId',
-        'type'        => 'Type',
-        'userAliUid'  => 'UserAliUid',
+        'comments' => 'Comments',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
+        'type' => 'Type',
+        'userAliUid' => 'UserAliUid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class artifactProperty extends Model
      * @description The commodity code of the service in Alibaba Cloud Marketplace.
      *
      * >  This parameter is available only if the deployment package is an image.
+     *
      * @example cmjj00xxxx
      *
      * @var string
@@ -22,6 +23,7 @@ class artifactProperty extends Model
      * @description The commodity version of the service in Alibaba Cloud Marketplace.
      *
      * >  This parameter is available only if the deployment package is an image.
+     *
      * @example V1.0
      *
      * @var string
@@ -32,6 +34,7 @@ class artifactProperty extends Model
      * @description The image ID.
      *
      * >  This parameter is available only if the deployment package is an image.
+     *
      * @example m-0xij191j9cuev6ucxxxx
      *
      * @var string
@@ -42,6 +45,7 @@ class artifactProperty extends Model
      * @description The region ID.
      *
      * >  This parameter is available only if the deployment package is an image.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +55,7 @@ class artifactProperty extends Model
     /**
      * @description The ID of the Container Registry  repository.
      * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+     *
      * @example crr-yy4g68uhi39ttkm8
      *
      * @var string
@@ -60,6 +65,7 @@ class artifactProperty extends Model
     /**
      * @description The name of the Container Registry repository.
      * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+     *
      * @example volcanosh/vc-webhook-manager
      *
      * @var string
@@ -72,6 +78,7 @@ class artifactProperty extends Model
      *   `Public`: a public repository.
      *   `Private`: a private repository.
      * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+     *
      * @example Public
      *
      * @var string
@@ -82,6 +89,7 @@ class artifactProperty extends Model
      * @description The version tag of the image repository.
      *
      * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+     *
      * @example v1
      *
      * @var string
@@ -90,8 +98,6 @@ class artifactProperty extends Model
 
     /**
      * @description The URL of the deployment package object.
-     *
-     *
      * > Note This parameter is available only if the deployment package is an file.
      * @example https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1309208528xxxxxx/template/2e1ce8fc-xxxx-481c-9e8e-789ba9db487d.json
      *
@@ -99,20 +105,18 @@ class artifactProperty extends Model
      */
     public $url;
     protected $_name = [
-        'commodityCode'    => 'CommodityCode',
+        'commodityCode' => 'CommodityCode',
         'commodityVersion' => 'CommodityVersion',
-        'imageId'          => 'ImageId',
-        'regionId'         => 'RegionId',
-        'repoId'           => 'RepoId',
-        'repoName'         => 'RepoName',
-        'repoType'         => 'RepoType',
-        'tag'              => 'Tag',
-        'url'              => 'Url',
+        'imageId' => 'ImageId',
+        'regionId' => 'RegionId',
+        'repoId' => 'RepoId',
+        'repoName' => 'RepoName',
+        'repoType' => 'RepoType',
+        'tag' => 'Tag',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

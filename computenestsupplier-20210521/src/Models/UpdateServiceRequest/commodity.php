@@ -49,16 +49,14 @@ class commodity extends Model
      */
     public $specificationMappings;
     protected $_name = [
-        'componentsMappings'       => 'ComponentsMappings',
+        'componentsMappings' => 'ComponentsMappings',
         'meteringEntityExtraInfos' => 'MeteringEntityExtraInfos',
-        'meteringEntityMappings'   => 'MeteringEntityMappings',
-        'saasBoostConfig'          => 'SaasBoostConfig',
-        'specificationMappings'    => 'SpecificationMappings',
+        'meteringEntityMappings' => 'MeteringEntityMappings',
+        'saasBoostConfig' => 'SaasBoostConfig',
+        'specificationMappings' => 'SpecificationMappings',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -117,7 +115,7 @@ class commodity extends Model
         if (isset($map['ComponentsMappings'])) {
             if (!empty($map['ComponentsMappings'])) {
                 $model->componentsMappings = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['ComponentsMappings'] as $item) {
                     $model->componentsMappings[$n++] = null !== $item ? componentsMappings::fromMap($item) : $item;
                 }
@@ -126,7 +124,7 @@ class commodity extends Model
         if (isset($map['MeteringEntityExtraInfos'])) {
             if (!empty($map['MeteringEntityExtraInfos'])) {
                 $model->meteringEntityExtraInfos = [];
-                $n                               = 0;
+                $n = 0;
                 foreach ($map['MeteringEntityExtraInfos'] as $item) {
                     $model->meteringEntityExtraInfos[$n++] = null !== $item ? meteringEntityExtraInfos::fromMap($item) : $item;
                 }
@@ -135,7 +133,7 @@ class commodity extends Model
         if (isset($map['MeteringEntityMappings'])) {
             if (!empty($map['MeteringEntityMappings'])) {
                 $model->meteringEntityMappings = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['MeteringEntityMappings'] as $item) {
                     $model->meteringEntityMappings[$n++] = null !== $item ? meteringEntityMappings::fromMap($item) : $item;
                 }
@@ -147,7 +145,7 @@ class commodity extends Model
         if (isset($map['SpecificationMappings'])) {
             if (!empty($map['SpecificationMappings'])) {
                 $model->specificationMappings = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['SpecificationMappings'] as $item) {
                     $model->specificationMappings[$n++] = null !== $item ? specificationMappings::fromMap($item) : $item;
                 }

@@ -111,18 +111,16 @@ class serviceInstancesLogs extends Model
     protected $_name = [
         'compliancePackType' => 'CompliancePackType',
         'complianceRuleName' => 'ComplianceRuleName',
-        'content'            => 'Content',
-        'logType'            => 'LogType',
-        'resourceId'         => 'ResourceId',
-        'resourceType'       => 'ResourceType',
-        'source'             => 'Source',
-        'status'             => 'Status',
-        'timestamp'          => 'Timestamp',
+        'content' => 'Content',
+        'logType' => 'LogType',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'source' => 'Source',
+        'status' => 'Status',
+        'timestamp' => 'Timestamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

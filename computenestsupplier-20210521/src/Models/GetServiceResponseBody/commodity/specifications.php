@@ -33,14 +33,12 @@ class specifications extends Model
      */
     public $times;
     protected $_name = [
-        'code'  => 'Code',
-        'name'  => 'Name',
+        'code' => 'Code',
+        'name' => 'Name',
         'times' => 'Times',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

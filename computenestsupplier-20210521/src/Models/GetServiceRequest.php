@@ -81,19 +81,17 @@ class GetServiceRequest extends Model
      */
     public $showDetail;
     protected $_name = [
-        'filterAliUid'      => 'FilterAliUid',
-        'regionId'          => 'RegionId',
-        'serviceId'         => 'ServiceId',
+        'filterAliUid' => 'FilterAliUid',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'serviceInstanceId' => 'ServiceInstanceId',
-        'serviceName'       => 'ServiceName',
-        'serviceVersion'    => 'ServiceVersion',
+        'serviceName' => 'ServiceName',
+        'serviceVersion' => 'ServiceVersion',
         'sharedAccountType' => 'SharedAccountType',
-        'showDetail'        => 'ShowDetail',
+        'showDetail' => 'ShowDetail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -107,6 +107,7 @@ class GetServiceInstanceResponseBody extends Model
      * @description The network configurations.
      *
      * >  This parameter is discontinued.
+     *
      * @var networkConfig
      */
     public $networkConfig;
@@ -156,7 +157,9 @@ class GetServiceInstanceResponseBody extends Model
      * @example {
      * "InstanceIds": [
      * "i-hp38ofxl0dsyfi7z****"
+     * ]
      * }
+     *
      * @var string
      */
     public $outputs;
@@ -165,7 +168,9 @@ class GetServiceInstanceResponseBody extends Model
      * @description The parameters that are specified to deploy the service instance.
      *
      * @example {
+     * "param": "value"
      * }
+     *
      * @var string
      */
     public $parameters;
@@ -233,7 +238,11 @@ class GetServiceInstanceResponseBody extends Model
      * @description The list of resources.
      *
      * @example [
+     * {
+     * "StackId": "stack-xxx"
+     * }
      * ]
+     *
      * @var string
      */
     public $resources;
@@ -351,45 +360,43 @@ class GetServiceInstanceResponseBody extends Model
      */
     public $userId;
     protected $_name = [
-        'bizStatus'                 => 'BizStatus',
-        'createTime'                => 'CreateTime',
-        'enableInstanceOps'         => 'EnableInstanceOps',
-        'enableUserPrometheus'      => 'EnableUserPrometheus',
-        'endTime'                   => 'EndTime',
-        'grafanaDashBoardUrl'       => 'GrafanaDashBoardUrl',
-        'isOperated'                => 'IsOperated',
-        'licenseMetadata'           => 'LicenseMetadata',
-        'name'                      => 'Name',
-        'networkConfig'             => 'NetworkConfig',
+        'bizStatus' => 'BizStatus',
+        'createTime' => 'CreateTime',
+        'enableInstanceOps' => 'EnableInstanceOps',
+        'enableUserPrometheus' => 'EnableUserPrometheus',
+        'endTime' => 'EndTime',
+        'grafanaDashBoardUrl' => 'GrafanaDashBoardUrl',
+        'isOperated' => 'IsOperated',
+        'licenseMetadata' => 'LicenseMetadata',
+        'name' => 'Name',
+        'networkConfig' => 'NetworkConfig',
         'operatedServiceInstanceId' => 'OperatedServiceInstanceId',
-        'operationEndTime'          => 'OperationEndTime',
-        'operationExtraInfo'        => 'OperationExtraInfo',
-        'operationStartTime'        => 'OperationStartTime',
-        'outputs'                   => 'Outputs',
-        'parameters'                => 'Parameters',
-        'payType'                   => 'PayType',
-        'predefinedParameterName'   => 'PredefinedParameterName',
-        'progress'                  => 'Progress',
-        'rdAccountLoginUrl'         => 'RdAccountLoginUrl',
-        'requestId'                 => 'RequestId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'resources'                 => 'Resources',
-        'service'                   => 'Service',
-        'serviceInstanceId'         => 'ServiceInstanceId',
-        'serviceType'               => 'ServiceType',
-        'source'                    => 'Source',
-        'status'                    => 'Status',
-        'statusDetail'              => 'StatusDetail',
-        'supplierUid'               => 'SupplierUid',
-        'tags'                      => 'Tags',
-        'templateName'              => 'TemplateName',
-        'updateTime'                => 'UpdateTime',
-        'userId'                    => 'UserId',
+        'operationEndTime' => 'OperationEndTime',
+        'operationExtraInfo' => 'OperationExtraInfo',
+        'operationStartTime' => 'OperationStartTime',
+        'outputs' => 'Outputs',
+        'parameters' => 'Parameters',
+        'payType' => 'PayType',
+        'predefinedParameterName' => 'PredefinedParameterName',
+        'progress' => 'Progress',
+        'rdAccountLoginUrl' => 'RdAccountLoginUrl',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resources' => 'Resources',
+        'service' => 'Service',
+        'serviceInstanceId' => 'ServiceInstanceId',
+        'serviceType' => 'ServiceType',
+        'source' => 'Source',
+        'status' => 'Status',
+        'statusDetail' => 'StatusDetail',
+        'supplierUid' => 'SupplierUid',
+        'tags' => 'Tags',
+        'templateName' => 'TemplateName',
+        'updateTime' => 'UpdateTime',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -607,7 +614,7 @@ class GetServiceInstanceResponseBody extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

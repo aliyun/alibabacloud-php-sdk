@@ -48,14 +48,12 @@ class ListAcrImageRepositoriesRequest extends Model
     public $repoName;
     protected $_name = [
         'artifactType' => 'ArtifactType',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'repoName'     => 'RepoName',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'repoName' => 'RepoName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

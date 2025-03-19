@@ -19,6 +19,7 @@ class UpdateArtifactShrinkRequest extends Model
      * @description The ID of the deployment package.
      *
      * This parameter is required.
+     *
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -53,7 +54,10 @@ class UpdateArtifactShrinkRequest extends Model
     /**
      * @description Permission fields are applicable to container image artifact and Helm Chart artifact. They can only change from Automatic to Public. Options:
      *
+     * Public
+     *
      * Automatic
+     *
      * @example Public
      *
      * @var string
@@ -77,18 +81,16 @@ class UpdateArtifactShrinkRequest extends Model
     public $versionName;
     protected $_name = [
         'artifactBuildPropertyShrink' => 'ArtifactBuildProperty',
-        'artifactId'                  => 'ArtifactId',
-        'artifactPropertyShrink'      => 'ArtifactProperty',
-        'clientToken'                 => 'ClientToken',
-        'description'                 => 'Description',
-        'permissionType'              => 'PermissionType',
-        'supportRegionIds'            => 'SupportRegionIds',
-        'versionName'                 => 'VersionName',
+        'artifactId' => 'ArtifactId',
+        'artifactPropertyShrink' => 'ArtifactProperty',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'permissionType' => 'PermissionType',
+        'supportRegionIds' => 'SupportRegionIds',
+        'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

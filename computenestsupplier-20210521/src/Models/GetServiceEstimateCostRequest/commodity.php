@@ -30,13 +30,11 @@ class commodity extends Model
      */
     public $payPeriodUnit;
     protected $_name = [
-        'payPeriod'     => 'PayPeriod',
+        'payPeriod' => 'PayPeriod',
         'payPeriodUnit' => 'PayPeriodUnit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

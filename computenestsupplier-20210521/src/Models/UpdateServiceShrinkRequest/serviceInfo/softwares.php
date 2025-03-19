@@ -26,13 +26,11 @@ class softwares extends Model
      */
     public $version;
     protected $_name = [
-        'name'    => 'Name',
+        'name' => 'Name',
         'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

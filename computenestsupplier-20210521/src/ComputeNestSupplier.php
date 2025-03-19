@@ -235,15 +235,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddServiceSharedAccounts',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddServiceSharedAccounts',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AddServiceSharedAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -300,15 +300,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApproveServiceUsage',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApproveServiceUsage',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ApproveServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -358,15 +358,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelServiceRegistration',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelServiceRegistration',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelServiceRegistrationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -422,15 +422,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ContinueDeployServiceInstance',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ContinueDeployServiceInstance',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ContinueDeployServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -513,15 +513,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateArtifact',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateArtifact',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -649,15 +649,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateService',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateService',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -740,15 +740,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceInstance',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceInstance',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -805,15 +805,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceTestCase',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceTestCase',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateServiceTestCaseResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -864,15 +864,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceTestTask',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceTestTask',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateServiceTestTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -920,15 +920,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceUsage',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServiceUsage',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1021,15 +1021,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSupplierRegistration',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSupplierRegistration',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateSupplierRegistrationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1077,15 +1077,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteArtifact',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteArtifact',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1136,15 +1136,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteService',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteService',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1192,15 +1192,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteServiceInstances',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteServiceInstances',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteServiceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1245,15 +1245,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteServiceTestCase',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteServiceTestCase',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteServiceTestCaseResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1301,15 +1301,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeployServiceInstance',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeployServiceInstance',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeployServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1357,15 +1357,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateDefaultServiceTestConfig',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateDefaultServiceTestConfig',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GenerateDefaultServiceTestConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1422,15 +1422,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateServicePolicy',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateServicePolicy',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GenerateServicePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1478,15 +1478,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetArtifact',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetArtifact',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1531,15 +1531,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetArtifactRepositoryCredentials',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetArtifactRepositoryCredentials',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetArtifactRepositoryCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1602,15 +1602,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetService',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetService',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1684,15 +1684,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceEstimateCost',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceEstimateCost',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetServiceEstimateCostResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1737,15 +1737,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceInstance',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceInstance',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1804,15 +1804,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceProvisions',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceProvisions',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetServiceProvisionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1857,15 +1857,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceRegistration',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceRegistration',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetServiceRegistrationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1931,15 +1931,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceTemplateParameterConstraints',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceTemplateParameterConstraints',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetServiceTemplateParameterConstraintsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1984,15 +1984,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceTestTask',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceTestTask',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetServiceTestTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2016,7 +2016,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @summary
+     * @summary 获取服务商信息
      *  *
      * @param GetSupplierInformationRequest $request GetSupplierInformationRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2034,15 +2034,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSupplierInformation',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSupplierInformation',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetSupplierInformationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2052,7 +2052,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @summary
+     * @summary 获取服务商信息
      *  *
      * @param GetSupplierInformationRequest $request GetSupplierInformationRequest
      *
@@ -2087,15 +2087,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetUploadCredentials',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUploadCredentials',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetUploadCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2152,15 +2152,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'LaunchService',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LaunchService',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return LaunchServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2211,15 +2211,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAcrImageRepositories',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAcrImageRepositories',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListAcrImageRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2270,15 +2270,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAcrImageTags',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAcrImageTags',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListAcrImageTagsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2323,15 +2323,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListArtifactRisks',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListArtifactRisks',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListArtifactRisksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2387,15 +2387,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListArtifactVersions',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListArtifactVersions',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListArtifactVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2449,15 +2449,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListArtifacts',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListArtifacts',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListArtifactsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2508,15 +2508,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResellers',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResellers',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListResellersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2582,15 +2582,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceInstanceDeployDetails',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceInstanceDeployDetails',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceInstanceDeployDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2653,15 +2653,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceInstanceLogs',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceInstanceLogs',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceInstanceLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2721,15 +2721,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceInstanceResources',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceInstanceResources',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceInstanceResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2780,15 +2780,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceInstanceUpgradeHistory',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceInstanceUpgradeHistory',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceInstanceUpgradeHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2848,15 +2848,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceInstances',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceInstances',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2907,15 +2907,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceRegistrations',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceRegistrations',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceRegistrationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2972,15 +2972,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceSharedAccounts',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceSharedAccounts',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceSharedAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3037,15 +3037,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceTestCases',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceTestCases',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceTestCasesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3096,15 +3096,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceTestTaskLogs',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceTestTaskLogs',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceTestTaskLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3161,15 +3161,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceTestTasks',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceTestTasks',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceTestTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3220,15 +3220,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceUsages',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceUsages',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServiceUsagesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3288,15 +3288,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServices',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServices',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3347,15 +3347,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSupplierRegistrations',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSupplierRegistrations',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListSupplierRegistrationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3403,15 +3403,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagKeys',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagKeys',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3465,15 +3465,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3524,15 +3524,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagValues',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagValues',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3580,15 +3580,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyServiceInstanceResources',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyServiceInstanceResources',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ModifyServiceInstanceResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3636,15 +3636,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PreLaunchService',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PreLaunchService',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return PreLaunchServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3689,15 +3689,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PushMeteringData',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PushMeteringData',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return PushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3745,15 +3745,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RegisterService',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RegisterService',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RegisterServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3807,15 +3807,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RejectServiceUsage',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RejectServiceUsage',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RejectServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3860,15 +3860,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseArtifact',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseArtifact',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ReleaseArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3922,15 +3922,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveServiceSharedAccounts',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveServiceSharedAccounts',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveServiceSharedAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3978,15 +3978,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartServiceInstance',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartServiceInstance',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RestartServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4034,15 +4034,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RollbackServiceInstance',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RollbackServiceInstance',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RollbackServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4090,15 +4090,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartServiceInstance',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartServiceInstance',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return StartServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4146,15 +4146,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopServiceInstance',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopServiceInstance',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return StopServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4205,15 +4205,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4267,15 +4267,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnTagResources',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnTagResources',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4346,15 +4346,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateArtifact',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateArtifact',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4482,15 +4482,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateService',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateService',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4549,15 +4549,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceInstanceAttribute',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateServiceInstanceAttribute',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateServiceInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4619,15 +4619,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceInstanceSpec',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateServiceInstanceSpec',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateServiceInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4678,15 +4678,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceTestCase',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateServiceTestCase',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateServiceTestCaseResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4743,15 +4743,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSharedAccountPermission',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSharedAccountPermission',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateSharedAccountPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4811,15 +4811,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSupplierInformation',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSupplierInformation',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateSupplierInformationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4881,15 +4881,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeServiceInstance',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeServiceInstance',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpgradeServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4940,15 +4940,15 @@ class ComputeNestSupplier extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'WithdrawService',
-            'version'     => '2021-05-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'WithdrawService',
+            'version' => '2021-05-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return WithdrawServiceResponse::fromMap($this->callApi($params, $req, $runtime));

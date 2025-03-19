@@ -78,17 +78,15 @@ class shareAccount extends Model
     public $userAliUid;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'logo'       => 'Logo',
-        'name'       => 'Name',
+        'logo' => 'Logo',
+        'name' => 'Name',
         'permission' => 'Permission',
-        'serviceId'  => 'ServiceId',
+        'serviceId' => 'ServiceId',
         'updateTime' => 'UpdateTime',
         'userAliUid' => 'UserAliUid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

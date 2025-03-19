@@ -31,6 +31,7 @@ class parameterConstraints extends Model
      *   QueryError: The query failed.
      *
      * >  If AllowedValues is not returned, Behavior and BehaviorReason are returned.
+     *
      * @example NoLimit
      *
      * @var string
@@ -71,18 +72,16 @@ class parameterConstraints extends Model
      */
     public $type;
     protected $_name = [
-        'allowedValues'             => 'AllowedValues',
+        'allowedValues' => 'AllowedValues',
         'associationParameterNames' => 'AssociationParameterNames',
-        'behavior'                  => 'Behavior',
-        'behaviorReason'            => 'BehaviorReason',
-        'originalConstraints'       => 'OriginalConstraints',
-        'parameterKey'              => 'ParameterKey',
-        'type'                      => 'Type',
+        'behavior' => 'Behavior',
+        'behaviorReason' => 'BehaviorReason',
+        'originalConstraints' => 'OriginalConstraints',
+        'parameterKey' => 'ParameterKey',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -145,7 +144,7 @@ class parameterConstraints extends Model
         if (isset($map['OriginalConstraints'])) {
             if (!empty($map['OriginalConstraints'])) {
                 $model->originalConstraints = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['OriginalConstraints'] as $item) {
                     $model->originalConstraints[$n++] = null !== $item ? originalConstraints::fromMap($item) : $item;
                 }

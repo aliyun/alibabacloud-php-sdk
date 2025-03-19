@@ -53,15 +53,13 @@ class CreateServiceResponseBody extends Model
     public $version;
     protected $_name = [
         'dryRunResult' => 'DryRunResult',
-        'requestId'    => 'RequestId',
-        'serviceId'    => 'ServiceId',
-        'status'       => 'Status',
-        'version'      => 'Version',
+        'requestId' => 'RequestId',
+        'serviceId' => 'ServiceId',
+        'status' => 'Status',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

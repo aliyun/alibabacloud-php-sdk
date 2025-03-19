@@ -22,6 +22,7 @@ class AddServiceSharedAccountsRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +33,7 @@ class AddServiceSharedAccountsRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-63b8a060e9d54cxxxxxx
      *
      * @var string
@@ -42,6 +44,7 @@ class AddServiceSharedAccountsRequest extends Model
      * @description The shared account and permissions of the service.
      *
      * This parameter is required.
+     *
      * @var sharedAccounts[]
      */
     public $sharedAccounts;
@@ -58,16 +61,14 @@ class AddServiceSharedAccountsRequest extends Model
      */
     public $type;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'regionId'       => 'RegionId',
-        'serviceId'      => 'ServiceId',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'sharedAccounts' => 'SharedAccounts',
-        'type'           => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -117,7 +118,7 @@ class AddServiceSharedAccountsRequest extends Model
         if (isset($map['SharedAccounts'])) {
             if (!empty($map['SharedAccounts'])) {
                 $model->sharedAccounts = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['SharedAccounts'] as $item) {
                     $model->sharedAccounts[$n++] = null !== $item ? sharedAccounts::fromMap($item) : $item;
                 }

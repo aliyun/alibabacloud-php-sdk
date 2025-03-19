@@ -52,16 +52,14 @@ class ListAcrImageRepositoriesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'repositories' => 'Repositories',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +106,7 @@ class ListAcrImageRepositoriesResponseBody extends Model
         if (isset($map['Repositories'])) {
             if (!empty($map['Repositories'])) {
                 $model->repositories = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['Repositories'] as $item) {
                     $model->repositories[$n++] = null !== $item ? repositories::fromMap($item) : $item;
                 }

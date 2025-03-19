@@ -30,7 +30,55 @@ class GetServiceEstimateCostResponseBody extends Model
      * @description The list of resources.
      *
      * @example {
+     * "ECSInstances":{
+     * "Type":"ALIYUN::ECS::InstanceGroup",
+     * "Success":true,
+     * "Result":{
+     * "Order":{
+     * "Currency":"CNY",
+     * "RuleIds":[
+     * 1752723
+     * ],
+     * "DetailInfos":{
+     * "ResourcePriceModel":[
+     * {
+     * "Resource":"bandwidth",
+     * "TradeAmount":0.0,
+     * "SubRuleIds":[],
+     * "OriginalAmount":0.0,
+     * "DiscountAmount":0.0
+     * },
+     * {
+     * "Resource":"image",
+     * "TradeAmount":0.0,
+     * "SubRuleIds":[],
+     * "OriginalAmount":0.0,
+     * "DiscountAmount":0.0
+     * },
+     * {
+     * "Resource":"instanceType",
+     * "TradeAmount":0.006966,
+     * "SubRuleIds":[],
+     * "OriginalAmount":0.45,
+     * "DiscountAmount":0.443034
+     * },
+     * {
+     * "Resource":"systemDisk",
+     * "TradeAmount":0.000867,
+     * "SubRuleIds":[],
+     * "OriginalAmount":0.056,
+     * "DiscountAmount":0.055133
+     * },
+     * {
+     * "Resource":"dataDisk",
+     * "TradeAmount":0.002167,
+     * "SubRuleIds":[],
+     * "OriginalAmount":0.14,
+     * "DiscountAmount":0.137833
      * }
+     * ]
+     * }
+     *
      * @var mixed[]
      */
     public $resources;
@@ -40,9 +88,7 @@ class GetServiceEstimateCostResponseBody extends Model
         'resources' => 'Resources',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

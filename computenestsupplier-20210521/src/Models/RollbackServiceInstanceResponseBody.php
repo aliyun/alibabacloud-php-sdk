@@ -29,21 +29,36 @@ class RollbackServiceInstanceResponseBody extends Model
     /**
      * @description The deployment status of the service instance. Possible values:
      *
+     * - Created: Created
+     *
+     * - Deploying: Deploying
+     *
+     * - DeployedFailed: Deployment Failed
+     *
+     * - Deployed: Deployed
+     *
+     * - Upgrading: Upgrading
+     *
+     * - UpgradeRollbacking: Rolling Back
+     *
+     * - Deleting: Deleting
+     *
+     * - Deleted: Deleted
+     *
      * - DeletedFailed: Deletion Failed
+     *
      * @example UpgradeRollbacking
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'serviceInstanceId' => 'ServiceInstanceId',
-        'status'            => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

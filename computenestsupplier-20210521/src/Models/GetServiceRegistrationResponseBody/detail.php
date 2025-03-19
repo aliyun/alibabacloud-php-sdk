@@ -44,15 +44,13 @@ class detail extends Model
      */
     public $templateDiffUrl;
     protected $_name = [
-        'atRisk'             => 'AtRisk',
+        'atRisk' => 'AtRisk',
         'hasRelatedArtifact' => 'HasRelatedArtifact',
-        'reports'            => 'Reports',
-        'templateDiffUrl'    => 'TemplateDiffUrl',
+        'reports' => 'Reports',
+        'templateDiffUrl' => 'TemplateDiffUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -15,6 +15,7 @@ class GetArtifactRepositoryCredentialsRequest extends Model
      *   AcrImage: container image.
      *
      * This parameter is required.
+     *
      * @example File
      *
      * @var string
@@ -30,13 +31,11 @@ class GetArtifactRepositoryCredentialsRequest extends Model
      */
     public $deployRegionId;
     protected $_name = [
-        'artifactType'   => 'ArtifactType',
+        'artifactType' => 'ArtifactType',
         'deployRegionId' => 'DeployRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

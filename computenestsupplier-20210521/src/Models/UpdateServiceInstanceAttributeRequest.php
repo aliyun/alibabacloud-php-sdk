@@ -13,6 +13,7 @@ class UpdateServiceInstanceAttributeRequest extends Model
      * @description The time when the service instance expires.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2023-12-25T02:28:40Z
      *
      * @var string
@@ -39,6 +40,7 @@ class UpdateServiceInstanceAttributeRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -49,22 +51,21 @@ class UpdateServiceInstanceAttributeRequest extends Model
      * @description The service instance ID.
      *
      * This parameter is required.
+     *
      * @example si-3df88e962cdexxxxxxxx
      *
      * @var string
      */
     public $serviceInstanceId;
     protected $_name = [
-        'endTime'           => 'EndTime',
-        'licenseData'       => 'LicenseData',
-        'reason'            => 'Reason',
-        'regionId'          => 'RegionId',
+        'endTime' => 'EndTime',
+        'licenseData' => 'LicenseData',
+        'reason' => 'Reason',
+        'regionId' => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

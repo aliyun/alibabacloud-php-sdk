@@ -47,15 +47,13 @@ class serviceInfos extends Model
      */
     public $shortDescription;
     protected $_name = [
-        'image'            => 'Image',
-        'locale'           => 'Locale',
-        'name'             => 'Name',
+        'image' => 'Image',
+        'locale' => 'Locale',
+        'name' => 'Name',
         'shortDescription' => 'ShortDescription',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

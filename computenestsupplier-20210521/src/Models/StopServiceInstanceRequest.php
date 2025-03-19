@@ -12,6 +12,7 @@ class StopServiceInstanceRequest extends Model
      * @description The client token that is used to ensure the idempotence of the request.
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
      * @example 10CM943JP0EN9****
      *
      * @var string
@@ -22,6 +23,7 @@ class StopServiceInstanceRequest extends Model
      * @description The region id where the service instance resides.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -32,20 +34,19 @@ class StopServiceInstanceRequest extends Model
      * @description The ID of the service instance.
      *
      * This parameter is required.
+     *
      * @example si-c39ed4779cec449f****
      *
      * @var string
      */
     public $serviceInstanceId;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'regionId'          => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class GetServiceInstanceRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -22,19 +23,18 @@ class GetServiceInstanceRequest extends Model
      * @description The ID of the service instance.
      *
      * This parameter is required.
+     *
      * @example si-d6ab3a63ccbb4b17****
      *
      * @var string
      */
     public $serviceInstanceId;
     protected $_name = [
-        'regionId'          => 'RegionId',
+        'regionId' => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

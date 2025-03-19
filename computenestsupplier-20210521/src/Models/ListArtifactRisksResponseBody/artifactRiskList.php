@@ -21,7 +21,11 @@ class artifactRiskList extends Model
      * @description Extended information, in JSON format, to be parsed according to the risk category
      *
      * @example {
+     * "feature": "ntpdate",
+     * "version": "4.2.6",
+     * "cveLocation": "/usr/lib"
      * }
+     *
      * @var string
      */
     public $extendInfo;
@@ -30,6 +34,7 @@ class artifactRiskList extends Model
      * @description Risk level:
      *
      * - high represents high
+     *
      * @example high
      *
      * @var string
@@ -47,7 +52,12 @@ class artifactRiskList extends Model
 
     /**
      * @description Risk type. Values:
+     * - AcrCve  Container image system vulnerability
+     * - AcrSca  Container image application vulnerability
+     * - EcsVulnerability  ECS image vulnerability information
+     * - EcsAlarm  ECS image security alarm
      * - EcsBaseline  ECS image baseline check
+     *
      * @example AcrCve
      *
      * @var string
@@ -72,18 +82,16 @@ class artifactRiskList extends Model
      */
     public $solution;
     protected $_name = [
-        'cveNos'       => 'CveNos',
-        'extendInfo'   => 'ExtendInfo',
-        'level'        => 'Level',
-        'riskName'     => 'RiskName',
-        'riskType'     => 'RiskType',
+        'cveNos' => 'CveNos',
+        'extendInfo' => 'ExtendInfo',
+        'level' => 'Level',
+        'riskName' => 'RiskName',
+        'riskType' => 'RiskType',
         'riskTypeName' => 'RiskTypeName',
-        'solution'     => 'Solution',
+        'solution' => 'Solution',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

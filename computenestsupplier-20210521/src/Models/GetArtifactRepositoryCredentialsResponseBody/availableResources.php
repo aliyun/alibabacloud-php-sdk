@@ -35,14 +35,12 @@ class availableResources extends Model
      */
     public $repositoryName;
     protected $_name = [
-        'path'           => 'Path',
-        'regionId'       => 'RegionId',
+        'path' => 'Path',
+        'regionId' => 'RegionId',
         'repositoryName' => 'RepositoryName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

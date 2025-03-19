@@ -47,7 +47,18 @@ class serviceRegistrations extends Model
     /**
      * @description Registration status. Allowed values:
      *
+     * - Submitted
+     *
+     * - Approved
+     *
+     * - Rejected
+     *
+     * - Canceled
+     *
+     * - Executed
+     *
      * - Executed: Executed.
+     *
      * @example Rejected
      *
      * @var string
@@ -63,17 +74,15 @@ class serviceRegistrations extends Model
      */
     public $submitTime;
     protected $_name = [
-        'comment'        => 'Comment',
-        'finishTime'     => 'FinishTime',
+        'comment' => 'Comment',
+        'finishTime' => 'FinishTime',
         'registrationId' => 'RegistrationId',
-        'serviceId'      => 'ServiceId',
-        'status'         => 'Status',
-        'submitTime'     => 'SubmitTime',
+        'serviceId' => 'ServiceId',
+        'status' => 'Status',
+        'submitTime' => 'SubmitTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -117,21 +117,19 @@ class resources extends Model
      */
     public $status;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'expireTime'        => 'ExpireTime',
-        'payType'           => 'PayType',
-        'productCode'       => 'ProductCode',
-        'productType'       => 'ProductType',
-        'renewStatus'       => 'RenewStatus',
-        'renewalPeriod'     => 'RenewalPeriod',
+        'createTime' => 'CreateTime',
+        'expireTime' => 'ExpireTime',
+        'payType' => 'PayType',
+        'productCode' => 'ProductCode',
+        'productType' => 'ProductType',
+        'renewStatus' => 'RenewStatus',
+        'renewalPeriod' => 'RenewalPeriod',
         'renewalPeriodUnit' => 'RenewalPeriodUnit',
-        'resourceARN'       => 'ResourceARN',
-        'status'            => 'Status',
+        'resourceARN' => 'ResourceARN',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

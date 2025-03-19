@@ -12,7 +12,16 @@ class ModifyServiceInstanceResourcesRequest extends Model
      * @description The imported resources.
      *
      * @example {
+     * "RegionId": "cn-hangzhou",
+     * "Type": "ResourceIds",
+     * "ResourceIds": {
+     * "ALIYUN::ECS::INSTANCE": ["i-xxx", "i-yyy"],
+     * "ALIYUN::RDS::INSTANCE": ["rm-xxx", "rm-yyy"],
+     * "ALIYUN::VPC::VPC": ["vpc-xxx", "vpc-yyy"],
+     * "ALIYUN::SLB::INSTANCE": ["lb-xxx", "lb-yyy"]
      * }
+     * }
+     *
      * @var string
      */
     public $resources;
@@ -21,6 +30,7 @@ class ModifyServiceInstanceResourcesRequest extends Model
      * @description The ID of the service instance.
      *
      * This parameter is required.
+     *
      * @example si-d8a0cc2a1ee04dce****
      *
      * @var string
@@ -39,14 +49,12 @@ class ModifyServiceInstanceResourcesRequest extends Model
      */
     public $serviceInstanceResourcesAction;
     protected $_name = [
-        'resources'                      => 'Resources',
-        'serviceInstanceId'              => 'ServiceInstanceId',
+        'resources' => 'Resources',
+        'serviceInstanceId' => 'ServiceInstanceId',
         'serviceInstanceResourcesAction' => 'ServiceInstanceResourcesAction',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

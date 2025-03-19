@@ -49,13 +49,11 @@ class specificationMappings extends Model
     protected $_name = [
         'specificationCode' => 'SpecificationCode',
         'specificationName' => 'SpecificationName',
-        'templateName'      => 'TemplateName',
-        'trialType'         => 'TrialType',
+        'templateName' => 'TemplateName',
+        'trialType' => 'TrialType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

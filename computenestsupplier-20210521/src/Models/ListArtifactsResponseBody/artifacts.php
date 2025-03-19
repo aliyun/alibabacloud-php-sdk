@@ -105,20 +105,18 @@ class artifacts extends Model
     public $tags;
     protected $_name = [
         'artifactBuildProperty' => 'ArtifactBuildProperty',
-        'artifactId'            => 'ArtifactId',
-        'artifactType'          => 'ArtifactType',
-        'description'           => 'Description',
-        'gmtModified'           => 'GmtModified',
-        'maxVersion'            => 'MaxVersion',
-        'name'                  => 'Name',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'status'                => 'Status',
-        'tags'                  => 'Tags',
+        'artifactId' => 'ArtifactId',
+        'artifactType' => 'ArtifactType',
+        'description' => 'Description',
+        'gmtModified' => 'GmtModified',
+        'maxVersion' => 'MaxVersion',
+        'name' => 'Name',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -201,7 +199,7 @@ class artifacts extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

@@ -43,13 +43,11 @@ class serviceInfo extends Model
     public $versionName;
     protected $_name = [
         'serviceType' => 'ServiceType',
-        'trialType'   => 'TrialType',
+        'trialType' => 'TrialType',
         'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

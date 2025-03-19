@@ -53,16 +53,14 @@ class serviceTestTasks extends Model
      */
     public $taskRegionId;
     protected $_name = [
-        'createTime'   => 'CreateTime',
-        'status'       => 'Status',
-        'taskId'       => 'TaskId',
-        'taskName'     => 'TaskName',
+        'createTime' => 'CreateTime',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
         'taskRegionId' => 'TaskRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

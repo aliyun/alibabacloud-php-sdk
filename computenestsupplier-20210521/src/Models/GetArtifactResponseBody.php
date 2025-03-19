@@ -101,7 +101,9 @@ class GetArtifactResponseBody extends Model
 
     /**
      * @description Permission fields are applicable to container image artifact and Helm Chart artifact They can only change from Automatic to Public. Options:
+     * - Public
      * - Automatic
+     *
      * @example Public
      *
      * @var string
@@ -179,29 +181,27 @@ class GetArtifactResponseBody extends Model
     public $versionName;
     protected $_name = [
         'artifactBuildProperty' => 'ArtifactBuildProperty',
-        'artifactBuildType'     => 'ArtifactBuildType',
-        'artifactId'            => 'ArtifactId',
-        'artifactProperty'      => 'ArtifactProperty',
-        'artifactType'          => 'ArtifactType',
-        'artifactVersion'       => 'ArtifactVersion',
-        'description'           => 'Description',
-        'gmtModified'           => 'GmtModified',
-        'maxVersion'            => 'MaxVersion',
-        'name'                  => 'Name',
-        'permissionType'        => 'PermissionType',
-        'progress'              => 'Progress',
-        'requestId'             => 'RequestId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'status'                => 'Status',
-        'statusDetail'          => 'StatusDetail',
-        'supportRegionIds'      => 'SupportRegionIds',
-        'tags'                  => 'Tags',
-        'versionName'           => 'VersionName',
+        'artifactBuildType' => 'ArtifactBuildType',
+        'artifactId' => 'ArtifactId',
+        'artifactProperty' => 'ArtifactProperty',
+        'artifactType' => 'ArtifactType',
+        'artifactVersion' => 'ArtifactVersion',
+        'description' => 'Description',
+        'gmtModified' => 'GmtModified',
+        'maxVersion' => 'MaxVersion',
+        'name' => 'Name',
+        'permissionType' => 'PermissionType',
+        'progress' => 'Progress',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'statusDetail' => 'StatusDetail',
+        'supportRegionIds' => 'SupportRegionIds',
+        'tags' => 'Tags',
+        'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -335,7 +335,7 @@ class GetArtifactResponseBody extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

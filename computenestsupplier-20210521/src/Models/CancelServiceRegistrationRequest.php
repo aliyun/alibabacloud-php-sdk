@@ -21,6 +21,7 @@ class CancelServiceRegistrationRequest extends Model
      * @description Region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -31,20 +32,19 @@ class CancelServiceRegistrationRequest extends Model
      * @description Service registration ID.
      *
      * This parameter is required.
+     *
      * @example sr-540930183f93xxxxxx
      *
      * @var string
      */
     public $registrationId;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'regionId'       => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
         'registrationId' => 'RegistrationId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

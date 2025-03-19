@@ -52,16 +52,14 @@ class ListServiceSharedAccountsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'shareAccount' => 'ShareAccount',
-        'totalCount'   => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class ListServiceSharedAccountsResponseBody extends Model
         if (isset($map['ShareAccount'])) {
             if (!empty($map['ShareAccount'])) {
                 $model->shareAccount = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ShareAccount'] as $item) {
                     $model->shareAccount[$n++] = null !== $item ? shareAccount::fromMap($item) : $item;
                 }

@@ -52,16 +52,14 @@ class ListServiceTestTasksResponseBody extends Model
      */
     public $serviceTestTasks;
     protected $_name = [
-        'count'            => 'Count',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'requestId'        => 'RequestId',
+        'count' => 'Count',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'serviceTestTasks' => 'ServiceTestTasks',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -114,7 +112,7 @@ class ListServiceTestTasksResponseBody extends Model
         if (isset($map['ServiceTestTasks'])) {
             if (!empty($map['ServiceTestTasks'])) {
                 $model->serviceTestTasks = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ServiceTestTasks'] as $item) {
                     $model->serviceTestTasks[$n++] = null !== $item ? serviceTestTasks::fromMap($item) : $item;
                 }

@@ -38,21 +38,20 @@ class ListResellersRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'filter'     => 'Filter',
+        'filter' => 'Filter',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -90,7 +89,7 @@ class ListResellersRequest extends Model
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Filter'] as $item) {
                     $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
                 }

@@ -18,11 +18,20 @@ class codeRepo extends Model
     public $branch;
 
     /**
+     * @description The endpoint.
+     * The URL address used to access the privately deployed GitLab instance.
+     *
+     * @example http://121.40.25.0
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The organization ID.
+     *
+     * @example 455231
+     *
      * @var string
      */
     public $orgId;
@@ -31,6 +40,7 @@ class codeRepo extends Model
      * @description The owner of the code repository.
      *
      * >  This parameter is available only if the git repository is private.
+     *
      * @example aliyun-computenest
      *
      * @var string
@@ -38,7 +48,15 @@ class codeRepo extends Model
     public $owner;
 
     /**
-     * @description The platform where the code repository is hosted.
+     * @description The platform type. Valid values:
+     *
+     * - github
+     *
+     * - gitee
+     *
+     * - gitlab
+     *
+     * - codeup
      *
      * @example github
      *
@@ -47,6 +65,10 @@ class codeRepo extends Model
     public $platform;
 
     /**
+     * @description The repository ID.
+     *
+     * @example 103
+     *
      * @var int
      */
     public $repoId;
@@ -60,18 +82,16 @@ class codeRepo extends Model
      */
     public $repoName;
     protected $_name = [
-        'branch'   => 'Branch',
+        'branch' => 'Branch',
         'endpoint' => 'Endpoint',
-        'orgId'    => 'OrgId',
-        'owner'    => 'Owner',
+        'orgId' => 'OrgId',
+        'owner' => 'Owner',
         'platform' => 'Platform',
-        'repoId'   => 'RepoId',
+        'repoId' => 'RepoId',
         'repoName' => 'RepoName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

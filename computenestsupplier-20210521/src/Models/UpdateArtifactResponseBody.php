@@ -118,7 +118,11 @@ class UpdateArtifactResponseBody extends Model
      * @description The ID of the region that supports the deployment package.
      *
      * @example [
+     * "cn-beijing",
+     * "cn-hangzhou",
+     * "cn-shanghai"
      * ]
+     *
      * @var string
      */
     public $supportRegionIds;
@@ -133,23 +137,21 @@ class UpdateArtifactResponseBody extends Model
     public $versionName;
     protected $_name = [
         'artifactBuildProperty' => 'ArtifactBuildProperty',
-        'artifactBuildType'     => 'ArtifactBuildType',
-        'artifactId'            => 'ArtifactId',
-        'artifactProperty'      => 'ArtifactProperty',
-        'artifactType'          => 'ArtifactType',
-        'artifactVersion'       => 'ArtifactVersion',
-        'description'           => 'Description',
-        'gmtModified'           => 'GmtModified',
-        'requestId'             => 'RequestId',
-        'status'                => 'Status',
-        'statusDetail'          => 'StatusDetail',
-        'supportRegionIds'      => 'SupportRegionIds',
-        'versionName'           => 'VersionName',
+        'artifactBuildType' => 'ArtifactBuildType',
+        'artifactId' => 'ArtifactId',
+        'artifactProperty' => 'ArtifactProperty',
+        'artifactType' => 'ArtifactType',
+        'artifactVersion' => 'ArtifactVersion',
+        'description' => 'Description',
+        'gmtModified' => 'GmtModified',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'statusDetail' => 'StatusDetail',
+        'supportRegionIds' => 'SupportRegionIds',
+        'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

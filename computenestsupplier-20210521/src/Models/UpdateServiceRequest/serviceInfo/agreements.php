@@ -27,12 +27,10 @@ class agreements extends Model
     public $url;
     protected $_name = [
         'name' => 'Name',
-        'url'  => 'Url',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

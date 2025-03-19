@@ -392,48 +392,46 @@ class services extends Model
      */
     public $virtualInternetService;
     protected $_name = [
-        'approvalType'                     => 'ApprovalType',
-        'artifactId'                       => 'ArtifactId',
-        'artifactVersion'                  => 'ArtifactVersion',
-        'buildInfo'                        => 'BuildInfo',
-        'categories'                       => 'Categories',
-        'commodity'                        => 'Commodity',
-        'commodityCode'                    => 'CommodityCode',
-        'createTime'                       => 'CreateTime',
-        'defaultVersion'                   => 'DefaultVersion',
-        'deployType'                       => 'DeployType',
-        'hasBeta'                          => 'HasBeta',
-        'hasDraft'                         => 'HasDraft',
+        'approvalType' => 'ApprovalType',
+        'artifactId' => 'ArtifactId',
+        'artifactVersion' => 'ArtifactVersion',
+        'buildInfo' => 'BuildInfo',
+        'categories' => 'Categories',
+        'commodity' => 'Commodity',
+        'commodityCode' => 'CommodityCode',
+        'createTime' => 'CreateTime',
+        'defaultVersion' => 'DefaultVersion',
+        'deployType' => 'DeployType',
+        'hasBeta' => 'HasBeta',
+        'hasDraft' => 'HasDraft',
         'latestResellSourceServiceVersion' => 'LatestResellSourceServiceVersion',
-        'publishTime'                      => 'PublishTime',
-        'relationType'                     => 'RelationType',
-        'resellApplyStatus'                => 'ResellApplyStatus',
-        'resellServiceId'                  => 'ResellServiceId',
-        'resourceGroupId'                  => 'ResourceGroupId',
-        'serviceDiscoverable'              => 'ServiceDiscoverable',
-        'serviceId'                        => 'ServiceId',
-        'serviceInfos'                     => 'ServiceInfos',
-        'serviceType'                      => 'ServiceType',
-        'shareType'                        => 'ShareType',
-        'sourceImage'                      => 'SourceImage',
-        'sourceServiceId'                  => 'SourceServiceId',
-        'sourceServiceVersion'             => 'SourceServiceVersion',
-        'sourceSupplierName'               => 'SourceSupplierName',
-        'status'                           => 'Status',
-        'supplierName'                     => 'SupplierName',
-        'supplierUrl'                      => 'SupplierUrl',
-        'tags'                             => 'Tags',
-        'tenantType'                       => 'TenantType',
-        'trialType'                        => 'TrialType',
-        'updateTime'                       => 'UpdateTime',
-        'version'                          => 'Version',
-        'versionName'                      => 'VersionName',
-        'virtualInternetService'           => 'VirtualInternetService',
+        'publishTime' => 'PublishTime',
+        'relationType' => 'RelationType',
+        'resellApplyStatus' => 'ResellApplyStatus',
+        'resellServiceId' => 'ResellServiceId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serviceDiscoverable' => 'ServiceDiscoverable',
+        'serviceId' => 'ServiceId',
+        'serviceInfos' => 'ServiceInfos',
+        'serviceType' => 'ServiceType',
+        'shareType' => 'ShareType',
+        'sourceImage' => 'SourceImage',
+        'sourceServiceId' => 'SourceServiceId',
+        'sourceServiceVersion' => 'SourceServiceVersion',
+        'sourceSupplierName' => 'SourceSupplierName',
+        'status' => 'Status',
+        'supplierName' => 'SupplierName',
+        'supplierUrl' => 'SupplierUrl',
+        'tags' => 'Tags',
+        'tenantType' => 'TenantType',
+        'trialType' => 'TrialType',
+        'updateTime' => 'UpdateTime',
+        'version' => 'Version',
+        'versionName' => 'VersionName',
+        'virtualInternetService' => 'VirtualInternetService',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -636,7 +634,7 @@ class services extends Model
         if (isset($map['ServiceInfos'])) {
             if (!empty($map['ServiceInfos'])) {
                 $model->serviceInfos = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ServiceInfos'] as $item) {
                     $model->serviceInfos[$n++] = null !== $item ? serviceInfos::fromMap($item) : $item;
                 }
@@ -672,7 +670,7 @@ class services extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }

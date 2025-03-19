@@ -57,15 +57,13 @@ class GetServiceTestTaskResponseBody extends Model
     public $taskRegionId;
     protected $_name = [
         'executionDetails' => 'ExecutionDetails',
-        'requestId'        => 'RequestId',
-        'status'           => 'Status',
-        'taskName'         => 'TaskName',
-        'taskRegionId'     => 'TaskRegionId',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'taskName' => 'TaskName',
+        'taskRegionId' => 'TaskRegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -106,7 +104,7 @@ class GetServiceTestTaskResponseBody extends Model
         if (isset($map['ExecutionDetails'])) {
             if (!empty($map['ExecutionDetails'])) {
                 $model->executionDetails = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ExecutionDetails'] as $item) {
                     $model->executionDetails[$n++] = null !== $item ? executionDetails::fromMap($item) : $item;
                 }

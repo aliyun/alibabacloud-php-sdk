@@ -96,20 +96,18 @@ class ReleaseArtifactResponseBody extends Model
      */
     public $versionName;
     protected $_name = [
-        'artifactId'       => 'ArtifactId',
+        'artifactId' => 'ArtifactId',
         'artifactProperty' => 'ArtifactProperty',
-        'artifactType'     => 'ArtifactType',
-        'artifactVersion'  => 'ArtifactVersion',
-        'description'      => 'Description',
-        'gmtModified'      => 'GmtModified',
-        'requestId'        => 'RequestId',
-        'status'           => 'Status',
-        'versionName'      => 'VersionName',
+        'artifactType' => 'ArtifactType',
+        'artifactVersion' => 'ArtifactVersion',
+        'description' => 'Description',
+        'gmtModified' => 'GmtModified',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

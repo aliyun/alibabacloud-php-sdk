@@ -12,6 +12,7 @@ class ListArtifactVersionsShrinkRequest extends Model
      * @description The ID of the deployment package.
      *
      * This parameter is required.
+     *
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -43,15 +44,13 @@ class ListArtifactVersionsShrinkRequest extends Model
      */
     public $nextToken;
     protected $_name = [
-        'artifactId'    => 'ArtifactId',
+        'artifactId' => 'ArtifactId',
         'filtersShrink' => 'Filters',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

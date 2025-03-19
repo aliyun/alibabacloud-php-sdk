@@ -21,6 +21,7 @@ class UpdateServiceTestCaseRequest extends Model
      * @description The service test case id.
      *
      * This parameter is required.
+     *
      * @example stc-2deec15c20b24aaf9f16
      *
      * @var string
@@ -31,6 +32,7 @@ class UpdateServiceTestCaseRequest extends Model
      * @description The service test case name.
      *
      * This parameter is required.
+     *
      * @example case1
      *
      * @var string
@@ -41,21 +43,24 @@ class UpdateServiceTestCaseRequest extends Model
      * @description The service test config.
      *
      * This parameter is required.
+     *
      * @example ---
+     * parameters:
+     * PayType: "PostPaid"
+     * EcsInstanceType: "$[iact3-auto]"
      * InstancePassword: "$[iact3-auto]"
+     *
      * @var string
      */
     public $testConfig;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'testCaseId'   => 'TestCaseId',
+        'regionId' => 'RegionId',
+        'testCaseId' => 'TestCaseId',
         'testCaseName' => 'TestCaseName',
-        'testConfig'   => 'TestConfig',
+        'testConfig' => 'TestConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

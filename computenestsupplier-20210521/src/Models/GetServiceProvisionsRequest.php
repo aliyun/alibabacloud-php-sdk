@@ -30,6 +30,7 @@ class GetServiceProvisionsRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-20b8a396048346xxxxxx
      *
      * @var string
@@ -54,16 +55,14 @@ class GetServiceProvisionsRequest extends Model
      */
     public $templateName;
     protected $_name = [
-        'parameters'     => 'Parameters',
-        'regionId'       => 'RegionId',
-        'serviceId'      => 'ServiceId',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'serviceVersion' => 'ServiceVersion',
-        'templateName'   => 'TemplateName',
+        'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

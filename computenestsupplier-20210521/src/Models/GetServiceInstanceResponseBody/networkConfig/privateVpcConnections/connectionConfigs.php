@@ -86,19 +86,17 @@ class connectionConfigs extends Model
      */
     public $vpcId;
     protected $_name = [
-        'connectBandwidth'      => 'ConnectBandwidth',
-        'domainName'            => 'DomainName',
-        'endpointIps'           => 'EndpointIps',
+        'connectBandwidth' => 'ConnectBandwidth',
+        'domainName' => 'DomainName',
+        'endpointIps' => 'EndpointIps',
         'ingressEndpointStatus' => 'IngressEndpointStatus',
-        'networkServiceStatus'  => 'NetworkServiceStatus',
-        'securityGroups'        => 'SecurityGroups',
-        'vSwitches'             => 'VSwitches',
-        'vpcId'                 => 'VpcId',
+        'networkServiceStatus' => 'NetworkServiceStatus',
+        'securityGroups' => 'SecurityGroups',
+        'vSwitches' => 'VSwitches',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

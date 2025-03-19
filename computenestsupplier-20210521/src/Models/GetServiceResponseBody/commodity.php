@@ -89,20 +89,18 @@ class commodity extends Model
      */
     public $type;
     protected $_name = [
-        'chargeType'          => 'ChargeType',
-        'commodityCode'       => 'CommodityCode',
-        'components'          => 'Components',
-        'cssMetadata'         => 'CssMetadata',
+        'chargeType' => 'ChargeType',
+        'commodityCode' => 'CommodityCode',
+        'components' => 'Components',
+        'cssMetadata' => 'CssMetadata',
         'marketplaceMetadata' => 'MarketplaceMetadata',
-        'meteringEntities'    => 'MeteringEntities',
-        'saasBoostMetadata'   => 'SaasBoostMetadata',
-        'specifications'      => 'Specifications',
-        'type'                => 'Type',
+        'meteringEntities' => 'MeteringEntities',
+        'saasBoostMetadata' => 'SaasBoostMetadata',
+        'specifications' => 'Specifications',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -178,7 +176,7 @@ class commodity extends Model
         if (isset($map['MeteringEntities'])) {
             if (!empty($map['MeteringEntities'])) {
                 $model->meteringEntities = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['MeteringEntities'] as $item) {
                     $model->meteringEntities[$n++] = null !== $item ? meteringEntities::fromMap($item) : $item;
                 }
@@ -190,7 +188,7 @@ class commodity extends Model
         if (isset($map['Specifications'])) {
             if (!empty($map['Specifications'])) {
                 $model->specifications = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['Specifications'] as $item) {
                     $model->specifications[$n++] = null !== $item ? specifications::fromMap($item) : $item;
                 }

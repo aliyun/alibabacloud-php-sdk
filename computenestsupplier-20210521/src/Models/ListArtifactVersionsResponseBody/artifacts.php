@@ -147,7 +147,11 @@ class artifacts extends Model
      * @description The ID of the region that supports the deployment package.
      *
      * @example [
+     * "cn-beijing",
+     * "cn-hangzhou",
+     * "cn-shanghai"
      * ]
+     *
      * @var string
      */
     public $supportRegionIds;
@@ -162,26 +166,24 @@ class artifacts extends Model
     public $versionName;
     protected $_name = [
         'artifactBuildProperty' => 'ArtifactBuildProperty',
-        'artifactBuildType'     => 'ArtifactBuildType',
-        'artifactId'            => 'ArtifactId',
-        'artifactProperty'      => 'ArtifactProperty',
-        'artifactType'          => 'ArtifactType',
-        'artifactVersion'       => 'ArtifactVersion',
-        'gmtCreate'             => 'GmtCreate',
-        'gmtModified'           => 'GmtModified',
-        'imageDelivery'         => 'ImageDelivery',
-        'progress'              => 'Progress',
-        'resultFile'            => 'ResultFile',
-        'securityAuditResult'   => 'SecurityAuditResult',
-        'status'                => 'Status',
-        'statusDetail'          => 'StatusDetail',
-        'supportRegionIds'      => 'SupportRegionIds',
-        'versionName'           => 'VersionName',
+        'artifactBuildType' => 'ArtifactBuildType',
+        'artifactId' => 'ArtifactId',
+        'artifactProperty' => 'ArtifactProperty',
+        'artifactType' => 'ArtifactType',
+        'artifactVersion' => 'ArtifactVersion',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'imageDelivery' => 'ImageDelivery',
+        'progress' => 'Progress',
+        'resultFile' => 'ResultFile',
+        'securityAuditResult' => 'SecurityAuditResult',
+        'status' => 'Status',
+        'statusDetail' => 'StatusDetail',
+        'supportRegionIds' => 'SupportRegionIds',
+        'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

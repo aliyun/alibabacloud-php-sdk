@@ -12,6 +12,7 @@ class CreateSupplierRegistrationRequest extends Model
      * @description Contact email
      *
      * This parameter is required.
+     *
      * @example xxxx@xxx.com
      *
      * @var string
@@ -22,6 +23,7 @@ class CreateSupplierRegistrationRequest extends Model
      * @description Contact number
      *
      * This parameter is required.
+     *
      * @example 186xxxxxxxxx
      *
      * @var string
@@ -32,6 +34,7 @@ class CreateSupplierRegistrationRequest extends Model
      * @description Contact person
      *
      * This parameter is required.
+     *
      * @example Mike
      *
      * @var string
@@ -42,6 +45,7 @@ class CreateSupplierRegistrationRequest extends Model
      * @description Contact person tiltle
      *
      * This parameter is required.
+     *
      * @example CTO
      *
      * @var string
@@ -79,6 +83,7 @@ class CreateSupplierRegistrationRequest extends Model
      * @description Product delivery type
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $productDeliveryTypes;
@@ -96,6 +101,7 @@ class CreateSupplierRegistrationRequest extends Model
      * @description Product sell type
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $productSellTypes;
@@ -104,6 +110,7 @@ class CreateSupplierRegistrationRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -132,6 +139,7 @@ class CreateSupplierRegistrationRequest extends Model
      * @description The description of service provider.
      *
      * This parameter is required.
+     *
      * @example Test supplier
      *
      * @var string
@@ -151,6 +159,7 @@ class CreateSupplierRegistrationRequest extends Model
      * @description The name of the service provider.
      *
      * This parameter is required.
+     *
      * @example Alibaba Cloud
      *
      * @var string
@@ -161,6 +170,7 @@ class CreateSupplierRegistrationRequest extends Model
      * @description The english name of the service provider.
      *
      * This parameter is required.
+     *
      * @example Alibaba Cloud
      *
      * @var string
@@ -171,35 +181,34 @@ class CreateSupplierRegistrationRequest extends Model
      * @description The URL of the service provider.
      *
      * This parameter is required.
+     *
      * @example http://www.xxx.xxx.cn
      *
      * @var string
      */
     public $supplierUrl;
     protected $_name = [
-        'contactEmail'         => 'ContactEmail',
-        'contactNumber'        => 'ContactNumber',
-        'contactPerson'        => 'ContactPerson',
-        'contactPersonTitle'   => 'ContactPersonTitle',
-        'enableResellerMode'   => 'EnableResellerMode',
+        'contactEmail' => 'ContactEmail',
+        'contactNumber' => 'ContactNumber',
+        'contactPerson' => 'ContactPerson',
+        'contactPersonTitle' => 'ContactPersonTitle',
+        'enableResellerMode' => 'EnableResellerMode',
         'productAnnualRevenue' => 'ProductAnnualRevenue',
-        'productBusiness'      => 'ProductBusiness',
+        'productBusiness' => 'ProductBusiness',
         'productDeliveryTypes' => 'ProductDeliveryTypes',
-        'productPublishTime'   => 'ProductPublishTime',
-        'productSellTypes'     => 'ProductSellTypes',
-        'regionId'             => 'RegionId',
-        'resellBusinessDesc'   => 'ResellBusinessDesc',
-        'suggestion'           => 'Suggestion',
-        'supplierDesc'         => 'SupplierDesc',
-        'supplierLogo'         => 'SupplierLogo',
-        'supplierName'         => 'SupplierName',
-        'supplierNameEn'       => 'SupplierNameEn',
-        'supplierUrl'          => 'SupplierUrl',
+        'productPublishTime' => 'ProductPublishTime',
+        'productSellTypes' => 'ProductSellTypes',
+        'regionId' => 'RegionId',
+        'resellBusinessDesc' => 'ResellBusinessDesc',
+        'suggestion' => 'Suggestion',
+        'supplierDesc' => 'SupplierDesc',
+        'supplierLogo' => 'SupplierLogo',
+        'supplierName' => 'SupplierName',
+        'supplierNameEn' => 'SupplierNameEn',
+        'supplierUrl' => 'SupplierUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -53,15 +53,13 @@ class ListServiceInstanceDeployDetailsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'deployDetails' => 'DeployDetails',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class ListServiceInstanceDeployDetailsResponseBody extends Model
         if (isset($map['DeployDetails'])) {
             if (!empty($map['DeployDetails'])) {
                 $model->deployDetails = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['DeployDetails'] as $item) {
                     $model->deployDetails[$n++] = null !== $item ? deployDetails::fromMap($item) : $item;
                 }

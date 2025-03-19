@@ -32,14 +32,12 @@ class GetServiceTemplateParameterConstraintsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'familyConstraints'    => 'FamilyConstraints',
+        'familyConstraints' => 'FamilyConstraints',
         'parameterConstraints' => 'ParameterConstraints',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class GetServiceTemplateParameterConstraintsResponseBody extends Model
         if (isset($map['ParameterConstraints'])) {
             if (!empty($map['ParameterConstraints'])) {
                 $model->parameterConstraints = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['ParameterConstraints'] as $item) {
                     $model->parameterConstraints[$n++] = null !== $item ? parameterConstraints::fromMap($item) : $item;
                 }

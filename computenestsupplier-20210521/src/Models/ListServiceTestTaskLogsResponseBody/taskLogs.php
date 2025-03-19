@@ -21,19 +21,18 @@ class taskLogs extends Model
      * @description The UTC timestamp when the response is returned.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2022-12-12T20:00:09Z
      *
      * @var string
      */
     public $timestamp;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'timestamp' => 'Timestamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

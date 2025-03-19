@@ -29,7 +29,10 @@ class ListServiceTestTaskLogsRequest extends Model
     /**
      * @description Sort Order. Possible values:
      *
+     * + Ascending: Ascending order
+     *
      * + Descending (default value): Descending order
+     *
      * @example Ascending
      *
      * @var string
@@ -46,14 +49,12 @@ class ListServiceTestTaskLogsRequest extends Model
     public $taskId;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'sortOrder'  => 'SortOrder',
-        'taskId'     => 'TaskId',
+        'nextToken' => 'NextToken',
+        'sortOrder' => 'SortOrder',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

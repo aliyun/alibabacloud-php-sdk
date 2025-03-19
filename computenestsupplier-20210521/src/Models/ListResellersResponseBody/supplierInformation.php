@@ -56,13 +56,11 @@ class supplierInformation extends Model
         'supplierDesc' => 'SupplierDesc',
         'supplierLogo' => 'SupplierLogo',
         'supplierName' => 'SupplierName',
-        'supplierUid'  => 'SupplierUid',
-        'supplierUrl'  => 'SupplierUrl',
+        'supplierUid' => 'SupplierUid',
+        'supplierUrl' => 'SupplierUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

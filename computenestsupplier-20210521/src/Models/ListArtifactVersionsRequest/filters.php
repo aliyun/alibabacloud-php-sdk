@@ -26,13 +26,11 @@ class filters extends Model
      */
     public $values;
     protected $_name = [
-        'name'   => 'Name',
+        'name' => 'Name',
         'values' => 'Values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

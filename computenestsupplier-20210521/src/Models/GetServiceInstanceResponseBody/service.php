@@ -91,7 +91,20 @@ class service extends Model
     /**
      * @description The status of the service. Valid values:
      *
+     * Draft: The registration request of the service is pending to be submitted.
+     *
+     * Submitted: The registration request of the service is submitted.
+     *
+     * Approved: The registration request of the service is approved.
+     *
+     * Online: The service is published.
+     *
+     * Offline: The service is unpublished.
+     *
+     * Deleted: The service is deleted.
+     *
      * Launching: The service is being published.
+     *
      * @example Online
      *
      * @var string
@@ -148,26 +161,24 @@ class service extends Model
      */
     public $versionName;
     protected $_name = [
-        'deployMetadata'            => 'DeployMetadata',
-        'deployType'                => 'DeployType',
-        'publishTime'               => 'PublishTime',
-        'serviceDocUrl'             => 'ServiceDocUrl',
-        'serviceId'                 => 'ServiceId',
-        'serviceInfos'              => 'ServiceInfos',
-        'serviceProductUrl'         => 'ServiceProductUrl',
-        'serviceType'               => 'ServiceType',
-        'status'                    => 'Status',
-        'supplierName'              => 'SupplierName',
-        'supplierUrl'               => 'SupplierUrl',
-        'upgradableServiceInfos'    => 'UpgradableServiceInfos',
+        'deployMetadata' => 'DeployMetadata',
+        'deployType' => 'DeployType',
+        'publishTime' => 'PublishTime',
+        'serviceDocUrl' => 'ServiceDocUrl',
+        'serviceId' => 'ServiceId',
+        'serviceInfos' => 'ServiceInfos',
+        'serviceProductUrl' => 'ServiceProductUrl',
+        'serviceType' => 'ServiceType',
+        'status' => 'Status',
+        'supplierName' => 'SupplierName',
+        'supplierUrl' => 'SupplierUrl',
+        'upgradableServiceInfos' => 'UpgradableServiceInfos',
         'upgradableServiceVersions' => 'UpgradableServiceVersions',
-        'version'                   => 'Version',
-        'versionName'               => 'VersionName',
+        'version' => 'Version',
+        'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -259,7 +270,7 @@ class service extends Model
         if (isset($map['ServiceInfos'])) {
             if (!empty($map['ServiceInfos'])) {
                 $model->serviceInfos = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ServiceInfos'] as $item) {
                     $model->serviceInfos[$n++] = null !== $item ? serviceInfos::fromMap($item) : $item;
                 }
@@ -283,7 +294,7 @@ class service extends Model
         if (isset($map['UpgradableServiceInfos'])) {
             if (!empty($map['UpgradableServiceInfos'])) {
                 $model->upgradableServiceInfos = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['UpgradableServiceInfos'] as $item) {
                     $model->upgradableServiceInfos[$n++] = null !== $item ? upgradableServiceInfos::fromMap($item) : $item;
                 }

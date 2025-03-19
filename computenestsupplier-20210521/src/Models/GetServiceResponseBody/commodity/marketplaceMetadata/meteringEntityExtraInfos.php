@@ -44,15 +44,13 @@ class meteringEntityExtraInfos extends Model
      */
     public $type;
     protected $_name = [
-        'entityId'   => 'EntityId',
+        'entityId' => 'EntityId',
         'metricName' => 'MetricName',
-        'promql'     => 'Promql',
-        'type'       => 'Type',
+        'promql' => 'Promql',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

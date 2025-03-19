@@ -27,6 +27,11 @@ class repositories extends Model
     public $modifiedTime;
 
     /**
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @description The image repo ID.
      *
      * @example crr-3gqhkza0wbxxxxxx
@@ -56,16 +61,15 @@ class repositories extends Model
      */
     public $repoType;
     protected $_name = [
-        'createTime'   => 'CreateTime',
+        'createTime' => 'CreateTime',
         'modifiedTime' => 'ModifiedTime',
-        'repoId'       => 'RepoId',
-        'repoName'     => 'RepoName',
-        'repoType'     => 'RepoType',
+        'namespace' => 'Namespace',
+        'repoId' => 'RepoId',
+        'repoName' => 'RepoName',
+        'repoType' => 'RepoType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,6 +79,9 @@ class repositories extends Model
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
@@ -102,6 +109,9 @@ class repositories extends Model
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];

@@ -52,16 +52,14 @@ class ListArtifactVersionsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'artifacts'  => 'Artifacts',
+        'artifacts' => 'Artifacts',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class ListArtifactVersionsResponseBody extends Model
         if (isset($map['Artifacts'])) {
             if (!empty($map['Artifacts'])) {
                 $model->artifacts = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Artifacts'] as $item) {
                     $model->artifacts[$n++] = null !== $item ? artifacts::fromMap($item) : $item;
                 }

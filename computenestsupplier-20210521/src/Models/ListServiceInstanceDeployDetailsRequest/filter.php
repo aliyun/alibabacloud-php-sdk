@@ -11,7 +11,16 @@ class filter extends Model
     /**
      * @description Filter Value Names (Equivalent to SQL\\"s WHERE Clause)
      *
+     * Available Options:
+     *
+     * - UserId
+     * - ServiceId
+     * - ServiceVersion
+     * - ServiceInstanceId
+     * - DeploySucceeded (Accepts True or False and case-insensitive)
+     * - ErrorType
      * - ErrorCode
+     *
      * @example ServiceId
      *
      * @var string
@@ -25,13 +34,11 @@ class filter extends Model
      */
     public $value;
     protected $_name = [
-        'name'  => 'Name',
+        'name' => 'Name',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

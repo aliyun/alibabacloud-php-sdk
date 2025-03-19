@@ -26,13 +26,11 @@ class reversePrivateVpcConnections extends Model
      */
     public $endpointServiceId;
     protected $_name = [
-        'endpointId'        => 'EndpointId',
+        'endpointId' => 'EndpointId',
         'endpointServiceId' => 'EndpointServiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

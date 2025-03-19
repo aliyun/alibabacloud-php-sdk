@@ -27,12 +27,10 @@ class meteringEntities extends Model
     public $name;
     protected $_name = [
         'entityId' => 'EntityId',
-        'name'     => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class DeployServiceInstanceRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -31,20 +32,19 @@ class DeployServiceInstanceRequest extends Model
      * @description The ID of the service instance.
      *
      * This parameter is required.
+     *
      * @example si-0e6fca6a51a54420****
      *
      * @var string
      */
     public $serviceInstanceId;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'regionId'          => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

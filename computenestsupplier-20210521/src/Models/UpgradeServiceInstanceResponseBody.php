@@ -51,15 +51,13 @@ class UpgradeServiceInstanceResponseBody extends Model
      */
     public $upgradeRequiredParameters;
     protected $_name = [
-        'requestId'                 => 'RequestId',
-        'serviceInstanceId'         => 'ServiceInstanceId',
-        'status'                    => 'Status',
+        'requestId' => 'RequestId',
+        'serviceInstanceId' => 'ServiceInstanceId',
+        'status' => 'Status',
         'upgradeRequiredParameters' => 'UpgradeRequiredParameters',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

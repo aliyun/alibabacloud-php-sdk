@@ -21,6 +21,7 @@ class UpdateArtifactRequest extends Model
      * @description The ID of the deployment package.
      *
      * This parameter is required.
+     *
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -55,7 +56,10 @@ class UpdateArtifactRequest extends Model
     /**
      * @description Permission fields are applicable to container image artifact and Helm Chart artifact. They can only change from Automatic to Public. Options:
      *
+     * Public
+     *
      * Automatic
+     *
      * @example Public
      *
      * @var string
@@ -79,18 +83,16 @@ class UpdateArtifactRequest extends Model
     public $versionName;
     protected $_name = [
         'artifactBuildProperty' => 'ArtifactBuildProperty',
-        'artifactId'            => 'ArtifactId',
-        'artifactProperty'      => 'ArtifactProperty',
-        'clientToken'           => 'ClientToken',
-        'description'           => 'Description',
-        'permissionType'        => 'PermissionType',
-        'supportRegionIds'      => 'SupportRegionIds',
-        'versionName'           => 'VersionName',
+        'artifactId' => 'ArtifactId',
+        'artifactProperty' => 'ArtifactProperty',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'permissionType' => 'PermissionType',
+        'supportRegionIds' => 'SupportRegionIds',
+        'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

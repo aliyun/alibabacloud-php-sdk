@@ -33,7 +33,9 @@ class UpgradeServiceInstanceRequest extends Model
      * @description The configuration parameters of the service instance.
      *
      * @example {
+     * "param": "value"
      * }
+     *
      * @var mixed[]
      */
     public $parameters;
@@ -65,17 +67,15 @@ class UpgradeServiceInstanceRequest extends Model
      */
     public $serviceVersion;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'dryRun'            => 'DryRun',
-        'parameters'        => 'Parameters',
-        'regionId'          => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
-        'serviceVersion'    => 'ServiceVersion',
+        'serviceVersion' => 'ServiceVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -44,14 +44,12 @@ class CreateServiceInstanceResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'serviceInstanceId' => 'ServiceInstanceId',
-        'status'            => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

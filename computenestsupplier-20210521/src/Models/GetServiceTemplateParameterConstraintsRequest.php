@@ -22,6 +22,7 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
      * @description The ID of the region in which the service instance is deployed.
      *
      * This parameter is required.
+     *
      * @example cn-huhehaote
      *
      * @var string
@@ -51,6 +52,7 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -61,6 +63,7 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-1c11f365190c44xxxxxx
      *
      * @var string
@@ -89,26 +92,25 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
      * @description The template name.
      *
      * This parameter is required.
+     *
      * @example 模板1
      *
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'clientToken'                => 'ClientToken',
-        'deployRegionId'             => 'DeployRegionId',
+        'clientToken' => 'ClientToken',
+        'deployRegionId' => 'DeployRegionId',
         'enablePrivateVpcConnection' => 'EnablePrivateVpcConnection',
-        'parameters'                 => 'Parameters',
-        'regionId'                   => 'RegionId',
-        'serviceId'                  => 'ServiceId',
-        'serviceInstanceId'          => 'ServiceInstanceId',
-        'serviceVersion'             => 'ServiceVersion',
-        'templateName'               => 'TemplateName',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
+        'serviceInstanceId' => 'ServiceInstanceId',
+        'serviceVersion' => 'ServiceVersion',
+        'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -170,7 +172,7 @@ class GetServiceTemplateParameterConstraintsRequest extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Parameters'] as $item) {
                     $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }

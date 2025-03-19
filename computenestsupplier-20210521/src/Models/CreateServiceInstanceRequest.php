@@ -33,7 +33,10 @@ class CreateServiceInstanceRequest extends Model
     /**
      * @description The time when the service instance was released.
      *
+     * >  This parameter is available only for the service instances that are managed by service providers.
+     *
      * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2023-12-12T03:13:05Z
      *
      * @var string
@@ -56,6 +59,7 @@ class CreateServiceInstanceRequest extends Model
      * @description The parameters that are specified for service instance deployment.
      *
      * >  If you want to specify the region in which the service instance is deployed, you must specify the information in Parameters.
+     *
      * @example {"NodeCount": 3, "SystemDiskSize": 40, "InstancePassword": "******"}
      *
      * @var mixed[]
@@ -69,6 +73,7 @@ class CreateServiceInstanceRequest extends Model
      *   ap-southeast-1: Singapore
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -88,6 +93,7 @@ class CreateServiceInstanceRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-0e6fca6a51a54420****
      *
      * @var string
@@ -137,24 +143,22 @@ class CreateServiceInstanceRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'dryRun'            => 'DryRun',
-        'endTime'           => 'EndTime',
-        'name'              => 'Name',
-        'parameters'        => 'Parameters',
-        'regionId'          => 'RegionId',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'serviceId'         => 'ServiceId',
-        'serviceVersion'    => 'ServiceVersion',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'endTime' => 'EndTime',
+        'name' => 'Name',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serviceId' => 'ServiceId',
+        'serviceVersion' => 'ServiceVersion',
         'specificationName' => 'SpecificationName',
-        'tag'               => 'Tag',
-        'templateName'      => 'TemplateName',
-        'userId'            => 'UserId',
+        'tag' => 'Tag',
+        'templateName' => 'TemplateName',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -249,7 +253,7 @@ class CreateServiceInstanceRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

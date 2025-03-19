@@ -53,15 +53,13 @@ class ListServicesResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
-        'services'   => 'Services',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'services' => 'Services',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class ListServicesResponseBody extends Model
         if (isset($map['Services'])) {
             if (!empty($map['Services'])) {
                 $model->services = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Services'] as $item) {
                     $model->services[$n++] = null !== $item ? services::fromMap($item) : $item;
                 }

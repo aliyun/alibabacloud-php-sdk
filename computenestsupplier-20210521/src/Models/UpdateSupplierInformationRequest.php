@@ -38,6 +38,7 @@ class UpdateSupplierInformationRequest extends Model
      * @description Region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -71,18 +72,16 @@ class UpdateSupplierInformationRequest extends Model
      */
     public $supplierUrl;
     protected $_name = [
-        'deliverySettings'    => 'DeliverySettings',
-        'operationIp'         => 'OperationIp',
+        'deliverySettings' => 'DeliverySettings',
+        'operationIp' => 'OperationIp',
         'operationMfaPresent' => 'OperationMfaPresent',
-        'regionId'            => 'RegionId',
-        'supplierDesc'        => 'SupplierDesc',
-        'supplierLogo'        => 'SupplierLogo',
-        'supplierUrl'         => 'SupplierUrl',
+        'regionId' => 'RegionId',
+        'supplierDesc' => 'SupplierDesc',
+        'supplierLogo' => 'SupplierLogo',
+        'supplierUrl' => 'SupplierUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

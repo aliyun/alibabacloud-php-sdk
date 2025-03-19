@@ -12,6 +12,7 @@ class GenerateDefaultServiceTestConfigRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-41ad58439b4b4bf8ae73
      *
      * @var string
@@ -22,6 +23,7 @@ class GenerateDefaultServiceTestConfigRequest extends Model
      * @description The service version.
      *
      * This parameter is required.
+     *
      * @example draft
      *
      * @var string
@@ -37,14 +39,12 @@ class GenerateDefaultServiceTestConfigRequest extends Model
      */
     public $templateName;
     protected $_name = [
-        'serviceId'      => 'ServiceId',
+        'serviceId' => 'ServiceId',
         'serviceVersion' => 'ServiceVersion',
-        'templateName'   => 'TemplateName',
+        'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

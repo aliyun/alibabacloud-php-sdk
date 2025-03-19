@@ -26,13 +26,11 @@ class CreateServiceTestCaseResponseBody extends Model
      */
     public $testCaseId;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'testCaseId' => 'TestCaseId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

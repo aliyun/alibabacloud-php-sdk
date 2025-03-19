@@ -38,22 +38,24 @@ class meteringEntityExtraInfos extends Model
     /**
      * @description Type. Valid values:
      *
+     * - Custom
+     * - ComputeNestBill
+     * - ComputeNestPrometheus
      * - ComputeNestTime
+     *
      * @example Custom
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'entityId'   => 'EntityId',
+        'entityId' => 'EntityId',
         'metricName' => 'MetricName',
-        'promql'     => 'Promql',
-        'type'       => 'Type',
+        'promql' => 'Promql',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

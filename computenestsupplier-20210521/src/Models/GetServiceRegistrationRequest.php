@@ -12,6 +12,7 @@ class GetServiceRegistrationRequest extends Model
      * @description Region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -27,13 +28,11 @@ class GetServiceRegistrationRequest extends Model
      */
     public $registrationId;
     protected $_name = [
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
         'registrationId' => 'RegistrationId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

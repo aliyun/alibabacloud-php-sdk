@@ -19,6 +19,7 @@ class GenerateServicePolicyRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -29,6 +30,7 @@ class GenerateServicePolicyRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-6c20f0f8085645xxxxxx
      *
      * @var string
@@ -66,16 +68,14 @@ class GenerateServicePolicyRequest extends Model
     public $trialType;
     protected $_name = [
         'operationTypes' => 'OperationTypes',
-        'regionId'       => 'RegionId',
-        'serviceId'      => 'ServiceId',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'serviceVersion' => 'ServiceVersion',
-        'templateName'   => 'TemplateName',
-        'trialType'      => 'TrialType',
+        'templateName' => 'TemplateName',
+        'trialType' => 'TrialType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

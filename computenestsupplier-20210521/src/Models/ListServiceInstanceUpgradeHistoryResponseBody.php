@@ -52,16 +52,14 @@ class ListServiceInstanceUpgradeHistoryResponseBody extends Model
      */
     public $upgradeHistory;
     protected $_name = [
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'upgradeHistory' => 'UpgradeHistory',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -114,7 +112,7 @@ class ListServiceInstanceUpgradeHistoryResponseBody extends Model
         if (isset($map['UpgradeHistory'])) {
             if (!empty($map['UpgradeHistory'])) {
                 $model->upgradeHistory = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['UpgradeHistory'] as $item) {
                     $model->upgradeHistory[$n++] = null !== $item ? upgradeHistory::fromMap($item) : $item;
                 }

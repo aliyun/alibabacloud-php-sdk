@@ -52,16 +52,14 @@ class ListResellersResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'requestId'           => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'supplierInformation' => 'SupplierInformation',
-        'totalCount'          => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class ListResellersResponseBody extends Model
         if (isset($map['SupplierInformation'])) {
             if (!empty($map['SupplierInformation'])) {
                 $model->supplierInformation = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['SupplierInformation'] as $item) {
                     $model->supplierInformation[$n++] = null !== $item ? supplierInformation::fromMap($item) : $item;
                 }

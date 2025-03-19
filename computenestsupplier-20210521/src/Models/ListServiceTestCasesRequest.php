@@ -61,17 +61,15 @@ class ListServiceTestCasesRequest extends Model
      */
     public $serviceVersion;
     protected $_name = [
-        'filters'        => 'Filters',
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'regionId'       => 'RegionId',
-        'serviceId'      => 'ServiceId',
+        'filters' => 'Filters',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'serviceVersion' => 'ServiceVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -115,7 +113,7 @@ class ListServiceTestCasesRequest extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Filters'] as $item) {
                     $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
                 }

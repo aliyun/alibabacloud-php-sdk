@@ -36,6 +36,7 @@ class ListServiceInstanceLogsRequest extends Model
     /**
      * @description The name of the Logstore to which log entries are delivered.
      * It needs to be provided only when LogSource is set to Application.
+     *
      * @example livelog
      *
      * @var string
@@ -45,7 +46,10 @@ class ListServiceInstanceLogsRequest extends Model
     /**
      * @description The maximum number of entries per page.
      *
+     * Valid values: 1 to 100.
+     *
      * Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -65,6 +69,7 @@ class ListServiceInstanceLogsRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -75,6 +80,7 @@ class ListServiceInstanceLogsRequest extends Model
      * @description The ID of the service instance.
      *
      * This parameter is required.
+     *
      * @example si-70a3b15bb626435b****
      *
      * @var string
@@ -84,26 +90,27 @@ class ListServiceInstanceLogsRequest extends Model
     /**
      * @description Sort Order. Possible values:
      *
+     * + Ascending: Ascending order
+     *
      * + Descending (default value): Descending order
+     *
      * @example Ascending
      *
      * @var string
      */
     public $sortOrder;
     protected $_name = [
-        'filter'            => 'Filter',
-        'logSource'         => 'LogSource',
-        'logstore'          => 'Logstore',
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
-        'regionId'          => 'RegionId',
+        'filter' => 'Filter',
+        'logSource' => 'LogSource',
+        'logstore' => 'Logstore',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
-        'sortOrder'         => 'SortOrder',
+        'sortOrder' => 'SortOrder',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -153,7 +160,7 @@ class ListServiceInstanceLogsRequest extends Model
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Filter'] as $item) {
                     $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
                 }

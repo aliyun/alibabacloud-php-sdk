@@ -26,13 +26,11 @@ class upgradableServiceInfos extends Model
      */
     public $versionName;
     protected $_name = [
-        'version'     => 'Version',
+        'version' => 'Version',
         'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

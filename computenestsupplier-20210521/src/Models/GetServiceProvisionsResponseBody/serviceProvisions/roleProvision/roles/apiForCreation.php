@@ -47,15 +47,13 @@ class apiForCreation extends Model
      */
     public $parameters;
     protected $_name = [
-        'apiName'      => 'ApiName',
+        'apiName' => 'ApiName',
         'apiProductId' => 'ApiProductId',
-        'apiType'      => 'ApiType',
-        'parameters'   => 'Parameters',
+        'apiType' => 'ApiType',
+        'parameters' => 'Parameters',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,19 +21,18 @@ class DeleteServiceTestCaseRequest extends Model
      * @description The service test case id.
      *
      * This parameter is required.
+     *
      * @example stc-0b2a3ad7e1de4c299eec
      *
      * @var string
      */
     public $testCaseId;
     protected $_name = [
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
         'testCaseId' => 'TestCaseId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

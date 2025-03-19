@@ -13,6 +13,7 @@ class UpdateServiceShrinkRequest extends Model
      * @description The alert configurations of the service.
      *
      * >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+     *
      * @example {\\"CmsTemplateId\\":1162921,\\"TemplateUrl\\":\\"https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1760465342xxxxxx/template/c072ef50-6c03-4d9c-8f0e-d1c440xxxxxx.json\\"}
      *
      * @var string
@@ -66,7 +67,12 @@ class UpdateServiceShrinkRequest extends Model
     /**
      * @description The deployment type of the service. Valid values:
      *
+     * ros: The service is deployed by using Resource Orchestration Service (ROS).
+     * terraform: The service is deployed by using Terraform.
+     * ack: The service is deployed by using Container Service for Kubernetes (ACK).
+     * spi: The service is deployed by calling a service provider interface (SPI).
      * operation: The service is deployed by using a hosted O&M service.
+     *
      * @example ros
      *
      * @var string
@@ -101,6 +107,7 @@ class UpdateServiceShrinkRequest extends Model
      *   false
      *
      * >  This parameter is required if you set **ServiceType** to **private**.
+     *
      * @example false
      *
      * @var bool
@@ -150,6 +157,7 @@ class UpdateServiceShrinkRequest extends Model
      * @description Region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -169,6 +177,7 @@ class UpdateServiceShrinkRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-1dda29c3eca648xxxxxx
      *
      * @var string
@@ -265,37 +274,35 @@ class UpdateServiceShrinkRequest extends Model
      */
     public $versionName;
     protected $_name = [
-        'alarmMetadata'            => 'AlarmMetadata',
-        'approvalType'             => 'ApprovalType',
-        'clientToken'              => 'ClientToken',
-        'commodityShrink'          => 'Commodity',
+        'alarmMetadata' => 'AlarmMetadata',
+        'approvalType' => 'ApprovalType',
+        'clientToken' => 'ClientToken',
+        'commodityShrink' => 'Commodity',
         'complianceMetadataShrink' => 'ComplianceMetadata',
-        'deployMetadata'           => 'DeployMetadata',
-        'deployType'               => 'DeployType',
-        'dryRun'                   => 'DryRun',
-        'duration'                 => 'Duration',
-        'isSupportOperated'        => 'IsSupportOperated',
-        'licenseMetadata'          => 'LicenseMetadata',
-        'logMetadata'              => 'LogMetadata',
-        'operationMetadata'        => 'OperationMetadata',
-        'policyNames'              => 'PolicyNames',
-        'regionId'                 => 'RegionId',
-        'resellable'               => 'Resellable',
-        'serviceId'                => 'ServiceId',
-        'serviceInfo'              => 'ServiceInfo',
-        'serviceType'              => 'ServiceType',
-        'serviceVersion'           => 'ServiceVersion',
-        'shareType'                => 'ShareType',
-        'tenantType'               => 'TenantType',
-        'trialDuration'            => 'TrialDuration',
-        'updateOptionShrink'       => 'UpdateOption',
-        'upgradeMetadata'          => 'UpgradeMetadata',
-        'versionName'              => 'VersionName',
+        'deployMetadata' => 'DeployMetadata',
+        'deployType' => 'DeployType',
+        'dryRun' => 'DryRun',
+        'duration' => 'Duration',
+        'isSupportOperated' => 'IsSupportOperated',
+        'licenseMetadata' => 'LicenseMetadata',
+        'logMetadata' => 'LogMetadata',
+        'operationMetadata' => 'OperationMetadata',
+        'policyNames' => 'PolicyNames',
+        'regionId' => 'RegionId',
+        'resellable' => 'Resellable',
+        'serviceId' => 'ServiceId',
+        'serviceInfo' => 'ServiceInfo',
+        'serviceType' => 'ServiceType',
+        'serviceVersion' => 'ServiceVersion',
+        'shareType' => 'ShareType',
+        'tenantType' => 'TenantType',
+        'trialDuration' => 'TrialDuration',
+        'updateOptionShrink' => 'UpdateOption',
+        'upgradeMetadata' => 'UpgradeMetadata',
+        'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -450,7 +457,7 @@ class UpdateServiceShrinkRequest extends Model
         if (isset($map['ServiceInfo'])) {
             if (!empty($map['ServiceInfo'])) {
                 $model->serviceInfo = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ServiceInfo'] as $item) {
                     $model->serviceInfo[$n++] = null !== $item ? serviceInfo::fromMap($item) : $item;
                 }

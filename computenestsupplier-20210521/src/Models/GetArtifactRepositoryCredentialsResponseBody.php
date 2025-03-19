@@ -43,14 +43,12 @@ class GetArtifactRepositoryCredentialsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'availableResources' => 'AvailableResources',
-        'credentials'        => 'Credentials',
-        'expireDate'         => 'ExpireDate',
-        'requestId'          => 'RequestId',
+        'credentials' => 'Credentials',
+        'expireDate' => 'ExpireDate',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -88,7 +86,7 @@ class GetArtifactRepositoryCredentialsResponseBody extends Model
         if (isset($map['AvailableResources'])) {
             if (!empty($map['AvailableResources'])) {
                 $model->availableResources = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['AvailableResources'] as $item) {
                     $model->availableResources[$n++] = null !== $item ? availableResources::fromMap($item) : $item;
                 }

@@ -20,7 +20,9 @@ class updateOption extends Model
     /**
      * @description Update from. Valid values:
      *
+     * - CODE
      * - PARAMETERS
+     *
      * @example PARAMETERS
      *
      * @var string
@@ -28,12 +30,10 @@ class updateOption extends Model
     public $updateFrom;
     protected $_name = [
         'updateArtifact' => 'UpdateArtifact',
-        'updateFrom'     => 'UpdateFrom',
+        'updateFrom' => 'UpdateFrom',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,6 +30,7 @@ class GetServiceProvisionsShrinkRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-20b8a396048346xxxxxx
      *
      * @var string
@@ -55,15 +56,13 @@ class GetServiceProvisionsShrinkRequest extends Model
     public $templateName;
     protected $_name = [
         'parametersShrink' => 'Parameters',
-        'regionId'         => 'RegionId',
-        'serviceId'        => 'ServiceId',
-        'serviceVersion'   => 'ServiceVersion',
-        'templateName'     => 'TemplateName',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
+        'serviceVersion' => 'ServiceVersion',
+        'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

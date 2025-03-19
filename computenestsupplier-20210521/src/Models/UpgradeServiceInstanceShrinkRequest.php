@@ -33,7 +33,9 @@ class UpgradeServiceInstanceShrinkRequest extends Model
      * @description The configuration parameters of the service instance.
      *
      * @example {
+     * "param": "value"
      * }
+     *
      * @var string
      */
     public $parametersShrink;
@@ -65,17 +67,15 @@ class UpgradeServiceInstanceShrinkRequest extends Model
      */
     public $serviceVersion;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'dryRun'            => 'DryRun',
-        'parametersShrink'  => 'Parameters',
-        'regionId'          => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'parametersShrink' => 'Parameters',
+        'regionId' => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
-        'serviceVersion'    => 'ServiceVersion',
+        'serviceVersion' => 'ServiceVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

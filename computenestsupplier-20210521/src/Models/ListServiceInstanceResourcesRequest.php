@@ -20,7 +20,10 @@ class ListServiceInstanceResourcesRequest extends Model
     /**
      * @description The maximum number of entries per page.
      *
+     * Valid values: 1 to 100.
+     *
      * Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -49,6 +52,7 @@ class ListServiceInstanceResourcesRequest extends Model
      * @description The ID of the service instance.
      *
      * This parameter is required.
+     *
      * @example si-d8a0cc2a1ee04dce****
      *
      * @var string
@@ -71,18 +75,16 @@ class ListServiceInstanceResourcesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'filters'                     => 'Filters',
-        'maxResults'                  => 'MaxResults',
-        'nextToken'                   => 'NextToken',
-        'regionId'                    => 'RegionId',
-        'serviceInstanceId'           => 'ServiceInstanceId',
+        'filters' => 'Filters',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'serviceInstanceId' => 'ServiceInstanceId',
         'serviceInstanceResourceType' => 'ServiceInstanceResourceType',
-        'tag'                         => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -135,7 +137,7 @@ class ListServiceInstanceResourcesRequest extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Filters'] as $item) {
                     $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
                 }
@@ -159,7 +161,7 @@ class ListServiceInstanceResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

@@ -34,14 +34,12 @@ class ContinueDeployServiceInstanceResponseBody extends Model
      */
     public $serviceInstanceId;
     protected $_name = [
-        'dryRunResult'      => 'DryRunResult',
-        'requestId'         => 'RequestId',
+        'dryRunResult' => 'DryRunResult',
+        'requestId' => 'RequestId',
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

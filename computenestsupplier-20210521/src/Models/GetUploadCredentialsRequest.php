@@ -12,6 +12,7 @@ class GetUploadCredentialsRequest extends Model
      * @description The file name to upload.
      *
      * This parameter is required.
+     *
      * @example template.yaml
      *
      * @var string
@@ -27,13 +28,11 @@ class GetUploadCredentialsRequest extends Model
      */
     public $visibility;
     protected $_name = [
-        'fileName'   => 'FileName',
+        'fileName' => 'FileName',
         'visibility' => 'Visibility',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

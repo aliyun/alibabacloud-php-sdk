@@ -12,6 +12,7 @@ class PreLaunchServiceRequest extends Model
      * @description The client token that is used to ensure the idempotence of the request.
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
      * @example 10CM943JP0EN9D51H
      *
      * @var string
@@ -22,6 +23,7 @@ class PreLaunchServiceRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +34,7 @@ class PreLaunchServiceRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-f7024a22ea5149xxxxxx
      *
      * @var string
@@ -39,13 +42,11 @@ class PreLaunchServiceRequest extends Model
     public $serviceId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'regionId'    => 'RegionId',
-        'serviceId'   => 'ServiceId',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

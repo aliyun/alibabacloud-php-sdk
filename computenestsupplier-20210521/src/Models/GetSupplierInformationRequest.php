@@ -12,6 +12,7 @@ class GetSupplierInformationRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -21,9 +22,7 @@ class GetSupplierInformationRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

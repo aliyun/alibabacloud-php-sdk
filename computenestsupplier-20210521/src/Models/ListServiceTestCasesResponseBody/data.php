@@ -39,20 +39,22 @@ class data extends Model
      * @description The service test config.
      *
      * @example ---
+     * parameters:
+     * PayType: "PostPaid"
+     * EcsInstanceType: "$[iact3-auto]"
      * InstancePassword: "$[iact3-auto]"
+     *
      * @var string
      */
     public $testConfig;
     protected $_name = [
         'templateName' => 'TemplateName',
-        'testCaseId'   => 'TestCaseId',
+        'testCaseId' => 'TestCaseId',
         'testCaseName' => 'TestCaseName',
-        'testConfig'   => 'TestConfig',
+        'testConfig' => 'TestConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

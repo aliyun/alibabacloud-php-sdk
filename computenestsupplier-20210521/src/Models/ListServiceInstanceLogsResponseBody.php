@@ -43,15 +43,13 @@ class ListServiceInstanceLogsResponseBody extends Model
      */
     public $serviceInstancesLogs;
     protected $_name = [
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'requestId'            => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'serviceInstancesLogs' => 'ServiceInstancesLogs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class ListServiceInstanceLogsResponseBody extends Model
         if (isset($map['ServiceInstancesLogs'])) {
             if (!empty($map['ServiceInstancesLogs'])) {
                 $model->serviceInstancesLogs = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['ServiceInstancesLogs'] as $item) {
                     $model->serviceInstancesLogs[$n++] = null !== $item ? serviceInstancesLogs::fromMap($item) : $item;
                 }

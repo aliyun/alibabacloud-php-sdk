@@ -50,6 +50,7 @@ class ListServiceSharedAccountsRequest extends Model
      * @description The region ID where the service instance resides.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,17 +66,15 @@ class ListServiceSharedAccountsRequest extends Model
      */
     public $serviceId;
     protected $_name = [
-        'filter'     => 'Filter',
+        'filter' => 'Filter',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
         'permission' => 'Permission',
-        'regionId'   => 'RegionId',
-        'serviceId'  => 'ServiceId',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -119,7 +118,7 @@ class ListServiceSharedAccountsRequest extends Model
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Filter'] as $item) {
                     $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
                 }

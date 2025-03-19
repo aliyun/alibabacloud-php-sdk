@@ -44,14 +44,12 @@ class privateVpcConnections extends Model
     public $privateZoneName;
     protected $_name = [
         'connectionConfigs' => 'ConnectionConfigs',
-        'endpointId'        => 'EndpointId',
+        'endpointId' => 'EndpointId',
         'endpointServiceId' => 'EndpointServiceId',
-        'privateZoneName'   => 'PrivateZoneName',
+        'privateZoneName' => 'PrivateZoneName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class privateVpcConnections extends Model
         if (isset($map['ConnectionConfigs'])) {
             if (!empty($map['ConnectionConfigs'])) {
                 $model->connectionConfigs = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['ConnectionConfigs'] as $item) {
                     $model->connectionConfigs[$n++] = null !== $item ? connectionConfigs::fromMap($item) : $item;
                 }

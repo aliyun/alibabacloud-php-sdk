@@ -26,13 +26,11 @@ class ListArtifactRisksRequest extends Model
      */
     public $artifactVersion;
     protected $_name = [
-        'artifactId'      => 'ArtifactId',
+        'artifactId' => 'ArtifactId',
         'artifactVersion' => 'ArtifactVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

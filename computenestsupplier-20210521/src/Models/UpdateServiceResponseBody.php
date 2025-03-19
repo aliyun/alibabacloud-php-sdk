@@ -26,12 +26,10 @@ class UpdateServiceResponseBody extends Model
     public $requestId;
     protected $_name = [
         'dryRunResult' => 'DryRunResult',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

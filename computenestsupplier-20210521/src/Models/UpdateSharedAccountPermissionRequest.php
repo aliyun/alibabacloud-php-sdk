@@ -19,7 +19,15 @@ class UpdateSharedAccountPermissionRequest extends Model
 
     /**
      * @description Permission type. Possible values:
+     * - Deployable: Can be deployed.
+     * - Accessible: Can be accessed.
+     * - AccessibleIncludeBeta: Can access all versions, including Beta versions.
+     * - DeployableIncludeBeta: Can deploy all versions, including Beta versions.
+     * - Authorized: Authorized (for reselling scenarios)
+     * - Unauthorized: Unauthorized (for reselling scenarios)
+     *
      * This parameter is required.
+     *
      * @example Deployable
      *
      * @var string
@@ -30,6 +38,7 @@ class UpdateSharedAccountPermissionRequest extends Model
      * @description Region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -40,6 +49,7 @@ class UpdateSharedAccountPermissionRequest extends Model
      * @description Service ID.
      *
      * This parameter is required.
+     *
      * @example service-0d6e1d846e4c4axxxxxx
      *
      * @var string
@@ -49,7 +59,10 @@ class UpdateSharedAccountPermissionRequest extends Model
     /**
      * @description Service sharing type, with a default value of SharedAccount. Available options:
      *
+     * - SharedAccount: Regular sharing type.
+     *
      * - Reseller: Reselling sharing type.
+     *
      * @example SharedAccount
      *
      * @var string
@@ -60,6 +73,7 @@ class UpdateSharedAccountPermissionRequest extends Model
      * @description Whitelist account for service sharing.
      *
      * This parameter is required.
+     *
      * @example 1563457855xxxxxx
      *
      * @var int
@@ -67,16 +81,14 @@ class UpdateSharedAccountPermissionRequest extends Model
     public $userAliUid;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'permission'  => 'Permission',
-        'regionId'    => 'RegionId',
-        'serviceId'   => 'ServiceId',
-        'type'        => 'Type',
-        'userAliUid'  => 'UserAliUid',
+        'permission' => 'Permission',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
+        'type' => 'Type',
+        'userAliUid' => 'UserAliUid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

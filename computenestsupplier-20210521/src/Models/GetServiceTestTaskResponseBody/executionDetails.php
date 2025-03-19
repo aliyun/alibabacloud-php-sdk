@@ -21,6 +21,9 @@ class executionDetails extends Model
      * @description The execution report
      *
      * @example -----------------------------------------------------------------------------
+     * Region: cn-qingdao
+     * StackName: iact3-default-cn-qingd
+     * StackId: 009d2991-f494-d
      *****************************************************************************
      * @var string
      */
@@ -44,15 +47,13 @@ class executionDetails extends Model
      */
     public $subTaskId;
     protected $_name = [
-        'caseName'        => 'CaseName',
+        'caseName' => 'CaseName',
         'executionReport' => 'ExecutionReport',
-        'status'          => 'Status',
-        'subTaskId'       => 'SubTaskId',
+        'status' => 'Status',
+        'subTaskId' => 'SubTaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

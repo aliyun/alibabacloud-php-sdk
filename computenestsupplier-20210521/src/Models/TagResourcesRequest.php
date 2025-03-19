@@ -13,6 +13,7 @@ class TagResourcesRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,13 +24,19 @@ class TagResourcesRequest extends Model
      * @description The resource IDs. You can specify at most 50 resource IDs in each call.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
      * @description The resource type. Valid value:
+     * - service
+     * - serviceinstance
+     * - artifact
+     *
      * This parameter is required.
+     *
      * @example service
      *
      * @var string
@@ -43,15 +50,13 @@ class TagResourcesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -100,7 +105,7 @@ class TagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

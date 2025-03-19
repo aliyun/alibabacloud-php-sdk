@@ -19,9 +19,7 @@ class dryRunResult extends Model
         'rolePolicy' => 'RolePolicy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

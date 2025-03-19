@@ -30,6 +30,7 @@ class RejectServiceUsageRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-2117508c874c41xxxxxx
      *
      * @var string
@@ -52,6 +53,7 @@ class RejectServiceUsageRequest extends Model
      * @description User ali uid.
      *
      * This parameter is required.
+     *
      * @example 1563457855xxxxxx
      *
      * @var int
@@ -59,15 +61,13 @@ class RejectServiceUsageRequest extends Model
     public $userAliUid;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'comments'    => 'Comments',
-        'serviceId'   => 'ServiceId',
-        'type'        => 'Type',
-        'userAliUid'  => 'UserAliUid',
+        'comments' => 'Comments',
+        'serviceId' => 'ServiceId',
+        'type' => 'Type',
+        'userAliUid' => 'UserAliUid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

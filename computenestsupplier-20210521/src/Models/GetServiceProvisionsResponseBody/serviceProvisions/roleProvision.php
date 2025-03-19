@@ -13,6 +13,7 @@ class roleProvision extends Model
      * @description The authorization URL of the RAM role.
      *
      * > This parameter is returned if Created is set to false.
+     *
      * @example https://ram.console.aliyun.com/role/authorization?request={"Services":[{"Service":"CS","Roles":[{"RoleName":"AliyunCSManagedVKRole","TemplateId":"AliyunCSManagedVKRole"},{"RoleName":"AliyunCSDefaultRole","TemplateId":"Default"}]}],"ReturnUrl":"https://cs.console.aliyun.com/"}
      *
      * @var string
@@ -27,12 +28,10 @@ class roleProvision extends Model
     public $roles;
     protected $_name = [
         'authorizationURL' => 'AuthorizationURL',
-        'roles'            => 'Roles',
+        'roles' => 'Roles',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -67,7 +66,7 @@ class roleProvision extends Model
         if (isset($map['Roles'])) {
             if (!empty($map['Roles'])) {
                 $model->roles = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Roles'] as $item) {
                     $model->roles[$n++] = null !== $item ? roles::fromMap($item) : $item;
                 }

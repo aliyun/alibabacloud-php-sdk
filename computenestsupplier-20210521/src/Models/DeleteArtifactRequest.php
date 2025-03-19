@@ -12,6 +12,7 @@ class DeleteArtifactRequest extends Model
      * @description The ID of the artifact.
      *
      * This parameter is required.
+     *
      * @example artifact-eea08d1e2d3a43aexxxx
      *
      * @var string
@@ -31,20 +32,19 @@ class DeleteArtifactRequest extends Model
      * @description The client token that is used to ensure the idempotence of the request.
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 788E7CP0EN9D51P
      *
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'artifactId'      => 'ArtifactId',
+        'artifactId' => 'ArtifactId',
         'artifactVersion' => 'ArtifactVersion',
-        'clientToken'     => 'ClientToken',
+        'clientToken' => 'ClientToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

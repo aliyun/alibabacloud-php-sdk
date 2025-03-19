@@ -32,14 +32,12 @@ class cssMetadata extends Model
      */
     public $meteringEntityMappings;
     protected $_name = [
-        'componentsMappings'       => 'ComponentsMappings',
+        'componentsMappings' => 'ComponentsMappings',
         'meteringEntityExtraInfos' => 'MeteringEntityExtraInfos',
-        'meteringEntityMappings'   => 'MeteringEntityMappings',
+        'meteringEntityMappings' => 'MeteringEntityMappings',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -86,7 +84,7 @@ class cssMetadata extends Model
         if (isset($map['ComponentsMappings'])) {
             if (!empty($map['ComponentsMappings'])) {
                 $model->componentsMappings = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['ComponentsMappings'] as $item) {
                     $model->componentsMappings[$n++] = null !== $item ? componentsMappings::fromMap($item) : $item;
                 }
@@ -95,7 +93,7 @@ class cssMetadata extends Model
         if (isset($map['MeteringEntityExtraInfos'])) {
             if (!empty($map['MeteringEntityExtraInfos'])) {
                 $model->meteringEntityExtraInfos = [];
-                $n                               = 0;
+                $n = 0;
                 foreach ($map['MeteringEntityExtraInfos'] as $item) {
                     $model->meteringEntityExtraInfos[$n++] = null !== $item ? meteringEntityExtraInfos::fromMap($item) : $item;
                 }
@@ -104,7 +102,7 @@ class cssMetadata extends Model
         if (isset($map['MeteringEntityMappings'])) {
             if (!empty($map['MeteringEntityMappings'])) {
                 $model->meteringEntityMappings = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['MeteringEntityMappings'] as $item) {
                     $model->meteringEntityMappings[$n++] = null !== $item ? meteringEntityMappings::fromMap($item) : $item;
                 }

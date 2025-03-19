@@ -33,6 +33,7 @@ class serviceInfo extends Model
      *   en-US: English
      *
      * This parameter is required.
+     *
      * @example zh-CN
      *
      * @var string
@@ -52,6 +53,7 @@ class serviceInfo extends Model
      * @description The service name.
      *
      * This parameter is required.
+     *
      * @example TiDB Database
      *
      * @var string
@@ -74,18 +76,16 @@ class serviceInfo extends Model
      */
     public $softwares;
     protected $_name = [
-        'agreements'         => 'Agreements',
-        'image'              => 'Image',
-        'locale'             => 'Locale',
+        'agreements' => 'Agreements',
+        'image' => 'Image',
+        'locale' => 'Locale',
         'longDescriptionUrl' => 'LongDescriptionUrl',
-        'name'               => 'Name',
-        'shortDescription'   => 'ShortDescription',
-        'softwares'          => 'Softwares',
+        'name' => 'Name',
+        'shortDescription' => 'ShortDescription',
+        'softwares' => 'Softwares',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -138,7 +138,7 @@ class serviceInfo extends Model
         if (isset($map['Agreements'])) {
             if (!empty($map['Agreements'])) {
                 $model->agreements = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Agreements'] as $item) {
                     $model->agreements[$n++] = null !== $item ? agreements::fromMap($item) : $item;
                 }
@@ -162,7 +162,7 @@ class serviceInfo extends Model
         if (isset($map['Softwares'])) {
             if (!empty($map['Softwares'])) {
                 $model->softwares = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Softwares'] as $item) {
                     $model->softwares[$n++] = null !== $item ? softwares::fromMap($item) : $item;
                 }

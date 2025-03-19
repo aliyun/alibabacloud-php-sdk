@@ -83,7 +83,12 @@ class supplierRegistrations extends Model
     /**
      * @description Product delivery type，Valid values:
      *
+     * SaaS
+     * License
+     * API
+     * DesktopSoftware
      * Others
+     *
      * @example SaaS
      *
      * @var string
@@ -102,7 +107,9 @@ class supplierRegistrations extends Model
     /**
      * @description Product sell type, Valid values:
      *
+     * - Direct
      * - Channel
+     *
      * @example Direct
      *
      * @var string
@@ -130,7 +137,10 @@ class supplierRegistrations extends Model
     /**
      * @description The deployment state of the registration. Valid values:
      *
+     * - Submitted
+     * - Approved
      * - Rejected
+     *
      * @example Submitted
      *
      * @var string
@@ -200,32 +210,30 @@ class supplierRegistrations extends Model
      */
     public $supplierUrl;
     protected $_name = [
-        'comment'              => 'Comment',
-        'contactEmail'         => 'ContactEmail',
-        'contactNumber'        => 'ContactNumber',
-        'contactPerson'        => 'ContactPerson',
-        'contactPersonTitle'   => 'ContactPersonTitle',
-        'enableResellerMode'   => 'EnableResellerMode',
+        'comment' => 'Comment',
+        'contactEmail' => 'ContactEmail',
+        'contactNumber' => 'ContactNumber',
+        'contactPerson' => 'ContactPerson',
+        'contactPersonTitle' => 'ContactPersonTitle',
+        'enableResellerMode' => 'EnableResellerMode',
         'productAnnualRevenue' => 'ProductAnnualRevenue',
-        'productBusiness'      => 'ProductBusiness',
+        'productBusiness' => 'ProductBusiness',
         'productDeliveryTypes' => 'ProductDeliveryTypes',
-        'productPublishTime'   => 'ProductPublishTime',
-        'productSellTypes'     => 'ProductSellTypes',
-        'registrationId'       => 'RegistrationId',
-        'resellBusinessDesc'   => 'ResellBusinessDesc',
-        'status'               => 'Status',
-        'submitTime'           => 'SubmitTime',
-        'supplierDesc'         => 'SupplierDesc',
-        'supplierLogo'         => 'SupplierLogo',
-        'supplierName'         => 'SupplierName',
-        'supplierNameEn'       => 'SupplierNameEn',
-        'supplierUid'          => 'SupplierUid',
-        'supplierUrl'          => 'SupplierUrl',
+        'productPublishTime' => 'ProductPublishTime',
+        'productSellTypes' => 'ProductSellTypes',
+        'registrationId' => 'RegistrationId',
+        'resellBusinessDesc' => 'ResellBusinessDesc',
+        'status' => 'Status',
+        'submitTime' => 'SubmitTime',
+        'supplierDesc' => 'SupplierDesc',
+        'supplierLogo' => 'SupplierLogo',
+        'supplierName' => 'SupplierName',
+        'supplierNameEn' => 'SupplierNameEn',
+        'supplierUid' => 'SupplierUid',
+        'supplierUrl' => 'SupplierUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

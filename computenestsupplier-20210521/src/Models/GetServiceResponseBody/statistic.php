@@ -89,20 +89,18 @@ class statistic extends Model
      */
     public $submittedUsageCount;
     protected $_name = [
-        'accumulativeInstanceCount'    => 'AccumulativeInstanceCount',
-        'accumulativePocAmount'        => 'AccumulativePocAmount',
-        'accumulativeUserCount'        => 'AccumulativeUserCount',
-        'averagePocAmount'             => 'AveragePocAmount',
-        'averagePocDuration'           => 'AveragePocDuration',
-        'averagePocUnitAmount'         => 'AveragePocUnitAmount',
+        'accumulativeInstanceCount' => 'AccumulativeInstanceCount',
+        'accumulativePocAmount' => 'AccumulativePocAmount',
+        'accumulativeUserCount' => 'AccumulativeUserCount',
+        'averagePocAmount' => 'AveragePocAmount',
+        'averagePocDuration' => 'AveragePocDuration',
+        'averagePocUnitAmount' => 'AveragePocUnitAmount',
         'deployedServiceInstanceCount' => 'DeployedServiceInstanceCount',
-        'deployedUserCount'            => 'DeployedUserCount',
-        'submittedUsageCount'          => 'SubmittedUsageCount',
+        'deployedUserCount' => 'DeployedUserCount',
+        'submittedUsageCount' => 'SubmittedUsageCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

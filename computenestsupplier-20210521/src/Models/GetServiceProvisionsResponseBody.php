@@ -25,13 +25,11 @@ class GetServiceProvisionsResponseBody extends Model
      */
     public $serviceProvisions;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'serviceProvisions' => 'ServiceProvisions',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class GetServiceProvisionsResponseBody extends Model
         if (isset($map['ServiceProvisions'])) {
             if (!empty($map['ServiceProvisions'])) {
                 $model->serviceProvisions = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['ServiceProvisions'] as $item) {
                     $model->serviceProvisions[$n++] = null !== $item ? serviceProvisions::fromMap($item) : $item;
                 }

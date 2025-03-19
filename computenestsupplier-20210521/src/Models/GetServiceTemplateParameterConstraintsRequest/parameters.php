@@ -26,13 +26,11 @@ class parameters extends Model
      */
     public $parameterValue;
     protected $_name = [
-        'parameterKey'   => 'ParameterKey',
+        'parameterKey' => 'ParameterKey',
         'parameterValue' => 'ParameterValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -48,14 +48,12 @@ class ListAcrImageTagsRequest extends Model
     public $repoId;
     protected $_name = [
         'artifactType' => 'ArtifactType',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'repoId'       => 'RepoId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'repoId' => 'RepoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

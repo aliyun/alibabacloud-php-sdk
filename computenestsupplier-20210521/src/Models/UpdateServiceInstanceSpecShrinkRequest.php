@@ -65,17 +65,15 @@ class UpdateServiceInstanceSpecShrinkRequest extends Model
      */
     public $serviceInstanceId;
     protected $_name = [
-        'clientToken'              => 'ClientToken',
-        'enableUserPrometheus'     => 'EnableUserPrometheus',
-        'operationName'            => 'OperationName',
-        'parametersShrink'         => 'Parameters',
+        'clientToken' => 'ClientToken',
+        'enableUserPrometheus' => 'EnableUserPrometheus',
+        'operationName' => 'OperationName',
+        'parametersShrink' => 'Parameters',
         'predefinedParametersName' => 'PredefinedParametersName',
-        'serviceInstanceId'        => 'ServiceInstanceId',
+        'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

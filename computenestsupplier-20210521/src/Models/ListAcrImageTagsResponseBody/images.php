@@ -44,15 +44,13 @@ class images extends Model
      */
     public $tag;
     protected $_name = [
-        'createTime'   => 'CreateTime',
-        'imageSize'    => 'ImageSize',
+        'createTime' => 'CreateTime',
+        'imageSize' => 'ImageSize',
         'modifiedTime' => 'ModifiedTime',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

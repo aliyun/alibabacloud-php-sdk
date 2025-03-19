@@ -10,6 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetSupplierInformationResponseBody extends Model
 {
     /**
+     * @description Acr container namespace
+     *
+     * @example computenest
+     *
+     * @var string
+     */
+    public $acrNamespace;
+
+    /**
      * @description The delivery settings.
      *
      * @var deliverySettings
@@ -88,24 +97,26 @@ class GetSupplierInformationResponseBody extends Model
      */
     public $supplierUrl;
     protected $_name = [
-        'deliverySettings'    => 'DeliverySettings',
-        'enableReseller'      => 'EnableReseller',
-        'operationIp'         => 'OperationIp',
+        'acrNamespace' => 'AcrNamespace',
+        'deliverySettings' => 'DeliverySettings',
+        'enableReseller' => 'EnableReseller',
+        'operationIp' => 'OperationIp',
         'operationMfaPresent' => 'OperationMfaPresent',
-        'requestId'           => 'RequestId',
-        'supplierDesc'        => 'SupplierDesc',
-        'supplierLogo'        => 'SupplierLogo',
-        'supplierName'        => 'SupplierName',
-        'supplierUrl'         => 'SupplierUrl',
+        'requestId' => 'RequestId',
+        'supplierDesc' => 'SupplierDesc',
+        'supplierLogo' => 'SupplierLogo',
+        'supplierName' => 'SupplierName',
+        'supplierUrl' => 'SupplierUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acrNamespace) {
+            $res['AcrNamespace'] = $this->acrNamespace;
+        }
         if (null !== $this->deliverySettings) {
             $res['DeliverySettings'] = null !== $this->deliverySettings ? $this->deliverySettings->toMap() : null;
         }
@@ -145,6 +156,9 @@ class GetSupplierInformationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcrNamespace'])) {
+            $model->acrNamespace = $map['AcrNamespace'];
+        }
         if (isset($map['DeliverySettings'])) {
             $model->deliverySettings = deliverySettings::fromMap($map['DeliverySettings']);
         }

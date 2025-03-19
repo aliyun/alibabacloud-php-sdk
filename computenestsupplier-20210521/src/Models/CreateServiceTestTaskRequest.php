@@ -21,6 +21,7 @@ class CreateServiceTestTaskRequest extends Model
      * @description The name of the task.
      *
      * This parameter is required.
+     *
      * @example nametest
      *
      * @var string
@@ -40,19 +41,18 @@ class CreateServiceTestTaskRequest extends Model
      * @description The service test case ids.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $testCaseIds;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'taskName'     => 'TaskName',
+        'regionId' => 'RegionId',
+        'taskName' => 'TaskName',
         'taskRegionId' => 'TaskRegionId',
-        'testCaseIds'  => 'TestCaseIds',
+        'testCaseIds' => 'TestCaseIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

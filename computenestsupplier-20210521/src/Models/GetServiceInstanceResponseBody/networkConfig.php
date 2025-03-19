@@ -14,6 +14,7 @@ class networkConfig extends Model
      * @description The ID of the endpoint for the private connection.
      *
      * >  This parameter is discontinued.
+     *
      * @example ep-m5ei37240541816b****
      *
      * @var string
@@ -24,6 +25,7 @@ class networkConfig extends Model
      * @description The ID of the endpoint service for the private connection.
      *
      * >  This parameter is discontinued.
+     *
      * @example epsrv-5ei07324541816bxxxx
      *
      * @var string
@@ -44,15 +46,13 @@ class networkConfig extends Model
      */
     public $reversePrivateVpcConnections;
     protected $_name = [
-        'endpointId'                   => 'EndpointId',
-        'endpointServiceId'            => 'EndpointServiceId',
-        'privateVpcConnections'        => 'PrivateVpcConnections',
+        'endpointId' => 'EndpointId',
+        'endpointServiceId' => 'EndpointServiceId',
+        'privateVpcConnections' => 'PrivateVpcConnections',
         'reversePrivateVpcConnections' => 'ReversePrivateVpcConnections',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +102,7 @@ class networkConfig extends Model
         if (isset($map['PrivateVpcConnections'])) {
             if (!empty($map['PrivateVpcConnections'])) {
                 $model->privateVpcConnections = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['PrivateVpcConnections'] as $item) {
                     $model->privateVpcConnections[$n++] = null !== $item ? privateVpcConnections::fromMap($item) : $item;
                 }
@@ -111,7 +111,7 @@ class networkConfig extends Model
         if (isset($map['ReversePrivateVpcConnections'])) {
             if (!empty($map['ReversePrivateVpcConnections'])) {
                 $model->reversePrivateVpcConnections = [];
-                $n                                   = 0;
+                $n = 0;
                 foreach ($map['ReversePrivateVpcConnections'] as $item) {
                     $model->reversePrivateVpcConnections[$n++] = null !== $item ? reversePrivateVpcConnections::fromMap($item) : $item;
                 }

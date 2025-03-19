@@ -15,6 +15,7 @@ class sharedAccounts extends Model
      *   Accessible: Permissions to access the service.
      *
      * This parameter is required.
+     *
      * @example Accessible
      *
      * @var string
@@ -25,6 +26,7 @@ class sharedAccounts extends Model
      * @description The Alibaba Cloud account ID of the user.
      *
      * This parameter is required.
+     *
      * @example 123456
      *
      * @var string
@@ -35,9 +37,7 @@ class sharedAccounts extends Model
         'userAliUid' => 'UserAliUid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -33,14 +33,12 @@ class missingPolicy extends Model
      */
     public $serviceName;
     protected $_name = [
-        'action'      => 'Action',
-        'resource'    => 'Resource',
+        'action' => 'Action',
+        'resource' => 'Resource',
         'serviceName' => 'ServiceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

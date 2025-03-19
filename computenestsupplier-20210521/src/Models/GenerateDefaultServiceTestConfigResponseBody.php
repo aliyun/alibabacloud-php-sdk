@@ -21,18 +21,20 @@ class GenerateDefaultServiceTestConfigResponseBody extends Model
      * @description The service test config
      *
      * @example ---
+     * parameters:
+     * PayType: "PostPaid"
+     * EcsInstanceType: "$[iact3-auto]"
      * InstancePassword: "$[iact3-auto]"
+     *
      * @var string
      */
     public $testConfig;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'testConfig' => 'TestConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

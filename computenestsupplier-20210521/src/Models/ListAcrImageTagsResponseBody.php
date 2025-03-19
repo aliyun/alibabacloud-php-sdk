@@ -52,16 +52,14 @@ class ListAcrImageTagsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'images'     => 'Images',
+        'images' => 'Images',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +100,7 @@ class ListAcrImageTagsResponseBody extends Model
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Images'] as $item) {
                     $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
                 }

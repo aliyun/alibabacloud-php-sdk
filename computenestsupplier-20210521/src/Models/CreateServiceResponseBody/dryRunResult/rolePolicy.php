@@ -20,24 +20,31 @@ class rolePolicy extends Model
      * @description The required ram policy for deploying role.
      *
      * @example {
+     * "Statement": [{
+     * "Action": ["oos:CancelExecutions", "oos:DeleteExecutions", "oos:GetTemplate", "oos:ListExecutions", "oos:ListTemplates", "oos:NotifyExecution", "oos:StartExecution"],
      * "Effect": "Allow",
      * "Resource": "*"
+     * }, {
+     * "Action": ["ram:PassRole"],
      * "Effect": "Allow",
      * "Resource": "*"
+     * }, {
+     * "Action": ["ros:CreateStack", "ros:GetStack", "ros:UpdateStack", "ros:ListStackEvents", "ros:ListStackResources", "ros:ListStackResources", "ros:DeleteStack", "ram:GetRole"],
      * "Effect": "Allow",
      * "Resource": "*"
+     * }],
+     * "Version": "1"
      * }
+     *
      * @var string
      */
     public $policy;
     protected $_name = [
         'missingPolicy' => 'MissingPolicy',
-        'policy'        => 'Policy',
+        'policy' => 'Policy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -69,7 +76,7 @@ class rolePolicy extends Model
         if (isset($map['MissingPolicy'])) {
             if (!empty($map['MissingPolicy'])) {
                 $model->missingPolicy = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['MissingPolicy'] as $item) {
                     $model->missingPolicy[$n++] = null !== $item ? missingPolicy::fromMap($item) : $item;
                 }

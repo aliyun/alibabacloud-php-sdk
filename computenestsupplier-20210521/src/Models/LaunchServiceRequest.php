@@ -37,6 +37,7 @@ class LaunchServiceRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -47,6 +48,7 @@ class LaunchServiceRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-0e6fca6a51a544xxxxxx
      *
      * @var string
@@ -57,23 +59,22 @@ class LaunchServiceRequest extends Model
      * @description The service version.
      *
      * This parameter is required.
+     *
      * @example 1.0
      *
      * @var string
      */
     public $serviceVersion;
     protected $_name = [
-        'categories'     => 'Categories',
-        'clientToken'    => 'ClientToken',
-        'recommend'      => 'Recommend',
-        'regionId'       => 'RegionId',
-        'serviceId'      => 'ServiceId',
+        'categories' => 'Categories',
+        'clientToken' => 'ClientToken',
+        'recommend' => 'Recommend',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'serviceVersion' => 'ServiceVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

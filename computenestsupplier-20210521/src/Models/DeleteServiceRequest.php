@@ -21,6 +21,7 @@ class DeleteServiceRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -31,6 +32,7 @@ class DeleteServiceRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-0e6fca6a51a54420****
      *
      * @var string
@@ -41,21 +43,20 @@ class DeleteServiceRequest extends Model
      * @description The service version.
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var string
      */
     public $serviceVersion;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'regionId'       => 'RegionId',
-        'serviceId'      => 'ServiceId',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
         'serviceVersion' => 'ServiceVersion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

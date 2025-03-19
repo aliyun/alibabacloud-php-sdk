@@ -65,17 +65,15 @@ class UpdateServiceInstanceSpecRequest extends Model
      */
     public $serviceInstanceId;
     protected $_name = [
-        'clientToken'              => 'ClientToken',
-        'enableUserPrometheus'     => 'EnableUserPrometheus',
-        'operationName'            => 'OperationName',
-        'parameters'               => 'Parameters',
+        'clientToken' => 'ClientToken',
+        'enableUserPrometheus' => 'EnableUserPrometheus',
+        'operationName' => 'OperationName',
+        'parameters' => 'Parameters',
         'predefinedParametersName' => 'PredefinedParametersName',
-        'serviceInstanceId'        => 'ServiceInstanceId',
+        'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

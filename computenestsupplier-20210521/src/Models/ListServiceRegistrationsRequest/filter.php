@@ -11,7 +11,12 @@ class filter extends Model
     /**
      * @description Name of the filter field. Allowed values:
      *
+     * - ServiceId: Service ID.
+     *
+     * - RegistrationId: Registration ID.
+     *
      * - Status: Registration status. Allowed values: Submitted, Approved, Rejected, Canceled, and Executed.
+     *
      * @example Canceled
      *
      * @var string
@@ -25,13 +30,11 @@ class filter extends Model
      */
     public $value;
     protected $_name = [
-        'name'  => 'Name',
+        'name' => 'Name',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

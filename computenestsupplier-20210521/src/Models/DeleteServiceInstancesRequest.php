@@ -21,6 +21,7 @@ class DeleteServiceInstancesRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -31,18 +32,17 @@ class DeleteServiceInstancesRequest extends Model
      * @description The IDs of the service instances.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $serviceInstanceId;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'regionId'          => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

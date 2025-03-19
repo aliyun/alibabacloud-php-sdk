@@ -92,20 +92,18 @@ class serviceUsages extends Model
      */
     public $userInformation;
     protected $_name = [
-        'comments'        => 'Comments',
-        'createTime'      => 'CreateTime',
-        'serviceId'       => 'ServiceId',
-        'serviceName'     => 'ServiceName',
-        'status'          => 'Status',
-        'supplierName'    => 'SupplierName',
-        'updateTime'      => 'UpdateTime',
-        'userAliUid'      => 'UserAliUid',
+        'comments' => 'Comments',
+        'createTime' => 'CreateTime',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'status' => 'Status',
+        'supplierName' => 'SupplierName',
+        'updateTime' => 'UpdateTime',
+        'userAliUid' => 'UserAliUid',
         'userInformation' => 'UserInformation',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

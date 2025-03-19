@@ -30,6 +30,7 @@ class ListServiceInstanceUpgradeHistoryRequest extends Model
      * @description Region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -40,21 +41,20 @@ class ListServiceInstanceUpgradeHistoryRequest extends Model
      * @description Service instance ID.
      *
      * This parameter is required.
+     *
      * @example si-0e6fca6a51a54420****
      *
      * @var string
      */
     public $serviceInstanceId;
     protected $_name = [
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
-        'regionId'          => 'RegionId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

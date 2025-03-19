@@ -47,7 +47,12 @@ class upgradeHistory extends Model
     /**
      * @description Upgrade status. Possible values:
      *
+     * - upgrading: In progress.
+     *
+     * - UpgradeSuccessful: Upgrade successful.
+     *
      * - UpgradeFailed: Upgrade failed.
+     *
      * @example UpgradeFailed
      *
      * @var string
@@ -65,7 +70,9 @@ class upgradeHistory extends Model
 
     /**
      * @description Upgrade type.
+     * - Upgrade
      * - Rollback
+     *
      * @example Upgrade
      *
      * @var string
@@ -81,19 +88,17 @@ class upgradeHistory extends Model
      */
     public $upgradeHistoryId;
     protected $_name = [
-        'endTime'          => 'EndTime',
-        'fromVersion'      => 'FromVersion',
-        'results'          => 'Results',
-        'startTime'        => 'StartTime',
-        'status'           => 'Status',
-        'toVersion'        => 'ToVersion',
-        'type'             => 'Type',
+        'endTime' => 'EndTime',
+        'fromVersion' => 'FromVersion',
+        'results' => 'Results',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'toVersion' => 'ToVersion',
+        'type' => 'Type',
         'upgradeHistoryId' => 'UpgradeHistoryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

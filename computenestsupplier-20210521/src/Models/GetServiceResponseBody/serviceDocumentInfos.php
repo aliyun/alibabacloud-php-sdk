@@ -35,14 +35,12 @@ class serviceDocumentInfos extends Model
      */
     public $templateName;
     protected $_name = [
-        'documentUrl'  => 'DocumentUrl',
-        'locale'       => 'Locale',
+        'documentUrl' => 'DocumentUrl',
+        'locale' => 'Locale',
         'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

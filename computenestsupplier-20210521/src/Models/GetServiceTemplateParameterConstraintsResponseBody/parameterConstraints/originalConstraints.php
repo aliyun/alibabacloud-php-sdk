@@ -43,14 +43,12 @@ class originalConstraints extends Model
     public $resourceType;
     protected $_name = [
         'allowedValues' => 'AllowedValues',
-        'propertyName'  => 'PropertyName',
-        'resourceName'  => 'ResourceName',
-        'resourceType'  => 'ResourceType',
+        'propertyName' => 'PropertyName',
+        'resourceName' => 'ResourceName',
+        'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

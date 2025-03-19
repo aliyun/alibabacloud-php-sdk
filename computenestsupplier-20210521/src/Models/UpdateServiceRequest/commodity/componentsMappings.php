@@ -24,13 +24,11 @@ class componentsMappings extends Model
      */
     public $templateName;
     protected $_name = [
-        'mappings'     => 'Mappings',
+        'mappings' => 'Mappings',
         'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

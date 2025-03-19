@@ -43,15 +43,13 @@ class ListServiceUsagesRequest extends Model
      */
     public $supplierRole;
     protected $_name = [
-        'filter'       => 'Filter',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
+        'filter' => 'Filter',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'supplierRole' => 'SupplierRole',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class ListServiceUsagesRequest extends Model
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Filter'] as $item) {
                     $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
                 }

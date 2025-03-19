@@ -44,15 +44,13 @@ class UpdateSupplierInformationResponseBody extends Model
      */
     public $supplierUrl;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'supplierDesc' => 'SupplierDesc',
         'supplierName' => 'SupplierName',
-        'supplierUrl'  => 'SupplierUrl',
+        'supplierUrl' => 'SupplierUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

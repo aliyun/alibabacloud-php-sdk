@@ -110,7 +110,12 @@ class deployDetails extends Model
     /**
      * @description The type of service.
      *
+     * Possible values:
+     *
+     * - private: Deployed under the user\\"s account.
+     * - managed: Hosted under the service provider\\"s account.
      * - operation: Managed operation service.
+     *
      * @example private
      *
      * @var string
@@ -144,26 +149,24 @@ class deployDetails extends Model
      */
     public $userId;
     protected $_name = [
-        'count'             => 'Count',
-        'createTime'        => 'CreateTime',
-        'cycle'             => 'Cycle',
-        'deploySucceeded'   => 'DeploySucceeded',
-        'errorCode'         => 'ErrorCode',
-        'errorDetail'       => 'ErrorDetail',
-        'errorType'         => 'ErrorType',
-        'serviceId'         => 'ServiceId',
+        'count' => 'Count',
+        'createTime' => 'CreateTime',
+        'cycle' => 'Cycle',
+        'deploySucceeded' => 'DeploySucceeded',
+        'errorCode' => 'ErrorCode',
+        'errorDetail' => 'ErrorDetail',
+        'errorType' => 'ErrorType',
+        'serviceId' => 'ServiceId',
         'serviceInstanceId' => 'ServiceInstanceId',
-        'serviceNameChn'    => 'ServiceNameChn',
-        'serviceNameEng'    => 'ServiceNameEng',
-        'serviceType'       => 'ServiceType',
-        'serviceVersion'    => 'ServiceVersion',
-        'timestamp'         => 'Timestamp',
-        'userId'            => 'UserId',
+        'serviceNameChn' => 'ServiceNameChn',
+        'serviceNameEng' => 'ServiceNameEng',
+        'serviceType' => 'ServiceType',
+        'serviceVersion' => 'ServiceVersion',
+        'timestamp' => 'Timestamp',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

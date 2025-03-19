@@ -12,6 +12,7 @@ class ListTagValuesRequest extends Model
      * @description The tag key.
      *
      * This parameter is required.
+     *
      * @example ECS
      *
      * @var string
@@ -31,6 +32,7 @@ class ListTagValuesRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,22 +41,25 @@ class ListTagValuesRequest extends Model
 
     /**
      * @description The type of the resource. Valid values:
+     * - service
+     * - service instance
+     * - artifact
+     *
      * This parameter is required.
+     *
      * @example service
      *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'key'          => 'Key',
-        'nextToken'    => 'NextToken',
-        'regionId'     => 'RegionId',
+        'key' => 'Key',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -33,14 +33,12 @@ class ListTagKeysResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'keys'      => 'Keys',
+        'keys' => 'Keys',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

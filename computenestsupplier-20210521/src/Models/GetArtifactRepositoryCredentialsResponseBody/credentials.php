@@ -53,16 +53,14 @@ class credentials extends Model
      */
     public $username;
     protected $_name = [
-        'accessKeyId'     => 'AccessKeyId',
+        'accessKeyId' => 'AccessKeyId',
         'accessKeySecret' => 'AccessKeySecret',
-        'password'        => 'Password',
-        'securityToken'   => 'SecurityToken',
-        'username'        => 'Username',
+        'password' => 'Password',
+        'securityToken' => 'SecurityToken',
+        'username' => 'Username',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

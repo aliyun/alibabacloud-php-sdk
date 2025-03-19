@@ -19,7 +19,10 @@ class tagResources extends Model
 
     /**
      * @description The resource type. Valid value:
+     * - service
+     * - serviceinstance
      * - artifact
+     *
      * @example service
      *
      * @var string
@@ -44,15 +47,13 @@ class tagResources extends Model
      */
     public $tagValue;
     protected $_name = [
-        'resourceId'   => 'ResourceId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tagKey'       => 'TagKey',
-        'tagValue'     => 'TagValue',
+        'tagKey' => 'TagKey',
+        'tagValue' => 'TagValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

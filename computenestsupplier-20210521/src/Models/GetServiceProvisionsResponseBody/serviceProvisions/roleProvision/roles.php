@@ -47,14 +47,12 @@ class roles extends Model
     public $roleName;
     protected $_name = [
         'apiForCreation' => 'ApiForCreation',
-        'created'        => 'Created',
-        'function'       => 'Function',
-        'roleName'       => 'RoleName',
+        'created' => 'Created',
+        'function' => 'Function',
+        'roleName' => 'RoleName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -19,7 +19,14 @@ class CreateArtifactShrinkRequest extends Model
     /**
      * @description The type of the artifact build task. Valid values:
      *
+     * - EcsImage: Build ECS (Elastic Container Service) image.
+     *
+     * - Dockerfile: Build container image based on Dockerfile.
+     *
+     * - Buildpacks: Build container image based on Buildpacks.
+     *
      * - ContainerImage: Rebuild container image by renaming an existing container image.
+     *
      * @example Dockerfile
      *
      * @var string
@@ -51,6 +58,7 @@ class CreateArtifactShrinkRequest extends Model
      *   Script: script.
      *
      * This parameter is required.
+     *
      * @example EcsImage
      *
      * @var string
@@ -79,6 +87,7 @@ class CreateArtifactShrinkRequest extends Model
      * @description The name of the deployment package.
      *
      * This parameter is required.
+     *
      * @example Name
      *
      * @var string
@@ -112,6 +121,7 @@ class CreateArtifactShrinkRequest extends Model
      * @description The version name of the deployment package.
      *
      * This parameter is required.
+     *
      * @example v1
      *
      * @var string
@@ -119,22 +129,20 @@ class CreateArtifactShrinkRequest extends Model
     public $versionName;
     protected $_name = [
         'artifactBuildPropertyShrink' => 'ArtifactBuildProperty',
-        'artifactBuildType'           => 'ArtifactBuildType',
-        'artifactId'                  => 'ArtifactId',
-        'artifactPropertyShrink'      => 'ArtifactProperty',
-        'artifactType'                => 'ArtifactType',
-        'clientToken'                 => 'ClientToken',
-        'description'                 => 'Description',
-        'name'                        => 'Name',
-        'resourceGroupId'             => 'ResourceGroupId',
-        'supportRegionIds'            => 'SupportRegionIds',
-        'tag'                         => 'Tag',
-        'versionName'                 => 'VersionName',
+        'artifactBuildType' => 'ArtifactBuildType',
+        'artifactId' => 'ArtifactId',
+        'artifactPropertyShrink' => 'ArtifactProperty',
+        'artifactType' => 'ArtifactType',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'name' => 'Name',
+        'resourceGroupId' => 'ResourceGroupId',
+        'supportRegionIds' => 'SupportRegionIds',
+        'tag' => 'Tag',
+        'versionName' => 'VersionName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -228,7 +236,7 @@ class CreateArtifactShrinkRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

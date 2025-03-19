@@ -102,21 +102,19 @@ class GetServiceRegistrationResponseBody extends Model
      */
     public $submitTime;
     protected $_name = [
-        'comment'        => 'Comment',
-        'detail'         => 'Detail',
-        'finishTime'     => 'FinishTime',
+        'comment' => 'Comment',
+        'detail' => 'Detail',
+        'finishTime' => 'FinishTime',
         'registrationId' => 'RegistrationId',
-        'requestId'      => 'RequestId',
-        'serviceId'      => 'ServiceId',
-        'serviceInfo'    => 'ServiceInfo',
+        'requestId' => 'RequestId',
+        'serviceId' => 'ServiceId',
+        'serviceInfo' => 'ServiceInfo',
         'serviceVersion' => 'ServiceVersion',
-        'status'         => 'Status',
-        'submitTime'     => 'SubmitTime',
+        'status' => 'Status',
+        'submitTime' => 'SubmitTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

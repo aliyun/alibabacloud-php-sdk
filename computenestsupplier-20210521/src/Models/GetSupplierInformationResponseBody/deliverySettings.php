@@ -47,15 +47,13 @@ class deliverySettings extends Model
      */
     public $ossPath;
     protected $_name = [
-        'ossBucketName'     => 'OssBucketName',
-        'ossEnabled'        => 'OssEnabled',
+        'ossBucketName' => 'OssBucketName',
+        'ossEnabled' => 'OssEnabled',
         'ossExpirationDays' => 'OssExpirationDays',
-        'ossPath'           => 'OssPath',
+        'ossPath' => 'OssPath',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

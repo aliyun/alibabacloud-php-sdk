@@ -44,14 +44,12 @@ class ListServiceTestTaskLogsResponseBody extends Model
     public $taskLogs;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
-        'taskLogs'   => 'TaskLogs',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'taskLogs' => 'TaskLogs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class ListServiceTestTaskLogsResponseBody extends Model
         if (isset($map['TaskLogs'])) {
             if (!empty($map['TaskLogs'])) {
                 $model->taskLogs = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['TaskLogs'] as $item) {
                     $model->taskLogs[$n++] = null !== $item ? taskLogs::fromMap($item) : $item;
                 }

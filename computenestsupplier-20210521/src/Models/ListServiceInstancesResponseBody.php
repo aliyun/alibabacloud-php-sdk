@@ -52,16 +52,14 @@ class ListServiceInstancesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'requestId'        => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'serviceInstances' => 'ServiceInstances',
-        'totalCount'       => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -111,7 +109,7 @@ class ListServiceInstancesResponseBody extends Model
         if (isset($map['ServiceInstances'])) {
             if (!empty($map['ServiceInstances'])) {
                 $model->serviceInstances = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ServiceInstances'] as $item) {
                     $model->serviceInstances[$n++] = null !== $item ? serviceInstances::fromMap($item) : $item;
                 }

@@ -21,6 +21,7 @@ class RegisterServiceRequest extends Model
      * @description The region ID.
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -31,6 +32,7 @@ class RegisterServiceRequest extends Model
      * @description The service ID.
      *
      * This parameter is required.
+     *
      * @example service-f7024a22ea5149xxxxxx
      *
      * @var string
@@ -38,13 +40,11 @@ class RegisterServiceRequest extends Model
     public $serviceId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'regionId'    => 'RegionId',
-        'serviceId'   => 'ServiceId',
+        'regionId' => 'RegionId',
+        'serviceId' => 'ServiceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

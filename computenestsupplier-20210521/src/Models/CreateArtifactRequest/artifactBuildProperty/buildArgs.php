@@ -26,13 +26,11 @@ class buildArgs extends Model
      */
     public $argumentValue;
     protected $_name = [
-        'argumentName'  => 'ArgumentName',
+        'argumentName' => 'ArgumentName',
         'argumentValue' => 'ArgumentValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

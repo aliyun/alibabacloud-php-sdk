@@ -18,9 +18,7 @@ class complianceMetadata extends Model
         'compliancePacks' => 'CompliancePacks',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
