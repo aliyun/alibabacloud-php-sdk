@@ -116,27 +116,25 @@ class GetConnectionTicketResponseBody extends Model
      */
     public $ticket;
     protected $_name = [
-        'appInstanceGroupId'      => 'AppInstanceGroupId',
-        'appInstanceId'           => 'AppInstanceId',
+        'appInstanceGroupId' => 'AppInstanceGroupId',
+        'appInstanceId' => 'AppInstanceId',
         'appInstancePersistentId' => 'AppInstancePersistentId',
-        'bindQueueInfo'           => 'BindQueueInfo',
-        'code'                    => 'Code',
-        'loginToken'              => 'LoginToken',
-        'message'                 => 'Message',
-        'osType'                  => 'OsType',
-        'policy'                  => 'Policy',
-        'regionId'                => 'RegionId',
-        'requestId'               => 'RequestId',
-        'retryTimes'              => 'RetryTimes',
-        'taskId'                  => 'TaskId',
-        'taskStatus'              => 'TaskStatus',
-        'tenantId'                => 'TenantId',
-        'ticket'                  => 'Ticket',
+        'bindQueueInfo' => 'BindQueueInfo',
+        'code' => 'Code',
+        'loginToken' => 'LoginToken',
+        'message' => 'Message',
+        'osType' => 'OsType',
+        'policy' => 'Policy',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'retryTimes' => 'RetryTimes',
+        'taskId' => 'TaskId',
+        'taskStatus' => 'TaskStatus',
+        'tenantId' => 'TenantId',
+        'ticket' => 'Ticket',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

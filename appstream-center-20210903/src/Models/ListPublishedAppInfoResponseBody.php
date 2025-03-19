@@ -37,9 +37,7 @@ class ListPublishedAppInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -74,7 +72,7 @@ class ListPublishedAppInfoResponseBody extends Model
         if (isset($map['AppModels'])) {
             if (!empty($map['AppModels'])) {
                 $model->appModels = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['AppModels'] as $item) {
                     $model->appModels[$n++] = null !== $item ? appModels::fromMap($item) : $item;
                 }

@@ -89,22 +89,20 @@ class appModels extends Model
     public $usedInSession;
     protected $_name = [
         'appCenterImageId' => 'AppCenterImageId',
-        'appId'            => 'AppId',
-        'appName'          => 'AppName',
-        'appThemeColor'    => 'AppThemeColor',
-        'appVersion'       => 'AppVersion',
-        'appVersionName'   => 'AppVersionName',
-        'authTime'         => 'AuthTime',
-        'categoryId'       => 'CategoryId',
-        'categoryType'     => 'CategoryType',
-        'iconUrl'          => 'IconUrl',
-        'isAuth'           => 'IsAuth',
-        'usedInSession'    => 'UsedInSession',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'appThemeColor' => 'AppThemeColor',
+        'appVersion' => 'AppVersion',
+        'appVersionName' => 'AppVersionName',
+        'authTime' => 'AuthTime',
+        'categoryId' => 'CategoryId',
+        'categoryType' => 'CategoryType',
+        'iconUrl' => 'IconUrl',
+        'isAuth' => 'IsAuth',
+        'usedInSession' => 'UsedInSession',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

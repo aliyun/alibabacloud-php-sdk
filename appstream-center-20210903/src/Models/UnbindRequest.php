@@ -105,24 +105,22 @@ class UnbindRequest extends Model
      */
     public $tenantId;
     protected $_name = [
-        'appId'              => 'AppId',
+        'appId' => 'AppId',
         'appInstanceGroupId' => 'AppInstanceGroupId',
-        'appInstanceId'      => 'AppInstanceId',
-        'clientId'           => 'ClientId',
-        'clientIp'           => 'ClientIp',
-        'clientOS'           => 'ClientOS',
-        'clientVersion'      => 'ClientVersion',
-        'endUserId'          => 'EndUserId',
-        'loginRegionId'      => 'LoginRegionId',
-        'loginToken'         => 'LoginToken',
-        'productType'        => 'ProductType',
-        'sessionId'          => 'SessionId',
-        'tenantId'           => 'TenantId',
+        'appInstanceId' => 'AppInstanceId',
+        'clientId' => 'ClientId',
+        'clientIp' => 'ClientIp',
+        'clientOS' => 'ClientOS',
+        'clientVersion' => 'ClientVersion',
+        'endUserId' => 'EndUserId',
+        'loginRegionId' => 'LoginRegionId',
+        'loginToken' => 'LoginToken',
+        'productType' => 'ProductType',
+        'sessionId' => 'SessionId',
+        'tenantId' => 'TenantId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

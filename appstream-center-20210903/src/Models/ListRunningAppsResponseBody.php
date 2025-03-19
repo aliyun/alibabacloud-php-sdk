@@ -23,13 +23,11 @@ class ListRunningAppsResponseBody extends Model
      */
     public $runningCloudApps;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'runningCloudApps' => 'RunningCloudApps',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -64,7 +62,7 @@ class ListRunningAppsResponseBody extends Model
         if (isset($map['RunningCloudApps'])) {
             if (!empty($map['RunningCloudApps'])) {
                 $model->runningCloudApps = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['RunningCloudApps'] as $item) {
                     $model->runningCloudApps[$n++] = null !== $item ? runningCloudApps::fromMap($item) : $item;
                 }

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class bindQueueInfo extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $length;
+    public $queueStatus;
 
     /**
      * @var int
@@ -21,7 +21,12 @@ class bindQueueInfo extends Model
     /**
      * @var int
      */
-    public $remainingTimeMin;
+    public $readyTimeout;
+
+    /**
+     * @var int
+     */
+    public $remainingTime;
 
     /**
      * @var string
@@ -36,31 +41,33 @@ class bindQueueInfo extends Model
     /**
      * @var int
      */
-    public $waitTimeMin;
+    public $waitTime;
     protected $_name = [
-        'length'           => 'Length',
-        'rank'             => 'Rank',
-        'remainingTimeMin' => 'RemainingTimeMin',
-        'requestKey'       => 'RequestKey',
-        'targetId'         => 'TargetId',
-        'waitTimeMin'      => 'WaitTimeMin',
+        'queueStatus' => 'QueueStatus',
+        'rank' => 'Rank',
+        'readyTimeout' => 'ReadyTimeout',
+        'remainingTime' => 'RemainingTime',
+        'requestKey' => 'RequestKey',
+        'targetId' => 'TargetId',
+        'waitTime' => 'WaitTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->length) {
-            $res['Length'] = $this->length;
+        if (null !== $this->queueStatus) {
+            $res['QueueStatus'] = $this->queueStatus;
         }
         if (null !== $this->rank) {
             $res['Rank'] = $this->rank;
         }
-        if (null !== $this->remainingTimeMin) {
-            $res['RemainingTimeMin'] = $this->remainingTimeMin;
+        if (null !== $this->readyTimeout) {
+            $res['ReadyTimeout'] = $this->readyTimeout;
+        }
+        if (null !== $this->remainingTime) {
+            $res['RemainingTime'] = $this->remainingTime;
         }
         if (null !== $this->requestKey) {
             $res['RequestKey'] = $this->requestKey;
@@ -68,8 +75,8 @@ class bindQueueInfo extends Model
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
-        if (null !== $this->waitTimeMin) {
-            $res['WaitTimeMin'] = $this->waitTimeMin;
+        if (null !== $this->waitTime) {
+            $res['WaitTime'] = $this->waitTime;
         }
 
         return $res;
@@ -83,14 +90,17 @@ class bindQueueInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Length'])) {
-            $model->length = $map['Length'];
+        if (isset($map['QueueStatus'])) {
+            $model->queueStatus = $map['QueueStatus'];
         }
         if (isset($map['Rank'])) {
             $model->rank = $map['Rank'];
         }
-        if (isset($map['RemainingTimeMin'])) {
-            $model->remainingTimeMin = $map['RemainingTimeMin'];
+        if (isset($map['ReadyTimeout'])) {
+            $model->readyTimeout = $map['ReadyTimeout'];
+        }
+        if (isset($map['RemainingTime'])) {
+            $model->remainingTime = $map['RemainingTime'];
         }
         if (isset($map['RequestKey'])) {
             $model->requestKey = $map['RequestKey'];
@@ -98,8 +108,8 @@ class bindQueueInfo extends Model
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }
-        if (isset($map['WaitTimeMin'])) {
-            $model->waitTimeMin = $map['WaitTimeMin'];
+        if (isset($map['WaitTime'])) {
+            $model->waitTime = $map['WaitTime'];
         }
 
         return $model;

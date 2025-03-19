@@ -6,14 +6,16 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210903\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListPublishedAppInfoRequest extends Model
+class StartAppResourcesRequest extends Model
 {
     /**
-     * @example Microsoft Word
+     * @description This parameter is required.
+     *
+     * @example aig-9ciijz60n4xsv****
      *
      * @var string
      */
-    public $appName;
+    public $appInstanceGroupId;
 
     /**
      * @example cn-hangzhou
@@ -23,96 +25,92 @@ class ListPublishedAppInfoRequest extends Model
     public $bizRegionId;
 
     /**
-     * @example 1
+     * @description This parameter is required.
      *
-     * @var int
-     */
-    public $categoryId;
-
-    /**
-     * @example 1
-     *
-     * @var int
-     */
-    public $categoryType;
-
-    /**
-     * @example 17b38aaa-761f-44c5-9862-2ad0f5025d15
+     * @example eac19bef-1e45-4190-a03a-4ea74b69****
      *
      * @var string
      */
     public $clientId;
 
     /**
-     * @example 125.80.132.13
+     * @example 1.2.3.4
      *
      * @var string
      */
     public $clientIp;
 
     /**
-     * @example windows_\\"Windows 10 Enterprise\\" 10.0 (Build 14393)
+     * @example windows_\\"Windows 10 Pro\\" 10.0 (Build 22631)
      *
      * @var string
      */
     public $clientOS;
 
     /**
-     * @example 2.0.1-D-20211008.101607
+     * @example 7.5.1-R-20240903.163046
      *
      * @var string
      */
     public $clientVersion;
 
     /**
-     * @example test.test
+     * @example testUser01
      *
      * @var string
      */
     public $endUserId;
 
     /**
-     * @example cn-shanghai
+     * @example cn-hangzhou
      *
      * @var string
      */
     public $loginRegionId;
 
     /**
-     * @example v189fa78c1aff77a0483b16497517322299131027b85bb84bbdc0871988ce8296d8fd891e2fdeaded3bd75f81f639acee8
+     * @description This parameter is required.
+     *
+     * @example v185fdd7f6d39fa7861981639366085772e150a390a5bb7b43c4e62440d94fc392b945770e1596cebe90085ce0af4d****
      *
      * @var string
      */
     public $loginToken;
 
     /**
-     * @var string
-     */
-    public $orderParam;
-
-    /**
-     * @example CloudApp
+     * @description This parameter is required.
+     *
+     * @example AndroidCloud
      *
      * @var string
      */
     public $productType;
 
     /**
-     * @example c261a6a1-e242-4f4b-813c-5fe807e49f03
+     * @description This parameter is required.
+     *
+     * @var string[]
+     */
+    public $resourceIds;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example a863f4c3-2f1d-4971-8cf7-e2b92ae9****
      *
      * @var string
      */
     public $sessionId;
 
     /**
+     * @example 2943802884B27030B6759F9132B2****
+     *
      * @var string
      */
-    public $sortType;
+    public $uuid;
     protected $_name = [
-        'appName' => 'AppName',
+        'appInstanceGroupId' => 'AppInstanceGroupId',
         'bizRegionId' => 'BizRegionId',
-        'categoryId' => 'CategoryId',
-        'categoryType' => 'CategoryType',
         'clientId' => 'ClientId',
         'clientIp' => 'ClientIp',
         'clientOS' => 'ClientOS',
@@ -120,10 +118,10 @@ class ListPublishedAppInfoRequest extends Model
         'endUserId' => 'EndUserId',
         'loginRegionId' => 'LoginRegionId',
         'loginToken' => 'LoginToken',
-        'orderParam' => 'OrderParam',
         'productType' => 'ProductType',
+        'resourceIds' => 'ResourceIds',
         'sessionId' => 'SessionId',
-        'sortType' => 'SortType',
+        'uuid' => 'Uuid',
     ];
 
     public function validate() {}
@@ -131,17 +129,11 @@ class ListPublishedAppInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
+        if (null !== $this->appInstanceGroupId) {
+            $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
         }
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
-        }
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
-        }
-        if (null !== $this->categoryType) {
-            $res['CategoryType'] = $this->categoryType;
         }
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
@@ -164,17 +156,17 @@ class ListPublishedAppInfoRequest extends Model
         if (null !== $this->loginToken) {
             $res['LoginToken'] = $this->loginToken;
         }
-        if (null !== $this->orderParam) {
-            $res['OrderParam'] = $this->orderParam;
-        }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
+        }
+        if (null !== $this->resourceIds) {
+            $res['ResourceIds'] = $this->resourceIds;
         }
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
-        if (null !== $this->sortType) {
-            $res['SortType'] = $this->sortType;
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
         }
 
         return $res;
@@ -183,22 +175,16 @@ class ListPublishedAppInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListPublishedAppInfoRequest
+     * @return StartAppResourcesRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
+        if (isset($map['AppInstanceGroupId'])) {
+            $model->appInstanceGroupId = $map['AppInstanceGroupId'];
         }
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
-        }
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
-        }
-        if (isset($map['CategoryType'])) {
-            $model->categoryType = $map['CategoryType'];
         }
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
@@ -221,17 +207,19 @@ class ListPublishedAppInfoRequest extends Model
         if (isset($map['LoginToken'])) {
             $model->loginToken = $map['LoginToken'];
         }
-        if (isset($map['OrderParam'])) {
-            $model->orderParam = $map['OrderParam'];
-        }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
+        }
+        if (isset($map['ResourceIds'])) {
+            if (!empty($map['ResourceIds'])) {
+                $model->resourceIds = $map['ResourceIds'];
+            }
         }
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
-        if (isset($map['SortType'])) {
-            $model->sortType = $map['SortType'];
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;

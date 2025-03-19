@@ -92,23 +92,21 @@ class ListRunningAppsRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'bizRegionId'   => 'BizRegionId',
-        'clientId'      => 'ClientId',
-        'clientIp'      => 'ClientIp',
-        'clientOS'      => 'ClientOS',
+        'bizRegionId' => 'BizRegionId',
+        'clientId' => 'ClientId',
+        'clientIp' => 'ClientIp',
+        'clientOS' => 'ClientOS',
         'clientVersion' => 'ClientVersion',
-        'endUserId'     => 'EndUserId',
+        'endUserId' => 'EndUserId',
         'loginRegionId' => 'LoginRegionId',
-        'loginToken'    => 'LoginToken',
-        'productType'   => 'ProductType',
-        'sessionId'     => 'SessionId',
-        'tenantId'      => 'TenantId',
-        'uuid'          => 'Uuid',
+        'loginToken' => 'LoginToken',
+        'productType' => 'ProductType',
+        'sessionId' => 'SessionId',
+        'tenantId' => 'TenantId',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

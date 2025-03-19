@@ -6,142 +6,134 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210903\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListLFUAppRequest extends Model
+class ResetAppResourcesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $aliUid;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example aig-9ciijz60n4xsv****
+     *
      * @var string
      */
-    public $apiType;
+    public $appInstanceGroupId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $bizRegionId;
 
     /**
-     * @var string
-     */
-    public $clientChannel;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example f4a0dc8e-1702-4728-9a60-95b27a35****
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @example 1.2.3.4
+     *
      * @var string
      */
     public $clientIp;
 
     /**
+     * @example windows_\\"Windows 10 Pro\\" 10.0 (Build 22631)
+     *
      * @var string
      */
     public $clientOS;
 
     /**
+     * @example 7.7.0-R-20241217.092056
+     *
      * @var string
      */
     public $clientVersion;
 
     /**
+     * @example user01
+     *
      * @var string
      */
     public $endUserId;
 
     /**
-     * @var string
-     */
-    public $extendsAccessToken;
-
-    /**
-     * @var string
-     */
-    public $idpId;
-
-    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $loginRegionId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example v285fdd7f6d39fa7861981639366085772e150a390a5bb7b43c4e62440d94fc392b945770e1596cebe90085ce0af4d****
+     *
      * @var string
      */
     public $loginToken;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example AndroidCloud
+     *
      * @var string
      */
     public $productType;
 
     /**
-     * @var string
+     * @description This parameter is required.
+     *
+     * @var string[]
      */
-    public $regionId;
+    public $resourceIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example c261a6a1-e242-4f4b-813c-5fe807e49f03
+     *
      * @var string
      */
     public $sessionId;
 
     /**
-     * @var string
-     */
-    public $traceId;
-
-    /**
+     * @example 2943802884B27030B6759F9132B2****
+     *
      * @var string
      */
     public $uuid;
-
-    /**
-     * @var string
-     */
-    public $wyId;
     protected $_name = [
-        'aliUid'             => 'AliUid',
-        'apiType'            => 'ApiType',
-        'bizRegionId'        => 'BizRegionId',
-        'clientChannel'      => 'ClientChannel',
-        'clientId'           => 'ClientId',
-        'clientIp'           => 'ClientIp',
-        'clientOS'           => 'ClientOS',
-        'clientVersion'      => 'ClientVersion',
-        'endUserId'          => 'EndUserId',
-        'extendsAccessToken' => 'ExtendsAccessToken',
-        'idpId'              => 'IdpId',
-        'loginRegionId'      => 'LoginRegionId',
-        'loginToken'         => 'LoginToken',
-        'productType'        => 'ProductType',
-        'regionId'           => 'RegionId',
-        'sessionId'          => 'SessionId',
-        'traceId'            => 'TraceId',
-        'uuid'               => 'Uuid',
-        'wyId'               => 'WyId',
+        'appInstanceGroupId' => 'AppInstanceGroupId',
+        'bizRegionId' => 'BizRegionId',
+        'clientId' => 'ClientId',
+        'clientIp' => 'ClientIp',
+        'clientOS' => 'ClientOS',
+        'clientVersion' => 'ClientVersion',
+        'endUserId' => 'EndUserId',
+        'loginRegionId' => 'LoginRegionId',
+        'loginToken' => 'LoginToken',
+        'productType' => 'ProductType',
+        'resourceIds' => 'ResourceIds',
+        'sessionId' => 'SessionId',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aliUid) {
-            $res['AliUid'] = $this->aliUid;
-        }
-        if (null !== $this->apiType) {
-            $res['ApiType'] = $this->apiType;
+        if (null !== $this->appInstanceGroupId) {
+            $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
         }
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
-        }
-        if (null !== $this->clientChannel) {
-            $res['ClientChannel'] = $this->clientChannel;
         }
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
@@ -158,12 +150,6 @@ class ListLFUAppRequest extends Model
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
-        if (null !== $this->extendsAccessToken) {
-            $res['ExtendsAccessToken'] = $this->extendsAccessToken;
-        }
-        if (null !== $this->idpId) {
-            $res['IdpId'] = $this->idpId;
-        }
         if (null !== $this->loginRegionId) {
             $res['LoginRegionId'] = $this->loginRegionId;
         }
@@ -173,20 +159,14 @@ class ListLFUAppRequest extends Model
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->resourceIds) {
+            $res['ResourceIds'] = $this->resourceIds;
         }
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
-        if (null !== $this->traceId) {
-            $res['TraceId'] = $this->traceId;
-        }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
-        }
-        if (null !== $this->wyId) {
-            $res['WyId'] = $this->wyId;
         }
 
         return $res;
@@ -195,22 +175,16 @@ class ListLFUAppRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListLFUAppRequest
+     * @return ResetAppResourcesRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AliUid'])) {
-            $model->aliUid = $map['AliUid'];
-        }
-        if (isset($map['ApiType'])) {
-            $model->apiType = $map['ApiType'];
+        if (isset($map['AppInstanceGroupId'])) {
+            $model->appInstanceGroupId = $map['AppInstanceGroupId'];
         }
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
-        }
-        if (isset($map['ClientChannel'])) {
-            $model->clientChannel = $map['ClientChannel'];
         }
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
@@ -227,12 +201,6 @@ class ListLFUAppRequest extends Model
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
-        if (isset($map['ExtendsAccessToken'])) {
-            $model->extendsAccessToken = $map['ExtendsAccessToken'];
-        }
-        if (isset($map['IdpId'])) {
-            $model->idpId = $map['IdpId'];
-        }
         if (isset($map['LoginRegionId'])) {
             $model->loginRegionId = $map['LoginRegionId'];
         }
@@ -242,20 +210,16 @@ class ListLFUAppRequest extends Model
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ResourceIds'])) {
+            if (!empty($map['ResourceIds'])) {
+                $model->resourceIds = $map['ResourceIds'];
+            }
         }
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
-        if (isset($map['TraceId'])) {
-            $model->traceId = $map['TraceId'];
-        }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
-        }
-        if (isset($map['WyId'])) {
-            $model->wyId = $map['WyId'];
         }
 
         return $model;

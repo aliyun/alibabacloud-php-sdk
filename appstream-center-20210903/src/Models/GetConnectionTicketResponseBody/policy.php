@@ -24,13 +24,11 @@ class policy extends Model
     public $resolutionWidth;
     protected $_name = [
         'resolutionAdaptive' => 'ResolutionAdaptive',
-        'resolutionHeight'   => 'ResolutionHeight',
-        'resolutionWidth'    => 'ResolutionWidth',
+        'resolutionHeight' => 'ResolutionHeight',
+        'resolutionWidth' => 'ResolutionWidth',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -155,32 +155,30 @@ class StopAppRequest extends Model
      */
     public $wyId;
     protected $_name = [
-        'aliUid'             => 'AliUid',
-        'apiType'            => 'ApiType',
-        'appId'              => 'AppId',
+        'aliUid' => 'AliUid',
+        'apiType' => 'ApiType',
+        'appId' => 'AppId',
         'appInstanceGroupId' => 'AppInstanceGroupId',
-        'appInstanceId'      => 'AppInstanceId',
-        'bizRegionId'        => 'BizRegionId',
-        'clientChannel'      => 'ClientChannel',
-        'clientId'           => 'ClientId',
-        'clientIp'           => 'ClientIp',
-        'clientOS'           => 'ClientOS',
-        'clientVersion'      => 'ClientVersion',
-        'endUserId'          => 'EndUserId',
-        'forceStop'          => 'ForceStop',
-        'idpId'              => 'IdpId',
-        'loginRegionId'      => 'LoginRegionId',
-        'loginToken'         => 'LoginToken',
-        'productType'        => 'ProductType',
-        'regionId'           => 'RegionId',
-        'sessionId'          => 'SessionId',
-        'uuid'               => 'Uuid',
-        'wyId'               => 'WyId',
+        'appInstanceId' => 'AppInstanceId',
+        'bizRegionId' => 'BizRegionId',
+        'clientChannel' => 'ClientChannel',
+        'clientId' => 'ClientId',
+        'clientIp' => 'ClientIp',
+        'clientOS' => 'ClientOS',
+        'clientVersion' => 'ClientVersion',
+        'endUserId' => 'EndUserId',
+        'forceStop' => 'ForceStop',
+        'idpId' => 'IdpId',
+        'loginRegionId' => 'LoginRegionId',
+        'loginToken' => 'LoginToken',
+        'productType' => 'ProductType',
+        'regionId' => 'RegionId',
+        'sessionId' => 'SessionId',
+        'uuid' => 'Uuid',
+        'wyId' => 'WyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

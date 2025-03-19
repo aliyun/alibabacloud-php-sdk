@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210903\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListLFUAppResponse extends Model
+class StopAppResourcesResponse extends Model
 {
     /**
      * @var string[]
@@ -19,18 +19,16 @@ class ListLFUAppResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListLFUAppResponseBody
+     * @var StopAppResourcesResponseBody
      */
     public $body;
     protected $_name = [
-        'headers'    => 'headers',
+        'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'body' => 'body',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -51,7 +49,7 @@ class ListLFUAppResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListLFUAppResponse
+     * @return StopAppResourcesResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +61,7 @@ class ListLFUAppResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListLFUAppResponseBody::fromMap($map['body']);
+            $model->body = StopAppResourcesResponseBody::fromMap($map['body']);
         }
 
         return $model;

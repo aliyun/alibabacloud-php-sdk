@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210903\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UnbindResponse extends Model
+class RestartAppResourcesResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UnbindResponse extends Model
     public $statusCode;
 
     /**
-     * @var UnbindResponseBody
+     * @var RestartAppResourcesResponseBody
      */
     public $body;
     protected $_name = [
@@ -49,7 +49,7 @@ class UnbindResponse extends Model
     /**
      * @param array $map
      *
-     * @return UnbindResponse
+     * @return RestartAppResourcesResponse
      */
     public static function fromMap($map = [])
     {
@@ -61,7 +61,7 @@ class UnbindResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = UnbindResponseBody::fromMap($map['body']);
+            $model->body = RestartAppResourcesResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -35,6 +35,11 @@ class GetConnectionTicketRequest extends Model
     public $appVersion;
 
     /**
+     * @var bool
+     */
+    public $autoConnectInQueue;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
@@ -63,6 +68,11 @@ class GetConnectionTicketRequest extends Model
     public $clientOS;
 
     /**
+     * @var string
+     */
+    public $clientType;
+
+    /**
      * @example 2.0.1-D-20211008.101607
      *
      * @var string
@@ -80,6 +90,11 @@ class GetConnectionTicketRequest extends Model
      * @var string
      */
     public $endUserId;
+
+    /**
+     * @var string
+     */
+    public $environmentConfig;
 
     /**
      * @example cn-hangzhou
@@ -144,31 +159,32 @@ class GetConnectionTicketRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'appId'                => 'AppId',
-        'appInstanceGroupId'   => 'AppInstanceGroupId',
-        'appInstanceId'        => 'AppInstanceId',
-        'appVersion'           => 'AppVersion',
-        'bizRegionId'          => 'BizRegionId',
-        'clientId'             => 'ClientId',
-        'clientIp'             => 'ClientIp',
-        'clientOS'             => 'ClientOS',
-        'clientVersion'        => 'ClientVersion',
+        'appId' => 'AppId',
+        'appInstanceGroupId' => 'AppInstanceGroupId',
+        'appInstanceId' => 'AppInstanceId',
+        'appVersion' => 'AppVersion',
+        'autoConnectInQueue' => 'AutoConnectInQueue',
+        'bizRegionId' => 'BizRegionId',
+        'clientId' => 'ClientId',
+        'clientIp' => 'ClientIp',
+        'clientOS' => 'ClientOS',
+        'clientType' => 'ClientType',
+        'clientVersion' => 'ClientVersion',
         'connectionProperties' => 'ConnectionProperties',
-        'endUserId'            => 'EndUserId',
-        'loginRegionId'        => 'LoginRegionId',
-        'loginToken'           => 'LoginToken',
-        'param'                => 'Param',
-        'productType'          => 'ProductType',
-        'resourceId'           => 'ResourceId',
-        'sessionId'            => 'SessionId',
-        'taskId'               => 'TaskId',
-        'tenantId'             => 'TenantId',
-        'uuid'                 => 'Uuid',
+        'endUserId' => 'EndUserId',
+        'environmentConfig' => 'EnvironmentConfig',
+        'loginRegionId' => 'LoginRegionId',
+        'loginToken' => 'LoginToken',
+        'param' => 'Param',
+        'productType' => 'ProductType',
+        'resourceId' => 'ResourceId',
+        'sessionId' => 'SessionId',
+        'taskId' => 'TaskId',
+        'tenantId' => 'TenantId',
+        'uuid' => 'Uuid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -185,6 +201,9 @@ class GetConnectionTicketRequest extends Model
         if (null !== $this->appVersion) {
             $res['AppVersion'] = $this->appVersion;
         }
+        if (null !== $this->autoConnectInQueue) {
+            $res['AutoConnectInQueue'] = $this->autoConnectInQueue;
+        }
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
         }
@@ -197,6 +216,9 @@ class GetConnectionTicketRequest extends Model
         if (null !== $this->clientOS) {
             $res['ClientOS'] = $this->clientOS;
         }
+        if (null !== $this->clientType) {
+            $res['ClientType'] = $this->clientType;
+        }
         if (null !== $this->clientVersion) {
             $res['ClientVersion'] = $this->clientVersion;
         }
@@ -205,6 +227,9 @@ class GetConnectionTicketRequest extends Model
         }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+        if (null !== $this->environmentConfig) {
+            $res['EnvironmentConfig'] = $this->environmentConfig;
         }
         if (null !== $this->loginRegionId) {
             $res['LoginRegionId'] = $this->loginRegionId;
@@ -257,6 +282,9 @@ class GetConnectionTicketRequest extends Model
         if (isset($map['AppVersion'])) {
             $model->appVersion = $map['AppVersion'];
         }
+        if (isset($map['AutoConnectInQueue'])) {
+            $model->autoConnectInQueue = $map['AutoConnectInQueue'];
+        }
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
         }
@@ -269,6 +297,9 @@ class GetConnectionTicketRequest extends Model
         if (isset($map['ClientOS'])) {
             $model->clientOS = $map['ClientOS'];
         }
+        if (isset($map['ClientType'])) {
+            $model->clientType = $map['ClientType'];
+        }
         if (isset($map['ClientVersion'])) {
             $model->clientVersion = $map['ClientVersion'];
         }
@@ -277,6 +308,9 @@ class GetConnectionTicketRequest extends Model
         }
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
+        }
+        if (isset($map['EnvironmentConfig'])) {
+            $model->environmentConfig = $map['EnvironmentConfig'];
         }
         if (isset($map['LoginRegionId'])) {
             $model->loginRegionId = $map['LoginRegionId'];

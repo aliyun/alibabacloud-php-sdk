@@ -85,22 +85,20 @@ class runningCloudApps extends Model
      */
     public $startTime;
     protected $_name = [
-        'appId'              => 'AppId',
+        'appId' => 'AppId',
         'appInstanceGroupId' => 'AppInstanceGroupId',
-        'appInstanceId'      => 'AppInstanceId',
-        'appName'            => 'AppName',
-        'appVersion'         => 'AppVersion',
-        'appVersionName'     => 'AppVersionName',
-        'duration'           => 'Duration',
-        'iconUrl'            => 'IconUrl',
-        'osType'             => 'OsType',
-        'regionId'           => 'RegionId',
-        'startTime'          => 'StartTime',
+        'appInstanceId' => 'AppInstanceId',
+        'appName' => 'AppName',
+        'appVersion' => 'AppVersion',
+        'appVersionName' => 'AppVersionName',
+        'duration' => 'Duration',
+        'iconUrl' => 'IconUrl',
+        'osType' => 'OsType',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
