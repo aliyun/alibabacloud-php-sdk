@@ -4,72 +4,69 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest\restApiConfig;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest\restApiConfig\environment\serviceConfigs;
+use AlibabaCloud\Tea\Model;
 
 class environment extends Model
 {
     /**
+     * @description API publication scenario.
+     *
+     * @example SingleService
+     *
      * @var string
      */
     public $backendScene;
+
     /**
+     * @description List of user domains.
+     *
      * @var string[]
      */
     public $customDomainIds;
+
     /**
+     * @description Environment ID.
+     *
+     * @example env-cpqnr6tlhtgubc***
+     *
      * @var string
      */
     public $environmentId;
+
     /**
+     * @description Existing service configurations. Only one entry is allowed in a single-service scenario, while multiple entries are allowed in scenarios such as by ratio or by content.
+     *
      * @var serviceConfigs[]
      */
     public $serviceConfigs;
     protected $_name = [
-        'backendScene'    => 'backendScene',
+        'backendScene' => 'backendScene',
         'customDomainIds' => 'customDomainIds',
-        'environmentId'   => 'environmentId',
-        'serviceConfigs'  => 'serviceConfigs',
+        'environmentId' => 'environmentId',
+        'serviceConfigs' => 'serviceConfigs',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->customDomainIds)) {
-            Model::validateArray($this->customDomainIds);
-        }
-        if (\is_array($this->serviceConfigs)) {
-            Model::validateArray($this->serviceConfigs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backendScene) {
             $res['backendScene'] = $this->backendScene;
         }
-
         if (null !== $this->customDomainIds) {
-            if (\is_array($this->customDomainIds)) {
-                $res['customDomainIds'] = [];
-                $n1                     = 0;
-                foreach ($this->customDomainIds as $item1) {
-                    $res['customDomainIds'][$n1++] = $item1;
-                }
-            }
+            $res['customDomainIds'] = $this->customDomainIds;
         }
-
         if (null !== $this->environmentId) {
             $res['environmentId'] = $this->environmentId;
         }
-
         if (null !== $this->serviceConfigs) {
-            if (\is_array($this->serviceConfigs)) {
-                $res['serviceConfigs'] = [];
-                $n1                    = 0;
-                foreach ($this->serviceConfigs as $item1) {
-                    $res['serviceConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['serviceConfigs'] = [];
+            if (null !== $this->serviceConfigs && \is_array($this->serviceConfigs)) {
+                $n = 0;
+                foreach ($this->serviceConfigs as $item) {
+                    $res['serviceConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -77,38 +74,31 @@ class environment extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return environment
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['backendScene'])) {
             $model->backendScene = $map['backendScene'];
         }
-
         if (isset($map['customDomainIds'])) {
             if (!empty($map['customDomainIds'])) {
-                $model->customDomainIds = [];
-                $n1                     = 0;
-                foreach ($map['customDomainIds'] as $item1) {
-                    $model->customDomainIds[$n1++] = $item1;
-                }
+                $model->customDomainIds = $map['customDomainIds'];
             }
         }
-
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
         }
-
         if (isset($map['serviceConfigs'])) {
             if (!empty($map['serviceConfigs'])) {
                 $model->serviceConfigs = [];
-                $n1                    = 0;
-                foreach ($map['serviceConfigs'] as $item1) {
-                    $model->serviceConfigs[$n1++] = serviceConfigs::fromMap($item1);
+                $n = 0;
+                foreach ($map['serviceConfigs'] as $item) {
+                    $model->serviceConfigs[$n++] = null !== $item ? serviceConfigs::fromMap($item) : $item;
                 }
             }
         }

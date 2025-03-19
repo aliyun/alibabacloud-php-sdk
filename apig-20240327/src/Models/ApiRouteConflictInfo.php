@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ApiRouteConflictInfo\conflicts;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ApiRouteConflictInfo\domainInfo;
+use AlibabaCloud\Tea\Model;
 
 class ApiRouteConflictInfo extends Model
 {
@@ -14,64 +14,54 @@ class ApiRouteConflictInfo extends Model
      * @var conflicts[]
      */
     public $conflicts;
+
     /**
      * @var domainInfo
      */
     public $domainInfo;
     protected $_name = [
-        'conflicts'  => 'conflicts',
+        'conflicts' => 'conflicts',
         'domainInfo' => 'domainInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->conflicts)) {
-            Model::validateArray($this->conflicts);
-        }
-        if (null !== $this->domainInfo) {
-            $this->domainInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->conflicts) {
-            if (\is_array($this->conflicts)) {
-                $res['conflicts'] = [];
-                $n1               = 0;
-                foreach ($this->conflicts as $item1) {
-                    $res['conflicts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['conflicts'] = [];
+            if (null !== $this->conflicts && \is_array($this->conflicts)) {
+                $n = 0;
+                foreach ($this->conflicts as $item) {
+                    $res['conflicts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->domainInfo) {
-            $res['domainInfo'] = null !== $this->domainInfo ? $this->domainInfo->toArray($noStream) : $this->domainInfo;
+            $res['domainInfo'] = null !== $this->domainInfo ? $this->domainInfo->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ApiRouteConflictInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['conflicts'])) {
             if (!empty($map['conflicts'])) {
                 $model->conflicts = [];
-                $n1               = 0;
-                foreach ($map['conflicts'] as $item1) {
-                    $model->conflicts[$n1++] = conflicts::fromMap($item1);
+                $n = 0;
+                foreach ($map['conflicts'] as $item) {
+                    $model->conflicts[$n++] = null !== $item ? conflicts::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['domainInfo'])) {
             $model->domainInfo = domainInfo::fromMap($map['domainInfo']);
         }

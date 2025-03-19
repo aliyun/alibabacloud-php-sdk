@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ParentResourceInfo extends Model
 {
@@ -12,30 +12,24 @@ class ParentResourceInfo extends Model
      * @var HttpApiApiInfo
      */
     public $apiInfo;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'apiInfo'      => 'apiInfo',
+        'apiInfo' => 'apiInfo',
         'resourceType' => 'resourceType',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->apiInfo) {
-            $this->apiInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiInfo) {
-            $res['apiInfo'] = null !== $this->apiInfo ? $this->apiInfo->toArray($noStream) : $this->apiInfo;
+            $res['apiInfo'] = null !== $this->apiInfo ? $this->apiInfo->toMap() : null;
         }
-
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
@@ -43,18 +37,17 @@ class ParentResourceInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ParentResourceInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['apiInfo'])) {
             $model->apiInfo = HttpApiApiInfo::fromMap($map['apiInfo']);
         }
-
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }

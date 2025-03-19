@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DashboardFilter extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $routeName;
@@ -16,12 +18,9 @@ class DashboardFilter extends Model
         'routeName' => 'routeName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->routeName) {
@@ -31,11 +30,11 @@ class DashboardFilter extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DashboardFilter
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

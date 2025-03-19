@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Policy Mount ID
+     *
+     * @example pr-cqooju5lhtgquuj6***
+     *
      * @var string
      */
     public $policyAttachmentId;
@@ -16,12 +20,9 @@ class data extends Model
         'policyAttachmentId' => 'policyAttachmentId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policyAttachmentId) {
@@ -31,11 +32,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpDubboTranscoder;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpDubboTranscoder\mothedMapList\paramMapsList;
+use AlibabaCloud\Tea\Model;
 
 class mothedMapList extends Model
 {
@@ -13,129 +13,111 @@ class mothedMapList extends Model
      * @var string
      */
     public $dubboMothedName;
+
     /**
+     * @example ALL_GET
+     *
      * @var string
      */
     public $httpMothed;
+
     /**
+     * @example /mytestzbk/sayhello
+     *
      * @var string
      */
     public $mothedpath;
+
     /**
      * @var paramMapsList[]
      */
     public $paramMapsList;
+
     /**
+     * @example PASS_NOT
+     *
      * @var string
      */
     public $passThroughAllHeaders;
+
     /**
      * @var string[]
      */
     public $passThroughList;
     protected $_name = [
-        'dubboMothedName'       => 'dubboMothedName',
-        'httpMothed'            => 'httpMothed',
-        'mothedpath'            => 'mothedpath',
-        'paramMapsList'         => 'paramMapsList',
+        'dubboMothedName' => 'dubboMothedName',
+        'httpMothed' => 'httpMothed',
+        'mothedpath' => 'mothedpath',
+        'paramMapsList' => 'paramMapsList',
         'passThroughAllHeaders' => 'passThroughAllHeaders',
-        'passThroughList'       => 'passThroughList',
+        'passThroughList' => 'passThroughList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->paramMapsList)) {
-            Model::validateArray($this->paramMapsList);
-        }
-        if (\is_array($this->passThroughList)) {
-            Model::validateArray($this->passThroughList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dubboMothedName) {
             $res['dubboMothedName'] = $this->dubboMothedName;
         }
-
         if (null !== $this->httpMothed) {
             $res['httpMothed'] = $this->httpMothed;
         }
-
         if (null !== $this->mothedpath) {
             $res['mothedpath'] = $this->mothedpath;
         }
-
         if (null !== $this->paramMapsList) {
-            if (\is_array($this->paramMapsList)) {
-                $res['paramMapsList'] = [];
-                $n1                   = 0;
-                foreach ($this->paramMapsList as $item1) {
-                    $res['paramMapsList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['paramMapsList'] = [];
+            if (null !== $this->paramMapsList && \is_array($this->paramMapsList)) {
+                $n = 0;
+                foreach ($this->paramMapsList as $item) {
+                    $res['paramMapsList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->passThroughAllHeaders) {
             $res['passThroughAllHeaders'] = $this->passThroughAllHeaders;
         }
-
         if (null !== $this->passThroughList) {
-            if (\is_array($this->passThroughList)) {
-                $res['passThroughList'] = [];
-                $n1                     = 0;
-                foreach ($this->passThroughList as $item1) {
-                    $res['passThroughList'][$n1++] = $item1;
-                }
-            }
+            $res['passThroughList'] = $this->passThroughList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mothedMapList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dubboMothedName'])) {
             $model->dubboMothedName = $map['dubboMothedName'];
         }
-
         if (isset($map['httpMothed'])) {
             $model->httpMothed = $map['httpMothed'];
         }
-
         if (isset($map['mothedpath'])) {
             $model->mothedpath = $map['mothedpath'];
         }
-
         if (isset($map['paramMapsList'])) {
             if (!empty($map['paramMapsList'])) {
                 $model->paramMapsList = [];
-                $n1                   = 0;
-                foreach ($map['paramMapsList'] as $item1) {
-                    $model->paramMapsList[$n1++] = paramMapsList::fromMap($item1);
+                $n = 0;
+                foreach ($map['paramMapsList'] as $item) {
+                    $model->paramMapsList[$n++] = null !== $item ? paramMapsList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['passThroughAllHeaders'])) {
             $model->passThroughAllHeaders = $map['passThroughAllHeaders'];
         }
-
         if (isset($map['passThroughList'])) {
             if (!empty($map['passThroughList'])) {
-                $model->passThroughList = [];
-                $n1                     = 0;
-                foreach ($map['passThroughList'] as $item1) {
-                    $model->passThroughList[$n1++] = $item1;
-                }
+                $model->passThroughList = $map['passThroughList'];
             }
         }
 

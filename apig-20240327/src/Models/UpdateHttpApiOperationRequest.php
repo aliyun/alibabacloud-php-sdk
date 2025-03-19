@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateHttpApiOperationRequest extends Model
 {
     /**
+     * @description operation definition.
+     *
      * @var HttpApiOperation
      */
     public $operation;
@@ -16,29 +18,23 @@ class UpdateHttpApiOperationRequest extends Model
         'operation' => 'operation',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->operation) {
-            $this->operation->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operation) {
-            $res['operation'] = null !== $this->operation ? $this->operation->toArray($noStream) : $this->operation;
+            $res['operation'] = null !== $this->operation ? $this->operation->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateHttpApiOperationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

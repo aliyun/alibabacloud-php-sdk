@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AkSkIdentityConfig extends Model
 {
@@ -12,45 +12,42 @@ class AkSkIdentityConfig extends Model
      * @var string
      */
     public $ak;
+
     /**
      * @var string
      */
     public $generateMode;
+
     /**
      * @var string
      */
     public $sk;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'ak'           => 'ak',
+        'ak' => 'ak',
         'generateMode' => 'generateMode',
-        'sk'           => 'sk',
-        'type'         => 'type',
+        'sk' => 'sk',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ak) {
             $res['ak'] = $this->ak;
         }
-
         if (null !== $this->generateMode) {
             $res['generateMode'] = $this->generateMode;
         }
-
         if (null !== $this->sk) {
             $res['sk'] = $this->sk;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -58,26 +55,23 @@ class AkSkIdentityConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AkSkIdentityConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ak'])) {
             $model->ak = $map['ak'];
         }
-
         if (isset($map['generateMode'])) {
             $model->generateMode = $map['generateMode'];
         }
-
         if (isset($map['sk'])) {
             $model->sk = $map['sk'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

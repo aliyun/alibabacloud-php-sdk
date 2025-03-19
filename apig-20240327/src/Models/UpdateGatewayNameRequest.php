@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateGatewayNameRequest extends Model
 {
     /**
+     * @description Gateway name.
+     *
+     * @example dev-itemcenter-router
+     *
      * @var string
      */
     public $name;
@@ -16,12 +20,9 @@ class UpdateGatewayNameRequest extends Model
         'name' => 'name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
@@ -31,11 +32,11 @@ class UpdateGatewayNameRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateGatewayNameRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

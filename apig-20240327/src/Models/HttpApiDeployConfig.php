@@ -4,100 +4,88 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\policyConfigs;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\serviceConfigs;
+use AlibabaCloud\Tea\Model;
 
 class HttpApiDeployConfig extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoDeploy;
+
     /**
+     * @example SingleService
+     *
      * @var string
      */
     public $backendScene;
+
     /**
      * @var string[]
      */
     public $customDomainIds;
+
     /**
+     * @example env-xxx
+     *
      * @var string
      */
     public $environmentId;
+
     /**
      * @var policyConfigs[]
      */
     public $policyConfigs;
+
     /**
      * @var serviceConfigs[]
      */
     public $serviceConfigs;
     protected $_name = [
-        'autoDeploy'      => 'autoDeploy',
-        'backendScene'    => 'backendScene',
+        'autoDeploy' => 'autoDeploy',
+        'backendScene' => 'backendScene',
         'customDomainIds' => 'customDomainIds',
-        'environmentId'   => 'environmentId',
-        'policyConfigs'   => 'policyConfigs',
-        'serviceConfigs'  => 'serviceConfigs',
+        'environmentId' => 'environmentId',
+        'policyConfigs' => 'policyConfigs',
+        'serviceConfigs' => 'serviceConfigs',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->customDomainIds)) {
-            Model::validateArray($this->customDomainIds);
-        }
-        if (\is_array($this->policyConfigs)) {
-            Model::validateArray($this->policyConfigs);
-        }
-        if (\is_array($this->serviceConfigs)) {
-            Model::validateArray($this->serviceConfigs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoDeploy) {
             $res['autoDeploy'] = $this->autoDeploy;
         }
-
         if (null !== $this->backendScene) {
             $res['backendScene'] = $this->backendScene;
         }
-
         if (null !== $this->customDomainIds) {
-            if (\is_array($this->customDomainIds)) {
-                $res['customDomainIds'] = [];
-                $n1                     = 0;
-                foreach ($this->customDomainIds as $item1) {
-                    $res['customDomainIds'][$n1++] = $item1;
-                }
-            }
+            $res['customDomainIds'] = $this->customDomainIds;
         }
-
         if (null !== $this->environmentId) {
             $res['environmentId'] = $this->environmentId;
         }
-
         if (null !== $this->policyConfigs) {
-            if (\is_array($this->policyConfigs)) {
-                $res['policyConfigs'] = [];
-                $n1                   = 0;
-                foreach ($this->policyConfigs as $item1) {
-                    $res['policyConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['policyConfigs'] = [];
+            if (null !== $this->policyConfigs && \is_array($this->policyConfigs)) {
+                $n = 0;
+                foreach ($this->policyConfigs as $item) {
+                    $res['policyConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->serviceConfigs) {
-            if (\is_array($this->serviceConfigs)) {
-                $res['serviceConfigs'] = [];
-                $n1                    = 0;
-                foreach ($this->serviceConfigs as $item1) {
-                    $res['serviceConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['serviceConfigs'] = [];
+            if (null !== $this->serviceConfigs && \is_array($this->serviceConfigs)) {
+                $n = 0;
+                foreach ($this->serviceConfigs as $item) {
+                    $res['serviceConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -105,52 +93,43 @@ class HttpApiDeployConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return HttpApiDeployConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['autoDeploy'])) {
             $model->autoDeploy = $map['autoDeploy'];
         }
-
         if (isset($map['backendScene'])) {
             $model->backendScene = $map['backendScene'];
         }
-
         if (isset($map['customDomainIds'])) {
             if (!empty($map['customDomainIds'])) {
-                $model->customDomainIds = [];
-                $n1                     = 0;
-                foreach ($map['customDomainIds'] as $item1) {
-                    $model->customDomainIds[$n1++] = $item1;
-                }
+                $model->customDomainIds = $map['customDomainIds'];
             }
         }
-
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
         }
-
         if (isset($map['policyConfigs'])) {
             if (!empty($map['policyConfigs'])) {
                 $model->policyConfigs = [];
-                $n1                   = 0;
-                foreach ($map['policyConfigs'] as $item1) {
-                    $model->policyConfigs[$n1++] = policyConfigs::fromMap($item1);
+                $n = 0;
+                foreach ($map['policyConfigs'] as $item) {
+                    $model->policyConfigs[$n++] = null !== $item ? policyConfigs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['serviceConfigs'])) {
             if (!empty($map['serviceConfigs'])) {
                 $model->serviceConfigs = [];
-                $n1                    = 0;
-                foreach ($map['serviceConfigs'] as $item1) {
-                    $model->serviceConfigs[$n1++] = serviceConfigs::fromMap($item1);
+                $n = 0;
+                foreach ($map['serviceConfigs'] as $item) {
+                    $model->serviceConfigs[$n++] = null !== $item ? serviceConfigs::fromMap($item) : $item;
                 }
             }
         }

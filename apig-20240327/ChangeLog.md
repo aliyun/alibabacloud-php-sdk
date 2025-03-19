@@ -1,3 +1,7 @@
+2025-03-19 Version: 3.2.0
+- Support API UndeployHttpApi.
+
+
 2025-02-26 Version: 3.1.0
 - Support API CreateService.
 - Support API GetService.

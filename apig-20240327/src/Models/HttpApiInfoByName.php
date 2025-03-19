@@ -4,62 +4,62 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class HttpApiInfoByName extends Model
 {
     /**
+     * @example test-api
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @example Http
+     *
      * @var string
      */
     public $type;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $versionEnabled;
+
     /**
      * @var HttpApiApiInfo[]
      */
     public $versionedHttpApis;
     protected $_name = [
-        'name'              => 'name',
-        'type'              => 'type',
-        'versionEnabled'    => 'versionEnabled',
+        'name' => 'name',
+        'type' => 'type',
+        'versionEnabled' => 'versionEnabled',
         'versionedHttpApis' => 'versionedHttpApis',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->versionedHttpApis)) {
-            Model::validateArray($this->versionedHttpApis);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
-
         if (null !== $this->versionEnabled) {
             $res['versionEnabled'] = $this->versionEnabled;
         }
-
         if (null !== $this->versionedHttpApis) {
-            if (\is_array($this->versionedHttpApis)) {
-                $res['versionedHttpApis'] = [];
-                $n1                       = 0;
-                foreach ($this->versionedHttpApis as $item1) {
-                    $res['versionedHttpApis'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['versionedHttpApis'] = [];
+            if (null !== $this->versionedHttpApis && \is_array($this->versionedHttpApis)) {
+                $n = 0;
+                foreach ($this->versionedHttpApis as $item) {
+                    $res['versionedHttpApis'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -67,32 +67,29 @@ class HttpApiInfoByName extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return HttpApiInfoByName
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
-
         if (isset($map['versionEnabled'])) {
             $model->versionEnabled = $map['versionEnabled'];
         }
-
         if (isset($map['versionedHttpApis'])) {
             if (!empty($map['versionedHttpApis'])) {
                 $model->versionedHttpApis = [];
-                $n1                       = 0;
-                foreach ($map['versionedHttpApis'] as $item1) {
-                    $model->versionedHttpApis[$n1++] = HttpApiApiInfo::fromMap($item1);
+                $n = 0;
+                foreach ($map['versionedHttpApis'] as $item) {
+                    $model->versionedHttpApis[$n++] = null !== $item ? HttpApiApiInfo::fromMap($item) : $item;
                 }
             }
         }

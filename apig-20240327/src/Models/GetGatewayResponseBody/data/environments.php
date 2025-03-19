@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class environments extends Model
 {
     /**
+     * @description The environment alias.
+     *
+     * @example 默认环境
+     *
      * @var string
      */
     public $alias;
+
     /**
+     * @description Environment ID.
+     *
+     * @example env-cp9uhudlht***
+     *
      * @var string
      */
     public $environmentId;
+
     /**
+     * @description The environment name。
+     *
+     * @example default-gw-cp9ugg5***
+     *
      * @var string
      */
     public $name;
     protected $_name = [
-        'alias'         => 'alias',
+        'alias' => 'alias',
         'environmentId' => 'environmentId',
-        'name'          => 'name',
+        'name' => 'name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alias) {
             $res['alias'] = $this->alias;
         }
-
         if (null !== $this->environmentId) {
             $res['environmentId'] = $this->environmentId;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -49,22 +58,20 @@ class environments extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return environments
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alias'])) {
             $model->alias = $map['alias'];
         }
-
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

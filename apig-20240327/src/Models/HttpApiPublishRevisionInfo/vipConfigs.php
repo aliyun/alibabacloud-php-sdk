@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiBackendMatchConditions;
+use AlibabaCloud\Tea\Model;
 
 class vipConfigs extends Model
 {
@@ -13,48 +13,35 @@ class vipConfigs extends Model
      * @var string[]
      */
     public $endpoints;
+
     /**
      * @var HttpApiBackendMatchConditions
      */
     public $match;
+
     /**
+     * @example 100
+     *
      * @var int
      */
     public $weight;
     protected $_name = [
         'endpoints' => 'endpoints',
-        'match'     => 'match',
-        'weight'    => 'weight',
+        'match' => 'match',
+        'weight' => 'weight',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->endpoints)) {
-            Model::validateArray($this->endpoints);
-        }
-        if (null !== $this->match) {
-            $this->match->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endpoints) {
-            if (\is_array($this->endpoints)) {
-                $res['endpoints'] = [];
-                $n1               = 0;
-                foreach ($this->endpoints as $item1) {
-                    $res['endpoints'][$n1++] = $item1;
-                }
-            }
+            $res['endpoints'] = $this->endpoints;
         }
-
         if (null !== $this->match) {
-            $res['match'] = null !== $this->match ? $this->match->toArray($noStream) : $this->match;
+            $res['match'] = null !== $this->match ? $this->match->toMap() : null;
         }
-
         if (null !== $this->weight) {
             $res['weight'] = $this->weight;
         }
@@ -62,28 +49,22 @@ class vipConfigs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vipConfigs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endpoints'])) {
             if (!empty($map['endpoints'])) {
-                $model->endpoints = [];
-                $n1               = 0;
-                foreach ($map['endpoints'] as $item1) {
-                    $model->endpoints[$n1++] = $item1;
-                }
+                $model->endpoints = $map['endpoints'];
             }
         }
-
         if (isset($map['match'])) {
             $model->match = HttpApiBackendMatchConditions::fromMap($map['match']);
         }
-
         if (isset($map['weight'])) {
             $model->weight = $map['weight'];
         }

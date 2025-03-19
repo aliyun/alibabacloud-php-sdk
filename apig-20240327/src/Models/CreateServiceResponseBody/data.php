@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description List of service IDs.
+     *
      * @var string[]
      */
     public $serviceIds;
@@ -16,45 +18,29 @@ class data extends Model
         'serviceIds' => 'serviceIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->serviceIds)) {
-            Model::validateArray($this->serviceIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->serviceIds) {
-            if (\is_array($this->serviceIds)) {
-                $res['serviceIds'] = [];
-                $n1                = 0;
-                foreach ($this->serviceIds as $item1) {
-                    $res['serviceIds'][$n1++] = $item1;
-                }
-            }
+            $res['serviceIds'] = $this->serviceIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['serviceIds'])) {
             if (!empty($map['serviceIds'])) {
-                $model->serviceIds = [];
-                $n1                = 0;
-                foreach ($map['serviceIds'] as $item1) {
-                    $model->serviceIds[$n1++] = $item1;
-                }
+                $model->serviceIds = $map['serviceIds'];
             }
         }
 

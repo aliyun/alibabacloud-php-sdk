@@ -4,35 +4,42 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\loadBalancers;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ports extends Model
 {
     /**
+     * @description Port number.
+     *
+     * @example 443
+     *
      * @var int
      */
     public $port;
+
     /**
+     * @description Protocol:
+     * - TCP
+     * - UDP
+     *
+     * @example TCP
+     *
      * @var string
      */
     public $protocol;
     protected $_name = [
-        'port'     => 'port',
+        'port' => 'port',
         'protocol' => 'protocol',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
-
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
@@ -40,18 +47,17 @@ class ports extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ports
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }
-
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }

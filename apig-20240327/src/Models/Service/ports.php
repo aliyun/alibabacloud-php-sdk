@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\Service;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ports extends Model
 {
@@ -12,36 +12,33 @@ class ports extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $protocol;
     protected $_name = [
-        'name'     => 'name',
-        'port'     => 'port',
+        'name' => 'name',
+        'port' => 'port',
         'protocol' => 'protocol',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
-
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
@@ -49,22 +46,20 @@ class ports extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ports
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }
-
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }

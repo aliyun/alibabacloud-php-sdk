@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiApiInfo\ingressInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class environmentInfo extends Model
 {
@@ -16,12 +16,9 @@ class environmentInfo extends Model
         'environmentId' => 'environmentId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->environmentId) {
@@ -31,11 +28,11 @@ class environmentInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return environmentInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

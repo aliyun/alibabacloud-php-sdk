@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiApiInfo\ingressInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class k8sClusterInfo extends Model
 {
@@ -16,12 +16,9 @@ class k8sClusterInfo extends Model
         'clusterId' => 'clusterId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -31,11 +28,11 @@ class k8sClusterInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return k8sClusterInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

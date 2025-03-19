@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpRoute\environmentInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class gatewayInfo extends Model
 {
@@ -12,27 +12,24 @@ class gatewayInfo extends Model
      * @var string
      */
     public $gatewayId;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'gatewayId' => 'gatewayId',
-        'name'      => 'name',
+        'name' => 'name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -40,18 +37,17 @@ class gatewayInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return gatewayInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ConsumerInfo extends Model
 {
@@ -12,36 +12,33 @@ class ConsumerInfo extends Model
      * @var string
      */
     public $consumerId;
+
     /**
      * @var bool
      */
     public $enable;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'consumerId' => 'consumerId',
-        'enable'     => 'enable',
-        'name'       => 'name',
+        'enable' => 'enable',
+        'name' => 'name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->consumerId) {
             $res['consumerId'] = $this->consumerId;
         }
-
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -49,22 +46,20 @@ class ConsumerInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ConsumerInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['consumerId'])) {
             $model->consumerId = $map['consumerId'];
         }
-
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

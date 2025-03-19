@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRouteMatch\headers;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRouteMatch\path;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRouteMatch\queryParams;
+use AlibabaCloud\Tea\Model;
 
 class HttpRouteMatch extends Model
 {
@@ -15,84 +15,65 @@ class HttpRouteMatch extends Model
      * @var headers[]
      */
     public $headers;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ignoreUriCase;
+
     /**
      * @var string[]
      */
     public $methods;
+
     /**
      * @var path
      */
     public $path;
+
     /**
      * @var queryParams[]
      */
     public $queryParams;
     protected $_name = [
-        'headers'       => 'headers',
+        'headers' => 'headers',
         'ignoreUriCase' => 'ignoreUriCase',
-        'methods'       => 'methods',
-        'path'          => 'path',
-        'queryParams'   => 'queryParams',
+        'methods' => 'methods',
+        'path' => 'path',
+        'queryParams' => 'queryParams',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->headers)) {
-            Model::validateArray($this->headers);
-        }
-        if (\is_array($this->methods)) {
-            Model::validateArray($this->methods);
-        }
-        if (null !== $this->path) {
-            $this->path->validate();
-        }
-        if (\is_array($this->queryParams)) {
-            Model::validateArray($this->queryParams);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->headers) {
-            if (\is_array($this->headers)) {
-                $res['headers'] = [];
-                $n1             = 0;
-                foreach ($this->headers as $item1) {
-                    $res['headers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['headers'] = [];
+            if (null !== $this->headers && \is_array($this->headers)) {
+                $n = 0;
+                foreach ($this->headers as $item) {
+                    $res['headers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->ignoreUriCase) {
             $res['ignoreUriCase'] = $this->ignoreUriCase;
         }
-
         if (null !== $this->methods) {
-            if (\is_array($this->methods)) {
-                $res['methods'] = [];
-                $n1             = 0;
-                foreach ($this->methods as $item1) {
-                    $res['methods'][$n1++] = $item1;
-                }
-            }
+            $res['methods'] = $this->methods;
         }
-
         if (null !== $this->path) {
-            $res['path'] = null !== $this->path ? $this->path->toArray($noStream) : $this->path;
+            $res['path'] = null !== $this->path ? $this->path->toMap() : null;
         }
-
         if (null !== $this->queryParams) {
-            if (\is_array($this->queryParams)) {
-                $res['queryParams'] = [];
-                $n1                 = 0;
-                foreach ($this->queryParams as $item1) {
-                    $res['queryParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['queryParams'] = [];
+            if (null !== $this->queryParams && \is_array($this->queryParams)) {
+                $n = 0;
+                foreach ($this->queryParams as $item) {
+                    $res['queryParams'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -100,48 +81,40 @@ class HttpRouteMatch extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return HttpRouteMatch
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['headers'])) {
             if (!empty($map['headers'])) {
                 $model->headers = [];
-                $n1             = 0;
-                foreach ($map['headers'] as $item1) {
-                    $model->headers[$n1++] = headers::fromMap($item1);
+                $n = 0;
+                foreach ($map['headers'] as $item) {
+                    $model->headers[$n++] = null !== $item ? headers::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ignoreUriCase'])) {
             $model->ignoreUriCase = $map['ignoreUriCase'];
         }
-
         if (isset($map['methods'])) {
             if (!empty($map['methods'])) {
-                $model->methods = [];
-                $n1             = 0;
-                foreach ($map['methods'] as $item1) {
-                    $model->methods[$n1++] = $item1;
-                }
+                $model->methods = $map['methods'];
             }
         }
-
         if (isset($map['path'])) {
             $model->path = path::fromMap($map['path']);
         }
-
         if (isset($map['queryParams'])) {
             if (!empty($map['queryParams'])) {
                 $model->queryParams = [];
-                $n1                 = 0;
-                foreach ($map['queryParams'] as $item1) {
-                    $model->queryParams[$n1++] = queryParams::fromMap($item1);
+                $n = 0;
+                foreach ($map['queryParams'] as $item) {
+                    $model->queryParams[$n++] = null !== $item ? queryParams::fromMap($item) : $item;
                 }
             }
         }

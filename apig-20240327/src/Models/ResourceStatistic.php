@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ResourceStatistic extends Model
 {
@@ -12,27 +12,24 @@ class ResourceStatistic extends Model
      * @var int
      */
     public $resourceCount;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'resourceCount' => 'resourceCount',
-        'resourceType'  => 'resourceType',
+        'resourceType' => 'resourceType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourceCount) {
             $res['resourceCount'] = $this->resourceCount;
         }
-
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
@@ -40,18 +37,17 @@ class ResourceStatistic extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ResourceStatistic
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['resourceCount'])) {
             $model->resourceCount = $map['resourceCount'];
         }
-
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }

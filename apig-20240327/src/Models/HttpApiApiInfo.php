@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiApiInfo\environments;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiApiInfo\ingressInfo;
+use AlibabaCloud\Tea\Model;
 
 class HttpApiApiInfo extends Model
 {
@@ -14,271 +14,224 @@ class HttpApiApiInfo extends Model
      * @var string[]
      */
     public $aiProtocols;
+
     /**
      * @var AuthConfig
      */
     public $authConfig;
+
     /**
+     * @example /v1
+     *
      * @var string
      */
     public $basePath;
+
     /**
      * @var HttpApiDeployConfig[]
      */
     public $deployConfigs;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enabelAuth;
+
     /**
      * @var environments[]
      */
     public $environments;
+
     /**
+     * @example api-xxx
+     *
      * @var string
      */
     public $httpApiId;
+
     /**
      * @var ingressInfo
      */
     public $ingressInfo;
+
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
+
     /**
      * @var string[]
      */
     public $protocols;
+
     /**
+     * @example rg-xxx
+     *
      * @var string
      */
     public $resourceGroupId;
+
     /**
+     * @example Rest
+     *
      * @var string
      */
     public $type;
+
     /**
      * @var HttpApiVersionInfo
      */
     public $versionInfo;
     protected $_name = [
-        'aiProtocols'     => 'aiProtocols',
-        'authConfig'      => 'authConfig',
-        'basePath'        => 'basePath',
-        'deployConfigs'   => 'deployConfigs',
-        'description'     => 'description',
-        'enabelAuth'      => 'enabelAuth',
-        'environments'    => 'environments',
-        'httpApiId'       => 'httpApiId',
-        'ingressInfo'     => 'ingressInfo',
-        'name'            => 'name',
-        'protocols'       => 'protocols',
+        'aiProtocols' => 'aiProtocols',
+        'authConfig' => 'authConfig',
+        'basePath' => 'basePath',
+        'deployConfigs' => 'deployConfigs',
+        'description' => 'description',
+        'enabelAuth' => 'enabelAuth',
+        'environments' => 'environments',
+        'httpApiId' => 'httpApiId',
+        'ingressInfo' => 'ingressInfo',
+        'name' => 'name',
+        'protocols' => 'protocols',
         'resourceGroupId' => 'resourceGroupId',
-        'type'            => 'type',
-        'versionInfo'     => 'versionInfo',
+        'type' => 'type',
+        'versionInfo' => 'versionInfo',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->aiProtocols)) {
-            Model::validateArray($this->aiProtocols);
-        }
-        if (null !== $this->authConfig) {
-            $this->authConfig->validate();
-        }
-        if (\is_array($this->deployConfigs)) {
-            Model::validateArray($this->deployConfigs);
-        }
-        if (\is_array($this->environments)) {
-            Model::validateArray($this->environments);
-        }
-        if (null !== $this->ingressInfo) {
-            $this->ingressInfo->validate();
-        }
-        if (\is_array($this->protocols)) {
-            Model::validateArray($this->protocols);
-        }
-        if (null !== $this->versionInfo) {
-            $this->versionInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aiProtocols) {
-            if (\is_array($this->aiProtocols)) {
-                $res['aiProtocols'] = [];
-                $n1                 = 0;
-                foreach ($this->aiProtocols as $item1) {
-                    $res['aiProtocols'][$n1++] = $item1;
-                }
-            }
+            $res['aiProtocols'] = $this->aiProtocols;
         }
-
         if (null !== $this->authConfig) {
-            $res['authConfig'] = null !== $this->authConfig ? $this->authConfig->toArray($noStream) : $this->authConfig;
+            $res['authConfig'] = null !== $this->authConfig ? $this->authConfig->toMap() : null;
         }
-
         if (null !== $this->basePath) {
             $res['basePath'] = $this->basePath;
         }
-
         if (null !== $this->deployConfigs) {
-            if (\is_array($this->deployConfigs)) {
-                $res['deployConfigs'] = [];
-                $n1                   = 0;
-                foreach ($this->deployConfigs as $item1) {
-                    $res['deployConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['deployConfigs'] = [];
+            if (null !== $this->deployConfigs && \is_array($this->deployConfigs)) {
+                $n = 0;
+                foreach ($this->deployConfigs as $item) {
+                    $res['deployConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-
         if (null !== $this->enabelAuth) {
             $res['enabelAuth'] = $this->enabelAuth;
         }
-
         if (null !== $this->environments) {
-            if (\is_array($this->environments)) {
-                $res['environments'] = [];
-                $n1                  = 0;
-                foreach ($this->environments as $item1) {
-                    $res['environments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['environments'] = [];
+            if (null !== $this->environments && \is_array($this->environments)) {
+                $n = 0;
+                foreach ($this->environments as $item) {
+                    $res['environments'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->httpApiId) {
             $res['httpApiId'] = $this->httpApiId;
         }
-
         if (null !== $this->ingressInfo) {
-            $res['ingressInfo'] = null !== $this->ingressInfo ? $this->ingressInfo->toArray($noStream) : $this->ingressInfo;
+            $res['ingressInfo'] = null !== $this->ingressInfo ? $this->ingressInfo->toMap() : null;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->protocols) {
-            if (\is_array($this->protocols)) {
-                $res['protocols'] = [];
-                $n1               = 0;
-                foreach ($this->protocols as $item1) {
-                    $res['protocols'][$n1++] = $item1;
-                }
-            }
+            $res['protocols'] = $this->protocols;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
-
         if (null !== $this->versionInfo) {
-            $res['versionInfo'] = null !== $this->versionInfo ? $this->versionInfo->toArray($noStream) : $this->versionInfo;
+            $res['versionInfo'] = null !== $this->versionInfo ? $this->versionInfo->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return HttpApiApiInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aiProtocols'])) {
             if (!empty($map['aiProtocols'])) {
-                $model->aiProtocols = [];
-                $n1                 = 0;
-                foreach ($map['aiProtocols'] as $item1) {
-                    $model->aiProtocols[$n1++] = $item1;
-                }
+                $model->aiProtocols = $map['aiProtocols'];
             }
         }
-
         if (isset($map['authConfig'])) {
             $model->authConfig = AuthConfig::fromMap($map['authConfig']);
         }
-
         if (isset($map['basePath'])) {
             $model->basePath = $map['basePath'];
         }
-
         if (isset($map['deployConfigs'])) {
             if (!empty($map['deployConfigs'])) {
                 $model->deployConfigs = [];
-                $n1                   = 0;
-                foreach ($map['deployConfigs'] as $item1) {
-                    $model->deployConfigs[$n1++] = HttpApiDeployConfig::fromMap($item1);
+                $n = 0;
+                foreach ($map['deployConfigs'] as $item) {
+                    $model->deployConfigs[$n++] = null !== $item ? HttpApiDeployConfig::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-
         if (isset($map['enabelAuth'])) {
             $model->enabelAuth = $map['enabelAuth'];
         }
-
         if (isset($map['environments'])) {
             if (!empty($map['environments'])) {
                 $model->environments = [];
-                $n1                  = 0;
-                foreach ($map['environments'] as $item1) {
-                    $model->environments[$n1++] = environments::fromMap($item1);
+                $n = 0;
+                foreach ($map['environments'] as $item) {
+                    $model->environments[$n++] = null !== $item ? environments::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['httpApiId'])) {
             $model->httpApiId = $map['httpApiId'];
         }
-
         if (isset($map['ingressInfo'])) {
             $model->ingressInfo = ingressInfo::fromMap($map['ingressInfo']);
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['protocols'])) {
             if (!empty($map['protocols'])) {
-                $model->protocols = [];
-                $n1               = 0;
-                foreach ($map['protocols'] as $item1) {
-                    $model->protocols[$n1++] = $item1;
-                }
+                $model->protocols = $map['protocols'];
             }
         }
-
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
-
         if (isset($map['versionInfo'])) {
             $model->versionInfo = HttpApiVersionInfo::fromMap($map['versionInfo']);
         }

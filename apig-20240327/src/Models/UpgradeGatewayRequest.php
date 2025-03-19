@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpgradeGatewayRequest extends Model
 {
     /**
+     * @description Gateway version.
+     *
+     * @example 2.0.2
+     *
      * @var string
      */
     public $version;
@@ -16,12 +20,9 @@ class UpgradeGatewayRequest extends Model
         'version' => 'version',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->version) {
@@ -31,11 +32,11 @@ class UpgradeGatewayRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpgradeGatewayRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

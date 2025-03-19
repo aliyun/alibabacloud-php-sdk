@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ApiRouteConflictInfo\conflicts\details\conflictingMatch;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class operationInfo extends Model
 {
@@ -12,27 +12,24 @@ class operationInfo extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $operationId;
     protected $_name = [
-        'name'        => 'name',
+        'name' => 'name',
         'operationId' => 'operationId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->operationId) {
             $res['operationId'] = $this->operationId;
         }
@@ -40,18 +37,17 @@ class operationInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return operationInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['operationId'])) {
             $model->operationId = $map['operationId'];
         }

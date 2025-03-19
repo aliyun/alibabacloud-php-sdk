@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListZonesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
+     * @description 可用区ID。
+     *
+     * @example cn-shenzhen-c
+     *
      * @var string
      */
     public $zoneId;
@@ -16,12 +20,9 @@ class items extends Model
         'zoneId' => 'zoneId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->zoneId) {
@@ -31,11 +32,11 @@ class items extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return items
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

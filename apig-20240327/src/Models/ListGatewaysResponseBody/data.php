@@ -4,63 +4,71 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Gateway list
+     *
      * @var items[]
      */
     public $items;
+
     /**
+     * @description Page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
+
     /**
+     * @description Page size.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description Total count.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $totalSize;
     protected $_name = [
-        'items'      => 'items',
+        'items' => 'items',
         'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
-        'totalSize'  => 'totalSize',
+        'pageSize' => 'pageSize',
+        'totalSize' => 'totalSize',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->items)) {
-            Model::validateArray($this->items);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->items) {
-            if (\is_array($this->items)) {
-                $res['items'] = [];
-                $n1           = 0;
-                foreach ($this->items as $item1) {
-                    $res['items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['items'] = [];
+            if (null !== $this->items && \is_array($this->items)) {
+                $n = 0;
+                foreach ($this->items as $item) {
+                    $res['items'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-
         if (null !== $this->totalSize) {
             $res['totalSize'] = $this->totalSize;
         }
@@ -68,32 +76,29 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n1           = 0;
-                foreach ($map['items'] as $item1) {
-                    $model->items[$n1++] = items::fromMap($item1);
+                $n = 0;
+                foreach ($map['items'] as $item) {
+                    $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-
         if (isset($map['totalSize'])) {
             $model->totalSize = $map['totalSize'];
         }
