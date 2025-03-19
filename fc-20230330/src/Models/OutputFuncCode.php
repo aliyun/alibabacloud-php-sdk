@@ -4,35 +4,36 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class OutputFuncCode extends Model
 {
     /**
+     * @example 1234567890
+     *
      * @var string
      */
     public $checksum;
+
     /**
+     * @example http://func-code.oss-cn-shanghai.aliyuncs.com/1a2b3c4d5e6f
+     *
      * @var string
      */
     public $url;
     protected $_name = [
         'checksum' => 'checksum',
-        'url'      => 'url',
+        'url' => 'url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checksum) {
             $res['checksum'] = $this->checksum;
         }
-
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -40,18 +41,17 @@ class OutputFuncCode extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OutputFuncCode
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['checksum'])) {
             $model->checksum = $map['checksum'];
         }
-
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

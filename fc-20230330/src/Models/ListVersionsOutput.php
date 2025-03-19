@@ -4,18 +4,24 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListVersionsOutput extends Model
 {
     /**
+     * @example FORWARD
+     *
      * @var string
      */
     public $direction;
+
     /**
+     * @example 3
+     *
      * @var string
      */
     public $nextToken;
+
     /**
      * @var Version[]
      */
@@ -23,34 +29,26 @@ class ListVersionsOutput extends Model
     protected $_name = [
         'direction' => 'direction',
         'nextToken' => 'nextToken',
-        'versions'  => 'versions',
+        'versions' => 'versions',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->versions)) {
-            Model::validateArray($this->versions);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->direction) {
             $res['direction'] = $this->direction;
         }
-
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
-
         if (null !== $this->versions) {
-            if (\is_array($this->versions)) {
-                $res['versions'] = [];
-                $n1              = 0;
-                foreach ($this->versions as $item1) {
-                    $res['versions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['versions'] = [];
+            if (null !== $this->versions && \is_array($this->versions)) {
+                $n = 0;
+                foreach ($this->versions as $item) {
+                    $res['versions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -58,28 +56,26 @@ class ListVersionsOutput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListVersionsOutput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['direction'])) {
             $model->direction = $map['direction'];
         }
-
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
-
         if (isset($map['versions'])) {
             if (!empty($map['versions'])) {
                 $model->versions = [];
-                $n1              = 0;
-                foreach ($map['versions'] as $item1) {
-                    $model->versions[$n1++] = Version::fromMap($item1);
+                $n = 0;
+                foreach ($map['versions'] as $item) {
+                    $model->versions[$n++] = null !== $item ? Version::fromMap($item) : $item;
                 }
             }
         }

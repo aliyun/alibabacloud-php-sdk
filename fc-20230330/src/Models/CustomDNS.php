@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CustomDNS extends Model
 {
@@ -12,105 +12,71 @@ class CustomDNS extends Model
      * @var DNSOption[]
      */
     public $dnsOptions;
+
     /**
      * @var string[]
      */
     public $nameServers;
+
     /**
      * @var string[]
      */
     public $searches;
     protected $_name = [
-        'dnsOptions'  => 'dnsOptions',
+        'dnsOptions' => 'dnsOptions',
         'nameServers' => 'nameServers',
-        'searches'    => 'searches',
+        'searches' => 'searches',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dnsOptions)) {
-            Model::validateArray($this->dnsOptions);
-        }
-        if (\is_array($this->nameServers)) {
-            Model::validateArray($this->nameServers);
-        }
-        if (\is_array($this->searches)) {
-            Model::validateArray($this->searches);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dnsOptions) {
-            if (\is_array($this->dnsOptions)) {
-                $res['dnsOptions'] = [];
-                $n1                = 0;
-                foreach ($this->dnsOptions as $item1) {
-                    $res['dnsOptions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['dnsOptions'] = [];
+            if (null !== $this->dnsOptions && \is_array($this->dnsOptions)) {
+                $n = 0;
+                foreach ($this->dnsOptions as $item) {
+                    $res['dnsOptions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nameServers) {
-            if (\is_array($this->nameServers)) {
-                $res['nameServers'] = [];
-                $n1                 = 0;
-                foreach ($this->nameServers as $item1) {
-                    $res['nameServers'][$n1++] = $item1;
-                }
-            }
+            $res['nameServers'] = $this->nameServers;
         }
-
         if (null !== $this->searches) {
-            if (\is_array($this->searches)) {
-                $res['searches'] = [];
-                $n1              = 0;
-                foreach ($this->searches as $item1) {
-                    $res['searches'][$n1++] = $item1;
-                }
-            }
+            $res['searches'] = $this->searches;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CustomDNS
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dnsOptions'])) {
             if (!empty($map['dnsOptions'])) {
                 $model->dnsOptions = [];
-                $n1                = 0;
-                foreach ($map['dnsOptions'] as $item1) {
-                    $model->dnsOptions[$n1++] = DNSOption::fromMap($item1);
+                $n = 0;
+                foreach ($map['dnsOptions'] as $item) {
+                    $model->dnsOptions[$n++] = null !== $item ? DNSOption::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['nameServers'])) {
             if (!empty($map['nameServers'])) {
-                $model->nameServers = [];
-                $n1                 = 0;
-                foreach ($map['nameServers'] as $item1) {
-                    $model->nameServers[$n1++] = $item1;
-                }
+                $model->nameServers = $map['nameServers'];
             }
         }
-
         if (isset($map['searches'])) {
             if (!empty($map['searches'])) {
-                $model->searches = [];
-                $n1              = 0;
-                foreach ($map['searches'] as $item1) {
-                    $model->searches[$n1++] = $item1;
-                }
+                $model->searches = $map['searches'];
             }
         }
 

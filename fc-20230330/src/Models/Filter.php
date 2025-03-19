@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Filter extends Model
 {
@@ -16,29 +16,23 @@ class Filter extends Model
         'key' => 'key',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->key) {
-            $this->key->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
-            $res['key'] = null !== $this->key ? $this->key->toArray($noStream) : $this->key;
+            $res['key'] = null !== $this->key ? $this->key->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Filter
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

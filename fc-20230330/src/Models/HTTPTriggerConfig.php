@@ -4,96 +4,83 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class HTTPTriggerConfig extends Model
 {
     /**
+     * @example {"JWKS":{"foo":"bar"},"TokenLookup":"header:Authorization:Bearer,cookie:AuthorizationCookie","ClaimPassBy":"query:uid:uid,header:name:name"}
+     *
      * @var string
      */
     public $authConfig;
+
     /**
+     * @example anonymous
+     *
      * @var string
      */
     public $authType;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $disableURLInternet;
+
     /**
      * @var string[]
      */
     public $methods;
     protected $_name = [
-        'authConfig'         => 'authConfig',
-        'authType'           => 'authType',
+        'authConfig' => 'authConfig',
+        'authType' => 'authType',
         'disableURLInternet' => 'disableURLInternet',
-        'methods'            => 'methods',
+        'methods' => 'methods',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->methods)) {
-            Model::validateArray($this->methods);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->authConfig) {
             $res['authConfig'] = $this->authConfig;
         }
-
         if (null !== $this->authType) {
             $res['authType'] = $this->authType;
         }
-
         if (null !== $this->disableURLInternet) {
             $res['disableURLInternet'] = $this->disableURLInternet;
         }
-
         if (null !== $this->methods) {
-            if (\is_array($this->methods)) {
-                $res['methods'] = [];
-                $n1             = 0;
-                foreach ($this->methods as $item1) {
-                    $res['methods'][$n1++] = $item1;
-                }
-            }
+            $res['methods'] = $this->methods;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return HTTPTriggerConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['authConfig'])) {
             $model->authConfig = $map['authConfig'];
         }
-
         if (isset($map['authType'])) {
             $model->authType = $map['authType'];
         }
-
         if (isset($map['disableURLInternet'])) {
             $model->disableURLInternet = $map['disableURLInternet'];
         }
-
         if (isset($map['methods'])) {
             if (!empty($map['methods'])) {
-                $model->methods = [];
-                $n1             = 0;
-                foreach ($map['methods'] as $item1) {
-                    $model->methods[$n1++] = $item1;
-                }
+                $model->methods = $map['methods'];
             }
         }
 

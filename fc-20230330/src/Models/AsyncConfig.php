@@ -4,83 +4,89 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AsyncConfig extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $asyncTask;
+
     /**
+     * @example 2006-01-02T15:04:05Z07:00
+     *
      * @var string
      */
     public $createdTime;
+
     /**
      * @var DestinationConfig
      */
     public $destinationConfig;
+
     /**
+     * @example acs:fc:cn-shanghai:1234/functions/my-func
+     *
      * @var string
      */
     public $functionArn;
+
     /**
+     * @example 2006-01-02T15:04:05Z07:00
+     *
      * @var string
      */
     public $lastModifiedTime;
+
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $maxAsyncEventAgeInSeconds;
+
     /**
+     * @example 3
+     *
      * @var int
      */
     public $maxAsyncRetryAttempts;
     protected $_name = [
-        'asyncTask'                 => 'asyncTask',
-        'createdTime'               => 'createdTime',
-        'destinationConfig'         => 'destinationConfig',
-        'functionArn'               => 'functionArn',
-        'lastModifiedTime'          => 'lastModifiedTime',
+        'asyncTask' => 'asyncTask',
+        'createdTime' => 'createdTime',
+        'destinationConfig' => 'destinationConfig',
+        'functionArn' => 'functionArn',
+        'lastModifiedTime' => 'lastModifiedTime',
         'maxAsyncEventAgeInSeconds' => 'maxAsyncEventAgeInSeconds',
-        'maxAsyncRetryAttempts'     => 'maxAsyncRetryAttempts',
+        'maxAsyncRetryAttempts' => 'maxAsyncRetryAttempts',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->destinationConfig) {
-            $this->destinationConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->asyncTask) {
             $res['asyncTask'] = $this->asyncTask;
         }
-
         if (null !== $this->createdTime) {
             $res['createdTime'] = $this->createdTime;
         }
-
         if (null !== $this->destinationConfig) {
-            $res['destinationConfig'] = null !== $this->destinationConfig ? $this->destinationConfig->toArray($noStream) : $this->destinationConfig;
+            $res['destinationConfig'] = null !== $this->destinationConfig ? $this->destinationConfig->toMap() : null;
         }
-
         if (null !== $this->functionArn) {
             $res['functionArn'] = $this->functionArn;
         }
-
         if (null !== $this->lastModifiedTime) {
             $res['lastModifiedTime'] = $this->lastModifiedTime;
         }
-
         if (null !== $this->maxAsyncEventAgeInSeconds) {
             $res['maxAsyncEventAgeInSeconds'] = $this->maxAsyncEventAgeInSeconds;
         }
-
         if (null !== $this->maxAsyncRetryAttempts) {
             $res['maxAsyncRetryAttempts'] = $this->maxAsyncRetryAttempts;
         }
@@ -88,38 +94,32 @@ class AsyncConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AsyncConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['asyncTask'])) {
             $model->asyncTask = $map['asyncTask'];
         }
-
         if (isset($map['createdTime'])) {
             $model->createdTime = $map['createdTime'];
         }
-
         if (isset($map['destinationConfig'])) {
             $model->destinationConfig = DestinationConfig::fromMap($map['destinationConfig']);
         }
-
         if (isset($map['functionArn'])) {
             $model->functionArn = $map['functionArn'];
         }
-
         if (isset($map['lastModifiedTime'])) {
             $model->lastModifiedTime = $map['lastModifiedTime'];
         }
-
         if (isset($map['maxAsyncEventAgeInSeconds'])) {
             $model->maxAsyncEventAgeInSeconds = $map['maxAsyncEventAgeInSeconds'];
         }
-
         if (isset($map['maxAsyncRetryAttempts'])) {
             $model->maxAsyncRetryAttempts = $map['maxAsyncRetryAttempts'];
         }

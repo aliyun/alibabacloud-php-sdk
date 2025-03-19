@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Key extends Model
 {
     /**
+     * @example serverless_
+     *
      * @var string
      */
     public $prefix;
+
     /**
+     * @example .zip
+     *
      * @var string
      */
     public $suffix;
@@ -21,18 +26,14 @@ class Key extends Model
         'suffix' => 'suffix',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->prefix) {
             $res['prefix'] = $this->prefix;
         }
-
         if (null !== $this->suffix) {
             $res['suffix'] = $this->suffix;
         }
@@ -40,18 +41,17 @@ class Key extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Key
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['prefix'])) {
             $model->prefix = $map['prefix'];
         }
-
         if (isset($map['suffix'])) {
             $model->suffix = $map['suffix'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateVpcBindingInput extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example vpc-8vb8x8dggvr0axxxxxxxx
+     *
      * @var string
      */
     public $vpcId;
@@ -16,12 +20,9 @@ class CreateVpcBindingInput extends Model
         'vpcId' => 'vpcId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->vpcId) {
@@ -31,11 +32,11 @@ class CreateVpcBindingInput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateVpcBindingInput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

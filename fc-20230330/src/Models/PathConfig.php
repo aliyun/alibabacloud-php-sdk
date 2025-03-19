@@ -4,111 +4,98 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PathConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example myFunction
+     *
      * @var string
      */
     public $functionName;
+
     /**
      * @var string[]
      */
     public $methods;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example /api/*
+     *
      * @var string
      */
     public $path;
+
     /**
+     * @example myAlias
+     *
      * @var string
      */
     public $qualifier;
+
     /**
      * @var RewriteConfig
      */
     public $rewriteConfig;
     protected $_name = [
-        'functionName'  => 'functionName',
-        'methods'       => 'methods',
-        'path'          => 'path',
-        'qualifier'     => 'qualifier',
+        'functionName' => 'functionName',
+        'methods' => 'methods',
+        'path' => 'path',
+        'qualifier' => 'qualifier',
         'rewriteConfig' => 'rewriteConfig',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->methods)) {
-            Model::validateArray($this->methods);
-        }
-        if (null !== $this->rewriteConfig) {
-            $this->rewriteConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->functionName) {
             $res['functionName'] = $this->functionName;
         }
-
         if (null !== $this->methods) {
-            if (\is_array($this->methods)) {
-                $res['methods'] = [];
-                $n1             = 0;
-                foreach ($this->methods as $item1) {
-                    $res['methods'][$n1++] = $item1;
-                }
-            }
+            $res['methods'] = $this->methods;
         }
-
         if (null !== $this->path) {
             $res['path'] = $this->path;
         }
-
         if (null !== $this->qualifier) {
             $res['qualifier'] = $this->qualifier;
         }
-
         if (null !== $this->rewriteConfig) {
-            $res['rewriteConfig'] = null !== $this->rewriteConfig ? $this->rewriteConfig->toArray($noStream) : $this->rewriteConfig;
+            $res['rewriteConfig'] = null !== $this->rewriteConfig ? $this->rewriteConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PathConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['functionName'])) {
             $model->functionName = $map['functionName'];
         }
-
         if (isset($map['methods'])) {
             if (!empty($map['methods'])) {
-                $model->methods = [];
-                $n1             = 0;
-                foreach ($map['methods'] as $item1) {
-                    $model->methods[$n1++] = $item1;
-                }
+                $model->methods = $map['methods'];
             }
         }
-
         if (isset($map['path'])) {
             $model->path = $map['path'];
         }
-
         if (isset($map['qualifier'])) {
             $model->qualifier = $map['qualifier'];
         }
-
         if (isset($map['rewriteConfig'])) {
             $model->rewriteConfig = RewriteConfig::fromMap($map['rewriteConfig']);
         }

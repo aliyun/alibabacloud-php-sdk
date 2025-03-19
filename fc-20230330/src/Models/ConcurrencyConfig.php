@@ -4,35 +4,36 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ConcurrencyConfig extends Model
 {
     /**
+     * @example acs:fc:cn-shanghai:123:functions/demo
+     *
      * @var string
      */
     public $functionArn;
+
     /**
+     * @example 10
+     *
      * @var int
      */
     public $reservedConcurrency;
     protected $_name = [
-        'functionArn'         => 'functionArn',
+        'functionArn' => 'functionArn',
         'reservedConcurrency' => 'reservedConcurrency',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->functionArn) {
             $res['functionArn'] = $this->functionArn;
         }
-
         if (null !== $this->reservedConcurrency) {
             $res['reservedConcurrency'] = $this->reservedConcurrency;
         }
@@ -40,18 +41,17 @@ class ConcurrencyConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ConcurrencyConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['functionArn'])) {
             $model->functionArn = $map['functionArn'];
         }
-
         if (isset($map['reservedConcurrency'])) {
             $model->reservedConcurrency = $map['reservedConcurrency'];
         }

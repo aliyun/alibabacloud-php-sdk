@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteProvisionConfigRequest extends Model
 {
     /**
+     * @description The function alias.
+     *
+     * @example LATEST
+     *
      * @var string
      */
     public $qualifier;
@@ -16,12 +20,9 @@ class DeleteProvisionConfigRequest extends Model
         'qualifier' => 'qualifier',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->qualifier) {
@@ -31,11 +32,11 @@ class DeleteProvisionConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteProvisionConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

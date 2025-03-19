@@ -4,35 +4,36 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class FunctionLayer extends Model
 {
     /**
+     * @example acs:fc:cn-beijing:186824xxxxxx:layers/fc_layer/versions/1
+     *
      * @var string
      */
     public $arn;
+
     /**
+     * @example 421
+     *
      * @var int
      */
     public $size;
     protected $_name = [
-        'arn'  => 'arn',
+        'arn' => 'arn',
         'size' => 'size',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->arn) {
             $res['arn'] = $this->arn;
         }
-
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -40,18 +41,17 @@ class FunctionLayer extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return FunctionLayer
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['arn'])) {
             $model->arn = $map['arn'];
         }
-
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }

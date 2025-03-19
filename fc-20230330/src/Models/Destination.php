@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Destination extends Model
 {
     /**
+     * @example acs:fc:cn-shanghai:xxx:functions/f1
+     *
      * @var string
      */
     public $destination;
@@ -16,12 +18,9 @@ class Destination extends Model
         'destination' => 'destination',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->destination) {
@@ -31,11 +30,11 @@ class Destination extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return Destination
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetInstanceLifecycleEventsOutput extends Model
 {
@@ -12,36 +12,30 @@ class GetInstanceLifecycleEventsOutput extends Model
      * @var InstanceEventItem[]
      */
     public $events;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'events'    => 'events',
+        'events' => 'events',
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->events)) {
-            Model::validateArray($this->events);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->events) {
-            if (\is_array($this->events)) {
-                $res['events'] = [];
-                $n1            = 0;
-                foreach ($this->events as $item1) {
-                    $res['events'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['events'] = [];
+            if (null !== $this->events && \is_array($this->events)) {
+                $n = 0;
+                foreach ($this->events as $item) {
+                    $res['events'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -49,24 +43,23 @@ class GetInstanceLifecycleEventsOutput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetInstanceLifecycleEventsOutput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['events'])) {
             if (!empty($map['events'])) {
                 $model->events = [];
-                $n1            = 0;
-                foreach ($map['events'] as $item1) {
-                    $model->events[$n1++] = InstanceEventItem::fromMap($item1);
+                $n = 0;
+                foreach ($map['events'] as $item) {
+                    $model->events[$n++] = null !== $item ? InstanceEventItem::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

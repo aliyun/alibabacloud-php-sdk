@@ -4,53 +4,51 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class NASConfig extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $groupId;
+
     /**
      * @var NASMountConfig[]
      */
     public $mountPoints;
+
     /**
+     * @example 100
+     *
      * @var int
      */
     public $userId;
     protected $_name = [
-        'groupId'     => 'groupId',
+        'groupId' => 'groupId',
         'mountPoints' => 'mountPoints',
-        'userId'      => 'userId',
+        'userId' => 'userId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->mountPoints)) {
-            Model::validateArray($this->mountPoints);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
         }
-
         if (null !== $this->mountPoints) {
-            if (\is_array($this->mountPoints)) {
-                $res['mountPoints'] = [];
-                $n1                 = 0;
-                foreach ($this->mountPoints as $item1) {
-                    $res['mountPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['mountPoints'] = [];
+            if (null !== $this->mountPoints && \is_array($this->mountPoints)) {
+                $n = 0;
+                foreach ($this->mountPoints as $item) {
+                    $res['mountPoints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
@@ -58,28 +56,26 @@ class NASConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return NASConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
         }
-
         if (isset($map['mountPoints'])) {
             if (!empty($map['mountPoints'])) {
                 $model->mountPoints = [];
-                $n1                 = 0;
-                foreach ($map['mountPoints'] as $item1) {
-                    $model->mountPoints[$n1++] = NASMountConfig::fromMap($item1);
+                $n = 0;
+                foreach ($map['mountPoints'] as $item) {
+                    $model->mountPoints[$n++] = null !== $item ? NASMountConfig::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }

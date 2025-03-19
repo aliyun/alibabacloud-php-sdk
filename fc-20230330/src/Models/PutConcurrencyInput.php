@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PutConcurrencyInput extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $reservedConcurrency;
@@ -16,12 +20,9 @@ class PutConcurrencyInput extends Model
         'reservedConcurrency' => 'reservedConcurrency',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->reservedConcurrency) {
@@ -31,11 +32,11 @@ class PutConcurrencyInput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PutConcurrencyInput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,35 +4,36 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SLSTriggerLogConfig extends Model
 {
     /**
+     * @example my-sls-logstore-name
+     *
      * @var string
      */
     public $logstore;
+
     /**
+     * @example my-sls-project-name
+     *
      * @var string
      */
     public $project;
     protected $_name = [
         'logstore' => 'logstore',
-        'project'  => 'project',
+        'project' => 'project',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logstore) {
             $res['logstore'] = $this->logstore;
         }
-
         if (null !== $this->project) {
             $res['project'] = $this->project;
         }
@@ -40,18 +41,17 @@ class SLSTriggerLogConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SLSTriggerLogConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['logstore'])) {
             $model->logstore = $map['logstore'];
         }
-
         if (isset($map['project'])) {
             $model->project = $map['project'];
         }

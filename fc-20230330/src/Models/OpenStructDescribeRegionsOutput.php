@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\FC\V20230330\Models\OpenStructDescribeRegionsOutput\regions;
+use AlibabaCloud\Tea\Model;
 
 class OpenStructDescribeRegionsOutput extends Model
 {
@@ -17,29 +17,23 @@ class OpenStructDescribeRegionsOutput extends Model
         'regions' => 'Regions',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->regions) {
-            $this->regions->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regions) {
-            $res['Regions'] = null !== $this->regions ? $this->regions->toArray($noStream) : $this->regions;
+            $res['Regions'] = null !== $this->regions ? $this->regions->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OpenStructDescribeRegionsOutput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

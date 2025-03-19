@@ -4,18 +4,24 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class Resource extends Model
 {
     /**
+     * @example ALIYUN::FC::FUNCTION
+     *
      * @var string
      */
     public $resouceType;
+
     /**
+     * @example acs:fc:cn-shanghai:****:functions/demo
+     *
      * @var string
      */
     public $resourceArn;
+
     /**
      * @var string[]
      */
@@ -23,63 +29,43 @@ class Resource extends Model
     protected $_name = [
         'resouceType' => 'resouceType',
         'resourceArn' => 'resourceArn',
-        'tags'        => 'tags',
+        'tags' => 'tags',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resouceType) {
             $res['resouceType'] = $this->resouceType;
         }
-
         if (null !== $this->resourceArn) {
             $res['resourceArn'] = $this->resourceArn;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['tags'] = [];
-                foreach ($this->tags as $key1 => $value1) {
-                    $res['tags'][$key1] = $value1;
-                }
-            }
+            $res['tags'] = $this->tags;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resource
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['resouceType'])) {
             $model->resouceType = $map['resouceType'];
         }
-
         if (isset($map['resourceArn'])) {
             $model->resourceArn = $map['resourceArn'];
         }
-
         if (isset($map['tags'])) {
-            if (!empty($map['tags'])) {
-                $model->tags = [];
-                foreach ($map['tags'] as $key1 => $value1) {
-                    $model->tags[$key1] = $value1;
-                }
-            }
+            $model->tags = $map['tags'];
         }
 
         return $model;

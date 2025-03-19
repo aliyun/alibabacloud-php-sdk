@@ -4,89 +4,90 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PutProvisionConfigInput extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $alwaysAllocateCPU;
+
     /**
+     * @example true
+     *
      * @var bool
      */
     public $alwaysAllocateGPU;
+
     /**
      * @var int
      */
     public $defaultTarget;
+
     /**
      * @var ScheduledAction[]
      */
     public $scheduledActions;
+
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
+     * @deprecated
+     *
      * @var int
      */
     public $target;
+
     /**
      * @var TargetTrackingPolicy[]
      */
     public $targetTrackingPolicies;
     protected $_name = [
-        'alwaysAllocateCPU'      => 'alwaysAllocateCPU',
-        'alwaysAllocateGPU'      => 'alwaysAllocateGPU',
-        'defaultTarget'          => 'defaultTarget',
-        'scheduledActions'       => 'scheduledActions',
-        'target'                 => 'target',
+        'alwaysAllocateCPU' => 'alwaysAllocateCPU',
+        'alwaysAllocateGPU' => 'alwaysAllocateGPU',
+        'defaultTarget' => 'defaultTarget',
+        'scheduledActions' => 'scheduledActions',
+        'target' => 'target',
         'targetTrackingPolicies' => 'targetTrackingPolicies',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->scheduledActions)) {
-            Model::validateArray($this->scheduledActions);
-        }
-        if (\is_array($this->targetTrackingPolicies)) {
-            Model::validateArray($this->targetTrackingPolicies);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alwaysAllocateCPU) {
             $res['alwaysAllocateCPU'] = $this->alwaysAllocateCPU;
         }
-
         if (null !== $this->alwaysAllocateGPU) {
             $res['alwaysAllocateGPU'] = $this->alwaysAllocateGPU;
         }
-
         if (null !== $this->defaultTarget) {
             $res['defaultTarget'] = $this->defaultTarget;
         }
-
         if (null !== $this->scheduledActions) {
-            if (\is_array($this->scheduledActions)) {
-                $res['scheduledActions'] = [];
-                $n1                      = 0;
-                foreach ($this->scheduledActions as $item1) {
-                    $res['scheduledActions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['scheduledActions'] = [];
+            if (null !== $this->scheduledActions && \is_array($this->scheduledActions)) {
+                $n = 0;
+                foreach ($this->scheduledActions as $item) {
+                    $res['scheduledActions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->target) {
             $res['target'] = $this->target;
         }
-
         if (null !== $this->targetTrackingPolicies) {
-            if (\is_array($this->targetTrackingPolicies)) {
-                $res['targetTrackingPolicies'] = [];
-                $n1                            = 0;
-                foreach ($this->targetTrackingPolicies as $item1) {
-                    $res['targetTrackingPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['targetTrackingPolicies'] = [];
+            if (null !== $this->targetTrackingPolicies && \is_array($this->targetTrackingPolicies)) {
+                $n = 0;
+                foreach ($this->targetTrackingPolicies as $item) {
+                    $res['targetTrackingPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -94,46 +95,41 @@ class PutProvisionConfigInput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PutProvisionConfigInput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alwaysAllocateCPU'])) {
             $model->alwaysAllocateCPU = $map['alwaysAllocateCPU'];
         }
-
         if (isset($map['alwaysAllocateGPU'])) {
             $model->alwaysAllocateGPU = $map['alwaysAllocateGPU'];
         }
-
         if (isset($map['defaultTarget'])) {
             $model->defaultTarget = $map['defaultTarget'];
         }
-
         if (isset($map['scheduledActions'])) {
             if (!empty($map['scheduledActions'])) {
                 $model->scheduledActions = [];
-                $n1                      = 0;
-                foreach ($map['scheduledActions'] as $item1) {
-                    $model->scheduledActions[$n1++] = ScheduledAction::fromMap($item1);
+                $n = 0;
+                foreach ($map['scheduledActions'] as $item) {
+                    $model->scheduledActions[$n++] = null !== $item ? ScheduledAction::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['target'])) {
             $model->target = $map['target'];
         }
-
         if (isset($map['targetTrackingPolicies'])) {
             if (!empty($map['targetTrackingPolicies'])) {
                 $model->targetTrackingPolicies = [];
-                $n1                            = 0;
-                foreach ($map['targetTrackingPolicies'] as $item1) {
-                    $model->targetTrackingPolicies[$n1++] = TargetTrackingPolicy::fromMap($item1);
+                $n = 0;
+                foreach ($map['targetTrackingPolicies'] as $item) {
+                    $model->targetTrackingPolicies[$n++] = null !== $item ? TargetTrackingPolicy::fromMap($item) : $item;
                 }
             }
         }

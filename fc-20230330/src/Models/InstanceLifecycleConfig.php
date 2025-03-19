@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class InstanceLifecycleConfig extends Model
 {
@@ -12,52 +12,42 @@ class InstanceLifecycleConfig extends Model
      * @var LifecycleHook
      */
     public $initializer;
+
     /**
      * @var LifecycleHook
      */
     public $preStop;
     protected $_name = [
         'initializer' => 'initializer',
-        'preStop'     => 'preStop',
+        'preStop' => 'preStop',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->initializer) {
-            $this->initializer->validate();
-        }
-        if (null !== $this->preStop) {
-            $this->preStop->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->initializer) {
-            $res['initializer'] = null !== $this->initializer ? $this->initializer->toArray($noStream) : $this->initializer;
+            $res['initializer'] = null !== $this->initializer ? $this->initializer->toMap() : null;
         }
-
         if (null !== $this->preStop) {
-            $res['preStop'] = null !== $this->preStop ? $this->preStop->toArray($noStream) : $this->preStop;
+            $res['preStop'] = null !== $this->preStop ? $this->preStop->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InstanceLifecycleConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['initializer'])) {
             $model->initializer = LifecycleHook::fromMap($map['initializer']);
         }
-
         if (isset($map['preStop'])) {
             $model->preStop = LifecycleHook::fromMap($map['preStop']);
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListAsyncTaskOutput extends Model
 {
@@ -12,36 +12,30 @@ class ListAsyncTaskOutput extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var AsyncTask[]
      */
     public $tasks;
     protected $_name = [
         'nextToken' => 'nextToken',
-        'tasks'     => 'tasks',
+        'tasks' => 'tasks',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tasks)) {
-            Model::validateArray($this->tasks);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
-
         if (null !== $this->tasks) {
-            if (\is_array($this->tasks)) {
-                $res['tasks'] = [];
-                $n1           = 0;
-                foreach ($this->tasks as $item1) {
-                    $res['tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['tasks'] = [];
+            if (null !== $this->tasks && \is_array($this->tasks)) {
+                $n = 0;
+                foreach ($this->tasks as $item) {
+                    $res['tasks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -49,24 +43,23 @@ class ListAsyncTaskOutput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAsyncTaskOutput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
-
         if (isset($map['tasks'])) {
             if (!empty($map['tasks'])) {
                 $model->tasks = [];
-                $n1           = 0;
-                foreach ($map['tasks'] as $item1) {
-                    $model->tasks[$n1++] = AsyncTask::fromMap($item1);
+                $n = 0;
+                foreach ($map['tasks'] as $item) {
+                    $model->tasks[$n++] = null !== $item ? AsyncTask::fromMap($item) : $item;
                 }
             }
         }

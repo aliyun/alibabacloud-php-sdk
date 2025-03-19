@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PublishVersionInput extends Model
 {
     /**
+     * @example my version
+     *
      * @var string
      */
     public $description;
@@ -16,12 +18,9 @@ class PublishVersionInput extends Model
         'description' => 'description',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
@@ -31,11 +30,11 @@ class PublishVersionInput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PublishVersionInput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

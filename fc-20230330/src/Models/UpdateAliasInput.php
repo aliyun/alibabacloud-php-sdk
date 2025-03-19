@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateAliasInput extends Model
 {
@@ -12,44 +12,37 @@ class UpdateAliasInput extends Model
      * @var float[]
      */
     public $additionalVersionWeight;
+
     /**
+     * @example my alias
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @example 1
+     *
      * @var string
      */
     public $versionId;
     protected $_name = [
         'additionalVersionWeight' => 'additionalVersionWeight',
-        'description'             => 'description',
-        'versionId'               => 'versionId',
+        'description' => 'description',
+        'versionId' => 'versionId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->additionalVersionWeight)) {
-            Model::validateArray($this->additionalVersionWeight);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->additionalVersionWeight) {
-            if (\is_array($this->additionalVersionWeight)) {
-                $res['additionalVersionWeight'] = [];
-                foreach ($this->additionalVersionWeight as $key1 => $value1) {
-                    $res['additionalVersionWeight'][$key1] = $value1;
-                }
-            }
+            $res['additionalVersionWeight'] = $this->additionalVersionWeight;
         }
-
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-
         if (null !== $this->versionId) {
             $res['versionId'] = $this->versionId;
         }
@@ -57,27 +50,20 @@ class UpdateAliasInput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateAliasInput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['additionalVersionWeight'])) {
-            if (!empty($map['additionalVersionWeight'])) {
-                $model->additionalVersionWeight = [];
-                foreach ($map['additionalVersionWeight'] as $key1 => $value1) {
-                    $model->additionalVersionWeight[$key1] = $value1;
-                }
-            }
+            $model->additionalVersionWeight = $map['additionalVersionWeight'];
         }
-
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-
         if (isset($map['versionId'])) {
             $model->versionId = $map['versionId'];
         }

@@ -4,14 +4,17 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListTaggedResourcesOutput extends Model
 {
     /**
+     * @example next_token
+     *
      * @var string
      */
     public $nextToken;
+
     /**
      * @var resource[]
      */
@@ -21,27 +24,20 @@ class ListTaggedResourcesOutput extends Model
         'resources' => 'resources',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resources)) {
-            Model::validateArray($this->resources);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
-
         if (null !== $this->resources) {
-            if (\is_array($this->resources)) {
-                $res['resources'] = [];
-                $n1               = 0;
-                foreach ($this->resources as $item1) {
-                    $res['resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['resources'] = [];
+            if (null !== $this->resources && \is_array($this->resources)) {
+                $n = 0;
+                foreach ($this->resources as $item) {
+                    $res['resources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -49,24 +45,23 @@ class ListTaggedResourcesOutput extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListTaggedResourcesOutput
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
-
         if (isset($map['resources'])) {
             if (!empty($map['resources'])) {
                 $model->resources = [];
-                $n1               = 0;
-                foreach ($map['resources'] as $item1) {
-                    $model->resources[$n1++] = Resource::fromMap($item1);
+                $n = 0;
+                foreach ($map['resources'] as $item) {
+                    $model->resources[$n++] = null !== $item ? Resource::fromMap($item) : $item;
                 }
             }
         }

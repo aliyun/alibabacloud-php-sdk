@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CustomRuntimeConfig extends Model
 {
@@ -12,66 +12,44 @@ class CustomRuntimeConfig extends Model
      * @var string[]
      */
     public $args;
+
     /**
      * @var string[]
      */
     public $command;
+
     /**
      * @var CustomHealthCheckConfig
      */
     public $healthCheckConfig;
+
     /**
+     * @example 9000
+     *
      * @var int
      */
     public $port;
     protected $_name = [
-        'args'              => 'args',
-        'command'           => 'command',
+        'args' => 'args',
+        'command' => 'command',
         'healthCheckConfig' => 'healthCheckConfig',
-        'port'              => 'port',
+        'port' => 'port',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->args)) {
-            Model::validateArray($this->args);
-        }
-        if (\is_array($this->command)) {
-            Model::validateArray($this->command);
-        }
-        if (null !== $this->healthCheckConfig) {
-            $this->healthCheckConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->args) {
-            if (\is_array($this->args)) {
-                $res['args'] = [];
-                $n1          = 0;
-                foreach ($this->args as $item1) {
-                    $res['args'][$n1++] = $item1;
-                }
-            }
+            $res['args'] = $this->args;
         }
-
         if (null !== $this->command) {
-            if (\is_array($this->command)) {
-                $res['command'] = [];
-                $n1             = 0;
-                foreach ($this->command as $item1) {
-                    $res['command'][$n1++] = $item1;
-                }
-            }
+            $res['command'] = $this->command;
         }
-
         if (null !== $this->healthCheckConfig) {
-            $res['healthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toArray($noStream) : $this->healthCheckConfig;
+            $res['healthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toMap() : null;
         }
-
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
@@ -79,38 +57,27 @@ class CustomRuntimeConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CustomRuntimeConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['args'])) {
             if (!empty($map['args'])) {
-                $model->args = [];
-                $n1          = 0;
-                foreach ($map['args'] as $item1) {
-                    $model->args[$n1++] = $item1;
-                }
+                $model->args = $map['args'];
             }
         }
-
         if (isset($map['command'])) {
             if (!empty($map['command'])) {
-                $model->command = [];
-                $n1             = 0;
-                foreach ($map['command'] as $item1) {
-                    $model->command[$n1++] = $item1;
-                }
+                $model->command = $map['command'];
             }
         }
-
         if (isset($map['healthCheckConfig'])) {
             $model->healthCheckConfig = CustomHealthCheckConfig::fromMap($map['healthCheckConfig']);
         }
-
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }

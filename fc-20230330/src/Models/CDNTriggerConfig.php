@@ -4,67 +4,56 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CDNTriggerConfig extends Model
 {
     /**
+     * @example CdnDomainStarted
+     *
      * @var string
      */
     public $eventName;
+
     /**
+     * @example 1.0.0
+     *
      * @var string
      */
     public $eventVersion;
+
     /**
      * @var string[][]
      */
     public $filter;
+
     /**
+     * @example 缓存事件触发器
+     *
      * @var string
      */
     public $notes;
     protected $_name = [
-        'eventName'    => 'eventName',
+        'eventName' => 'eventName',
         'eventVersion' => 'eventVersion',
-        'filter'       => 'filter',
-        'notes'        => 'notes',
+        'filter' => 'filter',
+        'notes' => 'notes',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->filter)) {
-            Model::validateArray($this->filter);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventName) {
             $res['eventName'] = $this->eventName;
         }
-
         if (null !== $this->eventVersion) {
             $res['eventVersion'] = $this->eventVersion;
         }
-
         if (null !== $this->filter) {
-            if (\is_array($this->filter)) {
-                $res['filter'] = [];
-                foreach ($this->filter as $key1 => $value1) {
-                    if (\is_array($value1)) {
-                        $res['filter'][$key1] = [];
-                        $n2                   = 0;
-                        foreach ($value1 as $item2) {
-                            $res['filter'][$key1][$n2++] = $item2;
-                        }
-                    }
-                }
-            }
+            $res['filter'] = $this->filter;
         }
-
         if (null !== $this->notes) {
             $res['notes'] = $this->notes;
         }
@@ -72,37 +61,23 @@ class CDNTriggerConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CDNTriggerConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['eventName'])) {
             $model->eventName = $map['eventName'];
         }
-
         if (isset($map['eventVersion'])) {
             $model->eventVersion = $map['eventVersion'];
         }
-
         if (isset($map['filter'])) {
-            if (!empty($map['filter'])) {
-                $model->filter = [];
-                foreach ($map['filter'] as $key1 => $value1) {
-                    if (!empty($value1)) {
-                        $model->filter[$key1] = [];
-                        $n2                   = 0;
-                        foreach ($value1 as $item2) {
-                            $model->filter[$key1][$n2++] = $item2;
-                        }
-                    }
-                }
-            }
+            $model->filter = $map['filter'];
         }
-
         if (isset($map['notes'])) {
             $model->notes = $map['notes'];
         }
