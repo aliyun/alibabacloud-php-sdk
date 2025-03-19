@@ -5,7 +5,9 @@
 namespace AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody;
 
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data\advice;
+use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data\attackResult;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data\result;
+use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data\sensitiveResult;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -18,6 +20,26 @@ class data extends Model
     public $advice;
 
     /**
+     * @description The level of prompt attack
+     *
+     * @example none
+     *
+     * @var string
+     */
+    public $attackLevel;
+
+    /**
+     * @description The result of prompt attack detect
+     *
+     * @var attackResult[]
+     */
+    public $attackResult;
+
+    /**
+     * @description The id of data
+     *
+     * @example text1234
+     *
      * @var string
      */
     public $dataId;
@@ -46,12 +68,32 @@ class data extends Model
      * @var float
      */
     public $score;
+
+    /**
+     * @description The level of sensitivity data
+     *
+     * @example S0
+     *
+     * @var string
+     */
+    public $sensitiveLevel;
+
+    /**
+     * @description The result of sensitivity data detect
+     *
+     * @var sensitiveResult[]
+     */
+    public $sensitiveResult;
     protected $_name = [
         'advice' => 'Advice',
+        'attackLevel' => 'AttackLevel',
+        'attackResult' => 'AttackResult',
         'dataId' => 'DataId',
         'result' => 'Result',
         'riskLevel' => 'RiskLevel',
         'score' => 'Score',
+        'sensitiveLevel' => 'SensitiveLevel',
+        'sensitiveResult' => 'SensitiveResult',
     ];
 
     public function validate() {}
@@ -65,6 +107,18 @@ class data extends Model
                 $n = 0;
                 foreach ($this->advice as $item) {
                     $res['Advice'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->attackLevel) {
+            $res['AttackLevel'] = $this->attackLevel;
+        }
+        if (null !== $this->attackResult) {
+            $res['AttackResult'] = [];
+            if (null !== $this->attackResult && \is_array($this->attackResult)) {
+                $n = 0;
+                foreach ($this->attackResult as $item) {
+                    $res['AttackResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -85,6 +139,18 @@ class data extends Model
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
+        }
+        if (null !== $this->sensitiveLevel) {
+            $res['SensitiveLevel'] = $this->sensitiveLevel;
+        }
+        if (null !== $this->sensitiveResult) {
+            $res['SensitiveResult'] = [];
+            if (null !== $this->sensitiveResult && \is_array($this->sensitiveResult)) {
+                $n = 0;
+                foreach ($this->sensitiveResult as $item) {
+                    $res['SensitiveResult'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -107,6 +173,18 @@ class data extends Model
                 }
             }
         }
+        if (isset($map['AttackLevel'])) {
+            $model->attackLevel = $map['AttackLevel'];
+        }
+        if (isset($map['AttackResult'])) {
+            if (!empty($map['AttackResult'])) {
+                $model->attackResult = [];
+                $n = 0;
+                foreach ($map['AttackResult'] as $item) {
+                    $model->attackResult[$n++] = null !== $item ? attackResult::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
@@ -124,6 +202,18 @@ class data extends Model
         }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
+        }
+        if (isset($map['SensitiveLevel'])) {
+            $model->sensitiveLevel = $map['SensitiveLevel'];
+        }
+        if (isset($map['SensitiveResult'])) {
+            if (!empty($map['SensitiveResult'])) {
+                $model->sensitiveResult = [];
+                $n = 0;
+                foreach ($map['SensitiveResult'] as $item) {
+                    $model->sensitiveResult[$n++] = null !== $item ? sensitiveResult::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
