@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListControlPolicyAttachmentsForTargetResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListControlPolicyAttachmentsForTargetResponseBody\controlPolicyAttachments\controlPolicyAttachment;
+use AlibabaCloud\Tea\Model;
 
 class controlPolicyAttachments extends Model
 {
@@ -17,23 +17,17 @@ class controlPolicyAttachments extends Model
         'controlPolicyAttachment' => 'ControlPolicyAttachment',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->controlPolicyAttachment)) {
-            Model::validateArray($this->controlPolicyAttachment);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->controlPolicyAttachment) {
-            if (\is_array($this->controlPolicyAttachment)) {
-                $res['ControlPolicyAttachment'] = [];
-                $n1                             = 0;
-                foreach ($this->controlPolicyAttachment as $item1) {
-                    $res['ControlPolicyAttachment'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ControlPolicyAttachment'] = [];
+            if (null !== $this->controlPolicyAttachment && \is_array($this->controlPolicyAttachment)) {
+                $n = 0;
+                foreach ($this->controlPolicyAttachment as $item) {
+                    $res['ControlPolicyAttachment'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class controlPolicyAttachments extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return controlPolicyAttachments
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ControlPolicyAttachment'])) {
             if (!empty($map['ControlPolicyAttachment'])) {
                 $model->controlPolicyAttachment = [];
-                $n1                             = 0;
-                foreach ($map['ControlPolicyAttachment'] as $item1) {
-                    $model->controlPolicyAttachment[$n1++] = controlPolicyAttachment::fromMap($item1);
+                $n = 0;
+                foreach ($map['ControlPolicyAttachment'] as $item) {
+                    $model->controlPolicyAttachment[$n++] = null !== $item ? controlPolicyAttachment::fromMap($item) : $item;
                 }
             }
         }

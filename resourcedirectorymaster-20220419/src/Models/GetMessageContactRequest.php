@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetMessageContactRequest extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
+     * This parameter is required.
+     *
+     * @example c-qL4HqKONzOM7****
+     *
      * @var string
      */
     public $contactId;
@@ -16,12 +22,9 @@ class GetMessageContactRequest extends Model
         'contactId' => 'ContactId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contactId) {
@@ -31,11 +34,11 @@ class GetMessageContactRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetMessageContactRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

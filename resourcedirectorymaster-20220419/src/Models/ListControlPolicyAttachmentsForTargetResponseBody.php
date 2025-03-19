@@ -4,39 +4,39 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListControlPolicyAttachmentsForTargetResponseBody\controlPolicyAttachments;
+use AlibabaCloud\Tea\Model;
 
 class ListControlPolicyAttachmentsForTargetResponseBody extends Model
 {
     /**
+     * @description The information about the attached access control policies.
+     *
      * @var controlPolicyAttachments
      */
     public $controlPolicyAttachments;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example C276B600-7B7A-49E8-938C-E16CFA955A82
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'controlPolicyAttachments' => 'ControlPolicyAttachments',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->controlPolicyAttachments) {
-            $this->controlPolicyAttachments->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->controlPolicyAttachments) {
-            $res['ControlPolicyAttachments'] = null !== $this->controlPolicyAttachments ? $this->controlPolicyAttachments->toArray($noStream) : $this->controlPolicyAttachments;
+            $res['ControlPolicyAttachments'] = null !== $this->controlPolicyAttachments ? $this->controlPolicyAttachments->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +44,17 @@ class ListControlPolicyAttachmentsForTargetResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListControlPolicyAttachmentsForTargetResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ControlPolicyAttachments'])) {
             $model->controlPolicyAttachments = controlPolicyAttachments::fromMap($map['ControlPolicyAttachments']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

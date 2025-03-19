@@ -4,44 +4,57 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DisassociateMembersResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class members extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
+     * @example c-qL4HqKONzOM7****
+     *
      * @var string
      */
     public $contactId;
+
     /**
+     * @description The ID of the object. Valid values:
+     *
+     * - ID of the resource directory
+     * - ID of the folder
+     * - ID of the member
+     *
+     * @example fd-ZDNPiT****
+     *
      * @var string
      */
     public $memberId;
+
     /**
+     * @description The time when the contact was unbound from the object.
+     *
+     * @example 2023-03-27 17:19:21
+     *
      * @var string
      */
     public $modifyDate;
     protected $_name = [
-        'contactId'  => 'ContactId',
-        'memberId'   => 'MemberId',
+        'contactId' => 'ContactId',
+        'memberId' => 'MemberId',
         'modifyDate' => 'ModifyDate',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
-
         if (null !== $this->memberId) {
             $res['MemberId'] = $this->memberId;
         }
-
         if (null !== $this->modifyDate) {
             $res['ModifyDate'] = $this->modifyDate;
         }
@@ -49,22 +62,20 @@ class members extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return members
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
-
         if (isset($map['MemberId'])) {
             $model->memberId = $map['MemberId'];
         }
-
         if (isset($map['ModifyDate'])) {
             $model->modifyDate = $map['ModifyDate'];
         }

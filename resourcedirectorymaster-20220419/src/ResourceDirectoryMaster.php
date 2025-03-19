@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\AcceptHandshakeRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\AcceptHandshakeResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\AddMessageContactRequest;
@@ -129,6 +130,8 @@ use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\SendVerificationCo
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\SendVerificationCodeForEnableRDResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\SetMemberDeletionPermissionRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\SetMemberDeletionPermissionResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\SetMemberDisplayNameSyncStatusRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\SetMemberDisplayNameSyncStatusResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\UntagResourcesRequest;
@@ -143,10 +146,11 @@ use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\UpdateMessageConta
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\UpdateMessageContactResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\UpdatePayerForAccountRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\UpdatePayerForAccountResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class ResourceDirectoryMaster extends OpenApiClient
 {
@@ -154,7 +158,7 @@ class ResourceDirectoryMaster extends OpenApiClient
     {
         parent::__construct($config);
         $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = '';
+        $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('resourcedirectorymaster', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -172,55 +176,48 @@ class ResourceDirectoryMaster extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Accepts an invitation.
+     * @summary Accepts an invitation.
+     *  *
+     * @description After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
+     *  *
+     * @param AcceptHandshakeRequest $request AcceptHandshakeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
-     *
-     * @param request - AcceptHandshakeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AcceptHandshakeResponse
-     *
-     * @param AcceptHandshakeRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return AcceptHandshakeResponse
+     * @return AcceptHandshakeResponse AcceptHandshakeResponse
      */
     public function acceptHandshakeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->handshakeId) {
-            @$query['HandshakeId'] = $request->handshakeId;
+        if (!Utils::isUnset($request->handshakeId)) {
+            $query['HandshakeId'] = $request->handshakeId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AcceptHandshake',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AcceptHandshake',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AcceptHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -228,17 +225,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Accepts an invitation.
+     * @summary Accepts an invitation.
+     *  *
+     * @description After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
+     *  *
+     * @param AcceptHandshakeRequest $request AcceptHandshakeRequest
      *
-     * @remarks
-     * After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
-     *
-     * @param request - AcceptHandshakeRequest
-     * @returns AcceptHandshakeResponse
-     *
-     * @param AcceptHandshakeRequest $request
-     *
-     * @return AcceptHandshakeResponse
+     * @return AcceptHandshakeResponse AcceptHandshakeResponse
      */
     public function acceptHandshake($request)
     {
@@ -248,56 +241,47 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Adds a contact.
+     * @summary Adds a contact.
+     *  *
+     * @param AddMessageContactRequest $request AddMessageContactRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddMessageContactRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AddMessageContactResponse
-     *
-     * @param AddMessageContactRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return AddMessageContactResponse
+     * @return AddMessageContactResponse AddMessageContactResponse
      */
     public function addMessageContactWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->emailAddress) {
-            @$query['EmailAddress'] = $request->emailAddress;
+        if (!Utils::isUnset($request->emailAddress)) {
+            $query['EmailAddress'] = $request->emailAddress;
         }
-
-        if (null !== $request->messageTypes) {
-            @$query['MessageTypes'] = $request->messageTypes;
+        if (!Utils::isUnset($request->messageTypes)) {
+            $query['MessageTypes'] = $request->messageTypes;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->title) {
-            @$query['Title'] = $request->title;
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddMessageContact',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddMessageContact',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AddMessageContactResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -305,14 +289,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Adds a contact.
+     * @summary Adds a contact.
+     *  *
+     * @param AddMessageContactRequest $request AddMessageContactRequest
      *
-     * @param request - AddMessageContactRequest
-     * @returns AddMessageContactResponse
-     *
-     * @param AddMessageContactRequest $request
-     *
-     * @return AddMessageContactResponse
+     * @return AddMessageContactResponse AddMessageContactResponse
      */
     public function addMessageContact($request)
     {
@@ -322,44 +303,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Binds a contact to a resource directory, folder, or member.
+     * @summary Binds a contact to a resource directory, folder, or member.
+     *  *
+     * @param AssociateMembersRequest $request AssociateMembersRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AssociateMembersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AssociateMembersResponse
-     *
-     * @param AssociateMembersRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return AssociateMembersResponse
+     * @return AssociateMembersResponse AssociateMembersResponse
      */
     public function associateMembersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->contactId) {
-            @$query['ContactId'] = $request->contactId;
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
         }
-
-        if (null !== $request->members) {
-            @$query['Members'] = $request->members;
+        if (!Utils::isUnset($request->members)) {
+            $query['Members'] = $request->members;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateMembers',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateMembers',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AssociateMembersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -367,14 +342,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Binds a contact to a resource directory, folder, or member.
+     * @summary Binds a contact to a resource directory, folder, or member.
+     *  *
+     * @param AssociateMembersRequest $request AssociateMembersRequest
      *
-     * @param request - AssociateMembersRequest
-     * @returns AssociateMembersResponse
-     *
-     * @param AssociateMembersRequest $request
-     *
-     * @return AssociateMembersResponse
+     * @return AssociateMembersResponse AssociateMembersResponse
      */
     public function associateMembers($request)
     {
@@ -384,50 +356,43 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Attaches an access control policy.
-     *
-     * @remarks
-     * After you attach a custom access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
+     * @summary Attaches an access control policy.
+     *  *
+     * @description After you attach a custom access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
      * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
      * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
      * A maximum of 10 access control policies can be attached to a folder or member.
+     *  *
+     * @param AttachControlPolicyRequest $request AttachControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AttachControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns AttachControlPolicyResponse
-     *
-     * @param AttachControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return AttachControlPolicyResponse
+     * @return AttachControlPolicyResponse AttachControlPolicyResponse
      */
     public function attachControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->policyId) {
-            @$query['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
         }
-
-        if (null !== $request->targetId) {
-            @$query['TargetId'] = $request->targetId;
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachControlPolicy',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachControlPolicy',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return AttachControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -435,20 +400,16 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Attaches an access control policy.
-     *
-     * @remarks
-     * After you attach a custom access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
+     * @summary Attaches an access control policy.
+     *  *
+     * @description After you attach a custom access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
      * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
      * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
      * A maximum of 10 access control policies can be attached to a folder or member.
+     *  *
+     * @param AttachControlPolicyRequest $request AttachControlPolicyRequest
      *
-     * @param request - AttachControlPolicyRequest
-     * @returns AttachControlPolicyResponse
-     *
-     * @param AttachControlPolicyRequest $request
-     *
-     * @return AttachControlPolicyResponse
+     * @return AttachControlPolicyResponse AttachControlPolicyResponse
      */
     public function attachControlPolicy($request)
     {
@@ -458,52 +419,44 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Binds a mobile phone number to a member of the resource account type in a resource directory for security purposes.
-     *
-     * @remarks
-     * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
+     * @summary Binds a mobile phone number to a member of the resource account type in a resource directory for security purposes.
+     *  *
+     * @description You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
      * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+     *  *
+     * @param BindSecureMobilePhoneRequest $request BindSecureMobilePhoneRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - BindSecureMobilePhoneRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns BindSecureMobilePhoneResponse
-     *
-     * @param BindSecureMobilePhoneRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return BindSecureMobilePhoneResponse
+     * @return BindSecureMobilePhoneResponse BindSecureMobilePhoneResponse
      */
     public function bindSecureMobilePhoneWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->secureMobilePhone) {
-            @$query['SecureMobilePhone'] = $request->secureMobilePhone;
+        if (!Utils::isUnset($request->secureMobilePhone)) {
+            $query['SecureMobilePhone'] = $request->secureMobilePhone;
         }
-
-        if (null !== $request->verificationCode) {
-            @$query['VerificationCode'] = $request->verificationCode;
+        if (!Utils::isUnset($request->verificationCode)) {
+            $query['VerificationCode'] = $request->verificationCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindSecureMobilePhone',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindSecureMobilePhone',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return BindSecureMobilePhoneResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -511,18 +464,14 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Binds a mobile phone number to a member of the resource account type in a resource directory for security purposes.
-     *
-     * @remarks
-     * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
+     * @summary Binds a mobile phone number to a member of the resource account type in a resource directory for security purposes.
+     *  *
+     * @description You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
      * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+     *  *
+     * @param BindSecureMobilePhoneRequest $request BindSecureMobilePhoneRequest
      *
-     * @param request - BindSecureMobilePhoneRequest
-     * @returns BindSecureMobilePhoneResponse
-     *
-     * @param BindSecureMobilePhoneRequest $request
-     *
-     * @return BindSecureMobilePhoneResponse
+     * @return BindSecureMobilePhoneResponse BindSecureMobilePhoneResponse
      */
     public function bindSecureMobilePhone($request)
     {
@@ -532,40 +481,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Cancels the email address change of a member.
+     * @summary Cancels the email address change of a member.
+     *  *
+     * @param CancelChangeAccountEmailRequest $request CancelChangeAccountEmailRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelChangeAccountEmailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CancelChangeAccountEmailResponse
-     *
-     * @param CancelChangeAccountEmailRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CancelChangeAccountEmailResponse
+     * @return CancelChangeAccountEmailResponse CancelChangeAccountEmailResponse
      */
     public function cancelChangeAccountEmailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelChangeAccountEmail',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelChangeAccountEmail',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -573,14 +517,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Cancels the email address change of a member.
+     * @summary Cancels the email address change of a member.
+     *  *
+     * @param CancelChangeAccountEmailRequest $request CancelChangeAccountEmailRequest
      *
-     * @param request - CancelChangeAccountEmailRequest
-     * @returns CancelChangeAccountEmailResponse
-     *
-     * @param CancelChangeAccountEmailRequest $request
-     *
-     * @return CancelChangeAccountEmailResponse
+     * @return CancelChangeAccountEmailResponse CancelChangeAccountEmailResponse
      */
     public function cancelChangeAccountEmail($request)
     {
@@ -590,40 +531,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Cancels an invitation.
+     * @summary Cancels an invitation.
+     *  *
+     * @param CancelHandshakeRequest $request CancelHandshakeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelHandshakeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CancelHandshakeResponse
-     *
-     * @param CancelHandshakeRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CancelHandshakeResponse
+     * @return CancelHandshakeResponse CancelHandshakeResponse
      */
     public function cancelHandshakeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->handshakeId) {
-            @$query['HandshakeId'] = $request->handshakeId;
+        if (!Utils::isUnset($request->handshakeId)) {
+            $query['HandshakeId'] = $request->handshakeId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelHandshake',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelHandshake',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -631,14 +567,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Cancels an invitation.
+     * @summary Cancels an invitation.
+     *  *
+     * @param CancelHandshakeRequest $request CancelHandshakeRequest
      *
-     * @param request - CancelHandshakeRequest
-     * @returns CancelHandshakeResponse
-     *
-     * @param CancelHandshakeRequest $request
-     *
-     * @return CancelHandshakeResponse
+     * @return CancelHandshakeResponse CancelHandshakeResponse
      */
     public function cancelHandshake($request)
     {
@@ -648,48 +581,41 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Cancels the update of the mobile phone number or email address of a contact.
+     * @summary Cancels the update of the mobile phone number or email address of a contact.
+     *  *
+     * @param CancelMessageContactUpdateRequest $request CancelMessageContactUpdateRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelMessageContactUpdateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CancelMessageContactUpdateResponse
-     *
-     * @param CancelMessageContactUpdateRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CancelMessageContactUpdateResponse
+     * @return CancelMessageContactUpdateResponse CancelMessageContactUpdateResponse
      */
     public function cancelMessageContactUpdateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->contactId) {
-            @$query['ContactId'] = $request->contactId;
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
         }
-
-        if (null !== $request->emailAddress) {
-            @$query['EmailAddress'] = $request->emailAddress;
+        if (!Utils::isUnset($request->emailAddress)) {
+            $query['EmailAddress'] = $request->emailAddress;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelMessageContactUpdate',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelMessageContactUpdate',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CancelMessageContactUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -697,14 +623,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Cancels the update of the mobile phone number or email address of a contact.
+     * @summary Cancels the update of the mobile phone number or email address of a contact.
+     *  *
+     * @param CancelMessageContactUpdateRequest $request CancelMessageContactUpdateRequest
      *
-     * @param request - CancelMessageContactUpdateRequest
-     * @returns CancelMessageContactUpdateResponse
-     *
-     * @param CancelMessageContactUpdateRequest $request
-     *
-     * @return CancelMessageContactUpdateResponse
+     * @return CancelMessageContactUpdateResponse CancelMessageContactUpdateResponse
      */
     public function cancelMessageContactUpdate($request)
     {
@@ -714,44 +637,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Changes the email address that is bound to a member.
+     * @summary Changes the email address that is bound to a member.
+     *  *
+     * @param ChangeAccountEmailRequest $request ChangeAccountEmailRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ChangeAccountEmailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ChangeAccountEmailResponse
-     *
-     * @param ChangeAccountEmailRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ChangeAccountEmailResponse
+     * @return ChangeAccountEmailResponse ChangeAccountEmailResponse
      */
     public function changeAccountEmailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->email) {
-            @$query['Email'] = $request->email;
+        if (!Utils::isUnset($request->email)) {
+            $query['Email'] = $request->email;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeAccountEmail',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeAccountEmail',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -759,14 +676,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Changes the email address that is bound to a member.
+     * @summary Changes the email address that is bound to a member.
+     *  *
+     * @param ChangeAccountEmailRequest $request ChangeAccountEmailRequest
      *
-     * @param request - ChangeAccountEmailRequest
-     * @returns ChangeAccountEmailResponse
-     *
-     * @param ChangeAccountEmailRequest $request
-     *
-     * @return ChangeAccountEmailResponse
+     * @return ChangeAccountEmailResponse ChangeAccountEmailResponse
      */
     public function changeAccountEmail($request)
     {
@@ -776,43 +690,37 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Performs a member deletion check.
+     * @summary Performs a member deletion check.
+     *  *
+     * @description Before you delete a member, you must call this API operation to check whether the member can be deleted.
+     *  *
+     * @param CheckAccountDeleteRequest $request CheckAccountDeleteRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you delete a member, you must call this API operation to check whether the member can be deleted.
-     *
-     * @param request - CheckAccountDeleteRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CheckAccountDeleteResponse
-     *
-     * @param CheckAccountDeleteRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CheckAccountDeleteResponse
+     * @return CheckAccountDeleteResponse CheckAccountDeleteResponse
      */
     public function checkAccountDeleteWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckAccountDelete',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckAccountDelete',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CheckAccountDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -820,17 +728,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Performs a member deletion check.
+     * @summary Performs a member deletion check.
+     *  *
+     * @description Before you delete a member, you must call this API operation to check whether the member can be deleted.
+     *  *
+     * @param CheckAccountDeleteRequest $request CheckAccountDeleteRequest
      *
-     * @remarks
-     * Before you delete a member, you must call this API operation to check whether the member can be deleted.
-     *
-     * @param request - CheckAccountDeleteRequest
-     * @returns CheckAccountDeleteResponse
-     *
-     * @param CheckAccountDeleteRequest $request
-     *
-     * @return CheckAccountDeleteResponse
+     * @return CheckAccountDeleteResponse CheckAccountDeleteResponse
      */
     public function checkAccountDelete($request)
     {
@@ -840,56 +744,47 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Creates a custom access control policy.
+     * @summary Creates a custom access control policy.
+     *  *
+     * @param CreateControlPolicyRequest $request CreateControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateControlPolicyResponse
-     *
-     * @param CreateControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateControlPolicyResponse
+     * @return CreateControlPolicyResponse CreateControlPolicyResponse
      */
     public function createControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->effectScope) {
-            @$query['EffectScope'] = $request->effectScope;
+        if (!Utils::isUnset($request->effectScope)) {
+            $query['EffectScope'] = $request->effectScope;
         }
-
-        if (null !== $request->policyDocument) {
-            @$query['PolicyDocument'] = $request->policyDocument;
+        if (!Utils::isUnset($request->policyDocument)) {
+            $query['PolicyDocument'] = $request->policyDocument;
         }
-
-        if (null !== $request->policyName) {
-            @$query['PolicyName'] = $request->policyName;
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateControlPolicy',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateControlPolicy',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -897,14 +792,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Creates a custom access control policy.
+     * @summary Creates a custom access control policy.
+     *  *
+     * @param CreateControlPolicyRequest $request CreateControlPolicyRequest
      *
-     * @param request - CreateControlPolicyRequest
-     * @returns CreateControlPolicyResponse
-     *
-     * @param CreateControlPolicyRequest $request
-     *
-     * @return CreateControlPolicyResponse
+     * @return CreateControlPolicyResponse CreateControlPolicyResponse
      */
     public function createControlPolicy($request)
     {
@@ -914,51 +806,43 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Creates a folder.
+     * @summary Creates a folder.
+     *  *
+     * @description A maximum of five levels of folders can be created under the Root folder.
+     *  *
+     * @param CreateFolderRequest $request CreateFolderRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * A maximum of five levels of folders can be created under the Root folder.
-     *
-     * @param request - CreateFolderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateFolderResponse
-     *
-     * @param CreateFolderRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateFolderResponse
+     * @return CreateFolderResponse CreateFolderResponse
      */
     public function createFolderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->folderName) {
-            @$query['FolderName'] = $request->folderName;
+        if (!Utils::isUnset($request->folderName)) {
+            $query['FolderName'] = $request->folderName;
         }
-
-        if (null !== $request->parentFolderId) {
-            @$query['ParentFolderId'] = $request->parentFolderId;
+        if (!Utils::isUnset($request->parentFolderId)) {
+            $query['ParentFolderId'] = $request->parentFolderId;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFolder',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFolder',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -966,17 +850,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Creates a folder.
+     * @summary Creates a folder.
+     *  *
+     * @description A maximum of five levels of folders can be created under the Root folder.
+     *  *
+     * @param CreateFolderRequest $request CreateFolderRequest
      *
-     * @remarks
-     * A maximum of five levels of folders can be created under the Root folder.
-     *
-     * @param request - CreateFolderRequest
-     * @returns CreateFolderResponse
-     *
-     * @param CreateFolderRequest $request
-     *
-     * @return CreateFolderResponse
+     * @return CreateFolderResponse CreateFolderResponse
      */
     public function createFolder($request)
     {
@@ -986,68 +866,56 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Creates a member of the resource account type.
-     *
-     * @remarks
-     * A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
+     * @summary Creates a member of the resource account type.
+     *  *
+     * @description A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
      * This topic provides an example on how to call the API operation to create a member in the `fd-r23M55****` folder. The display name of the member is `Dev`, and the prefix for the Alibaba Cloud account name of the member is `alice`.
+     *  *
+     * @param CreateResourceAccountRequest $request CreateResourceAccountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateResourceAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns CreateResourceAccountResponse
-     *
-     * @param CreateResourceAccountRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateResourceAccountResponse
+     * @return CreateResourceAccountResponse CreateResourceAccountResponse
      */
     public function createResourceAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountNamePrefix) {
-            @$query['AccountNamePrefix'] = $request->accountNamePrefix;
+        if (!Utils::isUnset($request->accountNamePrefix)) {
+            $query['AccountNamePrefix'] = $request->accountNamePrefix;
         }
-
-        if (null !== $request->displayName) {
-            @$query['DisplayName'] = $request->displayName;
+        if (!Utils::isUnset($request->displayName)) {
+            $query['DisplayName'] = $request->displayName;
         }
-
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->parentFolderId) {
-            @$query['ParentFolderId'] = $request->parentFolderId;
+        if (!Utils::isUnset($request->parentFolderId)) {
+            $query['ParentFolderId'] = $request->parentFolderId;
         }
-
-        if (null !== $request->payerAccountId) {
-            @$query['PayerAccountId'] = $request->payerAccountId;
+        if (!Utils::isUnset($request->payerAccountId)) {
+            $query['PayerAccountId'] = $request->payerAccountId;
         }
-
-        if (null !== $request->resellAccountType) {
-            @$query['ResellAccountType'] = $request->resellAccountType;
+        if (!Utils::isUnset($request->resellAccountType)) {
+            $query['ResellAccountType'] = $request->resellAccountType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateResourceAccount',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateResourceAccount',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return CreateResourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1055,18 +923,14 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Creates a member of the resource account type.
-     *
-     * @remarks
-     * A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
+     * @summary Creates a member of the resource account type.
+     *  *
+     * @description A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
      * This topic provides an example on how to call the API operation to create a member in the `fd-r23M55****` folder. The display name of the member is `Dev`, and the prefix for the Alibaba Cloud account name of the member is `alice`.
+     *  *
+     * @param CreateResourceAccountRequest $request CreateResourceAccountRequest
      *
-     * @param request - CreateResourceAccountRequest
-     * @returns CreateResourceAccountResponse
-     *
-     * @param CreateResourceAccountRequest $request
-     *
-     * @return CreateResourceAccountResponse
+     * @return CreateResourceAccountResponse CreateResourceAccountResponse
      */
     public function createResourceAccount($request)
     {
@@ -1076,40 +940,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Rejects an invitation.
+     * @summary Rejects an invitation.
+     *  *
+     * @param DeclineHandshakeRequest $request DeclineHandshakeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeclineHandshakeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeclineHandshakeResponse
-     *
-     * @param DeclineHandshakeRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeclineHandshakeResponse
+     * @return DeclineHandshakeResponse DeclineHandshakeResponse
      */
     public function declineHandshakeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->handshakeId) {
-            @$query['HandshakeId'] = $request->handshakeId;
+        if (!Utils::isUnset($request->handshakeId)) {
+            $query['HandshakeId'] = $request->handshakeId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeclineHandshake',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeclineHandshake',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeclineHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1117,14 +976,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Rejects an invitation.
+     * @summary Rejects an invitation.
+     *  *
+     * @param DeclineHandshakeRequest $request DeclineHandshakeRequest
      *
-     * @param request - DeclineHandshakeRequest
-     * @returns DeclineHandshakeResponse
-     *
-     * @param DeclineHandshakeRequest $request
-     *
-     * @return DeclineHandshakeResponse
+     * @return DeclineHandshakeResponse DeclineHandshakeResponse
      */
     public function declineHandshake($request)
     {
@@ -1134,54 +990,46 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Deletes a member of the resource account type.
-     *
-     * @remarks
-     * Before you delete a member, we recommend that you call the [CheckAccountDelete](~~CheckAccountDelete~~) and [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
+     * @summary Deletes a member of the resource account type.
+     *  *
+     * @description Before you delete a member, we recommend that you call the [CheckAccountDelete](~~CheckAccountDelete~~) and [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
      * After you submit a deletion request for a member, you can call the [GetAccountDeletionStatus](~~GetAccountDeletionStatus~~) operation to query the deletion status of the member. After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
+     *  *
+     * @param DeleteAccountRequest $tmpReq  DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DeleteAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteAccountResponse
-     *
-     * @param DeleteAccountRequest $tmpReq
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccountWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DeleteAccountShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->abandonableCheckId) {
-            $request->abandonableCheckIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->abandonableCheckId, 'AbandonableCheckId', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->abandonableCheckId)) {
+            $request->abandonableCheckIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->abandonableCheckId, 'AbandonableCheckId', 'json');
         }
-
         $query = [];
-        if (null !== $request->abandonableCheckIdShrink) {
-            @$query['AbandonableCheckId'] = $request->abandonableCheckIdShrink;
+        if (!Utils::isUnset($request->abandonableCheckIdShrink)) {
+            $query['AbandonableCheckId'] = $request->abandonableCheckIdShrink;
         }
-
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAccount',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAccount',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1189,18 +1037,14 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Deletes a member of the resource account type.
-     *
-     * @remarks
-     * Before you delete a member, we recommend that you call the [CheckAccountDelete](~~CheckAccountDelete~~) and [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
+     * @summary Deletes a member of the resource account type.
+     *  *
+     * @description Before you delete a member, we recommend that you call the [CheckAccountDelete](~~CheckAccountDelete~~) and [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operations to check whether the member meets deletion requirements. You can call the DeleteAccount operation to delete only members that meet the deletion requirements.
      * After you submit a deletion request for a member, you can call the [GetAccountDeletionStatus](~~GetAccountDeletionStatus~~) operation to query the deletion status of the member. After a member is deleted, the resources and data within the member are deleted, and you can no longer use the member to log on to the Alibaba Cloud Management Console. In addition, the member cannot be recovered. Proceed with caution. For more information about how to delete a member, see [Delete a member of the resource account type](https://help.aliyun.com/document_detail/446078.html).
+     *  *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
      *
-     * @param request - DeleteAccountRequest
-     * @returns DeleteAccountResponse
-     *
-     * @param DeleteAccountRequest $request
-     *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -1210,43 +1054,37 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Deletes a custom access control policy.
+     * @summary Deletes a custom access control policy.
+     *  *
+     * @description If you want to delete a custom access control policy that is attached to folders or members, you must call the [DetachControlPolicy](~~DetachControlPolicy~~) operation to detach the policy before you delete it.
+     *  *
+     * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * If you want to delete a custom access control policy that is attached to folders or members, you must call the [DetachControlPolicy](~~DetachControlPolicy~~) operation to detach the policy before you delete it.
-     *
-     * @param request - DeleteControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteControlPolicyResponse
-     *
-     * @param DeleteControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeleteControlPolicyResponse
+     * @return DeleteControlPolicyResponse DeleteControlPolicyResponse
      */
     public function deleteControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->policyId) {
-            @$query['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteControlPolicy',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteControlPolicy',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1254,17 +1092,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Deletes a custom access control policy.
+     * @summary Deletes a custom access control policy.
+     *  *
+     * @description If you want to delete a custom access control policy that is attached to folders or members, you must call the [DetachControlPolicy](~~DetachControlPolicy~~) operation to detach the policy before you delete it.
+     *  *
+     * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
      *
-     * @remarks
-     * If you want to delete a custom access control policy that is attached to folders or members, you must call the [DetachControlPolicy](~~DetachControlPolicy~~) operation to detach the policy before you delete it.
-     *
-     * @param request - DeleteControlPolicyRequest
-     * @returns DeleteControlPolicyResponse
-     *
-     * @param DeleteControlPolicyRequest $request
-     *
-     * @return DeleteControlPolicyResponse
+     * @return DeleteControlPolicyResponse DeleteControlPolicyResponse
      */
     public function deleteControlPolicy($request)
     {
@@ -1274,43 +1108,37 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Deletes a folder.
+     * @summary Deletes a folder.
+     *  *
+     * @description Before you delete a folder, you must make sure that the folder does not contain members or subfolders.
+     *  *
+     * @param DeleteFolderRequest $request DeleteFolderRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you delete a folder, you must make sure that the folder does not contain members or subfolders.
-     *
-     * @param request - DeleteFolderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteFolderResponse
-     *
-     * @param DeleteFolderRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteFolderResponse
+     * @return DeleteFolderResponse DeleteFolderResponse
      */
     public function deleteFolderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->folderId) {
-            @$query['FolderId'] = $request->folderId;
+        if (!Utils::isUnset($request->folderId)) {
+            $query['FolderId'] = $request->folderId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFolder',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFolder',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1318,17 +1146,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Deletes a folder.
+     * @summary Deletes a folder.
+     *  *
+     * @description Before you delete a folder, you must make sure that the folder does not contain members or subfolders.
+     *  *
+     * @param DeleteFolderRequest $request DeleteFolderRequest
      *
-     * @remarks
-     * Before you delete a folder, you must make sure that the folder does not contain members or subfolders.
-     *
-     * @param request - DeleteFolderRequest
-     * @returns DeleteFolderResponse
-     *
-     * @param DeleteFolderRequest $request
-     *
-     * @return DeleteFolderResponse
+     * @return DeleteFolderResponse DeleteFolderResponse
      */
     public function deleteFolder($request)
     {
@@ -1338,44 +1162,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Deletes a contact.
+     * @summary Deletes a contact.
+     *  *
+     * @param DeleteMessageContactRequest $request DeleteMessageContactRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteMessageContactRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeleteMessageContactResponse
-     *
-     * @param DeleteMessageContactRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DeleteMessageContactResponse
+     * @return DeleteMessageContactResponse DeleteMessageContactResponse
      */
     public function deleteMessageContactWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->contactId) {
-            @$query['ContactId'] = $request->contactId;
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
         }
-
-        if (null !== $request->retainContactInMembers) {
-            @$query['RetainContactInMembers'] = $request->retainContactInMembers;
+        if (!Utils::isUnset($request->retainContactInMembers)) {
+            $query['RetainContactInMembers'] = $request->retainContactInMembers;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMessageContact',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMessageContact',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeleteMessageContactResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1383,14 +1201,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Deletes a contact.
+     * @summary Deletes a contact.
+     *  *
+     * @param DeleteMessageContactRequest $request DeleteMessageContactRequest
      *
-     * @param request - DeleteMessageContactRequest
-     * @returns DeleteMessageContactResponse
-     *
-     * @param DeleteMessageContactRequest $request
-     *
-     * @return DeleteMessageContactResponse
+     * @return DeleteMessageContactResponse DeleteMessageContactResponse
      */
     public function deleteMessageContact($request)
     {
@@ -1400,47 +1215,40 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Removes a delegated administrator account for a trusted service.
+     * @summary Removes a delegated administrator account for a trusted service.
+     *  *
+     * @description If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
+     *  *
+     * @param DeregisterDelegatedAdministratorRequest $request DeregisterDelegatedAdministratorRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
-     *
-     * @param request - DeregisterDelegatedAdministratorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DeregisterDelegatedAdministratorResponse
-     *
-     * @param DeregisterDelegatedAdministratorRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DeregisterDelegatedAdministratorResponse
+     * @return DeregisterDelegatedAdministratorResponse DeregisterDelegatedAdministratorResponse
      */
     public function deregisterDelegatedAdministratorWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->servicePrincipal) {
-            @$query['ServicePrincipal'] = $request->servicePrincipal;
+        if (!Utils::isUnset($request->servicePrincipal)) {
+            $query['ServicePrincipal'] = $request->servicePrincipal;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeregisterDelegatedAdministrator',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeregisterDelegatedAdministrator',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DeregisterDelegatedAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1448,17 +1256,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Removes a delegated administrator account for a trusted service.
+     * @summary Removes a delegated administrator account for a trusted service.
+     *  *
+     * @description If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
+     *  *
+     * @param DeregisterDelegatedAdministratorRequest $request DeregisterDelegatedAdministratorRequest
      *
-     * @remarks
-     * If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
-     *
-     * @param request - DeregisterDelegatedAdministratorRequest
-     * @returns DeregisterDelegatedAdministratorResponse
-     *
-     * @param DeregisterDelegatedAdministratorRequest $request
-     *
-     * @return DeregisterDelegatedAdministratorResponse
+     * @return DeregisterDelegatedAdministratorResponse DeregisterDelegatedAdministratorResponse
      */
     public function deregisterDelegatedAdministrator($request)
     {
@@ -1468,36 +1272,31 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Disables a resource directory. This operation cannot be undone. Therefore, proceed with caution.
-     *
-     * @remarks
-     * Before you disable a resource directory, you must make sure that the following requirements are met:
+     * @summary Disables a resource directory. This operation cannot be undone. Therefore, proceed with caution.
+     *  *
+     * @description Before you disable a resource directory, you must make sure that the following requirements are met:
      * *   All members of the cloud account type in the resource directory are removed. You can call the [RemoveCloudAccount](~~RemoveCloudAccount~~) operation to remove a member of the cloud account type.
      * *   All folders except the Root folder are deleted from the resource directory. You can call the [DeleteFolder](~~DeleteFolder~~) operation to delete a folder.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DestroyResourceDirectoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DestroyResourceDirectoryResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return DestroyResourceDirectoryResponse
+     * @return DestroyResourceDirectoryResponse DestroyResourceDirectoryResponse
      */
     public function destroyResourceDirectoryWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DestroyResourceDirectory',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DestroyResourceDirectory',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DestroyResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1505,15 +1304,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Disables a resource directory. This operation cannot be undone. Therefore, proceed with caution.
-     *
-     * @remarks
-     * Before you disable a resource directory, you must make sure that the following requirements are met:
+     * @summary Disables a resource directory. This operation cannot be undone. Therefore, proceed with caution.
+     *  *
+     * @description Before you disable a resource directory, you must make sure that the following requirements are met:
      * *   All members of the cloud account type in the resource directory are removed. You can call the [RemoveCloudAccount](~~RemoveCloudAccount~~) operation to remove a member of the cloud account type.
      * *   All folders except the Root folder are deleted from the resource directory. You can call the [DeleteFolder](~~DeleteFolder~~) operation to delete a folder.
-     * @returns DestroyResourceDirectoryResponse
-     *
-     * @return DestroyResourceDirectoryResponse
+     *  *
+     * @return DestroyResourceDirectoryResponse DestroyResourceDirectoryResponse
      */
     public function destroyResourceDirectory()
     {
@@ -1523,48 +1320,41 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Detaches an access control policy.
-     *
-     * @remarks
-     * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
+     * @summary Detaches an access control policy.
+     *  *
+     * @description After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
      * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
+     *  *
+     * @param DetachControlPolicyRequest $request DetachControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DetachControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DetachControlPolicyResponse
-     *
-     * @param DetachControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DetachControlPolicyResponse
+     * @return DetachControlPolicyResponse DetachControlPolicyResponse
      */
     public function detachControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->policyId) {
-            @$query['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
         }
-
-        if (null !== $request->targetId) {
-            @$query['TargetId'] = $request->targetId;
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachControlPolicy',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachControlPolicy',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DetachControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1572,18 +1362,14 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Detaches an access control policy.
-     *
-     * @remarks
-     * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
+     * @summary Detaches an access control policy.
+     *  *
+     * @description After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
      * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
+     *  *
+     * @param DetachControlPolicyRequest $request DetachControlPolicyRequest
      *
-     * @param request - DetachControlPolicyRequest
-     * @returns DetachControlPolicyResponse
-     *
-     * @param DetachControlPolicyRequest $request
-     *
-     * @return DetachControlPolicyResponse
+     * @return DetachControlPolicyResponse DetachControlPolicyResponse
      */
     public function detachControlPolicy($request)
     {
@@ -1593,35 +1379,30 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Disables the Control Policy feature.
-     *
-     * @remarks
-     * After you disable the Control Policy feature, the system automatically detaches all access control policies that are attached to folders and members. The system does not delete these access control policies, but you cannot attach them to folders or members again.
+     * @summary Disables the Control Policy feature.
+     *  *
+     * @description After you disable the Control Policy feature, the system automatically detaches all access control policies that are attached to folders and members. The system does not delete these access control policies, but you cannot attach them to folders or members again.
      * > If you disable the Control Policy feature, the permissions of all folders and members in your resource directory are affected. Therefore, proceed with caution.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisableControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DisableControlPolicyResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return DisableControlPolicyResponse
+     * @return DisableControlPolicyResponse DisableControlPolicyResponse
      */
     public function disableControlPolicyWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DisableControlPolicy',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableControlPolicy',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DisableControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1629,14 +1410,12 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Disables the Control Policy feature.
-     *
-     * @remarks
-     * After you disable the Control Policy feature, the system automatically detaches all access control policies that are attached to folders and members. The system does not delete these access control policies, but you cannot attach them to folders or members again.
+     * @summary Disables the Control Policy feature.
+     *  *
+     * @description After you disable the Control Policy feature, the system automatically detaches all access control policies that are attached to folders and members. The system does not delete these access control policies, but you cannot attach them to folders or members again.
      * > If you disable the Control Policy feature, the permissions of all folders and members in your resource directory are affected. Therefore, proceed with caution.
-     * @returns DisableControlPolicyResponse
-     *
-     * @return DisableControlPolicyResponse
+     *  *
+     * @return DisableControlPolicyResponse DisableControlPolicyResponse
      */
     public function disableControlPolicy()
     {
@@ -1646,44 +1425,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Unbinds a contact from a resource directory, folder, or member.
+     * @summary Unbinds a contact from a resource directory, folder, or member.
+     *  *
+     * @param DisassociateMembersRequest $request DisassociateMembersRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DisassociateMembersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns DisassociateMembersResponse
-     *
-     * @param DisassociateMembersRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DisassociateMembersResponse
+     * @return DisassociateMembersResponse DisassociateMembersResponse
      */
     public function disassociateMembersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->contactId) {
-            @$query['ContactId'] = $request->contactId;
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
         }
-
-        if (null !== $request->members) {
-            @$query['Members'] = $request->members;
+        if (!Utils::isUnset($request->members)) {
+            $query['Members'] = $request->members;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisassociateMembers',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisassociateMembers',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return DisassociateMembersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1691,14 +1464,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Unbinds a contact from a resource directory, folder, or member.
+     * @summary Unbinds a contact from a resource directory, folder, or member.
+     *  *
+     * @param DisassociateMembersRequest $request DisassociateMembersRequest
      *
-     * @param request - DisassociateMembersRequest
-     * @returns DisassociateMembersResponse
-     *
-     * @param DisassociateMembersRequest $request
-     *
-     * @return DisassociateMembersResponse
+     * @return DisassociateMembersResponse DisassociateMembersResponse
      */
     public function disassociateMembers($request)
     {
@@ -1708,34 +1478,29 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Enables the Control Policy feature.
+     * @summary Enables the Control Policy feature.
+     *  *
+     * @description The Control Policy feature provided by the Resource Directory service allows you to manage the permission boundaries of the folders or members in your resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](https://help.aliyun.com/document_detail/178671.html).
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The Control Policy feature provided by the Resource Directory service allows you to manage the permission boundaries of the folders or members in your resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](https://help.aliyun.com/document_detail/178671.html).
-     *
-     * @param request - EnableControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns EnableControlPolicyResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return EnableControlPolicyResponse
+     * @return EnableControlPolicyResponse EnableControlPolicyResponse
      */
     public function enableControlPolicyWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'EnableControlPolicy',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableControlPolicy',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return EnableControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1743,13 +1508,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Enables the Control Policy feature.
-     *
-     * @remarks
-     * The Control Policy feature provided by the Resource Directory service allows you to manage the permission boundaries of the folders or members in your resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](https://help.aliyun.com/document_detail/178671.html).
-     * @returns EnableControlPolicyResponse
-     *
-     * @return EnableControlPolicyResponse
+     * @summary Enables the Control Policy feature.
+     *  *
+     * @description The Control Policy feature provided by the Resource Directory service allows you to manage the permission boundaries of the folders or members in your resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](https://help.aliyun.com/document_detail/178671.html).
+     *  *
+     * @return EnableControlPolicyResponse EnableControlPolicyResponse
      */
     public function enableControlPolicy()
     {
@@ -1759,59 +1522,49 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Enables a resource directory.
+     * @summary Enables a resource directory.
+     *  *
+     * @description You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
+     *  *
+     * @param EnableResourceDirectoryRequest $request EnableResourceDirectoryRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
-     *
-     * @param request - EnableResourceDirectoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns EnableResourceDirectoryResponse
-     *
-     * @param EnableResourceDirectoryRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return EnableResourceDirectoryResponse
+     * @return EnableResourceDirectoryResponse EnableResourceDirectoryResponse
      */
     public function enableResourceDirectoryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->enableMode) {
-            @$query['EnableMode'] = $request->enableMode;
+        if (!Utils::isUnset($request->enableMode)) {
+            $query['EnableMode'] = $request->enableMode;
         }
-
-        if (null !== $request->MAName) {
-            @$query['MAName'] = $request->MAName;
+        if (!Utils::isUnset($request->MAName)) {
+            $query['MAName'] = $request->MAName;
         }
-
-        if (null !== $request->MASecureMobilePhone) {
-            @$query['MASecureMobilePhone'] = $request->MASecureMobilePhone;
+        if (!Utils::isUnset($request->MASecureMobilePhone)) {
+            $query['MASecureMobilePhone'] = $request->MASecureMobilePhone;
         }
-
-        if (null !== $request->verificationCode) {
-            @$query['VerificationCode'] = $request->verificationCode;
+        if (!Utils::isUnset($request->verificationCode)) {
+            $query['VerificationCode'] = $request->verificationCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableResourceDirectory',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableResourceDirectory',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return EnableResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1819,17 +1572,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Enables a resource directory.
+     * @summary Enables a resource directory.
+     *  *
+     * @description You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
+     *  *
+     * @param EnableResourceDirectoryRequest $request EnableResourceDirectoryRequest
      *
-     * @remarks
-     * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](https://help.aliyun.com/document_detail/111215.html).
-     *
-     * @param request - EnableResourceDirectoryRequest
-     * @returns EnableResourceDirectoryResponse
-     *
-     * @param EnableResourceDirectoryRequest $request
-     *
-     * @return EnableResourceDirectoryResponse
+     * @return EnableResourceDirectoryResponse EnableResourceDirectoryResponse
      */
     public function enableResourceDirectory($request)
     {
@@ -1839,44 +1588,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information of a member.
+     * @summary Queries the information of a member.
+     *  *
+     * @param GetAccountRequest $request GetAccountRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetAccountResponse
-     *
-     * @param GetAccountRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetAccountResponse
+     * @return GetAccountResponse GetAccountResponse
      */
     public function getAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->includeTags) {
-            @$query['IncludeTags'] = $request->includeTags;
+        if (!Utils::isUnset($request->includeTags)) {
+            $query['IncludeTags'] = $request->includeTags;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAccount',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccount',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1884,14 +1627,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information of a member.
+     * @summary Queries the information of a member.
+     *  *
+     * @param GetAccountRequest $request GetAccountRequest
      *
-     * @param request - GetAccountRequest
-     * @returns GetAccountResponse
-     *
-     * @param GetAccountRequest $request
-     *
-     * @return GetAccountResponse
+     * @return GetAccountResponse GetAccountResponse
      */
     public function getAccount($request)
     {
@@ -1901,43 +1641,37 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the result of a member deletion check.
+     * @summary Queries the result of a member deletion check.
+     *  *
+     * @description After you call the [CheckAccountDelete](~~CheckAccountDelete~~) operation to perform a member deletion check, you can call the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
+     *  *
+     * @param GetAccountDeletionCheckResultRequest $request GetAccountDeletionCheckResultRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * After you call the [CheckAccountDelete](~~CheckAccountDelete~~) operation to perform a member deletion check, you can call the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
-     *
-     * @param request - GetAccountDeletionCheckResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetAccountDeletionCheckResultResponse
-     *
-     * @param GetAccountDeletionCheckResultRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return GetAccountDeletionCheckResultResponse
+     * @return GetAccountDeletionCheckResultResponse GetAccountDeletionCheckResultResponse
      */
     public function getAccountDeletionCheckResultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAccountDeletionCheckResult',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccountDeletionCheckResult',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetAccountDeletionCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1945,17 +1679,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the result of a member deletion check.
+     * @summary Queries the result of a member deletion check.
+     *  *
+     * @description After you call the [CheckAccountDelete](~~CheckAccountDelete~~) operation to perform a member deletion check, you can call the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
+     *  *
+     * @param GetAccountDeletionCheckResultRequest $request GetAccountDeletionCheckResultRequest
      *
-     * @remarks
-     * After you call the [CheckAccountDelete](~~CheckAccountDelete~~) operation to perform a member deletion check, you can call the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
-     *
-     * @param request - GetAccountDeletionCheckResultRequest
-     * @returns GetAccountDeletionCheckResultResponse
-     *
-     * @param GetAccountDeletionCheckResultRequest $request
-     *
-     * @return GetAccountDeletionCheckResultResponse
+     * @return GetAccountDeletionCheckResultResponse GetAccountDeletionCheckResultResponse
      */
     public function getAccountDeletionCheckResult($request)
     {
@@ -1965,40 +1695,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the deletion status of a member.
+     * @summary Queries the deletion status of a member.
+     *  *
+     * @param GetAccountDeletionStatusRequest $request GetAccountDeletionStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAccountDeletionStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetAccountDeletionStatusResponse
-     *
-     * @param GetAccountDeletionStatusRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetAccountDeletionStatusResponse
+     * @return GetAccountDeletionStatusResponse GetAccountDeletionStatusResponse
      */
     public function getAccountDeletionStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAccountDeletionStatus',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAccountDeletionStatus',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetAccountDeletionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2006,14 +1731,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the deletion status of a member.
+     * @summary Queries the deletion status of a member.
+     *  *
+     * @param GetAccountDeletionStatusRequest $request GetAccountDeletionStatusRequest
      *
-     * @param request - GetAccountDeletionStatusRequest
-     * @returns GetAccountDeletionStatusResponse
-     *
-     * @param GetAccountDeletionStatusRequest $request
-     *
-     * @return GetAccountDeletionStatusResponse
+     * @return GetAccountDeletionStatusResponse GetAccountDeletionStatusResponse
      */
     public function getAccountDeletionStatus($request)
     {
@@ -2023,44 +1745,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the details of an access control policy.
+     * @summary Queries the details of an access control policy.
+     *  *
+     * @param GetControlPolicyRequest $request GetControlPolicyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetControlPolicyResponse
-     *
-     * @param GetControlPolicyRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetControlPolicyResponse
+     * @return GetControlPolicyResponse GetControlPolicyResponse
      */
     public function getControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->policyId) {
-            @$query['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetControlPolicy',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetControlPolicy',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2068,14 +1784,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the details of an access control policy.
+     * @summary Queries the details of an access control policy.
+     *  *
+     * @param GetControlPolicyRequest $request GetControlPolicyRequest
      *
-     * @param request - GetControlPolicyRequest
-     * @returns GetControlPolicyResponse
-     *
-     * @param GetControlPolicyRequest $request
-     *
-     * @return GetControlPolicyResponse
+     * @return GetControlPolicyResponse GetControlPolicyResponse
      */
     public function getControlPolicy($request)
     {
@@ -2085,31 +1798,27 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the status of the Control Policy feature.
+     * @summary Queries the status of the Control Policy feature.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetControlPolicyEnablementStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetControlPolicyEnablementStatusResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetControlPolicyEnablementStatusResponse
+     * @return GetControlPolicyEnablementStatusResponse GetControlPolicyEnablementStatusResponse
      */
     public function getControlPolicyEnablementStatusWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetControlPolicyEnablementStatus',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetControlPolicyEnablementStatus',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetControlPolicyEnablementStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2117,11 +1826,9 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the status of the Control Policy feature.
-     *
-     * @returns GetControlPolicyEnablementStatusResponse
-     *
-     * @return GetControlPolicyEnablementStatusResponse
+     * @summary Queries the status of the Control Policy feature.
+     *  *
+     * @return GetControlPolicyEnablementStatusResponse GetControlPolicyEnablementStatusResponse
      */
     public function getControlPolicyEnablementStatus()
     {
@@ -2131,40 +1838,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information about a folder.
+     * @summary Queries the information about a folder.
+     *  *
+     * @param GetFolderRequest $request GetFolderRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetFolderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetFolderResponse
-     *
-     * @param GetFolderRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return GetFolderResponse
+     * @return GetFolderResponse GetFolderResponse
      */
     public function getFolderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->folderId) {
-            @$query['FolderId'] = $request->folderId;
+        if (!Utils::isUnset($request->folderId)) {
+            $query['FolderId'] = $request->folderId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFolder',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFolder',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetFolderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2172,14 +1874,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information about a folder.
+     * @summary Queries the information about a folder.
+     *  *
+     * @param GetFolderRequest $request GetFolderRequest
      *
-     * @param request - GetFolderRequest
-     * @returns GetFolderResponse
-     *
-     * @param GetFolderRequest $request
-     *
-     * @return GetFolderResponse
+     * @return GetFolderResponse GetFolderResponse
      */
     public function getFolder($request)
     {
@@ -2189,40 +1888,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information of an invitation.
+     * @summary Queries the information of an invitation.
+     *  *
+     * @param GetHandshakeRequest $request GetHandshakeRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetHandshakeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetHandshakeResponse
-     *
-     * @param GetHandshakeRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetHandshakeResponse
+     * @return GetHandshakeResponse GetHandshakeResponse
      */
     public function getHandshakeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->handshakeId) {
-            @$query['HandshakeId'] = $request->handshakeId;
+        if (!Utils::isUnset($request->handshakeId)) {
+            $query['HandshakeId'] = $request->handshakeId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetHandshake',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetHandshake',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetHandshakeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2230,14 +1924,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information of an invitation.
+     * @summary Queries the information of an invitation.
+     *  *
+     * @param GetHandshakeRequest $request GetHandshakeRequest
      *
-     * @param request - GetHandshakeRequest
-     * @returns GetHandshakeResponse
-     *
-     * @param GetHandshakeRequest $request
-     *
-     * @return GetHandshakeResponse
+     * @return GetHandshakeResponse GetHandshakeResponse
      */
     public function getHandshake($request)
     {
@@ -2247,40 +1938,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information about a contact.
+     * @summary Queries the information about a contact.
+     *  *
+     * @param GetMessageContactRequest $request GetMessageContactRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetMessageContactRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetMessageContactResponse
-     *
-     * @param GetMessageContactRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetMessageContactResponse
+     * @return GetMessageContactResponse GetMessageContactResponse
      */
     public function getMessageContactWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->contactId) {
-            @$query['ContactId'] = $request->contactId;
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMessageContact',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMessageContact',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetMessageContactResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2288,14 +1974,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information about a contact.
+     * @summary Queries the information about a contact.
+     *  *
+     * @param GetMessageContactRequest $request GetMessageContactRequest
      *
-     * @param request - GetMessageContactRequest
-     * @returns GetMessageContactResponse
-     *
-     * @param GetMessageContactRequest $request
-     *
-     * @return GetMessageContactResponse
+     * @return GetMessageContactResponse GetMessageContactResponse
      */
     public function getMessageContact($request)
     {
@@ -2305,40 +1988,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the deletion status of a contact.
+     * @summary Queries the deletion status of a contact.
+     *  *
+     * @param GetMessageContactDeletionStatusRequest $request GetMessageContactDeletionStatusRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetMessageContactDeletionStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetMessageContactDeletionStatusResponse
-     *
-     * @param GetMessageContactDeletionStatusRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return GetMessageContactDeletionStatusResponse
+     * @return GetMessageContactDeletionStatusResponse GetMessageContactDeletionStatusResponse
      */
     public function getMessageContactDeletionStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->contactId) {
-            @$query['ContactId'] = $request->contactId;
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMessageContactDeletionStatus',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMessageContactDeletionStatus',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetMessageContactDeletionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2346,14 +2024,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the deletion status of a contact.
+     * @summary Queries the deletion status of a contact.
+     *  *
+     * @param GetMessageContactDeletionStatusRequest $request GetMessageContactDeletionStatusRequest
      *
-     * @param request - GetMessageContactDeletionStatusRequest
-     * @returns GetMessageContactDeletionStatusResponse
-     *
-     * @param GetMessageContactDeletionStatusRequest $request
-     *
-     * @return GetMessageContactDeletionStatusResponse
+     * @return GetMessageContactDeletionStatusResponse GetMessageContactDeletionStatusResponse
      */
     public function getMessageContactDeletionStatus($request)
     {
@@ -2363,40 +2038,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information of a billing account.
+     * @summary Queries the information of a billing account.
+     *  *
+     * @param GetPayerForAccountRequest $request GetPayerForAccountRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetPayerForAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetPayerForAccountResponse
-     *
-     * @param GetPayerForAccountRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetPayerForAccountResponse
+     * @return GetPayerForAccountResponse GetPayerForAccountResponse
      */
     public function getPayerForAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPayerForAccount',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPayerForAccount',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetPayerForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2404,14 +2074,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information of a billing account.
+     * @summary Queries the information of a billing account.
+     *  *
+     * @param GetPayerForAccountRequest $request GetPayerForAccountRequest
      *
-     * @param request - GetPayerForAccountRequest
-     * @returns GetPayerForAccountResponse
-     *
-     * @param GetPayerForAccountRequest $request
-     *
-     * @return GetPayerForAccountResponse
+     * @return GetPayerForAccountResponse GetPayerForAccountResponse
      */
     public function getPayerForAccount($request)
     {
@@ -2421,31 +2088,27 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * \\*\\*\\* Co., Ltd.
+     * @summary Queries the information of a resource directory. If you use a management account to call this API operation, the system returns the information of the resource directory that is enabled by using the management account. If you use a member to call this operation, the system returns the information of
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetResourceDirectoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns GetResourceDirectoryResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetResourceDirectoryResponse
+     * @return GetResourceDirectoryResponse GetResourceDirectoryResponse
      */
     public function getResourceDirectoryWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetResourceDirectory',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceDirectory',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return GetResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2453,11 +2116,9 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * \\*\\*\\* Co., Ltd.
-     *
-     * @returns GetResourceDirectoryResponse
-     *
-     * @return GetResourceDirectoryResponse
+     * @summary Queries the information of a resource directory. If you use a management account to call this API operation, the system returns the information of the resource directory that is enabled by using the management account. If you use a member to call this operation, the system returns the information of
+     *  *
+     * @return GetResourceDirectoryResponse GetResourceDirectoryResponse
      */
     public function getResourceDirectory()
     {
@@ -2467,56 +2128,47 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Invites an account to join a resource directory.
+     * @summary Invites an account to join a resource directory.
+     *  *
+     * @param InviteAccountToResourceDirectoryRequest $request InviteAccountToResourceDirectoryRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - InviteAccountToResourceDirectoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns InviteAccountToResourceDirectoryResponse
-     *
-     * @param InviteAccountToResourceDirectoryRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return InviteAccountToResourceDirectoryResponse
+     * @return InviteAccountToResourceDirectoryResponse InviteAccountToResourceDirectoryResponse
      */
     public function inviteAccountToResourceDirectoryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->note) {
-            @$query['Note'] = $request->note;
+        if (!Utils::isUnset($request->note)) {
+            $query['Note'] = $request->note;
         }
-
-        if (null !== $request->parentFolderId) {
-            @$query['ParentFolderId'] = $request->parentFolderId;
+        if (!Utils::isUnset($request->parentFolderId)) {
+            $query['ParentFolderId'] = $request->parentFolderId;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->targetEntity) {
-            @$query['TargetEntity'] = $request->targetEntity;
+        if (!Utils::isUnset($request->targetEntity)) {
+            $query['TargetEntity'] = $request->targetEntity;
         }
-
-        if (null !== $request->targetType) {
-            @$query['TargetType'] = $request->targetType;
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InviteAccountToResourceDirectory',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InviteAccountToResourceDirectory',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return InviteAccountToResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2524,14 +2176,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Invites an account to join a resource directory.
+     * @summary Invites an account to join a resource directory.
+     *  *
+     * @param InviteAccountToResourceDirectoryRequest $request InviteAccountToResourceDirectoryRequest
      *
-     * @param request - InviteAccountToResourceDirectoryRequest
-     * @returns InviteAccountToResourceDirectoryResponse
-     *
-     * @param InviteAccountToResourceDirectoryRequest $request
-     *
-     * @return InviteAccountToResourceDirectoryResponse
+     * @return InviteAccountToResourceDirectoryResponse InviteAccountToResourceDirectoryResponse
      */
     public function inviteAccountToResourceDirectory($request)
     {
@@ -2541,67 +2190,55 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries all the members in a resource directory.
+     * @summary Queries a list of members in a resource directory.
+     *  *
+     * @description You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
+     *  *
+     * @param ListAccountsRequest $request ListAccountsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
-     *
-     * @param request - ListAccountsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListAccountsResponse
-     *
-     * @param ListAccountsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListAccountsResponse
+     * @return ListAccountsResponse ListAccountsResponse
      */
     public function listAccountsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->includeTags) {
-            @$query['IncludeTags'] = $request->includeTags;
+        if (!Utils::isUnset($request->includeTags)) {
+            $query['IncludeTags'] = $request->includeTags;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryKeyword) {
-            @$query['QueryKeyword'] = $request->queryKeyword;
+        if (!Utils::isUnset($request->queryKeyword)) {
+            $query['QueryKeyword'] = $request->queryKeyword;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAccounts',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAccounts',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2609,17 +2246,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries all the members in a resource directory.
+     * @summary Queries a list of members in a resource directory.
+     *  *
+     * @description You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
+     *  *
+     * @param ListAccountsRequest $request ListAccountsRequest
      *
-     * @remarks
-     * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
-     *
-     * @param request - ListAccountsRequest
-     * @returns ListAccountsResponse
-     *
-     * @param ListAccountsRequest $request
-     *
-     * @return ListAccountsResponse
+     * @return ListAccountsResponse ListAccountsResponse
      */
     public function listAccounts($request)
     {
@@ -2629,60 +2262,50 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information of members in a folder.
+     * @summary Queries the information of members in a folder.
+     *  *
+     * @param ListAccountsForParentRequest $request ListAccountsForParentRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListAccountsForParentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListAccountsForParentResponse
-     *
-     * @param ListAccountsForParentRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListAccountsForParentResponse
+     * @return ListAccountsForParentResponse ListAccountsForParentResponse
      */
     public function listAccountsForParentWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->includeTags) {
-            @$query['IncludeTags'] = $request->includeTags;
+        if (!Utils::isUnset($request->includeTags)) {
+            $query['IncludeTags'] = $request->includeTags;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->parentFolderId) {
-            @$query['ParentFolderId'] = $request->parentFolderId;
+        if (!Utils::isUnset($request->parentFolderId)) {
+            $query['ParentFolderId'] = $request->parentFolderId;
         }
-
-        if (null !== $request->queryKeyword) {
-            @$query['QueryKeyword'] = $request->queryKeyword;
+        if (!Utils::isUnset($request->queryKeyword)) {
+            $query['QueryKeyword'] = $request->queryKeyword;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAccountsForParent',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAccountsForParent',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListAccountsForParentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2690,14 +2313,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information of members in a folder.
+     * @summary Queries the information of members in a folder.
+     *  *
+     * @param ListAccountsForParentRequest $request ListAccountsForParentRequest
      *
-     * @param request - ListAccountsForParentRequest
-     * @returns ListAccountsForParentResponse
-     *
-     * @param ListAccountsForParentRequest $request
-     *
-     * @return ListAccountsForParentResponse
+     * @return ListAccountsForParentResponse ListAccountsForParentResponse
      */
     public function listAccountsForParent($request)
     {
@@ -2707,40 +2327,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information of all the parent folders of a specified folder.
+     * @summary Queries the information of all the parent folders of a specified folder.
+     *  *
+     * @param ListAncestorsRequest $request ListAncestorsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListAncestorsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListAncestorsResponse
-     *
-     * @param ListAncestorsRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListAncestorsResponse
+     * @return ListAncestorsResponse ListAncestorsResponse
      */
     public function listAncestorsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->childId) {
-            @$query['ChildId'] = $request->childId;
+        if (!Utils::isUnset($request->childId)) {
+            $query['ChildId'] = $request->childId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAncestors',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAncestors',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListAncestorsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2748,14 +2363,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information of all the parent folders of a specified folder.
+     * @summary Queries the information of all the parent folders of a specified folder.
+     *  *
+     * @param ListAncestorsRequest $request ListAncestorsRequest
      *
-     * @param request - ListAncestorsRequest
-     * @returns ListAncestorsResponse
-     *
-     * @param ListAncestorsRequest $request
-     *
-     * @return ListAncestorsResponse
+     * @return ListAncestorsResponse ListAncestorsResponse
      */
     public function listAncestors($request)
     {
@@ -2765,56 +2377,47 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries access control policies.
+     * @summary Queries access control policies.
+     *  *
+     * @param ListControlPoliciesRequest $request ListControlPoliciesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListControlPoliciesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListControlPoliciesResponse
-     *
-     * @param ListControlPoliciesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListControlPoliciesResponse
+     * @return ListControlPoliciesResponse ListControlPoliciesResponse
      */
     public function listControlPoliciesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->policyType) {
-            @$query['PolicyType'] = $request->policyType;
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListControlPolicies',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListControlPolicies',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListControlPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2822,14 +2425,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries access control policies.
+     * @summary Queries access control policies.
+     *  *
+     * @param ListControlPoliciesRequest $request ListControlPoliciesRequest
      *
-     * @param request - ListControlPoliciesRequest
-     * @returns ListControlPoliciesResponse
-     *
-     * @param ListControlPoliciesRequest $request
-     *
-     * @return ListControlPoliciesResponse
+     * @return ListControlPoliciesResponse ListControlPoliciesResponse
      */
     public function listControlPolicies($request)
     {
@@ -2839,44 +2439,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the access control policies that are attached to a folder or member.
+     * @summary Queries the access control policies that are attached to a folder or member.
+     *  *
+     * @param ListControlPolicyAttachmentsForTargetRequest $request ListControlPolicyAttachmentsForTargetRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListControlPolicyAttachmentsForTargetRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListControlPolicyAttachmentsForTargetResponse
-     *
-     * @param ListControlPolicyAttachmentsForTargetRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return ListControlPolicyAttachmentsForTargetResponse
+     * @return ListControlPolicyAttachmentsForTargetResponse ListControlPolicyAttachmentsForTargetResponse
      */
     public function listControlPolicyAttachmentsForTargetWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->language) {
-            @$query['Language'] = $request->language;
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
         }
-
-        if (null !== $request->targetId) {
-            @$query['TargetId'] = $request->targetId;
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListControlPolicyAttachmentsForTarget',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListControlPolicyAttachmentsForTarget',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListControlPolicyAttachmentsForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2884,14 +2478,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the access control policies that are attached to a folder or member.
+     * @summary Queries the access control policies that are attached to a folder or member.
+     *  *
+     * @param ListControlPolicyAttachmentsForTargetRequest $request ListControlPolicyAttachmentsForTargetRequest
      *
-     * @param request - ListControlPolicyAttachmentsForTargetRequest
-     * @returns ListControlPolicyAttachmentsForTargetResponse
-     *
-     * @param ListControlPolicyAttachmentsForTargetRequest $request
-     *
-     * @return ListControlPolicyAttachmentsForTargetResponse
+     * @return ListControlPolicyAttachmentsForTargetResponse ListControlPolicyAttachmentsForTargetResponse
      */
     public function listControlPolicyAttachmentsForTarget($request)
     {
@@ -2901,48 +2492,41 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries delegated administrator accounts.
+     * @summary Queries delegated administrator accounts.
+     *  *
+     * @param ListDelegatedAdministratorsRequest $request ListDelegatedAdministratorsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListDelegatedAdministratorsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListDelegatedAdministratorsResponse
-     *
-     * @param ListDelegatedAdministratorsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ListDelegatedAdministratorsResponse
+     * @return ListDelegatedAdministratorsResponse ListDelegatedAdministratorsResponse
      */
     public function listDelegatedAdministratorsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->servicePrincipal) {
-            @$query['ServicePrincipal'] = $request->servicePrincipal;
+        if (!Utils::isUnset($request->servicePrincipal)) {
+            $query['ServicePrincipal'] = $request->servicePrincipal;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDelegatedAdministrators',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDelegatedAdministrators',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListDelegatedAdministratorsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2950,14 +2534,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries delegated administrator accounts.
+     * @summary Queries delegated administrator accounts.
+     *  *
+     * @param ListDelegatedAdministratorsRequest $request ListDelegatedAdministratorsRequest
      *
-     * @param request - ListDelegatedAdministratorsRequest
-     * @returns ListDelegatedAdministratorsResponse
-     *
-     * @param ListDelegatedAdministratorsRequest $request
-     *
-     * @return ListDelegatedAdministratorsResponse
+     * @return ListDelegatedAdministratorsResponse ListDelegatedAdministratorsResponse
      */
     public function listDelegatedAdministrators($request)
     {
@@ -2967,40 +2548,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the trusted services for which a member is specified as a delegated administrator account.
+     * @summary Queries the trusted services for which a member is specified as a delegated administrator account.
+     *  *
+     * @param ListDelegatedServicesForAccountRequest $request ListDelegatedServicesForAccountRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListDelegatedServicesForAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListDelegatedServicesForAccountResponse
-     *
-     * @param ListDelegatedServicesForAccountRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ListDelegatedServicesForAccountResponse
+     * @return ListDelegatedServicesForAccountResponse ListDelegatedServicesForAccountResponse
      */
     public function listDelegatedServicesForAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDelegatedServicesForAccount',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDelegatedServicesForAccount',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListDelegatedServicesForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3008,14 +2584,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the trusted services for which a member is specified as a delegated administrator account.
+     * @summary Queries the trusted services for which a member is specified as a delegated administrator account.
+     *  *
+     * @param ListDelegatedServicesForAccountRequest $request ListDelegatedServicesForAccountRequest
      *
-     * @param request - ListDelegatedServicesForAccountRequest
-     * @returns ListDelegatedServicesForAccountResponse
-     *
-     * @param ListDelegatedServicesForAccountRequest $request
-     *
-     * @return ListDelegatedServicesForAccountResponse
+     * @return ListDelegatedServicesForAccountResponse ListDelegatedServicesForAccountResponse
      */
     public function listDelegatedServicesForAccount($request)
     {
@@ -3025,59 +2598,49 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information of all subfolders of a folder.
+     * @summary Queries the information of all subfolders of a folder.
+     *  *
+     * @description You can call this API operation to view the information of only the first-level subfolders of a folder.
+     *  *
+     * @param ListFoldersForParentRequest $request ListFoldersForParentRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this API operation to view the information of only the first-level subfolders of a folder.
-     *
-     * @param request - ListFoldersForParentRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListFoldersForParentResponse
-     *
-     * @param ListFoldersForParentRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListFoldersForParentResponse
+     * @return ListFoldersForParentResponse ListFoldersForParentResponse
      */
     public function listFoldersForParentWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->parentFolderId) {
-            @$query['ParentFolderId'] = $request->parentFolderId;
+        if (!Utils::isUnset($request->parentFolderId)) {
+            $query['ParentFolderId'] = $request->parentFolderId;
         }
-
-        if (null !== $request->queryKeyword) {
-            @$query['QueryKeyword'] = $request->queryKeyword;
+        if (!Utils::isUnset($request->queryKeyword)) {
+            $query['QueryKeyword'] = $request->queryKeyword;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListFoldersForParent',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFoldersForParent',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListFoldersForParentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3085,17 +2648,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the information of all subfolders of a folder.
+     * @summary Queries the information of all subfolders of a folder.
+     *  *
+     * @description You can call this API operation to view the information of only the first-level subfolders of a folder.
+     *  *
+     * @param ListFoldersForParentRequest $request ListFoldersForParentRequest
      *
-     * @remarks
-     * You can call this API operation to view the information of only the first-level subfolders of a folder.
-     *
-     * @param request - ListFoldersForParentRequest
-     * @returns ListFoldersForParentResponse
-     *
-     * @param ListFoldersForParentRequest $request
-     *
-     * @return ListFoldersForParentResponse
+     * @return ListFoldersForParentResponse ListFoldersForParentResponse
      */
     public function listFoldersForParent($request)
     {
@@ -3105,44 +2664,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the invitations that are associated with an account.
+     * @summary Queries the invitations that are associated with an account.
+     *  *
+     * @param ListHandshakesForAccountRequest $request ListHandshakesForAccountRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListHandshakesForAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListHandshakesForAccountResponse
-     *
-     * @param ListHandshakesForAccountRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListHandshakesForAccountResponse
+     * @return ListHandshakesForAccountResponse ListHandshakesForAccountResponse
      */
     public function listHandshakesForAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHandshakesForAccount',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHandshakesForAccount',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListHandshakesForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3150,14 +2703,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the invitations that are associated with an account.
+     * @summary Queries the invitations that are associated with an account.
+     *  *
+     * @param ListHandshakesForAccountRequest $request ListHandshakesForAccountRequest
      *
-     * @param request - ListHandshakesForAccountRequest
-     * @returns ListHandshakesForAccountResponse
-     *
-     * @param ListHandshakesForAccountRequest $request
-     *
-     * @return ListHandshakesForAccountResponse
+     * @return ListHandshakesForAccountResponse ListHandshakesForAccountResponse
      */
     public function listHandshakesForAccount($request)
     {
@@ -3167,44 +2717,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries invitations in a resource directory.
+     * @summary Queries invitations in a resource directory.
+     *  *
+     * @param ListHandshakesForResourceDirectoryRequest $request ListHandshakesForResourceDirectoryRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListHandshakesForResourceDirectoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListHandshakesForResourceDirectoryResponse
-     *
-     * @param ListHandshakesForResourceDirectoryRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return ListHandshakesForResourceDirectoryResponse
+     * @return ListHandshakesForResourceDirectoryResponse ListHandshakesForResourceDirectoryResponse
      */
     public function listHandshakesForResourceDirectoryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListHandshakesForResourceDirectory',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListHandshakesForResourceDirectory',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListHandshakesForResourceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3212,14 +2756,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries invitations in a resource directory.
+     * @summary Queries invitations in a resource directory.
+     *  *
+     * @param ListHandshakesForResourceDirectoryRequest $request ListHandshakesForResourceDirectoryRequest
      *
-     * @param request - ListHandshakesForResourceDirectoryRequest
-     * @returns ListHandshakesForResourceDirectoryResponse
-     *
-     * @param ListHandshakesForResourceDirectoryRequest $request
-     *
-     * @return ListHandshakesForResourceDirectoryResponse
+     * @return ListHandshakesForResourceDirectoryResponse ListHandshakesForResourceDirectoryResponse
      */
     public function listHandshakesForResourceDirectory($request)
     {
@@ -3229,48 +2770,41 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the mobile phone number or email address to be verified for a contact.
+     * @summary Queries the mobile phone number or email address to be verified for a contact.
+     *  *
+     * @param ListMessageContactVerificationsRequest $request ListMessageContactVerificationsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListMessageContactVerificationsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListMessageContactVerificationsResponse
-     *
-     * @param ListMessageContactVerificationsRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ListMessageContactVerificationsResponse
+     * @return ListMessageContactVerificationsResponse ListMessageContactVerificationsResponse
      */
     public function listMessageContactVerificationsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->contactId) {
-            @$query['ContactId'] = $request->contactId;
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMessageContactVerifications',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMessageContactVerifications',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListMessageContactVerificationsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3278,14 +2812,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the mobile phone number or email address to be verified for a contact.
+     * @summary Queries the mobile phone number or email address to be verified for a contact.
+     *  *
+     * @param ListMessageContactVerificationsRequest $request ListMessageContactVerificationsRequest
      *
-     * @param request - ListMessageContactVerificationsRequest
-     * @returns ListMessageContactVerificationsResponse
-     *
-     * @param ListMessageContactVerificationsRequest $request
-     *
-     * @return ListMessageContactVerificationsResponse
+     * @return ListMessageContactVerificationsResponse ListMessageContactVerificationsResponse
      */
     public function listMessageContactVerifications($request)
     {
@@ -3295,52 +2826,44 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries contacts.
+     * @summary Queries contacts.
+     *  *
+     * @param ListMessageContactsRequest $request ListMessageContactsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListMessageContactsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListMessageContactsResponse
-     *
-     * @param ListMessageContactsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListMessageContactsResponse
+     * @return ListMessageContactsResponse ListMessageContactsResponse
      */
     public function listMessageContactsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->contactId) {
-            @$query['ContactId'] = $request->contactId;
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
         }
-
-        if (null !== $request->member) {
-            @$query['Member'] = $request->member;
+        if (!Utils::isUnset($request->member)) {
+            $query['Member'] = $request->member;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMessageContacts',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMessageContacts',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListMessageContactsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3348,14 +2871,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries contacts.
+     * @summary Queries contacts.
+     *  *
+     * @param ListMessageContactsRequest $request ListMessageContactsRequest
      *
-     * @param request - ListMessageContactsRequest
-     * @returns ListMessageContactsResponse
-     *
-     * @param ListMessageContactsRequest $request
-     *
-     * @return ListMessageContactsResponse
+     * @return ListMessageContactsResponse ListMessageContactsResponse
      */
     public function listMessageContacts($request)
     {
@@ -3365,52 +2885,44 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries tag keys.
+     * @summary Queries tag keys.
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagKeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagKeysResponse
-     *
-     * @param ListTagKeysRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->keyFilter) {
-            @$query['KeyFilter'] = $request->keyFilter;
+        if (!Utils::isUnset($request->keyFilter)) {
+            $query['KeyFilter'] = $request->keyFilter;
         }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagKeys',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagKeys',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3418,14 +2930,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries tag keys.
+     * @summary Queries tag keys.
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
      *
-     * @param request - ListTagKeysRequest
-     * @returns ListTagKeysResponse
-     *
-     * @param ListTagKeysRequest $request
-     *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -3435,56 +2944,47 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added to the members in a resource directory.
+     * @summary Queries the tags that are added to the members in a resource directory.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3492,14 +2992,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added to the members in a resource directory.
+     * @summary Queries the tags that are added to the members in a resource directory.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param request - ListTagResourcesRequest
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3509,56 +3006,47 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the tag values of a tag key.
+     * @summary Queries the tag values of a tag key.
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagValuesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTagValuesResponse
-     *
-     * @param ListTagValuesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
         }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKey) {
-            @$query['TagKey'] = $request->tagKey;
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
         }
-
-        if (null !== $request->valueFilter) {
-            @$query['ValueFilter'] = $request->valueFilter;
+        if (!Utils::isUnset($request->valueFilter)) {
+            $query['ValueFilter'] = $request->valueFilter;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagValues',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagValues',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3566,14 +3054,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the tag values of a tag key.
+     * @summary Queries the tag values of a tag key.
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
      *
-     * @param request - ListTagValuesRequest
-     * @returns ListTagValuesResponse
-     *
-     * @param ListTagValuesRequest $request
-     *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -3583,48 +3068,41 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the objects to which an access control policy is attached.
+     * @summary Queries the objects to which an access control policy is attached.
+     *  *
+     * @param ListTargetAttachmentsForControlPolicyRequest $request ListTargetAttachmentsForControlPolicyRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTargetAttachmentsForControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTargetAttachmentsForControlPolicyResponse
-     *
-     * @param ListTargetAttachmentsForControlPolicyRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return ListTargetAttachmentsForControlPolicyResponse
+     * @return ListTargetAttachmentsForControlPolicyResponse ListTargetAttachmentsForControlPolicyResponse
      */
     public function listTargetAttachmentsForControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->policyId) {
-            @$query['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTargetAttachmentsForControlPolicy',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTargetAttachmentsForControlPolicy',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTargetAttachmentsForControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3632,14 +3110,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the objects to which an access control policy is attached.
+     * @summary Queries the objects to which an access control policy is attached.
+     *  *
+     * @param ListTargetAttachmentsForControlPolicyRequest $request ListTargetAttachmentsForControlPolicyRequest
      *
-     * @param request - ListTargetAttachmentsForControlPolicyRequest
-     * @returns ListTargetAttachmentsForControlPolicyResponse
-     *
-     * @param ListTargetAttachmentsForControlPolicyRequest $request
-     *
-     * @return ListTargetAttachmentsForControlPolicyResponse
+     * @return ListTargetAttachmentsForControlPolicyResponse ListTargetAttachmentsForControlPolicyResponse
      */
     public function listTargetAttachmentsForControlPolicy($request)
     {
@@ -3649,51 +3124,43 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the trusted services that are enabled within a management account or delegated administrator account.
+     * @summary Queries the trusted services that are enabled within a management account or delegated administrator account.
+     *  *
+     * @description Only a management account or delegated administrator account can be used to call this operation.
+     *  *
+     * @param ListTrustedServiceStatusRequest $request ListTrustedServiceStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Only a management account or delegated administrator account can be used to call this operation.
-     *
-     * @param request - ListTrustedServiceStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns ListTrustedServiceStatusResponse
-     *
-     * @param ListTrustedServiceStatusRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListTrustedServiceStatusResponse
+     * @return ListTrustedServiceStatusResponse ListTrustedServiceStatusResponse
      */
     public function listTrustedServiceStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->adminAccountId) {
-            @$query['AdminAccountId'] = $request->adminAccountId;
+        if (!Utils::isUnset($request->adminAccountId)) {
+            $query['AdminAccountId'] = $request->adminAccountId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTrustedServiceStatus',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTrustedServiceStatus',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return ListTrustedServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3701,17 +3168,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Queries the trusted services that are enabled within a management account or delegated administrator account.
+     * @summary Queries the trusted services that are enabled within a management account or delegated administrator account.
+     *  *
+     * @description Only a management account or delegated administrator account can be used to call this operation.
+     *  *
+     * @param ListTrustedServiceStatusRequest $request ListTrustedServiceStatusRequest
      *
-     * @remarks
-     * Only a management account or delegated administrator account can be used to call this operation.
-     *
-     * @param request - ListTrustedServiceStatusRequest
-     * @returns ListTrustedServiceStatusResponse
-     *
-     * @param ListTrustedServiceStatusRequest $request
-     *
-     * @return ListTrustedServiceStatusResponse
+     * @return ListTrustedServiceStatusResponse ListTrustedServiceStatusResponse
      */
     public function listTrustedServiceStatus($request)
     {
@@ -3721,44 +3184,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Moves a member from a folder to another.
+     * @summary Moves a member from a folder to another.
+     *  *
+     * @param MoveAccountRequest $request MoveAccountRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - MoveAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns MoveAccountResponse
-     *
-     * @param MoveAccountRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return MoveAccountResponse
+     * @return MoveAccountResponse MoveAccountResponse
      */
     public function moveAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->destinationFolderId) {
-            @$query['DestinationFolderId'] = $request->destinationFolderId;
+        if (!Utils::isUnset($request->destinationFolderId)) {
+            $query['DestinationFolderId'] = $request->destinationFolderId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveAccount',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveAccount',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return MoveAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3766,14 +3223,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Moves a member from a folder to another.
+     * @summary Moves a member from a folder to another.
+     *  *
+     * @param MoveAccountRequest $request MoveAccountRequest
      *
-     * @param request - MoveAccountRequest
-     * @returns MoveAccountResponse
-     *
-     * @param MoveAccountRequest $request
-     *
-     * @return MoveAccountResponse
+     * @return MoveAccountResponse MoveAccountResponse
      */
     public function moveAccount($request)
     {
@@ -3783,40 +3237,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Checks whether a management account or member can be used as a main financial account.
+     * @summary Checks whether a management account or member can be used as a main financial account.
+     *  *
+     * @param PrecheckForConsolidatedBillingAccountRequest $request PrecheckForConsolidatedBillingAccountRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PrecheckForConsolidatedBillingAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns PrecheckForConsolidatedBillingAccountResponse
-     *
-     * @param PrecheckForConsolidatedBillingAccountRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return PrecheckForConsolidatedBillingAccountResponse
+     * @return PrecheckForConsolidatedBillingAccountResponse PrecheckForConsolidatedBillingAccountResponse
      */
     public function precheckForConsolidatedBillingAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->billingAccountId) {
-            @$query['BillingAccountId'] = $request->billingAccountId;
+        if (!Utils::isUnset($request->billingAccountId)) {
+            $query['BillingAccountId'] = $request->billingAccountId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PrecheckForConsolidatedBillingAccount',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PrecheckForConsolidatedBillingAccount',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return PrecheckForConsolidatedBillingAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3824,14 +3273,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Checks whether a management account or member can be used as a main financial account.
+     * @summary Checks whether a management account or member can be used as a main financial account.
+     *  *
+     * @param PrecheckForConsolidatedBillingAccountRequest $request PrecheckForConsolidatedBillingAccountRequest
      *
-     * @param request - PrecheckForConsolidatedBillingAccountRequest
-     * @returns PrecheckForConsolidatedBillingAccountResponse
-     *
-     * @param PrecheckForConsolidatedBillingAccountRequest $request
-     *
-     * @return PrecheckForConsolidatedBillingAccountResponse
+     * @return PrecheckForConsolidatedBillingAccountResponse PrecheckForConsolidatedBillingAccountResponse
      */
     public function precheckForConsolidatedBillingAccount($request)
     {
@@ -3841,50 +3287,43 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Specifies a member in a resource directory as a delegated administrator account of a trusted service.
-     *
-     * @remarks
-     * The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory. When you call this operation, you must take note of the following limits:
+     * @summary Specifies a member in a resource directory as a delegated administrator account of a trusted service.
+     *  *
+     * @description The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory. When you call this operation, you must take note of the following limits:
      * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
      * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
      * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
+     *  *
+     * @param RegisterDelegatedAdministratorRequest $request RegisterDelegatedAdministratorRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RegisterDelegatedAdministratorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RegisterDelegatedAdministratorResponse
-     *
-     * @param RegisterDelegatedAdministratorRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return RegisterDelegatedAdministratorResponse
+     * @return RegisterDelegatedAdministratorResponse RegisterDelegatedAdministratorResponse
      */
     public function registerDelegatedAdministratorWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->servicePrincipal) {
-            @$query['ServicePrincipal'] = $request->servicePrincipal;
+        if (!Utils::isUnset($request->servicePrincipal)) {
+            $query['ServicePrincipal'] = $request->servicePrincipal;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RegisterDelegatedAdministrator',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RegisterDelegatedAdministrator',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RegisterDelegatedAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3892,20 +3331,16 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Specifies a member in a resource directory as a delegated administrator account of a trusted service.
-     *
-     * @remarks
-     * The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory. When you call this operation, you must take note of the following limits:
+     * @summary Specifies a member in a resource directory as a delegated administrator account of a trusted service.
+     *  *
+     * @description The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory. When you call this operation, you must take note of the following limits:
      * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](https://help.aliyun.com/document_detail/208133.html).
      * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
      * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
+     *  *
+     * @param RegisterDelegatedAdministratorRequest $request RegisterDelegatedAdministratorRequest
      *
-     * @param request - RegisterDelegatedAdministratorRequest
-     * @returns RegisterDelegatedAdministratorResponse
-     *
-     * @param RegisterDelegatedAdministratorRequest $request
-     *
-     * @return RegisterDelegatedAdministratorResponse
+     * @return RegisterDelegatedAdministratorResponse RegisterDelegatedAdministratorResponse
      */
     public function registerDelegatedAdministrator($request)
     {
@@ -3915,40 +3350,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Removes a member of the cloud account type.
+     * @summary Removes a member of the cloud account type.
+     *  *
+     * @param RemoveCloudAccountRequest $request RemoveCloudAccountRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RemoveCloudAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RemoveCloudAccountResponse
-     *
-     * @param RemoveCloudAccountRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return RemoveCloudAccountResponse
+     * @return RemoveCloudAccountResponse RemoveCloudAccountResponse
      */
     public function removeCloudAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveCloudAccount',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveCloudAccount',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RemoveCloudAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3956,14 +3386,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Removes a member of the cloud account type.
+     * @summary Removes a member of the cloud account type.
+     *  *
+     * @param RemoveCloudAccountRequest $request RemoveCloudAccountRequest
      *
-     * @param request - RemoveCloudAccountRequest
-     * @returns RemoveCloudAccountResponse
-     *
-     * @param RemoveCloudAccountRequest $request
-     *
-     * @return RemoveCloudAccountResponse
+     * @return RemoveCloudAccountResponse RemoveCloudAccountResponse
      */
     public function removeCloudAccount($request)
     {
@@ -3973,40 +3400,35 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Resends a verification email for the email address change of a member.
+     * @summary Resends a verification email for the email address change of a member.
+     *  *
+     * @param RetryChangeAccountEmailRequest $request RetryChangeAccountEmailRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RetryChangeAccountEmailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RetryChangeAccountEmailResponse
-     *
-     * @param RetryChangeAccountEmailRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return RetryChangeAccountEmailResponse
+     * @return RetryChangeAccountEmailResponse RetryChangeAccountEmailResponse
      */
     public function retryChangeAccountEmailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RetryChangeAccountEmail',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RetryChangeAccountEmail',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return RetryChangeAccountEmailResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4014,14 +3436,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Resends a verification email for the email address change of a member.
+     * @summary Resends a verification email for the email address change of a member.
+     *  *
+     * @param RetryChangeAccountEmailRequest $request RetryChangeAccountEmailRequest
      *
-     * @param request - RetryChangeAccountEmailRequest
-     * @returns RetryChangeAccountEmailResponse
-     *
-     * @param RetryChangeAccountEmailRequest $request
-     *
-     * @return RetryChangeAccountEmailResponse
+     * @return RetryChangeAccountEmailResponse RetryChangeAccountEmailResponse
      */
     public function retryChangeAccountEmail($request)
     {
@@ -4031,44 +3450,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Sends verification information to the email address of a contact.
+     * @summary Sends verification information to the email address of a contact.
+     *  *
+     * @param SendEmailVerificationForMessageContactRequest $request SendEmailVerificationForMessageContactRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SendEmailVerificationForMessageContactRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SendEmailVerificationForMessageContactResponse
-     *
-     * @param SendEmailVerificationForMessageContactRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return SendEmailVerificationForMessageContactResponse
+     * @return SendEmailVerificationForMessageContactResponse SendEmailVerificationForMessageContactResponse
      */
     public function sendEmailVerificationForMessageContactWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->contactId) {
-            @$query['ContactId'] = $request->contactId;
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
         }
-
-        if (null !== $request->emailAddress) {
-            @$query['EmailAddress'] = $request->emailAddress;
+        if (!Utils::isUnset($request->emailAddress)) {
+            $query['EmailAddress'] = $request->emailAddress;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendEmailVerificationForMessageContact',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendEmailVerificationForMessageContact',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SendEmailVerificationForMessageContactResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4076,14 +3489,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Sends verification information to the email address of a contact.
+     * @summary Sends verification information to the email address of a contact.
+     *  *
+     * @param SendEmailVerificationForMessageContactRequest $request SendEmailVerificationForMessageContactRequest
      *
-     * @param request - SendEmailVerificationForMessageContactRequest
-     * @returns SendEmailVerificationForMessageContactResponse
-     *
-     * @param SendEmailVerificationForMessageContactRequest $request
-     *
-     * @return SendEmailVerificationForMessageContactResponse
+     * @return SendEmailVerificationForMessageContactResponse SendEmailVerificationForMessageContactResponse
      */
     public function sendEmailVerificationForMessageContact($request)
     {
@@ -4093,44 +3503,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Sends verification information to the mobile phone number of a contact.
+     * @summary Sends verification information to the mobile phone number of a contact.
+     *  *
+     * @param SendPhoneVerificationForMessageContactRequest $request SendPhoneVerificationForMessageContactRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SendPhoneVerificationForMessageContactRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SendPhoneVerificationForMessageContactResponse
-     *
-     * @param SendPhoneVerificationForMessageContactRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return SendPhoneVerificationForMessageContactResponse
+     * @return SendPhoneVerificationForMessageContactResponse SendPhoneVerificationForMessageContactResponse
      */
     public function sendPhoneVerificationForMessageContactWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->contactId) {
-            @$query['ContactId'] = $request->contactId;
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendPhoneVerificationForMessageContact',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendPhoneVerificationForMessageContact',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SendPhoneVerificationForMessageContactResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4138,14 +3542,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Sends verification information to the mobile phone number of a contact.
+     * @summary Sends verification information to the mobile phone number of a contact.
+     *  *
+     * @param SendPhoneVerificationForMessageContactRequest $request SendPhoneVerificationForMessageContactRequest
      *
-     * @param request - SendPhoneVerificationForMessageContactRequest
-     * @returns SendPhoneVerificationForMessageContactResponse
-     *
-     * @param SendPhoneVerificationForMessageContactRequest $request
-     *
-     * @return SendPhoneVerificationForMessageContactResponse
+     * @return SendPhoneVerificationForMessageContactResponse SendPhoneVerificationForMessageContactResponse
      */
     public function sendPhoneVerificationForMessageContact($request)
     {
@@ -4155,47 +3556,40 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Sends a verification code to the mobile phone number that you want to bind to a member of the resource account type in a resource directory for security purposes.
+     * @summary Sends a verification code to the mobile phone number that you want to bind to a member of the resource account type in a resource directory for security purposes.
+     *  *
+     * @description To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+     *  *
+     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request SendVerificationCodeForBindSecureMobilePhoneRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
-     *
-     * @param request - SendVerificationCodeForBindSecureMobilePhoneRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SendVerificationCodeForBindSecureMobilePhoneResponse
-     *
-     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request
-     * @param RuntimeOptions                                      $runtime
-     *
-     * @return SendVerificationCodeForBindSecureMobilePhoneResponse
+     * @return SendVerificationCodeForBindSecureMobilePhoneResponse SendVerificationCodeForBindSecureMobilePhoneResponse
      */
     public function sendVerificationCodeForBindSecureMobilePhoneWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->secureMobilePhone) {
-            @$query['SecureMobilePhone'] = $request->secureMobilePhone;
+        if (!Utils::isUnset($request->secureMobilePhone)) {
+            $query['SecureMobilePhone'] = $request->secureMobilePhone;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendVerificationCodeForBindSecureMobilePhone',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendVerificationCodeForBindSecureMobilePhone',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SendVerificationCodeForBindSecureMobilePhoneResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4203,17 +3597,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Sends a verification code to the mobile phone number that you want to bind to a member of the resource account type in a resource directory for security purposes.
+     * @summary Sends a verification code to the mobile phone number that you want to bind to a member of the resource account type in a resource directory for security purposes.
+     *  *
+     * @description To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+     *  *
+     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request SendVerificationCodeForBindSecureMobilePhoneRequest
      *
-     * @remarks
-     * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
-     *
-     * @param request - SendVerificationCodeForBindSecureMobilePhoneRequest
-     * @returns SendVerificationCodeForBindSecureMobilePhoneResponse
-     *
-     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request
-     *
-     * @return SendVerificationCodeForBindSecureMobilePhoneResponse
+     * @return SendVerificationCodeForBindSecureMobilePhoneResponse SendVerificationCodeForBindSecureMobilePhoneResponse
      */
     public function sendVerificationCodeForBindSecureMobilePhone($request)
     {
@@ -4223,43 +3613,37 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Sends a verification code to the mobile phone number bound to a newly created account when you use the account to enable a resource directory.
+     * @summary Sends a verification code to the mobile phone number bound to a newly created account when you use the account to enable a resource directory.
+     *  *
+     * @description Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
+     *  *
+     * @param SendVerificationCodeForEnableRDRequest $request SendVerificationCodeForEnableRDRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
-     *
-     * @param request - SendVerificationCodeForEnableRDRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SendVerificationCodeForEnableRDResponse
-     *
-     * @param SendVerificationCodeForEnableRDRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return SendVerificationCodeForEnableRDResponse
+     * @return SendVerificationCodeForEnableRDResponse SendVerificationCodeForEnableRDResponse
      */
     public function sendVerificationCodeForEnableRDWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->secureMobilePhone) {
-            @$query['SecureMobilePhone'] = $request->secureMobilePhone;
+        if (!Utils::isUnset($request->secureMobilePhone)) {
+            $query['SecureMobilePhone'] = $request->secureMobilePhone;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendVerificationCodeForEnableRD',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendVerificationCodeForEnableRD',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SendVerificationCodeForEnableRDResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4267,17 +3651,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Sends a verification code to the mobile phone number bound to a newly created account when you use the account to enable a resource directory.
+     * @summary Sends a verification code to the mobile phone number bound to a newly created account when you use the account to enable a resource directory.
+     *  *
+     * @description Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
+     *  *
+     * @param SendVerificationCodeForEnableRDRequest $request SendVerificationCodeForEnableRDRequest
      *
-     * @remarks
-     * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
-     *
-     * @param request - SendVerificationCodeForEnableRDRequest
-     * @returns SendVerificationCodeForEnableRDResponse
-     *
-     * @param SendVerificationCodeForEnableRDRequest $request
-     *
-     * @return SendVerificationCodeForEnableRDResponse
+     * @return SendVerificationCodeForEnableRDResponse SendVerificationCodeForEnableRDResponse
      */
     public function sendVerificationCodeForEnableRD($request)
     {
@@ -4287,43 +3667,37 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Enables or disables the member deletion feature.
+     * @summary Enables or disables the member deletion feature.
+     *  *
+     * @description Members of the resource account type can be deleted only after the member deletion feature is enabled.
+     *  *
+     * @param SetMemberDeletionPermissionRequest $request SetMemberDeletionPermissionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Members of the resource account type can be deleted only after the member deletion feature is enabled.
-     *
-     * @param request - SetMemberDeletionPermissionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns SetMemberDeletionPermissionResponse
-     *
-     * @param SetMemberDeletionPermissionRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return SetMemberDeletionPermissionResponse
+     * @return SetMemberDeletionPermissionResponse SetMemberDeletionPermissionResponse
      */
     public function setMemberDeletionPermissionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetMemberDeletionPermission',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetMemberDeletionPermission',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return SetMemberDeletionPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4331,17 +3705,13 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Enables or disables the member deletion feature.
+     * @summary Enables or disables the member deletion feature.
+     *  *
+     * @description Members of the resource account type can be deleted only after the member deletion feature is enabled.
+     *  *
+     * @param SetMemberDeletionPermissionRequest $request SetMemberDeletionPermissionRequest
      *
-     * @remarks
-     * Members of the resource account type can be deleted only after the member deletion feature is enabled.
-     *
-     * @param request - SetMemberDeletionPermissionRequest
-     * @returns SetMemberDeletionPermissionResponse
-     *
-     * @param SetMemberDeletionPermissionRequest $request
-     *
-     * @return SetMemberDeletionPermissionResponse
+     * @return SetMemberDeletionPermissionResponse SetMemberDeletionPermissionResponse
      */
     public function setMemberDeletionPermission($request)
     {
@@ -4351,48 +3721,91 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Adds tags to the members in a resource directory.
+     * @summary Enables or disables the Member Display Name Synchronization feature.
+     *  *
+     * @param SetMemberDisplayNameSyncStatusRequest $request SetMemberDisplayNameSyncStatusRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns TagResourcesResponse
+     * @return SetMemberDisplayNameSyncStatusResponse SetMemberDisplayNameSyncStatusResponse
+     */
+    public function setMemberDisplayNameSyncStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetMemberDisplayNameSyncStatus',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetMemberDisplayNameSyncStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SetMemberDisplayNameSyncStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Enables or disables the Member Display Name Synchronization feature.
+     *  *
+     * @param SetMemberDisplayNameSyncStatusRequest $request SetMemberDisplayNameSyncStatusRequest
      *
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @return SetMemberDisplayNameSyncStatusResponse SetMemberDisplayNameSyncStatusResponse
+     */
+    public function setMemberDisplayNameSyncStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setMemberDisplayNameSyncStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Adds tags to the members in a resource directory.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4400,14 +3813,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Adds tags to the members in a resource directory.
+     * @summary Adds tags to the members in a resource directory.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -4417,52 +3827,44 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Removes tags from the members in a resource directory.
+     * @summary Removes tags from the members in a resource directory.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UntagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->all) {
-            @$query['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKey) {
-            @$query['TagKey'] = $request->tagKey;
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4470,14 +3872,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Removes tags from the members in a resource directory.
+     * @summary Removes tags from the members in a resource directory.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @param request - UntagResourcesRequest
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -4487,57 +3886,48 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Changes the display name of a member, or switches the type of a member.
-     *
-     * @remarks
-     *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+     * @summary Changes the display name of a member, or switches the type of a member.
+     *  *
+     * @description *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
      * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
      * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
+     *  *
+     * @param UpdateAccountRequest $request UpdateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateAccountResponse
-     *
-     * @param UpdateAccountRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return UpdateAccountResponse
+     * @return UpdateAccountResponse UpdateAccountResponse
      */
     public function updateAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->newAccountType) {
-            @$query['NewAccountType'] = $request->newAccountType;
+        if (!Utils::isUnset($request->newAccountType)) {
+            $query['NewAccountType'] = $request->newAccountType;
         }
-
-        if (null !== $request->newDisplayName) {
-            @$query['NewDisplayName'] = $request->newDisplayName;
+        if (!Utils::isUnset($request->newDisplayName)) {
+            $query['NewDisplayName'] = $request->newDisplayName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAccount',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAccount',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4545,19 +3935,15 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Changes the display name of a member, or switches the type of a member.
-     *
-     * @remarks
-     *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+     * @summary Changes the display name of a member, or switches the type of a member.
+     *  *
+     * @description *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
      * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](https://help.aliyun.com/document_detail/111233.html).
      * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](https://help.aliyun.com/document_detail/209980.html).
+     *  *
+     * @param UpdateAccountRequest $request UpdateAccountRequest
      *
-     * @param request - UpdateAccountRequest
-     * @returns UpdateAccountResponse
-     *
-     * @param UpdateAccountRequest $request
-     *
-     * @return UpdateAccountResponse
+     * @return UpdateAccountResponse UpdateAccountResponse
      */
     public function updateAccount($request)
     {
@@ -4567,52 +3953,44 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Updates a custom access control policy.
+     * @summary Updates a custom access control policy.
+     *  *
+     * @param UpdateControlPolicyRequest $request UpdateControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateControlPolicyResponse
-     *
-     * @param UpdateControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return UpdateControlPolicyResponse
+     * @return UpdateControlPolicyResponse UpdateControlPolicyResponse
      */
     public function updateControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->newDescription) {
-            @$query['NewDescription'] = $request->newDescription;
+        if (!Utils::isUnset($request->newDescription)) {
+            $query['NewDescription'] = $request->newDescription;
         }
-
-        if (null !== $request->newPolicyDocument) {
-            @$query['NewPolicyDocument'] = $request->newPolicyDocument;
+        if (!Utils::isUnset($request->newPolicyDocument)) {
+            $query['NewPolicyDocument'] = $request->newPolicyDocument;
         }
-
-        if (null !== $request->newPolicyName) {
-            @$query['NewPolicyName'] = $request->newPolicyName;
+        if (!Utils::isUnset($request->newPolicyName)) {
+            $query['NewPolicyName'] = $request->newPolicyName;
         }
-
-        if (null !== $request->policyId) {
-            @$query['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateControlPolicy',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateControlPolicy',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4620,14 +3998,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Updates a custom access control policy.
+     * @summary Updates a custom access control policy.
+     *  *
+     * @param UpdateControlPolicyRequest $request UpdateControlPolicyRequest
      *
-     * @param request - UpdateControlPolicyRequest
-     * @returns UpdateControlPolicyResponse
-     *
-     * @param UpdateControlPolicyRequest $request
-     *
-     * @return UpdateControlPolicyResponse
+     * @return UpdateControlPolicyResponse UpdateControlPolicyResponse
      */
     public function updateControlPolicy($request)
     {
@@ -4637,44 +4012,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Changes the name of a folder.
+     * @summary Changes the name of a folder.
+     *  *
+     * @param UpdateFolderRequest $request UpdateFolderRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateFolderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateFolderResponse
-     *
-     * @param UpdateFolderRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return UpdateFolderResponse
+     * @return UpdateFolderResponse UpdateFolderResponse
      */
     public function updateFolderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->folderId) {
-            @$query['FolderId'] = $request->folderId;
+        if (!Utils::isUnset($request->folderId)) {
+            $query['FolderId'] = $request->folderId;
         }
-
-        if (null !== $request->newFolderName) {
-            @$query['NewFolderName'] = $request->newFolderName;
+        if (!Utils::isUnset($request->newFolderName)) {
+            $query['NewFolderName'] = $request->newFolderName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFolder',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateFolder',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4682,14 +4051,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Changes the name of a folder.
+     * @summary Changes the name of a folder.
+     *  *
+     * @param UpdateFolderRequest $request UpdateFolderRequest
      *
-     * @param request - UpdateFolderRequest
-     * @returns UpdateFolderResponse
-     *
-     * @param UpdateFolderRequest $request
-     *
-     * @return UpdateFolderResponse
+     * @return UpdateFolderResponse UpdateFolderResponse
      */
     public function updateFolder($request)
     {
@@ -4699,60 +4065,50 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Updates a contact.
+     * @summary Updates a contact.
+     *  *
+     * @param UpdateMessageContactRequest $request UpdateMessageContactRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateMessageContactRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateMessageContactResponse
-     *
-     * @param UpdateMessageContactRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateMessageContactResponse
+     * @return UpdateMessageContactResponse UpdateMessageContactResponse
      */
     public function updateMessageContactWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->contactId) {
-            @$query['ContactId'] = $request->contactId;
+        if (!Utils::isUnset($request->contactId)) {
+            $query['ContactId'] = $request->contactId;
         }
-
-        if (null !== $request->emailAddress) {
-            @$query['EmailAddress'] = $request->emailAddress;
+        if (!Utils::isUnset($request->emailAddress)) {
+            $query['EmailAddress'] = $request->emailAddress;
         }
-
-        if (null !== $request->messageTypes) {
-            @$query['MessageTypes'] = $request->messageTypes;
+        if (!Utils::isUnset($request->messageTypes)) {
+            $query['MessageTypes'] = $request->messageTypes;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->phoneNumber) {
-            @$query['PhoneNumber'] = $request->phoneNumber;
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
         }
-
-        if (null !== $request->title) {
-            @$query['Title'] = $request->title;
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMessageContact',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateMessageContact',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdateMessageContactResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4760,14 +4116,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * Updates a contact.
+     * @summary Updates a contact.
+     *  *
+     * @param UpdateMessageContactRequest $request UpdateMessageContactRequest
      *
-     * @param request - UpdateMessageContactRequest
-     * @returns UpdateMessageContactResponse
-     *
-     * @param UpdateMessageContactRequest $request
-     *
-     * @return UpdateMessageContactResponse
+     * @return UpdateMessageContactResponse UpdateMessageContactResponse
      */
     public function updateMessageContact($request)
     {
@@ -4777,44 +4130,38 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * 更新成员的结算账号.
+     * @summary Updates the billing account of a member.
+     *  *
+     * @param UpdatePayerForAccountRequest $request UpdatePayerForAccountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdatePayerForAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdatePayerForAccountResponse
-     *
-     * @param UpdatePayerForAccountRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UpdatePayerForAccountResponse
+     * @return UpdatePayerForAccountResponse UpdatePayerForAccountResponse
      */
     public function updatePayerForAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->payerAccountId) {
-            @$query['PayerAccountId'] = $request->payerAccountId;
+        if (!Utils::isUnset($request->payerAccountId)) {
+            $query['PayerAccountId'] = $request->payerAccountId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePayerForAccount',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePayerForAccount',
+            'version' => '2022-04-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
             return UpdatePayerForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -4822,14 +4169,11 @@ class ResourceDirectoryMaster extends OpenApiClient
     }
 
     /**
-     * 更新成员的结算账号.
+     * @summary Updates the billing account of a member.
+     *  *
+     * @param UpdatePayerForAccountRequest $request UpdatePayerForAccountRequest
      *
-     * @param request - UpdatePayerForAccountRequest
-     * @returns UpdatePayerForAccountResponse
-     *
-     * @param UpdatePayerForAccountRequest $request
-     *
-     * @return UpdatePayerForAccountResponse
+     * @return UpdatePayerForAccountResponse UpdatePayerForAccountResponse
      */
     public function updatePayerForAccount($request)
     {

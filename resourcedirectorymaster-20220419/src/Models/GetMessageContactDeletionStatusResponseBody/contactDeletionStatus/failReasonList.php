@@ -4,70 +4,59 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetMessageContactDeletionStatusResponseBody\contactDeletionStatus;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class failReasonList extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member.
+     *
+     * @example 199796839435****
+     *
      * @var string
      */
     public $accountId;
+
     /**
+     * @description The types of messages received by the contact.
+     *
      * @var string[]
      */
     public $messageTypes;
     protected $_name = [
-        'accountId'    => 'AccountId',
+        'accountId' => 'AccountId',
         'messageTypes' => 'MessageTypes',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->messageTypes)) {
-            Model::validateArray($this->messageTypes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
-
         if (null !== $this->messageTypes) {
-            if (\is_array($this->messageTypes)) {
-                $res['MessageTypes'] = [];
-                $n1                  = 0;
-                foreach ($this->messageTypes as $item1) {
-                    $res['MessageTypes'][$n1++] = $item1;
-                }
-            }
+            $res['MessageTypes'] = $this->messageTypes;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return failReasonList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
-
         if (isset($map['MessageTypes'])) {
             if (!empty($map['MessageTypes'])) {
-                $model->messageTypes = [];
-                $n1                  = 0;
-                foreach ($map['MessageTypes'] as $item1) {
-                    $model->messageTypes[$n1++] = $item1;
-                }
+                $model->messageTypes = $map['MessageTypes'];
             }
         }
 

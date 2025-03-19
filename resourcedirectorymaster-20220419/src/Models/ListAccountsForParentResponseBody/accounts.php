@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListAccountsForParentResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListAccountsForParentResponseBody\accounts\account;
+use AlibabaCloud\Tea\Model;
 
 class accounts extends Model
 {
@@ -17,23 +17,17 @@ class accounts extends Model
         'account' => 'Account',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->account)) {
-            Model::validateArray($this->account);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->account) {
-            if (\is_array($this->account)) {
-                $res['Account'] = [];
-                $n1             = 0;
-                foreach ($this->account as $item1) {
-                    $res['Account'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Account'] = [];
+            if (null !== $this->account && \is_array($this->account)) {
+                $n = 0;
+                foreach ($this->account as $item) {
+                    $res['Account'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class accounts extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return accounts
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Account'])) {
             if (!empty($map['Account'])) {
                 $model->account = [];
-                $n1             = 0;
-                foreach ($map['Account'] as $item1) {
-                    $model->account[$n1++] = account::fromMap($item1);
+                $n = 0;
+                foreach ($map['Account'] as $item) {
+                    $model->account[$n++] = null !== $item ? account::fromMap($item) : $item;
                 }
             }
         }

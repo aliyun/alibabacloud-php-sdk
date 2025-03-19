@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MoveAccountRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member that you want to move.
+     *
+     * This parameter is required.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
+
     /**
+     * @description The ID of the destination folder.
+     *
+     * This parameter is required.
+     *
+     * @example fd-bVaRIG****
+     *
      * @var string
      */
     public $destinationFolderId;
     protected $_name = [
-        'accountId'           => 'AccountId',
+        'accountId' => 'AccountId',
         'destinationFolderId' => 'DestinationFolderId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
-
         if (null !== $this->destinationFolderId) {
             $res['DestinationFolderId'] = $this->destinationFolderId;
         }
@@ -40,18 +49,17 @@ class MoveAccountRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MoveAccountRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
-
         if (isset($map['DestinationFolderId'])) {
             $model->destinationFolderId = $map['DestinationFolderId'];
         }

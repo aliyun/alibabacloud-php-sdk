@@ -4,66 +4,78 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListDelegatedAdministratorsResponseBody\accounts;
+use AlibabaCloud\Tea\Model;
 
 class ListDelegatedAdministratorsResponseBody extends Model
 {
     /**
+     * @description The information about the delegated administrator accounts.
+     *
      * @var accounts
      */
     public $accounts;
+
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
+
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 009C3A02-7D4B-416C-9CE7-548C91508F1E
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'accounts'   => 'Accounts',
+        'accounts' => 'Accounts',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->accounts) {
-            $this->accounts->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accounts) {
-            $res['Accounts'] = null !== $this->accounts ? $this->accounts->toArray($noStream) : $this->accounts;
+            $res['Accounts'] = null !== $this->accounts ? $this->accounts->toMap() : null;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -71,30 +83,26 @@ class ListDelegatedAdministratorsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDelegatedAdministratorsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accounts'])) {
             $model->accounts = accounts::fromMap($map['Accounts']);
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\AddMessageContactResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class contact extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
+     * @example c-qL4HqKONzOM7****
+     *
      * @var string
      */
     public $contactId;
+
     /**
+     * @description The time when the contact was created.
+     *
+     * @example 2023-03-27 17:19:21
+     *
      * @var string
      */
     public $createDate;
     protected $_name = [
-        'contactId'  => 'ContactId',
+        'contactId' => 'ContactId',
         'createDate' => 'CreateDate',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
-
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
@@ -40,18 +45,17 @@ class contact extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return contact
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
-
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }

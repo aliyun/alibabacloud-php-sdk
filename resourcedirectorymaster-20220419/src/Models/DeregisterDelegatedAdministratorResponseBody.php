@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeregisterDelegatedAdministratorResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example DF5D5C52-7BD0-40E7-94C6-23A1505038A2
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeregisterDelegatedAdministratorResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeregisterDelegatedAdministratorResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeregisterDelegatedAdministratorResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

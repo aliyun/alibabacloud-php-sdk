@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeregisterDelegatedAdministratorResponse extends Model
+class SetMemberDisplayNameSyncStatusResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DeregisterDelegatedAdministratorResponse extends Model
     public $statusCode;
 
     /**
-     * @var DeregisterDelegatedAdministratorResponseBody
+     * @var SetMemberDisplayNameSyncStatusResponseBody
      */
     public $body;
     protected $_name = [
@@ -49,7 +49,7 @@ class DeregisterDelegatedAdministratorResponse extends Model
     /**
      * @param array $map
      *
-     * @return DeregisterDelegatedAdministratorResponse
+     * @return SetMemberDisplayNameSyncStatusResponse
      */
     public static function fromMap($map = [])
     {
@@ -61,7 +61,7 @@ class DeregisterDelegatedAdministratorResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DeregisterDelegatedAdministratorResponseBody::fromMap($map['body']);
+            $model->body = SetMemberDisplayNameSyncStatusResponseBody::fromMap($map['body']);
         }
 
         return $model;

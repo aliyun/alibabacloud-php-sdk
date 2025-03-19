@@ -4,44 +4,42 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteAccountRequest extends Model
 {
     /**
+     * @description The IDs of the check items that you can choose to ignore for the member deletion.
+     *
+     * You can obtain the IDs from the response of the [GetAccountDeletionCheckResult](~~GetAccountDeletionCheckResult~~) operation.
+     *
      * @var string[]
      */
     public $abandonableCheckId;
+
     /**
+     * @description The Alibaba Cloud account ID of the member that you want to delete.
+     *
+     * This parameter is required.
+     *
+     * @example 169946124551****
+     *
      * @var string
      */
     public $accountId;
     protected $_name = [
         'abandonableCheckId' => 'AbandonableCheckId',
-        'accountId'          => 'AccountId',
+        'accountId' => 'AccountId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->abandonableCheckId)) {
-            Model::validateArray($this->abandonableCheckId);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->abandonableCheckId) {
-            if (\is_array($this->abandonableCheckId)) {
-                $res['AbandonableCheckId'] = [];
-                $n1                        = 0;
-                foreach ($this->abandonableCheckId as $item1) {
-                    $res['AbandonableCheckId'][$n1++] = $item1;
-                }
-            }
+            $res['AbandonableCheckId'] = $this->abandonableCheckId;
         }
-
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
@@ -49,24 +47,19 @@ class DeleteAccountRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteAccountRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AbandonableCheckId'])) {
             if (!empty($map['AbandonableCheckId'])) {
-                $model->abandonableCheckId = [];
-                $n1                        = 0;
-                foreach ($map['AbandonableCheckId'] as $item1) {
-                    $model->abandonableCheckId[$n1++] = $item1;
-                }
+                $model->abandonableCheckId = $map['AbandonableCheckId'];
             }
         }
-
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }

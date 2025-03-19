@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SendEmailVerificationForMessageContactResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class SendEmailVerificationForMessageContactResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class SendEmailVerificationForMessageContactResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SendEmailVerificationForMessageContactResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

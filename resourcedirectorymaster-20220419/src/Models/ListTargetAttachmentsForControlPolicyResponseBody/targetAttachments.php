@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListTargetAttachmentsForControlPolicyResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListTargetAttachmentsForControlPolicyResponseBody\targetAttachments\targetAttachment;
+use AlibabaCloud\Tea\Model;
 
 class targetAttachments extends Model
 {
@@ -17,23 +17,17 @@ class targetAttachments extends Model
         'targetAttachment' => 'TargetAttachment',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->targetAttachment)) {
-            Model::validateArray($this->targetAttachment);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->targetAttachment) {
-            if (\is_array($this->targetAttachment)) {
-                $res['TargetAttachment'] = [];
-                $n1                      = 0;
-                foreach ($this->targetAttachment as $item1) {
-                    $res['TargetAttachment'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['TargetAttachment'] = [];
+            if (null !== $this->targetAttachment && \is_array($this->targetAttachment)) {
+                $n = 0;
+                foreach ($this->targetAttachment as $item) {
+                    $res['TargetAttachment'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class targetAttachments extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return targetAttachments
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TargetAttachment'])) {
             if (!empty($map['TargetAttachment'])) {
                 $model->targetAttachment = [];
-                $n1                      = 0;
-                foreach ($map['TargetAttachment'] as $item1) {
-                    $model->targetAttachment[$n1++] = targetAttachment::fromMap($item1);
+                $n = 0;
+                foreach ($map['TargetAttachment'] as $item) {
+                    $model->targetAttachment[$n++] = null !== $item ? targetAttachment::fromMap($item) : $item;
                 }
             }
         }

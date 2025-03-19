@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListDelegatedServicesForAccountResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListDelegatedServicesForAccountResponseBody\delegatedServices\delegatedService;
+use AlibabaCloud\Tea\Model;
 
 class delegatedServices extends Model
 {
@@ -17,23 +17,17 @@ class delegatedServices extends Model
         'delegatedService' => 'DelegatedService',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->delegatedService)) {
-            Model::validateArray($this->delegatedService);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->delegatedService) {
-            if (\is_array($this->delegatedService)) {
-                $res['DelegatedService'] = [];
-                $n1                      = 0;
-                foreach ($this->delegatedService as $item1) {
-                    $res['DelegatedService'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DelegatedService'] = [];
+            if (null !== $this->delegatedService && \is_array($this->delegatedService)) {
+                $n = 0;
+                foreach ($this->delegatedService as $item) {
+                    $res['DelegatedService'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class delegatedServices extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return delegatedServices
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DelegatedService'])) {
             if (!empty($map['DelegatedService'])) {
                 $model->delegatedService = [];
-                $n1                      = 0;
-                foreach ($map['DelegatedService'] as $item1) {
-                    $model->delegatedService[$n1++] = delegatedService::fromMap($item1);
+                $n = 0;
+                foreach ($map['DelegatedService'] as $item) {
+                    $model->delegatedService[$n++] = null !== $item ? delegatedService::fromMap($item) : $item;
                 }
             }
         }

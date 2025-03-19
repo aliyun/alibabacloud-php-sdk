@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AttachControlPolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 95060F1D-6990-4645-8920-A81D1BBFE992
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class AttachControlPolicyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class AttachControlPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AttachControlPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

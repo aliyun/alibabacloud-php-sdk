@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeregisterDelegatedAdministratorRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * This parameter is required.
+     *
+     * @example 181761095690****
+     *
      * @var string
      */
     public $accountId;
+
     /**
+     * @description The identifier of the trusted service.
+     *
+     * This parameter is required.
+     *
+     * @example cloudfw.aliyuncs.com
+     *
      * @var string
      */
     public $servicePrincipal;
     protected $_name = [
-        'accountId'        => 'AccountId',
+        'accountId' => 'AccountId',
         'servicePrincipal' => 'ServicePrincipal',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
-
         if (null !== $this->servicePrincipal) {
             $res['ServicePrincipal'] = $this->servicePrincipal;
         }
@@ -40,18 +49,17 @@ class DeregisterDelegatedAdministratorRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeregisterDelegatedAdministratorRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
-
         if (isset($map['ServicePrincipal'])) {
             $model->servicePrincipal = $map['ServicePrincipal'];
         }

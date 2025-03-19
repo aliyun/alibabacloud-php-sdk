@@ -6,8 +6,20 @@ namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CancelMessageContactUpdateResponseBody extends Model
+class SetMemberDisplayNameSyncStatusResponseBody extends Model
 {
+    /**
+     * @description The status of the Member Display Name Synchronization feature. Valid values:
+     *
+     *   Enabled
+     *   Disabled
+     *
+     * @example Enabled
+     *
+     * @var string
+     */
+    public $memberAccountDisplayNameSyncStatus;
+
     /**
      * @description The request ID.
      *
@@ -17,6 +29,7 @@ class CancelMessageContactUpdateResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'memberAccountDisplayNameSyncStatus' => 'MemberAccountDisplayNameSyncStatus',
         'requestId' => 'RequestId',
     ];
 
@@ -25,6 +38,9 @@ class CancelMessageContactUpdateResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->memberAccountDisplayNameSyncStatus) {
+            $res['MemberAccountDisplayNameSyncStatus'] = $this->memberAccountDisplayNameSyncStatus;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -35,11 +51,14 @@ class CancelMessageContactUpdateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CancelMessageContactUpdateResponseBody
+     * @return SetMemberDisplayNameSyncStatusResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MemberAccountDisplayNameSyncStatus'])) {
+            $model->memberAccountDisplayNameSyncStatus = $map['MemberAccountDisplayNameSyncStatus'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

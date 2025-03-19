@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetPayerForAccountRequest extends Model
 {
     /**
+     * @description The ID of the billing account.
+     *
+     * This parameter is required.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
@@ -16,12 +22,9 @@ class GetPayerForAccountRequest extends Model
         'accountId' => 'AccountId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
@@ -31,11 +34,11 @@ class GetPayerForAccountRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetPayerForAccountRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

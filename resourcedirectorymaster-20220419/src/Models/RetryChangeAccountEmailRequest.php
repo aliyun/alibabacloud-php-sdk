@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RetryChangeAccountEmailRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member.
+     *
+     * This parameter is required.
+     *
+     * @example 181761095690****
+     *
      * @var string
      */
     public $accountId;
@@ -16,12 +22,9 @@ class RetryChangeAccountEmailRequest extends Model
         'accountId' => 'AccountId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
@@ -31,11 +34,11 @@ class RetryChangeAccountEmailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RetryChangeAccountEmailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

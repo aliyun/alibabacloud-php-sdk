@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AcceptHandshakeRequest extends Model
 {
     /**
+     * @description The ID of the invitation.
+     *
+     * You can call the [ListHandshakesForAccount](~~ListHandshakesForAccount~~) operation to obtain the ID.
+     *
+     * This parameter is required.
+     *
+     * @example h-Ih8IuPfvV0t0****
+     *
      * @var string
      */
     public $handshakeId;
@@ -16,12 +24,9 @@ class AcceptHandshakeRequest extends Model
         'handshakeId' => 'HandshakeId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->handshakeId) {
@@ -31,11 +36,11 @@ class AcceptHandshakeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AcceptHandshakeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

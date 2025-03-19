@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SetMemberDeletionPermissionRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the member deletion feature. Valid values:
+     *
+     *   Enabled: enables the member deletion feature.
+     *   Disabled: disables the member deletion feature.
+     *
+     * This parameter is required.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $status;
@@ -16,12 +25,9 @@ class SetMemberDeletionPermissionRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->status) {
@@ -31,11 +37,11 @@ class SetMemberDeletionPermissionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SetMemberDeletionPermissionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

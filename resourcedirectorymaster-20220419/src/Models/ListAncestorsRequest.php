@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListAncestorsRequest extends Model
 {
     /**
+     * @description The ID of the subfolder.
+     *
+     * This parameter is required.
+     *
+     * @example fd-i1c9nr****
+     *
      * @var string
      */
     public $childId;
@@ -16,12 +22,9 @@ class ListAncestorsRequest extends Model
         'childId' => 'ChildId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->childId) {
@@ -31,11 +34,11 @@ class ListAncestorsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAncestorsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

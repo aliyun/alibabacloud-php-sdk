@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListAncestorsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListAncestorsResponseBody\folders\folder;
+use AlibabaCloud\Tea\Model;
 
 class folders extends Model
 {
@@ -17,23 +17,17 @@ class folders extends Model
         'folder' => 'Folder',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->folder)) {
-            Model::validateArray($this->folder);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->folder) {
-            if (\is_array($this->folder)) {
-                $res['Folder'] = [];
-                $n1            = 0;
-                foreach ($this->folder as $item1) {
-                    $res['Folder'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Folder'] = [];
+            if (null !== $this->folder && \is_array($this->folder)) {
+                $n = 0;
+                foreach ($this->folder as $item) {
+                    $res['Folder'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class folders extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return folders
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Folder'])) {
             if (!empty($map['Folder'])) {
                 $model->folder = [];
-                $n1            = 0;
-                foreach ($map['Folder'] as $item1) {
-                    $model->folder[$n1++] = folder::fromMap($item1);
+                $n = 0;
+                foreach ($map['Folder'] as $item) {
+                    $model->folder[$n++] = null !== $item ? folder::fromMap($item) : $item;
                 }
             }
         }

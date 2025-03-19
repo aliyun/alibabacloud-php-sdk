@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteFolderResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9B34724D-54B0-4A51-B34D-4512372FE1BE
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteFolderResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteFolderResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteFolderResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
