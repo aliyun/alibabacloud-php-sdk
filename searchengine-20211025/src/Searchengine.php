@@ -28,11 +28,15 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateModelRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateModelResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreatePublicUrlResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateSqlInstanceRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateSqlInstanceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateTableRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\CreateTableResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\DebugModelRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\DebugModelResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteAdvanceConfigResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteAliasResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteConfigDirRequest;
@@ -45,6 +49,7 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteIndexRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteIndexVersionResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteInstanceResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteModelResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeletePublicUrlResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteSqlInstanceResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\DeleteTableResponse;
@@ -69,6 +74,7 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetIndexOnlineStrategyRespons
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetIndexVersionResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetInstanceResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetModelResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetNodeConfigRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetNodeConfigResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\GetSqlInstanceRequest;
@@ -99,6 +105,8 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListInstancesShrinkRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListLogsRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListLogsResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListModelsRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListModelsResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListOnlineConfigsRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListOnlineConfigsResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ListPausePolicysResponse;
@@ -144,6 +152,8 @@ use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyIndexRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyIndexResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyIndexVersionRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyIndexVersionResponse;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyModelRequest;
+use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyModelResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyNodeConfigRequest;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyNodeConfigResponse;
 use AlibabaCloud\SDK\Searchengine\V20211025\Models\ModifyOnlineConfigRequest;
@@ -989,6 +999,69 @@ class Searchengine extends OpenApiClient
     }
 
     /**
+     * @summary 创建模型信息
+     *  *
+     * @param string             $instanceId
+     * @param CreateModelRequest $request    CreateModelRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return CreateModelResponse CreateModelResponse
+     */
+    public function createModelWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['dryRun'] = $request->dryRun;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateModel',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/models',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateModelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建模型信息
+     *  *
+     * @param string             $instanceId
+     * @param CreateModelRequest $request    CreateModelRequest
+     *
+     * @return CreateModelResponse CreateModelResponse
+     */
+    public function createModel($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createModelWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Creates a public endpoint.
      *  *
      * @param string         $instanceId
@@ -1173,6 +1246,68 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->createTableWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 调试模型
+     *  *
+     * @param string            $instanceId
+     * @param string            $modelName
+     * @param DebugModelRequest $request    DebugModelRequest
+     * @param string[]          $headers    map
+     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return DebugModelResponse DebugModelResponse
+     */
+    public function debugModelWithOptions($instanceId, $modelName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->isOnline)) {
+            $query['isOnline'] = $request->isOnline;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->input)) {
+            $body['input'] = $request->input;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DebugModel',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '/actions/debug',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DebugModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DebugModelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 调试模型
+     *  *
+     * @param string            $instanceId
+     * @param string            $modelName
+     * @param DebugModelRequest $request    DebugModelRequest
+     *
+     * @return DebugModelResponse DebugModelResponse
+     */
+    public function debugModel($instanceId, $modelName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->debugModelWithOptions($instanceId, $modelName, $request, $headers, $runtime);
     }
 
     /**
@@ -1683,6 +1818,55 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->deleteInstanceWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除模型
+     *  *
+     * @param string         $instanceId
+     * @param string         $modelName
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return DeleteModelResponse DeleteModelResponse
+     */
+    public function deleteModelWithOptions($instanceId, $modelName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteModel',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteModelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除模型
+     *  *
+     * @param string $instanceId
+     * @param string $modelName
+     *
+     * @return DeleteModelResponse DeleteModelResponse
+     */
+    public function deleteModel($instanceId, $modelName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteModelWithOptions($instanceId, $modelName, $headers, $runtime);
     }
 
     /**
@@ -2792,6 +2976,65 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->getInstanceWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 通过实例ID和模型名称查询特定模型的详细配置信息。
+     *  *
+     * @description ## 请求说明
+     * - 该API用于获取指定实例下的特定模型的详细信息，包括模型类型、URL、状态等。
+     * - 确保提供的`instanceId`和`modelName`是有效的，否则可能返回错误或找不到资源。
+     * - 返回的数据结构中包含了模型的内容（如请求头、参数等）以及创建和更新时间，有助于了解模型的具体配置及其最新状态。
+     *  *
+     * @param string         $instanceId
+     * @param string         $modelName
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return GetModelResponse GetModelResponse
+     */
+    public function getModelWithOptions($instanceId, $modelName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetModel',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetModelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 通过实例ID和模型名称查询特定模型的详细配置信息。
+     *  *
+     * @description ## 请求说明
+     * - 该API用于获取指定实例下的特定模型的详细信息，包括模型类型、URL、状态等。
+     * - 确保提供的`instanceId`和`modelName`是有效的，否则可能返回错误或找不到资源。
+     * - 返回的数据结构中包含了模型的内容（如请求头、参数等）以及创建和更新时间，有助于了解模型的具体配置及其最新状态。
+     *  *
+     * @param string $instanceId
+     * @param string $modelName
+     *
+     * @return GetModelResponse GetModelResponse
+     */
+    public function getModel($instanceId, $modelName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getModelWithOptions($instanceId, $modelName, $headers, $runtime);
     }
 
     /**
@@ -4020,6 +4263,76 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->listLogsWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 通过实例ID查询指定条件下的模型列表。
+     *  *
+     * @description ## 请求说明
+     * 本API用于从指定实例中获取模型列表，支持通过模型名称、类型以及分页参数进行筛选。请求时需提供实例ID作为路径参数，其他筛选条件为可选的查询参数。
+     *  *
+     * @param string            $instanceId
+     * @param ListModelsRequest $request    ListModelsRequest
+     * @param string[]          $headers    map
+     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return ListModelsResponse ListModelsResponse
+     */
+    public function listModelsWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModels',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/models',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListModelsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 通过实例ID查询指定条件下的模型列表。
+     *  *
+     * @description ## 请求说明
+     * 本API用于从指定实例中获取模型列表，支持通过模型名称、类型以及分页参数进行筛选。请求时需提供实例ID作为路径参数，其他筛选条件为可选的查询参数。
+     *  *
+     * @param string            $instanceId
+     * @param ListModelsRequest $request    ListModelsRequest
+     *
+     * @return ListModelsResponse ListModelsResponse
+     */
+    public function listModels($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listModelsWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -5568,6 +5881,71 @@ class Searchengine extends OpenApiClient
         $headers = [];
 
         return $this->modifyIndexVersionWithOptions($instanceId, $clusterName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 修改模型详情，修改模型状态
+     *  *
+     * @param string             $instanceId
+     * @param string             $modelName
+     * @param ModifyModelRequest $request    ModifyModelRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return ModifyModelResponse ModifyModelResponse
+     */
+    public function modifyModelWithOptions($instanceId, $modelName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['dryRun'] = $request->dryRun;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyModel',
+            'version' => '2021-10-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/ha3/instances/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/models/' . OpenApiUtilClient::getEncodeParam($modelName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ModifyModelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改模型详情，修改模型状态
+     *  *
+     * @param string             $instanceId
+     * @param string             $modelName
+     * @param ModifyModelRequest $request    ModifyModelRequest
+     *
+     * @return ModifyModelResponse ModifyModelResponse
+     */
+    public function modifyModel($instanceId, $modelName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modifyModelWithOptions($instanceId, $modelName, $request, $headers, $runtime);
     }
 
     /**
