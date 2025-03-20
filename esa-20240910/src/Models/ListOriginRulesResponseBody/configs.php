@@ -120,6 +120,11 @@ class configs extends Model
     public $range;
 
     /**
+     * @var string
+     */
+    public $rangeChunkSize;
+
+    /**
      * @description Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
      * - Match all incoming requests: Set the value to true
      * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
@@ -179,6 +184,7 @@ class configs extends Model
         'originSni' => 'OriginSni',
         'originVerify' => 'OriginVerify',
         'range' => 'Range',
+        'rangeChunkSize' => 'RangeChunkSize',
         'rule' => 'Rule',
         'ruleEnable' => 'RuleEnable',
         'ruleName' => 'RuleName',
@@ -223,6 +229,9 @@ class configs extends Model
         }
         if (null !== $this->range) {
             $res['Range'] = $this->range;
+        }
+        if (null !== $this->rangeChunkSize) {
+            $res['RangeChunkSize'] = $this->rangeChunkSize;
         }
         if (null !== $this->rule) {
             $res['Rule'] = $this->rule;
@@ -283,6 +292,9 @@ class configs extends Model
         }
         if (isset($map['Range'])) {
             $model->range = $map['Range'];
+        }
+        if (isset($map['RangeChunkSize'])) {
+            $model->rangeChunkSize = $map['RangeChunkSize'];
         }
         if (isset($map['Rule'])) {
             $model->rule = $map['Rule'];

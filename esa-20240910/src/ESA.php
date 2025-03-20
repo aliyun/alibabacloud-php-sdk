@@ -3145,6 +3145,9 @@ class ESA extends OpenApiClient
         if (!Utils::isUnset($request->range)) {
             $query['Range'] = $request->range;
         }
+        if (!Utils::isUnset($request->rangeChunkSize)) {
+            $query['RangeChunkSize'] = $request->rangeChunkSize;
+        }
         if (!Utils::isUnset($request->rule)) {
             $query['Rule'] = $request->rule;
         }
@@ -15705,6 +15708,9 @@ class ESA extends OpenApiClient
         }
         if (!Utils::isUnset($request->range)) {
             $query['Range'] = $request->range;
+        }
+        if (!Utils::isUnset($request->rangeChunkSize)) {
+            $query['RangeChunkSize'] = $request->rangeChunkSize;
         }
         if (!Utils::isUnset($request->rule)) {
             $query['Rule'] = $request->rule;

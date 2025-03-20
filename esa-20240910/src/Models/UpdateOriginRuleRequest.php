@@ -111,6 +111,11 @@ class UpdateOriginRuleRequest extends Model
     public $range;
 
     /**
+     * @var string
+     */
+    public $rangeChunkSize;
+
+    /**
      * @description Rule content, used to match user requests with conditional expressions. This parameter is not required when adding a global configuration. There are two usage scenarios:
      * - Match all incoming requests: Set the value to true
      * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
@@ -162,6 +167,7 @@ class UpdateOriginRuleRequest extends Model
         'originSni' => 'OriginSni',
         'originVerify' => 'OriginVerify',
         'range' => 'Range',
+        'rangeChunkSize' => 'RangeChunkSize',
         'rule' => 'Rule',
         'ruleEnable' => 'RuleEnable',
         'ruleName' => 'RuleName',
@@ -202,6 +208,9 @@ class UpdateOriginRuleRequest extends Model
         }
         if (null !== $this->range) {
             $res['Range'] = $this->range;
+        }
+        if (null !== $this->rangeChunkSize) {
+            $res['RangeChunkSize'] = $this->rangeChunkSize;
         }
         if (null !== $this->rule) {
             $res['Rule'] = $this->rule;
@@ -256,6 +265,9 @@ class UpdateOriginRuleRequest extends Model
         }
         if (isset($map['Range'])) {
             $model->range = $map['Range'];
+        }
+        if (isset($map['RangeChunkSize'])) {
+            $model->rangeChunkSize = $map['RangeChunkSize'];
         }
         if (isset($map['Rule'])) {
             $model->rule = $map['Rule'];

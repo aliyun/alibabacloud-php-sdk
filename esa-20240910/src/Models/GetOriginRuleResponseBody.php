@@ -123,6 +123,11 @@ class GetOriginRuleResponseBody extends Model
     public $range;
 
     /**
+     * @var string
+     */
+    public $rangeChunkSize;
+
+    /**
      * @description Request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -191,6 +196,7 @@ class GetOriginRuleResponseBody extends Model
         'originSni' => 'OriginSni',
         'originVerify' => 'OriginVerify',
         'range' => 'Range',
+        'rangeChunkSize' => 'RangeChunkSize',
         'requestId' => 'RequestId',
         'rule' => 'Rule',
         'ruleEnable' => 'RuleEnable',
@@ -236,6 +242,9 @@ class GetOriginRuleResponseBody extends Model
         }
         if (null !== $this->range) {
             $res['Range'] = $this->range;
+        }
+        if (null !== $this->rangeChunkSize) {
+            $res['RangeChunkSize'] = $this->rangeChunkSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -299,6 +308,9 @@ class GetOriginRuleResponseBody extends Model
         }
         if (isset($map['Range'])) {
             $model->range = $map['Range'];
+        }
+        if (isset($map['RangeChunkSize'])) {
+            $model->rangeChunkSize = $map['RangeChunkSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
