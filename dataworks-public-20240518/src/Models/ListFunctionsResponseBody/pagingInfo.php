@@ -4,63 +4,71 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFunctionsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFunctionsResponseBody\pagingInfo\functions;
+use AlibabaCloud\Tea\Model;
 
 class pagingInfo extends Model
 {
     /**
+     * @description The UDFs.
+     *
      * @var functions[]
      */
     public $functions;
+
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
+
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 294
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'functions'  => 'Functions',
+        'functions' => 'Functions',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->functions)) {
-            Model::validateArray($this->functions);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->functions) {
-            if (\is_array($this->functions)) {
-                $res['Functions'] = [];
-                $n1               = 0;
-                foreach ($this->functions as $item1) {
-                    $res['Functions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Functions'] = [];
+            if (null !== $this->functions && \is_array($this->functions)) {
+                $n = 0;
+                foreach ($this->functions as $item) {
+                    $res['Functions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -68,32 +76,29 @@ class pagingInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pagingInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Functions'])) {
             if (!empty($map['Functions'])) {
                 $model->functions = [];
-                $n1               = 0;
-                foreach ($map['Functions'] as $item1) {
-                    $model->functions[$n1++] = functions::fromMap($item1);
+                $n = 0;
+                foreach ($map['Functions'] as $item) {
+                    $model->functions[$n++] = null !== $item ? functions::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

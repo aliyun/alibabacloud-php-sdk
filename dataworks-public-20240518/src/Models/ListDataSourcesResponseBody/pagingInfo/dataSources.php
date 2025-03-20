@@ -4,54 +4,58 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesResponseBody\pagingInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesResponseBody\pagingInfo\dataSources\dataSource;
+use AlibabaCloud\Tea\Model;
 
 class dataSources extends Model
 {
     /**
+     * @description The data sources. Each element is the information of a single data source with a unique data source ID.
+     *
      * @var dataSource[]
      */
     public $dataSource;
+
     /**
+     * @description The name of the data source.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The type of the data source.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $type;
     protected $_name = [
         'dataSource' => 'DataSource',
-        'name'       => 'Name',
-        'type'       => 'Type',
+        'name' => 'Name',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dataSource)) {
-            Model::validateArray($this->dataSource);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataSource) {
-            if (\is_array($this->dataSource)) {
-                $res['DataSource'] = [];
-                $n1                = 0;
-                foreach ($this->dataSource as $item1) {
-                    $res['DataSource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DataSource'] = [];
+            if (null !== $this->dataSource && \is_array($this->dataSource)) {
+                $n = 0;
+                foreach ($this->dataSource as $item) {
+                    $res['DataSource'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -59,28 +63,26 @@ class dataSources extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataSources
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSource'])) {
             if (!empty($map['DataSource'])) {
                 $model->dataSource = [];
-                $n1                = 0;
-                foreach ($map['DataSource'] as $item1) {
-                    $model->dataSource[$n1++] = dataSource::fromMap($item1);
+                $n = 0;
+                foreach ($map['DataSource'] as $item) {
+                    $model->dataSource[$n++] = null !== $item ? dataSource::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

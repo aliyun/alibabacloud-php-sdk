@@ -4,58 +4,60 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTasksResponseBody\pagingInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTasksResponseBody\pagingInfo\upstreamTasks\task;
+use AlibabaCloud\Tea\Model;
 
 class upstreamTasks extends Model
 {
     /**
+     * @description The scheduling dependency type. Valid values:
+     *
+     *   Normal: same-cycle scheduling dependency
+     *   CrossCycle: cross-cycle scheduling dependency
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $dependencyType;
+
     /**
+     * @description The information about the task.
+     *
      * @var task
      */
     public $task;
     protected $_name = [
         'dependencyType' => 'DependencyType',
-        'task'           => 'Task',
+        'task' => 'Task',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->task) {
-            $this->task->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dependencyType) {
             $res['DependencyType'] = $this->dependencyType;
         }
-
         if (null !== $this->task) {
-            $res['Task'] = null !== $this->task ? $this->task->toArray($noStream) : $this->task;
+            $res['Task'] = null !== $this->task ? $this->task->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return upstreamTasks
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DependencyType'])) {
             $model->dependencyType = $map['DependencyType'];
         }
-
         if (isset($map['Task'])) {
             $model->task = task::fromMap($map['Task']);
         }

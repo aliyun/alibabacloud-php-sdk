@@ -4,39 +4,39 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceResponseBody\dataQualityEvaluationTaskInstance;
+use AlibabaCloud\Tea\Model;
 
 class GetDataQualityEvaluationTaskInstanceResponseBody extends Model
 {
     /**
+     * @description The details of the monitor instance.
+     *
      * @var dataQualityEvaluationTaskInstance
      */
     public $dataQualityEvaluationTaskInstance;
+
     /**
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
+     *
+     * @example 8abcb91f-d266-4073-b907-2ed670378ed1
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dataQualityEvaluationTaskInstance' => 'DataQualityEvaluationTaskInstance',
-        'requestId'                         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->dataQualityEvaluationTaskInstance) {
-            $this->dataQualityEvaluationTaskInstance->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataQualityEvaluationTaskInstance) {
-            $res['DataQualityEvaluationTaskInstance'] = null !== $this->dataQualityEvaluationTaskInstance ? $this->dataQualityEvaluationTaskInstance->toArray($noStream) : $this->dataQualityEvaluationTaskInstance;
+            $res['DataQualityEvaluationTaskInstance'] = null !== $this->dataQualityEvaluationTaskInstance ? $this->dataQualityEvaluationTaskInstance->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +44,17 @@ class GetDataQualityEvaluationTaskInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDataQualityEvaluationTaskInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataQualityEvaluationTaskInstance'])) {
             $model->dataQualityEvaluationTaskInstance = dataQualityEvaluationTaskInstance::fromMap($map['DataQualityEvaluationTaskInstance']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

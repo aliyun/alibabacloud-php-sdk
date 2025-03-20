@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobRequest\realtimeStartSettings;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class failoverSettings extends Model
 {
     /**
+     * @description The failover interval. Unit: minutes.
+     *
+     * @example 10
+     *
+     * @deprecated
+     *
      * @var int
      */
     public $interval;
+
     /**
+     * @description The maximum number of failovers allowed.
+     *
+     * @example 30
+     *
+     * @deprecated
+     *
      * @var int
      */
     public $upperLimit;
     protected $_name = [
-        'interval'   => 'Interval',
+        'interval' => 'Interval',
         'upperLimit' => 'UpperLimit',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
-
         if (null !== $this->upperLimit) {
             $res['UpperLimit'] = $this->upperLimit;
         }
@@ -40,18 +49,17 @@ class failoverSettings extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return failoverSettings
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
-
         if (isset($map['UpperLimit'])) {
             $model->upperLimit = $map['UpperLimit'];
         }

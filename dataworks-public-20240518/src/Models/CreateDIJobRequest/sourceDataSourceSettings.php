@@ -4,58 +4,57 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest\sourceDataSourceSettings\dataSourceProperties;
+use AlibabaCloud\Tea\Model;
 
 class sourceDataSourceSettings extends Model
 {
     /**
+     * @description The name of the data source.
+     *
+     * @example mysql_datasource_1
+     *
      * @var string
      */
     public $dataSourceName;
+
     /**
+     * @description The properties of the data source.
+     *
      * @var dataSourceProperties
      */
     public $dataSourceProperties;
     protected $_name = [
-        'dataSourceName'       => 'DataSourceName',
+        'dataSourceName' => 'DataSourceName',
         'dataSourceProperties' => 'DataSourceProperties',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->dataSourceProperties) {
-            $this->dataSourceProperties->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataSourceName) {
             $res['DataSourceName'] = $this->dataSourceName;
         }
-
         if (null !== $this->dataSourceProperties) {
-            $res['DataSourceProperties'] = null !== $this->dataSourceProperties ? $this->dataSourceProperties->toArray($noStream) : $this->dataSourceProperties;
+            $res['DataSourceProperties'] = null !== $this->dataSourceProperties ? $this->dataSourceProperties->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sourceDataSourceSettings
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceName'])) {
             $model->dataSourceName = $map['DataSourceName'];
         }
-
         if (isset($map['DataSourceProperties'])) {
             $model->dataSourceProperties = dataSourceProperties::fromMap($map['DataSourceProperties']);
         }

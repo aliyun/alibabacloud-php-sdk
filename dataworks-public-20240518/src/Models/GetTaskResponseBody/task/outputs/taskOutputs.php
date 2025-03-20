@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskResponseBody\task\outputs;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class taskOutputs extends Model
 {
     /**
+     * @description The identifier of the output.
+     *
+     * @example pre.odps_sql_demo_0
+     *
      * @var string
      */
     public $output;
@@ -16,12 +20,9 @@ class taskOutputs extends Model
         'output' => 'Output',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->output) {
@@ -31,11 +32,11 @@ class taskOutputs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return taskOutputs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

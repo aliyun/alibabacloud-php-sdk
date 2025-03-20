@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDataAssetTagShrinkRequest extends Model
 {
     /**
+     * @description The tag key.
+     *
+     * This parameter is required.
+     *
+     * @example key1
+     *
      * @var string
      */
     public $key;
+
     /**
+     * @description The tag values.
+     *
      * @var string
      */
     public $valuesShrink;
     protected $_name = [
-        'key'          => 'Key',
+        'key' => 'Key',
         'valuesShrink' => 'Values',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->valuesShrink) {
             $res['Values'] = $this->valuesShrink;
         }
@@ -40,18 +45,17 @@ class DeleteDataAssetTagShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDataAssetTagShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Values'])) {
             $model->valuesShrink = $map['Values'];
         }

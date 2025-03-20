@@ -4,39 +4,39 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectResponseBody\project;
+use AlibabaCloud\Tea\Model;
 
 class GetProjectResponseBody extends Model
 {
     /**
+     * @description The information about the workspace.
+     *
      * @var project
      */
     public $project;
+
     /**
+     * @description The request ID. You can locate logs and troubleshoot issues based on the ID.
+     *
+     * @example 22C97E95-F023-56B5-8852-B1A77A17XXXX
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'project'   => 'Project',
+        'project' => 'Project',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->project) {
-            $this->project->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->project) {
-            $res['Project'] = null !== $this->project ? $this->project->toArray($noStream) : $this->project;
+            $res['Project'] = null !== $this->project ? $this->project->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +44,17 @@ class GetProjectResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetProjectResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Project'])) {
             $model->project = project::fromMap($map['Project']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

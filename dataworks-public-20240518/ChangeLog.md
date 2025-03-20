@@ -1,3 +1,12 @@
+2025-03-20 Version: 5.1.0
+- Support API DeleteCertificate.
+- Support API GetCertificate.
+- Support API ImportCertificate.
+- Support API ListCertificates.
+- Support API TestDataSourceConnectivity.
+- Update API ExecuteAdhocWorkflowInstance: update param BizDate.
+
+
 2025-02-21 Version: 5.0.4
 - Update API CreateRoute: add param ResourceGroupId.
 - Update API ListResourceGroups: update response param.

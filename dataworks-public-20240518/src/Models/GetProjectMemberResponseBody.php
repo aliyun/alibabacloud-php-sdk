@@ -4,39 +4,39 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectMemberResponseBody\projectMember;
+use AlibabaCloud\Tea\Model;
 
 class GetProjectMemberResponseBody extends Model
 {
     /**
+     * @description The details about the member in the workspace.
+     *
      * @var projectMember
      */
     public $projectMember;
+
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
+     * @example 8abcb91f-d266-4073-b907-2ed670378ed1
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'projectMember' => 'ProjectMember',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->projectMember) {
-            $this->projectMember->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->projectMember) {
-            $res['ProjectMember'] = null !== $this->projectMember ? $this->projectMember->toArray($noStream) : $this->projectMember;
+            $res['ProjectMember'] = null !== $this->projectMember ? $this->projectMember->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +44,17 @@ class GetProjectMemberResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetProjectMemberResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectMember'])) {
             $model->projectMember = projectMember::fromMap($map['ProjectMember']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

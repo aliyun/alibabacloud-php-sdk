@@ -4,35 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityResult\rule\checkingConfig\thresholds;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class critical extends Model
 {
     /**
+     * @example >
+     *
      * @var string
      */
     public $operator;
+
     /**
+     * @example 100.0
+     *
      * @var string
      */
     public $value;
     protected $_name = [
         'operator' => 'Operator',
-        'value'    => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -40,18 +41,17 @@ class critical extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return critical
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

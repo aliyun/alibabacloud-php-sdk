@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleRequest\triggerCondition\extension;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class timeout extends Model
 {
     /**
+     * @description The timeout period. Unit: minutes. Valid values: [1, 21600].
+     *
+     * @example 10
+     *
      * @var int
      */
     public $timeoutInMinutes;
@@ -16,12 +20,9 @@ class timeout extends Model
         'timeoutInMinutes' => 'TimeoutInMinutes',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->timeoutInMinutes) {
@@ -31,11 +32,11 @@ class timeout extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return timeout
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

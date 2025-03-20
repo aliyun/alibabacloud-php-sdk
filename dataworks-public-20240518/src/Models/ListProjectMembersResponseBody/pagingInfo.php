@@ -4,63 +4,71 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersResponseBody\pagingInfo\projectMembers;
+use AlibabaCloud\Tea\Model;
 
 class pagingInfo extends Model
 {
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
+
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The members in the workspace.
+     *
      * @var projectMembers[]
      */
     public $projectMembers;
+
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'projectMembers' => 'ProjectMembers',
-        'totalCount'     => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->projectMembers)) {
-            Model::validateArray($this->projectMembers);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->projectMembers) {
-            if (\is_array($this->projectMembers)) {
-                $res['ProjectMembers'] = [];
-                $n1                    = 0;
-                foreach ($this->projectMembers as $item1) {
-                    $res['ProjectMembers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ProjectMembers'] = [];
+            if (null !== $this->projectMembers && \is_array($this->projectMembers)) {
+                $n = 0;
+                foreach ($this->projectMembers as $item) {
+                    $res['ProjectMembers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -68,32 +76,29 @@ class pagingInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pagingInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['ProjectMembers'])) {
             if (!empty($map['ProjectMembers'])) {
                 $model->projectMembers = [];
-                $n1                    = 0;
-                foreach ($map['ProjectMembers'] as $item1) {
-                    $model->projectMembers[$n1++] = projectMembers::fromMap($item1);
+                $n = 0;
+                foreach ($map['ProjectMembers'] as $item) {
+                    $model->projectMembers[$n++] = null !== $item ? projectMembers::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

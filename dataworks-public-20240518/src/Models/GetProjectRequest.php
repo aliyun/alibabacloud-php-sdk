@@ -4,11 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetProjectRequest extends Model
 {
     /**
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Workspace page to query the ID.
+     *
+     * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+     *
+     * This parameter is required.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $id;
@@ -16,12 +24,9 @@ class GetProjectRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +36,11 @@ class GetProjectRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetProjectRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

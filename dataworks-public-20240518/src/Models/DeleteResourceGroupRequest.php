@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteResourceGroupRequest extends Model
 {
     /**
+     * @description The ID of the resource group.
+     *
+     * This parameter is required.
+     *
+     * @example Serverless_res_group_524257424564736_6831777003XXXXX
+     *
      * @var string
      */
     public $id;
@@ -16,12 +22,9 @@ class DeleteResourceGroupRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +34,11 @@ class DeleteResourceGroupRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteResourceGroupRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,71 +4,73 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponseBody\pagingInfo\nodes;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponseBody\pagingInfo\nodes\script\runtime;
+use AlibabaCloud\Tea\Model;
 
 class script extends Model
 {
     /**
+     * @description The script ID.
+     *
+     * @example 853573334108680XXXX
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The script path.
+     *
+     * @example root/demo
+     *
      * @var string
      */
     public $path;
+
     /**
+     * @description The runtime.
+     *
      * @var runtime
      */
     public $runtime;
     protected $_name = [
-        'id'      => 'Id',
-        'path'    => 'Path',
+        'id' => 'Id',
+        'path' => 'Path',
         'runtime' => 'Runtime',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->runtime) {
-            $this->runtime->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-
         if (null !== $this->runtime) {
-            $res['Runtime'] = null !== $this->runtime ? $this->runtime->toArray($noStream) : $this->runtime;
+            $res['Runtime'] = null !== $this->runtime ? $this->runtime->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return script
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-
         if (isset($map['Runtime'])) {
             $model->runtime = runtime::fromMap($map['Runtime']);
         }

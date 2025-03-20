@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceRequest\tasks;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dependencies extends Model
 {
     /**
+     * @description The identifier of the output of the ancestor task.
+     *
+     * @example pre.odps_sql_demo_0
+     *
      * @var string
      */
     public $upstreamOutput;
@@ -16,12 +20,9 @@ class dependencies extends Model
         'upstreamOutput' => 'UpstreamOutput',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->upstreamOutput) {
@@ -31,11 +32,11 @@ class dependencies extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dependencies
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

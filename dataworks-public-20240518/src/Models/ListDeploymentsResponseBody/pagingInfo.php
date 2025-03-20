@@ -4,63 +4,71 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDeploymentsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDeploymentsResponseBody\pagingInfo\deployments;
+use AlibabaCloud\Tea\Model;
 
 class pagingInfo extends Model
 {
     /**
+     * @description The processes.
+     *
      * @var deployments[]
      */
     public $deployments;
+
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
+
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
+
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2524
+     *
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'deployments' => 'Deployments',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->deployments)) {
-            Model::validateArray($this->deployments);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deployments) {
-            if (\is_array($this->deployments)) {
-                $res['Deployments'] = [];
-                $n1                 = 0;
-                foreach ($this->deployments as $item1) {
-                    $res['Deployments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Deployments'] = [];
+            if (null !== $this->deployments && \is_array($this->deployments)) {
+                $n = 0;
+                foreach ($this->deployments as $item) {
+                    $res['Deployments'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -68,32 +76,29 @@ class pagingInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pagingInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Deployments'])) {
             if (!empty($map['Deployments'])) {
                 $model->deployments = [];
-                $n1                 = 0;
-                foreach ($map['Deployments'] as $item1) {
-                    $model->deployments[$n1++] = deployments::fromMap($item1);
+                $n = 0;
+                foreach ($map['Deployments'] as $item) {
+                    $model->deployments[$n++] = null !== $item ? deployments::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

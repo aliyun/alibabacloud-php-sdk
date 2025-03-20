@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListFunctionsResponseBody\pagingInfo\functions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class runtimeResource extends Model
 {
     /**
+     * @description The ID of the resource group used when you run the UDF.
+     *
+     * @example S_resgrop_xxx
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -16,12 +20,9 @@ class runtimeResource extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
@@ -31,11 +32,11 @@ class runtimeResource extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return runtimeResource
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

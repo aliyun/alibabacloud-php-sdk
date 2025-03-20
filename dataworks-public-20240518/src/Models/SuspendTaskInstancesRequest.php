@@ -4,70 +4,59 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class SuspendTaskInstancesRequest extends Model
 {
     /**
+     * @description Remarks.
+     *
+     * @example this is a comment
+     *
      * @var string
      */
     public $comment;
+
     /**
+     * @description The ID list of the task instance.
+     *
      * @var int[]
      */
     public $ids;
     protected $_name = [
         'comment' => 'Comment',
-        'ids'     => 'Ids',
+        'ids' => 'Ids',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ids)) {
-            Model::validateArray($this->ids);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-
         if (null !== $this->ids) {
-            if (\is_array($this->ids)) {
-                $res['Ids'] = [];
-                $n1         = 0;
-                foreach ($this->ids as $item1) {
-                    $res['Ids'][$n1++] = $item1;
-                }
-            }
+            $res['Ids'] = $this->ids;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return SuspendTaskInstancesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-
         if (isset($map['Ids'])) {
             if (!empty($map['Ids'])) {
-                $model->ids = [];
-                $n1         = 0;
-                foreach ($map['Ids'] as $item1) {
-                    $model->ids[$n1++] = $item1;
-                }
+                $model->ids = $map['Ids'];
             }
         }
 

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodesResponseBody\pagingInfo\nodes\script;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class runtime extends Model
 {
     /**
+     * @description The command used to distinguish node types.
+     *
+     * @example ODPS_SQL
+     *
      * @var string
      */
     public $command;
@@ -16,12 +20,9 @@ class runtime extends Model
         'command' => 'Command',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->command) {
@@ -31,11 +32,11 @@ class runtime extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return runtime
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,55 +4,50 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTaskInstancesResponseBody\pagingInfo\dataQualityEvaluationTaskInstances\task\notifications;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTaskInstancesResponseBody\pagingInfo\dataQualityEvaluationTaskInstances\task\notifications\notifications\nofiticationReceivers;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTaskInstancesResponseBody\pagingInfo\dataQualityEvaluationTaskInstances\task\notifications\notifications\notificationChannels;
+use AlibabaCloud\Tea\Model;
 
 class notifications extends Model
 {
     /**
+     * @description The alert recipients.
+     *
      * @var nofiticationReceivers[]
      */
     public $nofiticationReceivers;
+
     /**
+     * @description The alert notification methods.
+     *
      * @var notificationChannels[]
      */
     public $notificationChannels;
     protected $_name = [
         'nofiticationReceivers' => 'NofiticationReceivers',
-        'notificationChannels'  => 'NotificationChannels',
+        'notificationChannels' => 'NotificationChannels',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->nofiticationReceivers)) {
-            Model::validateArray($this->nofiticationReceivers);
-        }
-        if (\is_array($this->notificationChannels)) {
-            Model::validateArray($this->notificationChannels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nofiticationReceivers) {
-            if (\is_array($this->nofiticationReceivers)) {
-                $res['NofiticationReceivers'] = [];
-                $n1                           = 0;
-                foreach ($this->nofiticationReceivers as $item1) {
-                    $res['NofiticationReceivers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['NofiticationReceivers'] = [];
+            if (null !== $this->nofiticationReceivers && \is_array($this->nofiticationReceivers)) {
+                $n = 0;
+                foreach ($this->nofiticationReceivers as $item) {
+                    $res['NofiticationReceivers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->notificationChannels) {
-            if (\is_array($this->notificationChannels)) {
-                $res['NotificationChannels'] = [];
-                $n1                          = 0;
-                foreach ($this->notificationChannels as $item1) {
-                    $res['NotificationChannels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['NotificationChannels'] = [];
+            if (null !== $this->notificationChannels && \is_array($this->notificationChannels)) {
+                $n = 0;
+                foreach ($this->notificationChannels as $item) {
+                    $res['NotificationChannels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -60,30 +55,29 @@ class notifications extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return notifications
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NofiticationReceivers'])) {
             if (!empty($map['NofiticationReceivers'])) {
                 $model->nofiticationReceivers = [];
-                $n1                           = 0;
-                foreach ($map['NofiticationReceivers'] as $item1) {
-                    $model->nofiticationReceivers[$n1++] = nofiticationReceivers::fromMap($item1);
+                $n = 0;
+                foreach ($map['NofiticationReceivers'] as $item) {
+                    $model->nofiticationReceivers[$n++] = null !== $item ? nofiticationReceivers::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['NotificationChannels'])) {
             if (!empty($map['NotificationChannels'])) {
                 $model->notificationChannels = [];
-                $n1                          = 0;
-                foreach ($map['NotificationChannels'] as $item1) {
-                    $model->notificationChannels[$n1++] = notificationChannels::fromMap($item1);
+                $n = 0;
+                foreach ($map['NotificationChannels'] as $item) {
+                    $model->notificationChannels[$n++] = null !== $item ? notificationChannels::fromMap($item) : $item;
                 }
             }
         }

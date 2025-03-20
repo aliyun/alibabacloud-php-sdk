@@ -4,45 +4,45 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesRequest\taskInstances;
+use AlibabaCloud\Tea\Model;
 
 class UpdateTaskInstancesRequest extends Model
 {
     /**
+     * @description The remarks.
+     *
+     * @example this is a comment
+     *
      * @var string
      */
     public $comment;
+
     /**
+     * @description The instances.
+     *
      * @var taskInstances[]
      */
     public $taskInstances;
     protected $_name = [
-        'comment'       => 'Comment',
+        'comment' => 'Comment',
         'taskInstances' => 'TaskInstances',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->taskInstances)) {
-            Model::validateArray($this->taskInstances);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-
         if (null !== $this->taskInstances) {
-            if (\is_array($this->taskInstances)) {
-                $res['TaskInstances'] = [];
-                $n1                   = 0;
-                foreach ($this->taskInstances as $item1) {
-                    $res['TaskInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['TaskInstances'] = [];
+            if (null !== $this->taskInstances && \is_array($this->taskInstances)) {
+                $n = 0;
+                foreach ($this->taskInstances as $item) {
+                    $res['TaskInstances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +50,23 @@ class UpdateTaskInstancesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateTaskInstancesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-
         if (isset($map['TaskInstances'])) {
             if (!empty($map['TaskInstances'])) {
                 $model->taskInstances = [];
-                $n1                   = 0;
-                foreach ($map['TaskInstances'] as $item1) {
-                    $model->taskInstances[$n1++] = taskInstances::fromMap($item1);
+                $n = 0;
+                foreach ($map['TaskInstances'] as $item) {
+                    $model->taskInstances[$n++] = null !== $item ? taskInstances::fromMap($item) : $item;
                 }
             }
         }

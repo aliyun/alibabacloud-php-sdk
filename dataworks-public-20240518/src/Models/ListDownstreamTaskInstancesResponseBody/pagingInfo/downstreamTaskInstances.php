@@ -4,58 +4,60 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTaskInstancesResponseBody\pagingInfo;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTaskInstancesResponseBody\pagingInfo\downstreamTaskInstances\taskInstance;
+use AlibabaCloud\Tea\Model;
 
 class downstreamTaskInstances extends Model
 {
     /**
+     * @description The scheduling dependency type. Valid values:
+     *
+     *   Normal: same-cycle scheduling dependency
+     *   CrossCycle: cross-cycle scheduling dependency
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $dependencyType;
+
     /**
+     * @description The information about a task instance.
+     *
      * @var taskInstance
      */
     public $taskInstance;
     protected $_name = [
         'dependencyType' => 'DependencyType',
-        'taskInstance'   => 'TaskInstance',
+        'taskInstance' => 'TaskInstance',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->taskInstance) {
-            $this->taskInstance->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dependencyType) {
             $res['DependencyType'] = $this->dependencyType;
         }
-
         if (null !== $this->taskInstance) {
-            $res['TaskInstance'] = null !== $this->taskInstance ? $this->taskInstance->toArray($noStream) : $this->taskInstance;
+            $res['TaskInstance'] = null !== $this->taskInstance ? $this->taskInstance->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return downstreamTaskInstances
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DependencyType'])) {
             $model->dependencyType = $map['DependencyType'];
         }
-
         if (isset($map['TaskInstance'])) {
             $model->taskInstance = taskInstance::fromMap($map['TaskInstance']);
         }

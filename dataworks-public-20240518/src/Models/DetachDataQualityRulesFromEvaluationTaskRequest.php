@@ -4,53 +4,57 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DetachDataQualityRulesFromEvaluationTaskRequest extends Model
 {
     /**
+     * @description The ID of the data quality monitoring task that is associated with the rule.
+     *
+     * This parameter is required.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $dataQualityEvaluationTaskId;
+
     /**
+     * @description The IDs of the monitoring rules.
+     *
+     * This parameter is required.
+     *
      * @var int[]
      */
     public $dataQualityRuleIds;
+
     /**
+     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to obtain the workspace ID.
+     *
+     * This parameter is required.
+     *
+     * @example 10002
+     *
      * @var int
      */
     public $projectId;
     protected $_name = [
         'dataQualityEvaluationTaskId' => 'DataQualityEvaluationTaskId',
-        'dataQualityRuleIds'          => 'DataQualityRuleIds',
-        'projectId'                   => 'ProjectId',
+        'dataQualityRuleIds' => 'DataQualityRuleIds',
+        'projectId' => 'ProjectId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dataQualityRuleIds)) {
-            Model::validateArray($this->dataQualityRuleIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataQualityEvaluationTaskId) {
             $res['DataQualityEvaluationTaskId'] = $this->dataQualityEvaluationTaskId;
         }
-
         if (null !== $this->dataQualityRuleIds) {
-            if (\is_array($this->dataQualityRuleIds)) {
-                $res['DataQualityRuleIds'] = [];
-                $n1                        = 0;
-                foreach ($this->dataQualityRuleIds as $item1) {
-                    $res['DataQualityRuleIds'][$n1++] = $item1;
-                }
-            }
+            $res['DataQualityRuleIds'] = $this->dataQualityRuleIds;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -58,28 +62,22 @@ class DetachDataQualityRulesFromEvaluationTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DetachDataQualityRulesFromEvaluationTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataQualityEvaluationTaskId'])) {
             $model->dataQualityEvaluationTaskId = $map['DataQualityEvaluationTaskId'];
         }
-
         if (isset($map['DataQualityRuleIds'])) {
             if (!empty($map['DataQualityRuleIds'])) {
-                $model->dataQualityRuleIds = [];
-                $n1                        = 0;
-                foreach ($map['DataQualityRuleIds'] as $item1) {
-                    $model->dataQualityRuleIds[$n1++] = $item1;
-                }
+                $model->dataQualityRuleIds = $map['DataQualityRuleIds'];
             }
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

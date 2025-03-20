@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StartWorkflowInstancesShrinkRequest extends Model
 {
     /**
+     * @description The remarks.
+     *
+     * @example this is a comment
+     *
      * @var string
      */
     public $comment;
+
     /**
+     * @description The IDs of workflow instances.
+     *
+     * This parameter is required.
+     *
      * @var string
      */
     public $idsShrink;
     protected $_name = [
-        'comment'   => 'Comment',
+        'comment' => 'Comment',
         'idsShrink' => 'Ids',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-
         if (null !== $this->idsShrink) {
             $res['Ids'] = $this->idsShrink;
         }
@@ -40,18 +45,17 @@ class StartWorkflowInstancesShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartWorkflowInstancesShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-
         if (isset($map['Ids'])) {
             $model->idsShrink = $map['Ids'];
         }

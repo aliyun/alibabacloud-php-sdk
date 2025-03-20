@@ -4,35 +4,42 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDataQualityRuleRequest extends Model
 {
     /**
+     * @description The rule ID.
+     *
+     * This parameter is required.
+     *
+     * @example 19715
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The DataWorks workspace ID.
+     *
+     * @example 17302
+     *
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'id'        => 'Id',
+        'id' => 'Id',
         'projectId' => 'ProjectId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -40,18 +47,17 @@ class DeleteDataQualityRuleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDataQualityRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

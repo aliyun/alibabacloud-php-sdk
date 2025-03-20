@@ -4,39 +4,41 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartDIJobRequest\realtimeStartSettings\failoverSettings;
+use AlibabaCloud\Tea\Model;
 
 class realtimeStartSettings extends Model
 {
     /**
+     * @description The failover settings.
+     *
+     * @deprecated
+     *
      * @var failoverSettings
      */
     public $failoverSettings;
+
     /**
+     * @description The start time.
+     *
+     * @example 1671516776
+     *
      * @var int
      */
     public $startTime;
     protected $_name = [
         'failoverSettings' => 'FailoverSettings',
-        'startTime'        => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->failoverSettings) {
-            $this->failoverSettings->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->failoverSettings) {
-            $res['FailoverSettings'] = null !== $this->failoverSettings ? $this->failoverSettings->toArray($noStream) : $this->failoverSettings;
+            $res['FailoverSettings'] = null !== $this->failoverSettings ? $this->failoverSettings->toMap() : null;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -44,18 +46,17 @@ class realtimeStartSettings extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return realtimeStartSettings
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailoverSettings'])) {
             $model->failoverSettings = failoverSettings::fromMap($map['FailoverSettings']);
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

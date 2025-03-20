@@ -4,35 +4,49 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowRequest\tasks;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class trigger extends Model
 {
     /**
+     * @description The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
+     *
+     *   Pause
+     *   Skip
+     *   Normal
+     *
+     * This parameter is required.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $recurrence;
+
     /**
+     * @description The trigger type. Valid values:
+     *
+     *   Scheduler: periodic scheduling
+     *   Manual: manual scheduling
+     *
+     * @example Scheduler
+     *
      * @var string
      */
     public $type;
     protected $_name = [
         'recurrence' => 'Recurrence',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->recurrence) {
             $res['Recurrence'] = $this->recurrence;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -40,18 +54,17 @@ class trigger extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return trigger
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Recurrence'])) {
             $model->recurrence = $map['Recurrence'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

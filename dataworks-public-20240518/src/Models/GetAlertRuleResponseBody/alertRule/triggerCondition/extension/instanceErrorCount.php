@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleResponseBody\alertRule\triggerCondition\extension;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class instanceErrorCount extends Model
 {
     /**
+     * @description The maximum number of instances on which an error occurs. Valid values: [1,10000].
+     *
+     * @example 10
+     *
      * @var int
      */
     public $count;
@@ -16,12 +20,9 @@ class instanceErrorCount extends Model
         'count' => 'Count',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->count) {
@@ -31,11 +32,11 @@ class instanceErrorCount extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instanceErrorCount
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

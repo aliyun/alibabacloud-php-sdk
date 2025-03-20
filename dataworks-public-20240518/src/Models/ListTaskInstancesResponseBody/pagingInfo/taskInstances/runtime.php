@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTaskInstancesResponseBody\pagingInfo\taskInstances;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class runtime extends Model
 {
     /**
+     * @description The host for running.
+     *
+     * @example cn-shanghai.1.2
+     *
      * @var string
      */
     public $gateway;
+
     /**
+     * @description The instance run ID.
+     *
+     * @example T3_123
+     *
      * @var string
      */
     public $processId;
     protected $_name = [
-        'gateway'   => 'Gateway',
+        'gateway' => 'Gateway',
         'processId' => 'ProcessId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->gateway) {
             $res['Gateway'] = $this->gateway;
         }
-
         if (null !== $this->processId) {
             $res['ProcessId'] = $this->processId;
         }
@@ -40,18 +45,17 @@ class runtime extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return runtime
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Gateway'])) {
             $model->gateway = $map['Gateway'];
         }
-
         if (isset($map['ProcessId'])) {
             $model->processId = $map['ProcessId'];
         }

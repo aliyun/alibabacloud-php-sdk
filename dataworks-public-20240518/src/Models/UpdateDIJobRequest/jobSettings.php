@@ -4,96 +4,93 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobRequest\jobSettings\columnDataTypeSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobRequest\jobSettings\cycleScheduleSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobRequest\jobSettings\ddlHandlingSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIJobRequest\jobSettings\runtimeSettings;
+use AlibabaCloud\Tea\Model;
 
 class jobSettings extends Model
 {
     /**
+     * @description The channel control settings for the synchronization task. The value of this parameter must be a JSON string.
+     *
+     * @example {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
+     *
      * @var string
      */
     public $channelSettings;
+
     /**
+     * @description The data type mappings between source fields and destination fields.
+     *
      * @var columnDataTypeSettings[]
      */
     public $columnDataTypeSettings;
+
     /**
+     * @description The settings for periodic scheduling.
+     *
      * @var cycleScheduleSettings
      */
     public $cycleScheduleSettings;
+
     /**
+     * @description The processing settings for DDL messages.
+     *
      * @var ddlHandlingSettings[]
      */
     public $ddlHandlingSettings;
+
     /**
+     * @description The runtime settings.
+     *
      * @var runtimeSettings[]
      */
     public $runtimeSettings;
     protected $_name = [
-        'channelSettings'        => 'ChannelSettings',
+        'channelSettings' => 'ChannelSettings',
         'columnDataTypeSettings' => 'ColumnDataTypeSettings',
-        'cycleScheduleSettings'  => 'CycleScheduleSettings',
-        'ddlHandlingSettings'    => 'DdlHandlingSettings',
-        'runtimeSettings'        => 'RuntimeSettings',
+        'cycleScheduleSettings' => 'CycleScheduleSettings',
+        'ddlHandlingSettings' => 'DdlHandlingSettings',
+        'runtimeSettings' => 'RuntimeSettings',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->columnDataTypeSettings)) {
-            Model::validateArray($this->columnDataTypeSettings);
-        }
-        if (null !== $this->cycleScheduleSettings) {
-            $this->cycleScheduleSettings->validate();
-        }
-        if (\is_array($this->ddlHandlingSettings)) {
-            Model::validateArray($this->ddlHandlingSettings);
-        }
-        if (\is_array($this->runtimeSettings)) {
-            Model::validateArray($this->runtimeSettings);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channelSettings) {
             $res['ChannelSettings'] = $this->channelSettings;
         }
-
         if (null !== $this->columnDataTypeSettings) {
-            if (\is_array($this->columnDataTypeSettings)) {
-                $res['ColumnDataTypeSettings'] = [];
-                $n1                            = 0;
-                foreach ($this->columnDataTypeSettings as $item1) {
-                    $res['ColumnDataTypeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ColumnDataTypeSettings'] = [];
+            if (null !== $this->columnDataTypeSettings && \is_array($this->columnDataTypeSettings)) {
+                $n = 0;
+                foreach ($this->columnDataTypeSettings as $item) {
+                    $res['ColumnDataTypeSettings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->cycleScheduleSettings) {
-            $res['CycleScheduleSettings'] = null !== $this->cycleScheduleSettings ? $this->cycleScheduleSettings->toArray($noStream) : $this->cycleScheduleSettings;
+            $res['CycleScheduleSettings'] = null !== $this->cycleScheduleSettings ? $this->cycleScheduleSettings->toMap() : null;
         }
-
         if (null !== $this->ddlHandlingSettings) {
-            if (\is_array($this->ddlHandlingSettings)) {
-                $res['DdlHandlingSettings'] = [];
-                $n1                         = 0;
-                foreach ($this->ddlHandlingSettings as $item1) {
-                    $res['DdlHandlingSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DdlHandlingSettings'] = [];
+            if (null !== $this->ddlHandlingSettings && \is_array($this->ddlHandlingSettings)) {
+                $n = 0;
+                foreach ($this->ddlHandlingSettings as $item) {
+                    $res['DdlHandlingSettings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->runtimeSettings) {
-            if (\is_array($this->runtimeSettings)) {
-                $res['RuntimeSettings'] = [];
-                $n1                     = 0;
-                foreach ($this->runtimeSettings as $item1) {
-                    $res['RuntimeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RuntimeSettings'] = [];
+            if (null !== $this->runtimeSettings && \is_array($this->runtimeSettings)) {
+                $n = 0;
+                foreach ($this->runtimeSettings as $item) {
+                    $res['RuntimeSettings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -101,48 +98,44 @@ class jobSettings extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return jobSettings
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelSettings'])) {
             $model->channelSettings = $map['ChannelSettings'];
         }
-
         if (isset($map['ColumnDataTypeSettings'])) {
             if (!empty($map['ColumnDataTypeSettings'])) {
                 $model->columnDataTypeSettings = [];
-                $n1                            = 0;
-                foreach ($map['ColumnDataTypeSettings'] as $item1) {
-                    $model->columnDataTypeSettings[$n1++] = columnDataTypeSettings::fromMap($item1);
+                $n = 0;
+                foreach ($map['ColumnDataTypeSettings'] as $item) {
+                    $model->columnDataTypeSettings[$n++] = null !== $item ? columnDataTypeSettings::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['CycleScheduleSettings'])) {
             $model->cycleScheduleSettings = cycleScheduleSettings::fromMap($map['CycleScheduleSettings']);
         }
-
         if (isset($map['DdlHandlingSettings'])) {
             if (!empty($map['DdlHandlingSettings'])) {
                 $model->ddlHandlingSettings = [];
-                $n1                         = 0;
-                foreach ($map['DdlHandlingSettings'] as $item1) {
-                    $model->ddlHandlingSettings[$n1++] = ddlHandlingSettings::fromMap($item1);
+                $n = 0;
+                foreach ($map['DdlHandlingSettings'] as $item) {
+                    $model->ddlHandlingSettings[$n++] = null !== $item ? ddlHandlingSettings::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RuntimeSettings'])) {
             if (!empty($map['RuntimeSettings'])) {
                 $model->runtimeSettings = [];
-                $n1                     = 0;
-                foreach ($map['RuntimeSettings'] as $item1) {
-                    $model->runtimeSettings[$n1++] = runtimeSettings::fromMap($item1);
+                $n = 0;
+                foreach ($map['RuntimeSettings'] as $item) {
+                    $model->runtimeSettings[$n++] = null !== $item ? runtimeSettings::fromMap($item) : $item;
                 }
             }
         }

@@ -4,70 +4,59 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleResponseBody\alertRule\triggerCondition\extension;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class error extends Model
 {
     /**
+     * @description Indicates whether an alert is triggered if a batch synchronization task is automatically rerun upon a failure.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoRerunAlertEnabled;
+
     /**
+     * @description The IDs of the real-time computing tasks. This parameter is required when you monitor real-time computing tasks.
+     *
      * @var int[]
      */
     public $streamTaskIds;
     protected $_name = [
         'autoRerunAlertEnabled' => 'AutoRerunAlertEnabled',
-        'streamTaskIds'         => 'StreamTaskIds',
+        'streamTaskIds' => 'StreamTaskIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->streamTaskIds)) {
-            Model::validateArray($this->streamTaskIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoRerunAlertEnabled) {
             $res['AutoRerunAlertEnabled'] = $this->autoRerunAlertEnabled;
         }
-
         if (null !== $this->streamTaskIds) {
-            if (\is_array($this->streamTaskIds)) {
-                $res['StreamTaskIds'] = [];
-                $n1                   = 0;
-                foreach ($this->streamTaskIds as $item1) {
-                    $res['StreamTaskIds'][$n1++] = $item1;
-                }
-            }
+            $res['StreamTaskIds'] = $this->streamTaskIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return error
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoRerunAlertEnabled'])) {
             $model->autoRerunAlertEnabled = $map['AutoRerunAlertEnabled'];
         }
-
         if (isset($map['StreamTaskIds'])) {
             if (!empty($map['StreamTaskIds'])) {
-                $model->streamTaskIds = [];
-                $n1                   = 0;
-                foreach ($map['StreamTaskIds'] as $item1) {
-                    $model->streamTaskIds[$n1++] = $item1;
-                }
+                $model->streamTaskIds = $map['StreamTaskIds'];
             }
         }
 
