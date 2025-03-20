@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DisableUserResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DisableUserResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DisableUserResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DisableUserResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,35 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateIdentityProviderResponseBody extends Model
 {
     /**
+     * @example idp_mwpcwnhrimlr2horxXXXX
+     *
      * @var string
      */
     public $identityProviderId;
+
     /**
+     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'identityProviderId' => 'IdentityProviderId',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->identityProviderId) {
             $res['IdentityProviderId'] = $this->identityProviderId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +41,17 @@ class CreateIdentityProviderResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateIdentityProviderResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IdentityProviderId'])) {
             $model->identityProviderId = $map['IdentityProviderId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSynchronizationJobRequest extends Model
 {
     /**
+     * @description IDaaS EIAM实例的ID。
+     *
+     * This parameter is required.
+     *
+     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
+     *
      * @var string
      */
     public $instanceId;
+
     /**
+     * @description 同步任务ID
+     *
+     * This parameter is required.
+     *
+     * @example sync_0000347vjovtcf41li0fgsd98gn24q9njxxxxx
+     *
      * @var string
      */
     public $synchronizationJobId;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'synchronizationJobId' => 'SynchronizationJobId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->synchronizationJobId) {
             $res['SynchronizationJobId'] = $this->synchronizationJobId;
         }
@@ -40,18 +49,17 @@ class GetSynchronizationJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSynchronizationJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['SynchronizationJobId'])) {
             $model->synchronizationJobId = $map['SynchronizationJobId'];
         }

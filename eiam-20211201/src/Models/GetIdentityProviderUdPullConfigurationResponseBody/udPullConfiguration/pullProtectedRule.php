@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderUdPullConfigurationResponseBody\udPullConfiguration;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pullProtectedRule extends Model
 {
     /**
+     * @description 同步保护规则-删除组数量
+     *
+     * @example 10
+     *
      * @var int
      */
     public $groupDeletedThreshold;
+
     /**
+     * @description IDaaS EIAM 钉钉一方应用同步保护规则-删除组织数量
+     *
+     * @example 10
+     *
      * @var int
      */
     public $organizationalUnitDeletedThreshold;
+
     /**
+     * @description IDaaS EIAM 钉钉一方应用同步保护规则-删除账户数量
+     *
+     * @example 30
+     *
      * @var int
      */
     public $userDeletedThreshold;
     protected $_name = [
-        'groupDeletedThreshold'              => 'GroupDeletedThreshold',
+        'groupDeletedThreshold' => 'GroupDeletedThreshold',
         'organizationalUnitDeletedThreshold' => 'OrganizationalUnitDeletedThreshold',
-        'userDeletedThreshold'               => 'UserDeletedThreshold',
+        'userDeletedThreshold' => 'UserDeletedThreshold',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupDeletedThreshold) {
             $res['GroupDeletedThreshold'] = $this->groupDeletedThreshold;
         }
-
         if (null !== $this->organizationalUnitDeletedThreshold) {
             $res['OrganizationalUnitDeletedThreshold'] = $this->organizationalUnitDeletedThreshold;
         }
-
         if (null !== $this->userDeletedThreshold) {
             $res['UserDeletedThreshold'] = $this->userDeletedThreshold;
         }
@@ -49,22 +58,20 @@ class pullProtectedRule extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pullProtectedRule
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupDeletedThreshold'])) {
             $model->groupDeletedThreshold = $map['GroupDeletedThreshold'];
         }
-
         if (isset($map['OrganizationalUnitDeletedThreshold'])) {
             $model->organizationalUnitDeletedThreshold = $map['OrganizationalUnitDeletedThreshold'];
         }
-
         if (isset($map['UserDeletedThreshold'])) {
             $model->userDeletedThreshold = $map['UserDeletedThreshold'];
         }

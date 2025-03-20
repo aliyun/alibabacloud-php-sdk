@@ -4,71 +4,62 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationProvisioningScopeResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class applicationProvisioningScope extends Model
 {
     /**
+     * @description Synchronize the list of authorized groups
+     *
      * @var string[]
      */
     public $groupIds;
+
     /**
+     * @description Instance Indicates the maximum quota number of authorized agents
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxQuota;
+
     /**
+     * @description The list of organizational units that are authorized for account synchronization.
+     *
      * @var string[]
      */
     public $organizationalUnitIds;
+
     /**
+     * @description Indicates the quota number of used authorized agents
+     *
+     * @example 10
+     *
      * @var int
      */
     public $usedQuota;
     protected $_name = [
-        'groupIds'              => 'GroupIds',
-        'maxQuota'              => 'MaxQuota',
+        'groupIds' => 'GroupIds',
+        'maxQuota' => 'MaxQuota',
         'organizationalUnitIds' => 'OrganizationalUnitIds',
-        'usedQuota'             => 'UsedQuota',
+        'usedQuota' => 'UsedQuota',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->groupIds)) {
-            Model::validateArray($this->groupIds);
-        }
-        if (\is_array($this->organizationalUnitIds)) {
-            Model::validateArray($this->organizationalUnitIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupIds) {
-            if (\is_array($this->groupIds)) {
-                $res['GroupIds'] = [];
-                $n1              = 0;
-                foreach ($this->groupIds as $item1) {
-                    $res['GroupIds'][$n1++] = $item1;
-                }
-            }
+            $res['GroupIds'] = $this->groupIds;
         }
-
         if (null !== $this->maxQuota) {
             $res['MaxQuota'] = $this->maxQuota;
         }
-
         if (null !== $this->organizationalUnitIds) {
-            if (\is_array($this->organizationalUnitIds)) {
-                $res['OrganizationalUnitIds'] = [];
-                $n1                           = 0;
-                foreach ($this->organizationalUnitIds as $item1) {
-                    $res['OrganizationalUnitIds'][$n1++] = $item1;
-                }
-            }
+            $res['OrganizationalUnitIds'] = $this->organizationalUnitIds;
         }
-
         if (null !== $this->usedQuota) {
             $res['UsedQuota'] = $this->usedQuota;
         }
@@ -76,38 +67,27 @@ class applicationProvisioningScope extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return applicationProvisioningScope
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupIds'])) {
             if (!empty($map['GroupIds'])) {
-                $model->groupIds = [];
-                $n1              = 0;
-                foreach ($map['GroupIds'] as $item1) {
-                    $model->groupIds[$n1++] = $item1;
-                }
+                $model->groupIds = $map['GroupIds'];
             }
         }
-
         if (isset($map['MaxQuota'])) {
             $model->maxQuota = $map['MaxQuota'];
         }
-
         if (isset($map['OrganizationalUnitIds'])) {
             if (!empty($map['OrganizationalUnitIds'])) {
-                $model->organizationalUnitIds = [];
-                $n1                           = 0;
-                foreach ($map['OrganizationalUnitIds'] as $item1) {
-                    $model->organizationalUnitIds[$n1++] = $item1;
-                }
+                $model->organizationalUnitIds = $map['OrganizationalUnitIds'];
             }
         }
-
         if (isset($map['UsedQuota'])) {
             $model->usedQuota = $map['UsedQuota'];
         }

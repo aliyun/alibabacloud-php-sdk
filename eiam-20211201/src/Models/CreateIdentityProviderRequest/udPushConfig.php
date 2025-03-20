@@ -4,54 +4,56 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\udPushConfig\udSyncScopeConfigs;
+use AlibabaCloud\Tea\Model;
 
 class udPushConfig extends Model
 {
     /**
+     * @description 增量回调状态，是否处理来自IdP的增量回调数据
+     *
+     * @example disabled
+     *
      * @var string
      */
     public $incrementalCallbackStatus;
+
     /**
+     * @example disabled
+     *
      * @var string
      */
     public $periodicSyncStatus;
+
     /**
+     * @description 同步出配置信息
+     *
      * @var udSyncScopeConfigs[]
      */
     public $udSyncScopeConfigs;
     protected $_name = [
         'incrementalCallbackStatus' => 'IncrementalCallbackStatus',
-        'periodicSyncStatus'        => 'PeriodicSyncStatus',
-        'udSyncScopeConfigs'        => 'UdSyncScopeConfigs',
+        'periodicSyncStatus' => 'PeriodicSyncStatus',
+        'udSyncScopeConfigs' => 'UdSyncScopeConfigs',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->udSyncScopeConfigs)) {
-            Model::validateArray($this->udSyncScopeConfigs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->incrementalCallbackStatus) {
             $res['IncrementalCallbackStatus'] = $this->incrementalCallbackStatus;
         }
-
         if (null !== $this->periodicSyncStatus) {
             $res['PeriodicSyncStatus'] = $this->periodicSyncStatus;
         }
-
         if (null !== $this->udSyncScopeConfigs) {
-            if (\is_array($this->udSyncScopeConfigs)) {
-                $res['UdSyncScopeConfigs'] = [];
-                $n1                        = 0;
-                foreach ($this->udSyncScopeConfigs as $item1) {
-                    $res['UdSyncScopeConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['UdSyncScopeConfigs'] = [];
+            if (null !== $this->udSyncScopeConfigs && \is_array($this->udSyncScopeConfigs)) {
+                $n = 0;
+                foreach ($this->udSyncScopeConfigs as $item) {
+                    $res['UdSyncScopeConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -59,28 +61,26 @@ class udPushConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return udPushConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IncrementalCallbackStatus'])) {
             $model->incrementalCallbackStatus = $map['IncrementalCallbackStatus'];
         }
-
         if (isset($map['PeriodicSyncStatus'])) {
             $model->periodicSyncStatus = $map['PeriodicSyncStatus'];
         }
-
         if (isset($map['UdSyncScopeConfigs'])) {
             if (!empty($map['UdSyncScopeConfigs'])) {
                 $model->udSyncScopeConfigs = [];
-                $n1                        = 0;
-                foreach ($map['UdSyncScopeConfigs'] as $item1) {
-                    $model->udSyncScopeConfigs[$n1++] = udSyncScopeConfigs::fromMap($item1);
+                $n = 0;
+                foreach ($map['UdSyncScopeConfigs'] as $item) {
+                    $model->udSyncScopeConfigs[$n++] = null !== $item ? udSyncScopeConfigs::fromMap($item) : $item;
                 }
             }
         }

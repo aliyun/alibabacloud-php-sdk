@@ -4,44 +4,62 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateApplicationAuthorizationTypeRequest extends Model
 {
     /**
+     * @description The ID of the application that you want to modify.
+     *
+     * This parameter is required.
+     *
+     * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
+     *
      * @var string
      */
     public $applicationId;
+
     /**
+     * @description The authorization type of the application. Valid values:
+     *
+     *   authorize_required: Only the user with explicit authorization can access the application.
+     *   default_all: By default, all users can access the application.
+     *
+     * This parameter is required.
+     *
+     * @example authorize_required
+     *
      * @var string
      */
     public $authorizationType;
+
     /**
+     * @description The ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
+     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'applicationId'     => 'ApplicationId',
+        'applicationId' => 'ApplicationId',
         'authorizationType' => 'AuthorizationType',
-        'instanceId'        => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
-
         if (null !== $this->authorizationType) {
             $res['AuthorizationType'] = $this->authorizationType;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,22 +67,20 @@ class UpdateApplicationAuthorizationTypeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateApplicationAuthorizationTypeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
-
         if (isset($map['AuthorizationType'])) {
             $model->authorizationType = $map['AuthorizationType'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

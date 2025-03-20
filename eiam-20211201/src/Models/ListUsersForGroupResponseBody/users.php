@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersForGroupResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class users extends Model
 {
     /**
+     * @description Account membership source id
+     *
+     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
+     *
      * @var string
      */
     public $groupMemberRelationSourceId;
+
     /**
+     * @description Account membership source type
+     *
+     * @example build_in
+     *
      * @var string
      */
     public $groupMemberRelationSourceType;
+
     /**
+     * @description The account ID.
+     *
+     * @example user_d6sbsuumeta4h66ec3il7yxxxx
+     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'groupMemberRelationSourceId'   => 'GroupMemberRelationSourceId',
+        'groupMemberRelationSourceId' => 'GroupMemberRelationSourceId',
         'groupMemberRelationSourceType' => 'GroupMemberRelationSourceType',
-        'userId'                        => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupMemberRelationSourceId) {
             $res['GroupMemberRelationSourceId'] = $this->groupMemberRelationSourceId;
         }
-
         if (null !== $this->groupMemberRelationSourceType) {
             $res['GroupMemberRelationSourceType'] = $this->groupMemberRelationSourceType;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -49,22 +58,20 @@ class users extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return users
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupMemberRelationSourceId'])) {
             $model->groupMemberRelationSourceId = $map['GroupMemberRelationSourceId'];
         }
-
         if (isset($map['GroupMemberRelationSourceType'])) {
             $model->groupMemberRelationSourceType = $map['GroupMemberRelationSourceType'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

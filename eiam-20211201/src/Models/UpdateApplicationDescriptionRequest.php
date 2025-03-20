@@ -4,44 +4,57 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateApplicationDescriptionRequest extends Model
 {
     /**
+     * @description The ID of the application that you want to modify.
+     *
+     * This parameter is required.
+     *
+     * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
+     *
      * @var string
      */
     public $applicationId;
+
     /**
+     * @description The description of the application.
+     *
+     * @example A demo application that is used for test.
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example idaas_ue2jvisn35ea5lmthk2676xxxx
+     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'description'   => 'Description',
-        'instanceId'    => 'InstanceId',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,22 +62,20 @@ class UpdateApplicationDescriptionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateApplicationDescriptionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

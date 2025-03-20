@@ -4,39 +4,39 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationGrantScopeResponseBody\applicationGrantScope;
+use AlibabaCloud\Tea\Model;
 
 class GetApplicationGrantScopeResponseBody extends Model
 {
     /**
+     * @description The permissions of the Developer API feature.
+     *
      * @var applicationGrantScope
      */
     public $applicationGrantScope;
+
     /**
+     * @description The ID of the request.
+     *
+     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'applicationGrantScope' => 'ApplicationGrantScope',
-        'requestId'             => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->applicationGrantScope) {
-            $this->applicationGrantScope->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationGrantScope) {
-            $res['ApplicationGrantScope'] = null !== $this->applicationGrantScope ? $this->applicationGrantScope->toArray($noStream) : $this->applicationGrantScope;
+            $res['ApplicationGrantScope'] = null !== $this->applicationGrantScope ? $this->applicationGrantScope->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +44,17 @@ class GetApplicationGrantScopeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetApplicationGrantScopeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationGrantScope'])) {
             $model->applicationGrantScope = applicationGrantScope::fromMap($map['ApplicationGrantScope']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

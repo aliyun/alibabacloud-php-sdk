@@ -4,98 +4,116 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateIdentityProviderRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ldapConfig extends Model
 {
     /**
+     * @description 管理员密码
+     *
+     * @example xxxxxx
+     *
      * @var string
      */
     public $administratorPassword;
+
     /**
+     * @description 管理员账号
+     *
+     * @example DC=example,DC=com
+     *
      * @var string
      */
     public $administratorUsername;
+
     /**
+     * @description 是否验证指纹证书
+     *
+     * @example enabled
+     *
      * @var string
      */
     public $certificateFingerprintStatus;
+
     /**
+     * @description 证书指纹列表
+     *
      * @var string[]
      */
     public $certificateFingerprints;
+
     /**
+     * @description 通信协议
+     *
+     * @example ldap
+     *
      * @var string
      */
     public $ldapProtocol;
+
     /**
+     * @description ad/ldap 服务器地址
+     *
+     * @example 123.xx.xx.89
+     *
      * @var string
      */
     public $ldapServerHost;
+
     /**
+     * @description 端口号
+     *
+     * @example 636
+     *
      * @var int
      */
     public $ldapServerPort;
+
     /**
+     * @description startTls是否开启
+     *
+     * @example enabled
+     *
      * @var string
      */
     public $startTlsStatus;
     protected $_name = [
-        'administratorPassword'        => 'AdministratorPassword',
-        'administratorUsername'        => 'AdministratorUsername',
+        'administratorPassword' => 'AdministratorPassword',
+        'administratorUsername' => 'AdministratorUsername',
         'certificateFingerprintStatus' => 'CertificateFingerprintStatus',
-        'certificateFingerprints'      => 'CertificateFingerprints',
-        'ldapProtocol'                 => 'LdapProtocol',
-        'ldapServerHost'               => 'LdapServerHost',
-        'ldapServerPort'               => 'LdapServerPort',
-        'startTlsStatus'               => 'StartTlsStatus',
+        'certificateFingerprints' => 'CertificateFingerprints',
+        'ldapProtocol' => 'LdapProtocol',
+        'ldapServerHost' => 'LdapServerHost',
+        'ldapServerPort' => 'LdapServerPort',
+        'startTlsStatus' => 'StartTlsStatus',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->certificateFingerprints)) {
-            Model::validateArray($this->certificateFingerprints);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->administratorPassword) {
             $res['AdministratorPassword'] = $this->administratorPassword;
         }
-
         if (null !== $this->administratorUsername) {
             $res['AdministratorUsername'] = $this->administratorUsername;
         }
-
         if (null !== $this->certificateFingerprintStatus) {
             $res['CertificateFingerprintStatus'] = $this->certificateFingerprintStatus;
         }
-
         if (null !== $this->certificateFingerprints) {
-            if (\is_array($this->certificateFingerprints)) {
-                $res['CertificateFingerprints'] = [];
-                $n1                             = 0;
-                foreach ($this->certificateFingerprints as $item1) {
-                    $res['CertificateFingerprints'][$n1++] = $item1;
-                }
-            }
+            $res['CertificateFingerprints'] = $this->certificateFingerprints;
         }
-
         if (null !== $this->ldapProtocol) {
             $res['LdapProtocol'] = $this->ldapProtocol;
         }
-
         if (null !== $this->ldapServerHost) {
             $res['LdapServerHost'] = $this->ldapServerHost;
         }
-
         if (null !== $this->ldapServerPort) {
             $res['LdapServerPort'] = $this->ldapServerPort;
         }
-
         if (null !== $this->startTlsStatus) {
             $res['StartTlsStatus'] = $this->startTlsStatus;
         }
@@ -103,48 +121,37 @@ class ldapConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ldapConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdministratorPassword'])) {
             $model->administratorPassword = $map['AdministratorPassword'];
         }
-
         if (isset($map['AdministratorUsername'])) {
             $model->administratorUsername = $map['AdministratorUsername'];
         }
-
         if (isset($map['CertificateFingerprintStatus'])) {
             $model->certificateFingerprintStatus = $map['CertificateFingerprintStatus'];
         }
-
         if (isset($map['CertificateFingerprints'])) {
             if (!empty($map['CertificateFingerprints'])) {
-                $model->certificateFingerprints = [];
-                $n1                             = 0;
-                foreach ($map['CertificateFingerprints'] as $item1) {
-                    $model->certificateFingerprints[$n1++] = $item1;
-                }
+                $model->certificateFingerprints = $map['CertificateFingerprints'];
             }
         }
-
         if (isset($map['LdapProtocol'])) {
             $model->ldapProtocol = $map['LdapProtocol'];
         }
-
         if (isset($map['LdapServerHost'])) {
             $model->ldapServerHost = $map['LdapServerHost'];
         }
-
         if (isset($map['LdapServerPort'])) {
             $model->ldapServerPort = $map['LdapServerPort'];
         }
-
         if (isset($map['StartTlsStatus'])) {
             $model->startTlsStatus = $map['StartTlsStatus'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateInstanceRequest extends Model
 {
     /**
+     * @description The description of the instance. The description can be up to 128 characters in length.
+     *
+     * @example instance_for_test
+     *
      * @var string
      */
     public $description;
@@ -16,12 +20,9 @@ class CreateInstanceRequest extends Model
         'description' => 'Description',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
@@ -31,11 +32,11 @@ class CreateInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

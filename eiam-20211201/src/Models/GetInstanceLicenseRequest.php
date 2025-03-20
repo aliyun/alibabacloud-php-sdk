@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetInstanceLicenseRequest extends Model
 {
     /**
+     * @description Instance ID
+     *
+     * This parameter is required.
+     *
+     * @example idaas_ue2jvisn35ea5lmthk2676xxxx
+     *
      * @var string
      */
     public $instanceId;
@@ -16,12 +22,9 @@ class GetInstanceLicenseRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -31,11 +34,11 @@ class GetInstanceLicenseRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetInstanceLicenseRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

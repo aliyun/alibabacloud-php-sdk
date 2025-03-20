@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListNetworkAccessEndpointAvailableZonesRequest extends Model
 {
     /**
+     * @description 专属网络端点支持的地域
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $naeRegionId;
@@ -16,12 +22,9 @@ class ListNetworkAccessEndpointAvailableZonesRequest extends Model
         'naeRegionId' => 'NaeRegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->naeRegionId) {
@@ -31,11 +34,11 @@ class ListNetworkAccessEndpointAvailableZonesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListNetworkAccessEndpointAvailableZonesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

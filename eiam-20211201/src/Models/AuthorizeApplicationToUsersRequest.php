@@ -4,83 +4,83 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AuthorizeApplicationToUsersRequest extends Model
 {
     /**
+     * @description The ID of the application on which you want to grant permissions.
+     *
+     * This parameter is required.
+     *
+     * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
+     *
      * @var string
      */
     public $applicationId;
+
     /**
+     * @description The ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example idaas_ue2jvisn35ea5lmthk2676xxxx
+     *
      * @var string
      */
     public $instanceId;
+
     /**
+     * @description The IDs of the accounts to which you want to grant permissions. You can grant permissions to a maximum of 100 accounts at a time.
+     *
+     * This parameter is required.
+     *
+     * @example user_d6sbsuumeta4h66ec3il7yxxxx
+     *
      * @var string[]
      */
     public $userIds;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'instanceId'    => 'InstanceId',
-        'userIds'       => 'UserIds',
+        'instanceId' => 'InstanceId',
+        'userIds' => 'UserIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->userIds)) {
-            Model::validateArray($this->userIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->userIds) {
-            if (\is_array($this->userIds)) {
-                $res['UserIds'] = [];
-                $n1             = 0;
-                foreach ($this->userIds as $item1) {
-                    $res['UserIds'][$n1++] = $item1;
-                }
-            }
+            $res['UserIds'] = $this->userIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AuthorizeApplicationToUsersRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['UserIds'])) {
             if (!empty($map['UserIds'])) {
-                $model->userIds = [];
-                $n1             = 0;
-                foreach ($map['UserIds'] as $item1) {
-                    $model->userIds[$n1++] = $item1;
-                }
+                $model->userIds = $map['UserIds'];
             }
         }
 

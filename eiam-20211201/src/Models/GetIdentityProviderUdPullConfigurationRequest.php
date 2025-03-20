@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetIdentityProviderUdPullConfigurationRequest extends Model
 {
     /**
+     * @description IDaaS的身份提供方主键id
+     *
+     * This parameter is required.
+     *
+     * @example idp_my664lwkhpicbyzirog3xxxxx
+     *
      * @var string
      */
     public $identityProviderId;
+
     /**
+     * @description IDaaS EIAM实例的ID。
+     *
+     * This parameter is required.
+     *
+     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
+     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'identityProviderId' => 'IdentityProviderId',
-        'instanceId'         => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->identityProviderId) {
             $res['IdentityProviderId'] = $this->identityProviderId;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -40,18 +49,17 @@ class GetIdentityProviderUdPullConfigurationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetIdentityProviderUdPullConfigurationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IdentityProviderId'])) {
             $model->identityProviderId = $map['IdentityProviderId'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

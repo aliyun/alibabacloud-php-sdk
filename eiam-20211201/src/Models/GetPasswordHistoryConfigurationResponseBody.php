@@ -4,39 +4,39 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetPasswordHistoryConfigurationResponseBody\passwordHistoryConfiguration;
+use AlibabaCloud\Tea\Model;
 
 class GetPasswordHistoryConfigurationResponseBody extends Model
 {
     /**
+     * @description The password history configurations.
+     *
      * @var passwordHistoryConfiguration
      */
     public $passwordHistoryConfiguration;
+
     /**
+     * @description The request ID.
+     *
+     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'passwordHistoryConfiguration' => 'PasswordHistoryConfiguration',
-        'requestId'                    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->passwordHistoryConfiguration) {
-            $this->passwordHistoryConfiguration->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->passwordHistoryConfiguration) {
-            $res['PasswordHistoryConfiguration'] = null !== $this->passwordHistoryConfiguration ? $this->passwordHistoryConfiguration->toArray($noStream) : $this->passwordHistoryConfiguration;
+            $res['PasswordHistoryConfiguration'] = null !== $this->passwordHistoryConfiguration ? $this->passwordHistoryConfiguration->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +44,17 @@ class GetPasswordHistoryConfigurationResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetPasswordHistoryConfigurationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PasswordHistoryConfiguration'])) {
             $model->passwordHistoryConfiguration = passwordHistoryConfiguration::fromMap($map['PasswordHistoryConfiguration']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

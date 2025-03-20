@@ -4,44 +4,38 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\udPushConfig;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class udSyncScopeConfigs extends Model
 {
     /**
+     * @description 同步来源节点
+     *
      * @var string[]
      */
     public $sourceScopes;
+
     /**
+     * @description 同步目标节点
+     *
+     * @example ou_lyhyy6p7yf7mdrdiq5xxxx
+     *
      * @var string
      */
     public $targetScope;
     protected $_name = [
         'sourceScopes' => 'SourceScopes',
-        'targetScope'  => 'TargetScope',
+        'targetScope' => 'TargetScope',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->sourceScopes)) {
-            Model::validateArray($this->sourceScopes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->sourceScopes) {
-            if (\is_array($this->sourceScopes)) {
-                $res['SourceScopes'] = [];
-                $n1                  = 0;
-                foreach ($this->sourceScopes as $item1) {
-                    $res['SourceScopes'][$n1++] = $item1;
-                }
-            }
+            $res['SourceScopes'] = $this->sourceScopes;
         }
-
         if (null !== $this->targetScope) {
             $res['TargetScope'] = $this->targetScope;
         }
@@ -49,24 +43,19 @@ class udSyncScopeConfigs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return udSyncScopeConfigs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SourceScopes'])) {
             if (!empty($map['SourceScopes'])) {
-                $model->sourceScopes = [];
-                $n1                  = 0;
-                foreach ($map['SourceScopes'] as $item1) {
-                    $model->sourceScopes[$n1++] = $item1;
-                }
+                $model->sourceScopes = $map['SourceScopes'];
             }
         }
-
         if (isset($map['TargetScope'])) {
             $model->targetScope = $map['TargetScope'];
         }

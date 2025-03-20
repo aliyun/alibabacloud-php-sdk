@@ -4,44 +4,59 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DisableDomainProxyTokenRequest extends Model
 {
     /**
+     * @description 域名ID。
+     *
+     * This parameter is required.
+     *
+     * @example dm_examplexxxxx
+     *
      * @var string
      */
     public $domainId;
+
     /**
+     * @description 域名代理Token ID。
+     *
+     * This parameter is required.
+     *
+     * @example pt_examplexxxx
+     *
      * @var string
      */
     public $domainProxyTokenId;
+
     /**
+     * @description IDaaS EIAM实例的ID。
+     *
+     * This parameter is required.
+     *
+     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
+     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'domainId'           => 'DomainId',
+        'domainId' => 'DomainId',
         'domainProxyTokenId' => 'DomainProxyTokenId',
-        'instanceId'         => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
         }
-
         if (null !== $this->domainProxyTokenId) {
             $res['DomainProxyTokenId'] = $this->domainProxyTokenId;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,22 +64,20 @@ class DisableDomainProxyTokenRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DisableDomainProxyTokenRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
         }
-
         if (isset($map['DomainProxyTokenId'])) {
             $model->domainProxyTokenId = $map['DomainProxyTokenId'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

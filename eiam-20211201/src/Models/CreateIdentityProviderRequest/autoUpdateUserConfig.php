@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class autoUpdateUserConfig extends Model
 {
     /**
+     * @description 自动更新账户是否开启
+     *
+     * @example disabled
+     *
      * @var string
      */
     public $autoUpdateUserStatus;
@@ -16,12 +20,9 @@ class autoUpdateUserConfig extends Model
         'autoUpdateUserStatus' => 'AutoUpdateUserStatus',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoUpdateUserStatus) {
@@ -31,11 +32,11 @@ class autoUpdateUserConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return autoUpdateUserConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

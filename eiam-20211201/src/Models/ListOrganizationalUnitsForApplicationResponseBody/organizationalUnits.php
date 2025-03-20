@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsForApplicationResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class organizationalUnits extends Model
 {
     /**
+     * @description The ID of the organization that is allowed to access the application.
+     *
+     * @example ou_wovwffm62xifdziem7an7xxxxx
+     *
      * @var string
      */
     public $organizationalUnitId;
@@ -16,12 +20,9 @@ class organizationalUnits extends Model
         'organizationalUnitId' => 'OrganizationalUnitId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->organizationalUnitId) {
@@ -31,11 +32,11 @@ class organizationalUnits extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return organizationalUnits
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
