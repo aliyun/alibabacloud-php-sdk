@@ -34,15 +34,13 @@ class AddKeywordsRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'keywords'       => 'Keywords',
+        'keywords' => 'Keywords',
         'keywordsObject' => 'KeywordsObject',
-        'libId'          => 'LibId',
-        'regionId'       => 'RegionId',
+        'libId' => 'LibId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

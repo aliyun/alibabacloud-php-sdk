@@ -16,6 +16,11 @@ class result extends Model
     public $confidence;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @example politics
      *
      * @var string
@@ -23,18 +28,20 @@ class result extends Model
     public $label;
     protected $_name = [
         'confidence' => 'Confidence',
-        'label'      => 'Label',
+        'description' => 'Description',
+        'label' => 'Label',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
@@ -53,6 +60,9 @@ class result extends Model
         $model = new self();
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];

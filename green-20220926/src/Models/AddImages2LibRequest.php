@@ -29,14 +29,12 @@ class AddImages2LibRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'imgUrl'   => 'ImgUrl',
-        'libId'    => 'LibId',
+        'imgUrl' => 'ImgUrl',
+        'libId' => 'LibId',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

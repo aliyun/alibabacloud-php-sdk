@@ -87,22 +87,20 @@ class QueryCallbackResponseBody extends Model
      */
     public $url;
     protected $_name = [
-        'cryptType'          => 'CryptType',
+        'cryptType' => 'CryptType',
         'existsOssCheckTask' => 'ExistsOssCheckTask',
-        'gmtCreate'          => 'GmtCreate',
-        'gmtModified'        => 'GmtModified',
-        'id'                 => 'Id',
-        'name'               => 'Name',
-        'requestId'          => 'RequestId',
-        'scope'              => 'Scope',
-        'seed'               => 'Seed',
-        'uid'                => 'Uid',
-        'url'                => 'Url',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
+        'scope' => 'Scope',
+        'seed' => 'Seed',
+        'uid' => 'Uid',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -29,13 +29,11 @@ class data extends Model
     public $taskId;
     protected $_name = [
         'keywordsResult' => 'KeywordsResult',
-        'libId'          => 'LibId',
-        'taskId'         => 'TaskId',
+        'libId' => 'LibId',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

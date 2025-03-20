@@ -32,15 +32,13 @@ class ListServiceConfigsRequest extends Model
      */
     public $useStatus;
     protected $_name = [
-        'classify'     => 'Classify',
-        'regionId'     => 'RegionId',
+        'classify' => 'Classify',
+        'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
-        'useStatus'    => 'UseStatus',
+        'useStatus' => 'UseStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

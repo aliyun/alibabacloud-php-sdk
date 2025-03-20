@@ -63,18 +63,16 @@ class ListImagesFromLibShrinkRequest extends Model
     public $startDate;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endDate'     => 'EndDate',
-        'imgId'       => 'ImgId',
-        'libId'       => 'LibId',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'sortShrink'  => 'Sort',
-        'startDate'   => 'StartDate',
+        'endDate' => 'EndDate',
+        'imgId' => 'ImgId',
+        'libId' => 'LibId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'sortShrink' => 'Sort',
+        'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

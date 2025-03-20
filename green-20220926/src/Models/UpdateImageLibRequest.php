@@ -39,16 +39,14 @@ class UpdateImageLibRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'comment'        => 'Comment',
+        'comment' => 'Comment',
         'freeInspection' => 'FreeInspection',
-        'libId'          => 'LibId',
-        'libName'        => 'LibName',
-        'regionId'       => 'RegionId',
+        'libId' => 'LibId',
+        'libName' => 'LibName',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

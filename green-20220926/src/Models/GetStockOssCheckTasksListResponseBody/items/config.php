@@ -136,32 +136,30 @@ class config extends Model
      */
     public $taskCycle;
     protected $_name = [
-        'callbackId'           => 'CallbackId',
+        'callbackId' => 'CallbackId',
         'distinctHistoryTasks' => 'DistinctHistoryTasks',
-        'endTime'              => 'EndTime',
-        'executeDate'          => 'ExecuteDate',
-        'executeTime'          => 'ExecuteTime',
-        'freeze'               => 'Freeze',
-        'freezeHighRisk1'      => 'FreezeHighRisk1',
-        'freezeHighRisk2'      => 'FreezeHighRisk2',
-        'freezeMediumRisk1'    => 'FreezeMediumRisk1',
-        'freezeMediumRisk2'    => 'FreezeMediumRisk2',
-        'freezeType'           => 'FreezeType',
-        'prefixFilterType'     => 'PrefixFilterType',
-        'prefixFilters'        => 'PrefixFilters',
-        'priority'             => 'Priority',
-        'scanLimit'            => 'ScanLimit',
-        'scanNoFileType'       => 'ScanNoFileType',
-        'scanResourceType'     => 'ScanResourceType',
-        'scanService'          => 'ScanService',
-        'scanServiceInfos'     => 'ScanServiceInfos',
-        'startTime'            => 'StartTime',
-        'taskCycle'            => 'TaskCycle',
+        'endTime' => 'EndTime',
+        'executeDate' => 'ExecuteDate',
+        'executeTime' => 'ExecuteTime',
+        'freeze' => 'Freeze',
+        'freezeHighRisk1' => 'FreezeHighRisk1',
+        'freezeHighRisk2' => 'FreezeHighRisk2',
+        'freezeMediumRisk1' => 'FreezeMediumRisk1',
+        'freezeMediumRisk2' => 'FreezeMediumRisk2',
+        'freezeType' => 'FreezeType',
+        'prefixFilterType' => 'PrefixFilterType',
+        'prefixFilters' => 'PrefixFilters',
+        'priority' => 'Priority',
+        'scanLimit' => 'ScanLimit',
+        'scanNoFileType' => 'ScanNoFileType',
+        'scanResourceType' => 'ScanResourceType',
+        'scanService' => 'ScanService',
+        'scanServiceInfos' => 'ScanServiceInfos',
+        'startTime' => 'StartTime',
+        'taskCycle' => 'TaskCycle',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -308,7 +306,7 @@ class config extends Model
         if (isset($map['ScanServiceInfos'])) {
             if (!empty($map['ScanServiceInfos'])) {
                 $model->scanServiceInfos = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ScanServiceInfos'] as $item) {
                     $model->scanServiceInfos[$n++] = null !== $item ? scanServiceInfos::fromMap($item) : $item;
                 }

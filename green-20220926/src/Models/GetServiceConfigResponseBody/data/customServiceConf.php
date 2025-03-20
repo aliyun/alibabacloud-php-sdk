@@ -23,14 +23,12 @@ class customServiceConf extends Model
      */
     public $similarTextHitLibs;
     protected $_name = [
-        'keywordFilterLibs'  => 'KeywordFilterLibs',
-        'keywordHitLibs'     => 'KeywordHitLibs',
+        'keywordFilterLibs' => 'KeywordFilterLibs',
+        'keywordHitLibs' => 'KeywordHitLibs',
         'similarTextHitLibs' => 'SimilarTextHitLibs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

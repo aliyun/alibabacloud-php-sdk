@@ -47,16 +47,14 @@ class ListKeywordsShrinkRequest extends Model
     public $word;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'libId'       => 'LibId',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'sortShrink'  => 'Sort',
-        'word'        => 'Word',
+        'libId' => 'LibId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'sortShrink' => 'Sort',
+        'word' => 'Word',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

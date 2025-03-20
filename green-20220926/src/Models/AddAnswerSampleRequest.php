@@ -34,15 +34,13 @@ class AddAnswerSampleRequest extends Model
      */
     public $samples;
     protected $_name = [
-        'libId'        => 'LibId',
-        'regionId'     => 'RegionId',
+        'libId' => 'LibId',
+        'regionId' => 'RegionId',
         'sampleObject' => 'SampleObject',
-        'samples'      => 'Samples',
+        'samples' => 'Samples',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -43,16 +43,14 @@ class items extends Model
      */
     public $uid;
     protected $_name = [
-        'answer'    => 'Answer',
+        'answer' => 'Answer',
         'gmtCreate' => 'GmtCreate',
-        'id'        => 'Id',
-        'libId'     => 'LibId',
-        'uid'       => 'Uid',
+        'id' => 'Id',
+        'libId' => 'LibId',
+        'uid' => 'Uid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,9 +18,7 @@ class data extends Model
         'imgId' => 'ImgId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

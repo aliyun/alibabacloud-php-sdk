@@ -35,6 +35,11 @@ class data extends Model
     public $libName;
 
     /**
+     * @var string
+     */
+    public $serviceCodes;
+
+    /**
      * @description UID。
      *
      * @example 19964*****086772
@@ -43,16 +48,15 @@ class data extends Model
      */
     public $uid;
     protected $_name = [
-        'gmtModified'  => 'GmtModified',
+        'gmtModified' => 'GmtModified',
         'keywordCount' => 'KeywordCount',
-        'libId'        => 'LibId',
-        'libName'      => 'LibName',
-        'uid'          => 'Uid',
+        'libId' => 'LibId',
+        'libName' => 'LibName',
+        'serviceCodes' => 'ServiceCodes',
+        'uid' => 'Uid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -68,6 +72,9 @@ class data extends Model
         }
         if (null !== $this->libName) {
             $res['LibName'] = $this->libName;
+        }
+        if (null !== $this->serviceCodes) {
+            $res['ServiceCodes'] = $this->serviceCodes;
         }
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
@@ -95,6 +102,9 @@ class data extends Model
         }
         if (isset($map['LibName'])) {
             $model->libName = $map['LibName'];
+        }
+        if (isset($map['ServiceCodes'])) {
+            $model->serviceCodes = $map['ServiceCodes'];
         }
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];

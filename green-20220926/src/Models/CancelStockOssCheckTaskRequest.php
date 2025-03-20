@@ -23,12 +23,10 @@ class CancelStockOssCheckTaskRequest extends Model
     public $taskId;
     protected $_name = [
         'regionId' => 'RegionId',
-        'taskId'   => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

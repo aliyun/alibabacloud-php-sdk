@@ -73,20 +73,18 @@ class data extends Model
      */
     public $url;
     protected $_name = [
-        'cryptType'   => 'CryptType',
-        'gmtCreate'   => 'GmtCreate',
+        'cryptType' => 'CryptType',
+        'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
-        'id'          => 'Id',
-        'name'        => 'Name',
-        'scope'       => 'Scope',
-        'seed'        => 'Seed',
-        'uid'         => 'Uid',
-        'url'         => 'Url',
+        'id' => 'Id',
+        'name' => 'Name',
+        'scope' => 'Scope',
+        'seed' => 'Seed',
+        'uid' => 'Uid',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

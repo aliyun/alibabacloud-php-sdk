@@ -35,14 +35,12 @@ class DeleteKeywordRequest extends Model
     public $regionId;
     protected $_name = [
         'keywordIdList' => 'KeywordIdList',
-        'keywordIds'    => 'KeywordIds',
-        'libId'         => 'LibId',
-        'regionId'      => 'RegionId',
+        'keywordIds' => 'KeywordIds',
+        'libId' => 'LibId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

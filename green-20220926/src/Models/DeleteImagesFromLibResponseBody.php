@@ -50,17 +50,15 @@ class DeleteImagesFromLibResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'data'           => 'Data',
+        'code' => 'Code',
+        'data' => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
-        'msg'            => 'Msg',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'msg' => 'Msg',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

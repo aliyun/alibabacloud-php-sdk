@@ -53,18 +53,16 @@ class libList extends Model
      */
     public $libName;
     protected $_name = [
-        'comment'        => 'Comment',
+        'comment' => 'Comment',
         'freeInspection' => 'FreeInspection',
-        'gmtCreate'      => 'GmtCreate',
-        'gmtModified'    => 'GmtModified',
-        'imageNum'       => 'ImageNum',
-        'libId'          => 'LibId',
-        'libName'        => 'LibName',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'imageNum' => 'ImageNum',
+        'libId' => 'LibId',
+        'libName' => 'LibName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

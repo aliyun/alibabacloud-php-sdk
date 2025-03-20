@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class voiceTreeChart extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @example nickNameDetection
      *
      * @var string
@@ -22,17 +27,19 @@ class voiceTreeChart extends Model
      */
     public $value;
     protected $_name = [
-        'name'  => 'Name',
+        'description' => 'Description',
+        'name' => 'Name',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -51,6 +58,9 @@ class voiceTreeChart extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -48,17 +48,15 @@ class items extends Model
      */
     public $word;
     protected $_name = [
-        'gmtCreate'    => 'GmtCreate',
-        'gmtModified'  => 'GmtModified',
-        'id'           => 'Id',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
         'keywordLibId' => 'KeywordLibId',
         'keywordMd5Id' => 'KeywordMd5Id',
-        'word'         => 'Word',
+        'word' => 'Word',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,15 +34,13 @@ class ExportTextScanResultRequest extends Model
      */
     public $startDate;
     protected $_name = [
-        'endDate'   => 'EndDate',
-        'query'     => 'Query',
-        'regionId'  => 'RegionId',
+        'endDate' => 'EndDate',
+        'query' => 'Query',
+        'regionId' => 'RegionId',
         'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

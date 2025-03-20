@@ -27,14 +27,12 @@ class UpdateKeywordLibRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'libId'    => 'LibId',
-        'libName'  => 'LibName',
+        'libId' => 'LibId',
+        'libName' => 'LibName',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

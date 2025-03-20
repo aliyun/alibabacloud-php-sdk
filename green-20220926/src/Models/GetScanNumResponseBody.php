@@ -44,15 +44,13 @@ class GetScanNumResponseBody extends Model
     public $tag;
     protected $_name = [
         'limitNumber' => 'LimitNumber',
-        'requestId'   => 'RequestId',
-        'scanNumber'  => 'ScanNumber',
-        'sumNumber'   => 'SumNumber',
-        'tag'         => 'Tag',
+        'requestId' => 'RequestId',
+        'scanNumber' => 'ScanNumber',
+        'sumNumber' => 'SumNumber',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

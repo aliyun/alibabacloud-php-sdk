@@ -41,16 +41,14 @@ class GetJobNameListShrinkRequest extends Model
      */
     public $startDate;
     protected $_name = [
-        'endDate'    => 'EndDate',
-        'query'      => 'Query',
-        'regionId'   => 'RegionId',
+        'endDate' => 'EndDate',
+        'query' => 'Query',
+        'regionId' => 'RegionId',
         'sortShrink' => 'Sort',
-        'startDate'  => 'StartDate',
+        'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

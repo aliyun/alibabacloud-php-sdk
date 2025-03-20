@@ -28,13 +28,11 @@ class rules extends Model
     public $textScanRule;
     protected $_name = [
         'imageScanRule' => 'ImageScanRule',
-        'index'         => 'Index',
-        'textScanRule'  => 'TextScanRule',
+        'index' => 'Index',
+        'textScanRule' => 'TextScanRule',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

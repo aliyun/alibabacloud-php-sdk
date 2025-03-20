@@ -29,14 +29,12 @@ class GetServiceLabelConfigRequest extends Model
      */
     public $serviceCode;
     protected $_name = [
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
-        'serviceCode'  => 'ServiceCode',
+        'serviceCode' => 'ServiceCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

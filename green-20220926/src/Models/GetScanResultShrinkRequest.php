@@ -60,19 +60,17 @@ class GetScanResultShrinkRequest extends Model
      */
     public $startDate;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
-        'endDate'      => 'EndDate',
-        'pageSize'     => 'PageSize',
-        'queryShrink'  => 'Query',
-        'regionId'     => 'RegionId',
+        'currentPage' => 'CurrentPage',
+        'endDate' => 'EndDate',
+        'pageSize' => 'PageSize',
+        'queryShrink' => 'Query',
+        'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
-        'sortShrink'   => 'Sort',
-        'startDate'    => 'StartDate',
+        'sortShrink' => 'Sort',
+        'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -110,26 +110,24 @@ class items extends Model
      */
     public $taskType;
     protected $_name = [
-        'buckets'         => 'Buckets',
-        'config'          => 'Config',
-        'endTime'         => 'EndTime',
-        'finishNum'       => 'FinishNum',
-        'isInc'           => 'IsInc',
+        'buckets' => 'Buckets',
+        'config' => 'Config',
+        'endTime' => 'EndTime',
+        'finishNum' => 'FinishNum',
+        'isInc' => 'IsInc',
         'lastExecuteDate' => 'LastExecuteDate',
-        'mediaType'       => 'MediaType',
+        'mediaType' => 'MediaType',
         'nextExecuteDate' => 'NextExecuteDate',
-        'objectNum'       => 'ObjectNum',
-        'searchNum'       => 'SearchNum',
-        'startTime'       => 'StartTime',
-        'status'          => 'Status',
-        'taskId'          => 'TaskId',
-        'taskName'        => 'TaskName',
-        'taskType'        => 'TaskType',
+        'objectNum' => 'ObjectNum',
+        'searchNum' => 'SearchNum',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

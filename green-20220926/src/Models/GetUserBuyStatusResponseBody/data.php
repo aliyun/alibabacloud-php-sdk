@@ -36,15 +36,13 @@ class data extends Model
      */
     public $tag;
     protected $_name = [
-        'bid'    => 'Bid',
-        'buy'    => 'Buy',
+        'bid' => 'Bid',
+        'buy' => 'Buy',
         'indebt' => 'Indebt',
-        'tag'    => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

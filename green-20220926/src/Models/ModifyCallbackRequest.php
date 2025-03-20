@@ -51,16 +51,14 @@ class ModifyCallbackRequest extends Model
     public $url;
     protected $_name = [
         'cryptType' => 'CryptType',
-        'id'        => 'Id',
-        'name'      => 'Name',
-        'regionId'  => 'RegionId',
-        'scope'     => 'Scope',
-        'url'       => 'Url',
+        'id' => 'Id',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
+        'scope' => 'Scope',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

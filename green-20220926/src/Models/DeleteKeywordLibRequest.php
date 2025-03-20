@@ -22,13 +22,11 @@ class DeleteKeywordLibRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'libId'    => 'LibId',
+        'libId' => 'LibId',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

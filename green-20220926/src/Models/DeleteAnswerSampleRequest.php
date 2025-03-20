@@ -29,14 +29,12 @@ class DeleteAnswerSampleRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'ids'      => 'Ids',
-        'libId'    => 'LibId',
+        'ids' => 'Ids',
+        'libId' => 'LibId',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

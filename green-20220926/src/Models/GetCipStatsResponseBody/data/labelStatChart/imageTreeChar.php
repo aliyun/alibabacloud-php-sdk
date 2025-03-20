@@ -2,34 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Green\V20220926\Models;
+namespace AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\labelStatChart;
 
 use AlibabaCloud\Tea\Model;
 
-class GetUploadInfoRequest extends Model
+class imageTreeChar extends Model
 {
+    /**
+     * @var string
+     */
+    public $description;
+
     /**
      * @var string
      */
     public $name;
 
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @example image
-     *
-     * @var string
-     */
-    public $resourceType;
+    public $value;
     protected $_name = [
+        'description' => 'Description',
         'name' => 'Name',
-        'regionId' => 'RegionId',
-        'resourceType' => 'ResourceType',
+        'value' => 'Value',
     ];
 
     public function validate() {}
@@ -37,14 +33,14 @@ class GetUploadInfoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -53,19 +49,19 @@ class GetUploadInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetUploadInfoRequest
+     * @return imageTreeChar
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

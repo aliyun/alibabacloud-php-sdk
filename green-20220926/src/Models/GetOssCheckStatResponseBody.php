@@ -21,13 +21,11 @@ class GetOssCheckStatResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'barChart'  => 'BarChart',
+        'barChart' => 'BarChart',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

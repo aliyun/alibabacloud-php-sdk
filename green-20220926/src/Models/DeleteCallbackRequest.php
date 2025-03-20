@@ -24,13 +24,11 @@ class DeleteCallbackRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'id'       => 'Id',
+        'id' => 'Id',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

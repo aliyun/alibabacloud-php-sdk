@@ -166,25 +166,25 @@ class Green extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-1'        => 'green.ap-southeast-1.aliyuncs.com',
-            'ap-south-1'            => 'green.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'        => 'green.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3'        => 'green.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5'        => 'green.ap-southeast-1.aliyuncs.com',
-            'cn-chengdu'            => 'green.aliyuncs.com',
-            'cn-hongkong'           => 'green.aliyuncs.com',
-            'cn-huhehaote'          => 'green.aliyuncs.com',
-            'cn-qingdao'            => 'green.aliyuncs.com',
-            'cn-zhangjiakou'        => 'green.aliyuncs.com',
-            'eu-central-1'          => 'green.ap-southeast-1.aliyuncs.com',
-            'eu-west-1'             => 'green.ap-southeast-1.aliyuncs.com',
-            'me-east-1'             => 'green.ap-southeast-1.aliyuncs.com',
-            'us-east-1'             => 'green.ap-southeast-1.aliyuncs.com',
-            'cn-hangzhou-finance'   => 'green.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-1' => 'green.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'green.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'green.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'green.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'green.ap-southeast-1.aliyuncs.com',
+            'cn-chengdu' => 'green.aliyuncs.com',
+            'cn-hongkong' => 'green.aliyuncs.com',
+            'cn-huhehaote' => 'green.aliyuncs.com',
+            'cn-qingdao' => 'green.aliyuncs.com',
+            'cn-zhangjiakou' => 'green.aliyuncs.com',
+            'eu-central-1' => 'green.ap-southeast-1.aliyuncs.com',
+            'eu-west-1' => 'green.ap-southeast-1.aliyuncs.com',
+            'me-east-1' => 'green.ap-southeast-1.aliyuncs.com',
+            'us-east-1' => 'green.ap-southeast-1.aliyuncs.com',
+            'cn-hangzhou-finance' => 'green.aliyuncs.com',
             'cn-shenzhen-finance-1' => 'green.aliyuncs.com',
             'cn-shanghai-finance-1' => 'green.aliyuncs.com',
-            'cn-north-2-gov-1'      => 'green.aliyuncs.com',
+            'cn-north-2-gov-1' => 'green.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('green', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -241,18 +241,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddAnswerSample',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddAnswerSample',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddAnswerSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddAnswerSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddAnswerSampleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -293,21 +296,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddImageLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddImageLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddImageLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddImageLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddImageLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -348,21 +354,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddImages2Lib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddImages2Lib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddImages2LibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddImages2LibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddImages2LibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -406,21 +415,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddKeywordLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddKeywordLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddKeywordLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddKeywordLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddKeywordLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -464,21 +476,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddKeywords',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddKeywords',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddKeywordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddKeywordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddKeywordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -522,21 +537,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddKeywordsToLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddKeywordsToLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddKeywordsToLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddKeywordsToLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddKeywordsToLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -575,18 +593,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelStockOssCheckTask',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelStockOssCheckTask',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CancelStockOssCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelStockOssCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelStockOssCheckTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -633,21 +654,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CopyServiceConfig',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CopyServiceConfig',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CopyServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CopyServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CopyServiceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -758,18 +782,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatStockOssCheckTask',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatStockOssCheckTask',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreatStockOssCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatStockOssCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatStockOssCheckTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -816,21 +843,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAnswerLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAnswerLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateAnswerLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAnswerLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAnswerLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -877,21 +907,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateCallback',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCallback',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCallbackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -965,21 +998,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreatePreCheck',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePreCheck',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreatePreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePreCheckResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1018,18 +1054,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAnswerLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAnswerLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAnswerLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAnswerLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAnswerLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1070,21 +1109,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAnswerSample',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAnswerSample',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAnswerSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAnswerSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAnswerSampleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1122,21 +1164,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCallback',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCallback',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCallbackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1177,21 +1222,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteImagesFromLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteImagesFromLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteImagesFromLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteImagesFromLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteImagesFromLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1235,21 +1283,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteKeyword',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteKeyword',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteKeywordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteKeywordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteKeywordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1287,21 +1338,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteKeywordLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteKeywordLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteKeywordLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteKeywordLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteKeywordLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1339,21 +1393,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExportAnswerSample',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportAnswerSample',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExportAnswerSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportAnswerSampleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportAnswerSampleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1392,11 +1449,17 @@ class Green extends OpenApiClient
         if (!Utils::isUnset($request->endDate)) {
             $body['EndDate'] = $request->endDate;
         }
+        if (!Utils::isUnset($request->exportType)) {
+            $body['ExportType'] = $request->exportType;
+        }
         if (!Utils::isUnset($request->label)) {
             $body['Label'] = $request->label;
         }
         if (!Utils::isUnset($request->resourceType)) {
             $body['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
         }
         if (!Utils::isUnset($request->startDate)) {
             $body['StartDate'] = $request->startDate;
@@ -1404,23 +1467,29 @@ class Green extends OpenApiClient
         if (!Utils::isUnset($request->subUid)) {
             $body['SubUid'] = $request->subUid;
         }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExportCipStats',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportCipStats',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExportCipStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportCipStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportCipStatsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1458,21 +1527,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExportKeyword',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportKeyword',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExportKeywordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportKeywordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportKeywordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1519,21 +1591,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExportOssCheckStat',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportOssCheckStat',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExportOssCheckStatResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportOssCheckStatResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportOssCheckStatResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1591,21 +1666,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExportResult',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportResult',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExportResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1669,21 +1747,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExportScanResult',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportScanResult',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExportScanResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportScanResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportScanResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1732,21 +1813,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExportTextScanResult',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportTextScanResult',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExportTextScanResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportTextScanResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportTextScanResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1785,18 +1869,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAnswerImportProgress',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAnswerImportProgress',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAnswerImportProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAnswerImportProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAnswerImportProgressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1832,18 +1919,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetBackupBucketsList',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBackupBucketsList',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetBackupBucketsListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBackupBucketsListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBackupBucketsListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1885,18 +1975,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetBackupConfig',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBackupConfig',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetBackupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBackupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBackupConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1932,18 +2025,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetBackupStatus',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBackupStatus',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetBackupStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBackupStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBackupStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1979,18 +2075,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetBucketsList',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBucketsList',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetBucketsListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBucketsListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBucketsListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2022,6 +2121,12 @@ class Green extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         $body = [];
         if (!Utils::isUnset($request->byMonth)) {
             $body['ByMonth'] = $request->byMonth;
@@ -2043,21 +2148,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetCipStats',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCipStats',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetCipStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCipStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCipStatsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2093,18 +2201,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetExecuteTime',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetExecuteTime',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetExecuteTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetExecuteTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetExecuteTimeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2140,18 +2251,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetImageSceneLabelConf',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetImageSceneLabelConf',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetImageSceneLabelConfResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetImageSceneLabelConfResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetImageSceneLabelConfResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2190,18 +2304,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetImageSceneLabelListConf',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetImageSceneLabelListConf',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetImageSceneLabelListConfResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetImageSceneLabelListConfResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetImageSceneLabelListConfResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2254,18 +2371,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetJobNameList',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetJobNameList',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetJobNameListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetJobNameListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetJobNameListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2303,21 +2423,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetKeywordImportResult',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetKeywordImportResult',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetKeywordImportResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetKeywordImportResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetKeywordImportResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2355,21 +2478,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetKeywordLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetKeywordLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetKeywordLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetKeywordLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetKeywordLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2416,21 +2542,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetOssCheckStat',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOssCheckStat',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetOssCheckStatResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOssCheckStatResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOssCheckStatResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2466,18 +2595,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOssCheckStatus',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOssCheckStatus',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetOssCheckStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOssCheckStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOssCheckStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2519,18 +2651,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetScanNum',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetScanNum',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetScanNumResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetScanNumResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetScanNumResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2594,21 +2729,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetScanResult',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetScanResult',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetScanResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetScanResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetScanResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2655,21 +2793,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceConf',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceConf',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetServiceConfResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetServiceConfResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetServiceConfResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2710,21 +2851,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceConfig',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceConfig',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetServiceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2765,21 +2909,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceLabelConfig',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceLabelConfig',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetServiceLabelConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetServiceLabelConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetServiceLabelConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2843,21 +2990,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetStockOssCheckTasksList',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetStockOssCheckTasksList',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetStockOssCheckTasksListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStockOssCheckTasksListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStockOssCheckTasksListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2918,21 +3068,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTextScanResult',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTextScanResult',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetTextScanResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTextScanResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTextScanResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2973,21 +3126,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUploadInfo',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUploadInfo',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUploadInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3019,22 +3175,30 @@ class Green extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        $body = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $body['CommodityCode'] = $request->commodityCode;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUserBuyStatus',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserBuyStatus',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUserBuyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserBuyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserBuyStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3070,18 +3234,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAnswerLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAnswerLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAnswerLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAnswerLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAnswerLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3117,18 +3284,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCallback',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCallback',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCallbackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3164,18 +3334,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListImageLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListImageLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListImageLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListImageLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListImageLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3236,21 +3409,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListImagesFromLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListImagesFromLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListImagesFromLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListImagesFromLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListImagesFromLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3286,18 +3462,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListKeywordLibs',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListKeywordLibs',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListKeywordLibsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListKeywordLibsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListKeywordLibsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3352,21 +3531,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListKeywords',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListKeywords',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListKeywordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListKeywordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListKeywordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3431,18 +3613,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListOssCheckResult',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListOssCheckResult',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListOssCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOssCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOssCheckResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3486,21 +3671,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceConfigs',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListServiceConfigs',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListServiceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListServiceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListServiceConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3542,18 +3730,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAnswerLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAnswerLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyAnswerLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAnswerLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAnswerLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3603,21 +3794,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCallback',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCallback',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyCallbackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3664,21 +3858,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyServiceInfo',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyServiceInfo',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyServiceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyServiceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyServiceInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3734,18 +3931,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAnswerSampleByPage',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryAnswerSampleByPage',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryAnswerSampleByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryAnswerSampleByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryAnswerSampleByPageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3786,21 +3986,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryCallback',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCallback',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryCallbackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3841,21 +4044,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryCallbackByPage',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCallbackByPage',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryCallbackByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryCallbackByPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryCallbackByPageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3900,18 +4106,21 @@ class Green extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateBackupConfig',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateBackupConfig',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateBackupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateBackupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateBackupConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3958,21 +4167,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateImageLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateImageLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateImageLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateImageLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateImageLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4015,21 +4227,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateImageLibFreeInspection',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateImageLibFreeInspection',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateImageLibFreeInspectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateImageLibFreeInspectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateImageLibFreeInspectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4070,21 +4285,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateKeywordLib',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateKeywordLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateKeywordLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateKeywordLibResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateKeywordLibResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4128,21 +4346,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateScanResultFeedback',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateScanResultFeedback',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateScanResultFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateScanResultFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateScanResultFeedbackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4201,21 +4422,24 @@ class Green extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceConfig',
-            'version'     => '2022-09-26',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateServiceConfig',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateServiceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

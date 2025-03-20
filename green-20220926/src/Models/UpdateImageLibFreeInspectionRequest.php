@@ -20,13 +20,11 @@ class UpdateImageLibFreeInspectionRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'config'   => 'Config',
+        'config' => 'Config',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,15 +36,13 @@ class items extends Model
      */
     public $thumbnailUrl;
     protected $_name = [
-        'gmtCreate'    => 'GmtCreate',
-        'imageId'      => 'ImageId',
-        'imageUrl'     => 'ImageUrl',
+        'gmtCreate' => 'GmtCreate',
+        'imageId' => 'ImageId',
+        'imageUrl' => 'ImageUrl',
         'thumbnailUrl' => 'ThumbnailUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

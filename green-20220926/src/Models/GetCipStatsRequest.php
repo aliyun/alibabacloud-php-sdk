@@ -44,6 +44,11 @@ class GetCipStatsRequest extends Model
     public $resourceType;
 
     /**
+     * @var string
+     */
+    public $serviceCode;
+
+    /**
      * @example 2024-03-10 10:00:00
      *
      * @var string
@@ -56,19 +61,24 @@ class GetCipStatsRequest extends Model
      * @var string
      */
     public $subUid;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'byMonth'      => 'ByMonth',
-        'endDate'      => 'EndDate',
-        'label'        => 'Label',
-        'regionId'     => 'RegionId',
+        'byMonth' => 'ByMonth',
+        'endDate' => 'EndDate',
+        'label' => 'Label',
+        'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
-        'startDate'    => 'StartDate',
-        'subUid'       => 'SubUid',
+        'serviceCode' => 'ServiceCode',
+        'startDate' => 'StartDate',
+        'subUid' => 'SubUid',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -88,11 +98,17 @@ class GetCipStatsRequest extends Model
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+        if (null !== $this->serviceCode) {
+            $res['ServiceCode'] = $this->serviceCode;
+        }
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
         if (null !== $this->subUid) {
             $res['SubUid'] = $this->subUid;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -121,11 +137,17 @@ class GetCipStatsRequest extends Model
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+        if (isset($map['ServiceCode'])) {
+            $model->serviceCode = $map['ServiceCode'];
+        }
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
         if (isset($map['SubUid'])) {
             $model->subUid = $map['SubUid'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

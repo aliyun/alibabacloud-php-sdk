@@ -34,15 +34,13 @@ class ExportTextScanResultShrinkRequest extends Model
      */
     public $startDate;
     protected $_name = [
-        'endDate'     => 'EndDate',
+        'endDate' => 'EndDate',
         'queryShrink' => 'Query',
-        'regionId'    => 'RegionId',
-        'startDate'   => 'StartDate',
+        'regionId' => 'RegionId',
+        'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

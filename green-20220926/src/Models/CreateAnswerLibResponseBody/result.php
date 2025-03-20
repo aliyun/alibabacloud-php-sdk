@@ -74,21 +74,19 @@ class result extends Model
      */
     public $totalCount;
     protected $_name = [
-        'i18nKey'              => 'I18nKey',
+        'i18nKey' => 'I18nKey',
         'illegalLengthSamples' => 'IllegalLengthSamples',
-        'invalidCount'         => 'InvalidCount',
-        'libId'                => 'LibId',
-        'progress'             => 'Progress',
-        'repeatCount'          => 'RepeatCount',
-        'repeatSamples'        => 'RepeatSamples',
-        'successCount'         => 'SuccessCount',
-        'taskId'               => 'TaskId',
-        'totalCount'           => 'TotalCount',
+        'invalidCount' => 'InvalidCount',
+        'libId' => 'LibId',
+        'progress' => 'Progress',
+        'repeatCount' => 'RepeatCount',
+        'repeatSamples' => 'RepeatSamples',
+        'successCount' => 'SuccessCount',
+        'taskId' => 'TaskId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -72,21 +72,19 @@ class keywordsResult extends Model
      */
     public $totalCount;
     protected $_name = [
-        'i18nKey'               => 'I18nKey',
+        'i18nKey' => 'I18nKey',
         'illegalLengthKeywords' => 'IllegalLengthKeywords',
-        'invalidCount'          => 'InvalidCount',
-        'invalidKeywords'       => 'InvalidKeywords',
-        'libId'                 => 'LibId',
-        'repeatCount'           => 'RepeatCount',
-        'repeatKeywords'        => 'RepeatKeywords',
-        'successCount'          => 'SuccessCount',
-        'tips'                  => 'Tips',
-        'totalCount'            => 'TotalCount',
+        'invalidCount' => 'InvalidCount',
+        'invalidKeywords' => 'InvalidKeywords',
+        'libId' => 'LibId',
+        'repeatCount' => 'RepeatCount',
+        'repeatKeywords' => 'RepeatKeywords',
+        'successCount' => 'SuccessCount',
+        'tips' => 'Tips',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

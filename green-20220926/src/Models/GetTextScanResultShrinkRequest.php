@@ -54,17 +54,15 @@ class GetTextScanResultShrinkRequest extends Model
     public $startDate;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endDate'     => 'EndDate',
-        'pageSize'    => 'PageSize',
+        'endDate' => 'EndDate',
+        'pageSize' => 'PageSize',
         'queryShrink' => 'Query',
-        'regionId'    => 'RegionId',
-        'sortShrink'  => 'Sort',
-        'startDate'   => 'StartDate',
+        'regionId' => 'RegionId',
+        'sortShrink' => 'Sort',
+        'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

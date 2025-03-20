@@ -63,18 +63,16 @@ class ListImagesFromLibRequest extends Model
     public $startDate;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endDate'     => 'EndDate',
-        'imgId'       => 'ImgId',
-        'libId'       => 'LibId',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'sort'        => 'Sort',
-        'startDate'   => 'StartDate',
+        'endDate' => 'EndDate',
+        'imgId' => 'ImgId',
+        'libId' => 'LibId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'sort' => 'Sort',
+        'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

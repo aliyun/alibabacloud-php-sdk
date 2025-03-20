@@ -41,17 +41,15 @@ class customServiceConf extends Model
      */
     public $similarTextHitLibs;
     protected $_name = [
-        'audioService'       => 'AudioService',
-        'imageService'       => 'ImageService',
-        'keywordFilterLibs'  => 'KeywordFilterLibs',
-        'keywordHitLibs'     => 'KeywordHitLibs',
-        'rules'              => 'Rules',
+        'audioService' => 'AudioService',
+        'imageService' => 'ImageService',
+        'keywordFilterLibs' => 'KeywordFilterLibs',
+        'keywordHitLibs' => 'KeywordHitLibs',
+        'rules' => 'Rules',
         'similarTextHitLibs' => 'SimilarTextHitLibs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -113,7 +111,7 @@ class customServiceConf extends Model
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Rules'] as $item) {
                     $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }

@@ -39,16 +39,14 @@ class CreateAnswerLibRequest extends Model
      */
     public $samples;
     protected $_name = [
-        'libName'      => 'LibName',
-        'regionId'     => 'RegionId',
+        'libName' => 'LibName',
+        'regionId' => 'RegionId',
         'sampleBucket' => 'SampleBucket',
         'sampleObject' => 'SampleObject',
-        'samples'      => 'Samples',
+        'samples' => 'Samples',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

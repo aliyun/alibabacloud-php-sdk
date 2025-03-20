@@ -25,14 +25,12 @@ class AddImageLibRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'comment'  => 'Comment',
-        'libName'  => 'LibName',
+        'comment' => 'Comment',
+        'libName' => 'LibName',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

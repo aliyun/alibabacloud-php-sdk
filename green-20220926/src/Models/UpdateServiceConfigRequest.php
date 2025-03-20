@@ -71,20 +71,18 @@ class UpdateServiceConfigRequest extends Model
      */
     public $videoConfig;
     protected $_name = [
-        'fileConfig'        => 'FileConfig',
+        'fileConfig' => 'FileConfig',
         'keywordFilterLibs' => 'KeywordFilterLibs',
-        'keywordHitLibs'    => 'KeywordHitLibs',
-        'regionId'          => 'RegionId',
-        'resourceType'      => 'ResourceType',
-        'scene'             => 'Scene',
-        'sceneConfig'       => 'SceneConfig',
-        'serviceCode'       => 'ServiceCode',
-        'videoConfig'       => 'VideoConfig',
+        'keywordHitLibs' => 'KeywordHitLibs',
+        'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
+        'scene' => 'Scene',
+        'sceneConfig' => 'SceneConfig',
+        'serviceCode' => 'ServiceCode',
+        'videoConfig' => 'VideoConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,12 +23,10 @@ class GetImageSceneLabelListConfRequest extends Model
     public $regionId;
     protected $_name = [
         'imageServiceCode' => 'ImageServiceCode',
-        'regionId'         => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

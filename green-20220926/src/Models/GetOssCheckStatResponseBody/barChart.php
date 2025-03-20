@@ -23,9 +23,7 @@ class barChart extends Model
         'y' => 'Y',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -62,7 +60,7 @@ class barChart extends Model
         if (isset($map['Y'])) {
             if (!empty($map['Y'])) {
                 $model->y = [];
-                $n        = 0;
+                $n = 0;
                 foreach ($map['Y'] as $item) {
                     $model->y[$n++] = null !== $item ? y::fromMap($item) : $item;
                 }

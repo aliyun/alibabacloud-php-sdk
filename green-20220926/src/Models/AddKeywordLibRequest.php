@@ -32,15 +32,13 @@ class AddKeywordLibRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'keywords'       => 'Keywords',
+        'keywords' => 'Keywords',
         'keywordsObject' => 'KeywordsObject',
-        'libName'        => 'LibName',
-        'regionId'       => 'RegionId',
+        'libName' => 'LibName',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

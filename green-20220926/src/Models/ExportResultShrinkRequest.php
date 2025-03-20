@@ -56,17 +56,15 @@ class ExportResultShrinkRequest extends Model
     public $startDate;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endDate'     => 'EndDate',
-        'pageSize'    => 'PageSize',
-        'query'       => 'Query',
-        'regionId'    => 'RegionId',
-        'sortShrink'  => 'Sort',
-        'startDate'   => 'StartDate',
+        'endDate' => 'EndDate',
+        'pageSize' => 'PageSize',
+        'query' => 'Query',
+        'regionId' => 'RegionId',
+        'sortShrink' => 'Sort',
+        'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

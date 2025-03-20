@@ -70,19 +70,17 @@ class ListOssCheckResultRequest extends Model
     public $status;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endDate'     => 'EndDate',
-        'finishNum'   => 'FinishNum',
-        'pageSize'    => 'PageSize',
-        'query'       => 'Query',
-        'regionId'    => 'RegionId',
-        'sort'        => 'Sort',
-        'startDate'   => 'StartDate',
-        'status'      => 'Status',
+        'endDate' => 'EndDate',
+        'finishNum' => 'FinishNum',
+        'pageSize' => 'PageSize',
+        'query' => 'Query',
+        'regionId' => 'RegionId',
+        'sort' => 'Sort',
+        'startDate' => 'StartDate',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -43,16 +43,14 @@ class GetServiceConfRequest extends Model
      */
     public $serviceCode;
     protected $_name = [
-        'byDefault'    => 'ByDefault',
-        'regionId'     => 'RegionId',
+        'byDefault' => 'ByDefault',
+        'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
-        'scene'        => 'Scene',
-        'serviceCode'  => 'ServiceCode',
+        'scene' => 'Scene',
+        'serviceCode' => 'ServiceCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

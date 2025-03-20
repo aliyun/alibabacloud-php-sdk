@@ -46,17 +46,15 @@ class QueryAnswerSampleByPageRequest extends Model
      */
     public $sort;
     protected $_name = [
-        'answer'      => 'Answer',
+        'answer' => 'Answer',
         'currentPage' => 'CurrentPage',
-        'libId'       => 'LibId',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'sort'        => 'Sort',
+        'libId' => 'LibId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'sort' => 'Sort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

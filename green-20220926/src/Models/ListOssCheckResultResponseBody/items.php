@@ -146,33 +146,31 @@ class items extends Model
      */
     public $url;
     protected $_name = [
-        'bucket'       => 'Bucket',
-        'code'         => 'Code',
-        'contentType'  => 'ContentType',
-        'copyFrom'     => 'CopyFrom',
+        'bucket' => 'Bucket',
+        'code' => 'Code',
+        'contentType' => 'ContentType',
+        'copyFrom' => 'CopyFrom',
         'freezeStatus' => 'FreezeStatus',
-        'freezeType'   => 'FreezeType',
-        'imageUrl'     => 'ImageUrl',
-        'isCopy'       => 'IsCopy',
-        'jobName'      => 'JobName',
-        'labels'       => 'Labels',
-        'labels2'      => 'Labels2',
-        'md5'          => 'Md5',
-        'msg'          => 'Msg',
-        'object'       => 'Object',
-        'riskLevel'    => 'RiskLevel',
-        'riskLevel0'   => 'RiskLevel0',
-        'riskLevel2'   => 'RiskLevel2',
-        'scanResult'   => 'ScanResult',
-        'serviceCode'  => 'ServiceCode',
-        'serviceName'  => 'ServiceName',
-        'taskId'       => 'TaskId',
-        'url'          => 'Url',
+        'freezeType' => 'FreezeType',
+        'imageUrl' => 'ImageUrl',
+        'isCopy' => 'IsCopy',
+        'jobName' => 'JobName',
+        'labels' => 'Labels',
+        'labels2' => 'Labels2',
+        'md5' => 'Md5',
+        'msg' => 'Msg',
+        'object' => 'Object',
+        'riskLevel' => 'RiskLevel',
+        'riskLevel0' => 'RiskLevel0',
+        'riskLevel2' => 'RiskLevel2',
+        'scanResult' => 'ScanResult',
+        'serviceCode' => 'ServiceCode',
+        'serviceName' => 'ServiceName',
+        'taskId' => 'TaskId',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

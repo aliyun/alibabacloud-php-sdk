@@ -49,17 +49,15 @@ class ListImageLibResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'libList'        => 'LibList',
-        'msg'            => 'Msg',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'libList' => 'LibList',
+        'msg' => 'Msg',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -109,7 +107,7 @@ class ListImageLibResponseBody extends Model
         if (isset($map['LibList'])) {
             if (!empty($map['LibList'])) {
                 $model->libList = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['LibList'] as $item) {
                     $model->libList[$n++] = null !== $item ? libList::fromMap($item) : $item;
                 }

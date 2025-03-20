@@ -35,15 +35,13 @@ class CreateAnswerLibResponseBody extends Model
      */
     public $taskId;
     protected $_name = [
-        'libId'     => 'LibId',
+        'libId' => 'LibId',
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'taskId'    => 'TaskId',
+        'result' => 'Result',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

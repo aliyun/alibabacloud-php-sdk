@@ -45,15 +45,13 @@ class data extends Model
     public $uid;
     protected $_name = [
         'customServiceConf' => 'CustomServiceConf',
-        'gmtModified'       => 'GmtModified',
-        'resourceType'      => 'ResourceType',
-        'serviceCode'       => 'ServiceCode',
-        'uid'               => 'Uid',
+        'gmtModified' => 'GmtModified',
+        'resourceType' => 'ResourceType',
+        'serviceCode' => 'ServiceCode',
+        'uid' => 'Uid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

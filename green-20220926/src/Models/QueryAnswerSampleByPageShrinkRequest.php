@@ -46,17 +46,15 @@ class QueryAnswerSampleByPageShrinkRequest extends Model
      */
     public $sortShrink;
     protected $_name = [
-        'answer'      => 'Answer',
+        'answer' => 'Answer',
         'currentPage' => 'CurrentPage',
-        'libId'       => 'LibId',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'sortShrink'  => 'Sort',
+        'libId' => 'LibId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'sortShrink' => 'Sort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

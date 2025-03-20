@@ -85,22 +85,20 @@ class GetServiceConfResponseBody extends Model
      */
     public $uid;
     protected $_name = [
-        'classify'          => 'Classify',
-        'code'              => 'Code',
+        'classify' => 'Classify',
+        'code' => 'Code',
         'customServiceConf' => 'CustomServiceConf',
-        'gmtModified'       => 'GmtModified',
-        'msg'               => 'Msg',
-        'option'            => 'Option',
-        'requestId'         => 'RequestId',
-        'resourceType'      => 'ResourceType',
-        'serviceCode'       => 'ServiceCode',
-        'success'           => 'Success',
-        'uid'               => 'Uid',
+        'gmtModified' => 'GmtModified',
+        'msg' => 'Msg',
+        'option' => 'Option',
+        'requestId' => 'RequestId',
+        'resourceType' => 'ResourceType',
+        'serviceCode' => 'ServiceCode',
+        'success' => 'Success',
+        'uid' => 'Uid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

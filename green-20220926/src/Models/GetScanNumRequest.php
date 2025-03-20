@@ -29,14 +29,12 @@ class GetScanNumRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'buckets'   => 'Buckets',
+        'buckets' => 'Buckets',
         'mediaType' => 'MediaType',
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,22 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetUserBuyStatusRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $commodityCode;
+
+    /**
      * @example cn-shanghai
      *
      * @var string
      */
     public $regionId;
     protected $_name = [
+        'commodityCode' => 'CommodityCode',
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commodityCode) {
+            $res['CommodityCode'] = $this->commodityCode;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -40,6 +47,9 @@ class GetUserBuyStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommodityCode'])) {
+            $model->commodityCode = $map['CommodityCode'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

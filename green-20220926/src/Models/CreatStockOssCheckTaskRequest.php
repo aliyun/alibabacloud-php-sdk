@@ -176,37 +176,35 @@ class CreatStockOssCheckTaskRequest extends Model
      */
     public $taskType;
     protected $_name = [
-        'buckets'              => 'Buckets',
-        'callbackId'           => 'CallbackId',
+        'buckets' => 'Buckets',
+        'callbackId' => 'CallbackId',
         'distinctHistoryTasks' => 'DistinctHistoryTasks',
-        'endTime'              => 'EndTime',
-        'executeDate'          => 'ExecuteDate',
-        'executeTime'          => 'ExecuteTime',
-        'freeze'               => 'Freeze',
-        'freezeHighRisk1'      => 'FreezeHighRisk1',
-        'freezeHighRisk2'      => 'FreezeHighRisk2',
-        'freezeMediumRisk1'    => 'FreezeMediumRisk1',
-        'freezeMediumRisk2'    => 'FreezeMediumRisk2',
-        'freezeType'           => 'FreezeType',
-        'isInc'                => 'IsInc',
-        'mediaType'            => 'MediaType',
-        'prefixFilterType'     => 'PrefixFilterType',
-        'prefixFilters'        => 'PrefixFilters',
-        'priority'             => 'Priority',
-        'regionId'             => 'RegionId',
-        'scanLimit'            => 'ScanLimit',
-        'scanNoFileType'       => 'ScanNoFileType',
-        'scanResourceType'     => 'ScanResourceType',
-        'scanService'          => 'ScanService',
-        'startTime'            => 'StartTime',
-        'taskCycle'            => 'TaskCycle',
-        'taskName'             => 'TaskName',
-        'taskType'             => 'TaskType',
+        'endTime' => 'EndTime',
+        'executeDate' => 'ExecuteDate',
+        'executeTime' => 'ExecuteTime',
+        'freeze' => 'Freeze',
+        'freezeHighRisk1' => 'FreezeHighRisk1',
+        'freezeHighRisk2' => 'FreezeHighRisk2',
+        'freezeMediumRisk1' => 'FreezeMediumRisk1',
+        'freezeMediumRisk2' => 'FreezeMediumRisk2',
+        'freezeType' => 'FreezeType',
+        'isInc' => 'IsInc',
+        'mediaType' => 'MediaType',
+        'prefixFilterType' => 'PrefixFilterType',
+        'prefixFilters' => 'PrefixFilters',
+        'priority' => 'Priority',
+        'regionId' => 'RegionId',
+        'scanLimit' => 'ScanLimit',
+        'scanNoFileType' => 'ScanNoFileType',
+        'scanResourceType' => 'ScanResourceType',
+        'scanService' => 'ScanService',
+        'startTime' => 'StartTime',
+        'taskCycle' => 'TaskCycle',
+        'taskName' => 'TaskName',
+        'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

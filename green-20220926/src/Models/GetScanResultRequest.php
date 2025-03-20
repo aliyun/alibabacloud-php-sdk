@@ -60,19 +60,17 @@ class GetScanResultRequest extends Model
      */
     public $startDate;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
-        'endDate'      => 'EndDate',
-        'pageSize'     => 'PageSize',
-        'query'        => 'Query',
-        'regionId'     => 'RegionId',
+        'currentPage' => 'CurrentPage',
+        'endDate' => 'EndDate',
+        'pageSize' => 'PageSize',
+        'query' => 'Query',
+        'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
-        'sort'         => 'Sort',
-        'startDate'    => 'StartDate',
+        'sort' => 'Sort',
+        'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

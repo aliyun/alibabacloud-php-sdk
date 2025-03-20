@@ -97,24 +97,22 @@ class GetUploadInfoResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'accessId'       => 'AccessId',
-        'code'           => 'Code',
-        'expire'         => 'Expire',
-        'folder'         => 'Folder',
-        'host'           => 'Host',
+        'accessId' => 'AccessId',
+        'code' => 'Code',
+        'expire' => 'Expire',
+        'folder' => 'Folder',
+        'host' => 'Host',
         'httpStatusCode' => 'HttpStatusCode',
-        'key'            => 'Key',
-        'msg'            => 'Msg',
-        'name'           => 'Name',
-        'policy'         => 'Policy',
-        'requestId'      => 'RequestId',
-        'signature'      => 'Signature',
-        'success'        => 'Success',
+        'key' => 'Key',
+        'msg' => 'Msg',
+        'name' => 'Name',
+        'policy' => 'Policy',
+        'requestId' => 'RequestId',
+        'signature' => 'Signature',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

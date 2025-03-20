@@ -104,25 +104,23 @@ class CreatePreCheckRequest extends Model
      */
     public $taskName;
     protected $_name = [
-        'buckets'              => 'Buckets',
+        'buckets' => 'Buckets',
         'distinctHistoryTasks' => 'DistinctHistoryTasks',
-        'endTime'              => 'EndTime',
-        'isInc'                => 'IsInc',
-        'mediaType'            => 'MediaType',
-        'prefixFilterType'     => 'PrefixFilterType',
-        'prefixFilters'        => 'PrefixFilters',
-        'priority'             => 'Priority',
-        'regionId'             => 'RegionId',
-        'scanLimit'            => 'ScanLimit',
-        'scanNoFileType'       => 'ScanNoFileType',
-        'scanService'          => 'ScanService',
-        'startTime'            => 'StartTime',
-        'taskName'             => 'TaskName',
+        'endTime' => 'EndTime',
+        'isInc' => 'IsInc',
+        'mediaType' => 'MediaType',
+        'prefixFilterType' => 'PrefixFilterType',
+        'prefixFilters' => 'PrefixFilters',
+        'priority' => 'Priority',
+        'regionId' => 'RegionId',
+        'scanLimit' => 'ScanLimit',
+        'scanNoFileType' => 'ScanNoFileType',
+        'scanService' => 'ScanService',
+        'startTime' => 'StartTime',
+        'taskName' => 'TaskName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

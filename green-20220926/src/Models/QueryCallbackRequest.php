@@ -32,13 +32,11 @@ class QueryCallbackRequest extends Model
     public $regionId;
     protected $_name = [
         'checkForOss' => 'CheckForOss',
-        'id'          => 'Id',
-        'regionId'    => 'RegionId',
+        'id' => 'Id',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

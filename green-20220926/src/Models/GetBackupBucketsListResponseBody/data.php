@@ -26,9 +26,7 @@ class data extends Model
         'region' => 'Region',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

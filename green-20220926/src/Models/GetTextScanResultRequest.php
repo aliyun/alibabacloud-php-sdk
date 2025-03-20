@@ -54,17 +54,15 @@ class GetTextScanResultRequest extends Model
     public $startDate;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endDate'     => 'EndDate',
-        'pageSize'    => 'PageSize',
-        'query'       => 'Query',
-        'regionId'    => 'RegionId',
-        'sort'        => 'Sort',
-        'startDate'   => 'StartDate',
+        'endDate' => 'EndDate',
+        'pageSize' => 'PageSize',
+        'query' => 'Query',
+        'regionId' => 'RegionId',
+        'sort' => 'Sort',
+        'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

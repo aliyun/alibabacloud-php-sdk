@@ -43,16 +43,14 @@ class ExportOssCheckStatRequest extends Model
      */
     public $startDate;
     protected $_name = [
-        'byMonth'      => 'ByMonth',
-        'endDate'      => 'EndDate',
+        'byMonth' => 'ByMonth',
+        'endDate' => 'EndDate',
         'parentTaskId' => 'ParentTaskId',
-        'regionId'     => 'RegionId',
-        'startDate'    => 'StartDate',
+        'regionId' => 'RegionId',
+        'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

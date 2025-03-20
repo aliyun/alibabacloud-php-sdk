@@ -102,25 +102,23 @@ class GetBackupConfigResponseBody extends Model
      */
     public $uid;
     protected $_name = [
-        'backupMode'        => 'BackupMode',
-        'bucket'            => 'Bucket',
-        'enable'            => 'Enable',
-        'enableBackup'      => 'EnableBackup',
+        'backupMode' => 'BackupMode',
+        'bucket' => 'Bucket',
+        'enable' => 'Enable',
+        'enableBackup' => 'EnableBackup',
         'enableBackupVoice' => 'EnableBackupVoice',
-        'expireSeconds'     => 'ExpireSeconds',
-        'gmtModified'       => 'GmtModified',
-        'path'              => 'Path',
-        'pathVoice'         => 'PathVoice',
-        'region'            => 'Region',
-        'requestId'         => 'RequestId',
-        'resourceType'      => 'ResourceType',
-        'serviceCode'       => 'ServiceCode',
-        'uid'               => 'Uid',
+        'expireSeconds' => 'ExpireSeconds',
+        'gmtModified' => 'GmtModified',
+        'path' => 'Path',
+        'pathVoice' => 'PathVoice',
+        'region' => 'Region',
+        'requestId' => 'RequestId',
+        'resourceType' => 'ResourceType',
+        'serviceCode' => 'ServiceCode',
+        'uid' => 'Uid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

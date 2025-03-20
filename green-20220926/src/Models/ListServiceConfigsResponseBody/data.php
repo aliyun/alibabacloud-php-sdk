@@ -85,23 +85,21 @@ class data extends Model
      */
     public $useStatus;
     protected $_name = [
-        'classify'          => 'Classify',
-        'copyFrom'          => 'CopyFrom',
+        'classify' => 'Classify',
+        'copyFrom' => 'CopyFrom',
         'customServiceConf' => 'CustomServiceConf',
-        'gmtModified'       => 'GmtModified',
-        'option'            => 'Option',
-        'resourceType'      => 'ResourceType',
-        'serviceCode'       => 'ServiceCode',
-        'serviceDesc'       => 'ServiceDesc',
-        'serviceName'       => 'ServiceName',
-        'serviceType'       => 'ServiceType',
-        'uid'               => 'Uid',
-        'useStatus'         => 'UseStatus',
+        'gmtModified' => 'GmtModified',
+        'option' => 'Option',
+        'resourceType' => 'ResourceType',
+        'serviceCode' => 'ServiceCode',
+        'serviceDesc' => 'ServiceDesc',
+        'serviceName' => 'ServiceName',
+        'serviceType' => 'ServiceType',
+        'uid' => 'Uid',
+        'useStatus' => 'UseStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

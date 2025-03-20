@@ -42,15 +42,13 @@ class CreateCallbackRequest extends Model
     public $url;
     protected $_name = [
         'cryptType' => 'CryptType',
-        'name'      => 'Name',
-        'regionId'  => 'RegionId',
-        'scope'     => 'Scope',
-        'url'       => 'Url',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
+        'scope' => 'Scope',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,15 +34,13 @@ class scanServiceInfos extends Model
      */
     public $serviceName;
     protected $_name = [
-        'copyFrom'    => 'CopyFrom',
-        'isCopy'      => 'IsCopy',
+        'copyFrom' => 'CopyFrom',
+        'isCopy' => 'IsCopy',
         'serviceCode' => 'ServiceCode',
         'serviceName' => 'ServiceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,15 +36,13 @@ class UpdateScanResultFeedbackRequest extends Model
      */
     public $resourceType;
     protected $_name = [
-        'feedback'       => 'Feedback',
+        'feedback' => 'Feedback',
         'queryRequestId' => 'QueryRequestId',
-        'regionId'       => 'RegionId',
-        'resourceType'   => 'ResourceType',
+        'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -45,14 +45,12 @@ class data extends Model
     protected $_name = [
         'answerCount' => 'AnswerCount',
         'gmtModified' => 'GmtModified',
-        'libId'       => 'LibId',
-        'libName'     => 'LibName',
-        'uid'         => 'Uid',
+        'libId' => 'LibId',
+        'libName' => 'LibName',
+        'uid' => 'Uid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

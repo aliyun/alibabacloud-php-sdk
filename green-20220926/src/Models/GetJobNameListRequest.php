@@ -41,16 +41,14 @@ class GetJobNameListRequest extends Model
      */
     public $startDate;
     protected $_name = [
-        'endDate'   => 'EndDate',
-        'query'     => 'Query',
-        'regionId'  => 'RegionId',
-        'sort'      => 'Sort',
+        'endDate' => 'EndDate',
+        'query' => 'Query',
+        'regionId' => 'RegionId',
+        'sort' => 'Sort',
         'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

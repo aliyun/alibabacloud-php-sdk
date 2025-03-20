@@ -39,16 +39,14 @@ class CopyServiceConfigRequest extends Model
      */
     public $serviceName;
     protected $_name = [
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
-        'serviceCode'  => 'ServiceCode',
-        'serviceDesc'  => 'ServiceDesc',
-        'serviceName'  => 'ServiceName',
+        'serviceCode' => 'ServiceCode',
+        'serviceDesc' => 'ServiceDesc',
+        'serviceName' => 'ServiceName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

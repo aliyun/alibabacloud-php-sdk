@@ -16,9 +16,7 @@ class textScanRule extends Model
         'services' => 'Services',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

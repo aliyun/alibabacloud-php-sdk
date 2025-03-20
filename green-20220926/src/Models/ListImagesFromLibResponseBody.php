@@ -70,20 +70,18 @@ class ListImagesFromLibResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'code'           => 'Code',
-        'currentPage'    => 'CurrentPage',
+        'code' => 'Code',
+        'currentPage' => 'CurrentPage',
         'httpStatusCode' => 'HttpStatusCode',
-        'items'          => 'Items',
-        'msg'            => 'Msg',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
-        'totalCount'     => 'TotalCount',
+        'items' => 'Items',
+        'msg' => 'Msg',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -145,7 +143,7 @@ class ListImagesFromLibResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Items'] as $item) {
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }

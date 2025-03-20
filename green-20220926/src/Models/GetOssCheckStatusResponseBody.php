@@ -59,18 +59,16 @@ class GetOssCheckStatusResponseBody extends Model
      */
     public $slsStatus;
     protected $_name = [
-        'bid'           => 'Bid',
-        'buy'           => 'Buy',
+        'bid' => 'Bid',
+        'buy' => 'Buy',
         'commodityCode' => 'CommodityCode',
-        'indebt'        => 'Indebt',
-        'ramStatus'     => 'RamStatus',
-        'requestId'     => 'RequestId',
-        'slsStatus'     => 'SlsStatus',
+        'indebt' => 'Indebt',
+        'ramStatus' => 'RamStatus',
+        'requestId' => 'RequestId',
+        'slsStatus' => 'SlsStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

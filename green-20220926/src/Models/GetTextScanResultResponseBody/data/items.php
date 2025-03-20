@@ -67,6 +67,11 @@ class items extends Model
     public $result;
 
     /**
+     * @var string
+     */
+    public $riskLevel;
+
+    /**
      * @example {}
      *
      * @var string
@@ -102,24 +107,23 @@ class items extends Model
     public $taskId;
     protected $_name = [
         'bailianRequestId' => 'BailianRequestId',
-        'content'          => 'Content',
-        'extFeedback'      => 'ExtFeedback',
-        'extra'            => 'Extra',
-        'gmtCreate'        => 'GmtCreate',
-        'labels'           => 'Labels',
-        'requestId'        => 'RequestId',
-        'requestTime'      => 'RequestTime',
-        'result'           => 'Result',
-        'scanResult'       => 'ScanResult',
-        'score'            => 'Score',
-        'serviceCode'      => 'ServiceCode',
-        'suggestion'       => 'Suggestion',
-        'taskId'           => 'TaskId',
+        'content' => 'Content',
+        'extFeedback' => 'ExtFeedback',
+        'extra' => 'Extra',
+        'gmtCreate' => 'GmtCreate',
+        'labels' => 'Labels',
+        'requestId' => 'RequestId',
+        'requestTime' => 'RequestTime',
+        'result' => 'Result',
+        'riskLevel' => 'RiskLevel',
+        'scanResult' => 'ScanResult',
+        'score' => 'Score',
+        'serviceCode' => 'ServiceCode',
+        'suggestion' => 'Suggestion',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -156,6 +160,9 @@ class items extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->scanResult) {
             $res['ScanResult'] = $this->scanResult;
@@ -211,11 +218,14 @@ class items extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['ScanResult'])) {
             $model->scanResult = $map['ScanResult'];

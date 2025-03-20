@@ -129,6 +129,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $riskLevel;
+
+    /**
+     * @var string
+     */
     public $riskTips;
 
     /**
@@ -223,43 +228,42 @@ class items extends Model
      */
     public $voiceService;
     protected $_name = [
-        'content'         => 'Content',
-        'dataId'          => 'DataId',
-        'endTime'         => 'EndTime',
-        'extFeedback'     => 'ExtFeedback',
-        'extra'           => 'Extra',
-        'frameCount'      => 'FrameCount',
-        'gmtCreate'       => 'GmtCreate',
-        'imageLabels'     => 'ImageLabels',
-        'imageService'    => 'ImageService',
-        'imageUrl'        => 'ImageUrl',
-        'labels'          => 'Labels',
-        'noLabels'        => 'NoLabels',
-        'offset'          => 'Offset',
-        'pageNum'         => 'PageNum',
-        'requestId'       => 'RequestId',
-        'requestTime'     => 'RequestTime',
-        'result'          => 'Result',
-        'riskTips'        => 'RiskTips',
-        'riskWords'       => 'RiskWords',
-        'scanResult'      => 'ScanResult',
-        'score'           => 'Score',
-        'serviceCode'     => 'ServiceCode',
-        'startTime'       => 'StartTime',
-        'suggestion'      => 'Suggestion',
-        'taskId'          => 'TaskId',
-        'textLabels'      => 'TextLabels',
-        'thumbnail'       => 'Thumbnail',
-        'timeStamp'       => 'TimeStamp',
-        'url'             => 'Url',
-        'voiceLabels'     => 'VoiceLabels',
+        'content' => 'Content',
+        'dataId' => 'DataId',
+        'endTime' => 'EndTime',
+        'extFeedback' => 'ExtFeedback',
+        'extra' => 'Extra',
+        'frameCount' => 'FrameCount',
+        'gmtCreate' => 'GmtCreate',
+        'imageLabels' => 'ImageLabels',
+        'imageService' => 'ImageService',
+        'imageUrl' => 'ImageUrl',
+        'labels' => 'Labels',
+        'noLabels' => 'NoLabels',
+        'offset' => 'Offset',
+        'pageNum' => 'PageNum',
+        'requestId' => 'RequestId',
+        'requestTime' => 'RequestTime',
+        'result' => 'Result',
+        'riskLevel' => 'RiskLevel',
+        'riskTips' => 'RiskTips',
+        'riskWords' => 'RiskWords',
+        'scanResult' => 'ScanResult',
+        'score' => 'Score',
+        'serviceCode' => 'ServiceCode',
+        'startTime' => 'StartTime',
+        'suggestion' => 'Suggestion',
+        'taskId' => 'TaskId',
+        'textLabels' => 'TextLabels',
+        'thumbnail' => 'Thumbnail',
+        'timeStamp' => 'TimeStamp',
+        'url' => 'Url',
+        'voiceLabels' => 'VoiceLabels',
         'voiceScanOpened' => 'VoiceScanOpened',
-        'voiceService'    => 'VoiceService',
+        'voiceService' => 'VoiceService',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -320,6 +324,9 @@ class items extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->riskTips) {
             $res['RiskTips'] = $this->riskTips;
@@ -433,11 +440,14 @@ class items extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['RiskTips'])) {
             $model->riskTips = $map['RiskTips'];

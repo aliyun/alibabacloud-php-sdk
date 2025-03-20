@@ -42,16 +42,14 @@ class AddKeywordsResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'msg'       => 'Msg',
+        'code' => 'Code',
+        'data' => 'Data',
+        'msg' => 'Msg',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

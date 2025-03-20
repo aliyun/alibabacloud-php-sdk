@@ -70,19 +70,17 @@ class GetStockOssCheckTasksListRequest extends Model
     public $taskType;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'endTime'     => 'EndTime',
-        'isInc'       => 'IsInc',
-        'mediaType'   => 'MediaType',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'sort'        => 'Sort',
-        'startTime'   => 'StartTime',
-        'taskType'    => 'TaskType',
+        'endTime' => 'EndTime',
+        'isInc' => 'IsInc',
+        'mediaType' => 'MediaType',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'sort' => 'Sort',
+        'startTime' => 'StartTime',
+        'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,12 +21,10 @@ class UpdateImageLibFreeInspectionShrinkRequest extends Model
     public $regionId;
     protected $_name = [
         'configShrink' => 'Config',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

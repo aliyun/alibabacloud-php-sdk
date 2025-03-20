@@ -47,16 +47,14 @@ class ListKeywordsRequest extends Model
     public $word;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'libId'       => 'LibId',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'sort'        => 'Sort',
-        'word'        => 'Word',
+        'libId' => 'LibId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'sort' => 'Sort',
+        'word' => 'Word',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

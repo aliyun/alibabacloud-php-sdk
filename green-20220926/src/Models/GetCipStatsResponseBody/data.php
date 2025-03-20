@@ -17,6 +17,11 @@ class data extends Model
     public $labelStatChart;
 
     /**
+     * @var mixed[]
+     */
+    public $totalStat;
+
+    /**
      * @var string[]
      */
     public $uids;
@@ -37,15 +42,14 @@ class data extends Model
     public $z;
     protected $_name = [
         'labelStatChart' => 'LabelStatChart',
-        'uids'           => 'Uids',
-        'x'              => 'X',
-        'y'              => 'Y',
-        'z'              => 'Z',
+        'totalStat' => 'TotalStat',
+        'uids' => 'Uids',
+        'x' => 'X',
+        'y' => 'Y',
+        'z' => 'Z',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -58,6 +62,9 @@ class data extends Model
                     $res['LabelStatChart'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalStat) {
+            $res['TotalStat'] = $this->totalStat;
         }
         if (null !== $this->uids) {
             $res['Uids'] = $this->uids;
@@ -98,11 +105,14 @@ class data extends Model
         if (isset($map['LabelStatChart'])) {
             if (!empty($map['LabelStatChart'])) {
                 $model->labelStatChart = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['LabelStatChart'] as $item) {
                     $model->labelStatChart[$n++] = null !== $item ? labelStatChart::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalStat'])) {
+            $model->totalStat = $map['TotalStat'];
         }
         if (isset($map['Uids'])) {
             if (!empty($map['Uids'])) {
@@ -117,7 +127,7 @@ class data extends Model
         if (isset($map['Y'])) {
             if (!empty($map['Y'])) {
                 $model->y = [];
-                $n        = 0;
+                $n = 0;
                 foreach ($map['Y'] as $item) {
                     $model->y[$n++] = null !== $item ? y::fromMap($item) : $item;
                 }
@@ -126,7 +136,7 @@ class data extends Model
         if (isset($map['Z'])) {
             if (!empty($map['Z'])) {
                 $model->z = [];
-                $n        = 0;
+                $n = 0;
                 foreach ($map['Z'] as $item) {
                     $model->z[$n++] = null !== $item ? z::fromMap($item) : $item;
                 }
