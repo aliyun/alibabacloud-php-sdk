@@ -6719,6 +6719,9 @@ class Eiam extends OpenApiClient
         if (!Utils::isUnset($request->ldapUdPullConfig)) {
             $query['LdapUdPullConfig'] = $request->ldapUdPullConfig;
         }
+        if (!Utils::isUnset($request->periodicSyncConfig)) {
+            $query['PeriodicSyncConfig'] = $request->periodicSyncConfig;
+        }
         if (!Utils::isUnset($request->periodicSyncStatus)) {
             $query['PeriodicSyncStatus'] = $request->periodicSyncStatus;
         }

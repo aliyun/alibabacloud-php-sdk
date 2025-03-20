@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPullConfigurationRequest\ldapUdPullConfig;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPullConfigurationRequest\periodicSyncConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPullConfigurationRequest\pullProtectedRule;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPullConfigurationRequest\udSyncScopeConfig;
 use AlibabaCloud\Tea\Model;
@@ -61,6 +62,11 @@ class SetIdentityProviderUdPullConfigurationRequest extends Model
     public $ldapUdPullConfig;
 
     /**
+     * @var periodicSyncConfig
+     */
+    public $periodicSyncConfig;
+
+    /**
      * @example disabled
      *
      * @var string
@@ -86,6 +92,7 @@ class SetIdentityProviderUdPullConfigurationRequest extends Model
         'incrementalCallbackStatus' => 'IncrementalCallbackStatus',
         'instanceId' => 'InstanceId',
         'ldapUdPullConfig' => 'LdapUdPullConfig',
+        'periodicSyncConfig' => 'PeriodicSyncConfig',
         'periodicSyncStatus' => 'PeriodicSyncStatus',
         'pullProtectedRule' => 'PullProtectedRule',
         'udSyncScopeConfig' => 'UdSyncScopeConfig',
@@ -110,6 +117,9 @@ class SetIdentityProviderUdPullConfigurationRequest extends Model
         }
         if (null !== $this->ldapUdPullConfig) {
             $res['LdapUdPullConfig'] = null !== $this->ldapUdPullConfig ? $this->ldapUdPullConfig->toMap() : null;
+        }
+        if (null !== $this->periodicSyncConfig) {
+            $res['PeriodicSyncConfig'] = null !== $this->periodicSyncConfig ? $this->periodicSyncConfig->toMap() : null;
         }
         if (null !== $this->periodicSyncStatus) {
             $res['PeriodicSyncStatus'] = $this->periodicSyncStatus;
@@ -146,6 +156,9 @@ class SetIdentityProviderUdPullConfigurationRequest extends Model
         }
         if (isset($map['LdapUdPullConfig'])) {
             $model->ldapUdPullConfig = ldapUdPullConfig::fromMap($map['LdapUdPullConfig']);
+        }
+        if (isset($map['PeriodicSyncConfig'])) {
+            $model->periodicSyncConfig = periodicSyncConfig::fromMap($map['PeriodicSyncConfig']);
         }
         if (isset($map['PeriodicSyncStatus'])) {
             $model->periodicSyncStatus = $map['PeriodicSyncStatus'];

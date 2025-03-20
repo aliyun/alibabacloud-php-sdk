@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest;
 
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\udPullConfig\periodicSyncConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\udPullConfig\udSyncScopeConfig;
 use AlibabaCloud\Tea\Model;
 
@@ -28,6 +29,11 @@ class udPullConfig extends Model
     public $incrementalCallbackStatus;
 
     /**
+     * @var periodicSyncConfig
+     */
+    public $periodicSyncConfig;
+
+    /**
      * @example disabled
      *
      * @var string
@@ -45,6 +51,7 @@ class udPullConfig extends Model
     protected $_name = [
         'groupSyncStatus' => 'GroupSyncStatus',
         'incrementalCallbackStatus' => 'IncrementalCallbackStatus',
+        'periodicSyncConfig' => 'PeriodicSyncConfig',
         'periodicSyncStatus' => 'PeriodicSyncStatus',
         'udSyncScopeConfig' => 'UdSyncScopeConfig',
     ];
@@ -59,6 +66,9 @@ class udPullConfig extends Model
         }
         if (null !== $this->incrementalCallbackStatus) {
             $res['IncrementalCallbackStatus'] = $this->incrementalCallbackStatus;
+        }
+        if (null !== $this->periodicSyncConfig) {
+            $res['PeriodicSyncConfig'] = null !== $this->periodicSyncConfig ? $this->periodicSyncConfig->toMap() : null;
         }
         if (null !== $this->periodicSyncStatus) {
             $res['PeriodicSyncStatus'] = $this->periodicSyncStatus;
@@ -83,6 +93,9 @@ class udPullConfig extends Model
         }
         if (isset($map['IncrementalCallbackStatus'])) {
             $model->incrementalCallbackStatus = $map['IncrementalCallbackStatus'];
+        }
+        if (isset($map['PeriodicSyncConfig'])) {
+            $model->periodicSyncConfig = periodicSyncConfig::fromMap($map['PeriodicSyncConfig']);
         }
         if (isset($map['PeriodicSyncStatus'])) {
             $model->periodicSyncStatus = $map['PeriodicSyncStatus'];
