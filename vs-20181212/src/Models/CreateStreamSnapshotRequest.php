@@ -29,14 +29,12 @@ class CreateStreamSnapshotRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'id'       => 'Id',
+        'id' => 'Id',
         'location' => 'Location',
-        'ownerId'  => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

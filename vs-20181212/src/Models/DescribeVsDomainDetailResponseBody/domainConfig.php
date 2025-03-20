@@ -76,21 +76,19 @@ class domainConfig extends Model
      */
     public $scope;
     protected $_name = [
-        'cname'        => 'Cname',
-        'description'  => 'Description',
-        'domainName'   => 'DomainName',
+        'cname' => 'Cname',
+        'description' => 'Description',
+        'domainName' => 'DomainName',
         'domainStatus' => 'DomainStatus',
-        'domainType'   => 'DomainType',
-        'gmtCreated'   => 'GmtCreated',
-        'gmtModified'  => 'GmtModified',
-        'region'       => 'Region',
-        'SSLProtocol'  => 'SSLProtocol',
-        'scope'        => 'Scope',
+        'domainType' => 'DomainType',
+        'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
+        'region' => 'Region',
+        'SSLProtocol' => 'SSLProtocol',
+        'scope' => 'Scope',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -87,22 +87,20 @@ class CreateParentPlatformRequest extends Model
      */
     public $protocol;
     protected $_name = [
-        'autoStart'      => 'AutoStart',
-        'clientAuth'     => 'ClientAuth',
+        'autoStart' => 'AutoStart',
+        'clientAuth' => 'ClientAuth',
         'clientPassword' => 'ClientPassword',
         'clientUsername' => 'ClientUsername',
-        'description'    => 'Description',
-        'gbId'           => 'GbId',
-        'ip'             => 'Ip',
-        'name'           => 'Name',
-        'ownerId'        => 'OwnerId',
-        'port'           => 'Port',
-        'protocol'       => 'Protocol',
+        'description' => 'Description',
+        'gbId' => 'GbId',
+        'ip' => 'Ip',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'port' => 'Port',
+        'protocol' => 'Protocol',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

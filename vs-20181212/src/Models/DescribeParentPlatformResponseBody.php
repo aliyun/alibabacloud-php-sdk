@@ -123,28 +123,26 @@ class DescribeParentPlatformResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'autoStart'      => 'AutoStart',
-        'clientAuth'     => 'ClientAuth',
-        'clientGbId'     => 'ClientGbId',
-        'clientIp'       => 'ClientIp',
+        'autoStart' => 'AutoStart',
+        'clientAuth' => 'ClientAuth',
+        'clientGbId' => 'ClientGbId',
+        'clientIp' => 'ClientIp',
         'clientPassword' => 'ClientPassword',
-        'clientPort'     => 'ClientPort',
+        'clientPort' => 'ClientPort',
         'clientUsername' => 'ClientUsername',
-        'createdTime'    => 'CreatedTime',
-        'description'    => 'Description',
-        'gbId'           => 'GbId',
-        'id'             => 'Id',
-        'ip'             => 'Ip',
-        'name'           => 'Name',
-        'port'           => 'Port',
-        'protocol'       => 'Protocol',
-        'requestId'      => 'RequestId',
-        'status'         => 'Status',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'gbId' => 'GbId',
+        'id' => 'Id',
+        'ip' => 'Ip',
+        'name' => 'Name',
+        'port' => 'Port',
+        'protocol' => 'Protocol',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

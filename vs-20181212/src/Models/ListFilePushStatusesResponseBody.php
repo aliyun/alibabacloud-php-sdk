@@ -42,16 +42,14 @@ class ListFilePushStatusesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'pushStatuses' => 'PushStatuses',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class ListFilePushStatusesResponseBody extends Model
         if (isset($map['PushStatuses'])) {
             if (!empty($map['PushStatuses'])) {
                 $model->pushStatuses = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PushStatuses'] as $item) {
                     $model->pushStatuses[$n++] = null !== $item ? pushStatuses::fromMap($item) : $item;
                 }

@@ -43,16 +43,14 @@ class ListCloudAppsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'appId'      => 'AppId',
-        'appName'    => 'AppName',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
         'appVersion' => 'AppVersion',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

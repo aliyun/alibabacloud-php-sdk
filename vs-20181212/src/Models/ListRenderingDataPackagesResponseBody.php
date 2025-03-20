@@ -31,13 +31,11 @@ class ListRenderingDataPackagesResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'dataPackages' => 'DataPackages',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -72,7 +70,7 @@ class ListRenderingDataPackagesResponseBody extends Model
         if (isset($map['DataPackages'])) {
             if (!empty($map['DataPackages'])) {
                 $model->dataPackages = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['DataPackages'] as $item) {
                     $model->dataPackages[$n++] = null !== $item ? dataPackages::fromMap($item) : $item;
                 }

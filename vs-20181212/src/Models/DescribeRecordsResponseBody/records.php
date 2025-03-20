@@ -99,24 +99,22 @@ class records extends Model
      */
     public $width;
     protected $_name = [
-        'endTime'     => 'EndTime',
-        'fileFormat'  => 'FileFormat',
-        'height'      => 'Height',
-        'id'          => 'Id',
-        'ossBucket'   => 'OssBucket',
+        'endTime' => 'EndTime',
+        'fileFormat' => 'FileFormat',
+        'height' => 'Height',
+        'id' => 'Id',
+        'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
-        'ossObject'   => 'OssObject',
-        'startTime'   => 'StartTime',
-        'streamId'    => 'StreamId',
-        'templateId'  => 'TemplateId',
-        'type'        => 'Type',
-        'url'         => 'Url',
-        'width'       => 'Width',
+        'ossObject' => 'OssObject',
+        'startTime' => 'StartTime',
+        'streamId' => 'StreamId',
+        'templateId' => 'TemplateId',
+        'type' => 'Type',
+        'url' => 'Url',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

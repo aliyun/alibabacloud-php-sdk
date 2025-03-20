@@ -79,22 +79,20 @@ class DescribePurchasedDevicesRequest extends Model
      */
     public $vendor;
     protected $_name = [
-        'groupId'       => 'GroupId',
-        'id'            => 'Id',
-        'name'          => 'Name',
-        'ownerId'       => 'OwnerId',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
-        'sortBy'        => 'SortBy',
+        'groupId' => 'GroupId',
+        'id' => 'Id',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
         'sortDirection' => 'SortDirection',
-        'subType'       => 'SubType',
-        'type'          => 'Type',
-        'vendor'        => 'Vendor',
+        'subType' => 'SubType',
+        'type' => 'Type',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

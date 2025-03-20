@@ -153,32 +153,30 @@ class CreateTemplateRequest extends Model
      */
     public $type;
     protected $_name = [
-        'callback'         => 'Callback',
-        'description'      => 'Description',
-        'fileFormat'       => 'FileFormat',
-        'flv'              => 'Flv',
-        'hlsM3u8'          => 'HlsM3u8',
-        'hlsTs'            => 'HlsTs',
-        'interval'         => 'Interval',
-        'jpgOnDemand'      => 'JpgOnDemand',
-        'jpgOverwrite'     => 'JpgOverwrite',
-        'jpgSequence'      => 'JpgSequence',
-        'mp4'              => 'Mp4',
-        'name'             => 'Name',
-        'ossBucket'        => 'OssBucket',
-        'ossEndpoint'      => 'OssEndpoint',
-        'ossFilePrefix'    => 'OssFilePrefix',
-        'ownerId'          => 'OwnerId',
-        'region'           => 'Region',
-        'retention'        => 'Retention',
+        'callback' => 'Callback',
+        'description' => 'Description',
+        'fileFormat' => 'FileFormat',
+        'flv' => 'Flv',
+        'hlsM3u8' => 'HlsM3u8',
+        'hlsTs' => 'HlsTs',
+        'interval' => 'Interval',
+        'jpgOnDemand' => 'JpgOnDemand',
+        'jpgOverwrite' => 'JpgOverwrite',
+        'jpgSequence' => 'JpgSequence',
+        'mp4' => 'Mp4',
+        'name' => 'Name',
+        'ossBucket' => 'OssBucket',
+        'ossEndpoint' => 'OssEndpoint',
+        'ossFilePrefix' => 'OssFilePrefix',
+        'ownerId' => 'OwnerId',
+        'region' => 'Region',
+        'retention' => 'Retention',
         'transConfigsJSON' => 'TransConfigsJSON',
-        'trigger'          => 'Trigger',
-        'type'             => 'Type',
+        'trigger' => 'Trigger',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

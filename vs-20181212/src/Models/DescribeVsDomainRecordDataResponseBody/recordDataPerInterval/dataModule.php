@@ -29,14 +29,12 @@ class dataModule extends Model
      */
     public $timeStamp;
     protected $_name = [
-        'recordValue'      => 'RecordValue',
+        'recordValue' => 'RecordValue',
         'streamCountValue' => 'StreamCountValue',
-        'timeStamp'        => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -41,16 +41,14 @@ class ListPublicKeysRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'keyGroup'   => 'KeyGroup',
-        'keyName'    => 'KeyName',
-        'keyType'    => 'KeyType',
+        'keyGroup' => 'KeyGroup',
+        'keyName' => 'KeyName',
+        'keyType' => 'KeyType',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

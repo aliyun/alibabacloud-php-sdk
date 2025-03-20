@@ -29,14 +29,12 @@ class ResetRenderingInstanceRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'actionName'          => 'ActionName',
-        'dataPackageId'       => 'DataPackageId',
+        'actionName' => 'ActionName',
+        'dataPackageId' => 'DataPackageId',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

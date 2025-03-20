@@ -50,16 +50,14 @@ class DescribeVsDomainBpsDataResponseBody extends Model
     public $startTime;
     protected $_name = [
         'bpsDataPerInterval' => 'BpsDataPerInterval',
-        'dataInterval'       => 'DataInterval',
-        'domainName'         => 'DomainName',
-        'endTime'            => 'EndTime',
-        'requestId'          => 'RequestId',
-        'startTime'          => 'StartTime',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

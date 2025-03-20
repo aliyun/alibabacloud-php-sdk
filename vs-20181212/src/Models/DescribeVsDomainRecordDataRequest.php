@@ -42,15 +42,13 @@ class DescribeVsDomainRecordDataRequest extends Model
     public $startTime;
     protected $_name = [
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
-        'region'     => 'Region',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'region' => 'Region',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -43,15 +43,13 @@ class ListCloudAppInstallationsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'installationInfos' => 'InstallationInfos',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'requestId'         => 'RequestId',
-        'totalCount'        => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class ListCloudAppInstallationsResponseBody extends Model
         if (isset($map['InstallationInfos'])) {
             if (!empty($map['InstallationInfos'])) {
                 $model->installationInfos = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['InstallationInfos'] as $item) {
                     $model->installationInfos[$n++] = null !== $item ? installationInfos::fromMap($item) : $item;
                 }

@@ -57,17 +57,15 @@ class DescribeRecordsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'nextStartTime' => 'NextStartTime',
-        'pageCount'     => 'PageCount',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
-        'records'       => 'Records',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'pageCount' => 'PageCount',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'records' => 'Records',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -126,7 +124,7 @@ class DescribeRecordsResponseBody extends Model
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Records'] as $item) {
                     $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
                 }

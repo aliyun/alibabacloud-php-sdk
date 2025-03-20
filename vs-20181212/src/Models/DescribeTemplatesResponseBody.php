@@ -49,17 +49,15 @@ class DescribeTemplatesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageCount'  => 'PageCount',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'templates'  => 'Templates',
+        'pageCount' => 'PageCount',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'templates' => 'Templates',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -115,7 +113,7 @@ class DescribeTemplatesResponseBody extends Model
         if (isset($map['Templates'])) {
             if (!empty($map['Templates'])) {
                 $model->templates = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Templates'] as $item) {
                     $model->templates[$n++] = null !== $item ? templates::fromMap($item) : $item;
                 }

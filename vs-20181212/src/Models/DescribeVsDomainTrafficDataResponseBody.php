@@ -49,17 +49,15 @@ class DescribeVsDomainTrafficDataResponseBody extends Model
      */
     public $trafficDataPerInterval;
     protected $_name = [
-        'dataInterval'           => 'DataInterval',
-        'domainName'             => 'DomainName',
-        'endTime'                => 'EndTime',
-        'requestId'              => 'RequestId',
-        'startTime'              => 'StartTime',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
         'trafficDataPerInterval' => 'TrafficDataPerInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -29,14 +29,12 @@ class results extends Model
      */
     public $error;
     protected $_name = [
-        'deviceId'    => 'DeviceId',
+        'deviceId' => 'DeviceId',
         'directoryId' => 'DirectoryId',
-        'error'       => 'Error',
+        'error' => 'Error',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

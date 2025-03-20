@@ -38,15 +38,13 @@ class ManageLoginRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'actionName'          => 'ActionName',
-        'keyGroup'            => 'KeyGroup',
-        'keyName'             => 'KeyName',
+        'actionName' => 'ActionName',
+        'keyGroup' => 'KeyGroup',
+        'keyName' => 'KeyName',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

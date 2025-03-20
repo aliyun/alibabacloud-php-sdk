@@ -45,16 +45,14 @@ class UnbindTemplateRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'ownerId'      => 'OwnerId',
-        'templateId'   => 'TemplateId',
+        'ownerId' => 'OwnerId',
+        'templateId' => 'TemplateId',
         'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

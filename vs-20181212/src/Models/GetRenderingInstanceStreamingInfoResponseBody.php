@@ -50,17 +50,15 @@ class GetRenderingInstanceStreamingInfoResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'flowId'              => 'FlowId',
-        'gateway'             => 'Gateway',
-        'hostname'            => 'Hostname',
-        'port'                => 'Port',
+        'flowId' => 'FlowId',
+        'gateway' => 'Gateway',
+        'hostname' => 'Hostname',
+        'port' => 'Port',
         'renderingInstanceId' => 'RenderingInstanceId',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

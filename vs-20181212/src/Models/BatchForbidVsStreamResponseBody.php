@@ -22,12 +22,10 @@ class BatchForbidVsStreamResponseBody extends Model
     public $requestId;
     protected $_name = [
         'forbidResult' => 'ForbidResult',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,15 +30,13 @@ class liveStreamsNotifyConfig extends Model
      */
     public $notifyUrl;
     protected $_name = [
-        'authKey'    => 'AuthKey',
-        'authType'   => 'AuthType',
+        'authKey' => 'AuthKey',
+        'authType' => 'AuthType',
         'domainName' => 'DomainName',
-        'notifyUrl'  => 'NotifyUrl',
+        'notifyUrl' => 'NotifyUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

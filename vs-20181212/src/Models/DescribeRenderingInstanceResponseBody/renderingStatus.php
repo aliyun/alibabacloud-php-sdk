@@ -27,14 +27,12 @@ class renderingStatus extends Model
      */
     public $status;
     protected $_name = [
-        'description'  => 'Description',
+        'description' => 'Description',
         'latestAction' => 'LatestAction',
-        'status'       => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

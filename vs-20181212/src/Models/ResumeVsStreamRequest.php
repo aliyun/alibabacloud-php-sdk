@@ -54,17 +54,15 @@ class ResumeVsStreamRequest extends Model
      */
     public $streamName;
     protected $_name = [
-        'appName'             => 'AppName',
+        'appName' => 'AppName',
         'controlStreamAction' => 'ControlStreamAction',
-        'domainName'          => 'DomainName',
-        'liveStreamType'      => 'LiveStreamType',
-        'ownerId'             => 'OwnerId',
-        'streamName'          => 'StreamName',
+        'domainName' => 'DomainName',
+        'liveStreamType' => 'LiveStreamType',
+        'ownerId' => 'OwnerId',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

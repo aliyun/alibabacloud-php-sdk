@@ -50,17 +50,15 @@ class liveAppRecord extends Model
      */
     public $streamName;
     protected $_name = [
-        'appName'    => 'AppName',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'sourceUrl'  => 'SourceUrl',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'sourceUrl' => 'SourceUrl',
+        'startTime' => 'StartTime',
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

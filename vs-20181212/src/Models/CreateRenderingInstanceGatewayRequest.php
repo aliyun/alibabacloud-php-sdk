@@ -26,13 +26,11 @@ class CreateRenderingInstanceGatewayRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'gatewayInstanceId'   => 'GatewayInstanceId',
+        'gatewayInstanceId' => 'GatewayInstanceId',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

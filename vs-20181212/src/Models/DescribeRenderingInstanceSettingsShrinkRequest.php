@@ -21,12 +21,10 @@ class DescribeRenderingInstanceSettingsShrinkRequest extends Model
     public $renderingInstanceId;
     protected $_name = [
         'attributeNamesShrink' => 'AttributeNames',
-        'renderingInstanceId'  => 'RenderingInstanceId',
+        'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

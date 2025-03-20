@@ -49,17 +49,15 @@ class DescribeVsDomainUvDataResponseBody extends Model
      */
     public $uvDataInterval;
     protected $_name = [
-        'dataInterval'   => 'DataInterval',
-        'domainName'     => 'DomainName',
-        'endTime'        => 'EndTime',
-        'requestId'      => 'RequestId',
-        'startTime'      => 'StartTime',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
         'uvDataInterval' => 'UvDataInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

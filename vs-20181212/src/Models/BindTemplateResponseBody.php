@@ -36,15 +36,13 @@ class BindTemplateResponseBody extends Model
      */
     public $templateId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'requestId'    => 'RequestId',
-        'templateId'   => 'TemplateId',
+        'requestId' => 'RequestId',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

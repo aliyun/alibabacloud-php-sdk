@@ -46,17 +46,15 @@ class publicKeys extends Model
      */
     public $uploadTime;
     protected $_name = [
-        'content'     => 'Content',
+        'content' => 'Content',
         'description' => 'Description',
-        'keyGroup'    => 'KeyGroup',
-        'keyName'     => 'KeyName',
-        'keyType'     => 'KeyType',
-        'uploadTime'  => 'UploadTime',
+        'keyGroup' => 'KeyGroup',
+        'keyName' => 'KeyName',
+        'keyType' => 'KeyType',
+        'uploadTime' => 'UploadTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -42,16 +42,14 @@ class ListCloudAppsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'cloudApps'  => 'CloudApps',
+        'cloudApps' => 'CloudApps',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class ListCloudAppsResponseBody extends Model
         if (isset($map['CloudApps'])) {
             if (!empty($map['CloudApps'])) {
                 $model->cloudApps = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['CloudApps'] as $item) {
                     $model->cloudApps[$n++] = null !== $item ? cloudApps::fromMap($item) : $item;
                 }

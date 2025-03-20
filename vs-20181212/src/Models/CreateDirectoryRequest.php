@@ -44,15 +44,13 @@ class CreateDirectoryRequest extends Model
     public $parentId;
     protected $_name = [
         'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'name'        => 'Name',
-        'ownerId'     => 'OwnerId',
-        'parentId'    => 'ParentId',
+        'groupId' => 'GroupId',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'parentId' => 'ParentId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

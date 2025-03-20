@@ -151,32 +151,30 @@ class ModifyTemplateRequest extends Model
      */
     public $trigger;
     protected $_name = [
-        'callback'         => 'Callback',
-        'description'      => 'Description',
-        'fileFormat'       => 'FileFormat',
-        'flv'              => 'Flv',
-        'hlsM3u8'          => 'HlsM3u8',
-        'hlsTs'            => 'HlsTs',
-        'id'               => 'Id',
-        'interval'         => 'Interval',
-        'jpgOnDemand'      => 'JpgOnDemand',
-        'jpgOverwrite'     => 'JpgOverwrite',
-        'jpgSequence'      => 'JpgSequence',
-        'mp4'              => 'Mp4',
-        'name'             => 'Name',
-        'ossBucket'        => 'OssBucket',
-        'ossEndpoint'      => 'OssEndpoint',
-        'ossFilePrefix'    => 'OssFilePrefix',
-        'ownerId'          => 'OwnerId',
-        'region'           => 'Region',
-        'retention'        => 'Retention',
+        'callback' => 'Callback',
+        'description' => 'Description',
+        'fileFormat' => 'FileFormat',
+        'flv' => 'Flv',
+        'hlsM3u8' => 'HlsM3u8',
+        'hlsTs' => 'HlsTs',
+        'id' => 'Id',
+        'interval' => 'Interval',
+        'jpgOnDemand' => 'JpgOnDemand',
+        'jpgOverwrite' => 'JpgOverwrite',
+        'jpgSequence' => 'JpgSequence',
+        'mp4' => 'Mp4',
+        'name' => 'Name',
+        'ossBucket' => 'OssBucket',
+        'ossEndpoint' => 'OssEndpoint',
+        'ossFilePrefix' => 'OssFilePrefix',
+        'ownerId' => 'OwnerId',
+        'region' => 'Region',
+        'retention' => 'Retention',
         'transConfigsJSON' => 'TransConfigsJSON',
-        'trigger'          => 'Trigger',
+        'trigger' => 'Trigger',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

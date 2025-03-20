@@ -29,14 +29,12 @@ class results extends Model
      */
     public $parentPlatformId;
     protected $_name = [
-        'deviceId'         => 'DeviceId',
-        'error'            => 'Error',
+        'deviceId' => 'DeviceId',
+        'error' => 'Error',
         'parentPlatformId' => 'ParentPlatformId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

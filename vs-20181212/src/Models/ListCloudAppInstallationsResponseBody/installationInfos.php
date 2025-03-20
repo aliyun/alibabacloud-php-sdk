@@ -64,19 +64,17 @@ class installationInfos extends Model
      */
     public $updateTime;
     protected $_name = [
-        'appId'               => 'AppId',
-        'appName'             => 'AppName',
-        'appVersion'          => 'AppVersion',
-        'installationTime'    => 'InstallationTime',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'appVersion' => 'AppVersion',
+        'installationTime' => 'InstallationTime',
         'renderingInstanceId' => 'RenderingInstanceId',
-        'status'              => 'Status',
-        'statusDescription'   => 'StatusDescription',
-        'updateTime'          => 'UpdateTime',
+        'status' => 'Status',
+        'statusDescription' => 'StatusDescription',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

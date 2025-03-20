@@ -64,19 +64,17 @@ class transConfigs extends Model
      */
     public $width;
     protected $_name = [
-        'fps'          => 'Fps',
-        'gop'          => 'Gop',
-        'height'       => 'Height',
-        'id'           => 'Id',
-        'name'         => 'Name',
+        'fps' => 'Fps',
+        'gop' => 'Gop',
+        'height' => 'Height',
+        'id' => 'Id',
+        'name' => 'Name',
         'videoBitrate' => 'VideoBitrate',
-        'videoCodec'   => 'VideoCodec',
-        'width'        => 'Width',
+        'videoCodec' => 'VideoCodec',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

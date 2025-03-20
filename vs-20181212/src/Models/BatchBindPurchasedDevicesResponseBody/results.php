@@ -37,14 +37,12 @@ class results extends Model
     public $region;
     protected $_name = [
         'deviceId' => 'DeviceId',
-        'error'    => 'Error',
-        'groupId'  => 'GroupId',
-        'region'   => 'Region',
+        'error' => 'Error',
+        'groupId' => 'GroupId',
+        'region' => 'Region',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,15 +36,13 @@ class stats extends Model
      */
     public $platformNum;
     protected $_name = [
-        'deviceNum'   => 'DeviceNum',
-        'iedNum'      => 'IedNum',
-        'ipcNum'      => 'IpcNum',
+        'deviceNum' => 'DeviceNum',
+        'iedNum' => 'IedNum',
+        'ipcNum' => 'IpcNum',
         'platformNum' => 'PlatformNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

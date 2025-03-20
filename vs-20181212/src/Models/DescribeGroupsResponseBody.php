@@ -49,17 +49,15 @@ class DescribeGroupsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'groups'     => 'Groups',
-        'pageCount'  => 'PageCount',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'groups' => 'Groups',
+        'pageCount' => 'PageCount',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,7 +101,7 @@ class DescribeGroupsResponseBody extends Model
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {
                 $model->groups = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Groups'] as $item) {
                     $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
                 }

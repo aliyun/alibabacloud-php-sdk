@@ -18,9 +18,7 @@ class clientInfo extends Model
         'clientIp' => 'ClientIp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

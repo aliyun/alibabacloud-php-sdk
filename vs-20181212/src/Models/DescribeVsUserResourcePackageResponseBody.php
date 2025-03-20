@@ -19,13 +19,11 @@ class DescribeVsUserResourcePackageResponseBody extends Model
      */
     public $resourcePackageInfos;
     protected $_name = [
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
         'resourcePackageInfos' => 'ResourcePackageInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

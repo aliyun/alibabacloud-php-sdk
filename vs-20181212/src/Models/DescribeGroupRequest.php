@@ -27,14 +27,12 @@ class DescribeGroupRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'id'           => 'Id',
+        'id' => 'Id',
         'includeStats' => 'IncludeStats',
-        'ownerId'      => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -48,15 +48,13 @@ class directory extends Model
     protected $_name = [
         'createdTime' => 'CreatedTime',
         'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'id'          => 'Id',
-        'name'        => 'Name',
-        'parentId'    => 'ParentId',
+        'groupId' => 'GroupId',
+        'id' => 'Id',
+        'name' => 'Name',
+        'parentId' => 'ParentId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

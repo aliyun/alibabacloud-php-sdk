@@ -84,23 +84,21 @@ class devices extends Model
      */
     public $vendor;
     protected $_name = [
-        'createdTime'  => 'CreatedTime',
-        'description'  => 'Description',
-        'groupId'      => 'GroupId',
-        'groupName'    => 'GroupName',
-        'id'           => 'Id',
-        'name'         => 'Name',
-        'orderId'      => 'OrderId',
-        'region'       => 'Region',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'id' => 'Id',
+        'name' => 'Name',
+        'orderId' => 'OrderId',
+        'region' => 'Region',
         'registerCode' => 'RegisterCode',
-        'subType'      => 'SubType',
-        'type'         => 'Type',
-        'vendor'       => 'Vendor',
+        'subType' => 'SubType',
+        'type' => 'Type',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

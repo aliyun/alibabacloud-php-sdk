@@ -36,15 +36,13 @@ class ModifyDeviceCaptureRequest extends Model
      */
     public $video;
     protected $_name = [
-        'id'      => 'Id',
-        'image'   => 'Image',
+        'id' => 'Id',
+        'image' => 'Image',
         'ownerId' => 'OwnerId',
-        'video'   => 'Video',
+        'video' => 'Video',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

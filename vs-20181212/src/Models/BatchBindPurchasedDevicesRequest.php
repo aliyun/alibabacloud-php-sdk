@@ -41,14 +41,12 @@ class BatchBindPurchasedDevicesRequest extends Model
     public $region;
     protected $_name = [
         'deviceId' => 'DeviceId',
-        'groupId'  => 'GroupId',
-        'ownerId'  => 'OwnerId',
-        'region'   => 'Region',
+        'groupId' => 'GroupId',
+        'ownerId' => 'OwnerId',
+        'region' => 'Region',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -43,16 +43,14 @@ class UnbindTemplateResponseBody extends Model
      */
     public $templateType;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'requestId'    => 'RequestId',
-        'templateId'   => 'TemplateId',
+        'requestId' => 'RequestId',
+        'templateId' => 'TemplateId',
         'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

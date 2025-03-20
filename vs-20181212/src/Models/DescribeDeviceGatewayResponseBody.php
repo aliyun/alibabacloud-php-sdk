@@ -43,16 +43,14 @@ class DescribeDeviceGatewayResponseBody extends Model
      */
     public $token;
     protected $_name = [
-        'host'      => 'Host',
-        'port'      => 'Port',
-        'protocol'  => 'Protocol',
+        'host' => 'Host',
+        'port' => 'Port',
+        'protocol' => 'Protocol',
         'requestId' => 'RequestId',
-        'token'     => 'Token',
+        'token' => 'Token',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

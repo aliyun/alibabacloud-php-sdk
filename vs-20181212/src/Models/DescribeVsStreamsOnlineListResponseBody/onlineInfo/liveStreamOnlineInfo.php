@@ -71,20 +71,18 @@ class liveStreamOnlineInfo extends Model
      */
     public $transcoded;
     protected $_name = [
-        'appName'       => 'AppName',
-        'domainName'    => 'DomainName',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
         'publishDomain' => 'PublishDomain',
-        'publishTime'   => 'PublishTime',
-        'publishType'   => 'PublishType',
-        'publishUrl'    => 'PublishUrl',
-        'streamName'    => 'StreamName',
-        'transcodeId'   => 'TranscodeId',
-        'transcoded'    => 'Transcoded',
+        'publishTime' => 'PublishTime',
+        'publishType' => 'PublishType',
+        'publishUrl' => 'PublishUrl',
+        'streamName' => 'StreamName',
+        'transcodeId' => 'TranscodeId',
+        'transcoded' => 'Transcoded',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

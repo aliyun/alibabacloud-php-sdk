@@ -36,15 +36,13 @@ class networkConfig extends Model
      */
     public $updateTime;
     protected $_name = [
-        'bandwidthStatus'     => 'BandwidthStatus',
-        'maxEgressBandwidth'  => 'MaxEgressBandwidth',
+        'bandwidthStatus' => 'BandwidthStatus',
+        'maxEgressBandwidth' => 'MaxEgressBandwidth',
         'maxIngressBandwidth' => 'MaxIngressBandwidth',
-        'updateTime'          => 'UpdateTime',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

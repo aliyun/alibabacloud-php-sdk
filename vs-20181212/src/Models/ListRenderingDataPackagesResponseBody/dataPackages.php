@@ -62,19 +62,17 @@ class dataPackages extends Model
      */
     public $updateTime;
     protected $_name = [
-        'category'            => 'Category',
-        'creationTime'        => 'CreationTime',
-        'dataPackageId'       => 'DataPackageId',
-        'description'         => 'Description',
+        'category' => 'Category',
+        'creationTime' => 'CreationTime',
+        'dataPackageId' => 'DataPackageId',
+        'description' => 'Description',
         'renderingInstanceId' => 'RenderingInstanceId',
-        'size'                => 'Size',
-        'status'              => 'Status',
-        'updateTime'          => 'UpdateTime',
+        'size' => 'Size',
+        'status' => 'Status',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

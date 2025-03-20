@@ -64,19 +64,17 @@ class DescribeDeviceURLRequest extends Model
      */
     public $type;
     protected $_name = [
-        'auth'        => 'Auth',
-        'expire'      => 'Expire',
-        'id'          => 'Id',
-        'mode'        => 'Mode',
+        'auth' => 'Auth',
+        'expire' => 'Expire',
+        'id' => 'Id',
+        'mode' => 'Mode',
         'outProtocol' => 'OutProtocol',
-        'ownerId'     => 'OwnerId',
-        'stream'      => 'Stream',
-        'type'        => 'Type',
+        'ownerId' => 'OwnerId',
+        'stream' => 'Stream',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

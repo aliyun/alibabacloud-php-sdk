@@ -23,12 +23,10 @@ class usageData extends Model
     public $value;
     protected $_name = [
         'timeStamp' => 'TimeStamp',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

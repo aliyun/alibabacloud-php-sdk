@@ -16,9 +16,7 @@ class channels extends Model
         'channel' => 'Channel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -45,16 +45,14 @@ class BatchResumeVsStreamRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'channel'             => 'Channel',
+        'channel' => 'Channel',
         'controlStreamAction' => 'ControlStreamAction',
-        'domainName'          => 'DomainName',
-        'liveStreamType'      => 'LiveStreamType',
-        'ownerId'             => 'OwnerId',
+        'domainName' => 'DomainName',
+        'liveStreamType' => 'LiveStreamType',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -48,17 +48,15 @@ class ListRenderingDataPackagesRequest extends Model
      */
     public $status;
     protected $_name = [
-        'category'      => 'Category',
+        'category' => 'Category',
         'dataPackageId' => 'DataPackageId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'size'          => 'Size',
-        'status'        => 'Status',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'size' => 'Size',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

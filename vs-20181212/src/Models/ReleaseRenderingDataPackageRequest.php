@@ -20,9 +20,7 @@ class ReleaseRenderingDataPackageRequest extends Model
         'dataPackageId' => 'DataPackageId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

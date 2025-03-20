@@ -49,17 +49,15 @@ class DescribeStreamsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageCount'  => 'PageCount',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'streams'    => 'Streams',
+        'pageCount' => 'PageCount',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'streams' => 'Streams',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -115,7 +113,7 @@ class DescribeStreamsResponseBody extends Model
         if (isset($map['Streams'])) {
             if (!empty($map['Streams'])) {
                 $model->streams = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Streams'] as $item) {
                     $model->streams[$n++] = null !== $item ? streams::fromMap($item) : $item;
                 }

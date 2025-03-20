@@ -43,16 +43,14 @@ class StopMoveRequest extends Model
      */
     public $zoom;
     protected $_name = [
-        'id'      => 'Id',
+        'id' => 'Id',
         'ownerId' => 'OwnerId',
-        'pan'     => 'Pan',
-        'tilt'    => 'Tilt',
-        'zoom'    => 'Zoom',
+        'pan' => 'Pan',
+        'tilt' => 'Tilt',
+        'zoom' => 'Zoom',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

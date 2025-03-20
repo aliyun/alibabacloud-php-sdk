@@ -121,28 +121,26 @@ class DescribeDevicesRequest extends Model
      */
     public $vendor;
     protected $_name = [
-        'directoryId'      => 'DirectoryId',
-        'dsn'              => 'Dsn',
-        'gbId'             => 'GbId',
-        'groupId'          => 'GroupId',
-        'id'               => 'Id',
+        'directoryId' => 'DirectoryId',
+        'dsn' => 'Dsn',
+        'gbId' => 'GbId',
+        'groupId' => 'GroupId',
+        'id' => 'Id',
         'includeDirectory' => 'IncludeDirectory',
-        'includeStats'     => 'IncludeStats',
-        'name'             => 'Name',
-        'ownerId'          => 'OwnerId',
-        'pageNum'          => 'PageNum',
-        'pageSize'         => 'PageSize',
-        'parentId'         => 'ParentId',
-        'sortBy'           => 'SortBy',
-        'sortDirection'    => 'SortDirection',
-        'status'           => 'Status',
-        'type'             => 'Type',
-        'vendor'           => 'Vendor',
+        'includeStats' => 'IncludeStats',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'parentId' => 'ParentId',
+        'sortBy' => 'SortBy',
+        'sortDirection' => 'SortDirection',
+        'status' => 'Status',
+        'type' => 'Type',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

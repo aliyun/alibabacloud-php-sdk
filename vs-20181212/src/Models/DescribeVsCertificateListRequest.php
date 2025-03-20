@@ -21,12 +21,10 @@ class DescribeVsCertificateListRequest extends Model
     public $ownerId;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

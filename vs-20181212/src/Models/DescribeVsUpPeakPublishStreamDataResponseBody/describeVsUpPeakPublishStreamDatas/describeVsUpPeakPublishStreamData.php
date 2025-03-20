@@ -41,16 +41,14 @@ class describeVsUpPeakPublishStreamData extends Model
      */
     public $statName;
     protected $_name = [
-        'bandWidth'        => 'BandWidth',
-        'peakTime'         => 'PeakTime',
+        'bandWidth' => 'BandWidth',
+        'peakTime' => 'PeakTime',
         'publishStreamNum' => 'PublishStreamNum',
-        'queryTime'        => 'QueryTime',
-        'statName'         => 'StatName',
+        'queryTime' => 'QueryTime',
+        'statName' => 'StatName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

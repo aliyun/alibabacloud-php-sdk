@@ -164,34 +164,32 @@ class DescribeTemplateResponseBody extends Model
      */
     public $type;
     protected $_name = [
-        'callback'      => 'Callback',
-        'createdTime'   => 'CreatedTime',
-        'description'   => 'Description',
-        'fileFormat'    => 'FileFormat',
-        'flv'           => 'Flv',
-        'hlsM3u8'       => 'HlsM3u8',
-        'hlsTs'         => 'HlsTs',
-        'id'            => 'Id',
-        'interval'      => 'Interval',
-        'jpgOnDemand'   => 'JpgOnDemand',
-        'jpgOverwrite'  => 'JpgOverwrite',
-        'jpgSequence'   => 'JpgSequence',
-        'mp4'           => 'Mp4',
-        'name'          => 'Name',
-        'ossBucket'     => 'OssBucket',
-        'ossEndpoint'   => 'OssEndpoint',
+        'callback' => 'Callback',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'fileFormat' => 'FileFormat',
+        'flv' => 'Flv',
+        'hlsM3u8' => 'HlsM3u8',
+        'hlsTs' => 'HlsTs',
+        'id' => 'Id',
+        'interval' => 'Interval',
+        'jpgOnDemand' => 'JpgOnDemand',
+        'jpgOverwrite' => 'JpgOverwrite',
+        'jpgSequence' => 'JpgSequence',
+        'mp4' => 'Mp4',
+        'name' => 'Name',
+        'ossBucket' => 'OssBucket',
+        'ossEndpoint' => 'OssEndpoint',
         'ossFilePrefix' => 'OssFilePrefix',
-        'region'        => 'Region',
-        'requestId'     => 'RequestId',
-        'retention'     => 'Retention',
-        'transConfigs'  => 'TransConfigs',
-        'trigger'       => 'Trigger',
-        'type'          => 'Type',
+        'region' => 'Region',
+        'requestId' => 'RequestId',
+        'retention' => 'Retention',
+        'transConfigs' => 'TransConfigs',
+        'trigger' => 'Trigger',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -346,7 +344,7 @@ class DescribeTemplateResponseBody extends Model
         if (isset($map['TransConfigs'])) {
             if (!empty($map['TransConfigs'])) {
                 $model->transConfigs = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['TransConfigs'] as $item) {
                     $model->transConfigs[$n++] = null !== $item ? transConfigs::fromMap($item) : $item;
                 }

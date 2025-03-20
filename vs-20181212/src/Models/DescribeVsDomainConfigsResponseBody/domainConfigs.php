@@ -35,15 +35,13 @@ class domainConfigs extends Model
      */
     public $status;
     protected $_name = [
-        'configId'     => 'ConfigId',
+        'configId' => 'ConfigId',
         'functionArgs' => 'FunctionArgs',
         'functionName' => 'FunctionName',
-        'status'       => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -84,7 +82,7 @@ class domainConfigs extends Model
         if (isset($map['FunctionArgs'])) {
             if (!empty($map['FunctionArgs'])) {
                 $model->functionArgs = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['FunctionArgs'] as $item) {
                     $model->functionArgs[$n++] = null !== $item ? functionArgs::fromMap($item) : $item;
                 }

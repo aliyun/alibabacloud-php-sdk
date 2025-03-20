@@ -52,17 +52,15 @@ class DescribeAccountStatResponseBody extends Model
      */
     public $templateNum;
     protected $_name = [
-        'groupLimit'    => 'GroupLimit',
-        'groupNum'      => 'GroupNum',
-        'id'            => 'Id',
-        'requestId'     => 'RequestId',
+        'groupLimit' => 'GroupLimit',
+        'groupNum' => 'GroupNum',
+        'id' => 'Id',
+        'requestId' => 'RequestId',
         'templateLimit' => 'TemplateLimit',
-        'templateNum'   => 'TemplateNum',
+        'templateNum' => 'TemplateNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

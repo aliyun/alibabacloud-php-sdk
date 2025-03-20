@@ -85,22 +85,20 @@ class DescribeVsStreamsOnlineListRequest extends Model
      */
     public $streamType;
     protected $_name = [
-        'appName'    => 'AppName',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'orderBy'    => 'OrderBy',
-        'ownerId'    => 'OwnerId',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
-        'queryType'  => 'QueryType',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'orderBy' => 'OrderBy',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'queryType' => 'QueryType',
+        'startTime' => 'StartTime',
         'streamName' => 'StreamName',
         'streamType' => 'StreamType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

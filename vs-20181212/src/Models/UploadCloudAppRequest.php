@@ -49,16 +49,14 @@ class UploadCloudAppRequest extends Model
      */
     public $md5;
     protected $_name = [
-        'appName'     => 'AppName',
-        'appVersion'  => 'AppVersion',
+        'appName' => 'AppName',
+        'appVersion' => 'AppVersion',
         'description' => 'Description',
         'downloadUrl' => 'DownloadUrl',
-        'md5'         => 'Md5',
+        'md5' => 'Md5',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

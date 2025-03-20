@@ -62,19 +62,17 @@ class channels extends Model
      */
     public $streamStatus;
     protected $_name = [
-        'channelId'    => 'ChannelId',
-        'deviceId'     => 'DeviceId',
+        'channelId' => 'ChannelId',
+        'deviceId' => 'DeviceId',
         'deviceStatus' => 'DeviceStatus',
-        'gbId'         => 'GbId',
-        'name'         => 'Name',
-        'params'       => 'Params',
-        'streamId'     => 'StreamId',
+        'gbId' => 'GbId',
+        'name' => 'Name',
+        'params' => 'Params',
+        'streamId' => 'StreamId',
         'streamStatus' => 'StreamStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

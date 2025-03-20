@@ -18,6 +18,11 @@ class RecoverRenderingDataPackageRequest extends Model
     public $dataPackageId;
 
     /**
+     * @var string
+     */
+    public $loadMode;
+
+    /**
      * @description This parameter is required.
      *
      * @example render-9f8c57355d224ad7beaf95e145f22111
@@ -26,19 +31,21 @@ class RecoverRenderingDataPackageRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'dataPackageId'       => 'DataPackageId',
+        'dataPackageId' => 'DataPackageId',
+        'loadMode' => 'LoadMode',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->dataPackageId) {
             $res['DataPackageId'] = $this->dataPackageId;
+        }
+        if (null !== $this->loadMode) {
+            $res['LoadMode'] = $this->loadMode;
         }
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
@@ -57,6 +64,9 @@ class RecoverRenderingDataPackageRequest extends Model
         $model = new self();
         if (isset($map['DataPackageId'])) {
             $model->dataPackageId = $map['DataPackageId'];
+        }
+        if (isset($map['LoadMode'])) {
+            $model->loadMode = $map['LoadMode'];
         }
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];

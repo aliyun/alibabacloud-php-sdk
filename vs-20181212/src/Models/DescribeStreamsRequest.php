@@ -90,23 +90,21 @@ class DescribeStreamsRequest extends Model
      */
     public $sortDirection;
     protected $_name = [
-        'app'           => 'App',
-        'deviceId'      => 'DeviceId',
-        'domain'        => 'Domain',
-        'groupId'       => 'GroupId',
-        'id'            => 'Id',
-        'name'          => 'Name',
-        'ownerId'       => 'OwnerId',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
-        'parentId'      => 'ParentId',
-        'sortBy'        => 'SortBy',
+        'app' => 'App',
+        'deviceId' => 'DeviceId',
+        'domain' => 'Domain',
+        'groupId' => 'GroupId',
+        'id' => 'Id',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'parentId' => 'ParentId',
+        'sortBy' => 'SortBy',
         'sortDirection' => 'SortDirection',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -24,9 +24,7 @@ class configInfo extends Model
         'networkConfig' => 'NetworkConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -58,7 +56,7 @@ class configInfo extends Model
         if (isset($map['Configuration'])) {
             if (!empty($map['Configuration'])) {
                 $model->configuration = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['Configuration'] as $item) {
                     $model->configuration[$n++] = null !== $item ? configuration::fromMap($item) : $item;
                 }

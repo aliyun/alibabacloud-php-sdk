@@ -50,15 +50,13 @@ class UploadFileRequest extends Model
     public $targetPath;
     protected $_name = [
         'description' => 'Description',
-        'fileName'    => 'FileName',
-        'md5'         => 'Md5',
-        'originUrl'   => 'OriginUrl',
-        'targetPath'  => 'TargetPath',
+        'fileName' => 'FileName',
+        'md5' => 'Md5',
+        'originUrl' => 'OriginUrl',
+        'targetPath' => 'TargetPath',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

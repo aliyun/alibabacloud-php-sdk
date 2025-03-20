@@ -68,19 +68,17 @@ class ForbidVsStreamRequest extends Model
      */
     public $streamName;
     protected $_name = [
-        'appName'             => 'AppName',
+        'appName' => 'AppName',
         'controlStreamAction' => 'ControlStreamAction',
-        'domainName'          => 'DomainName',
-        'liveStreamType'      => 'LiveStreamType',
-        'oneshot'             => 'Oneshot',
-        'ownerId'             => 'OwnerId',
-        'resumeTime'          => 'ResumeTime',
-        'streamName'          => 'StreamName',
+        'domainName' => 'DomainName',
+        'liveStreamType' => 'LiveStreamType',
+        'oneshot' => 'Oneshot',
+        'ownerId' => 'OwnerId',
+        'resumeTime' => 'ResumeTime',
+        'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

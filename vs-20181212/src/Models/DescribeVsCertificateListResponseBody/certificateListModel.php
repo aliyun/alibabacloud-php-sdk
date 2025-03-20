@@ -22,12 +22,10 @@ class certificateListModel extends Model
     public $count;
     protected $_name = [
         'certList' => 'CertList',
-        'count'    => 'Count',
+        'count' => 'Count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -59,7 +57,7 @@ class certificateListModel extends Model
         if (isset($map['CertList'])) {
             if (!empty($map['CertList'])) {
                 $model->certList = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['CertList'] as $item) {
                     $model->certList[$n++] = null !== $item ? certList::fromMap($item) : $item;
                 }

@@ -61,18 +61,16 @@ class BindTemplateRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'applyAll'     => 'ApplyAll',
-        'instanceId'   => 'InstanceId',
+        'applyAll' => 'ApplyAll',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'ownerId'      => 'OwnerId',
-        'replace'      => 'Replace',
-        'templateId'   => 'TemplateId',
+        'ownerId' => 'OwnerId',
+        'replace' => 'Replace',
+        'templateId' => 'TemplateId',
         'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

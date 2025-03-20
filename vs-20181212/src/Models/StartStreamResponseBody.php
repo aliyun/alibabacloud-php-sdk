@@ -29,14 +29,12 @@ class StartStreamResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'id'        => 'Id',
-        'name'      => 'Name',
+        'id' => 'Id',
+        'name' => 'Name',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

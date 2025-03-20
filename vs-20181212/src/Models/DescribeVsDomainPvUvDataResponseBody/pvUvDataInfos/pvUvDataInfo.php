@@ -29,14 +29,12 @@ class pvUvDataInfo extends Model
      */
     public $UV;
     protected $_name = [
-        'PV'        => 'PV',
+        'PV' => 'PV',
         'timeStamp' => 'TimeStamp',
-        'UV'        => 'UV',
+        'UV' => 'UV',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

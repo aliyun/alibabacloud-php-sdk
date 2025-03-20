@@ -23,13 +23,11 @@ class RefreshRenderingInstanceStreamingRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'clientInfo'          => 'ClientInfo',
+        'clientInfo' => 'ClientInfo',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

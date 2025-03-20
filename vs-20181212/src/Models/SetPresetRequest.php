@@ -31,14 +31,12 @@ class SetPresetRequest extends Model
      */
     public $presetId;
     protected $_name = [
-        'id'       => 'Id',
-        'ownerId'  => 'OwnerId',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
         'presetId' => 'PresetId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

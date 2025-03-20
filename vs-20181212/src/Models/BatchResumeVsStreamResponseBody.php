@@ -21,13 +21,11 @@ class BatchResumeVsStreamResponseBody extends Model
      */
     public $resumeResult;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'resumeResult' => 'ResumeResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

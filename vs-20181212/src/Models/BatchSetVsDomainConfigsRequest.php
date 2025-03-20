@@ -32,13 +32,11 @@ class BatchSetVsDomainConfigsRequest extends Model
     public $ownerId;
     protected $_name = [
         'domainNames' => 'DomainNames',
-        'functions'   => 'Functions',
-        'ownerId'     => 'OwnerId',
+        'functions' => 'Functions',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

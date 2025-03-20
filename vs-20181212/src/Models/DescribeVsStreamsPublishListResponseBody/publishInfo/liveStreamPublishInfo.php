@@ -99,24 +99,22 @@ class liveStreamPublishInfo extends Model
      */
     public $transcoded;
     protected $_name = [
-        'appName'       => 'AppName',
-        'clientAddr'    => 'ClientAddr',
-        'domainName'    => 'DomainName',
-        'edgeNodeAddr'  => 'EdgeNodeAddr',
+        'appName' => 'AppName',
+        'clientAddr' => 'ClientAddr',
+        'domainName' => 'DomainName',
+        'edgeNodeAddr' => 'EdgeNodeAddr',
         'publishDomain' => 'PublishDomain',
-        'publishTime'   => 'PublishTime',
-        'publishType'   => 'PublishType',
-        'publishUrl'    => 'PublishUrl',
-        'stopTime'      => 'StopTime',
-        'streamName'    => 'StreamName',
-        'streamUrl'     => 'StreamUrl',
-        'transcodeId'   => 'TranscodeId',
-        'transcoded'    => 'Transcoded',
+        'publishTime' => 'PublishTime',
+        'publishType' => 'PublishType',
+        'publishUrl' => 'PublishUrl',
+        'stopTime' => 'StopTime',
+        'streamName' => 'StreamName',
+        'streamUrl' => 'StreamUrl',
+        'transcodeId' => 'TranscodeId',
+        'transcoded' => 'Transcoded',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

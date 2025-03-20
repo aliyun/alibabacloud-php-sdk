@@ -21,13 +21,11 @@ class DescribeVsDomainSnapshotDataResponseBody extends Model
      */
     public $snapshotDataPerInterval;
     protected $_name = [
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
         'snapshotDataPerInterval' => 'SnapshotDataPerInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

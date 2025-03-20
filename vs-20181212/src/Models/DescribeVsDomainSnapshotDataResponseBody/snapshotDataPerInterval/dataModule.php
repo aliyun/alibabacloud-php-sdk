@@ -23,12 +23,10 @@ class dataModule extends Model
     public $timeStamp;
     protected $_name = [
         'snapshotValue' => 'SnapshotValue',
-        'timeStamp'     => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,13 +22,11 @@ class clientInfo extends Model
      */
     public $newClient;
     protected $_name = [
-        'clientIp'  => 'ClientIp',
+        'clientIp' => 'ClientIp',
         'newClient' => 'NewClient',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

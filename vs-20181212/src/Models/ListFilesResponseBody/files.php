@@ -62,19 +62,17 @@ class files extends Model
      */
     public $uploadTime;
     protected $_name = [
-        'description'       => 'Description',
-        'fileId'            => 'FileId',
-        'fileName'          => 'FileName',
-        'status'            => 'Status',
+        'description' => 'Description',
+        'fileId' => 'FileId',
+        'fileName' => 'FileName',
+        'status' => 'Status',
         'statusDescription' => 'StatusDescription',
-        'targetPath'        => 'TargetPath',
-        'updateTime'        => 'UpdateTime',
-        'uploadTime'        => 'UploadTime',
+        'targetPath' => 'TargetPath',
+        'updateTime' => 'UpdateTime',
+        'uploadTime' => 'UploadTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

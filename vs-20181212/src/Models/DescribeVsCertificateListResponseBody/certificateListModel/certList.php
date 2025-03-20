@@ -50,17 +50,15 @@ class certList extends Model
      */
     public $lastTime;
     protected $_name = [
-        'certId'      => 'CertId',
-        'certName'    => 'CertName',
-        'common'      => 'Common',
+        'certId' => 'CertId',
+        'certName' => 'CertName',
+        'common' => 'Common',
         'fingerprint' => 'Fingerprint',
-        'issuer'      => 'Issuer',
-        'lastTime'    => 'LastTime',
+        'issuer' => 'Issuer',
+        'lastTime' => 'LastTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

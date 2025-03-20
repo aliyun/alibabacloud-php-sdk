@@ -26,13 +26,11 @@ class UninstallCloudAppRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'appId'               => 'AppId',
+        'appId' => 'AppId',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

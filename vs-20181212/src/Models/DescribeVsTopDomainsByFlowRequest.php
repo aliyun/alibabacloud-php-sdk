@@ -34,15 +34,13 @@ class DescribeVsTopDomainsByFlowRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'limit'     => 'Limit',
-        'ownerId'   => 'OwnerId',
+        'endTime' => 'EndTime',
+        'limit' => 'Limit',
+        'ownerId' => 'OwnerId',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

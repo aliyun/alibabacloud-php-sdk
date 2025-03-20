@@ -41,16 +41,14 @@ class StopRecordStreamRequest extends Model
      */
     public $playDomain;
     protected $_name = [
-        'app'        => 'App',
-        'id'         => 'Id',
-        'name'       => 'Name',
-        'ownerId'    => 'OwnerId',
+        'app' => 'App',
+        'id' => 'Id',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
         'playDomain' => 'PlayDomain',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,13 +18,11 @@ class DescribeVsUserResourcePackageRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

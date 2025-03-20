@@ -28,14 +28,12 @@ class DescribePresetsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'id'        => 'Id',
-        'presets'   => 'Presets',
+        'id' => 'Id',
+        'presets' => 'Presets',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -73,7 +71,7 @@ class DescribePresetsResponseBody extends Model
         if (isset($map['Presets'])) {
             if (!empty($map['Presets'])) {
                 $model->presets = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Presets'] as $item) {
                     $model->presets[$n++] = null !== $item ? presets::fromMap($item) : $item;
                 }

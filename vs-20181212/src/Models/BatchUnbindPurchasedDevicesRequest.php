@@ -23,12 +23,10 @@ class BatchUnbindPurchasedDevicesRequest extends Model
     public $ownerId;
     protected $_name = [
         'deviceId' => 'DeviceId',
-        'ownerId'  => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

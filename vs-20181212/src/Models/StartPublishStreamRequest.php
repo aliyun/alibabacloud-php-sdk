@@ -28,13 +28,11 @@ class StartPublishStreamRequest extends Model
     public $publishUrl;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'ownerId'    => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'publishUrl' => 'PublishUrl',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

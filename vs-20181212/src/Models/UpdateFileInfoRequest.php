@@ -25,12 +25,10 @@ class UpdateFileInfoRequest extends Model
     public $fileId;
     protected $_name = [
         'description' => 'Description',
-        'fileId'      => 'FileId',
+        'fileId' => 'FileId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

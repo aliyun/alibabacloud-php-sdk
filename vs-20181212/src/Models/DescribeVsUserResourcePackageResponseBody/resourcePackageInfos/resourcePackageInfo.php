@@ -39,16 +39,14 @@ class resourcePackageInfo extends Model
     public $status;
     protected $_name = [
         'commodityCode' => 'CommodityCode',
-        'currCapacity'  => 'CurrCapacity',
-        'displayName'   => 'DisplayName',
-        'initCapacity'  => 'InitCapacity',
-        'instanceId'    => 'InstanceId',
-        'status'        => 'Status',
+        'currCapacity' => 'CurrCapacity',
+        'displayName' => 'DisplayName',
+        'initCapacity' => 'InitCapacity',
+        'instanceId' => 'InstanceId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

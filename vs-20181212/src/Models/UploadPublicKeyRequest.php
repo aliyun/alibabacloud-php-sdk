@@ -43,16 +43,14 @@ class UploadPublicKeyRequest extends Model
      */
     public $keyType;
     protected $_name = [
-        'content'     => 'Content',
+        'content' => 'Content',
         'description' => 'Description',
-        'keyGroup'    => 'KeyGroup',
-        'keyName'     => 'KeyName',
-        'keyType'     => 'KeyType',
+        'keyGroup' => 'KeyGroup',
+        'keyName' => 'KeyName',
+        'keyType' => 'KeyType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

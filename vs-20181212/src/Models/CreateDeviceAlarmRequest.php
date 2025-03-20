@@ -81,20 +81,18 @@ class CreateDeviceAlarmRequest extends Model
      */
     public $subAlarm;
     protected $_name = [
-        'alarm'      => 'Alarm',
-        'channelId'  => 'ChannelId',
-        'endTime'    => 'EndTime',
-        'expire'     => 'Expire',
-        'id'         => 'Id',
+        'alarm' => 'Alarm',
+        'channelId' => 'ChannelId',
+        'endTime' => 'EndTime',
+        'expire' => 'Expire',
+        'id' => 'Id',
         'objectType' => 'ObjectType',
-        'ownerId'    => 'OwnerId',
-        'startTime'  => 'StartTime',
-        'subAlarm'   => 'SubAlarm',
+        'ownerId' => 'OwnerId',
+        'startTime' => 'StartTime',
+        'subAlarm' => 'SubAlarm',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

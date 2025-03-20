@@ -50,17 +50,15 @@ class DescribeParentPlatformDevicesRequest extends Model
      */
     public $sortDirection;
     protected $_name = [
-        'id'            => 'Id',
-        'ownerId'       => 'OwnerId',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
-        'sortBy'        => 'SortBy',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
         'sortDirection' => 'SortDirection',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

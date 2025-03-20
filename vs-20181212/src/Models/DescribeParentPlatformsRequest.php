@@ -55,18 +55,16 @@ class DescribeParentPlatformsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'gbId'          => 'GbId',
-        'ownerId'       => 'OwnerId',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
-        'sortBy'        => 'SortBy',
+        'gbId' => 'GbId',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
         'sortDirection' => 'SortDirection',
-        'status'        => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

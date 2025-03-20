@@ -43,15 +43,13 @@ class ListRenderingInstanceGatewayResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'gatewayConfigurationInfos' => 'GatewayConfigurationInfos',
-        'pageNumber'                => 'PageNumber',
-        'pageSize'                  => 'PageSize',
-        'requestId'                 => 'RequestId',
-        'totalCount'                => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class ListRenderingInstanceGatewayResponseBody extends Model
         if (isset($map['GatewayConfigurationInfos'])) {
             if (!empty($map['GatewayConfigurationInfos'])) {
                 $model->gatewayConfigurationInfos = [];
-                $n                                = 0;
+                $n = 0;
                 foreach ($map['GatewayConfigurationInfos'] as $item) {
                     $model->gatewayConfigurationInfos[$n++] = null !== $item ? gatewayConfigurationInfos::fromMap($item) : $item;
                 }

@@ -44,15 +44,13 @@ class stats extends Model
     public $streamNum;
     protected $_name = [
         'channelNum' => 'ChannelNum',
-        'failedNum'  => 'FailedNum',
+        'failedNum' => 'FailedNum',
         'offlineNum' => 'OfflineNum',
-        'onlineNum'  => 'OnlineNum',
-        'streamNum'  => 'StreamNum',
+        'onlineNum' => 'OnlineNum',
+        'streamNum' => 'StreamNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

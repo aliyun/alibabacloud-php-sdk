@@ -64,19 +64,17 @@ class cloudApps extends Model
      */
     public $uploadTime;
     protected $_name = [
-        'appId'             => 'AppId',
-        'appName'           => 'AppName',
-        'appVersion'        => 'AppVersion',
-        'description'       => 'Description',
-        'status'            => 'Status',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'appVersion' => 'AppVersion',
+        'description' => 'Description',
+        'status' => 'Status',
         'statusDescription' => 'StatusDescription',
-        'updateTime'        => 'UpdateTime',
-        'uploadTime'        => 'UploadTime',
+        'updateTime' => 'UpdateTime',
+        'uploadTime' => 'UploadTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -29,9 +29,7 @@ class configuration extends Model
         'moduleName' => 'ModuleName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class configuration extends Model
         if (isset($map['Attributes'])) {
             if (!empty($map['Attributes'])) {
                 $model->attributes = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Attributes'] as $item) {
                     $model->attributes[$n++] = null !== $item ? attributes::fromMap($item) : $item;
                 }

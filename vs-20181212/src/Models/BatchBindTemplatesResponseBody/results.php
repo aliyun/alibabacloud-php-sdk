@@ -36,15 +36,13 @@ class results extends Model
      */
     public $templateId;
     protected $_name = [
-        'error'        => 'Error',
-        'instanceId'   => 'InstanceId',
+        'error' => 'Error',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'templateId'   => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

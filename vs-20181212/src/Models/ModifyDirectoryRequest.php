@@ -33,14 +33,12 @@ class ModifyDirectoryRequest extends Model
     public $ownerId;
     protected $_name = [
         'description' => 'Description',
-        'id'          => 'Id',
-        'name'        => 'Name',
-        'ownerId'     => 'OwnerId',
+        'id' => 'Id',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

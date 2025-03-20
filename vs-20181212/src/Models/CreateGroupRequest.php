@@ -83,22 +83,20 @@ class CreateGroupRequest extends Model
      */
     public $region;
     protected $_name = [
-        'app'         => 'App',
-        'callback'    => 'Callback',
+        'app' => 'App',
+        'callback' => 'Callback',
         'description' => 'Description',
-        'inProtocol'  => 'InProtocol',
-        'lazyPull'    => 'LazyPull',
-        'name'        => 'Name',
+        'inProtocol' => 'InProtocol',
+        'lazyPull' => 'LazyPull',
+        'name' => 'Name',
         'outProtocol' => 'OutProtocol',
-        'ownerId'     => 'OwnerId',
-        'playDomain'  => 'PlayDomain',
-        'pushDomain'  => 'PushDomain',
-        'region'      => 'Region',
+        'ownerId' => 'OwnerId',
+        'playDomain' => 'PlayDomain',
+        'pushDomain' => 'PushDomain',
+        'region' => 'Region',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

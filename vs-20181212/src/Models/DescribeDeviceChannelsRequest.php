@@ -36,15 +36,13 @@ class DescribeDeviceChannelsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'id'       => 'Id',
-        'ownerId'  => 'OwnerId',
-        'pageNum'  => 'PageNum',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

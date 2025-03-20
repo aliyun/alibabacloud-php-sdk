@@ -20,9 +20,7 @@ class ReleaseRenderingInstanceRequest extends Model
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -49,16 +49,14 @@ class ModifyDeviceAlarmRequest extends Model
      */
     public $status;
     protected $_name = [
-        'alarmId'   => 'AlarmId',
+        'alarmId' => 'AlarmId',
         'channelId' => 'ChannelId',
-        'id'        => 'Id',
-        'ownerId'   => 'OwnerId',
-        'status'    => 'Status',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

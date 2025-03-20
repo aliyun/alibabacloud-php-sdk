@@ -73,20 +73,18 @@ class SetVsDomainCertificateRequest extends Model
      */
     public $SSLPub;
     protected $_name = [
-        'certName'    => 'CertName',
-        'certType'    => 'CertType',
-        'domainName'  => 'DomainName',
-        'forceSet'    => 'ForceSet',
-        'ownerId'     => 'OwnerId',
-        'region'      => 'Region',
-        'SSLPri'      => 'SSLPri',
+        'certName' => 'CertName',
+        'certType' => 'CertType',
+        'domainName' => 'DomainName',
+        'forceSet' => 'ForceSet',
+        'ownerId' => 'OwnerId',
+        'region' => 'Region',
+        'SSLPri' => 'SSLPri',
         'SSLProtocol' => 'SSLProtocol',
-        'SSLPub'      => 'SSLPub',
+        'SSLPub' => 'SSLPub',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

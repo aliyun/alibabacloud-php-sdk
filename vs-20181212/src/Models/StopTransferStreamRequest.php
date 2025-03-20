@@ -29,14 +29,12 @@ class StopTransferStreamRequest extends Model
      */
     public $transcode;
     protected $_name = [
-        'id'        => 'Id',
-        'ownerId'   => 'OwnerId',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
         'transcode' => 'Transcode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

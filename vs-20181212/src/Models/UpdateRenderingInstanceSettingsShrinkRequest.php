@@ -21,12 +21,10 @@ class UpdateRenderingInstanceSettingsShrinkRequest extends Model
     public $settingsShrink;
     protected $_name = [
         'renderingInstanceId' => 'RenderingInstanceId',
-        'settingsShrink'      => 'Settings',
+        'settingsShrink' => 'Settings',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

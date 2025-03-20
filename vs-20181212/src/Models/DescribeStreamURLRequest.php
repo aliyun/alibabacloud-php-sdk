@@ -80,21 +80,19 @@ class DescribeStreamURLRequest extends Model
      */
     public $type;
     protected $_name = [
-        'auth'        => 'Auth',
-        'authKey'     => 'AuthKey',
-        'endTime'     => 'EndTime',
-        'expire'      => 'Expire',
-        'id'          => 'Id',
+        'auth' => 'Auth',
+        'authKey' => 'AuthKey',
+        'endTime' => 'EndTime',
+        'expire' => 'Expire',
+        'id' => 'Id',
         'outProtocol' => 'OutProtocol',
-        'ownerId'     => 'OwnerId',
-        'startTime'   => 'StartTime',
-        'transcode'   => 'Transcode',
-        'type'        => 'Type',
+        'ownerId' => 'OwnerId',
+        'startTime' => 'StartTime',
+        'transcode' => 'Transcode',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

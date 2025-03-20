@@ -24,13 +24,11 @@ class UpdateCloudAppInfoRequest extends Model
      */
     public $description;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'description' => 'Description',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

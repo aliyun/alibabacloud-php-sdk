@@ -23,12 +23,10 @@ class dataModule extends Model
     public $timeStamp;
     protected $_name = [
         'reqTrafficValue' => 'ReqTrafficValue',
-        'timeStamp'       => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

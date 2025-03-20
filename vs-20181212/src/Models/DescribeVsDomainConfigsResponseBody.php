@@ -22,12 +22,10 @@ class DescribeVsDomainConfigsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'domainConfigs' => 'DomainConfigs',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -59,7 +57,7 @@ class DescribeVsDomainConfigsResponseBody extends Model
         if (isset($map['DomainConfigs'])) {
             if (!empty($map['DomainConfigs'])) {
                 $model->domainConfigs = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['DomainConfigs'] as $item) {
                     $model->domainConfigs[$n++] = null !== $item ? domainConfigs::fromMap($item) : $item;
                 }

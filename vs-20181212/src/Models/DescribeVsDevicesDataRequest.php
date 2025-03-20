@@ -34,15 +34,13 @@ class DescribeVsDevicesDataRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'groupId'   => 'GroupId',
-        'ownerId'   => 'OwnerId',
+        'endTime' => 'EndTime',
+        'groupId' => 'GroupId',
+        'ownerId' => 'OwnerId',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

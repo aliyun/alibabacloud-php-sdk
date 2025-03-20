@@ -50,17 +50,15 @@ class ListCloudAppInstallationsRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'appId'               => 'AppId',
-        'appName'             => 'AppName',
-        'appVersion'          => 'AppVersion',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'appVersion' => 'AppVersion',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -24,12 +24,10 @@ class DescribeRenderingInstanceSettingsResponseBody extends Model
     public $settings;
     protected $_name = [
         'requestId' => 'RequestId',
-        'settings'  => 'Settings',
+        'settings' => 'Settings',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -64,7 +62,7 @@ class DescribeRenderingInstanceSettingsResponseBody extends Model
         if (isset($map['Settings'])) {
             if (!empty($map['Settings'])) {
                 $model->settings = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Settings'] as $item) {
                     $model->settings[$n++] = null !== $item ? settings::fromMap($item) : $item;
                 }

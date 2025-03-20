@@ -31,14 +31,12 @@ class BindDirectoryRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'deviceId'    => 'DeviceId',
+        'deviceId' => 'DeviceId',
         'directoryId' => 'DirectoryId',
-        'ownerId'     => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

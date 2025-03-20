@@ -20,9 +20,7 @@ class DeleteFileRequest extends Model
         'fileId' => 'FileId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

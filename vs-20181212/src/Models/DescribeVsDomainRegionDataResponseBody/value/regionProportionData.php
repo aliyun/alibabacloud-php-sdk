@@ -90,23 +90,21 @@ class regionProportionData extends Model
      */
     public $totalQuery;
     protected $_name = [
-        'avgObjectSize'   => 'AvgObjectSize',
+        'avgObjectSize' => 'AvgObjectSize',
         'avgResponseRate' => 'AvgResponseRate',
         'avgResponseTime' => 'AvgResponseTime',
-        'bps'             => 'Bps',
+        'bps' => 'Bps',
         'bytesProportion' => 'BytesProportion',
-        'proportion'      => 'Proportion',
-        'qps'             => 'Qps',
-        'region'          => 'Region',
-        'regionEname'     => 'RegionEname',
-        'reqErrRate'      => 'ReqErrRate',
-        'totalBytes'      => 'TotalBytes',
-        'totalQuery'      => 'TotalQuery',
+        'proportion' => 'Proportion',
+        'qps' => 'Qps',
+        'region' => 'Region',
+        'regionEname' => 'RegionEname',
+        'reqErrRate' => 'ReqErrRate',
+        'totalBytes' => 'TotalBytes',
+        'totalQuery' => 'TotalQuery',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

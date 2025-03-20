@@ -55,16 +55,14 @@ class DescribeDirectoryResponseBody extends Model
     protected $_name = [
         'createdTime' => 'CreatedTime',
         'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'id'          => 'Id',
-        'name'        => 'Name',
-        'parentId'    => 'ParentId',
-        'requestId'   => 'RequestId',
+        'groupId' => 'GroupId',
+        'id' => 'Id',
+        'name' => 'Name',
+        'parentId' => 'ParentId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

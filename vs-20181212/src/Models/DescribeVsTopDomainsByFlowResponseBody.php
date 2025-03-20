@@ -49,17 +49,15 @@ class DescribeVsTopDomainsByFlowResponseBody extends Model
      */
     public $topDomains;
     protected $_name = [
-        'domainCount'       => 'DomainCount',
+        'domainCount' => 'DomainCount',
         'domainOnlineCount' => 'DomainOnlineCount',
-        'endTime'           => 'EndTime',
-        'requestId'         => 'RequestId',
-        'startTime'         => 'StartTime',
-        'topDomains'        => 'TopDomains',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
+        'topDomains' => 'TopDomains',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

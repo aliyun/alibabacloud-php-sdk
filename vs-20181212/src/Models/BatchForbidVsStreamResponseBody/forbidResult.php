@@ -17,9 +17,7 @@ class forbidResult extends Model
         'forbidResultInfo' => 'ForbidResultInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class forbidResult extends Model
         if (isset($map['ForbidResultInfo'])) {
             if (!empty($map['ForbidResultInfo'])) {
                 $model->forbidResultInfo = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ForbidResultInfo'] as $item) {
                     $model->forbidResultInfo[$n++] = null !== $item ? forbidResultInfo::fromMap($item) : $item;
                 }

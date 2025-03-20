@@ -146,32 +146,30 @@ class groups extends Model
      */
     public $status;
     protected $_name = [
-        'aliasId'     => 'AliasId',
-        'app'         => 'App',
-        'callback'    => 'Callback',
+        'aliasId' => 'AliasId',
+        'app' => 'App',
+        'callback' => 'Callback',
         'createdTime' => 'CreatedTime',
         'description' => 'Description',
-        'enabled'     => 'Enabled',
-        'gbId'        => 'GbId',
-        'gbIp'        => 'GbIp',
-        'gbPort'      => 'GbPort',
-        'gbTcpPorts'  => 'GbTcpPorts',
-        'gbUdpPorts'  => 'GbUdpPorts',
-        'id'          => 'Id',
-        'inProtocol'  => 'InProtocol',
-        'lazyPull'    => 'LazyPull',
-        'name'        => 'Name',
+        'enabled' => 'Enabled',
+        'gbId' => 'GbId',
+        'gbIp' => 'GbIp',
+        'gbPort' => 'GbPort',
+        'gbTcpPorts' => 'GbTcpPorts',
+        'gbUdpPorts' => 'GbUdpPorts',
+        'id' => 'Id',
+        'inProtocol' => 'InProtocol',
+        'lazyPull' => 'LazyPull',
+        'name' => 'Name',
         'outProtocol' => 'OutProtocol',
-        'playDomain'  => 'PlayDomain',
-        'pushDomain'  => 'PushDomain',
-        'region'      => 'Region',
-        'stats'       => 'Stats',
-        'status'      => 'Status',
+        'playDomain' => 'PlayDomain',
+        'pushDomain' => 'PushDomain',
+        'region' => 'Region',
+        'stats' => 'Stats',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

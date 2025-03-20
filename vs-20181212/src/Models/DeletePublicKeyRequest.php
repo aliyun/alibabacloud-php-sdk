@@ -20,9 +20,7 @@ class DeletePublicKeyRequest extends Model
         'keyName' => 'KeyName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

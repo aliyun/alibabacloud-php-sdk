@@ -62,19 +62,17 @@ class DescribeTemplatesRequest extends Model
      */
     public $type;
     protected $_name = [
-        'id'            => 'Id',
-        'instanceId'    => 'InstanceId',
-        'ownerId'       => 'OwnerId',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
-        'sortBy'        => 'SortBy',
+        'id' => 'Id',
+        'instanceId' => 'InstanceId',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
         'sortDirection' => 'SortDirection',
-        'type'          => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,9 +26,7 @@ class portMappings extends Model
         'internalPort' => 'InternalPort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class uvDataInterval extends Model
         'usageData' => 'UsageData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class uvDataInterval extends Model
         if (isset($map['UsageData'])) {
             if (!empty($map['UsageData'])) {
                 $model->usageData = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['UsageData'] as $item) {
                     $model->usageData[$n++] = null !== $item ? usageData::fromMap($item) : $item;
                 }

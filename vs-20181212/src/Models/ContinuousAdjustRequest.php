@@ -36,15 +36,13 @@ class ContinuousAdjustRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'focus'   => 'Focus',
-        'id'      => 'Id',
-        'iris'    => 'Iris',
+        'focus' => 'Focus',
+        'id' => 'Id',
+        'iris' => 'Iris',
         'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

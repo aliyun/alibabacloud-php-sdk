@@ -81,22 +81,20 @@ class ModifyParentPlatformRequest extends Model
      */
     public $port;
     protected $_name = [
-        'autoStart'      => 'AutoStart',
-        'clientAuth'     => 'ClientAuth',
+        'autoStart' => 'AutoStart',
+        'clientAuth' => 'ClientAuth',
         'clientPassword' => 'ClientPassword',
         'clientUsername' => 'ClientUsername',
-        'description'    => 'Description',
-        'gbId'           => 'GbId',
-        'id'             => 'Id',
-        'ip'             => 'Ip',
-        'name'           => 'Name',
-        'ownerId'        => 'OwnerId',
-        'port'           => 'Port',
+        'description' => 'Description',
+        'gbId' => 'GbId',
+        'id' => 'Id',
+        'ip' => 'Ip',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'port' => 'Port',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

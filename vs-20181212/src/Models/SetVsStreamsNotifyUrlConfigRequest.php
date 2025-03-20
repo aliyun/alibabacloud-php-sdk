@@ -45,16 +45,14 @@ class SetVsStreamsNotifyUrlConfigRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'authKey'    => 'AuthKey',
-        'authType'   => 'AuthType',
+        'authKey' => 'AuthKey',
+        'authType' => 'AuthType',
         'domainName' => 'DomainName',
-        'notifyUrl'  => 'NotifyUrl',
-        'ownerId'    => 'OwnerId',
+        'notifyUrl' => 'NotifyUrl',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

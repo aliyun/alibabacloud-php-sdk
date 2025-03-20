@@ -50,16 +50,14 @@ class DescribeVsDomainRegionDataResponseBody extends Model
     public $value;
     protected $_name = [
         'dataInterval' => 'DataInterval',
-        'domainName'   => 'DomainName',
-        'endTime'      => 'EndTime',
-        'requestId'    => 'RequestId',
-        'startTime'    => 'StartTime',
-        'value'        => 'Value',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

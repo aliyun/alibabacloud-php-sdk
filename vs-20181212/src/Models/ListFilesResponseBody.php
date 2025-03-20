@@ -42,16 +42,14 @@ class ListFilesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'files'      => 'Files',
+        'files' => 'Files',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class ListFilesResponseBody extends Model
         if (isset($map['Files'])) {
             if (!empty($map['Files'])) {
                 $model->files = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Files'] as $item) {
                     $model->files[$n++] = null !== $item ? files::fromMap($item) : $item;
                 }

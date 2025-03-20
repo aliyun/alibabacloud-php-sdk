@@ -163,34 +163,32 @@ class CreateDeviceRequest extends Model
      */
     public $vendor;
     protected $_name = [
-        'alarmMethod'   => 'AlarmMethod',
+        'alarmMethod' => 'AlarmMethod',
         'autoDirectory' => 'AutoDirectory',
-        'autoPos'       => 'AutoPos',
-        'autoStart'     => 'AutoStart',
-        'description'   => 'Description',
-        'directoryId'   => 'DirectoryId',
-        'dsn'           => 'Dsn',
-        'gbId'          => 'GbId',
-        'groupId'       => 'GroupId',
-        'ip'            => 'Ip',
-        'latitude'      => 'Latitude',
-        'longitude'     => 'Longitude',
-        'name'          => 'Name',
-        'ownerId'       => 'OwnerId',
-        'params'        => 'Params',
-        'parentId'      => 'ParentId',
-        'password'      => 'Password',
-        'port'          => 'Port',
-        'posInterval'   => 'PosInterval',
-        'type'          => 'Type',
-        'url'           => 'Url',
-        'username'      => 'Username',
-        'vendor'        => 'Vendor',
+        'autoPos' => 'AutoPos',
+        'autoStart' => 'AutoStart',
+        'description' => 'Description',
+        'directoryId' => 'DirectoryId',
+        'dsn' => 'Dsn',
+        'gbId' => 'GbId',
+        'groupId' => 'GroupId',
+        'ip' => 'Ip',
+        'latitude' => 'Latitude',
+        'longitude' => 'Longitude',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'params' => 'Params',
+        'parentId' => 'ParentId',
+        'password' => 'Password',
+        'port' => 'Port',
+        'posInterval' => 'PosInterval',
+        'type' => 'Type',
+        'url' => 'Url',
+        'username' => 'Username',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -43,16 +43,14 @@ class gatewayConfigurationInfos extends Model
      */
     public $updateTime;
     protected $_name = [
-        'creationTime'        => 'CreationTime',
-        'gatewayInstanceId'   => 'GatewayInstanceId',
+        'creationTime' => 'CreationTime',
+        'gatewayInstanceId' => 'GatewayInstanceId',
         'renderingInstanceId' => 'RenderingInstanceId',
-        'status'              => 'Status',
-        'updateTime'          => 'UpdateTime',
+        'status' => 'Status',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

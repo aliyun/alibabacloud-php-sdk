@@ -29,13 +29,11 @@ class ListRenderingInstancesResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'renderingInstances' => 'RenderingInstances',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -70,7 +68,7 @@ class ListRenderingInstancesResponseBody extends Model
         if (isset($map['RenderingInstances'])) {
             if (!empty($map['RenderingInstances'])) {
                 $model->renderingInstances = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['RenderingInstances'] as $item) {
                     $model->renderingInstances[$n++] = null !== $item ? renderingInstances::fromMap($item) : $item;
                 }

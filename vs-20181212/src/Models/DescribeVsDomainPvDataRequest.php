@@ -37,14 +37,12 @@ class DescribeVsDomainPvDataRequest extends Model
     public $startTime;
     protected $_name = [
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

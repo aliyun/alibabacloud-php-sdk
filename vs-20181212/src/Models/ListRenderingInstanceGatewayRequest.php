@@ -36,15 +36,13 @@ class ListRenderingInstanceGatewayRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'gatewayInstanceId'   => 'GatewayInstanceId',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
+        'gatewayInstanceId' => 'GatewayInstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

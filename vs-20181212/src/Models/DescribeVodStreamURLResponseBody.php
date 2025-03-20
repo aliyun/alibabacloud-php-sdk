@@ -37,14 +37,12 @@ class DescribeVodStreamURLResponseBody extends Model
     public $url;
     protected $_name = [
         'outProtocol' => 'OutProtocol',
-        'port'        => 'Port',
-        'requestId'   => 'RequestId',
-        'url'         => 'Url',
+        'port' => 'Port',
+        'requestId' => 'RequestId',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

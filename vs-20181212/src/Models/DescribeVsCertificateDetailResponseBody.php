@@ -43,16 +43,14 @@ class DescribeVsCertificateDetailResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'cert'      => 'Cert',
-        'certId'    => 'CertId',
-        'certName'  => 'CertName',
-        'key'       => 'Key',
+        'cert' => 'Cert',
+        'certId' => 'CertId',
+        'certName' => 'CertName',
+        'key' => 'Key',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

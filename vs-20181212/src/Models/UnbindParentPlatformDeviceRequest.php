@@ -31,14 +31,12 @@ class UnbindParentPlatformDeviceRequest extends Model
      */
     public $parentPlatformId;
     protected $_name = [
-        'deviceId'         => 'DeviceId',
-        'ownerId'          => 'OwnerId',
+        'deviceId' => 'DeviceId',
+        'ownerId' => 'OwnerId',
         'parentPlatformId' => 'ParentPlatformId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

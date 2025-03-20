@@ -106,25 +106,23 @@ class DescribeStreamResponseBody extends Model
      */
     public $width;
     protected $_name = [
-        'app'         => 'App',
+        'app' => 'App',
         'createdTime' => 'CreatedTime',
-        'deviceId'    => 'DeviceId',
-        'enabled'     => 'Enabled',
-        'groupId'     => 'GroupId',
-        'height'      => 'Height',
-        'id'          => 'Id',
-        'name'        => 'Name',
-        'playDomain'  => 'PlayDomain',
-        'protocol'    => 'Protocol',
-        'pushDomain'  => 'PushDomain',
-        'requestId'   => 'RequestId',
-        'status'      => 'Status',
-        'width'       => 'Width',
+        'deviceId' => 'DeviceId',
+        'enabled' => 'Enabled',
+        'groupId' => 'GroupId',
+        'height' => 'Height',
+        'id' => 'Id',
+        'name' => 'Name',
+        'playDomain' => 'PlayDomain',
+        'protocol' => 'Protocol',
+        'pushDomain' => 'PushDomain',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

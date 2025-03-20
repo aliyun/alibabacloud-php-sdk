@@ -44,15 +44,13 @@ class CreateDeviceAlarmResponseBody extends Model
     public $url;
     protected $_name = [
         'alarmDelay' => 'AlarmDelay',
-        'alarmId'    => 'AlarmId',
-        'expire'     => 'Expire',
-        'requestId'  => 'RequestId',
-        'url'        => 'Url',
+        'alarmId' => 'AlarmId',
+        'expire' => 'Expire',
+        'requestId' => 'RequestId',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -70,21 +70,19 @@ class DescribeRenderingInstanceResponseBody extends Model
      */
     public $systemInfo;
     protected $_name = [
-        'configInfo'          => 'ConfigInfo',
-        'creationTime'        => 'CreationTime',
-        'hostname'            => 'Hostname',
-        'portMappings'        => 'PortMappings',
+        'configInfo' => 'ConfigInfo',
+        'creationTime' => 'CreationTime',
+        'hostname' => 'Hostname',
+        'portMappings' => 'PortMappings',
         'renderingInstanceId' => 'RenderingInstanceId',
-        'renderingSpec'       => 'RenderingSpec',
-        'renderingStatus'     => 'RenderingStatus',
-        'requestId'           => 'RequestId',
-        'storageSize'         => 'StorageSize',
-        'systemInfo'          => 'SystemInfo',
+        'renderingSpec' => 'RenderingSpec',
+        'renderingStatus' => 'RenderingStatus',
+        'requestId' => 'RequestId',
+        'storageSize' => 'StorageSize',
+        'systemInfo' => 'SystemInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -149,7 +147,7 @@ class DescribeRenderingInstanceResponseBody extends Model
         if (isset($map['PortMappings'])) {
             if (!empty($map['PortMappings'])) {
                 $model->portMappings = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PortMappings'] as $item) {
                     $model->portMappings[$n++] = null !== $item ? portMappings::fromMap($item) : $item;
                 }

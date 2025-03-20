@@ -17,9 +17,7 @@ class resourcePackageInfos extends Model
         'resourcePackageInfo' => 'ResourcePackageInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class resourcePackageInfos extends Model
         if (isset($map['ResourcePackageInfo'])) {
             if (!empty($map['ResourcePackageInfo'])) {
                 $model->resourcePackageInfo = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['ResourcePackageInfo'] as $item) {
                     $model->resourcePackageInfo[$n++] = null !== $item ? resourcePackageInfo::fromMap($item) : $item;
                 }

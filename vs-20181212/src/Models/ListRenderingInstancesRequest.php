@@ -41,16 +41,14 @@ class ListRenderingInstancesRequest extends Model
      */
     public $storageSize;
     protected $_name = [
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'renderingInstanceId' => 'RenderingInstanceId',
-        'renderingSpec'       => 'RenderingSpec',
-        'storageSize'         => 'StorageSize',
+        'renderingSpec' => 'RenderingSpec',
+        'storageSize' => 'StorageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,13 +22,11 @@ class RefreshRenderingInstanceStreamingShrinkRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'clientInfoShrink'    => 'ClientInfo',
+        'clientInfoShrink' => 'ClientInfo',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

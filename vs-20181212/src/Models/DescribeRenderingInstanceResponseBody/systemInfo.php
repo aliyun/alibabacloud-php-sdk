@@ -22,13 +22,11 @@ class systemInfo extends Model
      */
     public $resolution;
     protected $_name = [
-        'frequency'  => 'Frequency',
+        'frequency' => 'Frequency',
         'resolution' => 'Resolution',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

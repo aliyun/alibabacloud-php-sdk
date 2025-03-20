@@ -22,12 +22,10 @@ class DescribeVsDomainRecordDataResponseBody extends Model
     public $requestId;
     protected $_name = [
         'recordDataPerInterval' => 'RecordDataPerInterval',
-        'requestId'             => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

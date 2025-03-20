@@ -23,12 +23,10 @@ class CreateRenderingDataPackageResponseBody extends Model
     public $requestId;
     protected $_name = [
         'dataPackageId' => 'DataPackageId',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

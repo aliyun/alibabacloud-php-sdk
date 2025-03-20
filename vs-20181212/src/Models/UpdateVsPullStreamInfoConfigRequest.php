@@ -68,19 +68,17 @@ class UpdateVsPullStreamInfoConfigRequest extends Model
      */
     public $streamName;
     protected $_name = [
-        'always'     => 'Always',
-        'appName'    => 'AppName',
+        'always' => 'Always',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
-        'sourceUrl'  => 'SourceUrl',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'sourceUrl' => 'SourceUrl',
+        'startTime' => 'StartTime',
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

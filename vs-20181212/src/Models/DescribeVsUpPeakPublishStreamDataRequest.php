@@ -45,16 +45,14 @@ class DescribeVsUpPeakPublishStreamDataRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'domainName'   => 'DomainName',
+        'domainName' => 'DomainName',
         'domainSwitch' => 'DomainSwitch',
-        'endTime'      => 'EndTime',
-        'ownerId'      => 'OwnerId',
-        'startTime'    => 'StartTime',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

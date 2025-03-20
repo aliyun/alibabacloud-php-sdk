@@ -34,15 +34,13 @@ class renderingInstances extends Model
      */
     public $storageSize;
     protected $_name = [
-        'creationTime'        => 'CreationTime',
+        'creationTime' => 'CreationTime',
         'renderingInstanceId' => 'RenderingInstanceId',
-        'renderingSpec'       => 'RenderingSpec',
-        'storageSize'         => 'StorageSize',
+        'renderingSpec' => 'RenderingSpec',
+        'storageSize' => 'StorageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

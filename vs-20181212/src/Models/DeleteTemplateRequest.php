@@ -22,13 +22,11 @@ class DeleteTemplateRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'id'      => 'Id',
+        'id' => 'Id',
         'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

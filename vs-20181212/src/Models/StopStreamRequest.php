@@ -36,15 +36,13 @@ class StopStreamRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'id'        => 'Id',
-        'name'      => 'Name',
-        'ownerId'   => 'OwnerId',
+        'id' => 'Id',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -90,23 +90,21 @@ class ModifyGroupRequest extends Model
      */
     public $region;
     protected $_name = [
-        'callback'    => 'Callback',
+        'callback' => 'Callback',
         'description' => 'Description',
-        'enabled'     => 'Enabled',
-        'id'          => 'Id',
-        'inProtocol'  => 'InProtocol',
-        'lazyPull'    => 'LazyPull',
-        'name'        => 'Name',
+        'enabled' => 'Enabled',
+        'id' => 'Id',
+        'inProtocol' => 'InProtocol',
+        'lazyPull' => 'LazyPull',
+        'name' => 'Name',
         'outProtocol' => 'OutProtocol',
-        'ownerId'     => 'OwnerId',
-        'playDomain'  => 'PlayDomain',
-        'pushDomain'  => 'PushDomain',
-        'region'      => 'Region',
+        'ownerId' => 'OwnerId',
+        'playDomain' => 'PlayDomain',
+        'pushDomain' => 'PushDomain',
+        'region' => 'Region',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

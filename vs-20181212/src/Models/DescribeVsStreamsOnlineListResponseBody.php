@@ -50,16 +50,14 @@ class DescribeVsStreamsOnlineListResponseBody extends Model
     public $totalPage;
     protected $_name = [
         'onlineInfo' => 'OnlineInfo',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'totalNum'   => 'TotalNum',
-        'totalPage'  => 'TotalPage',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalNum' => 'TotalNum',
+        'totalPage' => 'TotalPage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

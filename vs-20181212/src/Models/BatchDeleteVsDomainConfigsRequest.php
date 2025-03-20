@@ -31,14 +31,12 @@ class BatchDeleteVsDomainConfigsRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'domainNames'   => 'DomainNames',
+        'domainNames' => 'DomainNames',
         'functionNames' => 'FunctionNames',
-        'ownerId'       => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

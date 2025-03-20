@@ -22,13 +22,11 @@ class settings extends Model
      */
     public $attributeValue;
     protected $_name = [
-        'attributeName'  => 'AttributeName',
+        'attributeName' => 'AttributeName',
         'attributeValue' => 'AttributeValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

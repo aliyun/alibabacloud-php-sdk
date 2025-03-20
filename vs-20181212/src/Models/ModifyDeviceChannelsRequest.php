@@ -43,16 +43,14 @@ class ModifyDeviceChannelsRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'channels'     => 'Channels',
+        'channels' => 'Channels',
         'deviceStatus' => 'DeviceStatus',
-        'dsn'          => 'Dsn',
-        'id'           => 'Id',
-        'ownerId'      => 'OwnerId',
+        'dsn' => 'Dsn',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

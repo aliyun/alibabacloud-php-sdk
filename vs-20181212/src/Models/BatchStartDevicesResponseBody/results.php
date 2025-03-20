@@ -21,13 +21,11 @@ class results extends Model
      */
     public $streams;
     protected $_name = [
-        'id'      => 'Id',
+        'id' => 'Id',
         'streams' => 'Streams',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -62,7 +60,7 @@ class results extends Model
         if (isset($map['Streams'])) {
             if (!empty($map['Streams'])) {
                 $model->streams = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Streams'] as $item) {
                     $model->streams[$n++] = null !== $item ? streams::fromMap($item) : $item;
                 }

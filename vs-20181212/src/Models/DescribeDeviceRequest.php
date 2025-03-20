@@ -36,15 +36,13 @@ class DescribeDeviceRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'id'               => 'Id',
+        'id' => 'Id',
         'includeDirectory' => 'IncludeDirectory',
-        'includeStats'     => 'IncludeStats',
-        'ownerId'          => 'OwnerId',
+        'includeStats' => 'IncludeStats',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

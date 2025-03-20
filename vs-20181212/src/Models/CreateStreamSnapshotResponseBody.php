@@ -78,21 +78,19 @@ class CreateStreamSnapshotResponseBody extends Model
      */
     public $width;
     protected $_name = [
-        'format'      => 'Format',
-        'height'      => 'Height',
-        'id'          => 'Id',
-        'ossBucket'   => 'OssBucket',
+        'format' => 'Format',
+        'height' => 'Height',
+        'id' => 'Id',
+        'ossBucket' => 'OssBucket',
         'ossEndpoint' => 'OssEndpoint',
-        'ossObject'   => 'OssObject',
-        'requestId'   => 'RequestId',
-        'timestamp'   => 'Timestamp',
-        'url'         => 'Url',
-        'width'       => 'Width',
+        'ossObject' => 'OssObject',
+        'requestId' => 'RequestId',
+        'timestamp' => 'Timestamp',
+        'url' => 'Url',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

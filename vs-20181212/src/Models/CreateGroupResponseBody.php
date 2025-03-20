@@ -43,16 +43,14 @@ class CreateGroupResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'gbId'      => 'GbId',
-        'gbIp'      => 'GbIp',
-        'gbPort'    => 'GbPort',
-        'id'        => 'Id',
+        'gbId' => 'GbId',
+        'gbIp' => 'GbIp',
+        'gbPort' => 'GbPort',
+        'id' => 'Id',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

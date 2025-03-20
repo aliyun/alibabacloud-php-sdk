@@ -43,16 +43,14 @@ class ListFilePushStatusesRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'fileId'              => 'FileId',
-        'fileName'            => 'FileName',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
+        'fileId' => 'FileId',
+        'fileName' => 'FileName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

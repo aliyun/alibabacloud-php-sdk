@@ -36,15 +36,13 @@ class ListFilesRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'fileId'     => 'FileId',
-        'fileName'   => 'FileName',
+        'fileId' => 'FileId',
+        'fileName' => 'FileName',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

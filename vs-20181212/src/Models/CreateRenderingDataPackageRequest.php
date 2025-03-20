@@ -29,14 +29,12 @@ class CreateRenderingDataPackageRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'category'            => 'Category',
-        'description'         => 'Description',
+        'category' => 'Category',
+        'description' => 'Description',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

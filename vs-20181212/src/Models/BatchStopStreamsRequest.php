@@ -29,14 +29,12 @@ class BatchStopStreamsRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'id'        => 'Id',
-        'ownerId'   => 'OwnerId',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

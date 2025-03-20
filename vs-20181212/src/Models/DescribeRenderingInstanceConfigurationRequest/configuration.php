@@ -23,12 +23,10 @@ class configuration extends Model
     public $moduleName;
     protected $_name = [
         'attributeNames' => 'AttributeNames',
-        'moduleName'     => 'ModuleName',
+        'moduleName' => 'ModuleName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

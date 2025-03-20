@@ -26,13 +26,11 @@ class SendRenderingInstanceCommandsRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'commands'            => 'Commands',
+        'commands' => 'Commands',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -57,18 +57,16 @@ class pushStatuses extends Model
      */
     public $updateTime;
     protected $_name = [
-        'fileId'              => 'FileId',
-        'fileName'            => 'FileName',
-        'pushTime'            => 'PushTime',
+        'fileId' => 'FileId',
+        'fileName' => 'FileName',
+        'pushTime' => 'PushTime',
         'renderingInstanceId' => 'RenderingInstanceId',
-        'status'              => 'Status',
-        'statusDescription'   => 'StatusDescription',
-        'updateTime'          => 'UpdateTime',
+        'status' => 'Status',
+        'statusDescription' => 'StatusDescription',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

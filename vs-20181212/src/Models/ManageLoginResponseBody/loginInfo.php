@@ -27,14 +27,12 @@ class loginInfo extends Model
      */
     public $loginPort;
     protected $_name = [
-        'adbLoginPort'  => 'AdbLoginPort',
+        'adbLoginPort' => 'AdbLoginPort',
         'loginHostname' => 'LoginHostname',
-        'loginPort'     => 'LoginPort',
+        'loginPort' => 'LoginPort',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

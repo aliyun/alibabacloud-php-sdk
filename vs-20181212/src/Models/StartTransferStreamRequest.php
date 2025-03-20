@@ -38,15 +38,13 @@ class StartTransferStreamRequest extends Model
      */
     public $url;
     protected $_name = [
-        'id'        => 'Id',
-        'ownerId'   => 'OwnerId',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
         'transcode' => 'Transcode',
-        'url'       => 'Url',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

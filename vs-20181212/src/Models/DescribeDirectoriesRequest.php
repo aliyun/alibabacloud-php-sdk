@@ -64,19 +64,17 @@ class DescribeDirectoriesRequest extends Model
      */
     public $sortDirection;
     protected $_name = [
-        'groupId'       => 'GroupId',
-        'noPagination'  => 'NoPagination',
-        'ownerId'       => 'OwnerId',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
-        'parentId'      => 'ParentId',
-        'sortBy'        => 'SortBy',
+        'groupId' => 'GroupId',
+        'noPagination' => 'NoPagination',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'parentId' => 'ParentId',
+        'sortBy' => 'SortBy',
         'sortDirection' => 'SortDirection',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

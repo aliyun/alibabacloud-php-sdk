@@ -21,13 +21,11 @@ class BatchBindTemplateResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'bindings'  => 'Bindings',
+        'bindings' => 'Bindings',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -59,7 +57,7 @@ class BatchBindTemplateResponseBody extends Model
         if (isset($map['Bindings'])) {
             if (!empty($map['Bindings'])) {
                 $model->bindings = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Bindings'] as $item) {
                     $model->bindings[$n++] = null !== $item ? bindings::fromMap($item) : $item;
                 }

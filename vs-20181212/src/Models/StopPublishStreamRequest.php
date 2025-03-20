@@ -21,12 +21,10 @@ class StopPublishStreamRequest extends Model
     public $ownerId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'ownerId'    => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

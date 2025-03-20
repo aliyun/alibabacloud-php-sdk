@@ -67,20 +67,18 @@ class CreateRenderingInstanceShrinkRequest extends Model
      */
     public $storageSize;
     protected $_name = [
-        'autoRenew'            => 'AutoRenew',
-        'clientInfoShrink'     => 'ClientInfo',
+        'autoRenew' => 'AutoRenew',
+        'clientInfoShrink' => 'ClientInfo',
         'instanceBillingCycle' => 'InstanceBillingCycle',
-        'instanceChargeType'   => 'InstanceChargeType',
-        'internetChargeType'   => 'InternetChargeType',
+        'instanceChargeType' => 'InstanceChargeType',
+        'internetChargeType' => 'InternetChargeType',
         'internetMaxBandwidth' => 'InternetMaxBandwidth',
-        'period'               => 'Period',
-        'renderingSpec'        => 'RenderingSpec',
-        'storageSize'          => 'StorageSize',
+        'period' => 'Period',
+        'renderingSpec' => 'RenderingSpec',
+        'storageSize' => 'StorageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

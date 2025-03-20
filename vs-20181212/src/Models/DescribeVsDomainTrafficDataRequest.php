@@ -55,18 +55,16 @@ class DescribeVsDomainTrafficDataRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'domainName'     => 'DomainName',
-        'endTime'        => 'EndTime',
-        'interval'       => 'Interval',
-        'ispNameEn'      => 'IspNameEn',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'interval' => 'Interval',
+        'ispNameEn' => 'IspNameEn',
         'locationNameEn' => 'LocationNameEn',
-        'ownerId'        => 'OwnerId',
-        'startTime'      => 'StartTime',
+        'ownerId' => 'OwnerId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -49,17 +49,15 @@ class DescribeVsStreamsPublishListResponseBody extends Model
      */
     public $totalPage;
     protected $_name = [
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'publishInfo' => 'PublishInfo',
-        'requestId'   => 'RequestId',
-        'totalNum'    => 'TotalNum',
-        'totalPage'   => 'TotalPage',
+        'requestId' => 'RequestId',
+        'totalNum' => 'TotalNum',
+        'totalPage' => 'TotalPage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

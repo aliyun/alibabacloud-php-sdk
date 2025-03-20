@@ -31,14 +31,12 @@ class RenewRenderingInstanceRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'autoRenew'           => 'AutoRenew',
-        'period'              => 'Period',
+        'autoRenew' => 'AutoRenew',
+        'period' => 'Period',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,12 +23,10 @@ class DescribeVodStreamURLRequest extends Model
     public $url;
     protected $_name = [
         'ownerId' => 'OwnerId',
-        'url'     => 'Url',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

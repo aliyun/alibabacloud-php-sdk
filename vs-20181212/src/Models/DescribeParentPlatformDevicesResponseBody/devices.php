@@ -41,16 +41,14 @@ class devices extends Model
      */
     public $parentId;
     protected $_name = [
-        'gbId'     => 'GbId',
-        'groupId'  => 'GroupId',
-        'id'       => 'Id',
-        'name'     => 'Name',
+        'gbId' => 'GbId',
+        'groupId' => 'GroupId',
+        'id' => 'Id',
+        'name' => 'Name',
         'parentId' => 'ParentId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

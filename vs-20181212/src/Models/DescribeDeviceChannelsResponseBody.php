@@ -49,17 +49,15 @@ class DescribeDeviceChannelsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'channels'   => 'Channels',
-        'pageCount'  => 'PageCount',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'channels' => 'Channels',
+        'pageCount' => 'PageCount',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,7 +101,7 @@ class DescribeDeviceChannelsResponseBody extends Model
         if (isset($map['Channels'])) {
             if (!empty($map['Channels'])) {
                 $model->channels = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Channels'] as $item) {
                     $model->channels[$n++] = null !== $item ? channels::fromMap($item) : $item;
                 }

@@ -31,14 +31,12 @@ class DescribeVsDomainConfigsRequest extends Model
      */
     public $ownerId;
     protected $_name = [
-        'domainName'    => 'DomainName',
+        'domainName' => 'DomainName',
         'functionNames' => 'FunctionNames',
-        'ownerId'       => 'OwnerId',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

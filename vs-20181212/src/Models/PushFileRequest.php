@@ -26,13 +26,11 @@ class PushFileRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'fileId'              => 'FileId',
+        'fileId' => 'FileId',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

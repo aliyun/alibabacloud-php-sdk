@@ -79,22 +79,20 @@ class DescribeGroupsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'id'            => 'Id',
-        'inProtocol'    => 'InProtocol',
-        'includeStats'  => 'IncludeStats',
-        'name'          => 'Name',
-        'ownerId'       => 'OwnerId',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
-        'region'        => 'Region',
-        'sortBy'        => 'SortBy',
+        'id' => 'Id',
+        'inProtocol' => 'InProtocol',
+        'includeStats' => 'IncludeStats',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'region' => 'Region',
+        'sortBy' => 'SortBy',
         'sortDirection' => 'SortDirection',
-        'status'        => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

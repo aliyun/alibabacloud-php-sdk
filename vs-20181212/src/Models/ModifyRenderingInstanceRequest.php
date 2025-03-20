@@ -32,13 +32,11 @@ class ModifyRenderingInstanceRequest extends Model
     public $storageSize;
     protected $_name = [
         'renderingInstanceId' => 'RenderingInstanceId',
-        'renderingSpec'       => 'RenderingSpec',
-        'storageSize'         => 'StorageSize',
+        'renderingSpec' => 'RenderingSpec',
+        'storageSize' => 'StorageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

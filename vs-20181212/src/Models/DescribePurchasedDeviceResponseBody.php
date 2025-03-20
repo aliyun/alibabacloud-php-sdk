@@ -95,24 +95,22 @@ class DescribePurchasedDeviceResponseBody extends Model
      */
     public $vendor;
     protected $_name = [
-        'createdTime'  => 'CreatedTime',
-        'description'  => 'Description',
-        'groupId'      => 'GroupId',
-        'groupName'    => 'GroupName',
-        'id'           => 'Id',
-        'name'         => 'Name',
-        'orderId'      => 'OrderId',
-        'region'       => 'Region',
+        'createdTime' => 'CreatedTime',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'id' => 'Id',
+        'name' => 'Name',
+        'orderId' => 'OrderId',
+        'region' => 'Region',
         'registerCode' => 'RegisterCode',
-        'requestId'    => 'RequestId',
-        'subType'      => 'SubType',
-        'type'         => 'Type',
-        'vendor'       => 'Vendor',
+        'requestId' => 'RequestId',
+        'subType' => 'SubType',
+        'type' => 'Type',
+        'vendor' => 'Vendor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

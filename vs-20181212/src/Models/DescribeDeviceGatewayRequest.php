@@ -37,14 +37,12 @@ class DescribeDeviceGatewayRequest extends Model
     public $ownerId;
     protected $_name = [
         'clientIp' => 'ClientIp',
-        'expire'   => 'Expire',
-        'id'       => 'Id',
-        'ownerId'  => 'OwnerId',
+        'expire' => 'Expire',
+        'id' => 'Id',
+        'ownerId' => 'OwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

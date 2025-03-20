@@ -49,17 +49,15 @@ class DescribeParentPlatformDevicesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'devices'    => 'Devices',
-        'pageCount'  => 'PageCount',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'devices' => 'Devices',
+        'pageCount' => 'PageCount',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,7 +101,7 @@ class DescribeParentPlatformDevicesResponseBody extends Model
         if (isset($map['Devices'])) {
             if (!empty($map['Devices'])) {
                 $model->devices = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Devices'] as $item) {
                     $model->devices[$n++] = null !== $item ? devices::fromMap($item) : $item;
                 }

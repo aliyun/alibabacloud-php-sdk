@@ -30,13 +30,11 @@ class DescribeStreamURLResponseBody extends Model
     public $url;
     protected $_name = [
         'expireTime' => 'ExpireTime',
-        'requestId'  => 'RequestId',
-        'url'        => 'Url',
+        'requestId' => 'RequestId',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

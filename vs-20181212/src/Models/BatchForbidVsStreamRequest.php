@@ -59,18 +59,16 @@ class BatchForbidVsStreamRequest extends Model
      */
     public $resumeTime;
     protected $_name = [
-        'channel'             => 'Channel',
+        'channel' => 'Channel',
         'controlStreamAction' => 'ControlStreamAction',
-        'domainName'          => 'DomainName',
-        'liveStreamType'      => 'LiveStreamType',
-        'oneshot'             => 'Oneshot',
-        'ownerId'             => 'OwnerId',
-        'resumeTime'          => 'ResumeTime',
+        'domainName' => 'DomainName',
+        'liveStreamType' => 'LiveStreamType',
+        'oneshot' => 'Oneshot',
+        'ownerId' => 'OwnerId',
+        'resumeTime' => 'ResumeTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

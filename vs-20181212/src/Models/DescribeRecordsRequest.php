@@ -84,21 +84,19 @@ class DescribeRecordsRequest extends Model
      */
     public $type;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'ownerId'       => 'OwnerId',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'privateBucket' => 'PrivateBucket',
-        'sortBy'        => 'SortBy',
+        'sortBy' => 'SortBy',
         'sortDirection' => 'SortDirection',
-        'startTime'     => 'StartTime',
-        'streamId'      => 'StreamId',
-        'type'          => 'Type',
+        'startTime' => 'StartTime',
+        'streamId' => 'StreamId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

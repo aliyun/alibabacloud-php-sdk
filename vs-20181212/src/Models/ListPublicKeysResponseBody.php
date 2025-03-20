@@ -43,15 +43,13 @@ class ListPublicKeysResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'publicKeys' => 'PublicKeys',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class ListPublicKeysResponseBody extends Model
         if (isset($map['PublicKeys'])) {
             if (!empty($map['PublicKeys'])) {
                 $model->publicKeys = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['PublicKeys'] as $item) {
                     $model->publicKeys[$n++] = null !== $item ? publicKeys::fromMap($item) : $item;
                 }

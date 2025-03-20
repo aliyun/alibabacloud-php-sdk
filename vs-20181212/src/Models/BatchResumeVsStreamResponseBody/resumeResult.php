@@ -17,9 +17,7 @@ class resumeResult extends Model
         'resumeResultInfo' => 'ResumeResultInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class resumeResult extends Model
         if (isset($map['ResumeResultInfo'])) {
             if (!empty($map['ResumeResultInfo'])) {
                 $model->resumeResultInfo = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ResumeResultInfo'] as $item) {
                     $model->resumeResultInfo[$n++] = null !== $item ? resumeResultInfo::fromMap($item) : $item;
                 }

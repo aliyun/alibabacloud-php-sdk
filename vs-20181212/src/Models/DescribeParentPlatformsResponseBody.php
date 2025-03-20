@@ -49,17 +49,15 @@ class DescribeParentPlatformsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageCount'  => 'PageCount',
-        'pageNum'    => 'PageNum',
-        'pageSize'   => 'PageSize',
-        'platforms'  => 'Platforms',
-        'requestId'  => 'RequestId',
+        'pageCount' => 'PageCount',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'platforms' => 'Platforms',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -112,7 +110,7 @@ class DescribeParentPlatformsResponseBody extends Model
         if (isset($map['Platforms'])) {
             if (!empty($map['Platforms'])) {
                 $model->platforms = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Platforms'] as $item) {
                     $model->platforms[$n++] = null !== $item ? platforms::fromMap($item) : $item;
                 }

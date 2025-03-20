@@ -57,18 +57,16 @@ class topDomain extends Model
      */
     public $trafficPercent;
     protected $_name = [
-        'domainName'     => 'DomainName',
-        'maxBps'         => 'MaxBps',
-        'maxBpsTime'     => 'MaxBpsTime',
-        'rank'           => 'Rank',
-        'totalAccess'    => 'TotalAccess',
-        'totalTraffic'   => 'TotalTraffic',
+        'domainName' => 'DomainName',
+        'maxBps' => 'MaxBps',
+        'maxBpsTime' => 'MaxBpsTime',
+        'rank' => 'Rank',
+        'totalAccess' => 'TotalAccess',
+        'totalTraffic' => 'TotalTraffic',
         'trafficPercent' => 'TrafficPercent',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

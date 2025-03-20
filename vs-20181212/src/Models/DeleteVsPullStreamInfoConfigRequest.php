@@ -40,15 +40,13 @@ class DeleteVsPullStreamInfoConfigRequest extends Model
      */
     public $streamName;
     protected $_name = [
-        'appName'    => 'AppName',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

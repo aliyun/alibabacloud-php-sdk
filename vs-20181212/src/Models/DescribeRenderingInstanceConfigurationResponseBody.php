@@ -22,12 +22,10 @@ class DescribeRenderingInstanceConfigurationResponseBody extends Model
     public $requestId;
     protected $_name = [
         'configuration' => 'Configuration',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -59,7 +57,7 @@ class DescribeRenderingInstanceConfigurationResponseBody extends Model
         if (isset($map['Configuration'])) {
             if (!empty($map['Configuration'])) {
                 $model->configuration = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['Configuration'] as $item) {
                     $model->configuration[$n++] = null !== $item ? configuration::fromMap($item) : $item;
                 }

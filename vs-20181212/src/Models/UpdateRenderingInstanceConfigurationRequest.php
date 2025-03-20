@@ -25,13 +25,11 @@ class UpdateRenderingInstanceConfigurationRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
-        'configuration'       => 'Configuration',
+        'configuration' => 'Configuration',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class UpdateRenderingInstanceConfigurationRequest extends Model
         if (isset($map['Configuration'])) {
             if (!empty($map['Configuration'])) {
                 $model->configuration = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['Configuration'] as $item) {
                     $model->configuration[$n++] = null !== $item ? configuration::fromMap($item) : $item;
                 }

@@ -32,13 +32,11 @@ class VerifyVsDomainOwnerRequest extends Model
     public $verifyType;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'verifyType' => 'VerifyType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

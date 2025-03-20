@@ -22,13 +22,11 @@ class dataModule extends Model
      */
     public $timeStamp;
     protected $_name = [
-        'bpsValue'  => 'BpsValue',
+        'bpsValue' => 'BpsValue',
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

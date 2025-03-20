@@ -36,14 +36,12 @@ class forbidResultInfo extends Model
     public $result;
     protected $_name = [
         'channels' => 'Channels',
-        'count'    => 'Count',
-        'detail'   => 'Detail',
-        'result'   => 'Result',
+        'count' => 'Count',
+        'detail' => 'Detail',
+        'result' => 'Result',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

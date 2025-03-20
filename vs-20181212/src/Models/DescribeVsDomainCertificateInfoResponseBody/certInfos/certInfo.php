@@ -78,21 +78,19 @@ class certInfo extends Model
      */
     public $status;
     protected $_name = [
-        'certDomainName'          => 'CertDomainName',
-        'certExpireTime'          => 'CertExpireTime',
-        'certLife'                => 'CertLife',
-        'certName'                => 'CertName',
-        'certOrg'                 => 'CertOrg',
-        'certType'                => 'CertType',
-        'domainName'              => 'DomainName',
-        'SSLPub'                  => 'SSLPub',
+        'certDomainName' => 'CertDomainName',
+        'certExpireTime' => 'CertExpireTime',
+        'certLife' => 'CertLife',
+        'certName' => 'CertName',
+        'certOrg' => 'CertOrg',
+        'certType' => 'CertType',
+        'domainName' => 'DomainName',
+        'SSLPub' => 'SSLPub',
         'serverCertificateStatus' => 'ServerCertificateStatus',
-        'status'                  => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

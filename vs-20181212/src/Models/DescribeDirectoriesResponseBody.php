@@ -50,16 +50,14 @@ class DescribeDirectoriesResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'directories' => 'Directories',
-        'pageCount'   => 'PageCount',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'pageCount' => 'PageCount',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -103,7 +101,7 @@ class DescribeDirectoriesResponseBody extends Model
         if (isset($map['Directories'])) {
             if (!empty($map['Directories'])) {
                 $model->directories = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['Directories'] as $item) {
                     $model->directories[$n++] = null !== $item ? directories::fromMap($item) : $item;
                 }

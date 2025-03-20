@@ -89,22 +89,20 @@ class DescribeVsStreamsPublishListRequest extends Model
      */
     public $streamType;
     protected $_name = [
-        'appName'    => 'AppName',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'orderBy'    => 'OrderBy',
-        'ownerId'    => 'OwnerId',
+        'endTime' => 'EndTime',
+        'orderBy' => 'OrderBy',
+        'ownerId' => 'OwnerId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'queryType'  => 'QueryType',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'queryType' => 'QueryType',
+        'startTime' => 'StartTime',
         'streamName' => 'StreamName',
         'streamType' => 'StreamType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
