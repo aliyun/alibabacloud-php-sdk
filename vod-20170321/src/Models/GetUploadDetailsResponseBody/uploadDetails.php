@@ -125,24 +125,22 @@ class uploadDetails extends Model
      */
     public $uploadStatus;
     protected $_name = [
-        'completionTime'   => 'CompletionTime',
-        'creationTime'     => 'CreationTime',
-        'deviceModel'      => 'DeviceModel',
-        'fileSize'         => 'FileSize',
-        'mediaId'          => 'MediaId',
+        'completionTime' => 'CompletionTime',
+        'creationTime' => 'CreationTime',
+        'deviceModel' => 'DeviceModel',
+        'fileSize' => 'FileSize',
+        'mediaId' => 'MediaId',
         'modificationTime' => 'ModificationTime',
-        'status'           => 'Status',
-        'title'            => 'Title',
-        'uploadIP'         => 'UploadIP',
-        'uploadRatio'      => 'UploadRatio',
-        'uploadSize'       => 'UploadSize',
-        'uploadSource'     => 'UploadSource',
-        'uploadStatus'     => 'UploadStatus',
+        'status' => 'Status',
+        'title' => 'Title',
+        'uploadIP' => 'UploadIP',
+        'uploadRatio' => 'UploadRatio',
+        'uploadSize' => 'UploadSize',
+        'uploadSource' => 'UploadSource',
+        'uploadStatus' => 'UploadStatus',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -87,6 +87,7 @@ class mezzanine extends Model
      * - **cdn** (default): CDN URL
      *
      * > If you specify an OSS URL for the video stream, the video stream must be in the MP4 format.
+     *
      * @example oss
      *
      * @var string
@@ -191,29 +192,27 @@ class mezzanine extends Model
      */
     public $width;
     protected $_name = [
-        'audioStreamList'   => 'AudioStreamList',
-        'bitrate'           => 'Bitrate',
-        'creationTime'      => 'CreationTime',
-        'duration'          => 'Duration',
-        'fileName'          => 'FileName',
-        'fileURL'           => 'FileURL',
-        'fps'               => 'Fps',
-        'height'            => 'Height',
-        'outputType'        => 'OutputType',
-        'preprocessStatus'  => 'PreprocessStatus',
+        'audioStreamList' => 'AudioStreamList',
+        'bitrate' => 'Bitrate',
+        'creationTime' => 'CreationTime',
+        'duration' => 'Duration',
+        'fileName' => 'FileName',
+        'fileURL' => 'FileURL',
+        'fps' => 'Fps',
+        'height' => 'Height',
+        'outputType' => 'OutputType',
+        'preprocessStatus' => 'PreprocessStatus',
         'restoreExpiration' => 'RestoreExpiration',
-        'restoreStatus'     => 'RestoreStatus',
-        'size'              => 'Size',
-        'status'            => 'Status',
-        'storageClass'      => 'StorageClass',
-        'videoId'           => 'VideoId',
-        'videoStreamList'   => 'VideoStreamList',
-        'width'             => 'Width',
+        'restoreStatus' => 'RestoreStatus',
+        'size' => 'Size',
+        'status' => 'Status',
+        'storageClass' => 'StorageClass',
+        'videoId' => 'VideoId',
+        'videoStreamList' => 'VideoStreamList',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -299,7 +298,7 @@ class mezzanine extends Model
         if (isset($map['AudioStreamList'])) {
             if (!empty($map['AudioStreamList'])) {
                 $model->audioStreamList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['AudioStreamList'] as $item) {
                     $model->audioStreamList[$n++] = null !== $item ? audioStreamList::fromMap($item) : $item;
                 }
@@ -353,7 +352,7 @@ class mezzanine extends Model
         if (isset($map['VideoStreamList'])) {
             if (!empty($map['VideoStreamList'])) {
                 $model->videoStreamList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['VideoStreamList'] as $item) {
                     $model->videoStreamList[$n++] = null !== $item ? videoStreamList::fromMap($item) : $item;
                 }

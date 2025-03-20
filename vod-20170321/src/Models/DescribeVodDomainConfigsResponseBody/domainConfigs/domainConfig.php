@@ -48,15 +48,13 @@ class domainConfig extends Model
      */
     public $status;
     protected $_name = [
-        'configId'     => 'ConfigId',
+        'configId' => 'ConfigId',
         'functionArgs' => 'FunctionArgs',
         'functionName' => 'FunctionName',
-        'status'       => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

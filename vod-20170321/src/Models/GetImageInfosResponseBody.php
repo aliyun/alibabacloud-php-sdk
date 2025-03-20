@@ -32,14 +32,12 @@ class GetImageInfosResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'imageInfo'        => 'ImageInfo',
+        'imageInfo' => 'ImageInfo',
         'nonExistImageIds' => 'NonExistImageIds',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -74,7 +72,7 @@ class GetImageInfosResponseBody extends Model
         if (isset($map['ImageInfo'])) {
             if (!empty($map['ImageInfo'])) {
                 $model->imageInfo = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['ImageInfo'] as $item) {
                     $model->imageInfo[$n++] = null !== $item ? imageInfo::fromMap($item) : $item;
                 }

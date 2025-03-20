@@ -66,24 +66,23 @@ class DescribeVodDomainBpsDataRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * > The minimum query interval is 5 minutes. If you do not specify this parameter, the data in the last 24 hours is queried.
+     *
      * @example 2015-12-10T13:00:00Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'domainName'     => 'DomainName',
-        'endTime'        => 'EndTime',
-        'interval'       => 'Interval',
-        'ispNameEn'      => 'IspNameEn',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'interval' => 'Interval',
+        'ispNameEn' => 'IspNameEn',
         'locationNameEn' => 'LocationNameEn',
-        'ownerId'        => 'OwnerId',
-        'startTime'      => 'StartTime',
+        'ownerId' => 'OwnerId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

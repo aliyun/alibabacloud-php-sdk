@@ -65,6 +65,7 @@ class CreateUploadImageRequest extends Model
      * > You can manage only images of the **default** type in the ApsaraVideo VOD console.
      *
      * This parameter is required.
+     *
      * @example default
      *
      * @var string
@@ -75,6 +76,7 @@ class CreateUploadImageRequest extends Model
      * @description The name of the source file.
      *
      * > The name must contain a file name extension. The file name extension is not case-sensitive.
+     *
      * @example D:\\picture_01.png
      *
      * @var string
@@ -85,6 +87,7 @@ class CreateUploadImageRequest extends Model
      * @description The storage address. Perform the following operations to obtain the storage address: Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Storage**. On the Storage page, view the storage address.
      *
      * > If you specify a storage address, media files are uploaded to the specified address.
+     *
      * @example outin-****..oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -122,27 +125,26 @@ class CreateUploadImageRequest extends Model
      *
      * > *   The callback configurations take effect only after you specify the HTTP callback URL and select specific callback events in the ApsaraVideo VOD console. For more information about how to configure HTTP callback settings in the ApsaraVideo VOD console, see [Configure callback settings](https://help.aliyun.com/document_detail/86071.html).
      * > *   If you want to enable the upload acceleration feature, submit a ticket. For more information, see [Overview](https://help.aliyun.com/document_detail/55396.html). For more information about how to submit a ticket, see [Contact us](https://help.aliyun.com/document_detail/464625.html).
+     *
      * @example {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"xxx","test":"www"}}
      *
      * @var string
      */
     public $userData;
     protected $_name = [
-        'appId'            => 'AppId',
-        'cateId'           => 'CateId',
-        'description'      => 'Description',
-        'imageExt'         => 'ImageExt',
-        'imageType'        => 'ImageType',
+        'appId' => 'AppId',
+        'cateId' => 'CateId',
+        'description' => 'Description',
+        'imageExt' => 'ImageExt',
+        'imageType' => 'ImageType',
         'originalFileName' => 'OriginalFileName',
-        'storageLocation'  => 'StorageLocation',
-        'tags'             => 'Tags',
-        'title'            => 'Title',
-        'userData'         => 'UserData',
+        'storageLocation' => 'StorageLocation',
+        'tags' => 'Tags',
+        'title' => 'Title',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

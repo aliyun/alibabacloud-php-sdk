@@ -17,9 +17,7 @@ class storageData extends Model
         'storageDataItem' => 'StorageDataItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class storageData extends Model
         if (isset($map['StorageDataItem'])) {
             if (!empty($map['StorageDataItem'])) {
                 $model->storageDataItem = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['StorageDataItem'] as $item) {
                     $model->storageDataItem[$n++] = null !== $item ? storageDataItem::fromMap($item) : $item;
                 }

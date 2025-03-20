@@ -17,9 +17,7 @@ class materialList extends Model
         'material' => 'Material',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class materialList extends Model
         if (isset($map['Material'])) {
             if (!empty($map['Material'])) {
                 $model->material = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Material'] as $item) {
                     $model->material[$n++] = null !== $item ? material::fromMap($item) : $item;
                 }

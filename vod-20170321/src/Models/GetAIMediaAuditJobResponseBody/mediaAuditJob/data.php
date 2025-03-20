@@ -84,17 +84,15 @@ class data extends Model
     public $videoResult;
     protected $_name = [
         'abnormalModules' => 'AbnormalModules',
-        'audioResult'     => 'AudioResult',
-        'imageResult'     => 'ImageResult',
-        'label'           => 'Label',
-        'suggestion'      => 'Suggestion',
-        'textResult'      => 'TextResult',
-        'videoResult'     => 'VideoResult',
+        'audioResult' => 'AudioResult',
+        'imageResult' => 'ImageResult',
+        'label' => 'Label',
+        'suggestion' => 'Suggestion',
+        'textResult' => 'TextResult',
+        'videoResult' => 'VideoResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -156,7 +154,7 @@ class data extends Model
         if (isset($map['AudioResult'])) {
             if (!empty($map['AudioResult'])) {
                 $model->audioResult = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['AudioResult'] as $item) {
                     $model->audioResult[$n++] = null !== $item ? audioResult::fromMap($item) : $item;
                 }
@@ -165,7 +163,7 @@ class data extends Model
         if (isset($map['ImageResult'])) {
             if (!empty($map['ImageResult'])) {
                 $model->imageResult = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['ImageResult'] as $item) {
                     $model->imageResult[$n++] = null !== $item ? imageResult::fromMap($item) : $item;
                 }
@@ -180,7 +178,7 @@ class data extends Model
         if (isset($map['TextResult'])) {
             if (!empty($map['TextResult'])) {
                 $model->textResult = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['TextResult'] as $item) {
                     $model->textResult[$n++] = null !== $item ? textResult::fromMap($item) : $item;
                 }

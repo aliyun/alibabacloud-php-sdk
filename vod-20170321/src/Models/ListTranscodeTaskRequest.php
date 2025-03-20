@@ -51,22 +51,21 @@ class ListTranscodeTaskRequest extends Model
      *   Obtain the value of VideoId by calling the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation. This method is applicable to files that have been uploaded.
      *
      * This parameter is required.
+     *
      * @example d4860fcc6a5*****bce9fed52e893824
      *
      * @var string
      */
     public $videoId;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'pageNo'    => 'PageNo',
-        'pageSize'  => 'PageSize',
+        'endTime' => 'EndTime',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'startTime' => 'StartTime',
-        'videoId'   => 'VideoId',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

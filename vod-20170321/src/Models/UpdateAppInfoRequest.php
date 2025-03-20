@@ -15,6 +15,7 @@ class UpdateAppInfoRequest extends Model
      *   For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
      *
      * This parameter is required.
+     *
      * @example app-****
      *
      * @var string
@@ -57,15 +58,13 @@ class UpdateAppInfoRequest extends Model
      */
     public $status;
     protected $_name = [
-        'appId'       => 'AppId',
-        'appName'     => 'AppName',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
         'description' => 'Description',
-        'status'      => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

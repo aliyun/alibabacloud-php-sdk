@@ -145,26 +145,24 @@ class transcodeJobInfoSummaryList extends Model
      */
     public $width;
     protected $_name = [
-        'bitrate'             => 'Bitrate',
-        'completeTime'        => 'CompleteTime',
-        'creationTime'        => 'CreationTime',
-        'duration'            => 'Duration',
-        'errorCode'           => 'ErrorCode',
-        'errorMessage'        => 'ErrorMessage',
-        'filesize'            => 'Filesize',
-        'format'              => 'Format',
-        'fps'                 => 'Fps',
-        'height'              => 'Height',
-        'transcodeJobStatus'  => 'TranscodeJobStatus',
-        'transcodeProgress'   => 'TranscodeProgress',
+        'bitrate' => 'Bitrate',
+        'completeTime' => 'CompleteTime',
+        'creationTime' => 'CreationTime',
+        'duration' => 'Duration',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'filesize' => 'Filesize',
+        'format' => 'Format',
+        'fps' => 'Fps',
+        'height' => 'Height',
+        'transcodeJobStatus' => 'TranscodeJobStatus',
+        'transcodeProgress' => 'TranscodeProgress',
         'transcodeTemplateId' => 'TranscodeTemplateId',
-        'watermarkIdList'     => 'WatermarkIdList',
-        'width'               => 'Width',
+        'watermarkIdList' => 'WatermarkIdList',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

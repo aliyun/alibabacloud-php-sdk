@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class snapshotJobDetail extends Model
 {
     /**
+     * @description The time when the task was complete.
+     *
      * @example 2024-10-14T07:39:45Z
      *
      * @var string
@@ -16,6 +18,8 @@ class snapshotJobDetail extends Model
     public $completeTime;
 
     /**
+     * @description The time when the task was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2024-10-14T07:39:25Z
      *
      * @var string
@@ -23,6 +27,8 @@ class snapshotJobDetail extends Model
     public $createTime;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 63df12s0**********4hdq249t82kr91
      *
      * @var string
@@ -30,6 +36,8 @@ class snapshotJobDetail extends Model
     public $jobId;
 
     /**
+     * @description Configuration of normal snapshots.
+     *
      * @example {"inl":0,"num":32,"tm":5,"wd":"352","ft":"normal","hg":"640"}
      *
      * @var string
@@ -37,6 +45,8 @@ class snapshotJobDetail extends Model
     public $normalConfig;
 
     /**
+     * @description The sprite configuration.
+     *
      * @example {"pad":"0","lines":"10","mgin":"0","cols":"10","ikcp":"false","hg":"68"}
      *
      * @var string
@@ -44,6 +54,12 @@ class snapshotJobDetail extends Model
     public $spriteConfig;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   Processing
+     *   Fail
+     *   Success
+     *
      * @example Success
      *
      * @var string
@@ -51,6 +67,11 @@ class snapshotJobDetail extends Model
     public $status;
 
     /**
+     * @description The trigger mode. Valid values:
+     *
+     *   Auto
+     *   Manual
+     *
      * @example Auto
      *
      * @var string
@@ -58,6 +79,8 @@ class snapshotJobDetail extends Model
     public $trigger;
 
     /**
+     * @description The ID of the user who submitted the task.
+     *
      * @example 139109*****84930
      *
      * @var int
@@ -65,6 +88,8 @@ class snapshotJobDetail extends Model
     public $userId;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example 30e5d7**********bd900764de7c0102
      *
      * @var string
@@ -72,19 +97,17 @@ class snapshotJobDetail extends Model
     public $videoId;
     protected $_name = [
         'completeTime' => 'CompleteTime',
-        'createTime'   => 'CreateTime',
-        'jobId'        => 'JobId',
+        'createTime' => 'CreateTime',
+        'jobId' => 'JobId',
         'normalConfig' => 'NormalConfig',
         'spriteConfig' => 'SpriteConfig',
-        'status'       => 'Status',
-        'trigger'      => 'Trigger',
-        'userId'       => 'UserId',
-        'videoId'      => 'VideoId',
+        'status' => 'Status',
+        'trigger' => 'Trigger',
+        'userId' => 'UserId',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

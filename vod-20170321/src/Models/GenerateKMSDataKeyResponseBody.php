@@ -45,14 +45,12 @@ class GenerateKMSDataKeyResponseBody extends Model
     public $requestId;
     protected $_name = [
         'ciphertextBlob' => 'CiphertextBlob',
-        'keyId'          => 'KeyId',
-        'plaintext'      => 'Plaintext',
-        'requestId'      => 'RequestId',
+        'keyId' => 'KeyId',
+        'plaintext' => 'Plaintext',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

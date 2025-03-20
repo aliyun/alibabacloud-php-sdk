@@ -32,14 +32,12 @@ class GetTranscodeSummaryResponseBody extends Model
      */
     public $transcodeSummaryList;
     protected $_name = [
-        'nonExistVideoIds'     => 'NonExistVideoIds',
-        'requestId'            => 'RequestId',
+        'nonExistVideoIds' => 'NonExistVideoIds',
+        'requestId' => 'RequestId',
         'transcodeSummaryList' => 'TranscodeSummaryList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class GetTranscodeSummaryResponseBody extends Model
         if (isset($map['TranscodeSummaryList'])) {
             if (!empty($map['TranscodeSummaryList'])) {
                 $model->transcodeSummaryList = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['TranscodeSummaryList'] as $item) {
                     $model->transcodeSummaryList[$n++] = null !== $item ? transcodeSummaryList::fromMap($item) : $item;
                 }

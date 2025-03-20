@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class GetTranscodeTaskRequest extends Model
 {
     /**
+     * @description Transcoding job ID. Supports up to 10 IDs, and multiple IDs should be separated by a comma (,). You can obtain this value in the following ways:
+     *
+     * When initiating a transcoding task through the [SubmitTranscodeJobs](https://help.aliyun.com/document_detail/454920.html) interface, it is the value of the returned parameter JobId.
+     *
+     * @example 86c1925fba0****,7afb201e7fa****,2cc4997378****
+     *
      * @var string
      */
     public $jobIds;
@@ -25,13 +31,11 @@ class GetTranscodeTaskRequest extends Model
      */
     public $transcodeTaskId;
     protected $_name = [
-        'jobIds'          => 'JobIds',
+        'jobIds' => 'JobIds',
         'transcodeTaskId' => 'TranscodeTaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

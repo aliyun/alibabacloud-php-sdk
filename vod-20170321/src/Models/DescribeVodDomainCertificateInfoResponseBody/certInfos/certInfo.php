@@ -158,32 +158,31 @@ class certInfo extends Model
      *   **failed**: The certificate application failed.
      *
      * >  A value is returned for this parameter only when you set `CertType` to `free`. Otherwise, an empty value is returned for this parameter.
+     *
      * @example success
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'certDomainName'          => 'CertDomainName',
-        'certExpireTime'          => 'CertExpireTime',
-        'certId'                  => 'CertId',
-        'certLife'                => 'CertLife',
-        'certName'                => 'CertName',
-        'certOrg'                 => 'CertOrg',
-        'certRegion'              => 'CertRegion',
-        'certStartTime'           => 'CertStartTime',
-        'certType'                => 'CertType',
-        'certUpdateTime'          => 'CertUpdateTime',
-        'domainCnameStatus'       => 'DomainCnameStatus',
-        'domainName'              => 'DomainName',
-        'serverCertificate'       => 'ServerCertificate',
+        'certDomainName' => 'CertDomainName',
+        'certExpireTime' => 'CertExpireTime',
+        'certId' => 'CertId',
+        'certLife' => 'CertLife',
+        'certName' => 'CertName',
+        'certOrg' => 'CertOrg',
+        'certRegion' => 'CertRegion',
+        'certStartTime' => 'CertStartTime',
+        'certType' => 'CertType',
+        'certUpdateTime' => 'CertUpdateTime',
+        'domainCnameStatus' => 'DomainCnameStatus',
+        'domainName' => 'DomainName',
+        'serverCertificate' => 'ServerCertificate',
         'serverCertificateStatus' => 'ServerCertificateStatus',
-        'status'                  => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

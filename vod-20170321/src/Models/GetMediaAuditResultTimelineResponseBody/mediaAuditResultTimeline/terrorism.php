@@ -50,14 +50,12 @@ class terrorism extends Model
      */
     public $timestamp;
     protected $_name = [
-        'label'     => 'Label',
-        'score'     => 'Score',
+        'label' => 'Label',
+        'score' => 'Score',
         'timestamp' => 'Timestamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

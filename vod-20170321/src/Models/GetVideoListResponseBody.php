@@ -35,13 +35,11 @@ class GetVideoListResponseBody extends Model
     public $videoList;
     protected $_name = [
         'requestId' => 'RequestId',
-        'total'     => 'Total',
+        'total' => 'Total',
         'videoList' => 'VideoList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

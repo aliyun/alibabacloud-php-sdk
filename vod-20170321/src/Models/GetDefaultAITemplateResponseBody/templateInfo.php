@@ -86,19 +86,17 @@ class templateInfo extends Model
      */
     public $templateType;
     protected $_name = [
-        'creationTime'   => 'CreationTime',
-        'isDefault'      => 'IsDefault',
-        'modifyTime'     => 'ModifyTime',
-        'source'         => 'Source',
+        'creationTime' => 'CreationTime',
+        'isDefault' => 'IsDefault',
+        'modifyTime' => 'ModifyTime',
+        'source' => 'Source',
         'templateConfig' => 'TemplateConfig',
-        'templateId'     => 'TemplateId',
-        'templateName'   => 'TemplateName',
-        'templateType'   => 'TemplateType',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

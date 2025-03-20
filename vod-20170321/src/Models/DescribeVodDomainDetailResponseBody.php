@@ -26,12 +26,10 @@ class DescribeVodDomainDetailResponseBody extends Model
     public $requestId;
     protected $_name = [
         'domainDetail' => 'DomainDetail',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

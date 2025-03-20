@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class BatchGetMediaInfosResponseBody extends Model
 {
     /**
+     * @description The IDs of the media assets that do not support the operation typically because you are not authorized to perform the operation. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
+     *
      * @var string[]
      */
     public $forbiddenMediaIds;
 
     /**
+     * @description Details about media assets.
+     *
      * @var mediaInfos[]
      */
     public $mediaInfos;
 
     /**
+     * @description The IDs of the media assets that do not exist.
+     *
      * @var string[]
      */
     public $nonExistMediaIds;
 
     /**
+     * @description The request ID.
+     *
      * @example 9E290613-04F4-47F4-795D30732077****
      *
      * @var string
@@ -32,14 +40,12 @@ class BatchGetMediaInfosResponseBody extends Model
     public $requestId;
     protected $_name = [
         'forbiddenMediaIds' => 'ForbiddenMediaIds',
-        'mediaInfos'        => 'MediaInfos',
-        'nonExistMediaIds'  => 'NonExistMediaIds',
-        'requestId'         => 'RequestId',
+        'mediaInfos' => 'MediaInfos',
+        'nonExistMediaIds' => 'NonExistMediaIds',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +88,7 @@ class BatchGetMediaInfosResponseBody extends Model
         if (isset($map['MediaInfos'])) {
             if (!empty($map['MediaInfos'])) {
                 $model->mediaInfos = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['MediaInfos'] as $item) {
                     $model->mediaInfos[$n++] = null !== $item ? mediaInfos::fromMap($item) : $item;
                 }

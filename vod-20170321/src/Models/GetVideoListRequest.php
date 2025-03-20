@@ -83,6 +83,7 @@ class GetVideoListRequest extends Model
      *   **ProduceFail**: The video failed to be produced.
      *
      * For more information about each video status, see the "Status: the status of a video" section of the [Basic data types](~~52839#section-p7c-jgy-070~~) topic.
+     *
      * @example Uploading,Normal
      *
      * @var string
@@ -98,19 +99,17 @@ class GetVideoListRequest extends Model
      */
     public $storageLocation;
     protected $_name = [
-        'cateId'          => 'CateId',
-        'endTime'         => 'EndTime',
-        'pageNo'          => 'PageNo',
-        'pageSize'        => 'PageSize',
-        'sortBy'          => 'SortBy',
-        'startTime'       => 'StartTime',
-        'status'          => 'Status',
+        'cateId' => 'CateId',
+        'endTime' => 'EndTime',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
         'storageLocation' => 'StorageLocation',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -82,19 +82,17 @@ class DescribeVodDomainUsageDataResponseBody extends Model
      */
     public $usageDataPerInterval;
     protected $_name = [
-        'area'                 => 'Area',
-        'dataInterval'         => 'DataInterval',
-        'domainName'           => 'DomainName',
-        'endTime'              => 'EndTime',
-        'requestId'            => 'RequestId',
-        'startTime'            => 'StartTime',
-        'type'                 => 'Type',
+        'area' => 'Area',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
+        'type' => 'Type',
         'usageDataPerInterval' => 'UsageDataPerInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

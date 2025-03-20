@@ -15,6 +15,7 @@ class UpdateMediaStorageClassRequest extends Model
      *   **false**
      *
      * >  If you forcibly change the storage class of a media asset that is stored for less than the minimum storage duration, additional data retrieval fees are incurred.
+     *
      * @example false
      *
      * @var bool
@@ -29,6 +30,7 @@ class UpdateMediaStorageClassRequest extends Model
      *   Obtain the value of the VideoId parameter from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you call to query the media ID after the media asset is uploaded.
      *
      * This parameter is required.
+     *
      * @example d56c2ac0cee271ed80004710b5ba****
      *
      * @var string
@@ -69,6 +71,7 @@ class UpdateMediaStorageClassRequest extends Model
      *   **ColdArchive**
      *
      * This parameter is required.
+     *
      * @example Archive
      *
      * @var string
@@ -76,15 +79,13 @@ class UpdateMediaStorageClassRequest extends Model
     public $storageClass;
     protected $_name = [
         'allowUpdateWithoutTimeLimit' => 'AllowUpdateWithoutTimeLimit',
-        'mediaIds'                    => 'MediaIds',
-        'restoreTier'                 => 'RestoreTier',
-        'scope'                       => 'Scope',
-        'storageClass'                => 'StorageClass',
+        'mediaIds' => 'MediaIds',
+        'restoreTier' => 'RestoreTier',
+        'scope' => 'Scope',
+        'storageClass' => 'StorageClass',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

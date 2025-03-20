@@ -22,6 +22,7 @@ class SubmitTranscodeJobsResponseBody extends Model
      * @description The information about the transcoding job.
      *
      * >  This parameter is not returned for HLS packaging tasks. You must asynchronously receive the transcoding result.
+     *
      * @var transcodeJobs
      */
     public $transcodeJobs;
@@ -35,14 +36,12 @@ class SubmitTranscodeJobsResponseBody extends Model
      */
     public $transcodeTaskId;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'transcodeJobs'   => 'TranscodeJobs',
+        'requestId' => 'RequestId',
+        'transcodeJobs' => 'TranscodeJobs',
         'transcodeTaskId' => 'TranscodeTaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

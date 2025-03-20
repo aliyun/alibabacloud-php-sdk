@@ -141,25 +141,23 @@ class video extends Model
      */
     public $videoId;
     protected $_name = [
-        'cateId'          => 'CateId',
-        'cateName'        => 'CateName',
-        'coverURL'        => 'CoverURL',
-        'creationTime'    => 'CreationTime',
-        'description'     => 'Description',
-        'duration'        => 'Duration',
-        'modifyTime'      => 'ModifyTime',
-        'size'            => 'Size',
-        'snapshots'       => 'Snapshots',
-        'status'          => 'Status',
-        'tags'            => 'Tags',
+        'cateId' => 'CateId',
+        'cateName' => 'CateName',
+        'coverURL' => 'CoverURL',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'duration' => 'Duration',
+        'modifyTime' => 'ModifyTime',
+        'size' => 'Size',
+        'snapshots' => 'Snapshots',
+        'status' => 'Status',
+        'tags' => 'Tags',
         'templateGroupId' => 'TemplateGroupId',
-        'title'           => 'Title',
-        'videoId'         => 'VideoId',
+        'title' => 'Title',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

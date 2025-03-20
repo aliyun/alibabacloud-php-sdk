@@ -93,20 +93,18 @@ class mediaAuditJob extends Model
      */
     public $type;
     protected $_name = [
-        'code'         => 'Code',
+        'code' => 'Code',
         'completeTime' => 'CompleteTime',
         'creationTime' => 'CreationTime',
-        'data'         => 'Data',
-        'jobId'        => 'JobId',
-        'mediaId'      => 'MediaId',
-        'message'      => 'Message',
-        'status'       => 'Status',
-        'type'         => 'Type',
+        'data' => 'Data',
+        'jobId' => 'JobId',
+        'mediaId' => 'MediaId',
+        'message' => 'Message',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

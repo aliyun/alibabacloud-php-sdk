@@ -13,6 +13,7 @@ class DescribeVodDomainRealTimeTrafficDataResponseBody extends Model
      * @description The time interval at which data is returned. Unit: seconds.
      *
      * The returned value varies based on the time range per query. Valid values: 60 (1 minute), 300 (5 minutes), and 3600 (1 hour). For more information, see the **Time granularity** section in the **API documentation**.
+     *
      * @example 60
      *
      * @var string
@@ -62,17 +63,15 @@ class DescribeVodDomainRealTimeTrafficDataResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'dataInterval'                   => 'DataInterval',
-        'domainName'                     => 'DomainName',
-        'endTime'                        => 'EndTime',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
         'realTimeTrafficDataPerInterval' => 'RealTimeTrafficDataPerInterval',
-        'requestId'                      => 'RequestId',
-        'startTime'                      => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

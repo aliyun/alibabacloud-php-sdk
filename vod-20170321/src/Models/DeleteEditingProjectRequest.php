@@ -22,6 +22,7 @@ class DeleteEditingProjectRequest extends Model
      * @description The ID of the online editing project. Separate multiple IDs with commas (,).
      *
      * This parameter is required.
+     *
      * @example fb2101bf24bf41*****cb318787dc
      *
      * @var string
@@ -38,16 +39,14 @@ class DeleteEditingProjectRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'projectIds'           => 'ProjectIds',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'projectIds' => 'ProjectIds',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

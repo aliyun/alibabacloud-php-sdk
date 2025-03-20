@@ -12,6 +12,7 @@ class BatchStartVodDomainRequest extends Model
      * @description The accelerated domain name. Separate multiple domain names with commas (,).
      *
      * This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -28,14 +29,12 @@ class BatchStartVodDomainRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainNames'   => 'DomainNames',
-        'ownerId'       => 'OwnerId',
+        'domainNames' => 'DomainNames',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

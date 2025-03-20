@@ -62,16 +62,14 @@ class GetCategoriesRequest extends Model
      */
     public $type;
     protected $_name = [
-        'cateId'   => 'CateId',
-        'pageNo'   => 'PageNo',
+        'cateId' => 'CateId',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
-        'sortBy'   => 'SortBy',
-        'type'     => 'Type',
+        'sortBy' => 'SortBy',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

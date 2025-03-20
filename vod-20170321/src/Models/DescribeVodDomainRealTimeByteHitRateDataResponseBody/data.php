@@ -17,9 +17,7 @@ class data extends Model
         'byteHitRateDataModel' => 'ByteHitRateDataModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class data extends Model
         if (isset($map['ByteHitRateDataModel'])) {
             if (!empty($map['ByteHitRateDataModel'])) {
                 $model->byteHitRateDataModel = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['ByteHitRateDataModel'] as $item) {
                     $model->byteHitRateDataModel[$n++] = null !== $item ? byteHitRateDataModel::fromMap($item) : $item;
                 }

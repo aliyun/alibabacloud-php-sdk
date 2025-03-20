@@ -16,6 +16,7 @@ class GetVideoInfoRequest extends Model
      *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you called to query the media ID after the media file is uploaded.
      *
      * This parameter is required.
+     *
      * @example 9b73864d75f1d231e9001cd5f8****
      *
      * @var string
@@ -25,9 +26,7 @@ class GetVideoInfoRequest extends Model
         'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

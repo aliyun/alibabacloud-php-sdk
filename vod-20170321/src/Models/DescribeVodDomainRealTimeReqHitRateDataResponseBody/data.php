@@ -17,9 +17,7 @@ class data extends Model
         'reqHitRateDataModel' => 'ReqHitRateDataModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class data extends Model
         if (isset($map['ReqHitRateDataModel'])) {
             if (!empty($map['ReqHitRateDataModel'])) {
                 $model->reqHitRateDataModel = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['ReqHitRateDataModel'] as $item) {
                     $model->reqHitRateDataModel[$n++] = null !== $item ? reqHitRateDataModel::fromMap($item) : $item;
                 }

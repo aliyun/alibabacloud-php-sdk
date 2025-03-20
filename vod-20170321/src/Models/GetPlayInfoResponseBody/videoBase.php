@@ -102,20 +102,18 @@ class videoBase extends Model
      */
     public $videoId;
     protected $_name = [
-        'coverURL'     => 'CoverURL',
+        'coverURL' => 'CoverURL',
         'creationTime' => 'CreationTime',
-        'danMuURL'     => 'DanMuURL',
-        'duration'     => 'Duration',
-        'mediaType'    => 'MediaType',
-        'status'       => 'Status',
+        'danMuURL' => 'DanMuURL',
+        'duration' => 'Duration',
+        'mediaType' => 'MediaType',
+        'status' => 'Status',
         'storageClass' => 'StorageClass',
-        'title'        => 'Title',
-        'videoId'      => 'VideoId',
+        'title' => 'Title',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

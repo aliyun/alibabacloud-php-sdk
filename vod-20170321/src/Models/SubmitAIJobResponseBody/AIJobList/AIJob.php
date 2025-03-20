@@ -38,14 +38,12 @@ class AIJob extends Model
      */
     public $type;
     protected $_name = [
-        'jobId'   => 'JobId',
+        'jobId' => 'JobId',
         'mediaId' => 'MediaId',
-        'type'    => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

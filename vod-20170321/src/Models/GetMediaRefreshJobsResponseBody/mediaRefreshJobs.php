@@ -122,23 +122,21 @@ class mediaRefreshJobs extends Model
      */
     public $userData;
     protected $_name = [
-        'errorCode'         => 'ErrorCode',
-        'errorMessage'      => 'ErrorMessage',
-        'filterPolicy'      => 'FilterPolicy',
-        'gmtCreate'         => 'GmtCreate',
-        'gmtModified'       => 'GmtModified',
-        'mediaId'           => 'MediaId',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'filterPolicy' => 'FilterPolicy',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'mediaId' => 'MediaId',
         'mediaRefreshJobId' => 'MediaRefreshJobId',
-        'status'            => 'Status',
-        'successPlayUrls'   => 'SuccessPlayUrls',
-        'taskIds'           => 'TaskIds',
-        'taskType'          => 'TaskType',
-        'userData'          => 'UserData',
+        'status' => 'Status',
+        'successPlayUrls' => 'SuccessPlayUrls',
+        'taskIds' => 'TaskIds',
+        'taskType' => 'TaskType',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

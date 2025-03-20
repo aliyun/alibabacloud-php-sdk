@@ -15,6 +15,7 @@ class GetWatermarkRequest extends Model
      *   Obtain the watermark template ID from the response to the [ListWatermark](~~ListWatermark~~) operation that you call to query all watermarks within your account.
      *
      * This parameter is required.
+     *
      * @example 9bcc8bfadb843f*****09a2671d0df97
      *
      * @var string
@@ -24,9 +25,7 @@ class GetWatermarkRequest extends Model
         'watermarkId' => 'WatermarkId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

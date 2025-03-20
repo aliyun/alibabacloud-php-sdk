@@ -12,6 +12,7 @@ class DescribeVodDomainConfigsRequest extends Model
      * @description The domain name for CDN.
      *
      * This parameter is required.
+     *
      * @example www.example.com
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeVodDomainConfigsRequest extends Model
      * @description The feature name. Separate multiple names with commas (,). For more information, see **Feature description**.
      *
      * This parameter is required.
+     *
      * @example filetype_based_ttl_set,set_req_host_header
      *
      * @var string
@@ -38,15 +40,13 @@ class DescribeVodDomainConfigsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainName'    => 'DomainName',
+        'domainName' => 'DomainName',
         'functionNames' => 'FunctionNames',
-        'ownerId'       => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

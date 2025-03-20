@@ -78,19 +78,17 @@ class SubmitAIJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'config'               => 'Config',
-        'mediaId'              => 'MediaId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'config' => 'Config',
+        'mediaId' => 'MediaId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'types'                => 'Types',
-        'userData'             => 'UserData',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'types' => 'Types',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

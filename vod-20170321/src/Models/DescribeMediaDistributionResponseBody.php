@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeMediaDistributionResponseBody extends Model
 {
     /**
+     * @description The distribution list of media assets. The data is displayed based on the statistical cycle of the natural hour, day, week, or month of the start and end time.
+     *
      * @var mediaDistributionList[]
      */
     public $mediaDistributionList;
 
     /**
+     * @description The request ID.
+     *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeMediaDistributionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of media assets returned.
+     *
      * @example 100
      *
      * @var int
@@ -29,13 +35,11 @@ class DescribeMediaDistributionResponseBody extends Model
     public $total;
     protected $_name = [
         'mediaDistributionList' => 'MediaDistributionList',
-        'requestId'             => 'RequestId',
-        'total'                 => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -70,7 +74,7 @@ class DescribeMediaDistributionResponseBody extends Model
         if (isset($map['MediaDistributionList'])) {
             if (!empty($map['MediaDistributionList'])) {
                 $model->mediaDistributionList = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['MediaDistributionList'] as $item) {
                     $model->mediaDistributionList[$n++] = null !== $item ? mediaDistributionList::fromMap($item) : $item;
                 }

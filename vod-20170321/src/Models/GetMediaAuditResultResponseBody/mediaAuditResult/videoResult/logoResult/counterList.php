@@ -22,6 +22,7 @@ class counterList extends Model
      *
      * - **logo**
      * - **normal**
+     *
      * @example logo
      *
      * @var string
@@ -32,9 +33,7 @@ class counterList extends Model
         'label' => 'Label',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

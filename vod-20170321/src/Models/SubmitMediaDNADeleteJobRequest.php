@@ -12,6 +12,7 @@ class SubmitMediaDNADeleteJobRequest extends Model
      * @description The ID of the video.
      *
      * This parameter is required.
+     *
      * @example 656eaaa8c43a4597******1f09a36
      *
      * @var string
@@ -38,16 +39,14 @@ class SubmitMediaDNADeleteJobRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'mediaId'              => 'MediaId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'mediaId' => 'MediaId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

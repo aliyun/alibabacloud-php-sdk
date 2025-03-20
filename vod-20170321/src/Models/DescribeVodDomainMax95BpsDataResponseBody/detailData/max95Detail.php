@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class max95Detail extends Model
 {
     /**
+     * @description The billable region where the peak 95 data was collected.
+     *
      * @example CN
      *
      * @var string
@@ -16,6 +18,8 @@ class max95Detail extends Model
     public $area;
 
     /**
+     * @description The 95th percentile bandwidth.
+     *
      * @example 16777590.28
      *
      * @var float
@@ -23,6 +27,8 @@ class max95Detail extends Model
     public $max95Bps;
 
     /**
+     * @description The time corresponding to the 95th percentile bandwidth peak.
+     *
      * @example 2015-12-11T21:05:00Z
      *
      * @var string
@@ -30,21 +36,21 @@ class max95Detail extends Model
     public $max95BpsPeakTime;
 
     /**
+     * @description The timestamp of the returned data.
+     *
      * @example 2024-01-18 10:11:32
      *
      * @var string
      */
     public $timeStamp;
     protected $_name = [
-        'area'             => 'Area',
-        'max95Bps'         => 'Max95Bps',
+        'area' => 'Area',
+        'max95Bps' => 'Max95Bps',
         'max95BpsPeakTime' => 'Max95BpsPeakTime',
-        'timeStamp'        => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class userPlayStatisAvgs extends Model
         'userPlayStatisAvg' => 'UserPlayStatisAvg',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class userPlayStatisAvgs extends Model
         if (isset($map['UserPlayStatisAvg'])) {
             if (!empty($map['UserPlayStatisAvg'])) {
                 $model->userPlayStatisAvg = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['UserPlayStatisAvg'] as $item) {
                     $model->userPlayStatisAvg[$n++] = null !== $item ? userPlayStatisAvg::fromMap($item) : $item;
                 }

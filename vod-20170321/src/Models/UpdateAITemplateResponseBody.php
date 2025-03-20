@@ -26,13 +26,11 @@ class UpdateAITemplateResponseBody extends Model
      */
     public $templateId;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

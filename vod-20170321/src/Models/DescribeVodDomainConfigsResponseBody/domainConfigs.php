@@ -17,9 +17,7 @@ class domainConfigs extends Model
         'domainConfig' => 'DomainConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class domainConfigs extends Model
         if (isset($map['DomainConfig'])) {
             if (!empty($map['DomainConfig'])) {
                 $model->domainConfig = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['DomainConfig'] as $item) {
                     $model->domainConfig[$n++] = null !== $item ? domainConfig::fromMap($item) : $item;
                 }

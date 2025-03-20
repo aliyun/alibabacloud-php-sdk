@@ -33,13 +33,11 @@ class GetVideoInfosResponseBody extends Model
     public $videoList;
     protected $_name = [
         'nonExistVideoIds' => 'NonExistVideoIds',
-        'requestId'        => 'RequestId',
-        'videoList'        => 'VideoList',
+        'requestId' => 'RequestId',
+        'videoList' => 'VideoList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class GetVideoInfosResponseBody extends Model
         if (isset($map['VideoList'])) {
             if (!empty($map['VideoList'])) {
                 $model->videoList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['VideoList'] as $item) {
                     $model->videoList[$n++] = null !== $item ? videoList::fromMap($item) : $item;
                 }

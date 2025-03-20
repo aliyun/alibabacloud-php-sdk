@@ -74,18 +74,16 @@ class appPolicyList extends Model
      */
     public $policyValue;
     protected $_name = [
-        'appId'            => 'AppId',
-        'creationTime'     => 'CreationTime',
-        'description'      => 'Description',
+        'appId' => 'AppId',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
         'modificationTime' => 'ModificationTime',
-        'policyName'       => 'PolicyName',
-        'policyType'       => 'PolicyType',
-        'policyValue'      => 'PolicyValue',
+        'policyName' => 'PolicyName',
+        'policyType' => 'PolicyType',
+        'policyValue' => 'PolicyValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

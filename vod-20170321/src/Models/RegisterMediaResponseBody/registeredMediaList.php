@@ -38,14 +38,12 @@ class registeredMediaList extends Model
      */
     public $newRegister;
     protected $_name = [
-        'fileURL'     => 'FileURL',
-        'mediaId'     => 'MediaId',
+        'fileURL' => 'FileURL',
+        'mediaId' => 'MediaId',
         'newRegister' => 'NewRegister',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

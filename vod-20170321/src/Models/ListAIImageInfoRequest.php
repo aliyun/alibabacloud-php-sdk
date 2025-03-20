@@ -16,6 +16,7 @@ class ListAIImageInfoRequest extends Model
      *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation after you upload media files.
      *
      * This parameter is required.
+     *
      * @example 357a8748c5789d2726e6436aa****
      *
      * @var string
@@ -25,9 +26,7 @@ class ListAIImageInfoRequest extends Model
         'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

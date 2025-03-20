@@ -25,13 +25,11 @@ class GetDefaultAITemplateResponseBody extends Model
      */
     public $templateInfo;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'templateInfo' => 'TemplateInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

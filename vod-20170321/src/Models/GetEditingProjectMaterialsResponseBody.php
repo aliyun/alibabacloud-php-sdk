@@ -26,12 +26,10 @@ class GetEditingProjectMaterialsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'materialList' => 'MaterialList',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

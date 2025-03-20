@@ -26,12 +26,10 @@ class GetMediaAuditResultTimelineResponseBody extends Model
     public $requestId;
     protected $_name = [
         'mediaAuditResultTimeline' => 'MediaAuditResultTimeline',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

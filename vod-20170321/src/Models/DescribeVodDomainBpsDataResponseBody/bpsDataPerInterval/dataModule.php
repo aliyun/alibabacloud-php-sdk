@@ -71,18 +71,16 @@ class dataModule extends Model
      */
     public $value;
     protected $_name = [
-        'domesticValue'      => 'DomesticValue',
+        'domesticValue' => 'DomesticValue',
         'httpsDomesticValue' => 'HttpsDomesticValue',
         'httpsOverseasValue' => 'HttpsOverseasValue',
-        'httpsValue'         => 'HttpsValue',
-        'overseasValue'      => 'OverseasValue',
-        'timeStamp'          => 'TimeStamp',
-        'value'              => 'Value',
+        'httpsValue' => 'HttpsValue',
+        'overseasValue' => 'OverseasValue',
+        'timeStamp' => 'TimeStamp',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

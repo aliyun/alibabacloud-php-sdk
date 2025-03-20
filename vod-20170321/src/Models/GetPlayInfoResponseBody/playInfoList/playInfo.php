@@ -27,6 +27,14 @@ class playInfo extends Model
     public $bitrate;
 
     /**
+     * @description The encoding type. The possible values are:
+     *
+     * - H264
+     *
+     * - H265
+     *
+     * @example H264
+     *
      * @var string
      */
     public $codecName;
@@ -87,6 +95,7 @@ class playInfo extends Model
      *   **License**: decryption on local devices
      *
      * >  If the encryption type is **License**, only ApsaraVideo Player SDK can be used to play videos.
+     *
      * @example License
      *
      * @var string
@@ -100,6 +109,7 @@ class playInfo extends Model
      *   **HLSEncryption**: HTTP-Live-Streaming (HLS) encryption
      *
      * >  If the encryption type is AliyunVoDEncryption, only ApsaraVideo Player SDK can be used to play videos.
+     *
      * @example AliyunVoDEncryption
      *
      * @var string
@@ -268,36 +278,34 @@ class playInfo extends Model
      */
     public $width;
     protected $_name = [
-        'bitDepth'         => 'BitDepth',
-        'bitrate'          => 'Bitrate',
-        'codecName'        => 'CodecName',
-        'creationTime'     => 'CreationTime',
-        'definition'       => 'Definition',
-        'duration'         => 'Duration',
-        'encrypt'          => 'Encrypt',
-        'encryptMode'      => 'EncryptMode',
-        'encryptType'      => 'EncryptType',
-        'format'           => 'Format',
-        'fps'              => 'Fps',
-        'HDRType'          => 'HDRType',
-        'height'           => 'Height',
-        'jobExt'           => 'JobExt',
-        'jobId'            => 'JobId',
-        'jobType'          => 'JobType',
+        'bitDepth' => 'BitDepth',
+        'bitrate' => 'Bitrate',
+        'codecName' => 'CodecName',
+        'creationTime' => 'CreationTime',
+        'definition' => 'Definition',
+        'duration' => 'Duration',
+        'encrypt' => 'Encrypt',
+        'encryptMode' => 'EncryptMode',
+        'encryptType' => 'EncryptType',
+        'format' => 'Format',
+        'fps' => 'Fps',
+        'HDRType' => 'HDRType',
+        'height' => 'Height',
+        'jobExt' => 'JobExt',
+        'jobId' => 'JobId',
+        'jobType' => 'JobType',
         'modificationTime' => 'ModificationTime',
-        'narrowBandType'   => 'NarrowBandType',
-        'playURL'          => 'PlayURL',
-        'size'             => 'Size',
-        'specification'    => 'Specification',
-        'status'           => 'Status',
-        'streamType'       => 'StreamType',
-        'watermarkId'      => 'WatermarkId',
-        'width'            => 'Width',
+        'narrowBandType' => 'NarrowBandType',
+        'playURL' => 'PlayURL',
+        'size' => 'Size',
+        'specification' => 'Specification',
+        'status' => 'Status',
+        'streamType' => 'StreamType',
+        'watermarkId' => 'WatermarkId',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

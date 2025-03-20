@@ -26,13 +26,11 @@ class DeleteVodTemplateResponseBody extends Model
      */
     public $vodTemplateId;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'vodTemplateId' => 'VodTemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

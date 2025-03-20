@@ -33,14 +33,12 @@ class ListAIJobResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'AIJobList'        => 'AIJobList',
+        'AIJobList' => 'AIJobList',
         'nonExistAIJobIds' => 'NonExistAIJobIds',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

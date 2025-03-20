@@ -15,6 +15,7 @@ class AddCategoryRequest extends Model
      *   The value must be encoded in UTF-8.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -28,6 +29,7 @@ class AddCategoryRequest extends Model
      *
      * > *   If you specify this parameter, the system creates a subcategory under the parent category. If you leave this parameter empty, the system creates a level 1 category.
      * >*   You cannot modify, add, or delete level 1 categories of short video materials. You can create only subcategories under level 1 categories for short video materials. This parameter is required when you set `Type` to `material`.
+     *
      * @example 100012****
      *
      * @var int
@@ -48,12 +50,10 @@ class AddCategoryRequest extends Model
     protected $_name = [
         'cateName' => 'CateName',
         'parentId' => 'ParentId',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

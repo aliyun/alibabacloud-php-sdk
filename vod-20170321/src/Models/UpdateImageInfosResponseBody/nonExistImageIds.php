@@ -16,9 +16,7 @@ class nonExistImageIds extends Model
         'imageId' => 'ImageId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

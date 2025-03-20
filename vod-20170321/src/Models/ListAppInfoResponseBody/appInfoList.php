@@ -54,7 +54,7 @@ class appInfoList extends Model
     public $modificationTime;
 
     /**
-     * @description 地域。
+     * @description The region.
      *
      * @example cn-shanghai
      *
@@ -95,20 +95,18 @@ class appInfoList extends Model
      */
     public $type;
     protected $_name = [
-        'appId'            => 'AppId',
-        'appName'          => 'AppName',
-        'creationTime'     => 'CreationTime',
-        'description'      => 'Description',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
         'modificationTime' => 'ModificationTime',
-        'regionId'         => 'RegionId',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'status'           => 'Status',
-        'type'             => 'Type',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

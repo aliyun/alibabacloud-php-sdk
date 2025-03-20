@@ -17,9 +17,7 @@ class functionArgs extends Model
         'functionArg' => 'FunctionArg',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class functionArgs extends Model
         if (isset($map['FunctionArg'])) {
             if (!empty($map['FunctionArg'])) {
                 $model->functionArg = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['FunctionArg'] as $item) {
                     $model->functionArg[$n++] = null !== $item ? functionArg::fromMap($item) : $item;
                 }

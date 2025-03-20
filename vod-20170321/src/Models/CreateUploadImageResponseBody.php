@@ -30,6 +30,7 @@ class CreateUploadImageResponseBody extends Model
      * @description The URL of the image.
      *
      * > If the returned URL is inaccessible from a browser and the HTTP 403 status code is returned, the URL signing feature in ApsaraVideo VOD is enabled. To resolve this issue, you can disable the [URL signing](https://help.aliyun.com/document_detail/86090.html) feature or [generate a signed URL](https://help.aliyun.com/document_detail/57007.html).
+     *
      * @example http://example.aliyundoc.com/cover/2017-34DB-4F4C-9373-003AA060****.png
      *
      * @var string
@@ -49,6 +50,7 @@ class CreateUploadImageResponseBody extends Model
      * @description The upload URL.
      *
      * > The returned upload URL is a Base64-encoded URL. You must decode the Base64-encoded URL before you use an SDK or call an API operation to upload auxiliary media assets. You need to parse UploadAddress only if you use the OSS SDK or call an OSS API operation to upload auxiliary media assets.
+     *
      * @example eyJTZWN1cmuIjoiQ0FJU3p3TjF****
      *
      * @var string
@@ -59,23 +61,22 @@ class CreateUploadImageResponseBody extends Model
      * @description The upload credential.
      *
      * > The returned upload credential is a Base64-encoded value. You must decode the Base64-encoded credential before you use an SDK or call an API operation to upload auxiliary media assets. You need to parse UploadAuth only if you use the OSS SDK or call an OSS API operation to upload auxiliary media assets.
+     *
      * @example eyJFbmmRCI6Im****
      *
      * @var string
      */
     public $uploadAuth;
     protected $_name = [
-        'fileURL'       => 'FileURL',
-        'imageId'       => 'ImageId',
-        'imageURL'      => 'ImageURL',
-        'requestId'     => 'RequestId',
+        'fileURL' => 'FileURL',
+        'imageId' => 'ImageId',
+        'imageURL' => 'ImageURL',
+        'requestId' => 'RequestId',
         'uploadAddress' => 'UploadAddress',
-        'uploadAuth'    => 'UploadAuth',
+        'uploadAuth' => 'UploadAuth',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

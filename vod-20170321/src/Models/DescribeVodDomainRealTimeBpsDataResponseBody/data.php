@@ -17,9 +17,7 @@ class data extends Model
         'bpsModel' => 'BpsModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class data extends Model
         if (isset($map['BpsModel'])) {
             if (!empty($map['BpsModel'])) {
                 $model->bpsModel = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['BpsModel'] as $item) {
                     $model->bpsModel[$n++] = null !== $item ? bpsModel::fromMap($item) : $item;
                 }

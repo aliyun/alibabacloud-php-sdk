@@ -36,13 +36,11 @@ class dataModule extends Model
     public $value;
     protected $_name = [
         'httpsValue' => 'HttpsValue',
-        'timeStamp'  => 'TimeStamp',
-        'value'      => 'Value',
+        'timeStamp' => 'TimeStamp',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

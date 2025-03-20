@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class ListJobInfoResponseBody extends Model
 {
     /**
+     * @description The historical tasks of the last 6 months.
+     *
      * @var jobInfoList[]
      */
     public $jobInfoList;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   transcode
+     *   snapshot
+     *   ai
+     *
      * @example transcode
      *
      * @var string
@@ -22,6 +30,8 @@ class ListJobInfoResponseBody extends Model
     public $jobType;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example 30e5d7**********bd900764de7c0102
      *
      * @var string
@@ -29,6 +39,8 @@ class ListJobInfoResponseBody extends Model
     public $mediaId;
 
     /**
+     * @description The request ID.
+     *
      * @example 6708D849-F109-1A6C-AC91-************
      *
      * @var string
@@ -36,14 +48,12 @@ class ListJobInfoResponseBody extends Model
     public $requestId;
     protected $_name = [
         'jobInfoList' => 'JobInfoList',
-        'jobType'     => 'JobType',
-        'mediaId'     => 'MediaId',
-        'requestId'   => 'RequestId',
+        'jobType' => 'JobType',
+        'mediaId' => 'MediaId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +91,7 @@ class ListJobInfoResponseBody extends Model
         if (isset($map['JobInfoList'])) {
             if (!empty($map['JobInfoList'])) {
                 $model->jobInfoList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['JobInfoList'] as $item) {
                     $model->jobInfoList[$n++] = null !== $item ? jobInfoList::fromMap($item) : $item;
                 }

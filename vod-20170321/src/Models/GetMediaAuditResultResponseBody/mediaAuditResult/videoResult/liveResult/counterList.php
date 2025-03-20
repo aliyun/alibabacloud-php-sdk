@@ -22,6 +22,7 @@ class counterList extends Model
      *
      * - **live**: The content contains undesirable scenes.
      * - **normal**: normal content.
+     *
      * @example live
      *
      * @var string
@@ -32,9 +33,7 @@ class counterList extends Model
         'label' => 'Label',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

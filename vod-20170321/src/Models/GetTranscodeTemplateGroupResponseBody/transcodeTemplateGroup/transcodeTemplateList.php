@@ -39,7 +39,9 @@ class transcodeTemplateList extends Model
      * @description The content of the copyright watermark.
      *
      * @example {
+     * "Content": "test"
      * }
+     *
      * @var string
      */
     public $copyrightMark;
@@ -69,6 +71,7 @@ class transcodeTemplateList extends Model
      * > *   You cannot change the definition of a transcoding template.
      * >*   You cannot modify the system parameters, such as the video resolution, audio resolution, and bitrate, of Narrowband HD™ 1.0 transcoding templates.
      * >*   You can create only Narrowband HD™ 1.0 transcoding templates that support the FLV, M3U8 (HLS), and MP4 output formats.
+     *
      * @example SD
      *
      * @var string
@@ -133,7 +136,9 @@ class transcodeTemplateList extends Model
      * @description The content of the tracing watermark.
      *
      * @example {
+     * "Enable": true
      * }
+     *
      * @var string
      */
     public $traceMark;
@@ -194,29 +199,27 @@ class transcodeTemplateList extends Model
      */
     public $watermarkIds;
     protected $_name = [
-        'audio'                => 'Audio',
-        'clip'                 => 'Clip',
-        'container'            => 'Container',
-        'copyrightMark'        => 'CopyrightMark',
-        'definition'           => 'Definition',
-        'encryptSetting'       => 'EncryptSetting',
-        'muxConfig'            => 'MuxConfig',
-        'packageSetting'       => 'PackageSetting',
-        'rotate'               => 'Rotate',
-        'subtitleList'         => 'SubtitleList',
-        'templateName'         => 'TemplateName',
-        'traceMark'            => 'TraceMark',
-        'transConfig'          => 'TransConfig',
+        'audio' => 'Audio',
+        'clip' => 'Clip',
+        'container' => 'Container',
+        'copyrightMark' => 'CopyrightMark',
+        'definition' => 'Definition',
+        'encryptSetting' => 'EncryptSetting',
+        'muxConfig' => 'MuxConfig',
+        'packageSetting' => 'PackageSetting',
+        'rotate' => 'Rotate',
+        'subtitleList' => 'SubtitleList',
+        'templateName' => 'TemplateName',
+        'traceMark' => 'TraceMark',
+        'transConfig' => 'TransConfig',
         'transcodeFileRegular' => 'TranscodeFileRegular',
-        'transcodeTemplateId'  => 'TranscodeTemplateId',
-        'type'                 => 'Type',
-        'video'                => 'Video',
-        'watermarkIds'         => 'WatermarkIds',
+        'transcodeTemplateId' => 'TranscodeTemplateId',
+        'type' => 'Type',
+        'video' => 'Video',
+        'watermarkIds' => 'WatermarkIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -19,9 +19,7 @@ class DNAResult extends Model
         'videoDNA' => 'VideoDNA',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class DNAResult extends Model
         if (isset($map['VideoDNA'])) {
             if (!empty($map['VideoDNA'])) {
                 $model->videoDNA = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['VideoDNA'] as $item) {
                     $model->videoDNA[$n++] = null !== $item ? videoDNA::fromMap($item) : $item;
                 }

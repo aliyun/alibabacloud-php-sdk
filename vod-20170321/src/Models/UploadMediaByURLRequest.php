@@ -30,6 +30,7 @@ class UploadMediaByURLRequest extends Model
      * @description The storage address of the media file.
      *
      * To view the storage address, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/?spm=a2c4g.11186623.2.15.6948257eaZ4m54#/vod/settings/censored). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Storage**. If you do not specify a storage address, the default storage address is used.
+     *
      * @example outin-bfefbb90a47c******163e1c7426.oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -43,7 +44,9 @@ class UploadMediaByURLRequest extends Model
      *   Obtain the value of TranscodeTemplateGroupId from the response to the [AddTranscodeTemplateGroup](https://help.aliyun.com/document_detail/102665.html) operation.
      *   Obtain the value of TranscodeTemplateGroupId from the response to the [ListTranscodeTemplateGroup](https://help.aliyun.com/document_detail/102669.html) operation.
      *
+     * >-   If you leave this parameter empty, the default transcoding template group is used for transcoding. If you specify this parameter, the specified transcoding template group is used for transcoding.
      * >-   You can also specify the ID of the transcoding template group in `UploadMetadatas`. If you specify this parameter and TemplateGroupId in UploadMetadatas, the TemplateGroupId in UploadMetadatas takes effect.
+     *
      * @example ca3a8f6e4957b65806709586****
      *
      * @var string
@@ -77,6 +80,7 @@ class UploadMediaByURLRequest extends Model
      *   Special characters may cause upload failures. You must encode URLs before you separate them with commas (,).
      *
      * This parameter is required.
+     *
      * @example https://****.mp4
      *
      * @var string
@@ -86,7 +90,9 @@ class UploadMediaByURLRequest extends Model
     /**
      * @description The custom configurations such as callback configurations and upload acceleration configurations. The value must be a JSON string. For more information, see [Request parameters](~~86952#UserData~~).
      *
+     * >-   The callback configurations take effect only after you specify the HTTP callback URL and select specific callback events in the ApsaraVideo VOD console. For more information about how to configure HTTP callback settings in the ApsaraVideo VOD console, see [Configure callback settings](https://help.aliyun.com/document_detail/86071.html).
      * >-   If you want to enable the upload acceleration feature, [submit a request on Yida](https://yida.alibaba-inc.com/o/ticketapply). For more information, see [Overview](https://help.aliyun.com/document_detail/55396.html).
+     *
      * @example {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"xxx","test":"www"}}
      *
      * @var string
@@ -97,25 +103,24 @@ class UploadMediaByURLRequest extends Model
      * @description The ID of the workflow. To view the ID of the workflow, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Processing** > **Workflows**.
      *
      * > If you specify WorkflowId and TemplateGroupId, the value of WorkflowId takes effect. For more information, see [Workflows](https://help.aliyun.com/document_detail/115347.html).
+     *
      * @example e1e243b42548248197d6f74f9****
      *
      * @var string
      */
     public $workflowId;
     protected $_name = [
-        'appId'           => 'AppId',
-        'sessionId'       => 'SessionId',
+        'appId' => 'AppId',
+        'sessionId' => 'SessionId',
         'storageLocation' => 'StorageLocation',
         'templateGroupId' => 'TemplateGroupId',
         'uploadMetadatas' => 'UploadMetadatas',
-        'uploadURLs'      => 'UploadURLs',
-        'userData'        => 'UserData',
-        'workflowId'      => 'WorkflowId',
+        'uploadURLs' => 'UploadURLs',
+        'userData' => 'UserData',
+        'workflowId' => 'WorkflowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

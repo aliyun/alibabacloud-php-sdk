@@ -46,13 +46,11 @@ class RefreshMediaPlayUrlsResponseBody extends Model
     protected $_name = [
         'forbiddenMediaIds' => 'ForbiddenMediaIds',
         'mediaRefreshJobId' => 'MediaRefreshJobId',
-        'nonExistMediaIds'  => 'NonExistMediaIds',
-        'requestId'         => 'RequestId',
+        'nonExistMediaIds' => 'NonExistMediaIds',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

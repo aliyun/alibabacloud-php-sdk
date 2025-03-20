@@ -32,13 +32,11 @@ class CancelUrlUploadJobsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'canceledJobs' => 'CanceledJobs',
-        'nonExists'    => 'NonExists',
-        'requestId'    => 'RequestId',
+        'nonExists' => 'NonExists',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

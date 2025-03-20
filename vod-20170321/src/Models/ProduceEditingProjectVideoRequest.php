@@ -53,6 +53,7 @@ class ProduceEditingProjectVideoRequest extends Model
      * @description The configuration of video production. The value must be in the JSON format. For more information about the parameter structure, see [ProduceConfig](~~52839#title-ybl-7cs-y7d~~).
      *
      * >  StorageLocation is required if you produce videos in a region other than China (Shanghai).
+     *
      * @example {"TemplateGroupId":"6d11e25ea30a4c465435c74****"}
      *
      * @var string
@@ -103,29 +104,28 @@ class ProduceEditingProjectVideoRequest extends Model
      * @description The custom configurations, such as the callback configuration. The value must be a JSON string. For more information about the parameter structure, see [UserData](~~86952#title_vz7_xzs_0c5~~).
      *
      * > The callback configurations take effect only after you specify an HTTP URL for receiving callback notifications and select the event types in the ApsaraVideo VOD console.
+     *
      * @example {"Extend":{"width":1280,"id":"028a8e56b1ebf6bb7afc74****","height":720},"MessageCallback":{"CallbackURL":"https://example.aliyundoc.com/2016-08-15/proxy/httpcallback/testcallback/","CallbackType":"http"}}
      *
      * @var string
      */
     public $userData;
     protected $_name = [
-        'appId'                => 'AppId',
-        'coverURL'             => 'CoverURL',
-        'description'          => 'Description',
-        'mediaMetadata'        => 'MediaMetadata',
-        'ownerId'              => 'OwnerId',
-        'produceConfig'        => 'ProduceConfig',
-        'projectId'            => 'ProjectId',
+        'appId' => 'AppId',
+        'coverURL' => 'CoverURL',
+        'description' => 'Description',
+        'mediaMetadata' => 'MediaMetadata',
+        'ownerId' => 'OwnerId',
+        'produceConfig' => 'ProduceConfig',
+        'projectId' => 'ProjectId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'timeline'             => 'Timeline',
-        'title'                => 'Title',
-        'userData'             => 'UserData',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'timeline' => 'Timeline',
+        'title' => 'Title',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -83,6 +83,7 @@ class SubmitSnapshotJobShrinkRequest extends Model
      * @description The custom configurations including the configuration of transparent data transmission and callback configurations. The value must be a JSON string. For more information, see [UserData](https://help.aliyun.com/document_detail/86952.html).
      *
      * >  To use the message callback feature, you must specify an HTTP callback URL and the callback events in the ApsaraVideo VOD console. Otherwise, the callback settings do not take effect.
+     *
      * @example {"MessageCallback":{"CallbackURL":"http://.example.aliyundoc.com"},"Extend":{"localId":"xxx","example":"www"}}
      *
      * @var string
@@ -111,21 +112,19 @@ class SubmitSnapshotJobShrinkRequest extends Model
      */
     public $width;
     protected $_name = [
-        'count'                      => 'Count',
-        'height'                     => 'Height',
-        'interval'                   => 'Interval',
-        'snapshotTemplateId'         => 'SnapshotTemplateId',
-        'specifiedOffsetTime'        => 'SpecifiedOffsetTime',
+        'count' => 'Count',
+        'height' => 'Height',
+        'interval' => 'Interval',
+        'snapshotTemplateId' => 'SnapshotTemplateId',
+        'specifiedOffsetTime' => 'SpecifiedOffsetTime',
         'specifiedOffsetTimesShrink' => 'SpecifiedOffsetTimes',
-        'spriteSnapshotConfig'       => 'SpriteSnapshotConfig',
-        'userData'                   => 'UserData',
-        'videoId'                    => 'VideoId',
-        'width'                      => 'Width',
+        'spriteSnapshotConfig' => 'SpriteSnapshotConfig',
+        'userData' => 'UserData',
+        'videoId' => 'VideoId',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

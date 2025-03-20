@@ -25,6 +25,7 @@ class CreateUploadAttachedMediaRequest extends Model
      *   **material**
      *
      * This parameter is required.
+     *
      * @example watermark
      *
      * @var string
@@ -60,6 +61,7 @@ class CreateUploadAttachedMediaRequest extends Model
      * @description The source file URL of the auxiliary media asset.
      *
      * >  The file name extension is optional. If the file name extension that you specified for this parameter is different from the value of MediaExt, the value of MediaExt takes effect.
+     *
      * @example D:\\test.png
      *
      * @var string
@@ -94,6 +96,7 @@ class CreateUploadAttachedMediaRequest extends Model
      * Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Storage**. On the Storage page, view the storage address.
      *
      * >  If you leave this parameter empty, the auxiliary media asset is uploaded to the default storage address. If you specify this parameter, the auxiliary media asset is uploaded to the specified storage address.
+     *
      * @example out-****.oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -131,28 +134,27 @@ class CreateUploadAttachedMediaRequest extends Model
      *
      * > *   The callback configurations take effect only after you specify the HTTP callback URL and select the specific callback events in the ApsaraVideo VOD console. For more information about how to configure HTTP callback settings in the ApsaraVideo VOD console, see [Configure callback settings](https://help.aliyun.com/document_detail/86071.html).
      * > *   If you want to enable the upload acceleration feature, submit a ticket. For more information, see [Overview](https://help.aliyun.com/document_detail/55396.html). For more information about how to submit a ticket, see [Contact us](https://help.aliyun.com/document_detail/464625.html).
+     *
      * @example {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"xxx","test":"www"}}
      *
      * @var string
      */
     public $userData;
     protected $_name = [
-        'appId'           => 'AppId',
-        'businessType'    => 'BusinessType',
-        'cateIds'         => 'CateIds',
-        'description'     => 'Description',
-        'fileName'        => 'FileName',
-        'fileSize'        => 'FileSize',
-        'mediaExt'        => 'MediaExt',
+        'appId' => 'AppId',
+        'businessType' => 'BusinessType',
+        'cateIds' => 'CateIds',
+        'description' => 'Description',
+        'fileName' => 'FileName',
+        'fileSize' => 'FileSize',
+        'mediaExt' => 'MediaExt',
         'storageLocation' => 'StorageLocation',
-        'tags'            => 'Tags',
-        'title'           => 'Title',
-        'userData'        => 'UserData',
+        'tags' => 'Tags',
+        'title' => 'Title',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

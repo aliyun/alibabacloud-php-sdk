@@ -35,14 +35,12 @@ class SubmitAIMediaAuditJobResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'jobId'     => 'JobId',
-        'mediaId'   => 'MediaId',
+        'jobId' => 'JobId',
+        'mediaId' => 'MediaId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

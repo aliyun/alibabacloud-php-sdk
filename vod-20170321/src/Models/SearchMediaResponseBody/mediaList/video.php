@@ -250,34 +250,32 @@ class video extends Model
      */
     public $videoId;
     protected $_name = [
-        'appId'             => 'AppId',
-        'cateId'            => 'CateId',
-        'cateName'          => 'CateName',
-        'coverURL'          => 'CoverURL',
-        'creationTime'      => 'CreationTime',
-        'description'       => 'Description',
-        'downloadSwitch'    => 'DownloadSwitch',
-        'duration'          => 'Duration',
-        'mediaSource'       => 'MediaSource',
-        'modificationTime'  => 'ModificationTime',
-        'preprocessStatus'  => 'PreprocessStatus',
+        'appId' => 'AppId',
+        'cateId' => 'CateId',
+        'cateName' => 'CateName',
+        'coverURL' => 'CoverURL',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'downloadSwitch' => 'DownloadSwitch',
+        'duration' => 'Duration',
+        'mediaSource' => 'MediaSource',
+        'modificationTime' => 'ModificationTime',
+        'preprocessStatus' => 'PreprocessStatus',
         'restoreExpiration' => 'RestoreExpiration',
-        'restoreStatus'     => 'RestoreStatus',
-        'size'              => 'Size',
-        'snapshots'         => 'Snapshots',
-        'spriteSnapshots'   => 'SpriteSnapshots',
-        'status'            => 'Status',
-        'storageClass'      => 'StorageClass',
-        'storageLocation'   => 'StorageLocation',
-        'tags'              => 'Tags',
-        'title'             => 'Title',
-        'transcodeMode'     => 'TranscodeMode',
-        'videoId'           => 'VideoId',
+        'restoreStatus' => 'RestoreStatus',
+        'size' => 'Size',
+        'snapshots' => 'Snapshots',
+        'spriteSnapshots' => 'SpriteSnapshots',
+        'status' => 'Status',
+        'storageClass' => 'StorageClass',
+        'storageLocation' => 'StorageLocation',
+        'tags' => 'Tags',
+        'title' => 'Title',
+        'transcodeMode' => 'TranscodeMode',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

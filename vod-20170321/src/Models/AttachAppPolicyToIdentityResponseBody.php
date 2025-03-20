@@ -31,14 +31,12 @@ class AttachAppPolicyToIdentityResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'failedPolicyNames'   => 'FailedPolicyNames',
+        'failedPolicyNames' => 'FailedPolicyNames',
         'nonExistPolicyNames' => 'NonExistPolicyNames',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

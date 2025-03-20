@@ -134,24 +134,22 @@ class imageInfo extends Model
      */
     public $URL;
     protected $_name = [
-        'appId'           => 'AppId',
-        'cateId'          => 'CateId',
-        'cateName'        => 'CateName',
-        'creationTime'    => 'CreationTime',
-        'description'     => 'Description',
-        'imageId'         => 'ImageId',
-        'imageType'       => 'ImageType',
-        'mezzanine'       => 'Mezzanine',
-        'status'          => 'Status',
+        'appId' => 'AppId',
+        'cateId' => 'CateId',
+        'cateName' => 'CateName',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'imageId' => 'ImageId',
+        'imageType' => 'ImageType',
+        'mezzanine' => 'Mezzanine',
+        'status' => 'Status',
         'storageLocation' => 'StorageLocation',
-        'tags'            => 'Tags',
-        'title'           => 'Title',
-        'URL'             => 'URL',
+        'tags' => 'Tags',
+        'title' => 'Title',
+        'URL' => 'URL',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,6 +22,7 @@ class AddWatermarkRequest extends Model
      *
      * > *   This parameter is required if you set `Type` to `Image`.
      * > *  You can obtain the URL from the `FileURL` parameter in the response to the [CreateUploadAttachedMedia](~~CreateUploadAttachedMedia~~) operation that you call to upload the watermark image to ApsaraVideo VOD.
+     *
      * @example http://outin-326268*****63e1403e7.oss-cn-shanghai.aliyuncs.com/image/cover/C99345*****E7FDEC-6-2.png
      *
      * @var string
@@ -36,6 +37,7 @@ class AddWatermarkRequest extends Model
      *   The value must be encoded in UTF-8.
      *
      * This parameter is required.
+     *
      * @example watermark
      *
      * @var string
@@ -49,6 +51,7 @@ class AddWatermarkRequest extends Model
      *   **Text**: text watermark template
      *
      * This parameter is required.
+     *
      * @example Text
      *
      * @var string
@@ -59,22 +62,21 @@ class AddWatermarkRequest extends Model
      * @description The configuration information of the watermark such as the display position and special effects. The value must be a JSON string. The configuration parameters for image and text watermarks are different. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
      *
      * This parameter is required.
+     *
      * @example {"Width":"55","Height":"55","Dx":"9","Dy":"9","ReferPos":"BottonLeft"}
      *
      * @var string
      */
     public $watermarkConfig;
     protected $_name = [
-        'appId'           => 'AppId',
-        'fileUrl'         => 'FileUrl',
-        'name'            => 'Name',
-        'type'            => 'Type',
+        'appId' => 'AppId',
+        'fileUrl' => 'FileUrl',
+        'name' => 'Name',
+        'type' => 'Type',
         'watermarkConfig' => 'WatermarkConfig',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

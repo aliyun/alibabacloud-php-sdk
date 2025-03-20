@@ -21,6 +21,7 @@ class AddVodDomainRequest extends Model
      * @description The domain name that you want to accelerate. Wildcard domain names that start with periods (.) are supported. Example: .example.com.
      *
      * This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -59,6 +60,7 @@ class AddVodDomainRequest extends Model
      * @description The information about the addresses of origin servers. For more information, see the **Sources** table in this topic.
      *
      * This parameter is required.
+     *
      * @example [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80}]
      *
      * @var string
@@ -74,19 +76,17 @@ class AddVodDomainRequest extends Model
      */
     public $topLevelDomain;
     protected $_name = [
-        'checkUrl'       => 'CheckUrl',
-        'domainName'     => 'DomainName',
-        'ownerAccount'   => 'OwnerAccount',
-        'ownerId'        => 'OwnerId',
-        'scope'          => 'Scope',
-        'securityToken'  => 'SecurityToken',
-        'sources'        => 'Sources',
+        'checkUrl' => 'CheckUrl',
+        'domainName' => 'DomainName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'scope' => 'Scope',
+        'securityToken' => 'SecurityToken',
+        'sources' => 'Sources',
         'topLevelDomain' => 'TopLevelDomain',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

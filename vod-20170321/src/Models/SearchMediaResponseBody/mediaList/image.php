@@ -120,23 +120,21 @@ class image extends Model
      */
     public $URL;
     protected $_name = [
-        'appId'            => 'AppId',
-        'cateId'           => 'CateId',
-        'cateName'         => 'CateName',
-        'creationTime'     => 'CreationTime',
-        'description'      => 'Description',
-        'imageId'          => 'ImageId',
+        'appId' => 'AppId',
+        'cateId' => 'CateId',
+        'cateName' => 'CateName',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'imageId' => 'ImageId',
         'modificationTime' => 'ModificationTime',
-        'status'           => 'Status',
-        'storageLocation'  => 'StorageLocation',
-        'tags'             => 'Tags',
-        'title'            => 'Title',
-        'URL'              => 'URL',
+        'status' => 'Status',
+        'storageLocation' => 'StorageLocation',
+        'tags' => 'Tags',
+        'title' => 'Title',
+        'URL' => 'URL',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

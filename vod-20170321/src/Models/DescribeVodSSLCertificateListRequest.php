@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodSSLCertificateListRequest extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -21,6 +23,8 @@ class DescribeVodSSLCertificateListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +32,8 @@ class DescribeVodSSLCertificateListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: integers from 1 to 1000.
+     *
      * @example 10
      *
      * @var int
@@ -35,6 +41,8 @@ class DescribeVodSSLCertificateListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The keyword that is used to query certificates.
+     *
      * @example certabc
      *
      * @var string
@@ -46,17 +54,15 @@ class DescribeVodSSLCertificateListRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainName'    => 'DomainName',
-        'ownerId'       => 'OwnerId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'searchKeyword' => 'SearchKeyword',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

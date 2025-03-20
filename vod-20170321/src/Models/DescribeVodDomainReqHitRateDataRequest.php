@@ -23,7 +23,10 @@ class DescribeVodDomainReqHitRateDataRequest extends Model
     /**
      * @description The end of the time range to query.
      *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * >  The end time must be later than the start time.
+     *
      * @example 2023-12-22T08:00:00Z
      *
      * @var string
@@ -53,14 +56,12 @@ class DescribeVodDomainReqHitRateDataRequest extends Model
     public $startTime;
     protected $_name = [
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'interval'   => 'Interval',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'interval' => 'Interval',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

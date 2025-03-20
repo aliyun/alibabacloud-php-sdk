@@ -43,14 +43,12 @@ class domainLogDetail extends Model
     public $pageInfos;
     protected $_name = [
         'domainName' => 'DomainName',
-        'logCount'   => 'LogCount',
-        'logInfos'   => 'LogInfos',
-        'pageInfos'  => 'PageInfos',
+        'logCount' => 'LogCount',
+        'logInfos' => 'LogInfos',
+        'pageInfos' => 'PageInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

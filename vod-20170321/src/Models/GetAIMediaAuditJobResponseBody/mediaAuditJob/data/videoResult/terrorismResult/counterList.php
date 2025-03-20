@@ -45,9 +45,7 @@ class counterList extends Model
         'label' => 'Label',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

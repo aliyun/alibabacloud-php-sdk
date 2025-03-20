@@ -25,13 +25,11 @@ class DescribeVodTieringStorageDataResponseBody extends Model
      */
     public $storageData;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'storageData' => 'StorageData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class DescribeVodTieringStorageDataResponseBody extends Model
         if (isset($map['StorageData'])) {
             if (!empty($map['StorageData'])) {
                 $model->storageData = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['StorageData'] as $item) {
                     $model->storageData[$n++] = null !== $item ? storageData::fromMap($item) : $item;
                 }

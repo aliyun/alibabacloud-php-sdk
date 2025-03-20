@@ -85,17 +85,15 @@ class task extends Model
     public $taskId;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'description'  => 'Description',
-        'objectPath'   => 'ObjectPath',
-        'objectType'   => 'ObjectType',
-        'process'      => 'Process',
-        'status'       => 'Status',
-        'taskId'       => 'TaskId',
+        'description' => 'Description',
+        'objectPath' => 'ObjectPath',
+        'objectType' => 'ObjectType',
+        'process' => 'Process',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

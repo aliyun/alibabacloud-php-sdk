@@ -53,16 +53,14 @@ class mezzanine extends Model
      */
     public $width;
     protected $_name = [
-        'fileSize'         => 'FileSize',
-        'fileURL'          => 'FileURL',
-        'height'           => 'Height',
+        'fileSize' => 'FileSize',
+        'fileURL' => 'FileURL',
+        'height' => 'Height',
         'originalFileName' => 'OriginalFileName',
-        'width'            => 'Width',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

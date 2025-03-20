@@ -12,6 +12,7 @@ class DeleteVodTemplateRequest extends Model
      * @description The ID of the snapshot template.
      *
      * This parameter is required.
+     *
      * @example f5b228fe6930e*****d6bf55bd87789
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteVodTemplateRequest extends Model
         'vodTemplateId' => 'VodTemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

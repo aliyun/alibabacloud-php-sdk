@@ -66,17 +66,15 @@ class aiExtractResultList extends Model
      */
     public $waterMarkText;
     protected $_name = [
-        'createTime'    => 'CreateTime',
-        'errorMessage'  => 'ErrorMessage',
-        'jobId'         => 'JobId',
-        'modifyTime'    => 'ModifyTime',
-        'status'        => 'Status',
+        'createTime' => 'CreateTime',
+        'errorMessage' => 'ErrorMessage',
+        'jobId' => 'JobId',
+        'modifyTime' => 'ModifyTime',
+        'status' => 'Status',
         'waterMarkText' => 'WaterMarkText',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

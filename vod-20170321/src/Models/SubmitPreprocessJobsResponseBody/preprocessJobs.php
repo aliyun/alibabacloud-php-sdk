@@ -17,9 +17,7 @@ class preprocessJobs extends Model
         'preprocessJob' => 'PreprocessJob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class preprocessJobs extends Model
         if (isset($map['PreprocessJob'])) {
             if (!empty($map['PreprocessJob'])) {
                 $model->preprocessJob = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['PreprocessJob'] as $item) {
                     $model->preprocessJob[$n++] = null !== $item ? preprocessJob::fromMap($item) : $item;
                 }

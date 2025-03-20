@@ -27,12 +27,10 @@ class mediaForbiddenReasonDTO extends Model
     public $reason;
     protected $_name = [
         'mediaId' => 'MediaId',
-        'reason'  => 'Reason',
+        'reason' => 'Reason',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

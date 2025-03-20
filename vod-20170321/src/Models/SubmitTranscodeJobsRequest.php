@@ -49,6 +49,7 @@ class SubmitTranscodeJobsRequest extends Model
      *   Default value: **6**.
      *
      * >  This parameter takes effect only on the queued transcoding jobs. The priorities of the in-progress transcoding jobs are not affected.
+     *
      * @example 6
      *
      * @var string
@@ -56,6 +57,10 @@ class SubmitTranscodeJobsRequest extends Model
     public $priority;
 
     /**
+     * @description The custom identifier for deduplication. If you send a request, an error is returned if a request with the same identifier was sent in the last 7 days. A custom identifier can be up to 50 characters in length and can contain letters, digits, hyphens (-), and underscores (_). If you do not specify this parameter or leave this parameter empty, duplicate requests are not filtered.
+     *
+     * @example 5c62d40299034bbaa4c195da330****
+     *
      * @var string
      */
     public $sessionId;
@@ -64,6 +69,7 @@ class SubmitTranscodeJobsRequest extends Model
      * @description The ID of the transcoding template group that you want to use. To view the template group ID, perform the following operations: Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Processing** > **Transcoding Template Groups**.
      *
      * This parameter is required.
+     *
      * @example 0e408c803baf658ee637790c5d9f****
      *
      * @var string
@@ -74,6 +80,7 @@ class SubmitTranscodeJobsRequest extends Model
      * @description The custom settings. The value must be a JSON string. You can configure settings such as message callbacks. For more information, see [UserData](https://help.aliyun.com/document_detail/86952.html).
      *
      * >  To use the callback configurations specified by this parameter, you must configure an HTTP callback URL and specify the types of the callback events in the ApsaraVideo VOD console. Otherwise, the callback configurations do not take effect.
+     *
      * @example {"Extend":{"localId":"****","test":"***"}}
      *
      * @var string
@@ -93,19 +100,17 @@ class SubmitTranscodeJobsRequest extends Model
      */
     public $videoId;
     protected $_name = [
-        'encryptConfig'   => 'EncryptConfig',
-        'overrideParams'  => 'OverrideParams',
-        'pipelineId'      => 'PipelineId',
-        'priority'        => 'Priority',
-        'sessionId'       => 'SessionId',
+        'encryptConfig' => 'EncryptConfig',
+        'overrideParams' => 'OverrideParams',
+        'pipelineId' => 'PipelineId',
+        'priority' => 'Priority',
+        'sessionId' => 'SessionId',
         'templateGroupId' => 'TemplateGroupId',
-        'userData'        => 'UserData',
-        'videoId'         => 'VideoId',
+        'userData' => 'UserData',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,6 +25,7 @@ class topList extends Model
      * - **flag**
      * - **location**
      * - **others**
+     *
      * @example normal
      *
      * @var string
@@ -58,15 +59,13 @@ class topList extends Model
      */
     public $url;
     protected $_name = [
-        'label'     => 'Label',
-        'score'     => 'Score',
+        'label' => 'Label',
+        'score' => 'Score',
         'timestamp' => 'Timestamp',
-        'url'       => 'Url',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

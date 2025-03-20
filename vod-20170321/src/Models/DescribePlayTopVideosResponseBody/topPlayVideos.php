@@ -17,9 +17,7 @@ class topPlayVideos extends Model
         'topPlayVideoStatis' => 'TopPlayVideoStatis',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class topPlayVideos extends Model
         if (isset($map['TopPlayVideoStatis'])) {
             if (!empty($map['TopPlayVideoStatis'])) {
                 $model->topPlayVideoStatis = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['TopPlayVideoStatis'] as $item) {
                     $model->topPlayVideoStatis[$n++] = null !== $item ? topPlayVideoStatis::fromMap($item) : $item;
                 }

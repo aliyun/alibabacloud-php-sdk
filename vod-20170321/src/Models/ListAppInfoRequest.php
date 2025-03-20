@@ -27,7 +27,7 @@ class ListAppInfoRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID to which the instance belongs.
      *
      * @example rg-aekzko7fsuj****
      *
@@ -47,15 +47,13 @@ class ListAppInfoRequest extends Model
      */
     public $status;
     protected $_name = [
-        'pageNo'          => 'PageNo',
-        'pageSize'        => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'status'          => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

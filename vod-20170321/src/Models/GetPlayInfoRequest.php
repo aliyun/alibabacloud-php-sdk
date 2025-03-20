@@ -12,6 +12,7 @@ class GetPlayInfoRequest extends Model
      * @description The URL of the masked live comment data. Value: **danmu**.
      *
      * >  This parameter takes effect only when the `outputType` parameter is set to `cdn`.
+     *
      * @example danmu
      *
      * @var string
@@ -57,6 +58,7 @@ class GetPlayInfoRequest extends Model
      *
      * > *   By default, ApsaraVideo VOD returns video streams in all the preceding qualities.
      * > *   However, video streams for adaptive bitrate streaming are returned only if the PackageSetting parameter is specified in the transcoding template. For more information, see the [PackageSetting parameter in the TranscodeTemplate table](~~52839#title-4fk-cg8-gzx~~).
+     *
      * @example LD
      *
      * @var string
@@ -86,6 +88,7 @@ class GetPlayInfoRequest extends Model
      *
      * > *   By default, ApsaraVideo VOD returns video streams in all the preceding formats.
      * >*   However, video streams in the MPD format are returned only if the `dash` container format is specified in the transcoding template. For more information, see the [Container parameter in the TranscodeTemplate table](~~52839#title-7rr-3hj-gy5~~).
+     *
      * @example mp4,m3u8
      *
      * @var string
@@ -109,6 +112,7 @@ class GetPlayInfoRequest extends Model
      *
      * > *   If you do not set the PlayConfig parameter or the `PlayDomain` parameter that is nested under the PlayConfig parameter, the default domain name specified in ApsaraVideo VOD is used in this operation. If no default domain name is specified, the domain names are queried in reverse chronological order based on the time when the domain names were last modified. To prevent domain name issues, we recommend that you perform the following steps to specify the default playback domain name: Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Storage**. Find the domain name that you want to configure and click **Manage** in the Actions column. On the page that appears, set the default playback domain name in the **Origin Domain Name** section.
      * > *   If you set the `EncryptType` parameter nested under the PlayConfig parameter to `AliyunVoDEncryption`, the playback URLs of videos encrypted by using Alibaba Cloud proprietary cryptography are not automatically returned to ensure video security. To return playback URLs of videos encrypted by using Alibaba Cloud proprietary cryptography, you must set the `ResultType` parameter to `Multiple`.
+     *
      * @example {"PlayDomain":"vod.test_domain","XForwardedFor":"yqCD7Fp1uqChoVj/sl/p5Q==","PreviewTime":"20","MtsHlsUriToken":"yqCD7Fp1uqChoVjslp5Q"}
      *
      * @var string
@@ -143,6 +147,7 @@ class GetPlayInfoRequest extends Model
      *   **audio**
      *
      * By default, video and audio streams are returned.
+     *
      * @example video
      *
      * @var string
@@ -169,29 +174,28 @@ class GetPlayInfoRequest extends Model
      *   Obtain the value of VideoId by calling the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation. This method is applicable to files that have been uploaded.
      *
      * This parameter is required.
+     *
      * @example 93ab850b4f654b6e91d24d81d44****
      *
      * @var string
      */
     public $videoId;
     protected $_name = [
-        'additionType'         => 'AdditionType',
-        'authTimeout'          => 'AuthTimeout',
-        'definition'           => 'Definition',
+        'additionType' => 'AdditionType',
+        'authTimeout' => 'AuthTimeout',
+        'definition' => 'Definition',
         'digitalWatermarkType' => 'DigitalWatermarkType',
-        'formats'              => 'Formats',
-        'outputType'           => 'OutputType',
-        'playConfig'           => 'PlayConfig',
-        'reAuthInfo'           => 'ReAuthInfo',
-        'resultType'           => 'ResultType',
-        'streamType'           => 'StreamType',
-        'trace'                => 'Trace',
-        'videoId'              => 'VideoId',
+        'formats' => 'Formats',
+        'outputType' => 'OutputType',
+        'playConfig' => 'PlayConfig',
+        'reAuthInfo' => 'ReAuthInfo',
+        'resultType' => 'ResultType',
+        'streamType' => 'StreamType',
+        'trace' => 'Trace',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

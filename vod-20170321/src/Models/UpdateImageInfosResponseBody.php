@@ -26,12 +26,10 @@ class UpdateImageInfosResponseBody extends Model
     public $requestId;
     protected $_name = [
         'nonExistImageIds' => 'NonExistImageIds',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainMax95BpsDataResponseBody extends Model
 {
     /**
+     * @description Details of the 95th percentile bandwidth.
+     *
      * @var detailData
      */
     public $detailData;
 
     /**
+     * @description The domain name for CDN.
+     *
      * @example example.com
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeVodDomainMax95BpsDataResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The 95th percentile bandwidth in the Chinese mainland.
+     *
      * @example 16777590.28
      *
      * @var string
@@ -29,6 +35,12 @@ class DescribeVodDomainMax95BpsDataResponseBody extends Model
     public $domesticMax95Bps;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * >  The end time must be later than the start time.
+     *
      * @example 2017-01-11T13:00:00Z
      *
      * @var string
@@ -36,6 +48,8 @@ class DescribeVodDomainMax95BpsDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The 95th percentile bandwidth.
+     *
      * @example 16777590.28
      *
      * @var string
@@ -43,6 +57,8 @@ class DescribeVodDomainMax95BpsDataResponseBody extends Model
     public $max95Bps;
 
     /**
+     * @description The 95th percentile bandwidth outside the Chinese mainland.
+     *
      * @example 0
      *
      * @var string
@@ -50,6 +66,8 @@ class DescribeVodDomainMax95BpsDataResponseBody extends Model
     public $overseasMax95Bps;
 
     /**
+     * @description The request ID.
+     *
      * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
      * @var string
@@ -57,25 +75,27 @@ class DescribeVodDomainMax95BpsDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'detailData'       => 'DetailData',
-        'domainName'       => 'DomainName',
+        'detailData' => 'DetailData',
+        'domainName' => 'DomainName',
         'domesticMax95Bps' => 'DomesticMax95Bps',
-        'endTime'          => 'EndTime',
-        'max95Bps'         => 'Max95Bps',
+        'endTime' => 'EndTime',
+        'max95Bps' => 'Max95Bps',
         'overseasMax95Bps' => 'OverseasMax95Bps',
-        'requestId'        => 'RequestId',
-        'startTime'        => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

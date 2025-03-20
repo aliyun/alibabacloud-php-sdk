@@ -1,3 +1,10 @@
+2025-03-20 Version: 3.6.0
+- Support API DescribeVodEditingUsageData.
+- Update API DescribeVodTieringStorageData: add param AppId.
+- Update API DescribeVodTieringStorageRetrievalData: add param AppId.
+- Update API GetVideoList: update response param.
+
+
 2025-01-08 Version: 3.5.1
 - Update API BatchGetMediaInfos: update response param.
 

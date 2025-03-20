@@ -123,23 +123,21 @@ class attachedMedia extends Model
      */
     public $URL;
     protected $_name = [
-        'appId'            => 'AppId',
-        'businessType'     => 'BusinessType',
-        'categories'       => 'Categories',
-        'creationTime'     => 'CreationTime',
-        'description'      => 'Description',
-        'mediaId'          => 'MediaId',
+        'appId' => 'AppId',
+        'businessType' => 'BusinessType',
+        'categories' => 'Categories',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'mediaId' => 'MediaId',
         'modificationTime' => 'ModificationTime',
-        'status'           => 'Status',
-        'storageLocation'  => 'StorageLocation',
-        'tags'             => 'Tags',
-        'title'            => 'Title',
-        'URL'              => 'URL',
+        'status' => 'Status',
+        'storageLocation' => 'StorageLocation',
+        'tags' => 'Tags',
+        'title' => 'Title',
+        'URL' => 'URL',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -207,7 +205,7 @@ class attachedMedia extends Model
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
                 $model->categories = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Categories'] as $item) {
                     $model->categories[$n++] = null !== $item ? categories::fromMap($item) : $item;
                 }

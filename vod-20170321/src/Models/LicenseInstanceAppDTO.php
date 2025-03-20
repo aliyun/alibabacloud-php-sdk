@@ -64,22 +64,20 @@ class LicenseInstanceAppDTO extends Model
      */
     public $userId;
     protected $_name = [
-        'appId'            => 'AppId',
-        'beginOn'          => 'BeginOn',
-        'contractNo'       => 'ContractNo',
-        'creationTime'     => 'CreationTime',
-        'expiredOn'        => 'ExpiredOn',
-        'instanceId'       => 'InstanceId',
-        'itemId'           => 'ItemId',
-        'licenseConfigs'   => 'LicenseConfigs',
+        'appId' => 'AppId',
+        'beginOn' => 'BeginOn',
+        'contractNo' => 'ContractNo',
+        'creationTime' => 'CreationTime',
+        'expiredOn' => 'ExpiredOn',
+        'instanceId' => 'InstanceId',
+        'itemId' => 'ItemId',
+        'licenseConfigs' => 'LicenseConfigs',
         'modificationTime' => 'ModificationTime',
-        'status'           => 'Status',
-        'userId'           => 'UserId',
+        'status' => 'Status',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -159,7 +157,7 @@ class LicenseInstanceAppDTO extends Model
         if (isset($map['LicenseConfigs'])) {
             if (!empty($map['LicenseConfigs'])) {
                 $model->licenseConfigs = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['LicenseConfigs'] as $item) {
                     $model->licenseConfigs[$n++] = null !== $item ? licenseConfigs::fromMap($item) : $item;
                 }

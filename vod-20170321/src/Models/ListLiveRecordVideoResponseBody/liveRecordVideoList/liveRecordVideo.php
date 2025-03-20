@@ -70,18 +70,16 @@ class liveRecordVideo extends Model
      */
     public $video;
     protected $_name = [
-        'appName'         => 'AppName',
-        'domainName'      => 'DomainName',
-        'playlistId'      => 'PlaylistId',
-        'recordEndTime'   => 'RecordEndTime',
+        'appName' => 'AppName',
+        'domainName' => 'DomainName',
+        'playlistId' => 'PlaylistId',
+        'recordEndTime' => 'RecordEndTime',
         'recordStartTime' => 'RecordStartTime',
-        'streamName'      => 'StreamName',
-        'video'           => 'Video',
+        'streamName' => 'StreamName',
+        'video' => 'Video',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

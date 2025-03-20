@@ -15,6 +15,7 @@ class GetDigitalWatermarkExtractResultRequest extends Model
      *   **CopyrightMark**: copyright watermark
      *
      * This parameter is required.
+     *
      * @example TraceMark
      *
      * @var string
@@ -40,6 +41,7 @@ class GetDigitalWatermarkExtractResultRequest extends Model
      *   Obtain the VideoId from the response to the [SearchMedia](~~SearchMedia~~) operation.
      *
      * This parameter is required.
+     *
      * @example 93ab850b4f6f54b6e91d24d81d4****
      *
      * @var string
@@ -66,18 +68,16 @@ class GetDigitalWatermarkExtractResultRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'extractType'          => 'ExtractType',
-        'jobId'                => 'JobId',
-        'mediaId'              => 'MediaId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'extractType' => 'ExtractType',
+        'jobId' => 'JobId',
+        'mediaId' => 'MediaId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

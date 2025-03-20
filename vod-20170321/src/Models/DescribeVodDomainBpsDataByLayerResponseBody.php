@@ -35,13 +35,11 @@ class DescribeVodDomainBpsDataByLayerResponseBody extends Model
     public $requestId;
     protected $_name = [
         'bpsDataInterval' => 'BpsDataInterval',
-        'dataInterval'    => 'DataInterval',
-        'requestId'       => 'RequestId',
+        'dataInterval' => 'DataInterval',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -80,16 +80,14 @@ class terrorismResult extends Model
     public $topList;
     protected $_name = [
         'averageScore' => 'AverageScore',
-        'counterList'  => 'CounterList',
-        'label'        => 'Label',
-        'maxScore'     => 'MaxScore',
-        'suggestion'   => 'Suggestion',
-        'topList'      => 'TopList',
+        'counterList' => 'CounterList',
+        'label' => 'Label',
+        'maxScore' => 'MaxScore',
+        'suggestion' => 'Suggestion',
+        'topList' => 'TopList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -142,7 +140,7 @@ class terrorismResult extends Model
         if (isset($map['CounterList'])) {
             if (!empty($map['CounterList'])) {
                 $model->counterList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['CounterList'] as $item) {
                     $model->counterList[$n++] = null !== $item ? counterList::fromMap($item) : $item;
                 }
@@ -160,7 +158,7 @@ class terrorismResult extends Model
         if (isset($map['TopList'])) {
             if (!empty($map['TopList'])) {
                 $model->topList = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['TopList'] as $item) {
                     $model->topList[$n++] = null !== $item ? topList::fromMap($item) : $item;
                 }

@@ -20,9 +20,7 @@ class ListTranscodeTemplateGroupRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

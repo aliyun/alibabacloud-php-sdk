@@ -51,16 +51,14 @@ class userPlayStatisTotal extends Model
      */
     public $VV;
     protected $_name = [
-        'date'         => 'Date',
+        'date' => 'Date',
         'playDuration' => 'PlayDuration',
-        'playRange'    => 'PlayRange',
-        'UV'           => 'UV',
-        'VV'           => 'VV',
+        'playRange' => 'PlayRange',
+        'UV' => 'UV',
+        'VV' => 'VV',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,6 +25,7 @@ class UpdateWatermarkRequest extends Model
      * @description The configuration information of the watermark such as the display position and special effects. The value must be a JSON string. The configuration parameters for image and text watermarks are different. For more information about the parameter structure, see [WatermarkConfig](~~98618#section-h01-44s-2lr~~).
      *
      * This parameter is required.
+     *
      * @example {"Width":"55","Height":"55","Dx":"9","Dy":"9","ReferPos":"BottonLeft","Type":"Image"}
      *
      * @var string
@@ -38,20 +39,19 @@ class UpdateWatermarkRequest extends Model
      *   Obtain the watermark template ID from the response to the [ListWatermark](~~ListWatermark~~) operation that you call to query all watermark templates within your account.
      *
      * This parameter is required.
+     *
      * @example af2afe4761992c*****bd947dae97337
      *
      * @var string
      */
     public $watermarkId;
     protected $_name = [
-        'name'            => 'Name',
+        'name' => 'Name',
         'watermarkConfig' => 'WatermarkConfig',
-        'watermarkId'     => 'WatermarkId',
+        'watermarkId' => 'WatermarkId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

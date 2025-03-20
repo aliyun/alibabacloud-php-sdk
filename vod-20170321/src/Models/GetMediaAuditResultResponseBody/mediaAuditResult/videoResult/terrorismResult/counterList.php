@@ -34,6 +34,7 @@ class counterList extends Model
      * - **flag**
      * - **location**
      * - **others**
+     *
      * @example outfit
      *
      * @var string
@@ -44,9 +45,7 @@ class counterList extends Model
         'label' => 'Label',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

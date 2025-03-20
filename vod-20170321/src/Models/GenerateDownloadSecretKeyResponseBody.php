@@ -27,12 +27,10 @@ class GenerateDownloadSecretKeyResponseBody extends Model
     public $requestId;
     protected $_name = [
         'appEncryptKey' => 'AppEncryptKey',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

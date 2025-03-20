@@ -88,20 +88,18 @@ class mediaList extends Model
      */
     public $video;
     protected $_name = [
-        'aiData'        => 'AiData',
-        'aiRoughData'   => 'AiRoughData',
+        'aiData' => 'AiData',
+        'aiRoughData' => 'AiRoughData',
         'attachedMedia' => 'AttachedMedia',
-        'audio'         => 'Audio',
-        'creationTime'  => 'CreationTime',
-        'image'         => 'Image',
-        'mediaId'       => 'MediaId',
-        'mediaType'     => 'MediaType',
-        'video'         => 'Video',
+        'audio' => 'Audio',
+        'creationTime' => 'CreationTime',
+        'image' => 'Image',
+        'mediaId' => 'MediaId',
+        'mediaType' => 'MediaType',
+        'video' => 'Video',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

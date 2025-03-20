@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetJobDetailRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the task.
+     *
+     * This parameter is required.
      *
      * @example 5c9dff***************59d50a967f5
      *
@@ -18,7 +20,13 @@ class GetJobDetailRequest extends Model
     public $jobId;
 
     /**
-     * @description This parameter is required.
+     * @description The task type. Valid values:
+     *
+     *   transcode
+     *   snapshot
+     *   ai
+     *
+     * This parameter is required.
      *
      * @example transcode
      *
@@ -26,13 +34,11 @@ class GetJobDetailRequest extends Model
      */
     public $jobType;
     protected $_name = [
-        'jobId'   => 'JobId',
+        'jobId' => 'JobId',
         'jobType' => 'JobType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

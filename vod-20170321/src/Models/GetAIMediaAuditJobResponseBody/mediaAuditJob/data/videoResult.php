@@ -77,18 +77,16 @@ class videoResult extends Model
      */
     public $terrorismResult;
     protected $_name = [
-        'adResult'        => 'AdResult',
-        'label'           => 'Label',
-        'liveResult'      => 'LiveResult',
-        'logoResult'      => 'LogoResult',
-        'pornResult'      => 'PornResult',
-        'suggestion'      => 'Suggestion',
+        'adResult' => 'AdResult',
+        'label' => 'Label',
+        'liveResult' => 'LiveResult',
+        'logoResult' => 'LogoResult',
+        'pornResult' => 'PornResult',
+        'suggestion' => 'Suggestion',
         'terrorismResult' => 'TerrorismResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,13 +26,11 @@ class functionArg extends Model
      */
     public $argValue;
     protected $_name = [
-        'argName'  => 'ArgName',
+        'argName' => 'ArgName',
         'argValue' => 'ArgValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

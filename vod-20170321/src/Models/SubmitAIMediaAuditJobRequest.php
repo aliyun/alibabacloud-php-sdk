@@ -25,6 +25,7 @@ class SubmitAIMediaAuditJobRequest extends Model
      * @description The ID of the video file. To obtain the file ID, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Review Management** > **Content Moderation** in the left-side navigation pane.
      *
      * This parameter is required.
+     *
      * @example fe028d09441afffb138cd7ee****
      *
      * @var string
@@ -47,6 +48,7 @@ class SubmitAIMediaAuditJobRequest extends Model
      *   Obtain the value of TemplateId from the response to the [ListAITemplate](https://help.aliyun.com/document_detail/102936.html) operation that you call to create an AI template.
      *
      * >  If you do not specify an ID, the ID of the default AI template is used.
+     *
      * @example a07a7f7d7d10eb9fd999e56ecc****
      *
      * @var string
@@ -57,6 +59,7 @@ class SubmitAIMediaAuditJobRequest extends Model
      * @description The custom settings. The value must be a JSON string. You can configure settings such as message callbacks. For more information, see [UserData](https://help.aliyun.com/document_detail/86952.html).
      *
      * >  To use the callback configurations specified by this parameter, you must configure an HTTP callback URL and specify the types of the callback events in the ApsaraVideo VOD console. Otherwise, the callback configurations do not take effect. For more information about how to configure HTTP callback settings in the ApsaraVideo VOD console, see [Configure callback settings](https://help.aliyun.com/document_detail/86071.html).
+     *
      * @example {"MessageCallback":{"CallbackURL":"http://test.test.com"},"Extend":{"localId":"xxx","test":"www"}}
      *
      * @var string
@@ -64,15 +67,13 @@ class SubmitAIMediaAuditJobRequest extends Model
     public $userData;
     protected $_name = [
         'mediaAuditConfiguration' => 'MediaAuditConfiguration',
-        'mediaId'                 => 'MediaId',
-        'mediaType'               => 'MediaType',
-        'templateId'              => 'TemplateId',
-        'userData'                => 'UserData',
+        'mediaId' => 'MediaId',
+        'mediaType' => 'MediaType',
+        'templateId' => 'TemplateId',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

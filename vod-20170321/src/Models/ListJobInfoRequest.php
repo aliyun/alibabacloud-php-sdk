@@ -9,7 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListJobInfoRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The type of the task. Valid values:
+     *
+     *   transcode
+     *   snapshot
+     *   ai
+     *
+     * This parameter is required.
      *
      * @example transcode
      *
@@ -18,7 +24,9 @@ class ListJobInfoRequest extends Model
     public $jobType;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the media asset.
+     *
+     * This parameter is required.
      *
      * @example 30e5d7**********bd900764de7c0102
      *
@@ -30,9 +38,7 @@ class ListJobInfoRequest extends Model
         'mediaId' => 'MediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

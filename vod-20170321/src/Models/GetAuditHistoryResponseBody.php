@@ -29,6 +29,7 @@ class GetAuditHistoryResponseBody extends Model
      * @description The manual review result. Valid values:
      * - **Normal**: The video can be played.
      * - **Blocked**: The video is blocked.
+     *
      * @example Normal
      *
      * @var string
@@ -46,13 +47,11 @@ class GetAuditHistoryResponseBody extends Model
     protected $_name = [
         'histories' => 'Histories',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
-        'total'     => 'Total',
+        'status' => 'Status',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -90,7 +89,7 @@ class GetAuditHistoryResponseBody extends Model
         if (isset($map['Histories'])) {
             if (!empty($map['Histories'])) {
                 $model->histories = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Histories'] as $item) {
                     $model->histories[$n++] = null !== $item ? histories::fromMap($item) : $item;
                 }

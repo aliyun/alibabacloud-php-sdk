@@ -12,6 +12,7 @@ class SetEditingProjectMaterialsRequest extends Model
      * @description The ID of the media asset. You can specify IDs of media assets such as videos, images, or auxiliary media assets. Separate multiple IDs with commas (,).
      *
      * This parameter is required.
+     *
      * @example 9e3101bf24bf41c*****123318788ca
      *
      * @var string
@@ -32,6 +33,7 @@ class SetEditingProjectMaterialsRequest extends Model
      * @description The ID of the online editing project.
      *
      * This parameter is required.
+     *
      * @example fb2101bf24bf4*****754cb318787dc
      *
      * @var string
@@ -48,17 +50,15 @@ class SetEditingProjectMaterialsRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'materialIds'          => 'MaterialIds',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'projectId'            => 'ProjectId',
+        'materialIds' => 'MaterialIds',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'projectId' => 'ProjectId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

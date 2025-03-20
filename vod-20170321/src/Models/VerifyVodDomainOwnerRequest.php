@@ -12,6 +12,7 @@ class VerifyVodDomainOwnerRequest extends Model
      * @description The domain name of which you want to verify the ownership. You can specify only one domain name in each call.
      *
      * This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -30,6 +31,7 @@ class VerifyVodDomainOwnerRequest extends Model
      *   **fileCheck**: uses a verification file
      *
      * This parameter is required.
+     *
      * @example dnsCheck
      *
      * @var string
@@ -37,13 +39,11 @@ class VerifyVodDomainOwnerRequest extends Model
     public $verifyType;
     protected $_name = [
         'domainName' => 'DomainName',
-        'ownerId'    => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'verifyType' => 'VerifyType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

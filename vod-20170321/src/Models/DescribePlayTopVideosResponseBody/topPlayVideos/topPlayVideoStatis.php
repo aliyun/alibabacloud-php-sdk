@@ -54,15 +54,13 @@ class topPlayVideoStatis extends Model
     public $videoId;
     protected $_name = [
         'playDuration' => 'PlayDuration',
-        'title'        => 'Title',
-        'UV'           => 'UV',
-        'VV'           => 'VV',
-        'videoId'      => 'VideoId',
+        'title' => 'Title',
+        'UV' => 'UV',
+        'VV' => 'VV',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

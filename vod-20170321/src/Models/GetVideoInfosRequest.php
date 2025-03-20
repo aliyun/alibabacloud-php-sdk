@@ -12,6 +12,7 @@ class GetVideoInfosRequest extends Model
      * @description The list of video IDs. Separate multiple IDs with commas (,). A maximum of 20 IDs can be specified.
      *
      * This parameter is required.
+     *
      * @example 7753d144efd8e649c6c45fe0579****,7753d144efd74d6c45fe0570****
      *
      * @var string
@@ -21,9 +22,7 @@ class GetVideoInfosRequest extends Model
         'videoIds' => 'VideoIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

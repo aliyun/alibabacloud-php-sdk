@@ -12,6 +12,7 @@ class RefreshMediaPlayUrlsRequest extends Model
      * @description Specifies the resolutions of the media streams you want to refresh or prefetch. You can specify multiple resolutions. Separate multiple resolutions with commas (,). If you leave this parameter empty, media streams in all resolutions are refreshed or prefetched by default.
      *
      * >  The value must be supported in the **Definition** section in [Parameters for media assets](https://help.aliyun.com/document_detail/124671.html).
+     *
      * @example HD, SD
      *
      * @var string
@@ -42,6 +43,7 @@ class RefreshMediaPlayUrlsRequest extends Model
      *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you call to query the media ID after the media file is uploaded.
      *
      * This parameter is required.
+     *
      * @example ca3a8f6e4957b658067095869****, a6e49sfgd23p5g9ja7095863****
      *
      * @var string
@@ -100,6 +102,7 @@ class RefreshMediaPlayUrlsRequest extends Model
      *   **Preload**
      *
      * This parameter is required.
+     *
      * @example Preload
      *
      * @var string
@@ -111,6 +114,7 @@ class RefreshMediaPlayUrlsRequest extends Model
      *
      * >*   The callback configurations take effect only after you specify the HTTP callback URL and select specific callback events in the ApsaraVideo VOD console. For more information about how to configure HTTP callback settings in the ApsaraVideo VOD console, see [Configure callback settings](https://help.aliyun.com/document_detail/86071.html).
      * >*   To enable the upload acceleration feature, submit a ticket. For more information, see [Overview](https://help.aliyun.com/document_detail/55396.html). For more information about how to submit a ticket, see [Contact us](https://help.aliyun.com/document_detail/464625.html).
+     *
      * @example {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"}, "Extend":{"localId":"xxx","test":"www"}}
      *
      * @var string
@@ -118,19 +122,17 @@ class RefreshMediaPlayUrlsRequest extends Model
     public $userData;
     protected $_name = [
         'definitions' => 'Definitions',
-        'formats'     => 'Formats',
-        'mediaIds'    => 'MediaIds',
-        'resultType'  => 'ResultType',
-        'sliceCount'  => 'SliceCount',
-        'sliceFlag'   => 'SliceFlag',
-        'streamType'  => 'StreamType',
-        'taskType'    => 'TaskType',
-        'userData'    => 'UserData',
+        'formats' => 'Formats',
+        'mediaIds' => 'MediaIds',
+        'resultType' => 'ResultType',
+        'sliceCount' => 'SliceCount',
+        'sliceFlag' => 'SliceFlag',
+        'streamType' => 'StreamType',
+        'taskType' => 'TaskType',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

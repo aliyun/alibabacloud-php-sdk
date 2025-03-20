@@ -53,15 +53,13 @@ class DescribeVodRefreshTasksResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'tasks'      => 'Tasks',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'tasks' => 'Tasks',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

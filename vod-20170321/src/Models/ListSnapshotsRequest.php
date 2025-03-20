@@ -62,22 +62,21 @@ class ListSnapshotsRequest extends Model
      *   Obtain the video ID from the response to the [SearchMedia](~~SearchMedia~~) operation that you call to query videos.
      *
      * This parameter is required.
+     *
      * @example d3e680e618708fbf2cae7cc931****
      *
      * @var string
      */
     public $videoId;
     protected $_name = [
-        'authTimeout'  => 'AuthTimeout',
-        'pageNo'       => 'PageNo',
-        'pageSize'     => 'PageSize',
+        'authTimeout' => 'AuthTimeout',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'snapshotType' => 'SnapshotType',
-        'videoId'      => 'VideoId',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

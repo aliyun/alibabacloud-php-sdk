@@ -12,6 +12,7 @@ class DescribePlayTopVideosRequest extends Model
      * @description The time to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * This parameter is required.
+     *
      * @example 2016-06-29T13:00:00Z
      *
      * @var string
@@ -41,15 +42,13 @@ class DescribePlayTopVideosRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'bizDate'  => 'BizDate',
-        'ownerId'  => 'OwnerId',
-        'pageNo'   => 'PageNo',
+        'bizDate' => 'BizDate',
+        'ownerId' => 'OwnerId',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

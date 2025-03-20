@@ -25,13 +25,11 @@ class ListTranscodeTaskResponseBody extends Model
      */
     public $transcodeTaskList;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'transcodeTaskList' => 'TranscodeTaskList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class ListTranscodeTaskResponseBody extends Model
         if (isset($map['TranscodeTaskList'])) {
             if (!empty($map['TranscodeTaskList'])) {
                 $model->transcodeTaskList = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['TranscodeTaskList'] as $item) {
                     $model->transcodeTaskList[$n++] = null !== $item ? transcodeTaskList::fromMap($item) : $item;
                 }

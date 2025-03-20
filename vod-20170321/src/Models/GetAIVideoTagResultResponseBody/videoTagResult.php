@@ -49,15 +49,13 @@ class videoTagResult extends Model
     public $time;
     protected $_name = [
         'category' => 'Category',
-        'keyword'  => 'Keyword',
+        'keyword' => 'Keyword',
         'location' => 'Location',
-        'person'   => 'Person',
-        'time'     => 'Time',
+        'person' => 'Person',
+        'time' => 'Time',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -122,7 +120,7 @@ class videoTagResult extends Model
         if (isset($map['Category'])) {
             if (!empty($map['Category'])) {
                 $model->category = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Category'] as $item) {
                     $model->category[$n++] = null !== $item ? category::fromMap($item) : $item;
                 }
@@ -131,7 +129,7 @@ class videoTagResult extends Model
         if (isset($map['Keyword'])) {
             if (!empty($map['Keyword'])) {
                 $model->keyword = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Keyword'] as $item) {
                     $model->keyword[$n++] = null !== $item ? keyword::fromMap($item) : $item;
                 }
@@ -140,7 +138,7 @@ class videoTagResult extends Model
         if (isset($map['Location'])) {
             if (!empty($map['Location'])) {
                 $model->location = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Location'] as $item) {
                     $model->location[$n++] = null !== $item ? location::fromMap($item) : $item;
                 }
@@ -149,7 +147,7 @@ class videoTagResult extends Model
         if (isset($map['Person'])) {
             if (!empty($map['Person'])) {
                 $model->person = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Person'] as $item) {
                     $model->person[$n++] = null !== $item ? person::fromMap($item) : $item;
                 }
@@ -158,7 +156,7 @@ class videoTagResult extends Model
         if (isset($map['Time'])) {
             if (!empty($map['Time'])) {
                 $model->time = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Time'] as $item) {
                     $model->time[$n++] = null !== $item ? time::fromMap($item) : $item;
                 }

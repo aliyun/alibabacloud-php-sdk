@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class transcodeJobDetail extends Model
 {
     /**
+     * @description The time when the task was complete.
+     *
      * @example 2024-10-14T07:39:34Z
      *
      * @var string
@@ -16,6 +18,8 @@ class transcodeJobDetail extends Model
     public $completeTime;
 
     /**
+     * @description The time when the task was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2024-10-14T07:39:25Z
      *
      * @var string
@@ -23,6 +27,8 @@ class transcodeJobDetail extends Model
     public $createTime;
 
     /**
+     * @description The definition.
+     *
      * @example HD
      *
      * @var string
@@ -30,6 +36,8 @@ class transcodeJobDetail extends Model
     public $definition;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 2dc1634e**********3f1d22d1a0174e
      *
      * @var string
@@ -37,6 +45,14 @@ class transcodeJobDetail extends Model
     public $jobId;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   Submitted
+     *   Transcoding
+     *   TranscodeSuccess
+     *   TranscodeFail
+     *   TranscodeCancelled
+     *
      * @example TranscodeSuccess
      *
      * @var string
@@ -44,6 +60,8 @@ class transcodeJobDetail extends Model
     public $status;
 
     /**
+     * @description The ID of the template.
+     *
      * @example dbfaaec9e**********bf0b81219244c
      *
      * @var string
@@ -51,6 +69,8 @@ class transcodeJobDetail extends Model
     public $templateId;
 
     /**
+     * @description The ID of the user who submitted the task.
+     *
      * @example 139109*****84930
      *
      * @var int
@@ -58,6 +78,8 @@ class transcodeJobDetail extends Model
     public $userId;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example 30e5d7**********bd900764de7c0102
      *
      * @var string
@@ -65,18 +87,16 @@ class transcodeJobDetail extends Model
     public $videoId;
     protected $_name = [
         'completeTime' => 'CompleteTime',
-        'createTime'   => 'CreateTime',
-        'definition'   => 'Definition',
-        'jobId'        => 'JobId',
-        'status'       => 'Status',
-        'templateId'   => 'TemplateId',
-        'userId'       => 'UserId',
-        'videoId'      => 'VideoId',
+        'createTime' => 'CreateTime',
+        'definition' => 'Definition',
+        'jobId' => 'JobId',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
+        'userId' => 'UserId',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

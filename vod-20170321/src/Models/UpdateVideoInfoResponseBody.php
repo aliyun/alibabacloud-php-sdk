@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateVideoInfoResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *
@@ -20,9 +20,7 @@ class UpdateVideoInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

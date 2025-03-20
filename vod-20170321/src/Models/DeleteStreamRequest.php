@@ -15,6 +15,7 @@ class DeleteStreamRequest extends Model
      *   You can obtain job IDs from the PlayInfo parameter that is returned after you call the [GetPlayInfo](https://help.aliyun.com/document_detail/56124.html) operation. Each media stream has a unique job ID.
      *
      * This parameter is required.
+     *
      * @example 35eb4dbda18c49cc0025df374b46****
      *
      * @var string
@@ -25,19 +26,18 @@ class DeleteStreamRequest extends Model
      * @description The ID of the video.
      *
      * This parameter is required.
+     *
      * @example 95948ddba24446b6aed5db985e78****
      *
      * @var string
      */
     public $videoId;
     protected $_name = [
-        'jobIds'  => 'JobIds',
+        'jobIds' => 'JobIds',
         'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

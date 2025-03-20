@@ -61,17 +61,15 @@ class DescribeVodDomainSrcBpsDataResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'dataInterval'          => 'DataInterval',
-        'domainName'            => 'DomainName',
-        'endTime'               => 'EndTime',
-        'requestId'             => 'RequestId',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
         'srcBpsDataPerInterval' => 'SrcBpsDataPerInterval',
-        'startTime'             => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

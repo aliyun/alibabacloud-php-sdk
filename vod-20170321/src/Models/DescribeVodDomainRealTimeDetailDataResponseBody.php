@@ -12,7 +12,22 @@ class DescribeVodDomainRealTimeDetailDataResponseBody extends Model
      * @description The returned results.
      *
      * @example [
+     * {
+     * "time_stp": "2018-06-05T20:00:00Z",
+     * "domain_name": "example.com",
+     * "location": "Guangdong",
+     * "isp": "telecom",
+     * "qps": 10
+     * },
+     * {
+     * "time_stp": "2018-06-05T20:00:00Z",
+     * "domain_name": "example.com",
+     * "location": "Jiangsu",
+     * "isp": "unicom",
+     * "qps": 11.1
+     * }
      * ]
+     *
      * @var string
      */
     public $data;
@@ -26,13 +41,11 @@ class DescribeVodDomainRealTimeDetailDataResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -48,16 +48,14 @@ class mediaAuditResultTimeline extends Model
      */
     public $terrorism;
     protected $_name = [
-        'ad'        => 'Ad',
-        'live'      => 'Live',
-        'logo'      => 'Logo',
-        'porn'      => 'Porn',
+        'ad' => 'Ad',
+        'live' => 'Live',
+        'logo' => 'Logo',
+        'porn' => 'Porn',
         'terrorism' => 'Terrorism',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -122,7 +120,7 @@ class mediaAuditResultTimeline extends Model
         if (isset($map['Ad'])) {
             if (!empty($map['Ad'])) {
                 $model->ad = [];
-                $n         = 0;
+                $n = 0;
                 foreach ($map['Ad'] as $item) {
                     $model->ad[$n++] = null !== $item ? ad::fromMap($item) : $item;
                 }
@@ -131,7 +129,7 @@ class mediaAuditResultTimeline extends Model
         if (isset($map['Live'])) {
             if (!empty($map['Live'])) {
                 $model->live = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Live'] as $item) {
                     $model->live[$n++] = null !== $item ? live::fromMap($item) : $item;
                 }
@@ -140,7 +138,7 @@ class mediaAuditResultTimeline extends Model
         if (isset($map['Logo'])) {
             if (!empty($map['Logo'])) {
                 $model->logo = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Logo'] as $item) {
                     $model->logo[$n++] = null !== $item ? logo::fromMap($item) : $item;
                 }
@@ -149,7 +147,7 @@ class mediaAuditResultTimeline extends Model
         if (isset($map['Porn'])) {
             if (!empty($map['Porn'])) {
                 $model->porn = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Porn'] as $item) {
                     $model->porn[$n++] = null !== $item ? porn::fromMap($item) : $item;
                 }
@@ -158,7 +156,7 @@ class mediaAuditResultTimeline extends Model
         if (isset($map['Terrorism'])) {
             if (!empty($map['Terrorism'])) {
                 $model->terrorism = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Terrorism'] as $item) {
                     $model->terrorism[$n++] = null !== $item ? terrorism::fromMap($item) : $item;
                 }

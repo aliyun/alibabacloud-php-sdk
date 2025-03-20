@@ -83,19 +83,17 @@ class ListLiveRecordVideoRequest extends Model
      */
     public $streamName;
     protected $_name = [
-        'appName'    => 'AppName',
+        'appName' => 'AppName',
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'sortBy'     => 'SortBy',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
+        'startTime' => 'StartTime',
         'streamName' => 'StreamName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

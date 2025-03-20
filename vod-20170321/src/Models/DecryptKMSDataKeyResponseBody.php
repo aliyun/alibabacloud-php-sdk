@@ -35,14 +35,12 @@ class DecryptKMSDataKeyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'keyId'     => 'KeyId',
+        'keyId' => 'KeyId',
         'plaintext' => 'Plaintext',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

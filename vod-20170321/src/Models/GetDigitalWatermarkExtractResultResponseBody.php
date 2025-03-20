@@ -26,12 +26,10 @@ class GetDigitalWatermarkExtractResultResponseBody extends Model
     public $requestId;
     protected $_name = [
         'aiExtractResultList' => 'AiExtractResultList',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class GetDigitalWatermarkExtractResultResponseBody extends Model
         if (isset($map['AiExtractResultList'])) {
             if (!empty($map['AiExtractResultList'])) {
                 $model->aiExtractResultList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['AiExtractResultList'] as $item) {
                     $model->aiExtractResultList[$n++] = null !== $item ? aiExtractResultList::fromMap($item) : $item;
                 }

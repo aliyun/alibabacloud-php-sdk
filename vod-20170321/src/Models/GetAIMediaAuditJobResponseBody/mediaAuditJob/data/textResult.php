@@ -74,17 +74,15 @@ class textResult extends Model
      */
     public $type;
     protected $_name = [
-        'content'    => 'Content',
-        'label'      => 'Label',
-        'scene'      => 'Scene',
-        'score'      => 'Score',
+        'content' => 'Content',
+        'label' => 'Label',
+        'scene' => 'Scene',
+        'score' => 'Score',
         'suggestion' => 'Suggestion',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

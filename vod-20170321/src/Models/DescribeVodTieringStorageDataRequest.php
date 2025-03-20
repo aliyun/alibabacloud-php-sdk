@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodTieringStorageDataRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @description The end time at which data is obtained. The end time must be later than the start time. The difference cannot exceed 31 days. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * @example 2023-05-29T02:00:00Z
@@ -53,20 +58,22 @@ class DescribeVodTieringStorageDataRequest extends Model
      */
     public $storageClass;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'ownerId'      => 'OwnerId',
-        'region'       => 'Region',
-        'startTime'    => 'StartTime',
+        'appId' => 'AppId',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'region' => 'Region',
+        'startTime' => 'StartTime',
         'storageClass' => 'StorageClass',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -94,6 +101,9 @@ class DescribeVodTieringStorageDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }

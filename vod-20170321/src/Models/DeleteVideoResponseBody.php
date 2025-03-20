@@ -11,6 +11,7 @@ class DeleteVideoResponseBody extends Model
     /**
      * @description The IDs of the videos that cannot be deleted.
      * > Generally, videos cannot be deleted if you do not have the required [permissions](https://help.aliyun.com/document_detail/113600.html).
+     *
      * @var string[]
      */
     public $forbiddenVideoIds;
@@ -18,6 +19,7 @@ class DeleteVideoResponseBody extends Model
     /**
      * @description The IDs of the videos that do not exist.
      * > If the list of videos to be deleted contains one or more videos that do not exist, the IDs of these non-existing videos are returned. If none of the videos in the list exists, a 404 error is returned.
+     *
      * @var string[]
      */
     public $nonExistVideoIds;
@@ -32,13 +34,11 @@ class DeleteVideoResponseBody extends Model
     public $requestId;
     protected $_name = [
         'forbiddenVideoIds' => 'ForbiddenVideoIds',
-        'nonExistVideoIds'  => 'NonExistVideoIds',
-        'requestId'         => 'RequestId',
+        'nonExistVideoIds' => 'NonExistVideoIds',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

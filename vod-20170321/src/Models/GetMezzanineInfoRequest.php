@@ -52,6 +52,7 @@ class GetMezzanineInfoRequest extends Model
      * - **cdn** (default): Content Delivery Network (CDN) URL
      *
      * > If the mezzanine file is stored in a bucket of the in type, only an OSS URL is returned.
+     *
      * @example oss
      *
      * @var string
@@ -62,6 +63,7 @@ class GetMezzanineInfoRequest extends Model
      * @description The ID of the video.
      *
      * This parameter is required.
+     *
      * @example 1f1a6fc03ca04814031b8a6559e****
      *
      * @var string
@@ -69,14 +71,12 @@ class GetMezzanineInfoRequest extends Model
     public $videoId;
     protected $_name = [
         'additionType' => 'AdditionType',
-        'authTimeout'  => 'AuthTimeout',
-        'outputType'   => 'OutputType',
-        'videoId'      => 'VideoId',
+        'authTimeout' => 'AuthTimeout',
+        'outputType' => 'OutputType',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

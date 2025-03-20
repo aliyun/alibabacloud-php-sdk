@@ -55,14 +55,12 @@ class videoMeta extends Model
     protected $_name = [
         'coverURL' => 'CoverURL',
         'duration' => 'Duration',
-        'status'   => 'Status',
-        'title'    => 'Title',
-        'videoId'  => 'VideoId',
+        'status' => 'Status',
+        'title' => 'Title',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

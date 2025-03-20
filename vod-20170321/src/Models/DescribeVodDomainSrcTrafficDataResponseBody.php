@@ -70,18 +70,16 @@ class DescribeVodDomainSrcTrafficDataResponseBody extends Model
      */
     public $totalTraffic;
     protected $_name = [
-        'dataInterval'              => 'DataInterval',
-        'domainName'                => 'DomainName',
-        'endTime'                   => 'EndTime',
-        'requestId'                 => 'RequestId',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
         'srcTrafficDataPerInterval' => 'SrcTrafficDataPerInterval',
-        'startTime'                 => 'StartTime',
-        'totalTraffic'              => 'TotalTraffic',
+        'startTime' => 'StartTime',
+        'totalTraffic' => 'TotalTraffic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class UpdateAITemplateRequest extends Model
      * @description The detailed configurations of the AI template. The value is a JSON string. For more information, see [AITemplateConfig](~~89863#title-vd3-499-o36~~).
      *
      * This parameter is required.
+     *
      * @example {"AuditItem":["terrorism","porn"],"AuditRange":["text-title","video"],"AuditContent":["screen"],"AuditAutoBlock":"yes"}
      *
      * @var string
@@ -25,6 +26,7 @@ class UpdateAITemplateRequest extends Model
      *   Call the [ListAITemplate](https://help.aliyun.com/document_detail/102936.html) operation if the template already exists. The value of TemplateId in the response is the ID of the AI template.
      *
      * This parameter is required.
+     *
      * @example 1706a0063dd733f6a823ef32e0a5****
      *
      * @var string
@@ -35,6 +37,7 @@ class UpdateAITemplateRequest extends Model
      * @description The name of the AI template. The name can be up to 128 bytes in length.
      *
      * This parameter is required.
+     *
      * @example DemoAITemplate
      *
      * @var string
@@ -42,13 +45,11 @@ class UpdateAITemplateRequest extends Model
     public $templateName;
     protected $_name = [
         'templateConfig' => 'TemplateConfig',
-        'templateId'     => 'TemplateId',
-        'templateName'   => 'TemplateName',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

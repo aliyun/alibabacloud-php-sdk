@@ -97,22 +97,20 @@ class SearchEditingProjectRequest extends Model
      */
     public $title;
     protected $_name = [
-        'endTime'              => 'EndTime',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNo'               => 'PageNo',
-        'pageSize'             => 'PageSize',
+        'endTime' => 'EndTime',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sortBy'               => 'SortBy',
-        'startTime'            => 'StartTime',
-        'status'               => 'Status',
-        'title'                => 'Title',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sortBy' => 'SortBy',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

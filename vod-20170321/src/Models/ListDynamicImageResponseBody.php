@@ -26,12 +26,10 @@ class ListDynamicImageResponseBody extends Model
     public $requestId;
     protected $_name = [
         'dynamicImageList' => 'DynamicImageList',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListDynamicImageResponseBody extends Model
         if (isset($map['DynamicImageList'])) {
             if (!empty($map['DynamicImageList'])) {
                 $model->dynamicImageList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['DynamicImageList'] as $item) {
                     $model->dynamicImageList[$n++] = null !== $item ? dynamicImageList::fromMap($item) : $item;
                 }

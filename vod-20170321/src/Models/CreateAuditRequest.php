@@ -13,6 +13,7 @@ class CreateAuditRequest extends Model
      * For more information about this parameter, see the **AuditContent** section of this topic.
      *
      * This parameter is required.
+     *
      * @example [{"VideoId":"93ab850b4f*****b54b6e91d24d81d4","Status":"Normal"},{"VideoId":"f867fbfb58*****8bbab65c4480ae1d","Status":"Blocked","Reason":"porn video","Comment":"porn video"}]
      *
      * @var string
@@ -22,9 +23,7 @@ class CreateAuditRequest extends Model
         'auditContent' => 'AuditContent',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

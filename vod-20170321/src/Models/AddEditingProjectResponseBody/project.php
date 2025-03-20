@@ -68,16 +68,14 @@ class project extends Model
     public $title;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'description'  => 'Description',
+        'description' => 'Description',
         'modifiedTime' => 'ModifiedTime',
-        'projectId'    => 'ProjectId',
-        'status'       => 'Status',
-        'title'        => 'Title',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

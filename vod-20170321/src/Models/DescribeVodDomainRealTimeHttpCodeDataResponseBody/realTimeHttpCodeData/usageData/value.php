@@ -17,9 +17,7 @@ class value extends Model
         'realTimeCodeProportionData' => 'RealTimeCodeProportionData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class value extends Model
         if (isset($map['RealTimeCodeProportionData'])) {
             if (!empty($map['RealTimeCodeProportionData'])) {
                 $model->realTimeCodeProportionData = [];
-                $n                                 = 0;
+                $n = 0;
                 foreach ($map['RealTimeCodeProportionData'] as $item) {
                     $model->realTimeCodeProportionData[$n++] = null !== $item ? realTimeCodeProportionData::fromMap($item) : $item;
                 }

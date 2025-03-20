@@ -43,14 +43,12 @@ class RestoreMediaResponseBody extends Model
     public $success;
     protected $_name = [
         'forbiddenList' => 'ForbiddenList',
-        'ignoredList'   => 'IgnoredList',
-        'requestId'     => 'RequestId',
-        'success'       => 'Success',
+        'ignoredList' => 'IgnoredList',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -16,9 +16,7 @@ class sprites extends Model
         'sprite' => 'Sprite',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

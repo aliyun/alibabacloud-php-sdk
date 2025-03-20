@@ -41,14 +41,12 @@ class ListAppPoliciesForIdentityRequest extends Model
      */
     public $identityType;
     protected $_name = [
-        'appId'        => 'AppId',
+        'appId' => 'AppId',
         'identityName' => 'IdentityName',
         'identityType' => 'IdentityType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

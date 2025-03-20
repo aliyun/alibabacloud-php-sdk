@@ -16,6 +16,7 @@ class GetAIVideoTagResultRequest extends Model
      *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation after you upload media files.
      *
      * This parameter is required.
+     *
      * @example 595d020bad37421f37433451720****
      *
      * @var string
@@ -42,16 +43,14 @@ class GetAIVideoTagResultRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'mediaId'              => 'MediaId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'mediaId' => 'MediaId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,6 +30,7 @@ class watermarkInfos extends Model
      * @description The URL of the watermark file. The URL is an Object Storage Service (OSS) URL or an Alibaba Cloud CDN URL.
      *
      * >  This parameter is returned only for image watermark templates.
+     *
      * @example https://outin-3262681cd*****89f4b3e7.oss-cn-shanghai.aliyuncs.com/image/cover/8CC8B715E6F8A72EC6B-6-2.png?Expires=1541600583&OSSAccessKeyId=****&Signature=gmf1eYMoDVg%2BHQCb4UGozB****
      *
      * @var string
@@ -87,19 +88,17 @@ class watermarkInfos extends Model
      */
     public $watermarkId;
     protected $_name = [
-        'appId'           => 'AppId',
-        'creationTime'    => 'CreationTime',
-        'fileUrl'         => 'FileUrl',
-        'isDefault'       => 'IsDefault',
-        'name'            => 'Name',
-        'type'            => 'Type',
+        'appId' => 'AppId',
+        'creationTime' => 'CreationTime',
+        'fileUrl' => 'FileUrl',
+        'isDefault' => 'IsDefault',
+        'name' => 'Name',
+        'type' => 'Type',
         'watermarkConfig' => 'WatermarkConfig',
-        'watermarkId'     => 'WatermarkId',
+        'watermarkId' => 'WatermarkId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -36,13 +36,11 @@ class pageInfos extends Model
     public $total;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'total'      => 'Total',
+        'pageSize' => 'PageSize',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

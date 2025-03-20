@@ -98,20 +98,18 @@ class pageData extends Model
      */
     public $sslProtocol;
     protected $_name = [
-        'cname'        => 'Cname',
-        'description'  => 'Description',
-        'domainName'   => 'DomainName',
+        'cname' => 'Cname',
+        'description' => 'Description',
+        'domainName' => 'DomainName',
         'domainStatus' => 'DomainStatus',
-        'gmtCreated'   => 'GmtCreated',
-        'gmtModified'  => 'GmtModified',
-        'sandbox'      => 'Sandbox',
-        'sources'      => 'Sources',
-        'sslProtocol'  => 'SslProtocol',
+        'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
+        'sandbox' => 'Sandbox',
+        'sources' => 'Sources',
+        'sslProtocol' => 'SslProtocol',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

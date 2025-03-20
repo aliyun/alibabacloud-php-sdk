@@ -11,7 +11,10 @@ class AddEditingProjectMaterialsRequest extends Model
     /**
      * @description Separate multiple material IDs with commas (,). You can specify up to 10 IDs.
      *
+     * >  If you specify multiple materials, make sure that the materials are of the same type as specified in MaterialType.
+     *
      * This parameter is required.
+     *
      * @example d3251979f9fd41f2acb29ccda5a6f772
      *
      * @var string
@@ -26,6 +29,7 @@ class AddEditingProjectMaterialsRequest extends Model
      *   **image**
      *
      * This parameter is required.
+     *
      * @example video
      *
      * @var string
@@ -46,6 +50,7 @@ class AddEditingProjectMaterialsRequest extends Model
      * @description The ID of the online editing project.
      *
      * This parameter is required.
+     *
      * @example afa31b483b5c41609185de0e1b790579
      *
      * @var string
@@ -62,18 +67,16 @@ class AddEditingProjectMaterialsRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'materialIds'          => 'MaterialIds',
-        'materialType'         => 'MaterialType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'projectId'            => 'ProjectId',
+        'materialIds' => 'MaterialIds',
+        'materialType' => 'MaterialType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'projectId' => 'ProjectId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

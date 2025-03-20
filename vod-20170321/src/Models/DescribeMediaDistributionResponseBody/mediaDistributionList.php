@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mediaDistributionList extends Model
 {
     /**
+     * @description The number of media assets that are queried during the specified time range.
+     *
      * @example 12
      *
      * @var int
@@ -16,6 +18,8 @@ class mediaDistributionList extends Model
     public $count;
 
     /**
+     * @description The end of the time range during which data is queried (exclusive). The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2017-11-14T00:00:00Z
      *
      * @var string
@@ -23,20 +27,20 @@ class mediaDistributionList extends Model
     public $endTime;
 
     /**
+     * @description The start of the time range during which data is queried (inclusive). The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2017-11-13T00:00:00Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'count'     => 'Count',
-        'endTime'   => 'EndTime',
+        'count' => 'Count',
+        'endTime' => 'EndTime',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

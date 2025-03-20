@@ -25,13 +25,11 @@ class GetTranscodeTemplateGroupResponseBody extends Model
      */
     public $transcodeTemplateGroup;
     protected $_name = [
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
         'transcodeTemplateGroup' => 'TranscodeTemplateGroup',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

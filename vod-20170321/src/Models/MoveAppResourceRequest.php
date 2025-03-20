@@ -12,6 +12,7 @@ class MoveAppResourceRequest extends Model
      * @description The resource ID. You can specify a maximum of 20 IDs at a time. Separate multiple IDs with commas (,).
      *
      * This parameter is required.
+     *
      * @example 9afb4****06de180880e,f7bba****caa546cfe2ba
      *
      * @var string
@@ -26,6 +27,7 @@ class MoveAppResourceRequest extends Model
      *   **attached**: auxiliary media assets.
      *
      * This parameter is required.
+     *
      * @example video
      *
      * @var string
@@ -36,20 +38,19 @@ class MoveAppResourceRequest extends Model
      * @description The ID of the application to which resources are migrated. Default value: **app-1000000**. For more information, see [Use the multi-application service](https://help.aliyun.com/document_detail/113600.html).
      *
      * This parameter is required.
+     *
      * @example app-****
      *
      * @var string
      */
     public $targetAppId;
     protected $_name = [
-        'resourceIds'  => 'ResourceIds',
+        'resourceIds' => 'ResourceIds',
         'resourceType' => 'ResourceType',
-        'targetAppId'  => 'TargetAppId',
+        'targetAppId' => 'TargetAppId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class DescribeVodDomainBpsDataByLayerRequest extends Model
      * @description The end of the time range to query.
      *
      * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2019-01-23T12:40:12Z
      *
      * @var string
@@ -31,6 +32,7 @@ class DescribeVodDomainBpsDataByLayerRequest extends Model
      * @description The time interval between the data entries. Unit: seconds.
      *
      * The time granularity varies based on the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see the supported time granularity described in Usage notes.
+     *
      * @example 300
      *
      * @var string
@@ -50,6 +52,7 @@ class DescribeVodDomainBpsDataByLayerRequest extends Model
      * @description The layer at which you want to query the data.
      *
      * Network layer: IPv4 and IPv6. Application layer: http, https, and quic. all: specifies that both the network and application layers are included. Default value: all.
+     *
      * @example IPv4
      *
      * @var string
@@ -74,25 +77,24 @@ class DescribeVodDomainBpsDataByLayerRequest extends Model
      * @description The beginning of the time range to query.
      *
      * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2019-01-23T12:35:12Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'domainName'     => 'DomainName',
-        'endTime'        => 'EndTime',
-        'interval'       => 'Interval',
-        'ispNameEn'      => 'IspNameEn',
-        'layer'          => 'Layer',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'interval' => 'Interval',
+        'ispNameEn' => 'IspNameEn',
+        'layer' => 'Layer',
         'locationNameEn' => 'LocationNameEn',
-        'ownerId'        => 'OwnerId',
-        'startTime'      => 'StartTime',
+        'ownerId' => 'OwnerId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

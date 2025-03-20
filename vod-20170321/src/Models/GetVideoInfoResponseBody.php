@@ -26,12 +26,10 @@ class GetVideoInfoResponseBody extends Model
     public $video;
     protected $_name = [
         'requestId' => 'RequestId',
-        'video'     => 'Video',
+        'video' => 'Video',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

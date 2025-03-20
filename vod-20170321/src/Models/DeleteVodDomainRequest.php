@@ -12,6 +12,7 @@ class DeleteVodDomainRequest extends Model
      * @description The domain name for CDN that you want to delete.
      *
      * This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -33,15 +34,13 @@ class DeleteVodDomainRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainName'    => 'DomainName',
-        'ownerAccount'  => 'OwnerAccount',
-        'ownerId'       => 'OwnerId',
+        'domainName' => 'DomainName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

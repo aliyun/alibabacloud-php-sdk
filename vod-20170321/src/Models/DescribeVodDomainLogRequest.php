@@ -11,7 +11,10 @@ class DescribeVodDomainLogRequest extends Model
     /**
      * @description The domain name for CDN.
      *
+     * >  You can specify only one domain name in each query.
+     *
      * This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -63,16 +66,14 @@ class DescribeVodDomainLogRequest extends Model
     public $startTime;
     protected $_name = [
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

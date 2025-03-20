@@ -58,6 +58,7 @@ class CreateUploadVideoRequest extends Model
      *   For more information about file name extensions supported by ApsaraVideo VOD, see [Overview](https://help.aliyun.com/document_detail/55396.html).
      *
      * This parameter is required.
+     *
      * @example D:\\video_01.mp4
      *
      * @var string
@@ -77,6 +78,7 @@ class CreateUploadVideoRequest extends Model
      * @description The storage address. Perform the following operations to obtain the storage address: Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Storage**. On the Storage page, view the storage address.
      *
      * >  If you leave this parameter empty, audio and video files are uploaded to the default storage address. If you specify a storage address, audio and video files are uploaded to the specified address.
+     *
      * @example out-****.oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -108,6 +110,7 @@ class CreateUploadVideoRequest extends Model
      * > *   If this parameter is not specified, transcoding is performed based on the default transcoding template group. If the transcoding template group ID is specified, transcoding is performed based on the specified template group.
      * > *   If the **No Transcoding** template group is used, only the [FileUploadComplete](https://help.aliyun.com/document_detail/55630.html) event notification is returned after a video is uploaded. The [StreamTranscodeComplete](https://help.aliyun.com/document_detail/55636.html) event notification is not returned.
      * > *   If you use the **No Transcoding** template group to upload videos, only videos in the format of MP4, FLV, MP3, M3U8, or WebM can be played. Videos in other formats can only be stored in ApsaraVideo VOD. You can view the file name extension to obtain the video format. If you want to use ApsaraVideo Player, make sure that the version of the player is V3.1.0 or later.
+     *
      * @example 405477f9e214d19ea2c7c854****
      *
      * @var string
@@ -121,6 +124,7 @@ class CreateUploadVideoRequest extends Model
      *   The value must be encoded in UTF-8.
      *
      * This parameter is required.
+     *
      * @example UploadTest
      *
      * @var string
@@ -132,6 +136,7 @@ class CreateUploadVideoRequest extends Model
      *
      * > *   The callback configurations take effect only after you specify the HTTP callback URL and select specific callback events in the ApsaraVideo VOD console. For more information about how to configure HTTP callback settings in the ApsaraVideo VOD console, see [Configure callback settings](https://help.aliyun.com/document_detail/86071.html).
      * >*   If you want to enable the upload acceleration feature, [submit a request on Yida](https://yida.alibaba-inc.com/o/ticketapply). For more information, see [Overview](https://help.aliyun.com/document_detail/55396.html).
+     *
      * @example {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"*****","test":"www"}}
      *
      * @var string
@@ -142,29 +147,28 @@ class CreateUploadVideoRequest extends Model
      * @description The ID of the workflow. To view the ID of the workflow, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Processing** > **Workflows**.
      *
      * > If you specify the WorkflowId and TemplateGroupId parameters, the value of the WorkflowId parameter takes effect. For more information, see [Workflows](https://help.aliyun.com/document_detail/115347.html).
+     *
      * @example 613efff3887ec34af685714cc461****
      *
      * @var string
      */
     public $workflowId;
     protected $_name = [
-        'appId'           => 'AppId',
-        'cateId'          => 'CateId',
-        'coverURL'        => 'CoverURL',
-        'description'     => 'Description',
-        'fileName'        => 'FileName',
-        'fileSize'        => 'FileSize',
+        'appId' => 'AppId',
+        'cateId' => 'CateId',
+        'coverURL' => 'CoverURL',
+        'description' => 'Description',
+        'fileName' => 'FileName',
+        'fileSize' => 'FileSize',
         'storageLocation' => 'StorageLocation',
-        'tags'            => 'Tags',
+        'tags' => 'Tags',
         'templateGroupId' => 'TemplateGroupId',
-        'title'           => 'Title',
-        'userData'        => 'UserData',
-        'workflowId'      => 'WorkflowId',
+        'title' => 'Title',
+        'userData' => 'UserData',
+        'workflowId' => 'WorkflowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

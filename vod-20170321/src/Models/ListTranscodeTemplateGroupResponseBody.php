@@ -25,13 +25,11 @@ class ListTranscodeTemplateGroupResponseBody extends Model
      */
     public $transcodeTemplateGroupList;
     protected $_name = [
-        'requestId'                  => 'RequestId',
+        'requestId' => 'RequestId',
         'transcodeTemplateGroupList' => 'TranscodeTemplateGroupList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class ListTranscodeTemplateGroupResponseBody extends Model
         if (isset($map['TranscodeTemplateGroupList'])) {
             if (!empty($map['TranscodeTemplateGroupList'])) {
                 $model->transcodeTemplateGroupList = [];
-                $n                                 = 0;
+                $n = 0;
                 foreach ($map['TranscodeTemplateGroupList'] as $item) {
                     $model->transcodeTemplateGroupList[$n++] = null !== $item ? transcodeTemplateGroupList::fromMap($item) : $item;
                 }

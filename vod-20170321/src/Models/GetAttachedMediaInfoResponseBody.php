@@ -33,13 +33,11 @@ class GetAttachedMediaInfoResponseBody extends Model
     public $requestId;
     protected $_name = [
         'attachedMediaList' => 'AttachedMediaList',
-        'nonExistMediaIds'  => 'NonExistMediaIds',
-        'requestId'         => 'RequestId',
+        'nonExistMediaIds' => 'NonExistMediaIds',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -74,7 +72,7 @@ class GetAttachedMediaInfoResponseBody extends Model
         if (isset($map['AttachedMediaList'])) {
             if (!empty($map['AttachedMediaList'])) {
                 $model->attachedMediaList = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['AttachedMediaList'] as $item) {
                     $model->attachedMediaList[$n++] = null !== $item ? attachedMediaList::fromMap($item) : $item;
                 }

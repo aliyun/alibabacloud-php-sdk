@@ -25,13 +25,11 @@ class ListWatermarkResponseBody extends Model
      */
     public $watermarkInfos;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'watermarkInfos' => 'WatermarkInfos',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class ListWatermarkResponseBody extends Model
         if (isset($map['WatermarkInfos'])) {
             if (!empty($map['WatermarkInfos'])) {
                 $model->watermarkInfos = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['WatermarkInfos'] as $item) {
                     $model->watermarkInfos[$n++] = null !== $item ? watermarkInfos::fromMap($item) : $item;
                 }

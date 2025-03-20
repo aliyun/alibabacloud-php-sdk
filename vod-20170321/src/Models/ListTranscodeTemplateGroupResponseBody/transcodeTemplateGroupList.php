@@ -77,18 +77,16 @@ class transcodeTemplateGroupList extends Model
      */
     public $transcodeTemplateGroupId;
     protected $_name = [
-        'appId'                    => 'AppId',
-        'creationTime'             => 'CreationTime',
-        'isDefault'                => 'IsDefault',
-        'locked'                   => 'Locked',
-        'modifyTime'               => 'ModifyTime',
-        'name'                     => 'Name',
+        'appId' => 'AppId',
+        'creationTime' => 'CreationTime',
+        'isDefault' => 'IsDefault',
+        'locked' => 'Locked',
+        'modifyTime' => 'ModifyTime',
+        'name' => 'Name',
         'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

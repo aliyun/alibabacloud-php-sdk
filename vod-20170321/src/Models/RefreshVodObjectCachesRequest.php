@@ -24,6 +24,7 @@ class RefreshVodObjectCachesRequest extends Model
      * @description The URL of the file to be prefetched. Separate multiple URLs with line breaks (\\n or \\r\\n).
      *
      * This parameter is required.
+     *
      * @example abc.com/image/1.png
      *
      * @var string
@@ -54,16 +55,14 @@ class RefreshVodObjectCachesRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'force'         => 'Force',
-        'objectPath'    => 'ObjectPath',
-        'objectType'    => 'ObjectType',
-        'ownerId'       => 'OwnerId',
+        'force' => 'Force',
+        'objectPath' => 'ObjectPath',
+        'objectType' => 'ObjectType',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -163,28 +163,26 @@ class materialList extends Model
      */
     public $title;
     protected $_name = [
-        'cateId'       => 'CateId',
-        'cateName'     => 'CateName',
-        'coverURL'     => 'CoverURL',
-        'createTime'   => 'CreateTime',
-        'customerId'   => 'CustomerId',
-        'description'  => 'Description',
-        'duration'     => 'Duration',
-        'materialId'   => 'MaterialId',
+        'cateId' => 'CateId',
+        'cateName' => 'CateName',
+        'coverURL' => 'CoverURL',
+        'createTime' => 'CreateTime',
+        'customerId' => 'CustomerId',
+        'description' => 'Description',
+        'duration' => 'Duration',
+        'materialId' => 'MaterialId',
         'materialType' => 'MaterialType',
-        'modifyTime'   => 'ModifyTime',
-        'size'         => 'Size',
-        'snapshots'    => 'Snapshots',
+        'modifyTime' => 'ModifyTime',
+        'size' => 'Size',
+        'snapshots' => 'Snapshots',
         'spriteConfig' => 'SpriteConfig',
-        'sprites'      => 'Sprites',
-        'status'       => 'Status',
-        'tags'         => 'Tags',
-        'title'        => 'Title',
+        'sprites' => 'Sprites',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

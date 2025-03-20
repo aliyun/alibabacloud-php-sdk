@@ -28,18 +28,17 @@ class DeleteMezzaninesResponseBody extends Model
      * @description The IDs of the audio or video files whose source files cannot be deleted.
      *
      * >  In most cases, source files cannot be deleted if they are used for original-quality playback or you do not have required permissions to delete them. For more information, see [Overview](https://help.aliyun.com/document_detail/113600.html).
+     *
      * @var string[]
      */
     public $unRemoveableVideoIds;
     protected $_name = [
-        'nonExistVideoIds'     => 'NonExistVideoIds',
-        'requestId'            => 'RequestId',
+        'nonExistVideoIds' => 'NonExistVideoIds',
+        'requestId' => 'RequestId',
         'unRemoveableVideoIds' => 'UnRemoveableVideoIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

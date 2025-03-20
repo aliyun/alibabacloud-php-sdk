@@ -27,6 +27,7 @@ class DetachAppPolicyFromIdentityRequest extends Model
      *   Specifies the name of the RAM role for this parameter if you set IdentityType to RamRole.
      *
      * This parameter is required.
+     *
      * @example test****name
      *
      * @var string
@@ -40,6 +41,7 @@ class DetachAppPolicyFromIdentityRequest extends Model
      *   **RamRole**: RAM role
      *
      * This parameter is required.
+     *
      * @example RamUser
      *
      * @var string
@@ -54,21 +56,20 @@ class DetachAppPolicyFromIdentityRequest extends Model
      *   **VODAppAdministratorAccess**: permissions of the application administrator
      *
      * This parameter is required.
+     *
      * @example VODAppFullAccess
      *
      * @var string
      */
     public $policyNames;
     protected $_name = [
-        'appId'        => 'AppId',
+        'appId' => 'AppId',
         'identityName' => 'IdentityName',
         'identityType' => 'IdentityType',
-        'policyNames'  => 'PolicyNames',
+        'policyNames' => 'PolicyNames',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

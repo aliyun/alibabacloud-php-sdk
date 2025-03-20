@@ -34,14 +34,12 @@ class mediaAuditAudioResultDetail extends Model
      */
     public $total;
     protected $_name = [
-        'list'      => 'List',
+        'list' => 'List',
         'pageTotal' => 'PageTotal',
-        'total'     => 'Total',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class mediaAuditAudioResultDetail extends Model
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['List'] as $item) {
                     $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
                 }

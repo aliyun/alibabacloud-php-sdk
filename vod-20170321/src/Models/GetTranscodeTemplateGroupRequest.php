@@ -12,6 +12,7 @@ class GetTranscodeTemplateGroupRequest extends Model
      * @description The ID of the transcoding template group.
      *
      * This parameter is required.
+     *
      * @example a591f697c7167*****6ae1502142d0
      *
      * @var string
@@ -21,9 +22,7 @@ class GetTranscodeTemplateGroupRequest extends Model
         'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

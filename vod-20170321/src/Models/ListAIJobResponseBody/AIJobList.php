@@ -17,9 +17,7 @@ class AIJobList extends Model
         'AIJob' => 'AIJob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class AIJobList extends Model
         if (isset($map['AIJob'])) {
             if (!empty($map['AIJob'])) {
                 $model->AIJob = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['AIJob'] as $item) {
                     $model->AIJob[$n++] = null !== $item ? AIJob::fromMap($item) : $item;
                 }

@@ -25,13 +25,11 @@ class AIDataItem extends Model
      */
     public $timeStamp;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

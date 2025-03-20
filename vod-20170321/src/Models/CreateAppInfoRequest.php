@@ -15,6 +15,7 @@ class CreateAppInfoRequest extends Model
      *   The value must be encoded in UTF-8.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -42,14 +43,12 @@ class CreateAppInfoRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'appName'         => 'AppName',
-        'description'     => 'Description',
+        'appName' => 'AppName',
+        'description' => 'Description',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

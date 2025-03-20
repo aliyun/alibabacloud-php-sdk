@@ -17,9 +17,7 @@ class playInfoList extends Model
         'playInfo' => 'PlayInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class playInfoList extends Model
         if (isset($map['PlayInfo'])) {
             if (!empty($map['PlayInfo'])) {
                 $model->playInfo = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['PlayInfo'] as $item) {
                     $model->playInfo[$n++] = null !== $item ? playInfo::fromMap($item) : $item;
                 }

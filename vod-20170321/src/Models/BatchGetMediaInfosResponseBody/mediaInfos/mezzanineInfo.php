@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class mezzanineInfo extends Model
 {
     /**
+     * @description The information about the audio stream.
+     *
      * @var audioStreamList[]
      */
     public $audioStreamList;
 
     /**
+     * @description The bitrate of the file. Unit: Kbit/s.
+     *
      * @example 771.2280
      *
      * @var string
@@ -23,6 +27,8 @@ class mezzanineInfo extends Model
     public $bitrate;
 
     /**
+     * @description The time when the source file was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2017-11-14T09:15:50Z
      *
      * @var string
@@ -30,6 +36,8 @@ class mezzanineInfo extends Model
     public $creationTime;
 
     /**
+     * @description The duration of the file. Unit: seconds.
+     *
      * @example 42.4930
      *
      * @var string
@@ -37,6 +45,8 @@ class mezzanineInfo extends Model
     public $duration;
 
     /**
+     * @description The name of the file.
+     *
      * @example 27ffc438-164h67f57ef-0005-6884-51a-1****.mp4
      *
      * @var string
@@ -44,6 +54,8 @@ class mezzanineInfo extends Model
     public $fileName;
 
     /**
+     * @description The OSS URL of the source file.
+     *
      * @example http://example-bucket-****.oss-cn-shanghai.aliyuncs.com/27ffc438-164h67f57ef-0005-6884-51a-1****.mp4
      *
      * @var string
@@ -51,6 +63,8 @@ class mezzanineInfo extends Model
     public $fileURL;
 
     /**
+     * @description The frame rate of the file.
+     *
      * @example 25.0000
      *
      * @var string
@@ -58,6 +72,8 @@ class mezzanineInfo extends Model
     public $fps;
 
     /**
+     * @description The height of the file. Unit: pixels.
+     *
      * @example 540
      *
      * @var int
@@ -65,6 +81,8 @@ class mezzanineInfo extends Model
     public $height;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example 1f1a6fc03ca04814031b8a6559e****
      *
      * @var string
@@ -72,6 +90,8 @@ class mezzanineInfo extends Model
     public $mediaId;
 
     /**
+     * @description The size of the file. Unit: bytes.
+     *
      * @example 4096477
      *
      * @var int
@@ -79,6 +99,13 @@ class mezzanineInfo extends Model
     public $size;
 
     /**
+     * @description The state of the file. Valid values:
+     *
+     *   **Uploading**: The file is being uploaded. This is the initial status.
+     *   **Normal**: The file is uploaded.
+     *   **UploadFail**: The file failed to be uploaded.
+     *   **Deleted**: The file is deleted.
+     *
      * @example Normal
      *
      * @var string
@@ -86,11 +113,15 @@ class mezzanineInfo extends Model
     public $status;
 
     /**
+     * @description The information about the video streams.
+     *
      * @var videoStreamList[]
      */
     public $videoStreamList;
 
     /**
+     * @description The width of the file. Unit: pixels.
+     *
      * @example 960
      *
      * @var int
@@ -98,23 +129,21 @@ class mezzanineInfo extends Model
     public $width;
     protected $_name = [
         'audioStreamList' => 'AudioStreamList',
-        'bitrate'         => 'Bitrate',
-        'creationTime'    => 'CreationTime',
-        'duration'        => 'Duration',
-        'fileName'        => 'FileName',
-        'fileURL'         => 'FileURL',
-        'fps'             => 'Fps',
-        'height'          => 'Height',
-        'mediaId'         => 'MediaId',
-        'size'            => 'Size',
-        'status'          => 'Status',
+        'bitrate' => 'Bitrate',
+        'creationTime' => 'CreationTime',
+        'duration' => 'Duration',
+        'fileName' => 'FileName',
+        'fileURL' => 'FileURL',
+        'fps' => 'Fps',
+        'height' => 'Height',
+        'mediaId' => 'MediaId',
+        'size' => 'Size',
+        'status' => 'Status',
         'videoStreamList' => 'VideoStreamList',
-        'width'           => 'Width',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -185,7 +214,7 @@ class mezzanineInfo extends Model
         if (isset($map['AudioStreamList'])) {
             if (!empty($map['AudioStreamList'])) {
                 $model->audioStreamList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['AudioStreamList'] as $item) {
                     $model->audioStreamList[$n++] = null !== $item ? audioStreamList::fromMap($item) : $item;
                 }
@@ -224,7 +253,7 @@ class mezzanineInfo extends Model
         if (isset($map['VideoStreamList'])) {
             if (!empty($map['VideoStreamList'])) {
                 $model->videoStreamList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['VideoStreamList'] as $item) {
                     $model->videoStreamList[$n++] = null !== $item ? videoStreamList::fromMap($item) : $item;
                 }

@@ -16,6 +16,7 @@ class RestoreMediaRequest extends Model
      *   Obtain the value of VideoId from the response to the SearchMedia operation that you call to query the media ID after the media asset is uploaded.
      *
      * This parameter is required.
+     *
      * @example 8bc8e94fe4e55abde85718****,eb186180e989dd56****
      *
      * @var string
@@ -56,15 +57,13 @@ class RestoreMediaRequest extends Model
      */
     public $scope;
     protected $_name = [
-        'mediaIds'    => 'MediaIds',
+        'mediaIds' => 'MediaIds',
         'restoreDays' => 'RestoreDays',
         'restoreTier' => 'RestoreTier',
-        'scope'       => 'Scope',
+        'scope' => 'Scope',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

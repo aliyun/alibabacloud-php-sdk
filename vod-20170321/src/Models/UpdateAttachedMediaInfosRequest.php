@@ -15,6 +15,7 @@ class UpdateAttachedMediaInfosRequest extends Model
      * > *   The specific parameter of a video is updated only when a new value is passed in the parameter.
      *
      * This parameter is required.
+     *
      * @example [{"MediaId ":"bbc65bba53f6ed90de118a7849****","Title":" test title1","Description":"test description1","Tags":"tag1,tag2"},{"MediaId ":"f45cf4eba5cb90233389558c39****","Title2":"test title2","Description2":"test description2","Tags":"tag3,tag4"}]
      *
      * @var string
@@ -24,9 +25,7 @@ class UpdateAttachedMediaInfosRequest extends Model
         'updateContent' => 'UpdateContent',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -126,23 +126,21 @@ class domainDetail extends Model
      */
     public $weight;
     protected $_name = [
-        'certName'     => 'CertName',
-        'cname'        => 'Cname',
-        'description'  => 'Description',
-        'domainName'   => 'DomainName',
+        'certName' => 'CertName',
+        'cname' => 'Cname',
+        'description' => 'Description',
+        'domainName' => 'DomainName',
         'domainStatus' => 'DomainStatus',
-        'gmtCreated'   => 'GmtCreated',
-        'gmtModified'  => 'GmtModified',
-        'SSLProtocol'  => 'SSLProtocol',
-        'SSLPub'       => 'SSLPub',
-        'scope'        => 'Scope',
-        'sources'      => 'Sources',
-        'weight'       => 'Weight',
+        'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
+        'SSLProtocol' => 'SSLProtocol',
+        'SSLPub' => 'SSLPub',
+        'scope' => 'Scope',
+        'sources' => 'Sources',
+        'weight' => 'Weight',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

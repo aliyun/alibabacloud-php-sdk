@@ -12,6 +12,7 @@ class DescribeVodRangeDataByLocateAndIspServiceRequest extends Model
      * @description The accelerated domain name.
      *
      * This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -22,6 +23,7 @@ class DescribeVodRangeDataByLocateAndIspServiceRequest extends Model
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * This parameter is required.
+     *
      * @example 2023-05-29T03:55:00Z
      *
      * @var string
@@ -55,23 +57,22 @@ class DescribeVodRangeDataByLocateAndIspServiceRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * This parameter is required.
+     *
      * @example 2023-05-29T03:50:00Z
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'domainName'     => 'DomainName',
-        'endTime'        => 'EndTime',
-        'ispNameEn'      => 'IspNameEn',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'ispNameEn' => 'IspNameEn',
         'locationNameEn' => 'LocationNameEn',
-        'ownerId'        => 'OwnerId',
-        'startTime'      => 'StartTime',
+        'ownerId' => 'OwnerId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

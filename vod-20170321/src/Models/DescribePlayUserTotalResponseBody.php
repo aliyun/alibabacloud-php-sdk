@@ -25,13 +25,11 @@ class DescribePlayUserTotalResponseBody extends Model
      */
     public $userPlayStatisTotals;
     protected $_name = [
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
         'userPlayStatisTotals' => 'UserPlayStatisTotals',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

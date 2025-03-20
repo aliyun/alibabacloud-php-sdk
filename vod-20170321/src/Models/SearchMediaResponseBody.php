@@ -43,15 +43,13 @@ class SearchMediaResponseBody extends Model
      */
     public $total;
     protected $_name = [
-        'mediaList'   => 'MediaList',
-        'requestId'   => 'RequestId',
+        'mediaList' => 'MediaList',
+        'requestId' => 'RequestId',
         'scrollToken' => 'ScrollToken',
-        'total'       => 'Total',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class SearchMediaResponseBody extends Model
         if (isset($map['MediaList'])) {
             if (!empty($map['MediaList'])) {
                 $model->mediaList = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['MediaList'] as $item) {
                     $model->mediaList[$n++] = null !== $item ? mediaList::fromMap($item) : $item;
                 }

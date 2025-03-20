@@ -14,6 +14,7 @@ class GetAIImageJobsRequest extends Model
      *   Separate multiple IDs with commas (,).
      *
      * This parameter is required.
+     *
      * @example cf08a2c6e11e*****de1711b738b9067
      *
      * @var string
@@ -40,16 +41,14 @@ class GetAIImageJobsRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'jobIds'               => 'JobIds',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'jobIds' => 'JobIds',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

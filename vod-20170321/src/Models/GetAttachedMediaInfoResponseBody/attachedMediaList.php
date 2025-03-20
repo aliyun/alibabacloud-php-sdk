@@ -38,6 +38,7 @@ class attachedMediaList extends Model
      * @description The description of the auxiliary media asset.
      *
      * >  This parameter is returned only when a description is specified for the auxiliary media asset.
+     *
      * @example description test
      *
      * @var string
@@ -88,6 +89,7 @@ class attachedMediaList extends Model
      * @description The tags of the auxiliary media asset.
      *
      * >  This parameter is returned only when tags are specified for the auxiliary media asset.
+     *
      * @example tag1,tag2
      *
      * @var string
@@ -120,29 +122,28 @@ class attachedMediaList extends Model
      * @description The URL of the auxiliary media asset.
      *
      * >  If a CDN domain name is specified, a CDN URL is returned. Otherwise, an OSS URL is returned.
+     *
      * @example https://al*****.cn/subtitle/9843C2*****4E186F19B6.vtt?auth_key=159099f60e0b7fd59****
      *
      * @var string
      */
     public $URL;
     protected $_name = [
-        'appId'            => 'AppId',
-        'categories'       => 'Categories',
-        'creationTime'     => 'CreationTime',
-        'description'      => 'Description',
-        'mediaId'          => 'MediaId',
+        'appId' => 'AppId',
+        'categories' => 'Categories',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'mediaId' => 'MediaId',
         'modificationTime' => 'ModificationTime',
-        'status'           => 'Status',
-        'storageLocation'  => 'StorageLocation',
-        'tags'             => 'Tags',
-        'title'            => 'Title',
-        'type'             => 'Type',
-        'URL'              => 'URL',
+        'status' => 'Status',
+        'storageLocation' => 'StorageLocation',
+        'tags' => 'Tags',
+        'title' => 'Title',
+        'type' => 'Type',
+        'URL' => 'URL',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -207,7 +208,7 @@ class attachedMediaList extends Model
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
                 $model->categories = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Categories'] as $item) {
                     $model->categories[$n++] = null !== $item ? categories::fromMap($item) : $item;
                 }

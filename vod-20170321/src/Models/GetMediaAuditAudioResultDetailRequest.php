@@ -12,6 +12,7 @@ class GetMediaAuditAudioResultDetailRequest extends Model
      * @description The ID of the video. You can query the video ID by using the ApsaraVideo VOD console or calling the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation.
      *
      * This parameter is required.
+     *
      * @example 93ab850b4f6f*****54b6e91d24d81d4
      *
      * @var string
@@ -47,17 +48,15 @@ class GetMediaAuditAudioResultDetailRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'mediaId'              => 'MediaId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNo'               => 'PageNo',
+        'mediaId' => 'MediaId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNo' => 'PageNo',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

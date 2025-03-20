@@ -39,21 +39,20 @@ class UploadStreamByURLResponseBody extends Model
      * @description The ID of the stream upload job. This parameter is used when you call the [GetURLUploadInfos](https://help.aliyun.com/document_detail/106830.html) operation.
      *
      * In ApsaraVideo VOD, you can upload only one transcoded stream in an upload job. For more information, see the PlayInfo: the playback information about a video stream section in [Basic structures](https://help.aliyun.com/document_detail/52839.html).
+     *
      * @example e304b34fb3d959f92baef97b6496****
      *
      * @var string
      */
     public $streamJobId;
     protected $_name = [
-        'fileURL'     => 'FileURL',
-        'requestId'   => 'RequestId',
-        'sourceURL'   => 'SourceURL',
+        'fileURL' => 'FileURL',
+        'requestId' => 'RequestId',
+        'sourceURL' => 'SourceURL',
         'streamJobId' => 'StreamJobId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

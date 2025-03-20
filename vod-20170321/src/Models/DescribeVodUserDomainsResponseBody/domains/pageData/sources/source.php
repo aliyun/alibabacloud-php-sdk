@@ -48,15 +48,13 @@ class source extends Model
      */
     public $type;
     protected $_name = [
-        'content'  => 'Content',
-        'port'     => 'Port',
+        'content' => 'Content',
+        'port' => 'Port',
         'priority' => 'Priority',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

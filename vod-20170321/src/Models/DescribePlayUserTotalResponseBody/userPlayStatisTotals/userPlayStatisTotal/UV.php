@@ -45,14 +45,12 @@ class UV extends Model
     public $iOS;
     protected $_name = [
         'android' => 'Android',
-        'flash'   => 'Flash',
-        'HTML5'   => 'HTML5',
-        'iOS'     => 'iOS',
+        'flash' => 'Flash',
+        'HTML5' => 'HTML5',
+        'iOS' => 'iOS',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

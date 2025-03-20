@@ -12,6 +12,7 @@ class GetVodTemplateRequest extends Model
      * @description The ID of the snapshot template.
      *
      * This parameter is required.
+     *
      * @example 7c49f2f4c0969*****fcd446690
      *
      * @var string
@@ -21,9 +22,7 @@ class GetVodTemplateRequest extends Model
         'vodTemplateId' => 'VodTemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

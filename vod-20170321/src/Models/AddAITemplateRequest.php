@@ -12,6 +12,7 @@ class AddAITemplateRequest extends Model
      * @description The detailed configurations of the AI template. The value must be a JSON string. For more information, see [AITemplateConfig](~~89863#title-vd3-499-o36~~).
      *
      * This parameter is required.
+     *
      * @example {"AuditItem":["terrorism","porn"],"AuditRange":["image-cover","text-title","video"],"AuditContent":["screen"],"AuditAutoBlock":"yes"}
      *
      * @var string
@@ -22,6 +23,7 @@ class AddAITemplateRequest extends Model
      * @description The name of the AI template. The name can be up to 128 bytes in length.
      *
      * This parameter is required.
+     *
      * @example AI-media-test
      *
      * @var string
@@ -35,6 +37,7 @@ class AddAITemplateRequest extends Model
      *   **AIImage**: smart thumbnail
      *
      * This parameter is required.
+     *
      * @example AIMediaAudit
      *
      * @var string
@@ -42,13 +45,11 @@ class AddAITemplateRequest extends Model
     public $templateType;
     protected $_name = [
         'templateConfig' => 'TemplateConfig',
-        'templateName'   => 'TemplateName',
-        'templateType'   => 'TemplateType',
+        'templateName' => 'TemplateName',
+        'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

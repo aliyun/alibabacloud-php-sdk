@@ -25,12 +25,10 @@ class detail extends Model
     public $input;
     protected $_name = [
         'duplication' => 'Duplication',
-        'input'       => 'Input',
+        'input' => 'Input',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

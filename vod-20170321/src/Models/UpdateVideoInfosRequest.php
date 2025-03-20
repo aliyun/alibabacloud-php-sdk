@@ -14,6 +14,7 @@ class UpdateVideoInfosRequest extends Model
      * The value is a JSON string. For more information, see the **UpdateContent** section of this topic.
      *
      * This parameter is required.
+     *
      * @example [{"VideoId":"f45cf4eba5cb90233389558c39****","Title":"test title1"},{"VideoId":"f45cf4eba5c84233389558c36****","Title":"test title2"}]
      *
      * @var string
@@ -23,9 +24,7 @@ class UpdateVideoInfosRequest extends Model
         'updateContent' => 'UpdateContent',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

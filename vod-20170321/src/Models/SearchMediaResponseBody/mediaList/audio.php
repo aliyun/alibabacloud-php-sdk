@@ -246,34 +246,32 @@ class audio extends Model
      */
     public $transcodeMode;
     protected $_name = [
-        'appId'             => 'AppId',
-        'audioId'           => 'AudioId',
-        'cateId'            => 'CateId',
-        'cateName'          => 'CateName',
-        'coverURL'          => 'CoverURL',
-        'creationTime'      => 'CreationTime',
-        'description'       => 'Description',
-        'downloadSwitch'    => 'DownloadSwitch',
-        'duration'          => 'Duration',
-        'mediaSource'       => 'MediaSource',
-        'modificationTime'  => 'ModificationTime',
-        'preprocessStatus'  => 'PreprocessStatus',
+        'appId' => 'AppId',
+        'audioId' => 'AudioId',
+        'cateId' => 'CateId',
+        'cateName' => 'CateName',
+        'coverURL' => 'CoverURL',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'downloadSwitch' => 'DownloadSwitch',
+        'duration' => 'Duration',
+        'mediaSource' => 'MediaSource',
+        'modificationTime' => 'ModificationTime',
+        'preprocessStatus' => 'PreprocessStatus',
         'restoreExpiration' => 'RestoreExpiration',
-        'restoreStatus'     => 'RestoreStatus',
-        'size'              => 'Size',
-        'snapshots'         => 'Snapshots',
-        'spriteSnapshots'   => 'SpriteSnapshots',
-        'status'            => 'Status',
-        'storageClass'      => 'StorageClass',
-        'storageLocation'   => 'StorageLocation',
-        'tags'              => 'Tags',
-        'title'             => 'Title',
-        'transcodeMode'     => 'TranscodeMode',
+        'restoreStatus' => 'RestoreStatus',
+        'size' => 'Size',
+        'snapshots' => 'Snapshots',
+        'spriteSnapshots' => 'SpriteSnapshots',
+        'status' => 'Status',
+        'storageClass' => 'StorageClass',
+        'storageLocation' => 'StorageLocation',
+        'tags' => 'Tags',
+        'title' => 'Title',
+        'transcodeMode' => 'TranscodeMode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

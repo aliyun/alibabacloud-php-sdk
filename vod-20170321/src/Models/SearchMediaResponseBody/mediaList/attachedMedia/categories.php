@@ -44,15 +44,13 @@ class categories extends Model
      */
     public $parentId;
     protected $_name = [
-        'cateId'   => 'CateId',
+        'cateId' => 'CateId',
         'cateName' => 'CateName',
-        'level'    => 'Level',
+        'level' => 'Level',
         'parentId' => 'ParentId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

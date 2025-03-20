@@ -26,12 +26,10 @@ class certificateListModel extends Model
     public $count;
     protected $_name = [
         'certList' => 'CertList',
-        'count'    => 'Count',
+        'count' => 'Count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

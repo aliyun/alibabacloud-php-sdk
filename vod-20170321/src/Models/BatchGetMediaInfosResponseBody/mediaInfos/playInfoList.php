@@ -9,172 +9,319 @@ use AlibabaCloud\Tea\Model;
 class playInfoList extends Model
 {
     /**
+     * @description The color depth. This value is an integer.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $bitDepth;
 
     /**
+     * @description The bitrate of the media stream. Unit: Kbit/s.
+     *
+     * @example 450.878
+     *
      * @var string
      */
     public $bitrate;
 
     /**
+     * @description The short name of the codec.
+     *
+     * @example h264
+     *
      * @var string
      */
     public $codecName;
 
     /**
+     * @description The creation time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2022-04-18T07:37:15Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The quality of the video stream. Valid values:
+     *
+     *   **FD**: low definition
+     *   **LD**: standard definition
+     *   **SD**: high definition
+     *   **HD**: ultra-high definition
+     *   **OD**: original definition
+     *   **2K**
+     *   **4K**
+     *   **SQ**: standard sound quality
+     *   **HQ**: high sound quality
+     *   **AUTO**: adaptive bitrate
+     *
+     * @example LD
+     *
      * @var string
      */
     public $definition;
 
     /**
+     * @description The duration of the media stream. Unit: seconds.
+     *
+     * @example 9.0464
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description Indicates whether the media stream was encrypted. Valid values:
+     *
+     *   **0**: The media stream is not encrypted.
+     *   **1**: The media stream is encrypted.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $encrypt;
 
     /**
+     * @description The encryption type of the media stream. Valid values:
+     *
+     *   **License**: decryption on local devices.
+     *
+     * >  If the encryption type is **License**, only ApsaraVideo Player SDK can be used to play videos.
+     *
+     * @example License
+     *
      * @var string
      */
     public $encryptMode;
 
     /**
+     * @description The encryption type of the media stream. Valid values:
+     *
+     *   **AliyunVoDEncryption**: Alibaba Cloud proprietary cryptography
+     *   **HLSEncryption**: HTTP Live Streaming (HLS) encryption
+     *
+     * >  If the encryption type is AliyunVoDEncryption, only ApsaraVideo Player SDK can be used to play videos.
+     *
+     * @example AliyunVoDEncryption
+     *
      * @var string
      */
     public $encryptType;
 
     /**
+     * @description The format of the media stream.
+     *
+     *   If the media file is a video file, the valid values are **mp4** and **m3u8**.
+     *   If the media asset is an audio-only file, the value is **mp3**.
+     *
+     * @example m3u8
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @description The frame rate of the media stream. Unit: frames per second (FPS).
+     *
+     * @example 25
+     *
      * @var string
      */
     public $fps;
 
     /**
+     * @description The HDR type of the media stream. Valid values:
+     *
+     *   HDR
+     *   HDR10
+     *   HLG
+     *   DolbyVision
+     *   HDRVivid
+     *   SDR+
+     *
+     * @example HLG
+     *
      * @var string
      */
     public $HDRType;
 
     /**
+     * @description The height of the media stream. Unit: pixels.
+     *
+     * @example 640
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @description The custom watermark information of the copyright watermark. This parameter is returned if you set `JobType` to `2`.
+     *
+     * @example CopyrightMarkTest
+     *
      * @var string
      */
     public $jobExt;
 
     /**
+     * @description The job ID for transcoding the media stream. This ID uniquely identifies a media stream.
+     *
+     * @example 80e9c6580e754a798c3c19c59b16****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The type of the digital watermark. Valid values:
+     *
+     *   **1**: user-tracing watermark
+     *   **2**: copyright watermark
+     *
+     * @example 2
+     *
      * @var int
      */
     public $jobType;
 
     /**
+     * @description The update time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2022-04-20T06:32:19Z
+     *
      * @var string
      */
     public $modificationTime;
 
     /**
+     * @description The transcoding type. Valid values:
+     *
+     *   **0**: regular transcoding
+     *   **1.0**: Narrowband HD™ 1.0 transcoding
+     *   **2.0**: Narrowband HD™ 2.0 transcoding
+     *
+     * @example 0
+     *
      * @var string
      */
     public $narrowBandType;
 
     /**
+     * @description The playback URL of the video stream.
+     *
      * @var string
      */
     public $playURL;
 
     /**
+     * @description The size of the media stream. Unit: bytes.
+     *
+     * @example 418112
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The specifications of transcoded audio and video streams. For more information about the valid values, see [Output specifications](~~124671#section-6bv-l0g-opq~~).
+     *
+     * @example H264.LD
+     *
      * @var string
      */
     public $specification;
 
     /**
+     * @description The status of the audio or video stream. Valid values:
+     *
+     *   **Normal**: The latest transcoded stream in each quality and format is in the Normal status.
+     *   **Invisible**: If multiple streams are transcoded in the same quality and format, the latest transcoded stream is in the Normal status and other streams are in the Invisible status.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of the media stream. If the media stream is a video stream, the value is **video**. If the media stream is an audio-only stream, the value is **audio**.
+     *
+     * @example video
+     *
      * @var string
      */
     public $streamType;
 
     /**
+     * @description The ID of the transcoding template group.
+     *
+     * @example fb0716154b21a4ecb5b70a26ccc8****
+     *
      * @var string
      */
     public $templateGroupId;
 
     /**
+     * @description The ID of the transcoding template.
+     *
+     * @example a86a4338dd2e83da45154004a541****
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The ID of the watermark that is associated with the media stream.
+     *
+     * @example dgfn26457856****
+     *
      * @var string
      */
     public $watermarkId;
 
     /**
+     * @description The width of the media stream. Unit: pixels.
+     *
+     * @example 360
+     *
      * @var int
      */
     public $width;
     protected $_name = [
-        'bitDepth'         => 'BitDepth',
-        'bitrate'          => 'Bitrate',
-        'codecName'        => 'CodecName',
-        'creationTime'     => 'CreationTime',
-        'definition'       => 'Definition',
-        'duration'         => 'Duration',
-        'encrypt'          => 'Encrypt',
-        'encryptMode'      => 'EncryptMode',
-        'encryptType'      => 'EncryptType',
-        'format'           => 'Format',
-        'fps'              => 'Fps',
-        'HDRType'          => 'HDRType',
-        'height'           => 'Height',
-        'jobExt'           => 'JobExt',
-        'jobId'            => 'JobId',
-        'jobType'          => 'JobType',
+        'bitDepth' => 'BitDepth',
+        'bitrate' => 'Bitrate',
+        'codecName' => 'CodecName',
+        'creationTime' => 'CreationTime',
+        'definition' => 'Definition',
+        'duration' => 'Duration',
+        'encrypt' => 'Encrypt',
+        'encryptMode' => 'EncryptMode',
+        'encryptType' => 'EncryptType',
+        'format' => 'Format',
+        'fps' => 'Fps',
+        'HDRType' => 'HDRType',
+        'height' => 'Height',
+        'jobExt' => 'JobExt',
+        'jobId' => 'JobId',
+        'jobType' => 'JobType',
         'modificationTime' => 'ModificationTime',
-        'narrowBandType'   => 'NarrowBandType',
-        'playURL'          => 'PlayURL',
-        'size'             => 'Size',
-        'specification'    => 'Specification',
-        'status'           => 'Status',
-        'streamType'       => 'StreamType',
-        'templateGroupId'  => 'TemplateGroupId',
-        'templateId'       => 'TemplateId',
-        'watermarkId'      => 'WatermarkId',
-        'width'            => 'Width',
+        'narrowBandType' => 'NarrowBandType',
+        'playURL' => 'PlayURL',
+        'size' => 'Size',
+        'specification' => 'Specification',
+        'status' => 'Status',
+        'streamType' => 'StreamType',
+        'templateGroupId' => 'TemplateGroupId',
+        'templateId' => 'TemplateId',
+        'watermarkId' => 'WatermarkId',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

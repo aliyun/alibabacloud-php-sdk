@@ -24,6 +24,7 @@ class DeleteTranscodeTemplateGroupRequest extends Model
      * @description The ID of the transcoding template group.
      *
      * This parameter is required.
+     *
      * @example 4c71a339fec*****152b4fa6f4527
      *
      * @var string
@@ -43,14 +44,12 @@ class DeleteTranscodeTemplateGroupRequest extends Model
      */
     public $transcodeTemplateIds;
     protected $_name = [
-        'forceDelGroup'            => 'ForceDelGroup',
+        'forceDelGroup' => 'ForceDelGroup',
         'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
-        'transcodeTemplateIds'     => 'TranscodeTemplateIds',
+        'transcodeTemplateIds' => 'TranscodeTemplateIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

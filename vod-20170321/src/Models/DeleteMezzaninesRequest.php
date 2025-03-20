@@ -15,6 +15,7 @@ class DeleteMezzaninesRequest extends Model
      *   **true**
      *
      * >  If a video is uploaded without transcoding or is asynchronously transcoded, the source file of the video is used for original-quality playback. By default, the source file of the video cannot be deleted. To forcibly delete the mezzanine file, set this parameter to **true**.
+     *
      * @example false
      *
      * @var bool
@@ -29,19 +30,18 @@ class DeleteMezzaninesRequest extends Model
      *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you called to query media information after the audio or video file is uploaded.
      *
      * This parameter is required.
+     *
      * @example 23ab850b4f654b6e91d24d8157****,93ab850b4f6f4b6e91d24d81d4****
      *
      * @var string
      */
     public $videoIds;
     protected $_name = [
-        'force'    => 'Force',
+        'force' => 'Force',
         'videoIds' => 'VideoIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

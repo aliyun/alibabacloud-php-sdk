@@ -17,9 +17,7 @@ class transcodeJobs extends Model
         'transcodeJob' => 'TranscodeJob',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class transcodeJobs extends Model
         if (isset($map['TranscodeJob'])) {
             if (!empty($map['TranscodeJob'])) {
                 $model->transcodeJob = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['TranscodeJob'] as $item) {
                     $model->transcodeJob[$n++] = null !== $item ? transcodeJob::fromMap($item) : $item;
                 }

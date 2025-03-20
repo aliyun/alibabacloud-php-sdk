@@ -26,13 +26,11 @@ class qpsModel extends Model
      */
     public $timeStamp;
     protected $_name = [
-        'qps'       => 'Qps',
+        'qps' => 'Qps',
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

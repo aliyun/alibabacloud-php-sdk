@@ -37,20 +37,19 @@ class GetVideoPlayAuthRequest extends Model
      *   Obtain the value of the VideoId parameter from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation. This method is applicable to files that have been uploaded.
      *
      * This parameter is required.
+     *
      * @example dfde02284a5c46622a097adaf44a****
      *
      * @var string
      */
     public $videoId;
     protected $_name = [
-        'apiVersion'      => 'ApiVersion',
+        'apiVersion' => 'ApiVersion',
         'authInfoTimeout' => 'AuthInfoTimeout',
-        'videoId'         => 'VideoId',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

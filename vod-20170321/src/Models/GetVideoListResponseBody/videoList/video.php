@@ -133,6 +133,7 @@ class video extends Model
      *   **ProduceFail**: The video failed to be produced.
      *
      * For more information about each video status, see the "Status: the status of a video" section of the [Basic data types](~~52839#section-p7c-jgy-070~~) topic.
+     *
      * @example Normal
      *
      * @var string
@@ -186,6 +187,11 @@ class video extends Model
     public $title;
 
     /**
+     * @var string
+     */
+    public $userData;
+
+    /**
      * @description The ID of the audio or video file.
      *
      * @example 9ae2af636ca6c10412f44891fc****
@@ -194,29 +200,28 @@ class video extends Model
      */
     public $videoId;
     protected $_name = [
-        'appId'             => 'AppId',
-        'cateId'            => 'CateId',
-        'cateName'          => 'CateName',
-        'coverURL'          => 'CoverURL',
-        'creationTime'      => 'CreationTime',
-        'description'       => 'Description',
-        'duration'          => 'Duration',
-        'modificationTime'  => 'ModificationTime',
+        'appId' => 'AppId',
+        'cateId' => 'CateId',
+        'cateName' => 'CateName',
+        'coverURL' => 'CoverURL',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'duration' => 'Duration',
+        'modificationTime' => 'ModificationTime',
         'restoreExpiration' => 'RestoreExpiration',
-        'restoreStatus'     => 'RestoreStatus',
-        'size'              => 'Size',
-        'snapshots'         => 'Snapshots',
-        'status'            => 'Status',
-        'storageClass'      => 'StorageClass',
-        'storageLocation'   => 'StorageLocation',
-        'tags'              => 'Tags',
-        'title'             => 'Title',
-        'videoId'           => 'VideoId',
+        'restoreStatus' => 'RestoreStatus',
+        'size' => 'Size',
+        'snapshots' => 'Snapshots',
+        'status' => 'Status',
+        'storageClass' => 'StorageClass',
+        'storageLocation' => 'StorageLocation',
+        'tags' => 'Tags',
+        'title' => 'Title',
+        'userData' => 'UserData',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -271,6 +276,9 @@ class video extends Model
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
@@ -337,6 +345,9 @@ class video extends Model
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];

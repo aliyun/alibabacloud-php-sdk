@@ -12,6 +12,7 @@ class DescribeVodDomainDetailRequest extends Model
      * @description The domain name for CDN.
      *
      * This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -28,14 +29,12 @@ class DescribeVodDomainDetailRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainName'    => 'DomainName',
-        'ownerId'       => 'OwnerId',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

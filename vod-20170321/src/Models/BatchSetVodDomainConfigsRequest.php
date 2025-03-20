@@ -12,6 +12,7 @@ class BatchSetVodDomainConfigsRequest extends Model
      * @description The domain name for CDN. Separate multiple domain names with commas (,).
      *
      * This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -26,6 +27,7 @@ class BatchSetVodDomainConfigsRequest extends Model
      *   For more information, see the **Feature description** section.
      *
      * This parameter is required.
+     *
      * @example [{"functionArgs":[{"argName":"domain_name","argValue":"www.example.com"}],"functionName":"set_req_host_header"}]
      *
      * @var string
@@ -47,16 +49,14 @@ class BatchSetVodDomainConfigsRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'domainNames'   => 'DomainNames',
-        'functions'     => 'Functions',
-        'ownerAccount'  => 'OwnerAccount',
-        'ownerId'       => 'OwnerId',
+        'domainNames' => 'DomainNames',
+        'functions' => 'Functions',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -32,13 +32,11 @@ class UpdateVideoInfosResponseBody extends Model
     public $requestId;
     protected $_name = [
         'forbiddenVideoIds' => 'ForbiddenVideoIds',
-        'nonExistVideoIds'  => 'NonExistVideoIds',
-        'requestId'         => 'RequestId',
+        'nonExistVideoIds' => 'NonExistVideoIds',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

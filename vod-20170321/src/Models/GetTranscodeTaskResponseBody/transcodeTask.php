@@ -88,19 +88,17 @@ class transcodeTask extends Model
      */
     public $videoId;
     protected $_name = [
-        'completeTime'             => 'CompleteTime',
-        'creationTime'             => 'CreationTime',
-        'taskStatus'               => 'TaskStatus',
-        'transcodeJobInfoList'     => 'TranscodeJobInfoList',
-        'transcodeTaskId'          => 'TranscodeTaskId',
+        'completeTime' => 'CompleteTime',
+        'creationTime' => 'CreationTime',
+        'taskStatus' => 'TaskStatus',
+        'transcodeJobInfoList' => 'TranscodeJobInfoList',
+        'transcodeTaskId' => 'TranscodeTaskId',
         'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
-        'trigger'                  => 'Trigger',
-        'videoId'                  => 'VideoId',
+        'trigger' => 'Trigger',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -159,7 +157,7 @@ class transcodeTask extends Model
         if (isset($map['TranscodeJobInfoList'])) {
             if (!empty($map['TranscodeJobInfoList'])) {
                 $model->transcodeJobInfoList = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['TranscodeJobInfoList'] as $item) {
                     $model->transcodeJobInfoList[$n++] = null !== $item ? transcodeJobInfoList::fromMap($item) : $item;
                 }

@@ -15,6 +15,7 @@ class ListAITemplateRequest extends Model
      *   **AIImage**: smart thumbnail
      *
      * This parameter is required.
+     *
      * @example AIMediaAudit
      *
      * @var string
@@ -24,9 +25,7 @@ class ListAITemplateRequest extends Model
         'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

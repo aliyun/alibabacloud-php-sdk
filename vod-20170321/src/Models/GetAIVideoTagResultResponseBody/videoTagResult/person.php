@@ -12,6 +12,7 @@ class person extends Model
      * @description The URL of the profile photo.
      *
      * > This parameter is returned only when a figure tag was used.
+     *
      * @example http://example.com/aivideotag/8829B4DB-AFD9-4F*****F6-12965DBFFA14/Index_****.jpg
      *
      * @var string
@@ -35,13 +36,11 @@ class person extends Model
     public $times;
     protected $_name = [
         'faceUrl' => 'FaceUrl',
-        'tag'     => 'Tag',
-        'times'   => 'Times',
+        'tag' => 'Tag',
+        'times' => 'Times',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

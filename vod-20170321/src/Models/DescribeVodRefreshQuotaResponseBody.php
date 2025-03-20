@@ -89,20 +89,18 @@ class DescribeVodRefreshQuotaResponseBody extends Model
      */
     public $blockRemain;
     protected $_name = [
-        'blockQuota'    => 'BlockQuota',
-        'dirQuota'      => 'DirQuota',
-        'dirRemain'     => 'DirRemain',
-        'preloadQuota'  => 'PreloadQuota',
+        'blockQuota' => 'BlockQuota',
+        'dirQuota' => 'DirQuota',
+        'dirRemain' => 'DirRemain',
+        'preloadQuota' => 'PreloadQuota',
         'preloadRemain' => 'PreloadRemain',
-        'requestId'     => 'RequestId',
-        'urlQuota'      => 'UrlQuota',
-        'urlRemain'     => 'UrlRemain',
-        'blockRemain'   => 'blockRemain',
+        'requestId' => 'RequestId',
+        'urlQuota' => 'UrlQuota',
+        'urlRemain' => 'UrlRemain',
+        'blockRemain' => 'blockRemain',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

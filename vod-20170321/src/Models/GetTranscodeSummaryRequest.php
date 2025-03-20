@@ -16,6 +16,7 @@ class GetTranscodeSummaryRequest extends Model
      *   Obtain the value of VideoId by calling the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation. This method is applicable to files that have been uploaded.
      *
      * This parameter is required.
+     *
      * @example "d4860fcc6ae9fed52e8938244****,e1db68cc586644b83e562bcd94****,hhhhhhh"
      *
      * @var string
@@ -25,9 +26,7 @@ class GetTranscodeSummaryRequest extends Model
         'videoIds' => 'VideoIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

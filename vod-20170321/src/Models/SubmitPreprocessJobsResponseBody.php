@@ -26,12 +26,10 @@ class SubmitPreprocessJobsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'preprocessJobs' => 'PreprocessJobs',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

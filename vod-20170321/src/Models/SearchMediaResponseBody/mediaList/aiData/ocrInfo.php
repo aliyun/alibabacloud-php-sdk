@@ -36,13 +36,11 @@ class ocrInfo extends Model
     public $to;
     protected $_name = [
         'content' => 'Content',
-        'from'    => 'From',
-        'to'      => 'To',
+        'from' => 'From',
+        'to' => 'To',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

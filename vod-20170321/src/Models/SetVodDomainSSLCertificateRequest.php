@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetVodDomainSSLCertificateRequest extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
      * @example 12342707
      *
      * @var int
@@ -16,6 +18,8 @@ class SetVodDomainSSLCertificateRequest extends Model
     public $certId;
 
     /**
+     * @description The name of the certificate.
+     *
      * @example cert_name
      *
      * @var string
@@ -23,6 +27,13 @@ class SetVodDomainSSLCertificateRequest extends Model
     public $certName;
 
     /**
+     * @description The region of the certificate. Valid values:
+     *
+     *   **ap-southeast-1**: Singapore
+     *   **cn-hangzhou**: China (Hangzhou)
+     *
+     * Default value: **cn-hangzhou**
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +41,11 @@ class SetVodDomainSSLCertificateRequest extends Model
     public $certRegion;
 
     /**
+     * @description The type of the certificate.
+     *
+     *   **upload**: a user-uploaded SSL certificate.
+     *   **cas**: a certificate that is acquired through Certificate Management Service.
+     *
      * @example cas
      *
      * @var string
@@ -37,7 +53,9 @@ class SetVodDomainSSLCertificateRequest extends Model
     public $certType;
 
     /**
-     * @description This parameter is required.
+     * @description VOD acceleration domain.
+     *
+     * This parameter is required.
      *
      * @example example.com
      *
@@ -46,6 +64,8 @@ class SetVodDomainSSLCertificateRequest extends Model
     public $domainName;
 
     /**
+     * @description Specifies whether the certificate is issued in canary releases. If you set this parameter to **staging**, the certificate is issued in canary releases. If you do not specify this parameter or set this parameter to other values, the certificate is officially issued.
+     *
      * @example staging
      *
      * @var string
@@ -58,6 +78,8 @@ class SetVodDomainSSLCertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The private key. This parameter is required only if you enable the certificate.
+     *
      * @example ****
      *
      * @var string
@@ -65,7 +87,12 @@ class SetVodDomainSSLCertificateRequest extends Model
     public $SSLPri;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to enable the SSL certificate. Default value: off. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
+     * This parameter is required.
      *
      * @example off
      *
@@ -74,6 +101,8 @@ class SetVodDomainSSLCertificateRequest extends Model
     public $SSLProtocol;
 
     /**
+     * @description The content of the certificate. This parameter is required only if you enable the SSL certificate.
+     *
      * @example ****
      *
      * @var string
@@ -85,22 +114,20 @@ class SetVodDomainSSLCertificateRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'certId'        => 'CertId',
-        'certName'      => 'CertName',
-        'certRegion'    => 'CertRegion',
-        'certType'      => 'CertType',
-        'domainName'    => 'DomainName',
-        'env'           => 'Env',
-        'ownerId'       => 'OwnerId',
-        'SSLPri'        => 'SSLPri',
-        'SSLProtocol'   => 'SSLProtocol',
-        'SSLPub'        => 'SSLPub',
+        'certId' => 'CertId',
+        'certName' => 'CertName',
+        'certRegion' => 'CertRegion',
+        'certType' => 'CertType',
+        'domainName' => 'DomainName',
+        'env' => 'Env',
+        'ownerId' => 'OwnerId',
+        'SSLPri' => 'SSLPri',
+        'SSLProtocol' => 'SSLProtocol',
+        'SSLPub' => 'SSLPub',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -86,19 +86,17 @@ class vodTemplateInfoList extends Model
      */
     public $vodTemplateId;
     protected $_name = [
-        'appId'          => 'AppId',
-        'creationTime'   => 'CreationTime',
-        'isDefault'      => 'IsDefault',
-        'modifyTime'     => 'ModifyTime',
-        'name'           => 'Name',
+        'appId' => 'AppId',
+        'creationTime' => 'CreationTime',
+        'isDefault' => 'IsDefault',
+        'modifyTime' => 'ModifyTime',
+        'name' => 'Name',
         'templateConfig' => 'TemplateConfig',
-        'templateType'   => 'TemplateType',
-        'vodTemplateId'  => 'VodTemplateId',
+        'templateType' => 'TemplateType',
+        'vodTemplateId' => 'VodTemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

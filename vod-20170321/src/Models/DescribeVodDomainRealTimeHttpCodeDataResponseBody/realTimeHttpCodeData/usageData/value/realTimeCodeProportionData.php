@@ -35,14 +35,12 @@ class realTimeCodeProportionData extends Model
      */
     public $proportion;
     protected $_name = [
-        'code'       => 'Code',
-        'count'      => 'Count',
+        'code' => 'Code',
+        'count' => 'Count',
         'proportion' => 'Proportion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -85,19 +85,17 @@ class transcodeTemplateGroup extends Model
      */
     public $transcodeTemplateList;
     protected $_name = [
-        'appId'                    => 'AppId',
-        'creationTime'             => 'CreationTime',
-        'isDefault'                => 'IsDefault',
-        'locked'                   => 'Locked',
-        'modifyTime'               => 'ModifyTime',
-        'name'                     => 'Name',
+        'appId' => 'AppId',
+        'creationTime' => 'CreationTime',
+        'isDefault' => 'IsDefault',
+        'locked' => 'Locked',
+        'modifyTime' => 'ModifyTime',
+        'name' => 'Name',
         'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
-        'transcodeTemplateList'    => 'TranscodeTemplateList',
+        'transcodeTemplateList' => 'TranscodeTemplateList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -168,7 +166,7 @@ class transcodeTemplateGroup extends Model
         if (isset($map['TranscodeTemplateList'])) {
             if (!empty($map['TranscodeTemplateList'])) {
                 $model->transcodeTemplateList = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['TranscodeTemplateList'] as $item) {
                     $model->transcodeTemplateList[$n++] = null !== $item ? transcodeTemplateList::fromMap($item) : $item;
                 }

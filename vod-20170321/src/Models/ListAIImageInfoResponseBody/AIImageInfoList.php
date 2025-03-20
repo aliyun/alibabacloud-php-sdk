@@ -79,18 +79,16 @@ class AIImageInfoList extends Model
     public $videoId;
     protected $_name = [
         'AIImageInfoId' => 'AIImageInfoId',
-        'creationTime'  => 'CreationTime',
-        'fileURL'       => 'FileURL',
-        'format'        => 'Format',
-        'jobId'         => 'JobId',
-        'score'         => 'Score',
-        'version'       => 'Version',
-        'videoId'       => 'VideoId',
+        'creationTime' => 'CreationTime',
+        'fileURL' => 'FileURL',
+        'format' => 'Format',
+        'jobId' => 'JobId',
+        'score' => 'Score',
+        'version' => 'Version',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

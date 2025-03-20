@@ -27,12 +27,10 @@ class snapshot extends Model
     public $url;
     protected $_name = [
         'index' => 'Index',
-        'url'   => 'Url',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

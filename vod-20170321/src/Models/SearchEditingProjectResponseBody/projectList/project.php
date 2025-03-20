@@ -38,6 +38,7 @@ class project extends Model
     /**
      * @description The duration of the online editing project, which must be consistent with the duration of the timeline.
      * > The Timeline parameter is not included in response parameters.
+     *
      * @example 22.65
      *
      * @var float
@@ -87,6 +88,7 @@ class project extends Model
     /**
      * @description The path of the Object Storage Service (OSS) bucket where the produced video is stored.
      * > To view the path of the OSS bucket, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/?spm=a2c4g.11186623.2.15.6948257eaZ4m54#/vod/settings/censored), and choose **Configuration Management** > **Media Management** > **Storage**. On the Storage page, you can view the path of the OSS bucket.
+     *
      * @example location_s
      *
      * @var string
@@ -102,21 +104,19 @@ class project extends Model
      */
     public $title;
     protected $_name = [
-        'coverURL'        => 'CoverURL',
-        'creationTime'    => 'CreationTime',
-        'description'     => 'Description',
-        'duration'        => 'Duration',
-        'modifiedTime'    => 'ModifiedTime',
-        'projectId'       => 'ProjectId',
-        'regionId'        => 'RegionId',
-        'status'          => 'Status',
+        'coverURL' => 'CoverURL',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'duration' => 'Duration',
+        'modifiedTime' => 'ModifiedTime',
+        'projectId' => 'ProjectId',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
         'storageLocation' => 'StorageLocation',
-        'title'           => 'Title',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

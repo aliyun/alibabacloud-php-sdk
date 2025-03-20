@@ -125,24 +125,22 @@ class cert extends Model
      */
     public $signAlgorithm;
     protected $_name = [
-        'algorithm'       => 'Algorithm',
-        'certId'          => 'CertId',
-        'certIdentifier'  => 'CertIdentifier',
-        'certName'        => 'CertName',
-        'common'          => 'Common',
-        'createTime'      => 'CreateTime',
+        'algorithm' => 'Algorithm',
+        'certId' => 'CertId',
+        'certIdentifier' => 'CertIdentifier',
+        'certName' => 'CertName',
+        'common' => 'Common',
+        'createTime' => 'CreateTime',
         'domainMatchCert' => 'DomainMatchCert',
-        'endTime'         => 'EndTime',
-        'fingerprint'     => 'Fingerprint',
-        'instanceId'      => 'InstanceId',
-        'issuer'          => 'Issuer',
-        'lastTime'        => 'LastTime',
-        'signAlgorithm'   => 'SignAlgorithm',
+        'endTime' => 'EndTime',
+        'fingerprint' => 'Fingerprint',
+        'instanceId' => 'InstanceId',
+        'issuer' => 'Issuer',
+        'lastTime' => 'LastTime',
+        'signAlgorithm' => 'SignAlgorithm',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

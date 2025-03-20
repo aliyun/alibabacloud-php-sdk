@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class GetTranscodeTaskResponseBody extends Model
 {
     /**
+     * @description The nonexistent job ID.
+     *
      * @var string[]
      */
     public $nonExistJobIds;
@@ -25,6 +27,8 @@ class GetTranscodeTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description List of transcode job information.
+     *
      * @var transcodeJobInfoList[]
      */
     public $transcodeJobInfoList;
@@ -36,15 +40,13 @@ class GetTranscodeTaskResponseBody extends Model
      */
     public $transcodeTask;
     protected $_name = [
-        'nonExistJobIds'       => 'NonExistJobIds',
-        'requestId'            => 'RequestId',
+        'nonExistJobIds' => 'NonExistJobIds',
+        'requestId' => 'RequestId',
         'transcodeJobInfoList' => 'TranscodeJobInfoList',
-        'transcodeTask'        => 'TranscodeTask',
+        'transcodeTask' => 'TranscodeTask',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -90,7 +92,7 @@ class GetTranscodeTaskResponseBody extends Model
         if (isset($map['TranscodeJobInfoList'])) {
             if (!empty($map['TranscodeJobInfoList'])) {
                 $model->transcodeJobInfoList = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['TranscodeJobInfoList'] as $item) {
                     $model->transcodeJobInfoList[$n++] = null !== $item ? transcodeJobInfoList::fromMap($item) : $item;
                 }

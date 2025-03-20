@@ -26,12 +26,10 @@ class GetMediaAuditResultDetailResponseBody extends Model
     public $requestId;
     protected $_name = [
         'mediaAuditResultDetail' => 'MediaAuditResultDetail',
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

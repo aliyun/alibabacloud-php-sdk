@@ -52,16 +52,14 @@ class DescribeVodUserDomainsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'domains'    => 'Domains',
+        'domains' => 'Domains',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

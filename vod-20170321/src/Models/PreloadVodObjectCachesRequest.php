@@ -36,6 +36,7 @@ class PreloadVodObjectCachesRequest extends Model
      * @description The URL of the file to be prefetched. Separate multiple URLs with line breaks (\\n or \\r\\n).
      *
      * This parameter is required.
+     *
      * @example vod.test.com/test.txt
      *
      * @var string
@@ -56,22 +57,24 @@ class PreloadVodObjectCachesRequest extends Model
      * @description The custom header for prefetch in the JSON format.
      *
      * @example {
+     * "Accept-Encoding": [
+     * "gzip, deflate, br"
+     * ]
      * }
+     *
      * @var string
      */
     public $withHeader;
     protected $_name = [
-        'area'          => 'Area',
-        'l2Preload'     => 'L2Preload',
-        'objectPath'    => 'ObjectPath',
-        'ownerId'       => 'OwnerId',
+        'area' => 'Area',
+        'l2Preload' => 'L2Preload',
+        'objectPath' => 'ObjectPath',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
-        'withHeader'    => 'WithHeader',
+        'withHeader' => 'WithHeader',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

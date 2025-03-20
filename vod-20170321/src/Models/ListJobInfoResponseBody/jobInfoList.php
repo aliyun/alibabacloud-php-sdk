@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class jobInfoList extends Model
 {
     /**
+     * @description The time when the task was complete.
+     *
      * @example 2024-10-14T07:39:34Z
      *
      * @var string
@@ -16,6 +18,8 @@ class jobInfoList extends Model
     public $completeTime;
 
     /**
+     * @description The time when the task was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2024-10-14T07:39:25Z
      *
      * @var string
@@ -23,6 +27,8 @@ class jobInfoList extends Model
     public $createTime;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 5c9dff751ba**********59d50a967f5
      *
      * @var string
@@ -30,6 +36,8 @@ class jobInfoList extends Model
     public $jobId;
 
     /**
+     * @description The status of the task.
+     *
      * @example TranscodeSuccess
      *
      * @var string
@@ -37,6 +45,8 @@ class jobInfoList extends Model
     public $status;
 
     /**
+     * @description The ID of the user who submitted the task.
+     *
      * @example 139109*****84930
      *
      * @var int
@@ -44,15 +54,13 @@ class jobInfoList extends Model
     public $userId;
     protected $_name = [
         'completeTime' => 'CompleteTime',
-        'createTime'   => 'CreateTime',
-        'jobId'        => 'JobId',
-        'status'       => 'Status',
-        'userId'       => 'UserId',
+        'createTime' => 'CreateTime',
+        'jobId' => 'JobId',
+        'status' => 'Status',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

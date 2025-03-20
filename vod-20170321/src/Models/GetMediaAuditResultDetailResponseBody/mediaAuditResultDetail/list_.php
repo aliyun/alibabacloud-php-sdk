@@ -157,23 +157,21 @@ class list_ extends Model
      */
     public $url;
     protected $_name = [
-        'adLabel'        => 'AdLabel',
-        'adScore'        => 'AdScore',
-        'liveLabel'      => 'LiveLabel',
-        'liveScore'      => 'LiveScore',
-        'logoLabel'      => 'LogoLabel',
-        'logoScore'      => 'LogoScore',
-        'pornLabel'      => 'PornLabel',
-        'pornScore'      => 'PornScore',
+        'adLabel' => 'AdLabel',
+        'adScore' => 'AdScore',
+        'liveLabel' => 'LiveLabel',
+        'liveScore' => 'LiveScore',
+        'logoLabel' => 'LogoLabel',
+        'logoScore' => 'LogoScore',
+        'pornLabel' => 'PornLabel',
+        'pornScore' => 'PornScore',
         'terrorismLabel' => 'TerrorismLabel',
         'terrorismScore' => 'TerrorismScore',
-        'timestamp'      => 'Timestamp',
-        'url'            => 'Url',
+        'timestamp' => 'Timestamp',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

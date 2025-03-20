@@ -53,16 +53,14 @@ class logInfoDetail extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'logName'   => 'LogName',
-        'logPath'   => 'LogPath',
-        'logSize'   => 'LogSize',
+        'endTime' => 'EndTime',
+        'logName' => 'LogName',
+        'logPath' => 'LogPath',
+        'logSize' => 'LogSize',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,14 +34,12 @@ class GetVideoPlayAuthResponseBody extends Model
      */
     public $videoMeta;
     protected $_name = [
-        'playAuth'  => 'PlayAuth',
+        'playAuth' => 'PlayAuth',
         'requestId' => 'RequestId',
         'videoMeta' => 'VideoMeta',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

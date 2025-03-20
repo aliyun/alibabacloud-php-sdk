@@ -20,9 +20,7 @@ class preprocessJob extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

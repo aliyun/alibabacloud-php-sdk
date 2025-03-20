@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AIJobDetail extends Model
 {
     /**
+     * @description The end time of the task.
+     *
      * @example 2024-10-14T07:39:46Z
      *
      * @var string
@@ -16,6 +18,8 @@ class AIJobDetail extends Model
     public $completeTime;
 
     /**
+     * @description The time when the task was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2024-10-14T07:39:25Z
      *
      * @var string
@@ -23,6 +27,8 @@ class AIJobDetail extends Model
     public $createTime;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 5c9dff751ba**********59d50a967f5
      *
      * @var string
@@ -30,6 +36,8 @@ class AIJobDetail extends Model
     public $jobId;
 
     /**
+     * @description The type of the AI task.
+     *
      * @example AIVideoCensor
      *
      * @var string
@@ -37,6 +45,8 @@ class AIJobDetail extends Model
     public $jobType;
 
     /**
+     * @description The ID of the media asset.
+     *
      * @example 30e5d7**********bd900764de7c0102
      *
      * @var string
@@ -44,6 +54,15 @@ class AIJobDetail extends Model
     public $mediaId;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   reserved
+     *   init
+     *   success
+     *   fail
+     *   processing
+     *   analysing
+     *
      * @example success
      *
      * @var string
@@ -51,6 +70,8 @@ class AIJobDetail extends Model
     public $status;
 
     /**
+     * @description The template configuration.
+     *
      * @example {"AuditRange":["video","image-cover","text-title"],"AuditContent":["screen"],"AuditItem":["terrorism","porn"],"AuditAutoBlock":"no"}
      *
      * @var string
@@ -58,6 +79,11 @@ class AIJobDetail extends Model
     public $templateConfig;
 
     /**
+     * @description The trigger mode. Valid values:
+     *
+     *   Auto
+     *   Manual
+     *
      * @example Auto
      *
      * @var string
@@ -65,26 +91,26 @@ class AIJobDetail extends Model
     public $trigger;
 
     /**
+     * @description The ID of the user who submitted the task.
+     *
      * @example 139109*****84930
      *
      * @var int
      */
     public $userId;
     protected $_name = [
-        'completeTime'   => 'CompleteTime',
-        'createTime'     => 'CreateTime',
-        'jobId'          => 'JobId',
-        'jobType'        => 'JobType',
-        'mediaId'        => 'MediaId',
-        'status'         => 'Status',
+        'completeTime' => 'CompleteTime',
+        'createTime' => 'CreateTime',
+        'jobId' => 'JobId',
+        'jobType' => 'JobType',
+        'mediaId' => 'MediaId',
+        'status' => 'Status',
         'templateConfig' => 'TemplateConfig',
-        'trigger'        => 'Trigger',
-        'userId'         => 'UserId',
+        'trigger' => 'Trigger',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

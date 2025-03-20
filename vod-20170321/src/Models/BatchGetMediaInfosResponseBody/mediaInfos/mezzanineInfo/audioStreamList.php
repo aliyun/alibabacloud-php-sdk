@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class audioStreamList extends Model
 {
     /**
+     * @description The bitrate.
+     *
      * @example 62.885
      *
      * @var string
@@ -16,6 +18,11 @@ class audioStreamList extends Model
     public $bitrate;
 
     /**
+     * @description The output layout of the audio channels. Valid values:
+     *
+     *   **mono**
+     *   **stereo**
+     *
      * @example mono
      *
      * @var string
@@ -23,6 +30,8 @@ class audioStreamList extends Model
     public $channelLayout;
 
     /**
+     * @description The number of sound tracks.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +39,8 @@ class audioStreamList extends Model
     public $channels;
 
     /**
+     * @description The full name of the encoding format.
+     *
      * @example AAC (Advanced Audio Coding)
      *
      * @var string
@@ -37,6 +48,8 @@ class audioStreamList extends Model
     public $codecLongName;
 
     /**
+     * @description The short name of the encoding format.
+     *
      * @example aac
      *
      * @var string
@@ -44,6 +57,8 @@ class audioStreamList extends Model
     public $codecName;
 
     /**
+     * @description The tag of the encoding format.
+     *
      * @example 0x6134706d
      *
      * @var string
@@ -51,6 +66,8 @@ class audioStreamList extends Model
     public $codecTag;
 
     /**
+     * @description The tag string of the encoding format.
+     *
      * @example mp4a
      *
      * @var string
@@ -58,6 +75,8 @@ class audioStreamList extends Model
     public $codecTagString;
 
     /**
+     * @description The time base of the encoder.
+     *
      * @example 1/44100
      *
      * @var string
@@ -65,6 +84,8 @@ class audioStreamList extends Model
     public $codecTimeBase;
 
     /**
+     * @description The duration.
+     *
      * @example 3.227574
      *
      * @var string
@@ -72,6 +93,8 @@ class audioStreamList extends Model
     public $duration;
 
     /**
+     * @description The sequence number of the audio stream. The value indicates the position of the audio stream in all audio streams.
+     *
      * @example 0
      *
      * @var string
@@ -79,6 +102,8 @@ class audioStreamList extends Model
     public $index;
 
     /**
+     * @description The language.
+     *
      * @example und
      *
      * @var string
@@ -86,6 +111,8 @@ class audioStreamList extends Model
     public $lang;
 
     /**
+     * @description The total number of frames.
+     *
      * @example 1
      *
      * @var string
@@ -93,6 +120,8 @@ class audioStreamList extends Model
     public $numFrames;
 
     /**
+     * @description The sampling format.
+     *
      * @example fltp
      *
      * @var string
@@ -100,6 +129,8 @@ class audioStreamList extends Model
     public $sampleFmt;
 
     /**
+     * @description The sampling rate.
+     *
      * @example 44100
      *
      * @var string
@@ -107,6 +138,8 @@ class audioStreamList extends Model
     public $sampleRate;
 
     /**
+     * @description The start time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
@@ -114,33 +147,33 @@ class audioStreamList extends Model
     public $startTime;
 
     /**
+     * @description The time base.
+     *
      * @example 0.000000
      *
      * @var string
      */
     public $timebase;
     protected $_name = [
-        'bitrate'        => 'Bitrate',
-        'channelLayout'  => 'ChannelLayout',
-        'channels'       => 'Channels',
-        'codecLongName'  => 'CodecLongName',
-        'codecName'      => 'CodecName',
-        'codecTag'       => 'CodecTag',
+        'bitrate' => 'Bitrate',
+        'channelLayout' => 'ChannelLayout',
+        'channels' => 'Channels',
+        'codecLongName' => 'CodecLongName',
+        'codecName' => 'CodecName',
+        'codecTag' => 'CodecTag',
         'codecTagString' => 'CodecTagString',
-        'codecTimeBase'  => 'CodecTimeBase',
-        'duration'       => 'Duration',
-        'index'          => 'Index',
-        'lang'           => 'Lang',
-        'numFrames'      => 'NumFrames',
-        'sampleFmt'      => 'SampleFmt',
-        'sampleRate'     => 'SampleRate',
-        'startTime'      => 'StartTime',
-        'timebase'       => 'Timebase',
+        'codecTimeBase' => 'CodecTimeBase',
+        'duration' => 'Duration',
+        'index' => 'Index',
+        'lang' => 'Lang',
+        'numFrames' => 'NumFrames',
+        'sampleFmt' => 'SampleFmt',
+        'sampleRate' => 'SampleRate',
+        'startTime' => 'StartTime',
+        'timebase' => 'Timebase',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

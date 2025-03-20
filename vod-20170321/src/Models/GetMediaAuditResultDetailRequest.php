@@ -12,6 +12,7 @@ class GetMediaAuditResultDetailRequest extends Model
      * @description The ID of the video.
      *
      * This parameter is required.
+     *
      * @example 93ab850b4f6f*****54b6e91d24d81d4
      *
      * @var string
@@ -22,6 +23,7 @@ class GetMediaAuditResultDetailRequest extends Model
      * @description The page number. The default value is **1**. A maximum of **20** records can be returned on each page.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -29,12 +31,10 @@ class GetMediaAuditResultDetailRequest extends Model
     public $pageNo;
     protected $_name = [
         'mediaId' => 'MediaId',
-        'pageNo'  => 'PageNo',
+        'pageNo' => 'PageNo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

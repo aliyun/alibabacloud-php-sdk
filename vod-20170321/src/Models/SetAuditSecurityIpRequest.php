@@ -15,6 +15,7 @@ class SetAuditSecurityIpRequest extends Model
      *   CIDR block: 192.168.0.1/24. /24 indicates that the prefix of the CIDR block is 24 bits in length. You can replace 24 with a value that ranges `from 1 to 32`.
      *
      * This parameter is required.
+     *
      * @example 192.168.0.1
      *
      * @var string
@@ -29,6 +30,7 @@ class SetAuditSecurityIpRequest extends Model
      *   **Delete**: removes the IP addresses from the original whitelist.
      *
      * >  If the value that you specify is invalid, the default value is used.
+     *
      * @example Cover
      *
      * @var string
@@ -44,14 +46,12 @@ class SetAuditSecurityIpRequest extends Model
      */
     public $securityGroupName;
     protected $_name = [
-        'ips'               => 'Ips',
-        'operateMode'       => 'OperateMode',
+        'ips' => 'Ips',
+        'operateMode' => 'OperateMode',
         'securityGroupName' => 'SecurityGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

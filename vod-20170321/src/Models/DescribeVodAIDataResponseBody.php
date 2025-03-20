@@ -37,14 +37,12 @@ class DescribeVodAIDataResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'AIData'       => 'AIData',
+        'AIData' => 'AIData',
         'dataInterval' => 'DataInterval',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

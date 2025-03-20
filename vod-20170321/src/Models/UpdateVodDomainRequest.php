@@ -12,6 +12,7 @@ class UpdateVodDomainRequest extends Model
      * @description The domain name.
      *
      * This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -46,16 +47,14 @@ class UpdateVodDomainRequest extends Model
      */
     public $topLevelDomain;
     protected $_name = [
-        'domainName'     => 'DomainName',
-        'ownerId'        => 'OwnerId',
-        'securityToken'  => 'SecurityToken',
-        'sources'        => 'Sources',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
+        'securityToken' => 'SecurityToken',
+        'sources' => 'Sources',
         'topLevelDomain' => 'TopLevelDomain',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

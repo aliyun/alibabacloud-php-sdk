@@ -15,6 +15,7 @@ class UpdateCategoryRequest extends Model
      *   Obtain the category ID from the response to the [AddCategory](~~AddCategory~~) operation.
      *
      * This parameter is required.
+     *
      * @example 10020****
      *
      * @var int
@@ -28,19 +29,18 @@ class UpdateCategoryRequest extends Model
      *   The value must be encoded in UTF-8.
      *
      * This parameter is required.
+     *
      * @example beauty
      *
      * @var string
      */
     public $cateName;
     protected $_name = [
-        'cateId'   => 'CateId',
+        'cateId' => 'CateId',
         'cateName' => 'CateName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ListDynamicImageRequest extends Model
      * @description The ID of the video.
      *
      * This parameter is required.
+     *
      * @example 2e114f1100590c3193918fd449a****
      *
      * @var string
@@ -21,9 +22,7 @@ class ListDynamicImageRequest extends Model
         'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

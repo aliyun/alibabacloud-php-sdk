@@ -17,9 +17,7 @@ class videoPlayStatisDetails extends Model
         'videoPlayStatisDetail' => 'VideoPlayStatisDetail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class videoPlayStatisDetails extends Model
         if (isset($map['VideoPlayStatisDetail'])) {
             if (!empty($map['VideoPlayStatisDetail'])) {
                 $model->videoPlayStatisDetail = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['VideoPlayStatisDetail'] as $item) {
                     $model->videoPlayStatisDetail[$n++] = null !== $item ? videoPlayStatisDetail::fromMap($item) : $item;
                 }

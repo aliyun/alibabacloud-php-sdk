@@ -12,6 +12,7 @@ class DecryptKMSDataKeyRequest extends Model
      * @description The ciphertext to be decrypted.
      *
      * This parameter is required.
+     *
      * @example DZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmaaSl+TztSIMe43nbTH/Z1Wr4XfLftKhAciUmDQXuMRl4WTvKhxjMThjK****
      *
      * @var string
@@ -38,16 +39,14 @@ class DecryptKMSDataKeyRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'cipherText'           => 'CipherText',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'cipherText' => 'CipherText',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

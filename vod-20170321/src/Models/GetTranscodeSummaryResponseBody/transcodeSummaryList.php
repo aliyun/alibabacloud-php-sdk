@@ -67,17 +67,15 @@ class transcodeSummaryList extends Model
      */
     public $videoId;
     protected $_name = [
-        'completeTime'                => 'CompleteTime',
-        'creationTime'                => 'CreationTime',
+        'completeTime' => 'CompleteTime',
+        'creationTime' => 'CreationTime',
         'transcodeJobInfoSummaryList' => 'TranscodeJobInfoSummaryList',
-        'transcodeStatus'             => 'TranscodeStatus',
-        'transcodeTemplateGroupId'    => 'TranscodeTemplateGroupId',
-        'videoId'                     => 'VideoId',
+        'transcodeStatus' => 'TranscodeStatus',
+        'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -127,7 +125,7 @@ class transcodeSummaryList extends Model
         if (isset($map['TranscodeJobInfoSummaryList'])) {
             if (!empty($map['TranscodeJobInfoSummaryList'])) {
                 $model->transcodeJobInfoSummaryList = [];
-                $n                                  = 0;
+                $n = 0;
                 foreach ($map['TranscodeJobInfoSummaryList'] as $item) {
                     $model->transcodeJobInfoSummaryList[$n++] = null !== $item ? transcodeJobInfoSummaryList::fromMap($item) : $item;
                 }

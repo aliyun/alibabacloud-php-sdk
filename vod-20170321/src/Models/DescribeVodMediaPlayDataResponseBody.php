@@ -52,16 +52,14 @@ class DescribeVodMediaPlayDataResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNo'      => 'PageNo',
-        'pageSize'    => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'qoeInfoList' => 'QoeInfoList',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +106,7 @@ class DescribeVodMediaPlayDataResponseBody extends Model
         if (isset($map['QoeInfoList'])) {
             if (!empty($map['QoeInfoList'])) {
                 $model->qoeInfoList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['QoeInfoList'] as $item) {
                     $model->qoeInfoList[$n++] = null !== $item ? qoeInfoList::fromMap($item) : $item;
                 }

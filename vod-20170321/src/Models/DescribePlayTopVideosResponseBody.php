@@ -52,16 +52,14 @@ class DescribePlayTopVideosResponseBody extends Model
      */
     public $totalNum;
     protected $_name = [
-        'pageNo'        => 'PageNo',
-        'pageSize'      => 'PageSize',
-        'requestId'     => 'RequestId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'topPlayVideos' => 'TopPlayVideos',
-        'totalNum'      => 'TotalNum',
+        'totalNum' => 'TotalNum',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

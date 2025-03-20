@@ -35,13 +35,11 @@ class ListAppInfoResponseBody extends Model
     public $total;
     protected $_name = [
         'appInfoList' => 'AppInfoList',
-        'requestId'   => 'RequestId',
-        'total'       => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListAppInfoResponseBody extends Model
         if (isset($map['AppInfoList'])) {
             if (!empty($map['AppInfoList'])) {
                 $model->appInfoList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['AppInfoList'] as $item) {
                     $model->appInfoList[$n++] = null !== $item ? appInfoList::fromMap($item) : $item;
                 }

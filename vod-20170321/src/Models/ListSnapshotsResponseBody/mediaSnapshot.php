@@ -53,15 +53,13 @@ class mediaSnapshot extends Model
     public $total;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'jobId'        => 'JobId',
-        'regular'      => 'Regular',
-        'snapshots'    => 'Snapshots',
-        'total'        => 'Total',
+        'jobId' => 'JobId',
+        'regular' => 'Regular',
+        'snapshots' => 'Snapshots',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

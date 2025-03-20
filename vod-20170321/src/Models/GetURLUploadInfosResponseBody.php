@@ -32,14 +32,12 @@ class GetURLUploadInfosResponseBody extends Model
      */
     public $URLUploadInfoList;
     protected $_name = [
-        'nonExists'         => 'NonExists',
-        'requestId'         => 'RequestId',
+        'nonExists' => 'NonExists',
+        'requestId' => 'RequestId',
         'URLUploadInfoList' => 'URLUploadInfoList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class GetURLUploadInfosResponseBody extends Model
         if (isset($map['URLUploadInfoList'])) {
             if (!empty($map['URLUploadInfoList'])) {
                 $model->URLUploadInfoList = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['URLUploadInfoList'] as $item) {
                     $model->URLUploadInfoList[$n++] = null !== $item ? URLUploadInfoList::fromMap($item) : $item;
                 }

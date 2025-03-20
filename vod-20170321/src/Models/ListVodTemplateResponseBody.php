@@ -25,13 +25,11 @@ class ListVodTemplateResponseBody extends Model
      */
     public $vodTemplateInfoList;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'vodTemplateInfoList' => 'VodTemplateInfoList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class ListVodTemplateResponseBody extends Model
         if (isset($map['VodTemplateInfoList'])) {
             if (!empty($map['VodTemplateInfoList'])) {
                 $model->vodTemplateInfoList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['VodTemplateInfoList'] as $item) {
                     $model->vodTemplateInfoList[$n++] = null !== $item ? vodTemplateInfoList::fromMap($item) : $item;
                 }

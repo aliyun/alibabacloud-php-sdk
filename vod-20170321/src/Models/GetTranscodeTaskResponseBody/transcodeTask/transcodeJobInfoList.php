@@ -42,6 +42,7 @@ class transcodeJobInfoList extends Model
      *   **AUTO**: adaptive bitrate Adaptive bitrate streams are returned only if PackageSetting is set in the transcoding template. For more information, see [Basic structures](https://help.aliyun.com/document_detail/52839.html).
      *
      * > This parameter indicates the definition that is configured in the transcoding template and does not indicate the actual resolution of the output video.
+     *
      * @example LD
      *
      * @var string
@@ -131,23 +132,21 @@ class transcodeJobInfoList extends Model
      */
     public $transcodeTemplateId;
     protected $_name = [
-        'completeTime'        => 'CompleteTime',
-        'creationTime'        => 'CreationTime',
-        'definition'          => 'Definition',
-        'errorCode'           => 'ErrorCode',
-        'errorMessage'        => 'ErrorMessage',
-        'inputFileUrl'        => 'InputFileUrl',
-        'outputFile'          => 'OutputFile',
-        'priority'            => 'Priority',
-        'transcodeJobId'      => 'TranscodeJobId',
-        'transcodeJobStatus'  => 'TranscodeJobStatus',
-        'transcodeProgress'   => 'TranscodeProgress',
+        'completeTime' => 'CompleteTime',
+        'creationTime' => 'CreationTime',
+        'definition' => 'Definition',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'inputFileUrl' => 'InputFileUrl',
+        'outputFile' => 'OutputFile',
+        'priority' => 'Priority',
+        'transcodeJobId' => 'TranscodeJobId',
+        'transcodeJobStatus' => 'TranscodeJobStatus',
+        'transcodeProgress' => 'TranscodeProgress',
         'transcodeTemplateId' => 'TranscodeTemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

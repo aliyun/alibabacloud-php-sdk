@@ -41,15 +41,13 @@ class GetAppInfosResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'appInfoList'    => 'AppInfoList',
-        'code'           => 'Code',
+        'appInfoList' => 'AppInfoList',
+        'code' => 'Code',
         'nonExistAppIds' => 'NonExistAppIds',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -87,7 +85,7 @@ class GetAppInfosResponseBody extends Model
         if (isset($map['AppInfoList'])) {
             if (!empty($map['AppInfoList'])) {
                 $model->appInfoList = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['AppInfoList'] as $item) {
                     $model->appInfoList[$n++] = null !== $item ? appInfoList::fromMap($item) : $item;
                 }

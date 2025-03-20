@@ -67,17 +67,15 @@ class source extends Model
      */
     public $weight;
     protected $_name = [
-        'content'  => 'Content',
-        'enabled'  => 'Enabled',
-        'port'     => 'Port',
+        'content' => 'Content',
+        'enabled' => 'Enabled',
+        'port' => 'Port',
         'priority' => 'Priority',
-        'type'     => 'Type',
-        'weight'   => 'Weight',
+        'type' => 'Type',
+        'weight' => 'Weight',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

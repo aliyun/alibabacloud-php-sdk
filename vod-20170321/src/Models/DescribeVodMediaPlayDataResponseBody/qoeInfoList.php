@@ -80,19 +80,17 @@ class qoeInfoList extends Model
      */
     public $videoTitle;
     protected $_name = [
-        'DAU'               => 'DAU',
-        'mediaId'           => 'MediaId',
-        'playDuration'      => 'PlayDuration',
+        'DAU' => 'DAU',
+        'mediaId' => 'MediaId',
+        'playDuration' => 'PlayDuration',
         'playDurationPerUv' => 'PlayDurationPerUv',
-        'playPerVv'         => 'PlayPerVv',
-        'playSuccessVv'     => 'PlaySuccessVv',
-        'videoDuration'     => 'VideoDuration',
-        'videoTitle'        => 'VideoTitle',
+        'playPerVv' => 'PlayPerVv',
+        'playSuccessVv' => 'PlaySuccessVv',
+        'videoDuration' => 'VideoDuration',
+        'videoTitle' => 'VideoTitle',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

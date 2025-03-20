@@ -46,14 +46,12 @@ class UpdateMediaStorageClassResponseBody extends Model
     public $status;
     protected $_name = [
         'forbiddenList' => 'ForbiddenList',
-        'ignoredList'   => 'IgnoredList',
-        'requestId'     => 'RequestId',
-        'status'        => 'Status',
+        'ignoredList' => 'IgnoredList',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class RefreshUploadVideoResponseBody extends Model
      * @description The upload URL.
      *
      * >  The returned upload URL is a Base64-encoded URL. You must decode the Base64-encoded upload URL before you use an SDK or call an API operation to upload media files. You need to parse UploadAddress only if you use the OSS SDK or call an OSS API operation to upload media files.
+     *
      * @example eyJTZWN1cml0eVRiQ0FJU3p3TjFxNkZ0NUIyeW****
      *
      * @var string
@@ -31,6 +32,7 @@ class RefreshUploadVideoResponseBody extends Model
      * @description The upload credential.
      *
      * >  The returned upload credential is a Base64-encoded value. You must decode the Base64-encoded upload URL before you use an SDK or call an API operation to upload media files. You need to parse UploadAuth only if you use the OSS SDK or call an OSS API operation to upload media files.
+     *
      * @example FJU3p3TZ0NUIyeW****
      *
      * @var string
@@ -46,15 +48,13 @@ class RefreshUploadVideoResponseBody extends Model
      */
     public $videoId;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'uploadAddress' => 'UploadAddress',
-        'uploadAuth'    => 'UploadAuth',
-        'videoId'       => 'VideoId',
+        'uploadAuth' => 'UploadAuth',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

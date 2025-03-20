@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodSSLCertificateListResponseBody extends Model
 {
     /**
+     * @description The information about certificates.
+     *
      * @var certificateListModel
      */
     public $certificateListModel;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *
      * @var string
@@ -22,12 +26,10 @@ class DescribeVodSSLCertificateListResponseBody extends Model
     public $requestId;
     protected $_name = [
         'certificateListModel' => 'CertificateListModel',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

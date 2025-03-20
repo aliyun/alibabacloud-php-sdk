@@ -12,6 +12,7 @@ class AIImageJobList extends Model
      * @description The Object Storage Service (OSS) URL of the image file.
      *
      * > This parameter does not include the complete authentication information. To obtain the authentication information, you must generate a signed URL. Alternatively, you can call the [ListAIImageInfo](~~ListAIImageInfo~~) operation to obtain the image information.
+     *
      * @example [{"Score":5.035636554444242,"Url":"http://outin-*****.oss-cn-shanghai.aliyuncs.com/357a8748c577*****789d2726e6436aa/image/ai/b0a7612554d*****5cbe3-00001.gif"}]
      *
      * @var string
@@ -92,6 +93,7 @@ class AIImageJobList extends Model
      *   The value contains a maximum of 512 bytes.
      *
      * For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](https://help.aliyun.com/document_detail/86952.html) topic.
+     *
      * @example {"Extend":{"localId":"****","test":"www"}}
      *
      * @var string
@@ -107,21 +109,19 @@ class AIImageJobList extends Model
      */
     public $videoId;
     protected $_name = [
-        'AIImageResult'  => 'AIImageResult',
-        'code'           => 'Code',
-        'creationTime'   => 'CreationTime',
-        'jobId'          => 'JobId',
-        'message'        => 'Message',
-        'status'         => 'Status',
+        'AIImageResult' => 'AIImageResult',
+        'code' => 'Code',
+        'creationTime' => 'CreationTime',
+        'jobId' => 'JobId',
+        'message' => 'Message',
+        'status' => 'Status',
         'templateConfig' => 'TemplateConfig',
-        'templateId'     => 'TemplateId',
-        'userData'       => 'UserData',
-        'videoId'        => 'VideoId',
+        'templateId' => 'TemplateId',
+        'userData' => 'UserData',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

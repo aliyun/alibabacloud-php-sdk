@@ -26,13 +26,11 @@ class AddVodStorageForAppResponseBody extends Model
      */
     public $storageLocation;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'storageLocation' => 'StorageLocation',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

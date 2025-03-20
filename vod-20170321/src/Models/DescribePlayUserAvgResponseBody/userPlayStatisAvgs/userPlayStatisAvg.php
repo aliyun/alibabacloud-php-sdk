@@ -35,14 +35,12 @@ class userPlayStatisAvg extends Model
      */
     public $date;
     protected $_name = [
-        'avgPlayCount'    => 'AvgPlayCount',
+        'avgPlayCount' => 'AvgPlayCount',
         'avgPlayDuration' => 'AvgPlayDuration',
-        'date'            => 'Date',
+        'date' => 'Date',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

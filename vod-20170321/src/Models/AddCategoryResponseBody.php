@@ -25,13 +25,11 @@ class AddCategoryResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'category'  => 'Category',
+        'category' => 'Category',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

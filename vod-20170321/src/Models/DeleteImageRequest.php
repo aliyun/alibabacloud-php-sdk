@@ -16,6 +16,7 @@ class DeleteImageRequest extends Model
      *   **VideoId**: deletes images associated with a video based on the video ID.
      *
      * This parameter is required.
+     *
      * @example VideoId
      *
      * @var string
@@ -30,6 +31,7 @@ class DeleteImageRequest extends Model
      *   Obtain the image ID from the response to the [SearchMedia](~~SearchMedia~~) operation that you call to query images.
      *
      * >  This parameter takes effect and is required only if you set **DeleteImageType** to **ImageId**.
+     *
      * @example bbc65bba53fed90de118a7849****,594228cdd14b4d069fc17a8c4a****
      *
      * @var string
@@ -46,6 +48,7 @@ class DeleteImageRequest extends Model
      *   **All**: images of all the preceding types. You can specify multiple types other than `All` for this parameter. Separate multiple types with commas (,).
      *
      * >  This parameter takes effect and is required only if you set **DeleteImageType** to **VideoId**.
+     *
      * @example All
      *
      * @var string
@@ -56,6 +59,7 @@ class DeleteImageRequest extends Model
      * @description The URL of the image. You can obtain the value of `ImageURL` from the response to the [CreateUploadImage](~~CreateUploadImage~~) operation. You can specify up to 20 URLs and separate them with commas (,).
      *
      * >  This parameter takes effect and is required only if you set **DeleteImageType** to **ImageURL**.
+     *
      * @example https://example.aliyundoc.com/image/default/41AE7ADABBE*****.png
      *
      * @var string
@@ -70,6 +74,7 @@ class DeleteImageRequest extends Model
      *   Obtain the video ID from the response to the [SearchMedia](~~SearchMedia~~) operation that you call to query videos.
      *
      * >  This parameter takes effect and is required only if you set **DeleteImageType** to **VideoId**.
+     *
      * @example eb1861d2c9a8842340e989dd56****
      *
      * @var string
@@ -77,15 +82,13 @@ class DeleteImageRequest extends Model
     public $videoId;
     protected $_name = [
         'deleteImageType' => 'DeleteImageType',
-        'imageIds'        => 'ImageIds',
-        'imageType'       => 'ImageType',
-        'imageURLs'       => 'ImageURLs',
-        'videoId'         => 'VideoId',
+        'imageIds' => 'ImageIds',
+        'imageType' => 'ImageType',
+        'imageURLs' => 'ImageURLs',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -25,13 +25,11 @@ class GetAIVideoTagResultResponseBody extends Model
      */
     public $videoTagResult;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'videoTagResult' => 'VideoTagResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

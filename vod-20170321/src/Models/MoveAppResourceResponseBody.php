@@ -31,14 +31,12 @@ class MoveAppResourceResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'failedResourceIds'   => 'FailedResourceIds',
+        'failedResourceIds' => 'FailedResourceIds',
         'nonExistResourceIds' => 'NonExistResourceIds',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

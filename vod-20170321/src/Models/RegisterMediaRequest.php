@@ -12,6 +12,7 @@ class RegisterMediaRequest extends Model
      * @description The metadata of the media files. The value must be a JSON string. You can specify the metadata for up to 10 media files at a time. For more information about the metadata of media files, see the **RegisterMetadata** section of this topic.
      *
      * This parameter is required.
+     *
      * @example [{"FileURL":"https://****.oss-cn-shanghai.aliyuncs.com/video/test/video123.m3u8","Title":"VideoName"}]
      *
      * @var string
@@ -41,6 +42,7 @@ class RegisterMediaRequest extends Model
      * @description The custom settings. The value must be a JSON string. You can configure settings such as message callbacks. For more information, see [UserData](~~86952#section_6fg_qll_v3w~~).
      *
      * >  You cannot configure callbacks for this operation. No callback message is returned after the media files are registered even if you configure callback settings for this parameter. If you configure callback settings for the UserData parameter when you create media processing jobs such as transcoding and snapshot capture jobs for the media file, the callback URL that you specified is used. If you do not configure callback settings when you create media processing jobs, the callback URL that you specified for the UserData parameter when you register the media file is used.
+     *
      * @example {"Extend":{"localId":"****","test":"www"}}
      *
      * @var string
@@ -51,6 +53,7 @@ class RegisterMediaRequest extends Model
      * @description The ID of the workflow. To view the workflow ID, perform the following steps: Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Processing** > **Workflows**.
      *
      * >  If you specify both WorkflowId and TemplateGroupId, the value of WorkflowId parameter takes effect. For more information, see [Workflows](https://help.aliyun.com/document_detail/115347.html).
+     *
      * @example 637adc2b7ba51a83d841606f8****
      *
      * @var string
@@ -58,14 +61,12 @@ class RegisterMediaRequest extends Model
     public $workflowId;
     protected $_name = [
         'registerMetadatas' => 'RegisterMetadatas',
-        'templateGroupId'   => 'TemplateGroupId',
-        'userData'          => 'UserData',
-        'workflowId'        => 'WorkflowId',
+        'templateGroupId' => 'TemplateGroupId',
+        'userData' => 'UserData',
+        'workflowId' => 'WorkflowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

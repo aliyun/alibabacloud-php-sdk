@@ -17,9 +17,7 @@ class forbiddenList extends Model
         'mediaForbiddenReasonDTO' => 'MediaForbiddenReasonDTO',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class forbiddenList extends Model
         if (isset($map['MediaForbiddenReasonDTO'])) {
             if (!empty($map['MediaForbiddenReasonDTO'])) {
                 $model->mediaForbiddenReasonDTO = [];
-                $n                              = 0;
+                $n = 0;
                 foreach ($map['MediaForbiddenReasonDTO'] as $item) {
                     $model->mediaForbiddenReasonDTO[$n++] = null !== $item ? mediaForbiddenReasonDTO::fromMap($item) : $item;
                 }

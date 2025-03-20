@@ -11,7 +11,11 @@ class DeleteAIImageInfosRequest extends Model
     /**
      * @description The IDs of the images that are submitted for AI processing. You can obtain the value of AIImageInfoId from the response to the [ListAIImageInfo](~~ListAIImageInfo~~) operation.
      *
+     * - You can specify a maximum of 10 IDs.
+     * - Separate multiple IDs with commas (,).
+     *
      * This parameter is required.
+     *
      * @example b89a6aabf144*****6197ebd6fe6cf29
      *
      * @var string
@@ -21,9 +25,7 @@ class DeleteAIImageInfosRequest extends Model
         'AIImageInfoIds' => 'AIImageInfoIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

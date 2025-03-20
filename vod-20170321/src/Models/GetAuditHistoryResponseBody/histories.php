@@ -48,22 +48,21 @@ class histories extends Model
      * @description The manual review result. Valid values:
      * - **Normal**: The video can be played.
      * - **Blocked**: The video is blocked.
+     *
      * @example Blocked
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'auditor'      => 'Auditor',
-        'comment'      => 'Comment',
+        'auditor' => 'Auditor',
+        'comment' => 'Comment',
         'creationTime' => 'CreationTime',
-        'reason'       => 'Reason',
-        'status'       => 'Status',
+        'reason' => 'Reason',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class userPlayStatisTotals extends Model
         'userPlayStatisTotal' => 'UserPlayStatisTotal',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class userPlayStatisTotals extends Model
         if (isset($map['UserPlayStatisTotal'])) {
             if (!empty($map['UserPlayStatisTotal'])) {
                 $model->userPlayStatisTotal = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['UserPlayStatisTotal'] as $item) {
                     $model->userPlayStatisTotal[$n++] = null !== $item ? userPlayStatisTotal::fromMap($item) : $item;
                 }

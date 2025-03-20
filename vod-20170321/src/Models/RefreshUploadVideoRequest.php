@@ -31,21 +31,20 @@ class RefreshUploadVideoRequest extends Model
      *   After an audio or video file is uploaded, obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you call to query the audio or video ID.
      *
      * This parameter is required.
+     *
      * @example c6a23a870c8c4ffcd40cbd381333****
      *
      * @var string
      */
     public $videoId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'videoId'              => 'VideoId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

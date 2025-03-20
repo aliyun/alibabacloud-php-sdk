@@ -27,12 +27,10 @@ class duplication extends Model
     public $start;
     protected $_name = [
         'duration' => 'Duration',
-        'start'    => 'Start',
+        'start' => 'Start',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

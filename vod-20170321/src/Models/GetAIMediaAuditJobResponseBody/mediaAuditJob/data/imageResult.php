@@ -63,16 +63,14 @@ class imageResult extends Model
      */
     public $url;
     protected $_name = [
-        'label'      => 'Label',
-        'result'     => 'Result',
+        'label' => 'Label',
+        'result' => 'Result',
         'suggestion' => 'Suggestion',
-        'type'       => 'Type',
-        'url'        => 'Url',
+        'type' => 'Type',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -116,7 +114,7 @@ class imageResult extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Result'] as $item) {
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }

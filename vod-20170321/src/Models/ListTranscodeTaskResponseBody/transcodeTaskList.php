@@ -78,18 +78,16 @@ class transcodeTaskList extends Model
      */
     public $videoId;
     protected $_name = [
-        'completeTime'             => 'CompleteTime',
-        'creationTime'             => 'CreationTime',
-        'taskStatus'               => 'TaskStatus',
-        'transcodeTaskId'          => 'TranscodeTaskId',
+        'completeTime' => 'CompleteTime',
+        'creationTime' => 'CreationTime',
+        'taskStatus' => 'TaskStatus',
+        'transcodeTaskId' => 'TranscodeTaskId',
         'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
-        'trigger'                  => 'Trigger',
-        'videoId'                  => 'VideoId',
+        'trigger' => 'Trigger',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class GetJobDetailResponseBody extends Model
 {
     /**
+     * @description The details of the AI task. This parameter takes effect only when the TaskType parameter is set to AI.
+     *
      * @var AIJobDetail
      */
     public $AIJobDetail;
 
     /**
+     * @description The type of the task. Valid values:
+     *
      * @example transcode
      *
      * @var string
@@ -24,6 +28,8 @@ class GetJobDetailResponseBody extends Model
     public $jobType;
 
     /**
+     * @description The request ID.
+     *
      * @example 6708D849-F109-1A6C-AC91-************
      *
      * @var string
@@ -31,25 +37,27 @@ class GetJobDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details of the snapshot task. This parameter takes effect only when the jobType parameter is set to Snapshot.
+     *
      * @var snapshotJobDetail
      */
     public $snapshotJobDetail;
 
     /**
+     * @description The details of the transcoding task. This parameter takes effect only when the jobType parameter is set to Transcode.
+     *
      * @var transcodeJobDetail
      */
     public $transcodeJobDetail;
     protected $_name = [
-        'AIJobDetail'        => 'AIJobDetail',
-        'jobType'            => 'JobType',
-        'requestId'          => 'RequestId',
-        'snapshotJobDetail'  => 'SnapshotJobDetail',
+        'AIJobDetail' => 'AIJobDetail',
+        'jobType' => 'JobType',
+        'requestId' => 'RequestId',
+        'snapshotJobDetail' => 'SnapshotJobDetail',
         'transcodeJobDetail' => 'TranscodeJobDetail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

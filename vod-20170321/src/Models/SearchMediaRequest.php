@@ -12,6 +12,7 @@ class SearchMediaRequest extends Model
      * @description The media asset fields to return in the query results.
      *
      * By default, only the basic media asset fields are returned. You can specify additional media asset fields that need to be returned in the request. For more information, see the "API examples" section of the [Search for media asset information](https://help.aliyun.com/document_detail/99179.html) topic.
+     *
      * @example Title,CoverURL
      *
      * @var string
@@ -31,6 +32,7 @@ class SearchMediaRequest extends Model
      * @description The number of the page to return. Default value: **1**.
      *
      * > If the value of this parameter exceeds **200**, we recommend that you set the ScrollToken parameter as well.
+     *
      * @example 1
      *
      * @var int
@@ -67,6 +69,7 @@ class SearchMediaRequest extends Model
      *   **attached**
      *
      * > If this parameter is set to **video** or **audio** and you want to traverse all data that meets the filter criteria, you must set the ScrollToken parameter.
+     *
      * @example video
      *
      * @var string
@@ -82,24 +85,23 @@ class SearchMediaRequest extends Model
      * > * For more information about the sort field, see "Sort field" in the [Search for media asset information](https://help.aliyun.com/document_detail/99179.html) topic.
      * > * To obtain the first 5,000 data records that meet the specified filter criteria, you can specify a maximum of three sort fields.
      * > * To obtain all the data records that meet the specified filter criteria, you can specify only one sort field.
+     *
      * @example CreationTime:Desc
      *
      * @var string
      */
     public $sortBy;
     protected $_name = [
-        'fields'      => 'Fields',
-        'match'       => 'Match',
-        'pageNo'      => 'PageNo',
-        'pageSize'    => 'PageSize',
+        'fields' => 'Fields',
+        'match' => 'Match',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'scrollToken' => 'ScrollToken',
-        'searchType'  => 'SearchType',
-        'sortBy'      => 'SortBy',
+        'searchType' => 'SearchType',
+        'sortBy' => 'SortBy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

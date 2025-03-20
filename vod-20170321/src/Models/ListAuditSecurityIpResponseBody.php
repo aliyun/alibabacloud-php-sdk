@@ -25,13 +25,11 @@ class ListAuditSecurityIpResponseBody extends Model
      */
     public $securityIpList;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'securityIpList' => 'SecurityIpList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class ListAuditSecurityIpResponseBody extends Model
         if (isset($map['SecurityIpList'])) {
             if (!empty($map['SecurityIpList'])) {
                 $model->securityIpList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['SecurityIpList'] as $item) {
                     $model->securityIpList[$n++] = null !== $item ? securityIpList::fromMap($item) : $item;
                 }

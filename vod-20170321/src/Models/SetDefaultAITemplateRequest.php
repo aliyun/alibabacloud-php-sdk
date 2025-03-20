@@ -12,6 +12,7 @@ class SetDefaultAITemplateRequest extends Model
      * @description The ID of the AI template.
      *
      * This parameter is required.
+     *
      * @example 1706a0063dd733f6a823ef32e0a5****
      *
      * @var string
@@ -21,9 +22,7 @@ class SetDefaultAITemplateRequest extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

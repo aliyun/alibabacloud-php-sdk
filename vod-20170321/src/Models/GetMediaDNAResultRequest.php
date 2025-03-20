@@ -12,6 +12,7 @@ class GetMediaDNAResultRequest extends Model
      * @description The ID of the video.
      *
      * This parameter is required.
+     *
      * @example 88c6ca184c0e*****a5b665e2a126797
      *
      * @var string
@@ -38,16 +39,14 @@ class GetMediaDNAResultRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'mediaId'              => 'MediaId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'mediaId' => 'MediaId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

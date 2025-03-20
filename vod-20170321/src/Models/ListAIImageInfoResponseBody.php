@@ -26,12 +26,10 @@ class ListAIImageInfoResponseBody extends Model
     public $requestId;
     protected $_name = [
         'AIImageInfoList' => 'AIImageInfoList',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListAIImageInfoResponseBody extends Model
         if (isset($map['AIImageInfoList'])) {
             if (!empty($map['AIImageInfoList'])) {
                 $model->AIImageInfoList = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['AIImageInfoList'] as $item) {
                     $model->AIImageInfoList[$n++] = null !== $item ? AIImageInfoList::fromMap($item) : $item;
                 }

@@ -43,6 +43,7 @@ class DescribeVodRefreshTasksRequest extends Model
      *   **preload**: prefetches one or more files.
      *
      * > If you specify the DomainName or Status parameter, you must also specify the ObjectType parameter.
+     *
      * @example file
      *
      * @var string
@@ -81,6 +82,7 @@ class DescribeVodRefreshTasksRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * > You can query data that is collected in the last three days.
+     *
      * @example 2017-01-01T12:12:20Z
      *
      * @var string
@@ -109,22 +111,20 @@ class DescribeVodRefreshTasksRequest extends Model
      */
     public $taskId;
     protected $_name = [
-        'domainName'    => 'DomainName',
-        'endTime'       => 'EndTime',
-        'objectPath'    => 'ObjectPath',
-        'objectType'    => 'ObjectType',
-        'ownerId'       => 'OwnerId',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'objectPath' => 'ObjectPath',
+        'objectType' => 'ObjectType',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
-        'startTime'     => 'StartTime',
-        'status'        => 'Status',
-        'taskId'        => 'TaskId',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

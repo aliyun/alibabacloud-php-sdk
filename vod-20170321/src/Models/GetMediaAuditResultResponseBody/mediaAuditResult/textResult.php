@@ -27,6 +27,7 @@ class textResult extends Model
      * - **contraband**
      * - **meaningless**
      * - **normal**
+     *
      * @example ad
      *
      * @var string
@@ -57,6 +58,7 @@ class textResult extends Model
      * - **block**
      * - **review**
      * - **pass**
+     *
      * @example pass
      *
      * @var string
@@ -72,17 +74,15 @@ class textResult extends Model
      */
     public $type;
     protected $_name = [
-        'content'    => 'Content',
-        'label'      => 'Label',
-        'scene'      => 'Scene',
-        'score'      => 'Score',
+        'content' => 'Content',
+        'label' => 'Label',
+        'scene' => 'Scene',
+        'score' => 'Score',
         'suggestion' => 'Suggestion',
-        'type'       => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

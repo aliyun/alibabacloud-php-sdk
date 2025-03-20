@@ -11,7 +11,10 @@ class UpdateImageInfosRequest extends Model
     /**
      * @description The new information about the one or more images. You can modify the information about up to 20 images at a time. For more information about the parameter structure, see the **UpdateContent** section.
      *
+     * >  The values of the nested parameters Title, Description, and Tags under the UpdateContent parameter cannot contain emoticons.
+     *
      * This parameter is required.
+     *
      * @example [{"ImageId":"ff8fe57e3461416c6a267a4e09****","Title":"test title","Description":"test description","Tags":"tag1,tag2"}]
      *
      * @var string
@@ -21,9 +24,7 @@ class UpdateImageInfosRequest extends Model
         'updateContent' => 'UpdateContent',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

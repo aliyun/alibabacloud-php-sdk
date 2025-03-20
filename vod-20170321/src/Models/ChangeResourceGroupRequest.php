@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the resource group.
+     *
+     * This parameter is required.
      *
      * @example rg-aekzko7fsuj****
      *
@@ -18,7 +20,9 @@ class ChangeResourceGroupRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of resource
+     *
+     * This parameter is required.
      *
      * @example app-xxxxxxx
      *
@@ -27,7 +31,9 @@ class ChangeResourceGroupRequest extends Model
     public $resourceId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region.
+     *
+     * This parameter is required.
      *
      * @example cn-shanghai
      *
@@ -36,21 +42,21 @@ class ChangeResourceGroupRequest extends Model
     public $resourceRegionId;
 
     /**
+     * @description The type of resource
+     *
      * @example AppInfo
      *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'resourceGroupId'  => 'ResourceGroupId',
-        'resourceId'       => 'ResourceId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId' => 'ResourceId',
         'resourceRegionId' => 'ResourceRegionId',
-        'resourceType'     => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

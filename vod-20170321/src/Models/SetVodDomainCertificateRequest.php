@@ -21,6 +21,7 @@ class SetVodDomainCertificateRequest extends Model
      * @description The domain name that is secured by the certificate. The domain name must use HTTPS acceleration.
      *
      * This parameter is required.
+     *
      * @example example.com
      *
      * @var string
@@ -48,6 +49,7 @@ class SetVodDomainCertificateRequest extends Model
      *   **off**
      *
      * This parameter is required.
+     *
      * @example off
      *
      * @var string
@@ -68,18 +70,16 @@ class SetVodDomainCertificateRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'certName'      => 'CertName',
-        'domainName'    => 'DomainName',
-        'ownerId'       => 'OwnerId',
-        'SSLPri'        => 'SSLPri',
-        'SSLProtocol'   => 'SSLProtocol',
-        'SSLPub'        => 'SSLPub',
+        'certName' => 'CertName',
+        'domainName' => 'DomainName',
+        'ownerId' => 'OwnerId',
+        'SSLPri' => 'SSLPri',
+        'SSLProtocol' => 'SSLProtocol',
+        'SSLPub' => 'SSLPub',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

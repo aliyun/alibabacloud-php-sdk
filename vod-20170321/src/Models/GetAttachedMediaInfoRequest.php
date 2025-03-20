@@ -38,6 +38,7 @@ class GetAttachedMediaInfoRequest extends Model
      *   You can obtain the ID from the response to the [CreateUploadAttachedMedia](~~CreateUploadAttachedMedia~~) operation that you call to obtain the upload URL and credential.
      *
      * This parameter is required.
+     *
      * @example eb1861d2c9a842340e989dd56****,0222e203cf80f9c22870a4d2c****
      *
      * @var string
@@ -57,13 +58,11 @@ class GetAttachedMediaInfoRequest extends Model
     public $outputType;
     protected $_name = [
         'authTimeout' => 'AuthTimeout',
-        'mediaIds'    => 'MediaIds',
-        'outputType'  => 'OutputType',
+        'mediaIds' => 'MediaIds',
+        'outputType' => 'OutputType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

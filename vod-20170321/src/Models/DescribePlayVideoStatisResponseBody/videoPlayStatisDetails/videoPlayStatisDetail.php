@@ -62,17 +62,15 @@ class videoPlayStatisDetail extends Model
      */
     public $VV;
     protected $_name = [
-        'date'         => 'Date',
+        'date' => 'Date',
         'playDuration' => 'PlayDuration',
-        'playRange'    => 'PlayRange',
-        'title'        => 'Title',
-        'UV'           => 'UV',
-        'VV'           => 'VV',
+        'playRange' => 'PlayRange',
+        'title' => 'Title',
+        'UV' => 'UV',
+        'VV' => 'VV',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

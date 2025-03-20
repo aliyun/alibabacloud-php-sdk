@@ -26,12 +26,10 @@ class GetMediaRefreshJobsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'mediaRefreshJobs' => 'MediaRefreshJobs',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class GetMediaRefreshJobsResponseBody extends Model
         if (isset($map['MediaRefreshJobs'])) {
             if (!empty($map['MediaRefreshJobs'])) {
                 $model->mediaRefreshJobs = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['MediaRefreshJobs'] as $item) {
                     $model->mediaRefreshJobs[$n++] = null !== $item ? mediaRefreshJobs::fromMap($item) : $item;
                 }

@@ -17,9 +17,7 @@ class tasks extends Model
         'task' => 'Task',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class tasks extends Model
         if (isset($map['Task'])) {
             if (!empty($map['Task'])) {
                 $model->task = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Task'] as $item) {
                     $model->task[$n++] = null !== $item ? task::fromMap($item) : $item;
                 }

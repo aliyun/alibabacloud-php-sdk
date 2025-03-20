@@ -40,6 +40,7 @@ class UpdateEditingProjectRequest extends Model
      * @description The ID of the online editing project.
      *
      * This parameter is required.
+     *
      * @example 4ee4b97e27*****b525142a6b2
      *
      * @var string
@@ -74,20 +75,18 @@ class UpdateEditingProjectRequest extends Model
      */
     public $title;
     protected $_name = [
-        'coverURL'             => 'CoverURL',
-        'description'          => 'Description',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'projectId'            => 'ProjectId',
+        'coverURL' => 'CoverURL',
+        'description' => 'Description',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'projectId' => 'ProjectId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'timeline'             => 'Timeline',
-        'title'                => 'Title',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'timeline' => 'Timeline',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

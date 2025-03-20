@@ -26,13 +26,11 @@ class bpsModel extends Model
      */
     public $timeStamp;
     protected $_name = [
-        'bps'       => 'Bps',
+        'bps' => 'Bps',
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

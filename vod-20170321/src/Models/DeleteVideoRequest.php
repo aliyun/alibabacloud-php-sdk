@@ -16,6 +16,7 @@ class DeleteVideoRequest extends Model
      *   You can also call the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation to obtain the video ID, which is the VideoId value in the response.
      *
      * This parameter is required.
+     *
      * @example e44ebf1147hdsa2d2adbea8b****,e44ebf11oj984adbea8****,73ab850b4f6f4b6e91d24d81d54****
      *
      * @var string
@@ -25,9 +26,7 @@ class DeleteVideoRequest extends Model
         'videoIds' => 'VideoIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

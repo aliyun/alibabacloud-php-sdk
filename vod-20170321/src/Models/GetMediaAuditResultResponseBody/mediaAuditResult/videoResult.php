@@ -26,6 +26,7 @@ class videoResult extends Model
      * - **porn**
      * - **terrorism**
      * - **normal**
+     *
      * @example porn
      *
      * @var string
@@ -59,6 +60,7 @@ class videoResult extends Model
      * - **block**
      * - **review**
      * - **pass**
+     *
      * @example pass
      *
      * @var string
@@ -72,18 +74,16 @@ class videoResult extends Model
      */
     public $terrorismResult;
     protected $_name = [
-        'adResult'        => 'AdResult',
-        'label'           => 'Label',
-        'liveResult'      => 'LiveResult',
-        'logoResult'      => 'LogoResult',
-        'pornResult'      => 'PornResult',
-        'suggestion'      => 'Suggestion',
+        'adResult' => 'AdResult',
+        'label' => 'Label',
+        'liveResult' => 'LiveResult',
+        'logoResult' => 'LogoResult',
+        'pornResult' => 'PornResult',
+        'suggestion' => 'Suggestion',
         'terrorismResult' => 'TerrorismResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class GetDefaultAITemplateRequest extends Model
      * @description The type of the AI template. Set the value to **AIMediaAudit**, which specifies the automated review.
      *
      * This parameter is required.
+     *
      * @example AIMediaAudit
      *
      * @var string
@@ -21,9 +22,7 @@ class GetDefaultAITemplateRequest extends Model
         'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

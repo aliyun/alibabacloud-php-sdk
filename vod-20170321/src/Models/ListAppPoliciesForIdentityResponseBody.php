@@ -13,6 +13,7 @@ class ListAppPoliciesForIdentityResponseBody extends Model
      * @description The details of each policy.
      *
      * > A maximum of 100 entries can be returned.
+     *
      * @var appPolicyList[]
      */
     public $appPolicyList;
@@ -27,12 +28,10 @@ class ListAppPoliciesForIdentityResponseBody extends Model
     public $requestId;
     protected $_name = [
         'appPolicyList' => 'AppPolicyList',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -64,7 +63,7 @@ class ListAppPoliciesForIdentityResponseBody extends Model
         if (isset($map['AppPolicyList'])) {
             if (!empty($map['AppPolicyList'])) {
                 $model->appPolicyList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['AppPolicyList'] as $item) {
                     $model->appPolicyList[$n++] = null !== $item ? appPolicyList::fromMap($item) : $item;
                 }

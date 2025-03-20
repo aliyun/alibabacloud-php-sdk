@@ -25,13 +25,11 @@ class GetVodTemplateResponseBody extends Model
      */
     public $vodTemplateInfo;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'vodTemplateInfo' => 'VodTemplateInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

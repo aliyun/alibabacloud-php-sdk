@@ -12,6 +12,7 @@ class DeleteEditingProjectMaterialsRequest extends Model
      * @description The material ID. Separate multiple material IDs with commas (,).
      *
      * This parameter is required.
+     *
      * @example 9e3101bf24bf41c*****123318788ca
      *
      * @var string
@@ -26,6 +27,7 @@ class DeleteEditingProjectMaterialsRequest extends Model
      *   **image**
      *
      * This parameter is required.
+     *
      * @example video
      *
      * @var string
@@ -46,6 +48,7 @@ class DeleteEditingProjectMaterialsRequest extends Model
      * @description The ID of the online editing project.
      *
      * This parameter is required.
+     *
      * @example 198236101*****1093374
      *
      * @var string
@@ -62,18 +65,16 @@ class DeleteEditingProjectMaterialsRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'materialIds'          => 'MaterialIds',
-        'materialType'         => 'MaterialType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'projectId'            => 'ProjectId',
+        'materialIds' => 'MaterialIds',
+        'materialType' => 'MaterialType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'projectId' => 'ProjectId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

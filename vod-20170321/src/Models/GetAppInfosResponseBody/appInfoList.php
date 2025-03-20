@@ -86,19 +86,17 @@ class appInfoList extends Model
      */
     public $type;
     protected $_name = [
-        'appId'            => 'AppId',
-        'appName'          => 'AppName',
-        'creationTime'     => 'CreationTime',
-        'description'      => 'Description',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
         'modificationTime' => 'ModificationTime',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'status'           => 'Status',
-        'type'             => 'Type',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteVodSpecificConfigRequest extends Model
      * @description The ID of the configuration.
      *
      * This parameter is required.
+     *
      * @example 2317****
      *
      * @var string
@@ -22,6 +23,7 @@ class DeleteVodSpecificConfigRequest extends Model
      * @description The accelerated domain name.
      *
      * This parameter is required.
+     *
      * @example www.example.com
      *
      * @var string
@@ -50,16 +52,14 @@ class DeleteVodSpecificConfigRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'configId'      => 'ConfigId',
-        'domainName'    => 'DomainName',
-        'env'           => 'Env',
-        'ownerId'       => 'OwnerId',
+        'configId' => 'ConfigId',
+        'domainName' => 'DomainName',
+        'env' => 'Env',
+        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

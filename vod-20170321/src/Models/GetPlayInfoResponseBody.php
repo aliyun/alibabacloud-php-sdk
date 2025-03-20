@@ -34,13 +34,11 @@ class GetPlayInfoResponseBody extends Model
     public $videoBase;
     protected $_name = [
         'playInfoList' => 'PlayInfoList',
-        'requestId'    => 'RequestId',
-        'videoBase'    => 'VideoBase',
+        'requestId' => 'RequestId',
+        'videoBase' => 'VideoBase',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

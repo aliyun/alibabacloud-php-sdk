@@ -33,20 +33,19 @@ class UpdateVodTemplateRequest extends Model
      * @description The ID of the snapshot template.
      *
      * This parameter is required.
+     *
      * @example 8c75a02e339b*****0b0d2c48171a22
      *
      * @var string
      */
     public $vodTemplateId;
     protected $_name = [
-        'name'           => 'Name',
+        'name' => 'Name',
         'templateConfig' => 'TemplateConfig',
-        'vodTemplateId'  => 'VodTemplateId',
+        'vodTemplateId' => 'VodTemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

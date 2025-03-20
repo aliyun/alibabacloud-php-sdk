@@ -126,24 +126,22 @@ class outputFile extends Model
      */
     public $width;
     protected $_name = [
-        'audioStreamList'    => 'AudioStreamList',
-        'bitrate'            => 'Bitrate',
-        'duration'           => 'Duration',
-        'encryption'         => 'Encryption',
-        'filesize'           => 'Filesize',
-        'format'             => 'Format',
-        'fps'                => 'Fps',
-        'height'             => 'Height',
-        'outputFileUrl'      => 'OutputFileUrl',
+        'audioStreamList' => 'AudioStreamList',
+        'bitrate' => 'Bitrate',
+        'duration' => 'Duration',
+        'encryption' => 'Encryption',
+        'filesize' => 'Filesize',
+        'format' => 'Format',
+        'fps' => 'Fps',
+        'height' => 'Height',
+        'outputFileUrl' => 'OutputFileUrl',
         'subtitleStreamList' => 'SubtitleStreamList',
-        'videoStreamList'    => 'VideoStreamList',
-        'watermarkIdList'    => 'WatermarkIdList',
-        'width'              => 'Width',
+        'videoStreamList' => 'VideoStreamList',
+        'watermarkIdList' => 'WatermarkIdList',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

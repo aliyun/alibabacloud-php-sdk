@@ -45,14 +45,12 @@ class aiRoughData extends Model
     public $status;
     protected $_name = [
         'aiCategory' => 'AiCategory',
-        'aiJobId'    => 'AiJobId',
-        'saveType'   => 'SaveType',
-        'status'     => 'Status',
+        'aiJobId' => 'AiJobId',
+        'saveType' => 'SaveType',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

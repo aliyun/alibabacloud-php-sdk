@@ -71,18 +71,16 @@ class retrievalData extends Model
      */
     public $timeStamp;
     protected $_name = [
-        'CABulkRetrievalData'      => 'CABulkRetrievalData',
+        'CABulkRetrievalData' => 'CABulkRetrievalData',
         'CAHighPriorRetrievalData' => 'CAHighPriorRetrievalData',
-        'CAStdRetrievalData'       => 'CAStdRetrievalData',
-        'region'                   => 'Region',
-        'retrievalData'            => 'RetrievalData',
-        'storageClass'             => 'StorageClass',
-        'timeStamp'                => 'TimeStamp',
+        'CAStdRetrievalData' => 'CAStdRetrievalData',
+        'region' => 'Region',
+        'retrievalData' => 'RetrievalData',
+        'storageClass' => 'StorageClass',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

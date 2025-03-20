@@ -37,14 +37,12 @@ class DescribeVodTranscodeDataResponseBody extends Model
      */
     public $transcodeData;
     protected $_name = [
-        'dataInterval'  => 'DataInterval',
-        'requestId'     => 'RequestId',
+        'dataInterval' => 'DataInterval',
+        'requestId' => 'RequestId',
         'transcodeData' => 'TranscodeData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

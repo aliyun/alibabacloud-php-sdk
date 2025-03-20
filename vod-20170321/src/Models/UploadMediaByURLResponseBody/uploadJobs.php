@@ -26,13 +26,11 @@ class uploadJobs extends Model
      */
     public $sourceURL;
     protected $_name = [
-        'jobId'     => 'JobId',
+        'jobId' => 'JobId',
         'sourceURL' => 'SourceURL',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

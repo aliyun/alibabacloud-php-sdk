@@ -23,7 +23,10 @@ class DescribeVodDomainSrcBpsDataRequest extends Model
     /**
      * @description The end of the time range to query.
      *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * >  The end time must be later than the start time.
+     *
      * @example 2022-04-26T15:59:59Z
      *
      * @var string
@@ -58,15 +61,13 @@ class DescribeVodDomainSrcBpsDataRequest extends Model
     public $startTime;
     protected $_name = [
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'interval'   => 'Interval',
-        'ownerId'    => 'OwnerId',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'interval' => 'Interval',
+        'ownerId' => 'OwnerId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

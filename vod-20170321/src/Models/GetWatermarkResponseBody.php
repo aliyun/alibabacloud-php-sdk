@@ -25,13 +25,11 @@ class GetWatermarkResponseBody extends Model
      */
     public $watermarkInfo;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'watermarkInfo' => 'WatermarkInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

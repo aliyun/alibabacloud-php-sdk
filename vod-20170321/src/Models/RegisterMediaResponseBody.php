@@ -32,14 +32,12 @@ class RegisterMediaResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'failedFileURLs'      => 'FailedFileURLs',
+        'failedFileURLs' => 'FailedFileURLs',
         'registeredMediaList' => 'RegisteredMediaList',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class RegisterMediaResponseBody extends Model
         if (isset($map['RegisteredMediaList'])) {
             if (!empty($map['RegisteredMediaList'])) {
                 $model->registeredMediaList = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['RegisteredMediaList'] as $item) {
                     $model->registeredMediaList[$n++] = null !== $item ? registeredMediaList::fromMap($item) : $item;
                 }

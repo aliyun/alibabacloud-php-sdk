@@ -105,15 +105,13 @@ class result extends Model
      */
     public $suggestion;
     protected $_name = [
-        'label'      => 'Label',
-        'scene'      => 'Scene',
-        'score'      => 'Score',
+        'label' => 'Label',
+        'scene' => 'Scene',
+        'score' => 'Score',
         'suggestion' => 'Suggestion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

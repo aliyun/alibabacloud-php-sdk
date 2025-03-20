@@ -15,6 +15,7 @@ class GetAITemplateRequest extends Model
      *   Call the [ListAITemplate](https://help.aliyun.com/document_detail/102936.html) operation if the template already exists. The value of TemplateId in the response is the ID of the AI template.
      *
      * This parameter is required.
+     *
      * @example 1706a0063dd733f6a823ef32e0a5****
      *
      * @var string
@@ -24,9 +25,7 @@ class GetAITemplateRequest extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -27,12 +27,10 @@ class byteHitRateDataModel extends Model
     public $timeStamp;
     protected $_name = [
         'byteHitRate' => 'ByteHitRate',
-        'timeStamp'   => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

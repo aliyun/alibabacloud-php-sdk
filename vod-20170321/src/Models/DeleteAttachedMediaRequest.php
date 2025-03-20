@@ -15,6 +15,7 @@ class DeleteAttachedMediaRequest extends Model
      *   You can obtain the ID from the response to the [CreateUploadAttachedMedia](~~CreateUploadAttachedMedia~~) operation that you call to obtain the upload URL and credential.
      *
      * This parameter is required.
+     *
      * @example 8bc8e94fe4e55abde85718****,eb186180e989dd56****
      *
      * @var string
@@ -24,9 +25,7 @@ class DeleteAttachedMediaRequest extends Model
         'mediaIds' => 'MediaIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

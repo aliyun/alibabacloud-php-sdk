@@ -12,6 +12,7 @@ class SubmitAIImageJobRequest extends Model
      * @description The ID of the pipeline that is used for the AI processing job.
      *
      * >  This parameter is optional if you specify a default pipeline ID. If you want to use a separate pipeline to submit multiple AI processing jobs., submit a ticket or contact Alibaba Cloud after-sales engineers. For more information about how to submit a ticket, see [Contact us](https://help.aliyun.com/document_detail/464625.html).
+     *
      * @example 6492025b8f*****6ba5bb755a33438
      *
      * @var string
@@ -25,6 +26,7 @@ class SubmitAIImageJobRequest extends Model
      *   Obtain the value of TemplateId from the response to the [ListAITemplate](https://help.aliyun.com/document_detail/102936.html) operation after you create the template.
      *
      * This parameter is required.
+     *
      * @example ef1a8842cb9f*****cea80cad902e416
      *
      * @var string
@@ -59,6 +61,7 @@ class SubmitAIImageJobRequest extends Model
      *   The value can contain a maximum of 512 bytes.
      *
      * For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](https://help.aliyun.com/document_detail/86952.html) topic.
+     *
      * @example {"Extend":{"localId":"****","test":"www"}}
      *
      * @var string
@@ -73,25 +76,24 @@ class SubmitAIImageJobRequest extends Model
      *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation after you upload the video.
      *
      * This parameter is required.
+     *
      * @example 357a8748c5774*****89d2726e6436aa
      *
      * @var string
      */
     public $videoId;
     protected $_name = [
-        'AIPipelineId'         => 'AIPipelineId',
-        'AITemplateId'         => 'AITemplateId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'AIPipelineId' => 'AIPipelineId',
+        'AITemplateId' => 'AITemplateId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'userData'             => 'UserData',
-        'videoId'              => 'VideoId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'userData' => 'UserData',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateVideoInfoRequest extends Model
 {
     /**
-     * @description The ID of the video category.
+     * @description The category ID. You can use one of the following methods to obtain the ID:
+     *
+     *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Categories** to view the category ID of the media file.
+     *   View the value of the CateId parameter returned by the [AddCategory](https://help.aliyun.com/document_detail/56401.html) operation that you called to create a category.
+     *   View the value of the CateId parameter returned by the [GetCategories](https://help.aliyun.com/document_detail/56406.html) operation that you called to query a category.
      *
      * @example 384761111
      *
@@ -18,7 +22,7 @@ class UpdateVideoInfoRequest extends Model
     public $cateId;
 
     /**
-     * @description The URL of the video thumbnail.
+     * @description The URL of the audio/video thumbnail.
      *
      * @example https://example.aliyundoc.com/****.jpg
      *
@@ -27,10 +31,10 @@ class UpdateVideoInfoRequest extends Model
     public $coverURL;
 
     /**
-     * @description The description of the video.
+     * @description The description of the audio or video file.
      *
-     *   The value can be up to 1,024 bytes in length.
-     *   The string must be encoded in the UTF-8 format.
+     *   The description can be up to 1,024 bytes in length.
+     *   The value is encoded in UTF-8.
      *
      * @example video description
      *
@@ -39,11 +43,11 @@ class UpdateVideoInfoRequest extends Model
     public $description;
 
     /**
-     * @description The tags of the video.
+     * @description The tags of the media file.
      *
-     *   Each tag can be up to 32 bytes in length. A maximum of 16 tags can be specified.
+     *   Each tag can be up to 32 bytes in length. You can specify up to 16 tags.
      *   Separate multiple tags with commas (,).
-     *   The string must be encoded in the UTF-8 format.
+     *   The value is encoded in UTF-8.
      *
      * @example tag1,tag2
      *
@@ -52,10 +56,10 @@ class UpdateVideoInfoRequest extends Model
     public $tags;
 
     /**
-     * @description The title of the video.
+     * @description The title of the audio or video file.
      *
-     *   The value can be up to 128 bytes in length.
-     *   The string must be encoded in the UTF-8 format.
+     *   The name cannot exceed 128 bytes.
+     *   The value is encoded in UTF-8.
      *
      * @example video title
      *
@@ -64,32 +68,39 @@ class UpdateVideoInfoRequest extends Model
     public $title;
 
     /**
+     * @description Custom settings. This is a JSON string that supports message callbacks, upload acceleration, and other settings. For more information, please refer to [UserData](https://help.aliyun.com/document_detail/86952.html).
+     *
+     * @example {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"*****","test":"www"}}
+     *
      * @var string
      */
     public $userData;
 
     /**
-     * @description The ID of the video.
+     * @description The ID of the audio or video file. Perform the following operations to obtain the storage address:
+     *
+     *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the Video and Audio page, view the ID of the audio or video file. This method is applicable to files that are uploaded by using the ApsaraVideo VOD console.
+     *   Obtain the value of VideoId from the response to the [CreateUploadVideo](https://help.aliyun.com/document_detail/55407.html) operation that you called to obtain the upload URL and credential.
+     *   View the value of the VideoId parameter returned by the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you called to query media information after the audio or video file is uploaded.
      *
      * This parameter is required.
+     *
      * @example 2deda93265312baf9b0ed810d****
      *
      * @var string
      */
     public $videoId;
     protected $_name = [
-        'cateId'      => 'CateId',
-        'coverURL'    => 'CoverURL',
+        'cateId' => 'CateId',
+        'coverURL' => 'CoverURL',
         'description' => 'Description',
-        'tags'        => 'Tags',
-        'title'       => 'Title',
-        'userData'    => 'UserData',
-        'videoId'     => 'VideoId',
+        'tags' => 'Tags',
+        'title' => 'Title',
+        'userData' => 'UserData',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

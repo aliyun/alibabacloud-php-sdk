@@ -36,6 +36,7 @@ class UpdateTranscodeTemplateGroupRequest extends Model
      * @description The ID of the transcoding template group.
      *
      * This parameter is required.
+     *
      * @example 4c71a339fe*****52b4fa6f4527
      *
      * @var string
@@ -51,15 +52,13 @@ class UpdateTranscodeTemplateGroupRequest extends Model
      */
     public $transcodeTemplateList;
     protected $_name = [
-        'locked'                   => 'Locked',
-        'name'                     => 'Name',
+        'locked' => 'Locked',
+        'name' => 'Name',
         'transcodeTemplateGroupId' => 'TranscodeTemplateGroupId',
-        'transcodeTemplateList'    => 'TranscodeTemplateList',
+        'transcodeTemplateList' => 'TranscodeTemplateList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

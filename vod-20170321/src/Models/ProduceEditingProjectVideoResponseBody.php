@@ -13,6 +13,7 @@ class ProduceEditingProjectVideoResponseBody extends Model
      *
      * > *   This parameter is returned for each request.
      * > *   If a value is returned for this parameter, the video production task is being asynchronously processed.
+     *
      * @example 006204a11bb386bb25491f95f****
      *
      * @var string
@@ -37,14 +38,12 @@ class ProduceEditingProjectVideoResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'mediaId'   => 'MediaId',
+        'mediaId' => 'MediaId',
         'projectId' => 'ProjectId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

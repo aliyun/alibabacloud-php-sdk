@@ -41,21 +41,20 @@ class GetAuditHistoryRequest extends Model
      * @description The ID of the video.
      *
      * This parameter is required.
+     *
      * @example 93ab850b4f6f44*****6e91d24d81d4
      *
      * @var string
      */
     public $videoId;
     protected $_name = [
-        'pageNo'   => 'PageNo',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
-        'sortBy'   => 'SortBy',
-        'videoId'  => 'VideoId',
+        'sortBy' => 'SortBy',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

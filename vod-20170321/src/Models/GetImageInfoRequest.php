@@ -39,6 +39,7 @@ class GetImageInfoRequest extends Model
      *   Obtain the image ID from the response to the [SearchMedia](~~SearchMedia~~) operation that you call to query the image.
      *
      * This parameter is required.
+     *
      * @example 3e34733b40b9a96ccf5c1ff6f69****
      *
      * @var string
@@ -58,13 +59,11 @@ class GetImageInfoRequest extends Model
     public $outputType;
     protected $_name = [
         'authTimeout' => 'AuthTimeout',
-        'imageId'     => 'ImageId',
-        'outputType'  => 'OutputType',
+        'imageId' => 'ImageId',
+        'outputType' => 'OutputType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -17,9 +17,7 @@ class liveRecordVideoList extends Model
         'liveRecordVideo' => 'LiveRecordVideo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class liveRecordVideoList extends Model
         if (isset($map['LiveRecordVideo'])) {
             if (!empty($map['LiveRecordVideo'])) {
                 $model->liveRecordVideo = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['LiveRecordVideo'] as $item) {
                     $model->liveRecordVideo[$n++] = null !== $item ? liveRecordVideo::fromMap($item) : $item;
                 }

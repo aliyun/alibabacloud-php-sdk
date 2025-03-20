@@ -17,9 +17,7 @@ class AIData extends Model
         'AIDataItem' => 'AIDataItem',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class AIData extends Model
         if (isset($map['AIDataItem'])) {
             if (!empty($map['AIDataItem'])) {
                 $model->AIDataItem = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['AIDataItem'] as $item) {
                     $model->AIDataItem[$n++] = null !== $item ? AIDataItem::fromMap($item) : $item;
                 }

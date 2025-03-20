@@ -15,6 +15,7 @@ class GetAppInfosRequest extends Model
      *   Separate application IDs with commas (,).
      *
      * This parameter is required.
+     *
      * @example app-****
      *
      * @var string
@@ -24,9 +25,7 @@ class GetAppInfosRequest extends Model
         'appIds' => 'AppIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

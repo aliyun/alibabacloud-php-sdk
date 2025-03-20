@@ -66,6 +66,7 @@ class DescribeVodMediaPlayDataRequest extends Model
      * @description The number of the page. You can specify a page number to return data from the specified page.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -76,6 +77,7 @@ class DescribeVodMediaPlayDataRequest extends Model
      * @description The number of entries per page. Maximum value: 100.
      *
      * This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -87,6 +89,7 @@ class DescribeVodMediaPlayDataRequest extends Model
      *
      * > *   You can query data only by day.
      * > *   You can query only data within the last 30 days.
+     *
      * @example 20240322
      *
      * @var string
@@ -122,20 +125,18 @@ class DescribeVodMediaPlayDataRequest extends Model
      */
     public $terminalType;
     protected $_name = [
-        'mediaId'      => 'MediaId',
-        'orderName'    => 'OrderName',
-        'orderType'    => 'OrderType',
-        'os'           => 'Os',
-        'pageNo'       => 'PageNo',
-        'pageSize'     => 'PageSize',
-        'playDate'     => 'PlayDate',
-        'region'       => 'Region',
+        'mediaId' => 'MediaId',
+        'orderName' => 'OrderName',
+        'orderType' => 'OrderType',
+        'os' => 'Os',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'playDate' => 'PlayDate',
+        'region' => 'Region',
         'terminalType' => 'TerminalType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

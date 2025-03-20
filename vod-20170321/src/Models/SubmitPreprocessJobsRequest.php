@@ -12,6 +12,7 @@ class SubmitPreprocessJobsRequest extends Model
      * @description The preprocessing type. Set the value to **LivePreprocess**. LivePreprocess specifies that the video is preprocessed in the production studio.
      *
      * This parameter is required.
+     *
      * @example LivePreprocess
      *
      * @var string
@@ -26,6 +27,7 @@ class SubmitPreprocessJobsRequest extends Model
      *   Obtain the VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you call to query videos.
      *
      * This parameter is required.
+     *
      * @example d3e680e618708efbf2cae7cc9312****
      *
      * @var string
@@ -33,12 +35,10 @@ class SubmitPreprocessJobsRequest extends Model
     public $videoId;
     protected $_name = [
         'preprocessType' => 'PreprocessType',
-        'videoId'        => 'VideoId',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -24,13 +24,11 @@ class location extends Model
      */
     public $times;
     protected $_name = [
-        'tag'   => 'Tag',
+        'tag' => 'Tag',
         'times' => 'Times',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

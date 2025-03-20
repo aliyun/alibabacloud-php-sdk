@@ -22,13 +22,11 @@ class DeleteMessageCallbackRequest extends Model
      */
     public $ownerAccount;
     protected $_name = [
-        'appId'        => 'AppId',
+        'appId' => 'AppId',
         'ownerAccount' => 'OwnerAccount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

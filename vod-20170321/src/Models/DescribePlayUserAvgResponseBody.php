@@ -25,13 +25,11 @@ class DescribePlayUserAvgResponseBody extends Model
      */
     public $userPlayStatisAvgs;
     protected $_name = [
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
         'userPlayStatisAvgs' => 'UserPlayStatisAvgs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

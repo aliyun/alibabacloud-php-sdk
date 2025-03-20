@@ -61,17 +61,15 @@ class DescribeVodDomainReqHitRateDataResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'data'         => 'Data',
+        'data' => 'Data',
         'dataInterval' => 'DataInterval',
-        'domainName'   => 'DomainName',
-        'endTime'      => 'EndTime',
-        'requestId'    => 'RequestId',
-        'startTime'    => 'StartTime',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

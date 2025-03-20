@@ -86,19 +86,17 @@ class messageCallback extends Model
      */
     public $mnsQueueName;
     protected $_name = [
-        'appId'         => 'AppId',
-        'authKey'       => 'AuthKey',
-        'authSwitch'    => 'AuthSwitch',
-        'callbackType'  => 'CallbackType',
-        'callbackURL'   => 'CallbackURL',
+        'appId' => 'AppId',
+        'authKey' => 'AuthKey',
+        'authSwitch' => 'AuthSwitch',
+        'callbackType' => 'CallbackType',
+        'callbackURL' => 'CallbackURL',
         'eventTypeList' => 'EventTypeList',
-        'mnsEndpoint'   => 'MnsEndpoint',
-        'mnsQueueName'  => 'MnsQueueName',
+        'mnsEndpoint' => 'MnsEndpoint',
+        'mnsQueueName' => 'MnsQueueName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

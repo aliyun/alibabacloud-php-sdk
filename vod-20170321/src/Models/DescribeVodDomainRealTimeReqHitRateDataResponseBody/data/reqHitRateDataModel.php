@@ -27,12 +27,10 @@ class reqHitRateDataModel extends Model
     public $timeStamp;
     protected $_name = [
         'reqHitRate' => 'ReqHitRate',
-        'timeStamp'  => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

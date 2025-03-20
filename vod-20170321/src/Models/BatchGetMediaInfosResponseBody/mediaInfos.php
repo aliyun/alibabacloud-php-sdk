@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class mediaInfos extends Model
 {
     /**
+     * @description The ID of the media asset.
+     *
      * @example 10a5fa364a5b71ef89246733a78e****
      *
      * @var string
@@ -19,29 +21,33 @@ class mediaInfos extends Model
     public $mediaId;
 
     /**
+     * @description The basic information of the media asset.
+     *
      * @var mediaInfo
      */
     public $mediaInfo;
 
     /**
+     * @description The source file information.
+     *
      * @var mezzanineInfo
      */
     public $mezzanineInfo;
 
     /**
+     * @description The information about the audio or video stream.
+     *
      * @var playInfoList[]
      */
     public $playInfoList;
     protected $_name = [
-        'mediaId'       => 'MediaId',
-        'mediaInfo'     => 'MediaInfo',
+        'mediaId' => 'MediaId',
+        'mediaInfo' => 'MediaInfo',
         'mezzanineInfo' => 'MezzanineInfo',
-        'playInfoList'  => 'PlayInfoList',
+        'playInfoList' => 'PlayInfoList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -88,7 +94,7 @@ class mediaInfos extends Model
         if (isset($map['PlayInfoList'])) {
             if (!empty($map['PlayInfoList'])) {
                 $model->playInfoList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PlayInfoList'] as $item) {
                     $model->playInfoList[$n++] = null !== $item ? playInfoList::fromMap($item) : $item;
                 }

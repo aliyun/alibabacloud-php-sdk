@@ -16,9 +16,7 @@ class snapshots extends Model
         'snapshot' => 'Snapshot',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

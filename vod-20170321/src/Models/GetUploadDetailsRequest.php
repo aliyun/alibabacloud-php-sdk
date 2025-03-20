@@ -15,6 +15,7 @@ class GetUploadDetailsRequest extends Model
      *   View the value of the VideoId parameter returned by the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you called to query media information after the audio or video file is uploaded.
      *
      * This parameter is required.
+     *
      * @example 61ccbdb06fa83012be4d8083f6****,7d2fbc380b0e08e55f****
      *
      * @var string
@@ -30,13 +31,11 @@ class GetUploadDetailsRequest extends Model
      */
     public $mediaType;
     protected $_name = [
-        'mediaIds'  => 'MediaIds',
+        'mediaIds' => 'MediaIds',
         'mediaType' => 'MediaType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

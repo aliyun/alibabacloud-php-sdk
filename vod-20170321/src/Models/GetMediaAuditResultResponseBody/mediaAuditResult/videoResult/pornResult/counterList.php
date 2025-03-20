@@ -23,6 +23,7 @@ class counterList extends Model
      * - **porn**
      * - **sexy**
      * - **normal**
+     *
      * @example porn
      *
      * @var string
@@ -33,9 +34,7 @@ class counterList extends Model
         'label' => 'Label',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

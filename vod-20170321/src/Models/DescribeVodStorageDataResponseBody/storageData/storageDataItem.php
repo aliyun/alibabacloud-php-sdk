@@ -35,14 +35,12 @@ class storageDataItem extends Model
      */
     public $timeStamp;
     protected $_name = [
-        'networkOut'         => 'NetworkOut',
+        'networkOut' => 'NetworkOut',
         'storageUtilization' => 'StorageUtilization',
-        'timeStamp'          => 'TimeStamp',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

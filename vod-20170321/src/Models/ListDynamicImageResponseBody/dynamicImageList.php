@@ -107,22 +107,20 @@ class dynamicImageList extends Model
      */
     public $width;
     protected $_name = [
-        'creationTime'   => 'CreationTime',
-        'duration'       => 'Duration',
+        'creationTime' => 'CreationTime',
+        'duration' => 'Duration',
         'dynamicImageId' => 'DynamicImageId',
-        'fileSize'       => 'FileSize',
-        'fileURL'        => 'FileURL',
-        'format'         => 'Format',
-        'fps'            => 'Fps',
-        'height'         => 'Height',
-        'jobId'          => 'JobId',
-        'videoId'        => 'VideoId',
-        'width'          => 'Width',
+        'fileSize' => 'FileSize',
+        'fileURL' => 'FileURL',
+        'format' => 'Format',
+        'fps' => 'Fps',
+        'height' => 'Height',
+        'jobId' => 'JobId',
+        'videoId' => 'VideoId',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

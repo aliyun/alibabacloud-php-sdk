@@ -43,15 +43,13 @@ class aiLabelInfo extends Model
      */
     public $occurrences;
     protected $_name = [
-        'category'    => 'Category',
-        'labelId'     => 'LabelId',
-        'labelName'   => 'LabelName',
+        'category' => 'Category',
+        'labelId' => 'LabelId',
+        'labelName' => 'LabelName',
         'occurrences' => 'Occurrences',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class aiLabelInfo extends Model
         if (isset($map['Occurrences'])) {
             if (!empty($map['Occurrences'])) {
                 $model->occurrences = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['Occurrences'] as $item) {
                     $model->occurrences[$n++] = null !== $item ? occurrences::fromMap($item) : $item;
                 }

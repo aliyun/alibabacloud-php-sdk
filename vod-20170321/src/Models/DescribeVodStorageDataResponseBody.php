@@ -38,13 +38,11 @@ class DescribeVodStorageDataResponseBody extends Model
     public $storageData;
     protected $_name = [
         'dataInterval' => 'DataInterval',
-        'requestId'    => 'RequestId',
-        'storageData'  => 'StorageData',
+        'requestId' => 'RequestId',
+        'storageData' => 'StorageData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

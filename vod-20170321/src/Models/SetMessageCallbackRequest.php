@@ -91,20 +91,18 @@ class SetMessageCallbackRequest extends Model
      */
     public $ownerAccount;
     protected $_name = [
-        'appId'         => 'AppId',
-        'authKey'       => 'AuthKey',
-        'authSwitch'    => 'AuthSwitch',
-        'callbackType'  => 'CallbackType',
-        'callbackURL'   => 'CallbackURL',
+        'appId' => 'AppId',
+        'authKey' => 'AuthKey',
+        'authSwitch' => 'AuthSwitch',
+        'callbackType' => 'CallbackType',
+        'callbackURL' => 'CallbackURL',
         'eventTypeList' => 'EventTypeList',
-        'mnsEndpoint'   => 'MnsEndpoint',
-        'mnsQueueName'  => 'MnsQueueName',
-        'ownerAccount'  => 'OwnerAccount',
+        'mnsEndpoint' => 'MnsEndpoint',
+        'mnsQueueName' => 'MnsQueueName',
+        'ownerAccount' => 'OwnerAccount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

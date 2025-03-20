@@ -25,13 +25,11 @@ class DescribePlayVideoStatisResponseBody extends Model
      */
     public $videoPlayStatisDetails;
     protected $_name = [
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
         'videoPlayStatisDetails' => 'VideoPlayStatisDetails',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

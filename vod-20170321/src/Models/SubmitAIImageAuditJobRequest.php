@@ -16,6 +16,7 @@ class SubmitAIImageAuditJobRequest extends Model
      *
      * > *   You can specify a value for the ResourceType field based on the preceding limits. After you specify a value for the ResourceType field, you must [submit a ticket](https://yida.alibaba-inc.com/o/ticketapply). The value takes effect after Alibaba Cloud processes your ticket.
      * >*   If you want to change moderation policies and rules based on ResourceType, [submit a ticket](https://yida.alibaba-inc.com/o/ticketapply) to contact technical support.
+     *
      * @example {"ResourceType":"****_short_video"}
      *
      * @var string
@@ -25,7 +26,10 @@ class SubmitAIImageAuditJobRequest extends Model
     /**
      * @description The ID of the image.
      *
+     * The unique ID of the image is returned after the image is uploaded to ApsaraVideo VOD.
+     *
      * This parameter is required.
+     *
      * @example f1aa3024aee64*****6dc8ca20dbc320
      *
      * @var string
@@ -59,6 +63,7 @@ class SubmitAIImageAuditJobRequest extends Model
      *   Obtain the value of TemplateId from the response to the [ListAITemplate](https://help.aliyun.com/document_detail/102936.html) operation that you call to create an AI template.
      *
      * This parameter is required.
+     *
      * @example VOD-0003-00****
      *
      * @var string
@@ -66,17 +71,15 @@ class SubmitAIImageAuditJobRequest extends Model
     public $templateId;
     protected $_name = [
         'mediaAuditConfiguration' => 'MediaAuditConfiguration',
-        'mediaId'                 => 'MediaId',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
-        'templateId'              => 'TemplateId',
+        'mediaId' => 'MediaId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'templateId' => 'TemplateId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

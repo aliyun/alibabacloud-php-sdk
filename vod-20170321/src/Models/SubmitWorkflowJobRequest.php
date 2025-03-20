@@ -25,19 +25,18 @@ class SubmitWorkflowJobRequest extends Model
      * @description The ID of the workflow. To view the ID of the workflow, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Processing** > **Workflows**.
      *
      * This parameter is required.
+     *
      * @example 34d577eade633860bdf1237****
      *
      * @var string
      */
     public $workflowId;
     protected $_name = [
-        'mediaId'    => 'MediaId',
+        'mediaId' => 'MediaId',
         'workflowId' => 'WorkflowId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

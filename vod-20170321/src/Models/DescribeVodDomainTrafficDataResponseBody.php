@@ -70,18 +70,16 @@ class DescribeVodDomainTrafficDataResponseBody extends Model
      */
     public $trafficDataPerInterval;
     protected $_name = [
-        'dataInterval'           => 'DataInterval',
-        'domainName'             => 'DomainName',
-        'endTime'                => 'EndTime',
-        'requestId'              => 'RequestId',
-        'startTime'              => 'StartTime',
-        'totalTraffic'           => 'TotalTraffic',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
+        'totalTraffic' => 'TotalTraffic',
         'trafficDataPerInterval' => 'TrafficDataPerInterval',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

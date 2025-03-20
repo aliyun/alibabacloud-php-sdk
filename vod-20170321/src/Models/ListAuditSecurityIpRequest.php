@@ -20,9 +20,7 @@ class ListAuditSecurityIpRequest extends Model
         'securityGroupName' => 'SecurityGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

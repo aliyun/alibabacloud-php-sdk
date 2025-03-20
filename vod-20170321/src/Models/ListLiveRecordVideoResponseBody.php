@@ -35,13 +35,11 @@ class ListLiveRecordVideoResponseBody extends Model
     public $total;
     protected $_name = [
         'liveRecordVideoList' => 'LiveRecordVideoList',
-        'requestId'           => 'RequestId',
-        'total'               => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

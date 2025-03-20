@@ -27,12 +27,10 @@ class DescribeVodRangeDataByLocateAndIspServiceResponseBody extends Model
     public $requestId;
     protected $_name = [
         'jsonResult' => 'JsonResult',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

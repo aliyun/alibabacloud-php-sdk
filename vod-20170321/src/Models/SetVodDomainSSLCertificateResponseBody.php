@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetVodDomainSSLCertificateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F4C6D5BE-BF13-45*****6C-516EA8906DCD
      *
      * @var string
@@ -18,9 +20,7 @@ class SetVodDomainSSLCertificateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -61,17 +61,15 @@ class DescribeVodDomainQpsDataResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'dataInterval'    => 'DataInterval',
-        'domainName'      => 'DomainName',
-        'endTime'         => 'EndTime',
+        'dataInterval' => 'DataInterval',
+        'domainName' => 'DomainName',
+        'endTime' => 'EndTime',
         'qpsDataInterval' => 'QpsDataInterval',
-        'requestId'       => 'RequestId',
-        'startTime'       => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

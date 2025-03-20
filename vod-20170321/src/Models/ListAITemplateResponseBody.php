@@ -25,13 +25,11 @@ class ListAITemplateResponseBody extends Model
      */
     public $templateInfoList;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'templateInfoList' => 'TemplateInfoList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class ListAITemplateResponseBody extends Model
         if (isset($map['TemplateInfoList'])) {
             if (!empty($map['TemplateInfoList'])) {
                 $model->templateInfoList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['TemplateInfoList'] as $item) {
                     $model->templateInfoList[$n++] = null !== $item ? templateInfoList::fromMap($item) : $item;
                 }

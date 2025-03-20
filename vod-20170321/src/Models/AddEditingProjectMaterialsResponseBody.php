@@ -26,12 +26,10 @@ class AddEditingProjectMaterialsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'materialList' => 'MaterialList',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class AddEditingProjectMaterialsResponseBody extends Model
         if (isset($map['MaterialList'])) {
             if (!empty($map['MaterialList'])) {
                 $model->materialList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['MaterialList'] as $item) {
                     $model->materialList[$n++] = null !== $item ? materialList::fromMap($item) : $item;
                 }

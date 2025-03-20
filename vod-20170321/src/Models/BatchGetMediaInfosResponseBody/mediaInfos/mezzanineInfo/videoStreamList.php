@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class videoStreamList extends Model
 {
     /**
+     * @description The average frame rate.
+     *
      * @example 30.0
      *
      * @var string
@@ -16,6 +18,8 @@ class videoStreamList extends Model
     public $avgFPS;
 
     /**
+     * @description The bitrate of the file. Unit: Kbit/s.
+     *
      * @example 500
      *
      * @var string
@@ -23,6 +27,8 @@ class videoStreamList extends Model
     public $bitrate;
 
     /**
+     * @description The full name of the encoding format.
+     *
      * @example H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
      *
      * @var string
@@ -30,6 +36,8 @@ class videoStreamList extends Model
     public $codecLongName;
 
     /**
+     * @description The short name of the encoding format.
+     *
      * @example h264
      *
      * @var string
@@ -37,6 +45,8 @@ class videoStreamList extends Model
     public $codecName;
 
     /**
+     * @description The tag of the encoding format.
+     *
      * @example 0x31637661
      *
      * @var string
@@ -44,6 +54,8 @@ class videoStreamList extends Model
     public $codecTag;
 
     /**
+     * @description The tag string of the encoding format.
+     *
      * @example avc1
      *
      * @var string
@@ -51,6 +63,8 @@ class videoStreamList extends Model
     public $codecTagString;
 
     /**
+     * @description The time base of the encoder.
+     *
      * @example 1/60
      *
      * @var string
@@ -58,6 +72,8 @@ class videoStreamList extends Model
     public $codecTimeBase;
 
     /**
+     * @description The display aspect ratio (DAR).
+     *
      * @example 0:1
      *
      * @var string
@@ -65,6 +81,8 @@ class videoStreamList extends Model
     public $dar;
 
     /**
+     * @description The duration.
+     *
      * @example 3.166667
      *
      * @var string
@@ -72,6 +90,8 @@ class videoStreamList extends Model
     public $duration;
 
     /**
+     * @description The frame rate of the output file.
+     *
      * @example 30.0
      *
      * @var string
@@ -79,6 +99,8 @@ class videoStreamList extends Model
     public $fps;
 
     /**
+     * @description The HDR type of the video stream.
+     *
      * @example HDR
      *
      * @var string
@@ -86,6 +108,8 @@ class videoStreamList extends Model
     public $HDRType;
 
     /**
+     * @description Indicates whether the video stream contains bidirectional frames (B-frames).
+     *
      * @example 0
      *
      * @var string
@@ -93,6 +117,8 @@ class videoStreamList extends Model
     public $hasBFrames;
 
     /**
+     * @description The height of the video stream.
+     *
      * @example 320
      *
      * @var string
@@ -100,6 +126,8 @@ class videoStreamList extends Model
     public $height;
 
     /**
+     * @description The sequence number of the video stream. The value identifies the position of the video stream in all video streams.
+     *
      * @example 1
      *
      * @var string
@@ -107,6 +135,8 @@ class videoStreamList extends Model
     public $index;
 
     /**
+     * @description The language.
+     *
      * @example und
      *
      * @var string
@@ -114,6 +144,8 @@ class videoStreamList extends Model
     public $lang;
 
     /**
+     * @description The codec level.
+     *
      * @example 30
      *
      * @var string
@@ -121,6 +153,8 @@ class videoStreamList extends Model
     public $level;
 
     /**
+     * @description The total number of frames.
+     *
      * @example 0
      *
      * @var string
@@ -128,6 +162,8 @@ class videoStreamList extends Model
     public $numFrames;
 
     /**
+     * @description The pixel format of the video stream.
+     *
      * @example yuv420p
      *
      * @var string
@@ -135,6 +171,8 @@ class videoStreamList extends Model
     public $pixFmt;
 
     /**
+     * @description The codec profile.
+     *
      * @example Main
      *
      * @var string
@@ -142,6 +180,8 @@ class videoStreamList extends Model
     public $profile;
 
     /**
+     * @description The rotation angle of the video. Valid values: [0,360).
+     *
      * @example 90
      *
      * @var string
@@ -149,6 +189,8 @@ class videoStreamList extends Model
     public $rotate;
 
     /**
+     * @description The sample aspect ratio (SAR).
+     *
      * @example 0:1
      *
      * @var string
@@ -156,6 +198,8 @@ class videoStreamList extends Model
     public $sar;
 
     /**
+     * @description The start time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
@@ -163,6 +207,8 @@ class videoStreamList extends Model
     public $startTime;
 
     /**
+     * @description The time base.
+     *
      * @example 0.000000
      *
      * @var string
@@ -170,41 +216,41 @@ class videoStreamList extends Model
     public $timebase;
 
     /**
+     * @description The horizontal resolution of the video.
+     *
      * @example 568
      *
      * @var string
      */
     public $width;
     protected $_name = [
-        'avgFPS'         => 'AvgFPS',
-        'bitrate'        => 'Bitrate',
-        'codecLongName'  => 'CodecLongName',
-        'codecName'      => 'CodecName',
-        'codecTag'       => 'CodecTag',
+        'avgFPS' => 'AvgFPS',
+        'bitrate' => 'Bitrate',
+        'codecLongName' => 'CodecLongName',
+        'codecName' => 'CodecName',
+        'codecTag' => 'CodecTag',
         'codecTagString' => 'CodecTagString',
-        'codecTimeBase'  => 'CodecTimeBase',
-        'dar'            => 'Dar',
-        'duration'       => 'Duration',
-        'fps'            => 'Fps',
-        'HDRType'        => 'HDRType',
-        'hasBFrames'     => 'HasBFrames',
-        'height'         => 'Height',
-        'index'          => 'Index',
-        'lang'           => 'Lang',
-        'level'          => 'Level',
-        'numFrames'      => 'NumFrames',
-        'pixFmt'         => 'PixFmt',
-        'profile'        => 'Profile',
-        'rotate'         => 'Rotate',
-        'sar'            => 'Sar',
-        'startTime'      => 'StartTime',
-        'timebase'       => 'Timebase',
-        'width'          => 'Width',
+        'codecTimeBase' => 'CodecTimeBase',
+        'dar' => 'Dar',
+        'duration' => 'Duration',
+        'fps' => 'Fps',
+        'HDRType' => 'HDRType',
+        'hasBFrames' => 'HasBFrames',
+        'height' => 'Height',
+        'index' => 'Index',
+        'lang' => 'Lang',
+        'level' => 'Level',
+        'numFrames' => 'NumFrames',
+        'pixFmt' => 'PixFmt',
+        'profile' => 'Profile',
+        'rotate' => 'Rotate',
+        'sar' => 'Sar',
+        'startTime' => 'StartTime',
+        'timebase' => 'Timebase',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

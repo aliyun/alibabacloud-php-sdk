@@ -21,19 +21,18 @@ class ListVodTemplateRequest extends Model
      * @description The type of the template. Set the value to **Snapshot**.
      *
      * This parameter is required.
+     *
      * @example Snapshot
      *
      * @var string
      */
     public $templateType;
     protected $_name = [
-        'appId'        => 'AppId',
+        'appId' => 'AppId',
         'templateType' => 'TemplateType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

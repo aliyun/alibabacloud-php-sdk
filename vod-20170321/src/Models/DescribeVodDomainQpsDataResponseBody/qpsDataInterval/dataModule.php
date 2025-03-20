@@ -125,24 +125,22 @@ class dataModule extends Model
      */
     public $value;
     protected $_name = [
-        'accDomesticValue'      => 'AccDomesticValue',
-        'accOverseasValue'      => 'AccOverseasValue',
-        'accValue'              => 'AccValue',
-        'domesticValue'         => 'DomesticValue',
+        'accDomesticValue' => 'AccDomesticValue',
+        'accOverseasValue' => 'AccOverseasValue',
+        'accValue' => 'AccValue',
+        'domesticValue' => 'DomesticValue',
         'httpsAccDomesticValue' => 'HttpsAccDomesticValue',
         'httpsAccOverseasValue' => 'HttpsAccOverseasValue',
-        'httpsAccValue'         => 'HttpsAccValue',
-        'httpsDomesticValue'    => 'HttpsDomesticValue',
-        'httpsOverseasValue'    => 'HttpsOverseasValue',
-        'httpsValue'            => 'HttpsValue',
-        'overseasValue'         => 'OverseasValue',
-        'timeStamp'             => 'TimeStamp',
-        'value'                 => 'Value',
+        'httpsAccValue' => 'HttpsAccValue',
+        'httpsDomesticValue' => 'HttpsDomesticValue',
+        'httpsOverseasValue' => 'HttpsOverseasValue',
+        'httpsValue' => 'HttpsValue',
+        'overseasValue' => 'OverseasValue',
+        'timeStamp' => 'TimeStamp',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

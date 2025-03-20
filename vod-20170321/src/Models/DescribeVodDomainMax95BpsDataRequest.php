@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainMax95BpsDataRequest extends Model
 {
     /**
+     * @description The cycle to query the 95th percentile bandwidth data. Valid values:
+     *
+     *   day (default)
+     *   month
+     *
      * @example month
      *
      * @var string
@@ -16,6 +21,10 @@ class DescribeVodDomainMax95BpsDataRequest extends Model
     public $cycle;
 
     /**
+     * @description The domain name to be queried for acceleration. If the parameter is empty, the data merged from all accelerated domain names will be returned by default.
+     *
+     * > Batch domain name queries are not supported.
+     *
      * @example example.com
      *
      * @var string
@@ -23,6 +32,8 @@ class DescribeVodDomainMax95BpsDataRequest extends Model
     public $domainName;
 
     /**
+     * @description End time point. The date format follows the ISO8601 representation and uses UTC time, in the format yyyy-MM-dd\\"T\\"HH:mm:ssZ.
+     *
      * @example 2017-01-12T13:00:00Z
      *
      * @var string
@@ -35,6 +46,8 @@ class DescribeVodDomainMax95BpsDataRequest extends Model
     public $ownerId;
 
     /**
+     * @description Start time point. The date format follows the ISO8601 representation and uses UTC time, in the format yyyy-MM-dd\\"T\\"HH:mm:ssZ.
+     *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
@@ -42,23 +55,23 @@ class DescribeVodDomainMax95BpsDataRequest extends Model
     public $startTime;
 
     /**
+     * @description The start time point for getting the data. The date format follows the ISO8601 representation and uses UTC time, in the format yyyy-MM-dd\\"T\\"HH:mm:ssZ.
+     *
      * @example 2017-12-21T10:00:00Z
      *
      * @var string
      */
     public $timePoint;
     protected $_name = [
-        'cycle'      => 'Cycle',
+        'cycle' => 'Cycle',
         'domainName' => 'DomainName',
-        'endTime'    => 'EndTime',
-        'ownerId'    => 'OwnerId',
-        'startTime'  => 'StartTime',
-        'timePoint'  => 'TimePoint',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'startTime' => 'StartTime',
+        'timePoint' => 'TimePoint',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -40,14 +40,12 @@ class GetUploadDetailsResponseBody extends Model
     public $uploadDetails;
     protected $_name = [
         'forbiddenMediaIds' => 'ForbiddenMediaIds',
-        'nonExistMediaIds'  => 'NonExistMediaIds',
-        'requestId'         => 'RequestId',
-        'uploadDetails'     => 'UploadDetails',
+        'nonExistMediaIds' => 'NonExistMediaIds',
+        'requestId' => 'RequestId',
+        'uploadDetails' => 'UploadDetails',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -98,7 +96,7 @@ class GetUploadDetailsResponseBody extends Model
         if (isset($map['UploadDetails'])) {
             if (!empty($map['UploadDetails'])) {
                 $model->uploadDetails = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['UploadDetails'] as $item) {
                     $model->uploadDetails[$n++] = null !== $item ? uploadDetails::fromMap($item) : $item;
                 }

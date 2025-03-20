@@ -16,6 +16,7 @@ class DeleteMultipartUploadRequest extends Model
      *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation that you called to query media information after the audio or video file is uploaded.
      *
      * This parameter is required.
+     *
      * @example 61ccbdb06fa3012be4d8083f6****
      *
      * @var string
@@ -26,6 +27,7 @@ class DeleteMultipartUploadRequest extends Model
      * @description The type of the media file. Set the value to **video**. video indicates audio and video files.
      *
      * This parameter is required.
+     *
      * @example video
      *
      * @var string
@@ -37,14 +39,12 @@ class DeleteMultipartUploadRequest extends Model
      */
     public $ownerAccount;
     protected $_name = [
-        'mediaId'      => 'MediaId',
-        'mediaType'    => 'MediaType',
+        'mediaId' => 'MediaId',
+        'mediaType' => 'MediaType',
         'ownerAccount' => 'OwnerAccount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

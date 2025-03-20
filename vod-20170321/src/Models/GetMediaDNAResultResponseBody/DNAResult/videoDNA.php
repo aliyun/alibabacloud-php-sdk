@@ -34,14 +34,12 @@ class videoDNA extends Model
      */
     public $similarity;
     protected $_name = [
-        'detail'     => 'Detail',
+        'detail' => 'Detail',
         'primaryKey' => 'PrimaryKey',
         'similarity' => 'Similarity',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class videoDNA extends Model
         if (isset($map['Detail'])) {
             if (!empty($map['Detail'])) {
                 $model->detail = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Detail'] as $item) {
                     $model->detail[$n++] = null !== $item ? detail::fromMap($item) : $item;
                 }

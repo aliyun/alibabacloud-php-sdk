@@ -54,15 +54,13 @@ class storageData extends Model
     public $timeStamp;
     protected $_name = [
         'lessthanMonthDatasize' => 'LessthanMonthDatasize',
-        'region'                => 'Region',
-        'storageClass'          => 'StorageClass',
-        'storageUtilization'    => 'StorageUtilization',
-        'timeStamp'             => 'TimeStamp',
+        'region' => 'Region',
+        'storageClass' => 'StorageClass',
+        'storageUtilization' => 'StorageUtilization',
+        'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

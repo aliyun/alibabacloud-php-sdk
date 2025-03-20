@@ -17,9 +17,7 @@ class data extends Model
         'qpsModel' => 'QpsModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class data extends Model
         if (isset($map['QpsModel'])) {
             if (!empty($map['QpsModel'])) {
                 $model->qpsModel = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['QpsModel'] as $item) {
                     $model->qpsModel[$n++] = null !== $item ? qpsModel::fromMap($item) : $item;
                 }

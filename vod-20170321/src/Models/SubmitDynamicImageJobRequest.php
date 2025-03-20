@@ -12,6 +12,7 @@ class SubmitDynamicImageJobRequest extends Model
      * @description The ID of the frame animation template.
      *
      * This parameter is required.
+     *
      * @example 1a443dc52ef10abc4794d700*****
      *
      * @var string
@@ -35,6 +36,7 @@ class SubmitDynamicImageJobRequest extends Model
      *   Obtain the value of VideoId from the response to the [SearchMedia](https://help.aliyun.com/document_detail/86044.html) operation after you upload media files.
      *
      * This parameter is required.
+     *
      * @example 7d2fbc3e273441bdb0e08e55f8****
      *
      * @var string
@@ -42,13 +44,11 @@ class SubmitDynamicImageJobRequest extends Model
     public $videoId;
     protected $_name = [
         'dynamicImageTemplateId' => 'DynamicImageTemplateId',
-        'overrideParams'         => 'OverrideParams',
-        'videoId'                => 'VideoId',
+        'overrideParams' => 'OverrideParams',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

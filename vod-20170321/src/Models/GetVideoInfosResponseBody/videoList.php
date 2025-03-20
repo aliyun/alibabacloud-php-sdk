@@ -203,6 +203,10 @@ class videoList extends Model
     public $title;
 
     /**
+     * @description Custom settings. This is a JSON string that supports settings such as message callbacks and upload acceleration. For more information, please refer to [UserData](https://help.aliyun.com/document_detail/86952.html).
+     *
+     * @example {"MessageCallback":{"CallbackURL":"http://example.aliyundoc.com"},"Extend":{"localId":"*****","test":"www"}}
+     *
      * @var string
      */
     public $userData;
@@ -216,32 +220,30 @@ class videoList extends Model
      */
     public $videoId;
     protected $_name = [
-        'appId'             => 'AppId',
-        'cateId'            => 'CateId',
-        'cateName'          => 'CateName',
-        'coverURL'          => 'CoverURL',
-        'creationTime'      => 'CreationTime',
-        'description'       => 'Description',
-        'downloadSwitch'    => 'DownloadSwitch',
-        'duration'          => 'Duration',
-        'modificationTime'  => 'ModificationTime',
+        'appId' => 'AppId',
+        'cateId' => 'CateId',
+        'cateName' => 'CateName',
+        'coverURL' => 'CoverURL',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'downloadSwitch' => 'DownloadSwitch',
+        'duration' => 'Duration',
+        'modificationTime' => 'ModificationTime',
         'restoreExpiration' => 'RestoreExpiration',
-        'restoreStatus'     => 'RestoreStatus',
-        'size'              => 'Size',
-        'snapshots'         => 'Snapshots',
-        'status'            => 'Status',
-        'storageClass'      => 'StorageClass',
-        'storageLocation'   => 'StorageLocation',
-        'tags'              => 'Tags',
-        'templateGroupId'   => 'TemplateGroupId',
-        'title'             => 'Title',
-        'userData'          => 'UserData',
-        'videoId'           => 'VideoId',
+        'restoreStatus' => 'RestoreStatus',
+        'size' => 'Size',
+        'snapshots' => 'Snapshots',
+        'status' => 'Status',
+        'storageClass' => 'StorageClass',
+        'storageLocation' => 'StorageLocation',
+        'tags' => 'Tags',
+        'templateGroupId' => 'TemplateGroupId',
+        'title' => 'Title',
+        'userData' => 'UserData',
+        'videoId' => 'VideoId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

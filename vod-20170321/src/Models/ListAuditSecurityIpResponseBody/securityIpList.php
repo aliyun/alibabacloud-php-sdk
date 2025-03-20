@@ -44,15 +44,13 @@ class securityIpList extends Model
      */
     public $securityGroupName;
     protected $_name = [
-        'creationTime'      => 'CreationTime',
-        'ips'               => 'Ips',
-        'modificationTime'  => 'ModificationTime',
+        'creationTime' => 'CreationTime',
+        'ips' => 'Ips',
+        'modificationTime' => 'ModificationTime',
         'securityGroupName' => 'SecurityGroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

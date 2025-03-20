@@ -38,6 +38,7 @@ class GetEditingProjectMaterialsRequest extends Model
      *   Call the **AddEditingProject** operation. The value of the response parameter ProjectId is the ID of the specified online editing project.
      *
      * This parameter is required.
+     *
      * @example 1982361011093374****
      *
      * @var string
@@ -66,18 +67,16 @@ class GetEditingProjectMaterialsRequest extends Model
      */
     public $type;
     protected $_name = [
-        'materialType'         => 'MaterialType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'projectId'            => 'ProjectId',
+        'materialType' => 'MaterialType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'projectId' => 'ProjectId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'type'                 => 'Type',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

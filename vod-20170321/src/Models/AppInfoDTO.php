@@ -41,17 +41,15 @@ class AppInfoDTO extends Model
      */
     public $userId;
     protected $_name = [
-        'appName'   => 'AppName',
-        'appType'   => 'AppType',
+        'appName' => 'AppName',
+        'appType' => 'AppType',
         'gmtCreate' => 'GmtCreate',
-        'itemId'    => 'ItemId',
+        'itemId' => 'ItemId',
         'platforms' => 'Platforms',
-        'userId'    => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -107,7 +105,7 @@ class AppInfoDTO extends Model
         if (isset($map['Platforms'])) {
             if (!empty($map['Platforms'])) {
                 $model->platforms = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['Platforms'] as $item) {
                     $model->platforms[$n++] = null !== $item ? platforms::fromMap($item) : $item;
                 }

@@ -17,9 +17,7 @@ class sources extends Model
         'source' => 'Source',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class sources extends Model
         if (isset($map['Source'])) {
             if (!empty($map['Source'])) {
                 $model->source = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Source'] as $item) {
                     $model->source[$n++] = null !== $item ? source::fromMap($item) : $item;
                 }

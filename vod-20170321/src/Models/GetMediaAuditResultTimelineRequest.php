@@ -12,6 +12,7 @@ class GetMediaAuditResultTimelineRequest extends Model
      * @description The ID of the video.
      *
      * This parameter is required.
+     *
      * @example 93ab850b4f6f*****54b6e91d24d81d4
      *
      * @var string
@@ -21,9 +22,7 @@ class GetMediaAuditResultTimelineRequest extends Model
         'mediaId' => 'MediaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

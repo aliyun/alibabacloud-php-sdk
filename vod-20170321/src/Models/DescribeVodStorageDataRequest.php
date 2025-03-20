@@ -23,6 +23,7 @@ class DescribeVodStorageDataRequest extends Model
      * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * This parameter is required.
+     *
      * @example 2019-02-01T15:00:00Z
      *
      * @var string
@@ -52,6 +53,7 @@ class DescribeVodStorageDataRequest extends Model
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * This parameter is required.
+     *
      * @example 2019-02-01T14:00:00Z
      *
      * @var string
@@ -76,18 +78,16 @@ class DescribeVodStorageDataRequest extends Model
      */
     public $storageType;
     protected $_name = [
-        'appId'       => 'AppId',
-        'endTime'     => 'EndTime',
-        'ownerId'     => 'OwnerId',
-        'region'      => 'Region',
-        'startTime'   => 'StartTime',
-        'storage'     => 'Storage',
+        'appId' => 'AppId',
+        'endTime' => 'EndTime',
+        'ownerId' => 'OwnerId',
+        'region' => 'Region',
+        'startTime' => 'StartTime',
+        'storage' => 'Storage',
         'storageType' => 'StorageType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -155,27 +155,25 @@ class audioStreamList extends Model
      */
     public $timebase;
     protected $_name = [
-        'bitrate'        => 'Bitrate',
-        'channelLayout'  => 'ChannelLayout',
-        'channels'       => 'Channels',
-        'codecLongName'  => 'CodecLongName',
-        'codecName'      => 'CodecName',
-        'codecTag'       => 'CodecTag',
+        'bitrate' => 'Bitrate',
+        'channelLayout' => 'ChannelLayout',
+        'channels' => 'Channels',
+        'codecLongName' => 'CodecLongName',
+        'codecName' => 'CodecName',
+        'codecTag' => 'CodecTag',
         'codecTagString' => 'CodecTagString',
-        'codecTimeBase'  => 'CodecTimeBase',
-        'duration'       => 'Duration',
-        'index'          => 'Index',
-        'lang'           => 'Lang',
-        'numFrames'      => 'NumFrames',
-        'sampleFmt'      => 'SampleFmt',
-        'sampleRate'     => 'SampleRate',
-        'startTime'      => 'StartTime',
-        'timebase'       => 'Timebase',
+        'codecTimeBase' => 'CodecTimeBase',
+        'duration' => 'Duration',
+        'index' => 'Index',
+        'lang' => 'Lang',
+        'numFrames' => 'NumFrames',
+        'sampleFmt' => 'SampleFmt',
+        'sampleRate' => 'SampleRate',
+        'startTime' => 'StartTime',
+        'timebase' => 'Timebase',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
