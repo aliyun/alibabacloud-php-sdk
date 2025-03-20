@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppStatusResponseBody\appStatus;
+use AlibabaCloud\Tea\Model;
 
 class GetEdgeContainerAppStatusResponseBody extends Model
 {
     /**
+     * @description The status of the application.
+     *
      * @var appStatus
      */
     public $appStatus;
+
     /**
+     * @description The request ID.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247B78
+     *
      * @var string
      */
     public $requestId;
@@ -22,21 +29,14 @@ class GetEdgeContainerAppStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->appStatus) {
-            $this->appStatus->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appStatus) {
-            $res['AppStatus'] = null !== $this->appStatus ? $this->appStatus->toArray($noStream) : $this->appStatus;
+            $res['AppStatus'] = null !== $this->appStatus ? $this->appStatus->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,18 +44,17 @@ class GetEdgeContainerAppStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetEdgeContainerAppStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppStatus'])) {
             $model->appStatus = appStatus::fromMap($map['AppStatus']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

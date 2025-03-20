@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancerRegionsResponseBody\regions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class subRegions extends Model
 {
     /**
+     * @description Secondary region Chinese full name
+     *
+     * @example 印度尼西亚
+     *
      * @var string
      */
     public $subRegionCnName;
+
     /**
+     * @description Secondary region code
+     *
+     * @example ID
+     *
      * @var string
      */
     public $subRegionCode;
+
     /**
+     * @description Secondary region English full name
+     *
+     * @example Indonesia
+     *
      * @var string
      */
     public $subRegionEnName;
     protected $_name = [
         'subRegionCnName' => 'SubRegionCnName',
-        'subRegionCode'   => 'SubRegionCode',
+        'subRegionCode' => 'SubRegionCode',
         'subRegionEnName' => 'SubRegionEnName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->subRegionCnName) {
             $res['SubRegionCnName'] = $this->subRegionCnName;
         }
-
         if (null !== $this->subRegionCode) {
             $res['SubRegionCode'] = $this->subRegionCode;
         }
-
         if (null !== $this->subRegionEnName) {
             $res['SubRegionEnName'] = $this->subRegionEnName;
         }
@@ -49,22 +58,20 @@ class subRegions extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return subRegions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubRegionCnName'])) {
             $model->subRegionCnName = $map['SubRegionCnName'];
         }
-
         if (isset($map['SubRegionCode'])) {
             $model->subRegionCode = $map['SubRegionCode'];
         }
-
         if (isset($map['SubRegionEnName'])) {
             $model->subRegionEnName = $map['SubRegionEnName'];
         }

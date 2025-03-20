@@ -4,45 +4,45 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListWafPhasesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafPhasesResponseBody\phases\rulesets;
+use AlibabaCloud\Tea\Model;
 
 class phases extends Model
 {
     /**
+     * @description The name of the WAF rule category.
+     *
+     * @example http_custom
+     *
      * @var string
      */
     public $phase;
+
     /**
+     * @description The WAF rulesets.
+     *
      * @var rulesets[]
      */
     public $rulesets;
     protected $_name = [
-        'phase'    => 'Phase',
+        'phase' => 'Phase',
         'rulesets' => 'Rulesets',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->rulesets)) {
-            Model::validateArray($this->rulesets);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
         }
-
         if (null !== $this->rulesets) {
-            if (\is_array($this->rulesets)) {
-                $res['Rulesets'] = [];
-                $n1              = 0;
-                foreach ($this->rulesets as $item1) {
-                    $res['Rulesets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Rulesets'] = [];
+            if (null !== $this->rulesets && \is_array($this->rulesets)) {
+                $n = 0;
+                foreach ($this->rulesets as $item) {
+                    $res['Rulesets'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +50,23 @@ class phases extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return phases
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
         }
-
         if (isset($map['Rulesets'])) {
             if (!empty($map['Rulesets'])) {
                 $model->rulesets = [];
-                $n1              = 0;
-                foreach ($map['Rulesets'] as $item1) {
-                    $model->rulesets[$n1++] = rulesets::fromMap($item1);
+                $n = 0;
+                foreach ($map['Rulesets'] as $item) {
+                    $model->rulesets[$n++] = null !== $item ? rulesets::fromMap($item) : $item;
                 }
             }
         }

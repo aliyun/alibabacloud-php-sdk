@@ -4,57 +4,54 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QuotaPageContentTypesValue extends Model
 {
     /**
+     * @description The switch for the Content-Type type in custom response pages.
+     *
      * @var bool
      */
     public $enable;
+
     /**
+     * @description The content length quota for the Content-Type in custom response pages.
+     *
      * @var WafQuotaInteger
      */
     public $contentLength;
     protected $_name = [
-        'enable'        => 'Enable',
+        'enable' => 'Enable',
         'contentLength' => 'ContentLength',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->contentLength) {
-            $this->contentLength->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
-
         if (null !== $this->contentLength) {
-            $res['ContentLength'] = null !== $this->contentLength ? $this->contentLength->toArray($noStream) : $this->contentLength;
+            $res['ContentLength'] = null !== $this->contentLength ? $this->contentLength->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QuotaPageContentTypesValue
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
-
         if (isset($map['ContentLength'])) {
             $model->contentLength = WafQuotaInteger::fromMap($map['ContentLength']);
         }

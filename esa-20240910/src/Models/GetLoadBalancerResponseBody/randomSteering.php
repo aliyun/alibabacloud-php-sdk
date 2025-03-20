@@ -4,69 +4,58 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetLoadBalancerResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class randomSteering extends Model
 {
     /**
+     * @description The default round-robin weight, used for all pools that do not have individually specified weights. The value range is 0-100.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $defaultWeight;
+
     /**
+     * @description Weight configurations for each backend server pool, where the key is the pool ID and the value is the weight coefficient. The weight coefficient represents the relative traffic distribution ratio.
+     *
      * @var int[]
      */
     public $poolWeights;
     protected $_name = [
         'defaultWeight' => 'DefaultWeight',
-        'poolWeights'   => 'PoolWeights',
+        'poolWeights' => 'PoolWeights',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->poolWeights)) {
-            Model::validateArray($this->poolWeights);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->defaultWeight) {
             $res['DefaultWeight'] = $this->defaultWeight;
         }
-
         if (null !== $this->poolWeights) {
-            if (\is_array($this->poolWeights)) {
-                $res['PoolWeights'] = [];
-                foreach ($this->poolWeights as $key1 => $value1) {
-                    $res['PoolWeights'][$key1] = $value1;
-                }
-            }
+            $res['PoolWeights'] = $this->poolWeights;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return randomSteering
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultWeight'])) {
             $model->defaultWeight = $map['DefaultWeight'];
         }
-
         if (isset($map['PoolWeights'])) {
-            if (!empty($map['PoolWeights'])) {
-                $model->poolWeights = [];
-                foreach ($map['PoolWeights'] as $key1 => $value1) {
-                    $model->poolWeights[$key1] = $value1;
-                }
-            }
+            $model->poolWeights = $map['PoolWeights'];
         }
 
         return $model;

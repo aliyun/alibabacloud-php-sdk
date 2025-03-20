@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateWaitingRoomRuleResponseBody extends Model
 {
     /**
+     * @description Request ID, used for tracking the progress of request processing.
+     *
+     * @example 9bfe9d95-7bf6-469d-a628-ed7bc9f25073
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class UpdateWaitingRoomRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class UpdateWaitingRoomRuleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateWaitingRoomRuleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

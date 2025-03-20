@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetCertificateQuotaRequest extends Model
 {
     /**
+     * @description Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+     *
+     * This parameter is required.
+     *
+     * @example 1234567890123
+     *
      * @var int
      */
     public $siteId;
+
     /**
+     * @description Certificate Quota type.
+     *
+     * This parameter is required.
+     *
+     * @example free
+     *
      * @var string
      */
     public $type;
     protected $_name = [
         'siteId' => 'SiteId',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -40,18 +49,17 @@ class GetCertificateQuotaRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCertificateQuotaRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

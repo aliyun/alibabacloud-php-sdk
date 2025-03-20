@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListManagedRulesGroupsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class managedRulesGroups extends Model
 {
     /**
+     * @description The name of the managed rule group.
+     *
+     * @example example
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The number of rules in the managed rule group.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $ruleCount;
     protected $_name = [
-        'name'      => 'Name',
+        'name' => 'Name',
         'ruleCount' => 'RuleCount',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->ruleCount) {
             $res['RuleCount'] = $this->ruleCount;
         }
@@ -40,18 +45,17 @@ class managedRulesGroups extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return managedRulesGroups
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['RuleCount'])) {
             $model->ruleCount = $map['RuleCount'];
         }

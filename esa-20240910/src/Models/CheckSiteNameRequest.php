@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckSiteNameRequest extends Model
 {
     /**
+     * @description The website name.
+     *
+     * This parameter is required.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $siteName;
@@ -16,12 +22,9 @@ class CheckSiteNameRequest extends Model
         'siteName' => 'SiteName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->siteName) {
@@ -31,11 +34,11 @@ class CheckSiteNameRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckSiteNameRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

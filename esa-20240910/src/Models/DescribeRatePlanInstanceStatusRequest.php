@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeRatePlanInstanceStatusRequest extends Model
 {
     /**
+     * @description The instance ID, which can be obtained by calling the [ListUserRatePlanInstances](~~ListUserRatePlanInstances~~) operation.
+     *
+     * @example xcdn-91fknmb80f0g***
+     *
      * @var string
      */
     public $instanceId;
@@ -16,12 +20,9 @@ class DescribeRatePlanInstanceStatusRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -31,11 +32,11 @@ class DescribeRatePlanInstanceStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeRatePlanInstanceStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

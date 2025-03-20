@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetRewriteUrlRuleRequest extends Model
 {
     /**
+     * @description Configuration ID, which can be obtained by calling the [ListRewriteUrlRules](https://help.aliyun.com/document_detail/2867480.html) interface.
+     *
+     * This parameter is required.
+     *
+     * @example 35281609698****
+     *
      * @var int
      */
     public $configId;
+
     /**
+     * @description Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+     *
+     * This parameter is required.
+     *
+     * @example 123456****
+     *
      * @var int
      */
     public $siteId;
     protected $_name = [
         'configId' => 'ConfigId',
-        'siteId'   => 'SiteId',
+        'siteId' => 'SiteId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
-
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -40,18 +49,17 @@ class GetRewriteUrlRuleRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRewriteUrlRuleRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
-
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

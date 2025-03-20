@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetNetworkOptimizationRequest extends Model
 {
     /**
+     * @description Configuration ConfigId, which can be obtained by calling the [ListNetworkOptimizations](https://help.aliyun.com/document_detail/2869051.html) interface.
+     *
+     * This parameter is required.
+     *
+     * @example 35281609698****
+     *
      * @var int
      */
     public $configId;
+
     /**
+     * @description Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+     *
+     * This parameter is required.
+     *
+     * @example 12312312213212
+     *
      * @var int
      */
     public $siteId;
     protected $_name = [
         'configId' => 'ConfigId',
-        'siteId'   => 'SiteId',
+        'siteId' => 'SiteId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
-
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -40,18 +49,17 @@ class GetNetworkOptimizationRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetNetworkOptimizationRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
-
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

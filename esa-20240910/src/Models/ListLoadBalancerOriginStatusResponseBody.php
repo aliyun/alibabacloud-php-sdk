@@ -4,45 +4,45 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancerOriginStatusResponseBody\originStatus;
+use AlibabaCloud\Tea\Model;
 
 class ListLoadBalancerOriginStatusResponseBody extends Model
 {
     /**
+     * @description List of origin statuses under the load balancer.
+     *
      * @var originStatus[]
      */
     public $originStatus;
+
     /**
+     * @description Request ID, used for tracking the request.
+     *
+     * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'originStatus' => 'OriginStatus',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->originStatus)) {
-            Model::validateArray($this->originStatus);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->originStatus) {
-            if (\is_array($this->originStatus)) {
-                $res['OriginStatus'] = [];
-                $n1                  = 0;
-                foreach ($this->originStatus as $item1) {
-                    $res['OriginStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['OriginStatus'] = [];
+            if (null !== $this->originStatus && \is_array($this->originStatus)) {
+                $n = 0;
+                foreach ($this->originStatus as $item) {
+                    $res['OriginStatus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +50,23 @@ class ListLoadBalancerOriginStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListLoadBalancerOriginStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OriginStatus'])) {
             if (!empty($map['OriginStatus'])) {
                 $model->originStatus = [];
-                $n1                  = 0;
-                foreach ($map['OriginStatus'] as $item1) {
-                    $model->originStatus[$n1++] = originStatus::fromMap($item1);
+                $n = 0;
+                foreach ($map['OriginStatus'] as $item) {
+                    $model->originStatus[$n++] = null !== $item ? originStatus::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

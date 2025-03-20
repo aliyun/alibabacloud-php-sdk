@@ -4,54 +4,58 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadJobsResponseBody\jobs;
+use AlibabaCloud\Tea\Model;
 
 class ListScheduledPreloadJobsResponseBody extends Model
 {
     /**
+     * @description The list of the prefetch tasks.
+     *
      * @var jobs[]
      */
     public $jobs;
+
     /**
+     * @description The request ID.
+     *
+     * @example CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The total number of tasks returned.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $totalCount;
     protected $_name = [
-        'jobs'       => 'Jobs',
-        'requestId'  => 'RequestId',
+        'jobs' => 'Jobs',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->jobs)) {
-            Model::validateArray($this->jobs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobs) {
-            if (\is_array($this->jobs)) {
-                $res['Jobs'] = [];
-                $n1          = 0;
-                foreach ($this->jobs as $item1) {
-                    $res['Jobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Jobs'] = [];
+            if (null !== $this->jobs && \is_array($this->jobs)) {
+                $n = 0;
+                foreach ($this->jobs as $item) {
+                    $res['Jobs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -59,28 +63,26 @@ class ListScheduledPreloadJobsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListScheduledPreloadJobsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Jobs'])) {
             if (!empty($map['Jobs'])) {
                 $model->jobs = [];
-                $n1          = 0;
-                foreach ($map['Jobs'] as $item1) {
-                    $model->jobs[$n1++] = jobs::fromMap($item1);
+                $n = 0;
+                foreach ($map['Jobs'] as $item) {
+                    $model->jobs[$n++] = null !== $item ? jobs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

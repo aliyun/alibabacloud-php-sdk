@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteRedirectRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example BF9B849D-D847-5B16-9371-8ECB557A5921
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteRedirectRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteRedirectRuleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteRedirectRuleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

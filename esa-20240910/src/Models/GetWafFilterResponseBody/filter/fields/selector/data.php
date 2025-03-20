@@ -4,15 +4,24 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterResponseBody\filter\fields\selector;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The label of the data.
+     *
+     * @example China
+     *
      * @var string
      */
     public $label;
+
     /**
+     * @description The value of the data.
+     *
+     * @example CN
+     *
      * @var string
      */
     public $value;
@@ -21,18 +30,14 @@ class data extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -40,18 +45,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

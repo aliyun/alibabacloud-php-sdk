@@ -4,44 +4,38 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListRoutineCanaryAreasResponseBody extends Model
 {
     /**
+     * @description The regions for canary release.
+     *
      * @var string[]
      */
     public $canaryAreas;
+
     /**
+     * @description The request ID.
+     *
+     * @example EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'canaryAreas' => 'CanaryAreas',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->canaryAreas)) {
-            Model::validateArray($this->canaryAreas);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->canaryAreas) {
-            if (\is_array($this->canaryAreas)) {
-                $res['CanaryAreas'] = [];
-                $n1                 = 0;
-                foreach ($this->canaryAreas as $item1) {
-                    $res['CanaryAreas'][$n1++] = $item1;
-                }
-            }
+            $res['CanaryAreas'] = $this->canaryAreas;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,24 +43,19 @@ class ListRoutineCanaryAreasResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListRoutineCanaryAreasResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CanaryAreas'])) {
             if (!empty($map['CanaryAreas'])) {
-                $model->canaryAreas = [];
-                $n1                 = 0;
-                foreach ($map['CanaryAreas'] as $item1) {
-                    $model->canaryAreas[$n1++] = $item1;
-                }
+                $model->canaryAreas = $map['CanaryAreas'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

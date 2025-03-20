@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetEdgeContainerAppVersionRequest extends Model
 {
     /**
+     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+     *
+     * This parameter is required.
+     *
+     * @example app-88068867578379****
+     *
      * @var string
      */
     public $appId;
+
     /**
+     * @description The version ID, which can be obtained by calling the [ListEdgeContainerAppVersions](~~ListEdgeContainerAppVersions~~) operation.
+     *
+     * This parameter is required.
+     *
+     * @example ver-87962637161651****
+     *
      * @var string
      */
     public $versionId;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'versionId' => 'VersionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
         }
@@ -40,18 +49,17 @@ class GetEdgeContainerAppVersionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetEdgeContainerAppVersionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
         }

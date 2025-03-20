@@ -4,44 +4,58 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetUserLogDeliveryQuotaResponseBody extends Model
 {
     /**
+     * @description The log category. Valid values:
+     *
+     *   dcdn_log_access_l1 (default): access logs.
+     *   dcdn_log_er: Edge Routine logs.
+     *   dcdn_log_waf: firewall logs.
+     *   dcdn_log_ipa: TCP/UDP proxy logs.
+     *
+     * @example dcdn_log_access_l1
+     *
      * @var string
      */
     public $businessType;
+
     /**
+     * @description The remaining quota.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $freeQuota;
+
     /**
+     * @description The request ID.
+     *
+     * @example 34DCBC8A-****-****-****-6DAA11D7DDBD
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'businessType' => 'BusinessType',
-        'freeQuota'    => 'FreeQuota',
-        'requestId'    => 'RequestId',
+        'freeQuota' => 'FreeQuota',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
         }
-
         if (null !== $this->freeQuota) {
             $res['FreeQuota'] = $this->freeQuota;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,22 +63,20 @@ class GetUserLogDeliveryQuotaResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetUserLogDeliveryQuotaResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
         }
-
         if (isset($map['FreeQuota'])) {
             $model->freeQuota = $map['FreeQuota'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

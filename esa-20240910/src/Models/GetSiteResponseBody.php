@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteResponseBody\siteModel;
+use AlibabaCloud\Tea\Model;
 
 class GetSiteResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 9732E117-8A37-49FD-A36F-ABBB87556CA7
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The queried website information.
+     *
      * @var siteModel
      */
     public $siteModel;
@@ -22,40 +29,32 @@ class GetSiteResponseBody extends Model
         'siteModel' => 'SiteModel',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->siteModel) {
-            $this->siteModel->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->siteModel) {
-            $res['SiteModel'] = null !== $this->siteModel ? $this->siteModel->toArray($noStream) : $this->siteModel;
+            $res['SiteModel'] = null !== $this->siteModel ? $this->siteModel->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSiteResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SiteModel'])) {
             $model->siteModel = siteModel::fromMap($map['SiteModel']);
         }

@@ -4,44 +4,38 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetEdgeContainerDeployRegionsResponseBody extends Model
 {
     /**
+     * @description The regions.
+     *
      * @var string[]
      */
     public $regions;
+
     /**
+     * @description The request ID.
+     *
+     * @example EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'regions'   => 'Regions',
+        'regions' => 'Regions',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->regions)) {
-            Model::validateArray($this->regions);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regions) {
-            if (\is_array($this->regions)) {
-                $res['Regions'] = [];
-                $n1             = 0;
-                foreach ($this->regions as $item1) {
-                    $res['Regions'][$n1++] = $item1;
-                }
-            }
+            $res['Regions'] = $this->regions;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,24 +43,19 @@ class GetEdgeContainerDeployRegionsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetEdgeContainerDeployRegionsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
-                $model->regions = [];
-                $n1             = 0;
-                foreach ($map['Regions'] as $item1) {
-                    $model->regions[$n1++] = $item1;
-                }
+                $model->regions = $map['Regions'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

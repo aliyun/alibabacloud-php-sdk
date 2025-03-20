@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetPageRequest extends Model
 {
     /**
+     * @description The ID of the custom error page, which can be obtained by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
+     *
+     * @example 50000001
+     *
      * @var int
      */
     public $id;
@@ -16,12 +20,9 @@ class GetPageRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +32,11 @@ class GetPageRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetPageRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

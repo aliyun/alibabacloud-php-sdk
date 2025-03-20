@@ -4,96 +4,86 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\list_;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\managedRulesGroup;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\page;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\scenePolicy;
+use AlibabaCloud\Tea\Model;
 
 class quota extends Model
 {
     /**
+     * @description Quota information related to custom lists.
+     *
      * @var list_
      */
     public $list;
+
     /**
+     * @description Quota information related to the WAF managed rules group.
+     *
      * @var managedRulesGroup
      */
     public $managedRulesGroup;
+
     /**
+     * @description Quota information related to custom response pages.
+     *
      * @var page
      */
     public $page;
+
     /**
+     * @description Quota information related to scene protection.
+     *
      * @var scenePolicy
      */
     public $scenePolicy;
     protected $_name = [
-        'list'              => 'List',
+        'list' => 'List',
         'managedRulesGroup' => 'ManagedRulesGroup',
-        'page'              => 'Page',
-        'scenePolicy'       => 'ScenePolicy',
+        'page' => 'Page',
+        'scenePolicy' => 'ScenePolicy',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->list) {
-            $this->list->validate();
-        }
-        if (null !== $this->managedRulesGroup) {
-            $this->managedRulesGroup->validate();
-        }
-        if (null !== $this->page) {
-            $this->page->validate();
-        }
-        if (null !== $this->scenePolicy) {
-            $this->scenePolicy->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->list) {
-            $res['List'] = null !== $this->list ? $this->list->toArray($noStream) : $this->list;
+            $res['List'] = null !== $this->list ? $this->list->toMap() : null;
         }
-
         if (null !== $this->managedRulesGroup) {
-            $res['ManagedRulesGroup'] = null !== $this->managedRulesGroup ? $this->managedRulesGroup->toArray($noStream) : $this->managedRulesGroup;
+            $res['ManagedRulesGroup'] = null !== $this->managedRulesGroup ? $this->managedRulesGroup->toMap() : null;
         }
-
         if (null !== $this->page) {
-            $res['Page'] = null !== $this->page ? $this->page->toArray($noStream) : $this->page;
+            $res['Page'] = null !== $this->page ? $this->page->toMap() : null;
         }
-
         if (null !== $this->scenePolicy) {
-            $res['ScenePolicy'] = null !== $this->scenePolicy ? $this->scenePolicy->toArray($noStream) : $this->scenePolicy;
+            $res['ScenePolicy'] = null !== $this->scenePolicy ? $this->scenePolicy->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return quota
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['List'])) {
             $model->list = list_::fromMap($map['List']);
         }
-
         if (isset($map['ManagedRulesGroup'])) {
             $model->managedRulesGroup = managedRulesGroup::fromMap($map['ManagedRulesGroup']);
         }
-
         if (isset($map['Page'])) {
             $model->page = page::fromMap($map['Page']);
         }
-
         if (isset($map['ScenePolicy'])) {
             $model->scenePolicy = scenePolicy::fromMap($map['ScenePolicy']);
         }

@@ -4,117 +4,103 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\QuotaListItemsValue;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafQuotaInteger;
+use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
+     * @description Indicates whether the custom list is enabled.
+     *
      * @var bool
      */
     public $enable;
+
     /**
+     * @description An object containing quota information for each type of item in the custom list.
+     *
      * @var QuotaListItemsValue[]
      */
     public $items;
+
     /**
+     * @description The number quota allowed per custom list.
+     *
      * @var WafQuotaInteger
      */
     public $numberItemsPerList;
+
     /**
+     * @description The total number quota allowed for items in all custom lists.
+     *
      * @var WafQuotaInteger
      */
     public $numberItemsTotal;
+
     /**
+     * @description The total number quota allowed for custom lists.
+     *
      * @var WafQuotaInteger
      */
     public $numberTotal;
     protected $_name = [
-        'enable'             => 'Enable',
-        'items'              => 'Items',
+        'enable' => 'Enable',
+        'items' => 'Items',
         'numberItemsPerList' => 'NumberItemsPerList',
-        'numberItemsTotal'   => 'NumberItemsTotal',
-        'numberTotal'        => 'NumberTotal',
+        'numberItemsTotal' => 'NumberItemsTotal',
+        'numberTotal' => 'NumberTotal',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->items)) {
-            Model::validateArray($this->items);
-        }
-        if (null !== $this->numberItemsPerList) {
-            $this->numberItemsPerList->validate();
-        }
-        if (null !== $this->numberItemsTotal) {
-            $this->numberItemsTotal->validate();
-        }
-        if (null !== $this->numberTotal) {
-            $this->numberTotal->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
-
         if (null !== $this->items) {
-            if (\is_array($this->items)) {
-                $res['Items'] = [];
-                foreach ($this->items as $key1 => $value1) {
-                    $res['Items'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+            $res['Items'] = [];
+            if (null !== $this->items && \is_array($this->items)) {
+                foreach ($this->items as $key => $val) {
+                    $res['Items'][$key] = null !== $val ? $val->toMap() : $val;
                 }
             }
         }
-
         if (null !== $this->numberItemsPerList) {
-            $res['NumberItemsPerList'] = null !== $this->numberItemsPerList ? $this->numberItemsPerList->toArray($noStream) : $this->numberItemsPerList;
+            $res['NumberItemsPerList'] = null !== $this->numberItemsPerList ? $this->numberItemsPerList->toMap() : null;
         }
-
         if (null !== $this->numberItemsTotal) {
-            $res['NumberItemsTotal'] = null !== $this->numberItemsTotal ? $this->numberItemsTotal->toArray($noStream) : $this->numberItemsTotal;
+            $res['NumberItemsTotal'] = null !== $this->numberItemsTotal ? $this->numberItemsTotal->toMap() : null;
         }
-
         if (null !== $this->numberTotal) {
-            $res['NumberTotal'] = null !== $this->numberTotal ? $this->numberTotal->toArray($noStream) : $this->numberTotal;
+            $res['NumberTotal'] = null !== $this->numberTotal ? $this->numberTotal->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return list_
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
-
         if (isset($map['Items'])) {
-            if (!empty($map['Items'])) {
-                $model->items = [];
-                foreach ($map['Items'] as $key1 => $value1) {
-                    $model->items[$key1] = QuotaListItemsValue::fromMap($value1);
-                }
-            }
+            $model->items = $map['Items'];
         }
-
         if (isset($map['NumberItemsPerList'])) {
             $model->numberItemsPerList = WafQuotaInteger::fromMap($map['NumberItemsPerList']);
         }
-
         if (isset($map['NumberItemsTotal'])) {
             $model->numberItemsTotal = WafQuotaInteger::fromMap($map['NumberItemsTotal']);
         }
-
         if (isset($map['NumberTotal'])) {
             $model->numberTotal = WafQuotaInteger::fromMap($map['NumberTotal']);
         }

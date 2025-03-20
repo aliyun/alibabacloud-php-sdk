@@ -4,44 +4,38 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\BatchGetExpressionFieldsResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class fields extends Model
 {
     /**
+     * @description The fields that match the regular expression.
+     *
      * @var string[]
      */
     public $fields;
+
     /**
+     * @description The ID of the regular expression, which corresponds to the expression ID in the request parameter.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $id;
     protected $_name = [
         'fields' => 'Fields',
-        'id'     => 'Id',
+        'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->fields)) {
-            Model::validateArray($this->fields);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fields) {
-            if (\is_array($this->fields)) {
-                $res['Fields'] = [];
-                $n1            = 0;
-                foreach ($this->fields as $item1) {
-                    $res['Fields'][$n1++] = $item1;
-                }
-            }
+            $res['Fields'] = $this->fields;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -49,24 +43,19 @@ class fields extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return fields
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fields'])) {
             if (!empty($map['Fields'])) {
-                $model->fields = [];
-                $n1            = 0;
-                foreach ($map['Fields'] as $item1) {
-                    $model->fields[$n1++] = $item1;
-                }
+                $model->fields = $map['Fields'];
             }
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

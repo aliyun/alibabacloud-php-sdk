@@ -4,150 +4,142 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * Default value: **false**.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $all;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
+     * @description The ID of the region where the resources reside. Set the value to **cn-hangzhou**.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The ID of resource N. Valid values of N: **1** to **50**.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
+
     /**
+     * @description The resource type.
+     *
+     * This parameter is required.
+     *
+     * @example site
+     *
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $securityToken;
+
     /**
+     * @description The key of tag N to remove from the resource. Valid values of N: **1** to **20**.
+     *
      * @var string[]
      */
     public $tagKey;
     protected $_name = [
-        'all'           => 'All',
-        'ownerId'       => 'OwnerId',
-        'regionId'      => 'RegionId',
-        'resourceId'    => 'ResourceId',
-        'resourceType'  => 'ResourceType',
+        'all' => 'All',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
         'securityToken' => 'SecurityToken',
-        'tagKey'        => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resourceId)) {
-            Model::validateArray($this->resourceId);
-        }
-        if (\is_array($this->tagKey)) {
-            Model::validateArray($this->tagKey);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->all) {
             $res['All'] = $this->all;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceId) {
-            if (\is_array($this->resourceId)) {
-                $res['ResourceId'] = [];
-                $n1                = 0;
-                foreach ($this->resourceId as $item1) {
-                    $res['ResourceId'][$n1++] = $item1;
-                }
-            }
+            $res['ResourceId'] = $this->resourceId;
         }
-
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-
         if (null !== $this->tagKey) {
-            if (\is_array($this->tagKey)) {
-                $res['TagKey'] = [];
-                $n1            = 0;
-                foreach ($this->tagKey as $item1) {
-                    $res['TagKey'][$n1++] = $item1;
-                }
-            }
+            $res['TagKey'] = $this->tagKey;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UntagResourcesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['All'])) {
             $model->all = $map['All'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
-                $model->resourceId = [];
-                $n1                = 0;
-                foreach ($map['ResourceId'] as $item1) {
-                    $model->resourceId[$n1++] = $item1;
-                }
+                $model->resourceId = $map['ResourceId'];
             }
         }
-
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {
-                $model->tagKey = [];
-                $n1            = 0;
-                foreach ($map['TagKey'] as $item1) {
-                    $model->tagKey[$n1++] = $item1;
-                }
+                $model->tagKey = $map['TagKey'];
             }
         }
 

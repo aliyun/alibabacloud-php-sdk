@@ -4,62 +4,64 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class queryArgs extends Model
 {
     /**
+     * @description The action that you want WAF to perform on requests that match the rule.
+     *
+     * @example deny
+     *
      * @var string
      */
     public $action;
+
     /**
+     * @description The rule ID or name for fuzzy search.
+     *
+     * @example example
+     *
      * @var string
      */
     public $idNameLike;
+
     /**
+     * @description The protection levels of the rules.
+     *
      * @var int[]
      */
     public $protectionLevels;
+
     /**
+     * @description The status of the rule.
+     *
+     * @example on
+     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'action'           => 'Action',
-        'idNameLike'       => 'IdNameLike',
+        'action' => 'Action',
+        'idNameLike' => 'IdNameLike',
         'protectionLevels' => 'ProtectionLevels',
-        'status'           => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->protectionLevels)) {
-            Model::validateArray($this->protectionLevels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
-
         if (null !== $this->idNameLike) {
             $res['IdNameLike'] = $this->idNameLike;
         }
-
         if (null !== $this->protectionLevels) {
-            if (\is_array($this->protectionLevels)) {
-                $res['ProtectionLevels'] = [];
-                $n1                      = 0;
-                foreach ($this->protectionLevels as $item1) {
-                    $res['ProtectionLevels'][$n1++] = $item1;
-                }
-            }
+            $res['ProtectionLevels'] = $this->protectionLevels;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -67,32 +69,25 @@ class queryArgs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return queryArgs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
-
         if (isset($map['IdNameLike'])) {
             $model->idNameLike = $map['IdNameLike'];
         }
-
         if (isset($map['ProtectionLevels'])) {
             if (!empty($map['ProtectionLevels'])) {
-                $model->protectionLevels = [];
-                $n1                      = 0;
-                foreach ($map['ProtectionLevels'] as $item1) {
-                    $model->protectionLevels[$n1++] = $item1;
-                }
+                $model->protectionLevels = $map['ProtectionLevels'];
             }
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

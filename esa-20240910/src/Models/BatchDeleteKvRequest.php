@@ -4,44 +4,42 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class BatchDeleteKvRequest extends Model
 {
     /**
+     * @description The keys that you want to delete. You can delete a maximum of 10,000 key-value pairs at a time.
+     *
+     * This parameter is required.
+     *
      * @var string[]
      */
     public $keys;
+
     /**
+     * @description The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+     *
+     * This parameter is required.
+     *
+     * @example test_namespace
+     *
      * @var string
      */
     public $namespace;
     protected $_name = [
-        'keys'      => 'Keys',
+        'keys' => 'Keys',
         'namespace' => 'Namespace',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->keys)) {
-            Model::validateArray($this->keys);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->keys) {
-            if (\is_array($this->keys)) {
-                $res['Keys'] = [];
-                $n1          = 0;
-                foreach ($this->keys as $item1) {
-                    $res['Keys'][$n1++] = $item1;
-                }
-            }
+            $res['Keys'] = $this->keys;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -49,24 +47,19 @@ class BatchDeleteKvRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return BatchDeleteKvRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keys'])) {
             if (!empty($map['Keys'])) {
-                $model->keys = [];
-                $n1          = 0;
-                foreach ($map['Keys'] as $item1) {
-                    $model->keys[$n1++] = $item1;
-                }
+                $model->keys = $map['Keys'];
             }
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

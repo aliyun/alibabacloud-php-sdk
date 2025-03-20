@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateRecordResponseBody extends Model
 {
     /**
+     * @description The record ID.
+     *
+     * @example 1234567890123
+     *
      * @var int
      */
     public $recordId;
+
     /**
+     * @description The request ID.
+     *
+     * @example F61CDR30-E83C-4FDA-BF73-9A94CDD44229
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'recordId'  => 'RecordId',
+        'recordId' => 'RecordId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +45,17 @@ class CreateRecordResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateRecordResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

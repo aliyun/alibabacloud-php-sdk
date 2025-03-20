@@ -4,129 +4,84 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineResponseBody\codeVersions;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineResponseBody\envs;
-use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineResponseBody\relatedRecords;
-use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineResponseBody\relatedRoutes;
+use AlibabaCloud\Tea\Model;
 
 class GetRoutineResponseBody extends Model
 {
     /**
-     * @var codeVersions[]
-     */
-    public $codeVersions;
-    /**
+     * @description The time when the routine was created.
+     *
+     * @example 2024-03-11T01:23:21Z
+     *
      * @var string
      */
     public $createTime;
+
     /**
+     * @description The default record name to access.
+     *
+     * @example routine1.example.com
+     *
      * @var string
      */
     public $defaultRelatedRecord;
+
     /**
+     * @description The description of the routine.
+     *
+     * @example ZWRpdCByb3V0aW5lIGNvbmZpZyBkZXNjcmlwdGlvbg
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The information about the environments.
+     *
      * @var envs[]
      */
     public $envs;
+
     /**
-     * @var relatedRecords[]
-     */
-    public $relatedRecords;
-    /**
-     * @var relatedRoutes[]
-     */
-    public $relatedRoutes;
-    /**
+     * @description The request ID.
+     *
+     * @example EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'codeVersions'         => 'CodeVersions',
-        'createTime'           => 'CreateTime',
+        'createTime' => 'CreateTime',
         'defaultRelatedRecord' => 'DefaultRelatedRecord',
-        'description'          => 'Description',
-        'envs'                 => 'Envs',
-        'relatedRecords'       => 'RelatedRecords',
-        'relatedRoutes'        => 'RelatedRoutes',
-        'requestId'            => 'RequestId',
+        'description' => 'Description',
+        'envs' => 'Envs',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->codeVersions)) {
-            Model::validateArray($this->codeVersions);
-        }
-        if (\is_array($this->envs)) {
-            Model::validateArray($this->envs);
-        }
-        if (\is_array($this->relatedRecords)) {
-            Model::validateArray($this->relatedRecords);
-        }
-        if (\is_array($this->relatedRoutes)) {
-            Model::validateArray($this->relatedRoutes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
-        if (null !== $this->codeVersions) {
-            if (\is_array($this->codeVersions)) {
-                $res['CodeVersions'] = [];
-                $n1                  = 0;
-                foreach ($this->codeVersions as $item1) {
-                    $res['CodeVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
-        }
-
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-
         if (null !== $this->defaultRelatedRecord) {
             $res['DefaultRelatedRecord'] = $this->defaultRelatedRecord;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->envs) {
-            if (\is_array($this->envs)) {
-                $res['Envs'] = [];
-                $n1          = 0;
-                foreach ($this->envs as $item1) {
-                    $res['Envs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Envs'] = [];
+            if (null !== $this->envs && \is_array($this->envs)) {
+                $n = 0;
+                foreach ($this->envs as $item) {
+                    $res['Envs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
-        if (null !== $this->relatedRecords) {
-            if (\is_array($this->relatedRecords)) {
-                $res['RelatedRecords'] = [];
-                $n1                    = 0;
-                foreach ($this->relatedRecords as $item1) {
-                    $res['RelatedRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
-        }
-
-        if (null !== $this->relatedRoutes) {
-            if (\is_array($this->relatedRoutes)) {
-                $res['RelatedRoutes'] = [];
-                $n1                   = 0;
-                foreach ($this->relatedRoutes as $item1) {
-                    $res['RelatedRoutes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
-        }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -134,66 +89,32 @@ class GetRoutineResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRoutineResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CodeVersions'])) {
-            if (!empty($map['CodeVersions'])) {
-                $model->codeVersions = [];
-                $n1                  = 0;
-                foreach ($map['CodeVersions'] as $item1) {
-                    $model->codeVersions[$n1++] = codeVersions::fromMap($item1);
-                }
-            }
-        }
-
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-
         if (isset($map['DefaultRelatedRecord'])) {
             $model->defaultRelatedRecord = $map['DefaultRelatedRecord'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Envs'])) {
             if (!empty($map['Envs'])) {
                 $model->envs = [];
-                $n1          = 0;
-                foreach ($map['Envs'] as $item1) {
-                    $model->envs[$n1++] = envs::fromMap($item1);
+                $n = 0;
+                foreach ($map['Envs'] as $item) {
+                    $model->envs[$n++] = null !== $item ? envs::fromMap($item) : $item;
                 }
             }
         }
-
-        if (isset($map['RelatedRecords'])) {
-            if (!empty($map['RelatedRecords'])) {
-                $model->relatedRecords = [];
-                $n1                    = 0;
-                foreach ($map['RelatedRecords'] as $item1) {
-                    $model->relatedRecords[$n1++] = relatedRecords::fromMap($item1);
-                }
-            }
-        }
-
-        if (isset($map['RelatedRoutes'])) {
-            if (!empty($map['RelatedRoutes'])) {
-                $model->relatedRoutes = [];
-                $n1                   = 0;
-                foreach ($map['RelatedRoutes'] as $item1) {
-                    $model->relatedRoutes[$n1++] = relatedRoutes::fromMap($item1);
-                }
-            }
-        }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

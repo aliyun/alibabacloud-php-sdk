@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetClientCaCertificateRequest extends Model
 {
     /**
+     * @description The certificate ID, which can be obtained by calling the [ListClientCaCertificates](https://help.aliyun.com/document_detail/2860651.html) operation.
+     *
+     * This parameter is required.
+     *
+     * @example babab9db65ee5efcca9f3d41d4b5****
+     *
      * @var string
      */
     public $id;
+
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
+     * This parameter is required.
+     *
+     * @example 1234567890123
+     *
      * @var int
      */
     public $siteId;
     protected $_name = [
-        'id'     => 'Id',
+        'id' => 'Id',
         'siteId' => 'SiteId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -40,18 +49,17 @@ class GetClientCaCertificateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetClientCaCertificateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

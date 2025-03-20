@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteKvNamespaceRequest extends Model
 {
     /**
+     * @description The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+     *
+     * This parameter is required.
+     *
+     * @example test_namespace
+     *
      * @var string
      */
     public $namespace;
@@ -16,12 +22,9 @@ class DeleteKvNamespaceRequest extends Model
         'namespace' => 'Namespace',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->namespace) {
@@ -31,11 +34,11 @@ class DeleteKvNamespaceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteKvNamespaceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

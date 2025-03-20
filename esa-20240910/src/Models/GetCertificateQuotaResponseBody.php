@@ -4,81 +4,97 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateQuotaResponseBody\siteUsage;
+use AlibabaCloud\Tea\Model;
 
 class GetCertificateQuotaResponseBody extends Model
 {
     /**
+     * @description Free certificate quota.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $quota;
+
     /**
+     * @description Usage of free certificate quota.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $quotaUsage;
+
     /**
+     * @description Request ID.
+     *
+     * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description Number of sites.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $siteCount;
+
     /**
+     * @description List of site usage details.
+     *
      * @var siteUsage[]
      */
     public $siteUsage;
+
     /**
+     * @description Certificate Quota type.
+     *
+     * @example free
+     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'quota'      => 'Quota',
+        'quota' => 'Quota',
         'quotaUsage' => 'QuotaUsage',
-        'requestId'  => 'RequestId',
-        'siteCount'  => 'SiteCount',
-        'siteUsage'  => 'SiteUsage',
-        'type'       => 'Type',
+        'requestId' => 'RequestId',
+        'siteCount' => 'SiteCount',
+        'siteUsage' => 'SiteUsage',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->siteUsage)) {
-            Model::validateArray($this->siteUsage);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->quota) {
             $res['Quota'] = $this->quota;
         }
-
         if (null !== $this->quotaUsage) {
             $res['QuotaUsage'] = $this->quotaUsage;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->siteCount) {
             $res['SiteCount'] = $this->siteCount;
         }
-
         if (null !== $this->siteUsage) {
-            if (\is_array($this->siteUsage)) {
-                $res['SiteUsage'] = [];
-                $n1               = 0;
-                foreach ($this->siteUsage as $item1) {
-                    $res['SiteUsage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SiteUsage'] = [];
+            if (null !== $this->siteUsage && \is_array($this->siteUsage)) {
+                $n = 0;
+                foreach ($this->siteUsage as $item) {
+                    $res['SiteUsage'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -86,40 +102,35 @@ class GetCertificateQuotaResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCertificateQuotaResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Quota'])) {
             $model->quota = $map['Quota'];
         }
-
         if (isset($map['QuotaUsage'])) {
             $model->quotaUsage = $map['QuotaUsage'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SiteCount'])) {
             $model->siteCount = $map['SiteCount'];
         }
-
         if (isset($map['SiteUsage'])) {
             if (!empty($map['SiteUsage'])) {
                 $model->siteUsage = [];
-                $n1               = 0;
-                foreach ($map['SiteUsage'] as $item1) {
-                    $model->siteUsage[$n1++] = siteUsage::fromMap($item1);
+                $n = 0;
+                foreach ($map['SiteUsage'] as $item) {
+                    $model->siteUsage[$n++] = null !== $item ? siteUsage::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

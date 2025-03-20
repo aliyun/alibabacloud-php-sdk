@@ -4,43 +4,43 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetRealtimeDeliveryFieldResponseBody extends Model
 {
     /**
+     * @description The fields returned.
+     *
      * @var FieldContentValue[]
      */
     public $fieldContent;
+
     /**
+     * @description The request ID.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247B78
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'fieldContent' => 'FieldContent',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->fieldContent)) {
-            Model::validateArray($this->fieldContent);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fieldContent) {
-            if (\is_array($this->fieldContent)) {
-                $res['FieldContent'] = [];
-                foreach ($this->fieldContent as $key1 => $value1) {
-                    $res['FieldContent'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+            $res['FieldContent'] = [];
+            if (null !== $this->fieldContent && \is_array($this->fieldContent)) {
+                foreach ($this->fieldContent as $key => $val) {
+                    $res['FieldContent'][$key] = null !== $val ? $val->toMap() : $val;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,23 +48,17 @@ class GetRealtimeDeliveryFieldResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRealtimeDeliveryFieldResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FieldContent'])) {
-            if (!empty($map['FieldContent'])) {
-                $model->fieldContent = [];
-                foreach ($map['FieldContent'] as $key1 => $value1) {
-                    $model->fieldContent[$key1] = FieldContentValue::fromMap($value1);
-                }
-            }
+            $model->fieldContent = $map['FieldContent'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

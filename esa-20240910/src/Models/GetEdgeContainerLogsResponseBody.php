@@ -4,44 +4,38 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetEdgeContainerLogsResponseBody extends Model
 {
     /**
+     * @description The logs.
+     *
      * @var string[]
      */
     public $items;
+
     /**
+     * @description The request ID.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247B78
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'items'     => 'Items',
+        'items' => 'Items',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->items)) {
-            Model::validateArray($this->items);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->items) {
-            if (\is_array($this->items)) {
-                $res['Items'] = [];
-                $n1           = 0;
-                foreach ($this->items as $item1) {
-                    $res['Items'][$n1++] = $item1;
-                }
-            }
+            $res['Items'] = $this->items;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,24 +43,19 @@ class GetEdgeContainerLogsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetEdgeContainerLogsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
-                $model->items = [];
-                $n1           = 0;
-                foreach ($map['Items'] as $item1) {
-                    $model->items[$n1++] = $item1;
-                }
+                $model->items = $map['Items'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

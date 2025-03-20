@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetRoutineRequest extends Model
 {
     /**
+     * @description The routine name.
+     *
+     * This parameter is required.
+     *
+     * @example GetRoutine
+     *
      * @var string
      */
     public $name;
@@ -16,12 +22,9 @@ class GetRoutineRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
@@ -31,11 +34,11 @@ class GetRoutineRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRoutineRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

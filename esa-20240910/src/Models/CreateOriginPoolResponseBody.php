@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateOriginPoolResponseBody extends Model
 {
     /**
+     * @description The ID of the newly created origin address pool.
+     *
+     * @example 103852052519****
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The request ID.
+     *
+     * @example CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'id'        => 'Id',
+        'id' => 'Id',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +45,17 @@ class CreateOriginPoolResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateOriginPoolResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

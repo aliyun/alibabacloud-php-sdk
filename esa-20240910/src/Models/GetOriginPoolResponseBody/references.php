@@ -4,74 +4,68 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginPoolResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginPoolResponseBody\references\dnsRecords;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginPoolResponseBody\references\IPARecords;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginPoolResponseBody\references\loadBalancers;
+use AlibabaCloud\Tea\Model;
 
 class references extends Model
 {
     /**
+     * @description List of layer 7 records using this origin pool as the origin.
+     *
      * @var dnsRecords[]
      */
     public $dnsRecords;
+
     /**
+     * @description List of layer 4 records using this origin pool as the origin.
+     *
      * @var IPARecords[]
      */
     public $IPARecords;
+
     /**
+     * @description List of load balancers using this origin pool.
+     *
      * @var loadBalancers[]
      */
     public $loadBalancers;
     protected $_name = [
-        'dnsRecords'    => 'DnsRecords',
-        'IPARecords'    => 'IPARecords',
+        'dnsRecords' => 'DnsRecords',
+        'IPARecords' => 'IPARecords',
         'loadBalancers' => 'LoadBalancers',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dnsRecords)) {
-            Model::validateArray($this->dnsRecords);
-        }
-        if (\is_array($this->IPARecords)) {
-            Model::validateArray($this->IPARecords);
-        }
-        if (\is_array($this->loadBalancers)) {
-            Model::validateArray($this->loadBalancers);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dnsRecords) {
-            if (\is_array($this->dnsRecords)) {
-                $res['DnsRecords'] = [];
-                $n1                = 0;
-                foreach ($this->dnsRecords as $item1) {
-                    $res['DnsRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DnsRecords'] = [];
+            if (null !== $this->dnsRecords && \is_array($this->dnsRecords)) {
+                $n = 0;
+                foreach ($this->dnsRecords as $item) {
+                    $res['DnsRecords'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->IPARecords) {
-            if (\is_array($this->IPARecords)) {
-                $res['IPARecords'] = [];
-                $n1                = 0;
-                foreach ($this->IPARecords as $item1) {
-                    $res['IPARecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['IPARecords'] = [];
+            if (null !== $this->IPARecords && \is_array($this->IPARecords)) {
+                $n = 0;
+                foreach ($this->IPARecords as $item) {
+                    $res['IPARecords'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->loadBalancers) {
-            if (\is_array($this->loadBalancers)) {
-                $res['LoadBalancers'] = [];
-                $n1                   = 0;
-                foreach ($this->loadBalancers as $item1) {
-                    $res['LoadBalancers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['LoadBalancers'] = [];
+            if (null !== $this->loadBalancers && \is_array($this->loadBalancers)) {
+                $n = 0;
+                foreach ($this->loadBalancers as $item) {
+                    $res['LoadBalancers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -79,40 +73,38 @@ class references extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return references
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DnsRecords'])) {
             if (!empty($map['DnsRecords'])) {
                 $model->dnsRecords = [];
-                $n1                = 0;
-                foreach ($map['DnsRecords'] as $item1) {
-                    $model->dnsRecords[$n1++] = dnsRecords::fromMap($item1);
+                $n = 0;
+                foreach ($map['DnsRecords'] as $item) {
+                    $model->dnsRecords[$n++] = null !== $item ? dnsRecords::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['IPARecords'])) {
             if (!empty($map['IPARecords'])) {
                 $model->IPARecords = [];
-                $n1                = 0;
-                foreach ($map['IPARecords'] as $item1) {
-                    $model->IPARecords[$n1++] = IPARecords::fromMap($item1);
+                $n = 0;
+                foreach ($map['IPARecords'] as $item) {
+                    $model->IPARecords[$n++] = null !== $item ? IPARecords::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['LoadBalancers'])) {
             if (!empty($map['LoadBalancers'])) {
                 $model->loadBalancers = [];
-                $n1                   = 0;
-                foreach ($map['LoadBalancers'] as $item1) {
-                    $model->loadBalancers[$n1++] = loadBalancers::fromMap($item1);
+                $n = 0;
+                foreach ($map['LoadBalancers'] as $item) {
+                    $model->loadBalancers[$n++] = null !== $item ? loadBalancers::fromMap($item) : $item;
                 }
             }
         }

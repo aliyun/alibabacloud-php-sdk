@@ -4,62 +4,74 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateListRequest extends Model
 {
     /**
+     * @description The new description of the list.
+     *
+     * This parameter is required.
+     *
+     * @example a custom list
+     *
      * @var string
      */
     public $description;
+
     /**
+     * @description The ID of the custom list, which can be obtained by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
+     *
+     * This parameter is required.
+     *
+     * @example 40000001
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The items in the updated list. The value is a JSON array.
+     *
+     * This parameter is required.
+     *
+     * @example a custom list
+     *
      * @var string[]
      */
     public $items;
+
     /**
+     * @description The new name of the list.
+     *
+     * This parameter is required.
+     *
+     * @example example
+     *
      * @var string
      */
     public $name;
     protected $_name = [
         'description' => 'Description',
-        'id'          => 'Id',
-        'items'       => 'Items',
-        'name'        => 'Name',
+        'id' => 'Id',
+        'items' => 'Items',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->items)) {
-            Model::validateArray($this->items);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->items) {
-            if (\is_array($this->items)) {
-                $res['Items'] = [];
-                $n1           = 0;
-                foreach ($this->items as $item1) {
-                    $res['Items'][$n1++] = $item1;
-                }
-            }
+            $res['Items'] = $this->items;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -67,32 +79,25 @@ class UpdateListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
-                $model->items = [];
-                $n1           = 0;
-                foreach ($map['Items'] as $item1) {
-                    $model->items[$n1++] = $item1;
-                }
+                $model->items = $map['Items'];
             }
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

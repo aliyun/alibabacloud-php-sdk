@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateUserDeliveryTaskStatusResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 34DCBC8A-****-****-****-6DAA11D7DDBD
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The status of the delivery task.
+     *
+     * @example online
+     *
      * @var string
      */
     public $status;
+
     /**
+     * @description The name of the delivery task.
+     *
+     * @example test_project
+     *
      * @var string
      */
     public $taskName;
     protected $_name = [
         'requestId' => 'RequestId',
-        'status'    => 'Status',
-        'taskName'  => 'TaskName',
+        'status' => 'Status',
+        'taskName' => 'TaskName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -49,22 +58,20 @@ class UpdateUserDeliveryTaskStatusResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateUserDeliveryTaskStatusResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

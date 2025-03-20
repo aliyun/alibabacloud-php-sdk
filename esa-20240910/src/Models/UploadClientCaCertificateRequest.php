@@ -4,44 +4,57 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UploadClientCaCertificateRequest extends Model
 {
     /**
+     * @description The certificate content.
+     *
+     * This parameter is required.
+     *
+     * @example -----BEGIN CERTIFICATE-----
+     *
      * @var string
      */
     public $certificate;
+
     /**
+     * @description The certificate name.
+     *
+     * @example yourCertName
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The website ID.
+     *
+     * This parameter is required.
+     *
+     * @example 1234567890123
+     *
      * @var int
      */
     public $siteId;
     protected $_name = [
         'certificate' => 'Certificate',
-        'name'        => 'Name',
-        'siteId'      => 'SiteId',
+        'name' => 'Name',
+        'siteId' => 'SiteId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->certificate) {
             $res['Certificate'] = $this->certificate;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -49,22 +62,20 @@ class UploadClientCaCertificateRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UploadClientCaCertificateRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Certificate'])) {
             $model->certificate = $map['Certificate'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

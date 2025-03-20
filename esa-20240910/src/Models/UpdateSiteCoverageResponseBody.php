@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateSiteCoverageResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 65C66B7B-671A-8297-9187-2R5477247B76
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class UpdateSiteCoverageResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class UpdateSiteCoverageResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateSiteCoverageResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

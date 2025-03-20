@@ -4,62 +4,64 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListCiphersResponseBody extends Model
 {
     /**
+     * @description Name of the cipher suite group.
+     *
+     * @example all
+     *
      * @var string
      */
     public $ciphersGroup;
+
     /**
+     * @description Request ID.
+     *
+     * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description Returned result.
+     *
      * @var string[]
      */
     public $result;
+
     /**
+     * @description Total number of cipher suites.
+     *
+     * @example 16
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'ciphersGroup' => 'CiphersGroup',
-        'requestId'    => 'RequestId',
-        'result'       => 'Result',
-        'totalCount'   => 'TotalCount',
+        'requestId' => 'RequestId',
+        'result' => 'Result',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->result)) {
-            Model::validateArray($this->result);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ciphersGroup) {
             $res['CiphersGroup'] = $this->ciphersGroup;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->result) {
-            if (\is_array($this->result)) {
-                $res['Result'] = [];
-                $n1            = 0;
-                foreach ($this->result as $item1) {
-                    $res['Result'][$n1++] = $item1;
-                }
-            }
+            $res['Result'] = $this->result;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -67,32 +69,25 @@ class ListCiphersResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListCiphersResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CiphersGroup'])) {
             $model->ciphersGroup = $map['CiphersGroup'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
-                $model->result = [];
-                $n1            = 0;
-                foreach ($map['Result'] as $item1) {
-                    $model->result[$n1++] = $item1;
-                }
+                $model->result = $map['Result'];
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

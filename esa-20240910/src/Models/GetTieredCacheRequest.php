@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetTieredCacheRequest extends Model
 {
     /**
+     * @description Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+     *
+     * This parameter is required.
+     *
+     * @example 123456****
+     *
      * @var int
      */
     public $siteId;
@@ -16,12 +22,9 @@ class GetTieredCacheRequest extends Model
         'siteId' => 'SiteId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->siteId) {
@@ -31,11 +34,11 @@ class GetTieredCacheRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTieredCacheRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

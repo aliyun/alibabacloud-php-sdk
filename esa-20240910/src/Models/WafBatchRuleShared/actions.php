@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\WafBatchRuleShared;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafBatchRuleShared\actions\response;
+use AlibabaCloud\Tea\Model;
 
 class actions extends Model
 {
@@ -17,29 +17,23 @@ class actions extends Model
         'response' => 'Response',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->response) {
-            $this->response->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->response) {
-            $res['Response'] = null !== $this->response ? $this->response->toArray($noStream) : $this->response;
+            $res['Response'] = null !== $this->response ? $this->response->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return actions
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

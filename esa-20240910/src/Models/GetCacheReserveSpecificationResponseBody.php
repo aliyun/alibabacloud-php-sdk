@@ -4,62 +4,49 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetCacheReserveSpecificationResponseBody extends Model
 {
     /**
+     * @description List of cache retention capacity specifications.
+     *
      * @var string[]
      */
     public $cacheReserveCapacity;
+
     /**
+     * @description List of cache retention region specifications.
+     *
      * @var string[]
      */
     public $cacheReserveRegion;
+
     /**
+     * @description Request ID.
+     *
+     * @example EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'cacheReserveCapacity' => 'CacheReserveCapacity',
-        'cacheReserveRegion'   => 'CacheReserveRegion',
-        'requestId'            => 'RequestId',
+        'cacheReserveRegion' => 'CacheReserveRegion',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->cacheReserveCapacity)) {
-            Model::validateArray($this->cacheReserveCapacity);
-        }
-        if (\is_array($this->cacheReserveRegion)) {
-            Model::validateArray($this->cacheReserveRegion);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cacheReserveCapacity) {
-            if (\is_array($this->cacheReserveCapacity)) {
-                $res['CacheReserveCapacity'] = [];
-                $n1                          = 0;
-                foreach ($this->cacheReserveCapacity as $item1) {
-                    $res['CacheReserveCapacity'][$n1++] = $item1;
-                }
-            }
+            $res['CacheReserveCapacity'] = $this->cacheReserveCapacity;
         }
-
         if (null !== $this->cacheReserveRegion) {
-            if (\is_array($this->cacheReserveRegion)) {
-                $res['CacheReserveRegion'] = [];
-                $n1                        = 0;
-                foreach ($this->cacheReserveRegion as $item1) {
-                    $res['CacheReserveRegion'][$n1++] = $item1;
-                }
-            }
+            $res['CacheReserveRegion'] = $this->cacheReserveRegion;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -67,34 +54,24 @@ class GetCacheReserveSpecificationResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetCacheReserveSpecificationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CacheReserveCapacity'])) {
             if (!empty($map['CacheReserveCapacity'])) {
-                $model->cacheReserveCapacity = [];
-                $n1                          = 0;
-                foreach ($map['CacheReserveCapacity'] as $item1) {
-                    $model->cacheReserveCapacity[$n1++] = $item1;
-                }
+                $model->cacheReserveCapacity = $map['CacheReserveCapacity'];
             }
         }
-
         if (isset($map['CacheReserveRegion'])) {
             if (!empty($map['CacheReserveRegion'])) {
-                $model->cacheReserveRegion = [];
-                $n1                        = 0;
-                foreach ($map['CacheReserveRegion'] as $item1) {
-                    $model->cacheReserveRegion[$n1++] = $item1;
-                }
+                $model->cacheReserveRegion = $map['CacheReserveRegion'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

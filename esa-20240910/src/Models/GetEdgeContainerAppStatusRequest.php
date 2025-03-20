@@ -4,35 +4,42 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetEdgeContainerAppStatusRequest extends Model
 {
     /**
+     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+     *
+     * This parameter is required.
+     *
+     * @example app-88068867578379****
+     *
      * @var string
      */
     public $appId;
+
     /**
+     * @description The release environment. Valid values: prod and staging.
+     *
+     * @example staging
+     *
      * @var string
      */
     public $publishEnv;
     protected $_name = [
-        'appId'      => 'AppId',
+        'appId' => 'AppId',
         'publishEnv' => 'PublishEnv',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-
         if (null !== $this->publishEnv) {
             $res['PublishEnv'] = $this->publishEnv;
         }
@@ -40,18 +47,17 @@ class GetEdgeContainerAppStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetEdgeContainerAppStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-
         if (isset($map['PublishEnv'])) {
             $model->publishEnv = $map['PublishEnv'];
         }

@@ -4,90 +4,114 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSL7QpsListResponseBody\dataModule;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDDoSL7QpsListResponseBody extends Model
 {
     /**
+     * @description The time granularity of the queried data, in seconds.
+     *
+     * @example 300
+     *
      * @var int
      */
     public $dataInterval;
+
     /**
+     * @description Application layer time trend data list.
+     *
      * @var dataModule[]
      */
     public $dataModule;
+
     /**
+     * @description The end time of the query.
+     *
+     * The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
+     *
+     * @example 2023-04-19T19:00:00Z
+     *
      * @var string
      */
     public $endTime;
+
     /**
+     * @description Record ID.
+     *
+     * @example 86510927836942****
+     *
      * @var int
      */
     public $recordId;
+
     /**
+     * @description Request ID.
+     *
+     * @example 156A6B-677B1A-4297B7-9187B7-2B44792
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description Site ID.
+     *
+     * @example 123456****
+     *
      * @var int
      */
     public $siteId;
+
     /**
+     * @description The start time of the query.
+     *
+     * The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
+     *
+     * @example 2023-04-19T16:00:00Z
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
         'dataInterval' => 'DataInterval',
-        'dataModule'   => 'DataModule',
-        'endTime'      => 'EndTime',
-        'recordId'     => 'RecordId',
-        'requestId'    => 'RequestId',
-        'siteId'       => 'SiteId',
-        'startTime'    => 'StartTime',
+        'dataModule' => 'DataModule',
+        'endTime' => 'EndTime',
+        'recordId' => 'RecordId',
+        'requestId' => 'RequestId',
+        'siteId' => 'SiteId',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dataModule)) {
-            Model::validateArray($this->dataModule);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
         }
-
         if (null !== $this->dataModule) {
-            if (\is_array($this->dataModule)) {
-                $res['DataModule'] = [];
-                $n1                = 0;
-                foreach ($this->dataModule as $item1) {
-                    $res['DataModule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DataModule'] = [];
+            if (null !== $this->dataModule && \is_array($this->dataModule)) {
+                $n = 0;
+                foreach ($this->dataModule as $item) {
+                    $res['DataModule'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -95,44 +119,38 @@ class DescribeDDoSL7QpsListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDDoSL7QpsListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
         }
-
         if (isset($map['DataModule'])) {
             if (!empty($map['DataModule'])) {
                 $model->dataModule = [];
-                $n1                = 0;
-                foreach ($map['DataModule'] as $item1) {
-                    $model->dataModule[$n1++] = dataModule::fromMap($item1);
+                $n = 0;
+                foreach ($map['DataModule'] as $item) {
+                    $model->dataModule[$n++] = null !== $item ? dataModule::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateHttpRequestHeaderModificationRuleResponseBody extends Model
 {
     /**
+     * @description Configuration ID.
+     *
+     * @example 35281609698****
+     *
      * @var int
      */
     public $configId;
+
     /**
+     * @description Request ID.
+     *
+     * @example CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'configId'  => 'ConfigId',
+        'configId' => 'ConfigId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +45,17 @@ class CreateHttpRequestHeaderModificationRuleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateHttpRequestHeaderModificationRuleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetRecordRequest extends Model
 {
     /**
+     * @description The record ID, which can be obtained by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
+     *
+     * This parameter is required.
+     *
+     * @example 1234567890123
+     *
      * @var int
      */
     public $recordId;
@@ -16,12 +22,9 @@ class GetRecordRequest extends Model
         'recordId' => 'RecordId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->recordId) {
@@ -31,11 +34,11 @@ class GetRecordRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRecordRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

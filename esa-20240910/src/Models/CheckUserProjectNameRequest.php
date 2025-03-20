@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckUserProjectNameRequest extends Model
 {
     /**
+     * @description The name of the real-time log delivery task.
+     *
+     * This parameter is required.
+     *
+     * @example ali-dcdn-log-56
+     *
      * @var string
      */
     public $projectName;
@@ -16,12 +22,9 @@ class CheckUserProjectNameRequest extends Model
         'projectName' => 'ProjectName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->projectName) {
@@ -31,11 +34,11 @@ class CheckUserProjectNameRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckUserProjectNameRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

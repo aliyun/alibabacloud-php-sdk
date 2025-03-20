@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class RebuildEdgeContainerAppStagingEnvRequest extends Model
 {
     /**
+     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+     *
+     * @example app-88068867578379****
+     *
      * @var string
      */
     public $appId;
@@ -16,12 +20,9 @@ class RebuildEdgeContainerAppStagingEnvRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appId) {
@@ -31,11 +32,11 @@ class RebuildEdgeContainerAppStagingEnvRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RebuildEdgeContainerAppStagingEnvRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

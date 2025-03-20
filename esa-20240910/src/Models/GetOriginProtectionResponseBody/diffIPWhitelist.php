@@ -4,79 +4,71 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginProtectionResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginProtectionResponseBody\diffIPWhitelist\addedIPWhitelist;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginProtectionResponseBody\diffIPWhitelist\noChangeIpWhitelist;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginProtectionResponseBody\diffIPWhitelist\removedIPWhitelist;
+use AlibabaCloud\Tea\Model;
 
 class diffIPWhitelist extends Model
 {
     /**
+     * @description The new IP whitelist for origin protection.
+     *
      * @var addedIPWhitelist
      */
     public $addedIPWhitelist;
+
     /**
+     * @description The IP whitelist for origin protection that remains unchanged.
+     *
      * @var noChangeIpWhitelist
      */
     public $noChangeIpWhitelist;
+
     /**
+     * @description The IP whitelist for origin protection that has been deleted.
+     *
      * @var removedIPWhitelist
      */
     public $removedIPWhitelist;
     protected $_name = [
-        'addedIPWhitelist'    => 'AddedIPWhitelist',
+        'addedIPWhitelist' => 'AddedIPWhitelist',
         'noChangeIpWhitelist' => 'NoChangeIpWhitelist',
-        'removedIPWhitelist'  => 'RemovedIPWhitelist',
+        'removedIPWhitelist' => 'RemovedIPWhitelist',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->addedIPWhitelist) {
-            $this->addedIPWhitelist->validate();
-        }
-        if (null !== $this->noChangeIpWhitelist) {
-            $this->noChangeIpWhitelist->validate();
-        }
-        if (null !== $this->removedIPWhitelist) {
-            $this->removedIPWhitelist->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addedIPWhitelist) {
-            $res['AddedIPWhitelist'] = null !== $this->addedIPWhitelist ? $this->addedIPWhitelist->toArray($noStream) : $this->addedIPWhitelist;
+            $res['AddedIPWhitelist'] = null !== $this->addedIPWhitelist ? $this->addedIPWhitelist->toMap() : null;
         }
-
         if (null !== $this->noChangeIpWhitelist) {
-            $res['NoChangeIpWhitelist'] = null !== $this->noChangeIpWhitelist ? $this->noChangeIpWhitelist->toArray($noStream) : $this->noChangeIpWhitelist;
+            $res['NoChangeIpWhitelist'] = null !== $this->noChangeIpWhitelist ? $this->noChangeIpWhitelist->toMap() : null;
         }
-
         if (null !== $this->removedIPWhitelist) {
-            $res['RemovedIPWhitelist'] = null !== $this->removedIPWhitelist ? $this->removedIPWhitelist->toArray($noStream) : $this->removedIPWhitelist;
+            $res['RemovedIPWhitelist'] = null !== $this->removedIPWhitelist ? $this->removedIPWhitelist->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return diffIPWhitelist
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddedIPWhitelist'])) {
             $model->addedIPWhitelist = addedIPWhitelist::fromMap($map['AddedIPWhitelist']);
         }
-
         if (isset($map['NoChangeIpWhitelist'])) {
             $model->noChangeIpWhitelist = noChangeIpWhitelist::fromMap($map['NoChangeIpWhitelist']);
         }
-
         if (isset($map['RemovedIPWhitelist'])) {
             $model->removedIPWhitelist = removedIPWhitelist::fromMap($map['RemovedIPWhitelist']);
         }

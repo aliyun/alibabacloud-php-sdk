@@ -4,44 +4,38 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSiteCurrentNSResponseBody extends Model
 {
     /**
+     * @description The nameservers of the website.
+     *
      * @var string[]
      */
     public $NSList;
+
     /**
+     * @description The request ID.
+     *
+     * @example 2430E05E-1340-5773-B5E1-B743929F46F2
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'NSList'    => 'NSList',
+        'NSList' => 'NSList',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->NSList)) {
-            Model::validateArray($this->NSList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->NSList) {
-            if (\is_array($this->NSList)) {
-                $res['NSList'] = [];
-                $n1            = 0;
-                foreach ($this->NSList as $item1) {
-                    $res['NSList'][$n1++] = $item1;
-                }
-            }
+            $res['NSList'] = $this->NSList;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,24 +43,19 @@ class GetSiteCurrentNSResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSiteCurrentNSResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NSList'])) {
             if (!empty($map['NSList'])) {
-                $model->NSList = [];
-                $n1            = 0;
-                foreach ($map['NSList'] as $item1) {
-                    $model->NSList[$n1++] = $item1;
-                }
+                $model->NSList = $map['NSList'];
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

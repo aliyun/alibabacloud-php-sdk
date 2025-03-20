@@ -4,11 +4,22 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetUserLogDeliveryQuotaRequest extends Model
 {
     /**
+     * @description The log category. Valid values:
+     *
+     *   dcdn_log_access_l1 (default): access logs.
+     *   dcdn_log_er: Edge Routine logs.
+     *   dcdn_log_waf: firewall logs.
+     *   dcdn_log_ipa: TCP/UDP proxy logs.
+     *
+     * This parameter is required.
+     *
+     * @example dcdn_log_access_l1
+     *
      * @var string
      */
     public $businessType;
@@ -16,12 +27,9 @@ class GetUserLogDeliveryQuotaRequest extends Model
         'businessType' => 'BusinessType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->businessType) {
@@ -31,11 +39,11 @@ class GetUserLogDeliveryQuotaRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetUserLogDeliveryQuotaRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

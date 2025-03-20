@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class securityLevel extends Model
 {
@@ -16,12 +16,9 @@ class securityLevel extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->value) {
@@ -31,11 +28,11 @@ class securityLevel extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return securityLevel
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

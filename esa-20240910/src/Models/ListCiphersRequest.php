@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListCiphersRequest extends Model
 {
     /**
+     * @description The name of the cipher suite group, which can be: all, strict, custom.
+     *
+     * This parameter is required.
+     *
+     * @example strict
+     *
      * @var string
      */
     public $ciphersGroup;
@@ -16,12 +22,9 @@ class ListCiphersRequest extends Model
         'ciphersGroup' => 'CiphersGroup',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ciphersGroup) {
@@ -31,11 +34,11 @@ class ListCiphersRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListCiphersRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

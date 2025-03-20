@@ -4,45 +4,45 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWaitingRoomRulesResponseBody\waitingRoomRules;
+use AlibabaCloud\Tea\Model;
 
 class ListWaitingRoomRulesResponseBody extends Model
 {
     /**
+     * @description Request ID, used for tracking the call status.
+     *
+     * @example 15C66C7B-671A-4297-9187-2C4477247A123425345
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description List of waiting room bypass rules.
+     *
      * @var waitingRoomRules[]
      */
     public $waitingRoomRules;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'waitingRoomRules' => 'WaitingRoomRules',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->waitingRoomRules)) {
-            Model::validateArray($this->waitingRoomRules);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->waitingRoomRules) {
-            if (\is_array($this->waitingRoomRules)) {
-                $res['WaitingRoomRules'] = [];
-                $n1                      = 0;
-                foreach ($this->waitingRoomRules as $item1) {
-                    $res['WaitingRoomRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['WaitingRoomRules'] = [];
+            if (null !== $this->waitingRoomRules && \is_array($this->waitingRoomRules)) {
+                $n = 0;
+                foreach ($this->waitingRoomRules as $item) {
+                    $res['WaitingRoomRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +50,23 @@ class ListWaitingRoomRulesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListWaitingRoomRulesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['WaitingRoomRules'])) {
             if (!empty($map['WaitingRoomRules'])) {
                 $model->waitingRoomRules = [];
-                $n1                      = 0;
-                foreach ($map['WaitingRoomRules'] as $item1) {
-                    $model->waitingRoomRules[$n1++] = waitingRoomRules::fromMap($item1);
+                $n = 0;
+                foreach ($map['WaitingRoomRules'] as $item) {
+                    $model->waitingRoomRules[$n++] = null !== $item ? waitingRoomRules::fromMap($item) : $item;
                 }
             }
         }

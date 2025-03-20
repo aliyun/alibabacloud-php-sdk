@@ -4,44 +4,57 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpRequestHeaderModificationRulesResponseBody\configs;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class requestHeaderModification extends Model
 {
     /**
+     * @description The name of the request header.
+     *
+     * @example headerName
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The operation type. The value range is as follows:
+     *
+     * - add: Add.
+     * - del: Delete.
+     * - modify: Modify.
+     *
+     * @example add
+     *
      * @var string
      */
     public $operation;
+
     /**
+     * @description The value of the request header.
+     *
+     * @example headerValue
+     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'name'      => 'Name',
+        'name' => 'Name',
         'operation' => 'Operation',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,22 +62,20 @@ class requestHeaderModification extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return requestHeaderModification
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

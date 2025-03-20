@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteUserDeliveryTaskRequest extends Model
 {
     /**
+     * @description The name of the delivery task.
+     *
+     * This parameter is required.
+     *
+     * @example test-project
+     *
      * @var string
      */
     public $taskName;
@@ -16,12 +22,9 @@ class DeleteUserDeliveryTaskRequest extends Model
         'taskName' => 'TaskName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskName) {
@@ -31,11 +34,11 @@ class DeleteUserDeliveryTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteUserDeliveryTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteHttpResponseHeaderModificationRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example F61CDR30-E83C-4FDA-BF73-9A94CDD44229
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteHttpResponseHeaderModificationRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteHttpResponseHeaderModificationRuleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteHttpResponseHeaderModificationRuleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

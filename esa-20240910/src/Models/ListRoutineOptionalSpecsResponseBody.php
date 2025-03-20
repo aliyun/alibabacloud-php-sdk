@@ -4,45 +4,45 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineOptionalSpecsResponseBody\specs;
+use AlibabaCloud\Tea\Model;
 
 class ListRoutineOptionalSpecsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 1234567890ABCDEF01234567890ABCDEF
+     *
      * @var string
      */
     public $requestId;
+
     /**
+     * @description The available specifications.
+     *
      * @var specs[]
      */
     public $specs;
     protected $_name = [
         'requestId' => 'RequestId',
-        'specs'     => 'Specs',
+        'specs' => 'Specs',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->specs)) {
-            Model::validateArray($this->specs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->specs) {
-            if (\is_array($this->specs)) {
-                $res['Specs'] = [];
-                $n1           = 0;
-                foreach ($this->specs as $item1) {
-                    $res['Specs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Specs'] = [];
+            if (null !== $this->specs && \is_array($this->specs)) {
+                $n = 0;
+                foreach ($this->specs as $item) {
+                    $res['Specs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -50,24 +50,23 @@ class ListRoutineOptionalSpecsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListRoutineOptionalSpecsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Specs'])) {
             if (!empty($map['Specs'])) {
                 $model->specs = [];
-                $n1           = 0;
-                foreach ($map['Specs'] as $item1) {
-                    $model->specs[$n1++] = specs::fromMap($item1);
+                $n = 0;
+                foreach ($map['Specs'] as $item) {
+                    $model->specs[$n++] = null !== $item ? specs::fromMap($item) : $item;
                 }
             }
         }

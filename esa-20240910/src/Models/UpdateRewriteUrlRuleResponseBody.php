@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateRewriteUrlRuleResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
+     * @example 156A6B-677B1A-4297B7-9187B7-2B44792
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class UpdateRewriteUrlRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class UpdateRewriteUrlRuleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateRewriteUrlRuleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

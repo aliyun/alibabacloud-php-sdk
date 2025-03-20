@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\WafRuleConfig\appPackage;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class packageSigns extends Model
 {
@@ -12,6 +12,7 @@ class packageSigns extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
@@ -21,18 +22,14 @@ class packageSigns extends Model
         'sign' => 'Sign',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->sign) {
             $res['Sign'] = $this->sign;
         }
@@ -40,18 +37,17 @@ class packageSigns extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return packageSigns
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Sign'])) {
             $model->sign = $map['Sign'];
         }

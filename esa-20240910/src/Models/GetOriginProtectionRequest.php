@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetOriginProtectionRequest extends Model
 {
     /**
+     * @description The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+     *
+     * This parameter is required.
+     *
+     * @example 123456789****
+     *
      * @var int
      */
     public $siteId;
@@ -16,12 +22,9 @@ class GetOriginProtectionRequest extends Model
         'siteId' => 'SiteId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->siteId) {
@@ -31,11 +34,11 @@ class GetOriginProtectionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetOriginProtectionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

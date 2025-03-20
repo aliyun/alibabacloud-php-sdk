@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteLoadBalancerRequest extends Model
 {
     /**
+     * @description The ID of the load balancer, used to uniquely identify the load balancer to be queried. This ID is returned directly upon creation of the load balancer and can also be obtained through the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) interface for querying all load balancers under a site.
+     *
+     * This parameter is required.
+     *
+     * @example 99867648760****
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The ID of the site, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+     *
+     * This parameter is required.
+     *
+     * @example 1159101787****
+     *
      * @var int
      */
     public $siteId;
     protected $_name = [
-        'id'     => 'Id',
+        'id' => 'Id',
         'siteId' => 'SiteId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -40,18 +49,17 @@ class DeleteLoadBalancerRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteLoadBalancerRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

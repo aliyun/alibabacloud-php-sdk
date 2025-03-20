@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ResetScheduledPreloadJobRequest extends Model
 {
     /**
+     * @description The ID of the scheduled prefetch task.
+     *
+     * @example ResetScheduledPreloadJob
+     *
      * @var string
      */
     public $id;
@@ -16,12 +20,9 @@ class ResetScheduledPreloadJobRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +32,11 @@ class ResetScheduledPreloadJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ResetScheduledPreloadJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

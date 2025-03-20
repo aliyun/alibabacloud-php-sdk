@@ -4,45 +4,45 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafPhasesResponseBody\phases;
+use AlibabaCloud\Tea\Model;
 
 class ListWafPhasesResponseBody extends Model
 {
     /**
+     * @description The WAF rule categories.
+     *
      * @var phases[]
      */
     public $phases;
+
     /**
+     * @description The request ID.
+     *
+     * @example 36af3fcc-43d0-441c-86b1-428951dc8225
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'phases'    => 'Phases',
+        'phases' => 'Phases',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->phases)) {
-            Model::validateArray($this->phases);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->phases) {
-            if (\is_array($this->phases)) {
-                $res['Phases'] = [];
-                $n1            = 0;
-                foreach ($this->phases as $item1) {
-                    $res['Phases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Phases'] = [];
+            if (null !== $this->phases && \is_array($this->phases)) {
+                $n = 0;
+                foreach ($this->phases as $item) {
+                    $res['Phases'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,24 +50,23 @@ class ListWafPhasesResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListWafPhasesResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Phases'])) {
             if (!empty($map['Phases'])) {
                 $model->phases = [];
-                $n1            = 0;
-                foreach ($map['Phases'] as $item1) {
-                    $model->phases[$n1++] = phases::fromMap($item1);
+                $n = 0;
+                foreach ($map['Phases'] as $item) {
+                    $model->phases[$n++] = null !== $item ? phases::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

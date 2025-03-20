@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListWafUsageOfRulesResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sites extends Model
 {
     /**
+     * @description The website ID.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
+
     /**
+     * @description The website name.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The usage of WAF rules or WAF rulesets.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $usage;
     protected $_name = [
-        'id'    => 'Id',
-        'name'  => 'Name',
+        'id' => 'Id',
+        'name' => 'Name',
         'usage' => 'Usage',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
@@ -49,22 +58,20 @@ class sites extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sites
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
         }

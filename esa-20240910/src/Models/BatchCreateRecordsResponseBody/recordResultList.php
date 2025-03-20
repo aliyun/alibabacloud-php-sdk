@@ -4,64 +4,63 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsResponseBody\recordResultList\failed;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsResponseBody\recordResultList\success;
+use AlibabaCloud\Tea\Model;
 
 class recordResultList extends Model
 {
     /**
+     * @description The records that failed to be created.
+     *
      * @var failed[]
      */
     public $failed;
+
     /**
+     * @description The records that have been created.
+     *
      * @var success[]
      */
     public $success;
+
     /**
+     * @description The total number of returned records.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'failed'     => 'Failed',
-        'success'    => 'Success',
+        'failed' => 'Failed',
+        'success' => 'Success',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->failed)) {
-            Model::validateArray($this->failed);
-        }
-        if (\is_array($this->success)) {
-            Model::validateArray($this->success);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->failed) {
-            if (\is_array($this->failed)) {
-                $res['Failed'] = [];
-                $n1            = 0;
-                foreach ($this->failed as $item1) {
-                    $res['Failed'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Failed'] = [];
+            if (null !== $this->failed && \is_array($this->failed)) {
+                $n = 0;
+                foreach ($this->failed as $item) {
+                    $res['Failed'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->success) {
-            if (\is_array($this->success)) {
-                $res['Success'] = [];
-                $n1             = 0;
-                foreach ($this->success as $item1) {
-                    $res['Success'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Success'] = [];
+            if (null !== $this->success && \is_array($this->success)) {
+                $n = 0;
+                foreach ($this->success as $item) {
+                    $res['Success'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -69,34 +68,32 @@ class recordResultList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return recordResultList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Failed'])) {
             if (!empty($map['Failed'])) {
                 $model->failed = [];
-                $n1            = 0;
-                foreach ($map['Failed'] as $item1) {
-                    $model->failed[$n1++] = failed::fromMap($item1);
+                $n = 0;
+                foreach ($map['Failed'] as $item) {
+                    $model->failed[$n++] = null !== $item ? failed::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Success'])) {
             if (!empty($map['Success'])) {
                 $model->success = [];
-                $n1             = 0;
-                foreach ($map['Success'] as $item1) {
-                    $model->success[$n1++] = success::fromMap($item1);
+                $n = 0;
+                foreach ($map['Success'] as $item) {
+                    $model->success[$n++] = null !== $item ? success::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

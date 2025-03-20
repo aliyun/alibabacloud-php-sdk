@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteScheduledPreloadJobRequest extends Model
 {
     /**
+     * @description The ID of the scheduled prefetch task.
+     *
+     * This parameter is required.
+     *
+     * @example DeleteScheduledPreloadJob
+     *
      * @var string
      */
     public $id;
@@ -16,12 +22,9 @@ class DeleteScheduledPreloadJobRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->id) {
@@ -31,11 +34,11 @@ class DeleteScheduledPreloadJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteScheduledPreloadJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

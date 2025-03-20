@@ -4,35 +4,43 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetSiteNameExclusiveResponseBody extends Model
 {
     /**
+     * @description Indicates whether site hold is enabled. Valid values:
+     *
+     *   on
+     *   off
+     *
+     * @example on
+     *
      * @var string
      */
     public $enable;
+
     /**
+     * @description The request ID.
+     *
+     * @example 35C66C7B-671H-4297-9187-2C4477247A78
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'enable'    => 'Enable',
+        'enable' => 'Enable',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,18 +48,17 @@ class GetSiteNameExclusiveResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetSiteNameExclusiveResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

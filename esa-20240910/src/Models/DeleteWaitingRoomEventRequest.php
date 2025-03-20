@@ -4,35 +4,44 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteWaitingRoomEventRequest extends Model
 {
     /**
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     *
+     * This parameter is required.
+     *
+     * @example 123456****
+     *
      * @var int
      */
     public $siteId;
+
     /**
+     * @description The ID of the waiting room event.
+     *
+     * This parameter is required.
+     *
+     * @example 302909890***
+     *
      * @var int
      */
     public $waitingRoomEventId;
     protected $_name = [
-        'siteId'             => 'SiteId',
+        'siteId' => 'SiteId',
         'waitingRoomEventId' => 'WaitingRoomEventId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
-
         if (null !== $this->waitingRoomEventId) {
             $res['WaitingRoomEventId'] = $this->waitingRoomEventId;
         }
@@ -40,18 +49,17 @@ class DeleteWaitingRoomEventRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteWaitingRoomEventRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }
-
         if (isset($map['WaitingRoomEventId'])) {
             $model->waitingRoomEventId = $map['WaitingRoomEventId'];
         }
