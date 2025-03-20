@@ -43,6 +43,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $architecture;
 
     /**
+     * @var string
+     */
+    public $autoUpgradeMinorVersion;
+
+    /**
      * @description Maximum number of blktags in the file system.
      *
      * @example 7,864,320
@@ -677,6 +682,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'aiCreatingTime' => 'AiCreatingTime',
         'aiType' => 'AiType',
         'architecture' => 'Architecture',
+        'autoUpgradeMinorVersion' => 'AutoUpgradeMinorVersion',
         'blktagTotal' => 'BlktagTotal',
         'blktagUsed' => 'BlktagUsed',
         'burstingEnabled' => 'BurstingEnabled',
@@ -754,6 +760,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
+        }
+        if (null !== $this->autoUpgradeMinorVersion) {
+            $res['AutoUpgradeMinorVersion'] = $this->autoUpgradeMinorVersion;
         }
         if (null !== $this->blktagTotal) {
             $res['BlktagTotal'] = $this->blktagTotal;
@@ -973,6 +982,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
+        }
+        if (isset($map['AutoUpgradeMinorVersion'])) {
+            $model->autoUpgradeMinorVersion = $map['AutoUpgradeMinorVersion'];
         }
         if (isset($map['BlktagTotal'])) {
             $model->blktagTotal = $map['BlktagTotal'];
