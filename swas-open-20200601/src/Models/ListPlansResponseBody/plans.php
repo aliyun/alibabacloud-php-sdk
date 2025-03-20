@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListPlansResponseBody;
 
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListPlansResponseBody\plans\tags;
 use AlibabaCloud\Tea\Model;
 
 class plans extends Model
@@ -110,6 +111,11 @@ class plans extends Model
      * @var string
      */
     public $supportPlatform;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'bandwidth' => 'Bandwidth',
         'core' => 'Core',
@@ -122,6 +128,7 @@ class plans extends Model
         'planId' => 'PlanId',
         'planType' => 'PlanType',
         'supportPlatform' => 'SupportPlatform',
+        'tags' => 'Tags',
     ];
 
     public function validate() {}
@@ -161,6 +168,15 @@ class plans extends Model
         }
         if (null !== $this->supportPlatform) {
             $res['SupportPlatform'] = $this->supportPlatform;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -206,6 +222,15 @@ class plans extends Model
         }
         if (isset($map['SupportPlatform'])) {
             $model->supportPlatform = $map['SupportPlatform'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

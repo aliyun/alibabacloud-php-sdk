@@ -162,6 +162,11 @@ class instances extends Model
     public $planId;
 
     /**
+     * @var string
+     */
+    public $planType;
+
+    /**
      * @description The public IP address.
      *
      * @example 42.1.XX.XX
@@ -245,6 +250,7 @@ class instances extends Model
         'instanceName' => 'InstanceName',
         'networkAttributes' => 'NetworkAttributes',
         'planId' => 'PlanId',
+        'planType' => 'PlanType',
         'publicIpAddress' => 'PublicIpAddress',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -318,6 +324,9 @@ class instances extends Model
         }
         if (null !== $this->planId) {
             $res['PlanId'] = $this->planId;
+        }
+        if (null !== $this->planType) {
+            $res['PlanType'] = $this->planType;
         }
         if (null !== $this->publicIpAddress) {
             $res['PublicIpAddress'] = $this->publicIpAddress;
@@ -417,6 +426,9 @@ class instances extends Model
         }
         if (isset($map['PlanId'])) {
             $model->planId = $map['PlanId'];
+        }
+        if (isset($map['PlanType'])) {
+            $model->planType = $map['PlanType'];
         }
         if (isset($map['PublicIpAddress'])) {
             $model->publicIpAddress = $map['PublicIpAddress'];

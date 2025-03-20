@@ -4127,6 +4127,9 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->planType)) {
+            $query['PlanType'] = $request->planType;
+        }
         if (!Utils::isUnset($request->publicIpAddresses)) {
             $query['PublicIpAddresses'] = $request->publicIpAddresses;
         }

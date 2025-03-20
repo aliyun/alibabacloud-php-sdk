@@ -63,6 +63,11 @@ class ListInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $planType;
+
+    /**
      * @description The public IP addresses of the simple application servers. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
      *
      * > If you specify both `InstanceIds` and `PublicIpAddresses`, make sure that the specified IDs and the specified public IP addresses belong to the same simple application servers. Otherwise, an empty result is returned.
@@ -123,6 +128,7 @@ class ListInstancesRequest extends Model
         'instanceName' => 'InstanceName',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'planType' => 'PlanType',
         'publicIpAddresses' => 'PublicIpAddresses',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -149,6 +155,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->planType) {
+            $res['PlanType'] = $this->planType;
         }
         if (null !== $this->publicIpAddresses) {
             $res['PublicIpAddresses'] = $this->publicIpAddresses;
@@ -197,6 +206,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PlanType'])) {
+            $model->planType = $map['PlanType'];
         }
         if (isset($map['PublicIpAddresses'])) {
             $model->publicIpAddresses = $map['PublicIpAddresses'];
