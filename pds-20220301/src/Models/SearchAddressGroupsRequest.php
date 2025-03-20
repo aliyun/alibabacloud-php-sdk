@@ -17,7 +17,15 @@ class SearchAddressGroupsRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   province
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -25,13 +33,26 @@ class SearchAddressGroupsRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   district
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   township
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @var string
      */
     public $addressLevel;
@@ -56,6 +77,7 @@ class SearchAddressGroupsRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -89,18 +111,16 @@ class SearchAddressGroupsRequest extends Model
      */
     public $videoThumbnailProcess;
     protected $_name = [
-        'addressLevel'          => 'address_level',
-        'addressNames'          => 'address_names',
-        'brGeoPoint'            => 'br_geo_point',
-        'driveId'               => 'drive_id',
+        'addressLevel' => 'address_level',
+        'addressNames' => 'address_names',
+        'brGeoPoint' => 'br_geo_point',
+        'driveId' => 'drive_id',
         'imageThumbnailProcess' => 'image_thumbnail_process',
-        'tlGeoPoint'            => 'tl_geo_point',
+        'tlGeoPoint' => 'tl_geo_point',
         'videoThumbnailProcess' => 'video_thumbnail_process',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

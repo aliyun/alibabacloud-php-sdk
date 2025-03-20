@@ -33,14 +33,12 @@ class responses extends Model
      */
     public $status;
     protected $_name = [
-        'body'   => 'body',
-        'id'     => 'id',
+        'body' => 'body',
+        'id' => 'id',
         'status' => 'status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -123,6 +123,7 @@ class UpdateShareLinkRequest extends Model
      * @description The share ID.
      *
      * This parameter is required.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -166,29 +167,27 @@ class UpdateShareLinkRequest extends Model
      */
     public $videoPreviewCount;
     protected $_name = [
-        'description'       => 'description',
-        'disableDownload'   => 'disable_download',
-        'disablePreview'    => 'disable_preview',
-        'disableSave'       => 'disable_save',
-        'downloadCount'     => 'download_count',
-        'downloadLimit'     => 'download_limit',
-        'expiration'        => 'expiration',
-        'officeEditable'    => 'office_editable',
-        'previewCount'      => 'preview_count',
-        'previewLimit'      => 'preview_limit',
-        'reportCount'       => 'report_count',
-        'saveCount'         => 'save_count',
-        'saveLimit'         => 'save_limit',
-        'shareId'           => 'share_id',
-        'shareName'         => 'share_name',
-        'sharePwd'          => 'share_pwd',
-        'status'            => 'status',
+        'description' => 'description',
+        'disableDownload' => 'disable_download',
+        'disablePreview' => 'disable_preview',
+        'disableSave' => 'disable_save',
+        'downloadCount' => 'download_count',
+        'downloadLimit' => 'download_limit',
+        'expiration' => 'expiration',
+        'officeEditable' => 'office_editable',
+        'previewCount' => 'preview_count',
+        'previewLimit' => 'preview_limit',
+        'reportCount' => 'report_count',
+        'saveCount' => 'save_count',
+        'saveLimit' => 'save_limit',
+        'shareId' => 'share_id',
+        'shareName' => 'share_name',
+        'sharePwd' => 'share_pwd',
+        'status' => 'status',
         'videoPreviewCount' => 'video_preview_count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

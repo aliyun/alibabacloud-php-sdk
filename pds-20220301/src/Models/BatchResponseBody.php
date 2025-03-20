@@ -19,9 +19,7 @@ class BatchResponseBody extends Model
         'responses' => 'responses',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class BatchResponseBody extends Model
         if (isset($map['responses'])) {
             if (!empty($map['responses'])) {
                 $model->responses = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['responses'] as $item) {
                     $model->responses[$n++] = null !== $item ? responses::fromMap($item) : $item;
                 }

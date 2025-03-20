@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VideoDRMLicenseResponseBody extends Model
 {
     /**
+     * @description The returned DRM license.
+     *
      * @example cb9swCy8P50H9KePsxET3jZ1tm41bDs9HTsxbWnsjf3bsf6QGdiS4kZPhDaskimbNyAfNjmhQRmWFt3AhwNF3
      *
      * @var string
@@ -16,6 +18,8 @@ class VideoDRMLicenseResponseBody extends Model
     public $data;
 
     /**
+     * @description The information about the device from which the DRM request was initiated.
+     *
      * @example ""
      *
      * @var string
@@ -23,20 +27,20 @@ class VideoDRMLicenseResponseBody extends Model
     public $deviceInfo;
 
     /**
+     * @description The request state returned by the DRM server.
+     *
      * @example 0
      *
      * @var string
      */
     public $states;
     protected $_name = [
-        'data'       => 'data',
+        'data' => 'data',
         'deviceInfo' => 'device_info',
-        'states'     => 'states',
+        'states' => 'states',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

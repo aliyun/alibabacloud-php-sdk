@@ -24,14 +24,12 @@ class InvestigationInfo extends Model
      */
     public $videoDetail;
     protected $_name = [
-        'status'      => 'status',
-        'suggestion'  => 'suggestion',
+        'status' => 'status',
+        'suggestion' => 'suggestion',
         'videoDetail' => 'video_detail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

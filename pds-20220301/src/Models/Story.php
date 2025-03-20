@@ -73,24 +73,22 @@ class Story extends Model
      */
     public $updatedAt;
     protected $_name = [
-        'coverFileId'           => 'cover_file_id',
+        'coverFileId' => 'cover_file_id',
         'coverFileThumbnailUrl' => 'cover_file_thumbnail_url',
-        'createdAt'             => 'created_at',
-        'customLabels'          => 'custom_labels',
-        'faceGroupIds'          => 'face_group_ids',
-        'storyEndTime'          => 'story_end_time',
-        'storyFileList'         => 'story_file_list',
-        'storyId'               => 'story_id',
-        'storyName'             => 'story_name',
-        'storyStartTime'        => 'story_start_time',
-        'storySubType'          => 'story_sub_type',
-        'storyType'             => 'story_type',
-        'updatedAt'             => 'updated_at',
+        'createdAt' => 'created_at',
+        'customLabels' => 'custom_labels',
+        'faceGroupIds' => 'face_group_ids',
+        'storyEndTime' => 'story_end_time',
+        'storyFileList' => 'story_file_list',
+        'storyId' => 'story_id',
+        'storyName' => 'story_name',
+        'storyStartTime' => 'story_start_time',
+        'storySubType' => 'story_sub_type',
+        'storyType' => 'story_type',
+        'updatedAt' => 'updated_at',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -175,7 +173,7 @@ class Story extends Model
         if (isset($map['story_file_list'])) {
             if (!empty($map['story_file_list'])) {
                 $model->storyFileList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['story_file_list'] as $item) {
                     $model->storyFileList[$n++] = null !== $item ? File::fromMap($item) : $item;
                 }

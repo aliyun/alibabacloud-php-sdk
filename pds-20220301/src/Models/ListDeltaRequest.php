@@ -21,6 +21,7 @@ class ListDeltaRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -31,6 +32,7 @@ class ListDeltaRequest extends Model
      * @description The maximum number of results to return. Valid values: 0 to 100. Default value: 100.
      *
      * The number of returned results must be less than or equal to the specified number.
+     *
      * @example 50
      *
      * @var int
@@ -46,15 +48,13 @@ class ListDeltaRequest extends Model
      */
     public $syncRootId;
     protected $_name = [
-        'cursor'     => 'cursor',
-        'driveId'    => 'drive_id',
-        'limit'      => 'limit',
+        'cursor' => 'cursor',
+        'driveId' => 'drive_id',
+        'limit' => 'limit',
         'syncRootId' => 'sync_root_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class RestoreRevisionRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -22,6 +23,7 @@ class RestoreRevisionRequest extends Model
      * @description The file ID.
      *
      * This parameter is required.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -32,20 +34,19 @@ class RestoreRevisionRequest extends Model
      * @description The version ID.
      *
      * This parameter is required.
+     *
      * @example 40CB7794C929
      *
      * @var string
      */
     public $revisionId;
     protected $_name = [
-        'driveId'    => 'drive_id',
-        'fileId'     => 'file_id',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
         'revisionId' => 'revision_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

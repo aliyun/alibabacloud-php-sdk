@@ -33,16 +33,14 @@ class FilePermissionMember extends Model
      */
     public $roleId;
     protected $_name = [
-        'actionList'         => 'action_list',
+        'actionList' => 'action_list',
         'disinheritSubGroup' => 'disinherit_sub_group',
-        'expireTime'         => 'expire_time',
-        'identity'           => 'identity',
-        'roleId'             => 'role_id',
+        'expireTime' => 'expire_time',
+        'identity' => 'identity',
+        'roleId' => 'role_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

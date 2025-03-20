@@ -23,14 +23,12 @@ class LinkInfo extends Model
      */
     public $type;
     protected $_name = [
-        'extra'    => 'extra',
+        'extra' => 'extra',
         'identity' => 'identity',
-        'type'     => 'type',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

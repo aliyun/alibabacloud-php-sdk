@@ -17,9 +17,7 @@ class videoDetail extends Model
         'blockFrames' => 'block_frames',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class videoDetail extends Model
         if (isset($map['block_frames'])) {
             if (!empty($map['block_frames'])) {
                 $model->blockFrames = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['block_frames'] as $item) {
                     $model->blockFrames[$n++] = null !== $item ? blockFrames::fromMap($item) : $item;
                 }

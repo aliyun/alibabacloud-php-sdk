@@ -12,6 +12,7 @@ class ListTagsRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -36,14 +37,12 @@ class ListTagsRequest extends Model
      */
     public $videoThumbnailProcess;
     protected $_name = [
-        'driveId'               => 'drive_id',
+        'driveId' => 'drive_id',
         'imageThumbnailProcess' => 'image_thumbnail_process',
         'videoThumbnailProcess' => 'video_thumbnail_process',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class TokenRequest extends Model
      * @description The AppId of the application that is created in the Drive and Photo Service console.
      *
      * This parameter is required.
+     *
      * @example 1Zu***flH
      *
      * @var string
@@ -48,7 +49,14 @@ class TokenRequest extends Model
     /**
      * @description The method that is used to generate an access token. Valid values:
      *
+     * authorization_code: generates an access token by using the authorization code that is returned after the authorization process is complete.
+     *
+     * refresh_token: generates an access token by using the refresh token that is returned after the authorization process is complete.
+     *
+     * urn:ietf:params:oauth:grant-type:jwt-bearer: generates an access token by using a JWT assertion.
+     *
      * This parameter is required.
+     *
      * @example refresh_token
      *
      * @var string
@@ -73,18 +81,16 @@ class TokenRequest extends Model
      */
     public $refreshToken;
     protected $_name = [
-        'assertion'    => 'assertion',
-        'clientId'     => 'client_id',
+        'assertion' => 'assertion',
+        'clientId' => 'client_id',
         'clientSecret' => 'client_secret',
-        'code'         => 'code',
-        'grantType'    => 'grant_type',
-        'redirectUri'  => 'redirect_uri',
+        'code' => 'code',
+        'grantType' => 'grant_type',
+        'redirectUri' => 'redirect_uri',
         'refreshToken' => 'refresh_token',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

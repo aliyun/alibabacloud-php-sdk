@@ -12,6 +12,7 @@ class AddGroupMemberRequest extends Model
      * @description The ID of the destination group to which the member is added.
      *
      * This parameter is required.
+     *
      * @example 3e5***2c2
      *
      * @var string
@@ -22,6 +23,7 @@ class AddGroupMemberRequest extends Model
      * @description The member ID. If member_type is set to user, set this parameter to a user ID.
      *
      * This parameter is required.
+     *
      * @example 2e4***1b1
      *
      * @var string
@@ -33,21 +35,22 @@ class AddGroupMemberRequest extends Model
      *
      * user
      *
+     * Note: A group can be added to only one group. A user can be added to multiple groups.
+     *
      * This parameter is required.
+     *
      * @example user
      *
      * @var string
      */
     public $memberType;
     protected $_name = [
-        'groupId'    => 'group_id',
-        'memberId'   => 'member_id',
+        'groupId' => 'group_id',
+        'memberId' => 'member_id',
         'memberType' => 'member_type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

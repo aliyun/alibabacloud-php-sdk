@@ -64,22 +64,20 @@ class Permission extends Model
      */
     public $userTags;
     protected $_name = [
-        'actionList'   => 'action_list',
-        'collection'   => 'collection',
-        'condition'    => 'condition',
-        'createdAt'    => 'created_at',
-        'effect'       => 'effect',
-        'identityId'   => 'identity_id',
+        'actionList' => 'action_list',
+        'collection' => 'collection',
+        'condition' => 'condition',
+        'createdAt' => 'created_at',
+        'effect' => 'effect',
+        'identityId' => 'identity_id',
         'identityType' => 'identity_type',
-        'resource'     => 'resource',
+        'resource' => 'resource',
         'resourceType' => 'resource_type',
-        'updatedAt'    => 'updated_at',
-        'userTags'     => 'user_tags',
+        'updatedAt' => 'updated_at',
+        'userTags' => 'user_tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -138,7 +136,7 @@ class Permission extends Model
         if (isset($map['action_list'])) {
             if (!empty($map['action_list'])) {
                 $model->actionList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['action_list'] as $item) {
                     $model->actionList[$n++] = null !== $item ? actionList::fromMap($item) : $item;
                 }

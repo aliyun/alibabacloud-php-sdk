@@ -20,13 +20,11 @@ class Identity extends Model
      */
     public $identityType;
     protected $_name = [
-        'identityId'   => 'identity_id',
+        'identityId' => 'identity_id',
         'identityType' => 'identity_type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,12 +21,10 @@ class CsiGetFileInfoResponseBody extends Model
     public $url;
     protected $_name = [
         'investigationInfo' => 'investigation_info',
-        'url'               => 'url',
+        'url' => 'url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

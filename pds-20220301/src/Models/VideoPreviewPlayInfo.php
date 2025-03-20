@@ -59,20 +59,18 @@ class VideoPreviewPlayInfo extends Model
      */
     public $quickVideoSubtitleList;
     protected $_name = [
-        'category'                            => 'category',
-        'liveTranscodingSubtitleTaskList'     => 'live_transcoding_subtitle_task_list',
-        'liveTranscodingTaskList'             => 'live_transcoding_task_list',
-        'masterUrl'                           => 'master_url',
-        'meta'                                => 'meta',
-        'offlineVideoTranscodingList'         => 'offline_video_transcoding_list',
+        'category' => 'category',
+        'liveTranscodingSubtitleTaskList' => 'live_transcoding_subtitle_task_list',
+        'liveTranscodingTaskList' => 'live_transcoding_task_list',
+        'masterUrl' => 'master_url',
+        'meta' => 'meta',
+        'offlineVideoTranscodingList' => 'offline_video_transcoding_list',
         'offlineVideoTranscodingSubtitleList' => 'offline_video_transcoding_subtitle_list',
-        'quickVideoList'                      => 'quick_video_list',
-        'quickVideoSubtitleList'              => 'quick_video_subtitle_list',
+        'quickVideoList' => 'quick_video_list',
+        'quickVideoSubtitleList' => 'quick_video_subtitle_list',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -158,7 +156,7 @@ class VideoPreviewPlayInfo extends Model
         if (isset($map['live_transcoding_subtitle_task_list'])) {
             if (!empty($map['live_transcoding_subtitle_task_list'])) {
                 $model->liveTranscodingSubtitleTaskList = [];
-                $n                                      = 0;
+                $n = 0;
                 foreach ($map['live_transcoding_subtitle_task_list'] as $item) {
                     $model->liveTranscodingSubtitleTaskList[$n++] = null !== $item ? VideoPreviewSubtitleInfo::fromMap($item) : $item;
                 }
@@ -167,7 +165,7 @@ class VideoPreviewPlayInfo extends Model
         if (isset($map['live_transcoding_task_list'])) {
             if (!empty($map['live_transcoding_task_list'])) {
                 $model->liveTranscodingTaskList = [];
-                $n                              = 0;
+                $n = 0;
                 foreach ($map['live_transcoding_task_list'] as $item) {
                     $model->liveTranscodingTaskList[$n++] = null !== $item ? liveTranscodingTaskList::fromMap($item) : $item;
                 }
@@ -182,7 +180,7 @@ class VideoPreviewPlayInfo extends Model
         if (isset($map['offline_video_transcoding_list'])) {
             if (!empty($map['offline_video_transcoding_list'])) {
                 $model->offlineVideoTranscodingList = [];
-                $n                                  = 0;
+                $n = 0;
                 foreach ($map['offline_video_transcoding_list'] as $item) {
                     $model->offlineVideoTranscodingList[$n++] = null !== $item ? offlineVideoTranscodingList::fromMap($item) : $item;
                 }
@@ -191,7 +189,7 @@ class VideoPreviewPlayInfo extends Model
         if (isset($map['offline_video_transcoding_subtitle_list'])) {
             if (!empty($map['offline_video_transcoding_subtitle_list'])) {
                 $model->offlineVideoTranscodingSubtitleList = [];
-                $n                                          = 0;
+                $n = 0;
                 foreach ($map['offline_video_transcoding_subtitle_list'] as $item) {
                     $model->offlineVideoTranscodingSubtitleList[$n++] = null !== $item ? VideoPreviewSubtitleInfo::fromMap($item) : $item;
                 }
@@ -200,7 +198,7 @@ class VideoPreviewPlayInfo extends Model
         if (isset($map['quick_video_list'])) {
             if (!empty($map['quick_video_list'])) {
                 $model->quickVideoList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['quick_video_list'] as $item) {
                     $model->quickVideoList[$n++] = null !== $item ? quickVideoList::fromMap($item) : $item;
                 }
@@ -209,7 +207,7 @@ class VideoPreviewPlayInfo extends Model
         if (isset($map['quick_video_subtitle_list'])) {
             if (!empty($map['quick_video_subtitle_list'])) {
                 $model->quickVideoSubtitleList = [];
-                $n                             = 0;
+                $n = 0;
                 foreach ($map['quick_video_subtitle_list'] as $item) {
                     $model->quickVideoSubtitleList[$n++] = null !== $item ? VideoPreviewSubtitleInfo::fromMap($item) : $item;
                 }

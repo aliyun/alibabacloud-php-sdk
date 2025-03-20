@@ -80,19 +80,17 @@ class GetDownloadUrlResponseBody extends Model
      */
     public $url;
     protected $_name = [
-        'cdnUrl'          => 'cdn_url',
-        'contentHash'     => 'content_hash',
+        'cdnUrl' => 'cdn_url',
+        'contentHash' => 'content_hash',
         'contentHashName' => 'content_hash_name',
-        'crc64Hash'       => 'crc64_hash',
-        'expiration'      => 'expiration',
-        'internalUrl'     => 'internal_url',
-        'size'            => 'size',
-        'url'             => 'url',
+        'crc64Hash' => 'crc64_hash',
+        'expiration' => 'expiration',
+        'internalUrl' => 'internal_url',
+        'size' => 'size',
+        'url' => 'url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

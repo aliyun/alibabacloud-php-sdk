@@ -43,14 +43,12 @@ class items extends Model
      */
     public $op;
     protected $_name = [
-        'file'   => 'file',
+        'file' => 'file',
         'fileId' => 'file_id',
-        'op'     => 'op',
+        'op' => 'op',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

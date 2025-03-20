@@ -20,13 +20,11 @@ class SearchStoriesResponseBody extends Model
      */
     public $nextMarker;
     protected $_name = [
-        'items'      => 'items',
+        'items' => 'items',
         'nextMarker' => 'next_marker',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -58,7 +56,7 @@ class SearchStoriesResponseBody extends Model
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['items'] as $item) {
                     $model->items[$n++] = null !== $item ? Story::fromMap($item) : $item;
                 }

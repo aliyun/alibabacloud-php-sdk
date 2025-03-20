@@ -30,13 +30,11 @@ class CNameStatus extends Model
     public $remark;
     protected $_name = [
         'bingdingState' => 'bingding_state',
-        'legalState'    => 'legal_state',
-        'remark'        => 'remark',
+        'legalState' => 'legal_state',
+        'remark' => 'remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

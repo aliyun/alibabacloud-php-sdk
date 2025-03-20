@@ -123,34 +123,32 @@ class Token extends Model
      */
     public $userName;
     protected $_name = [
-        'accessToken'        => 'access_token',
-        'avatar'             => 'avatar',
-        'defaultDriveId'     => 'default_drive_id',
+        'accessToken' => 'access_token',
+        'avatar' => 'avatar',
+        'defaultDriveId' => 'default_drive_id',
         'defaultSboxDriveId' => 'default_sbox_drive_id',
-        'deviceId'           => 'device_id',
-        'deviceName'         => 'device_name',
-        'domainId'           => 'domain_id',
-        'existLink'          => 'exist_link',
-        'expireTime'         => 'expire_time',
-        'expiresIn'          => 'expires_in',
-        'isFirstLogin'       => 'is_first_login',
-        'needLink'           => 'need_link',
-        'needRpVerify'       => 'need_rp_verify',
-        'nickName'           => 'nick_name',
-        'pinSetup'           => 'pin_setup',
-        'refreshToken'       => 'refresh_token',
-        'role'               => 'role',
-        'state'              => 'state',
-        'status'             => 'status',
-        'tokenType'          => 'token_type',
-        'userData'           => 'user_data',
-        'userId'             => 'user_id',
-        'userName'           => 'user_name',
+        'deviceId' => 'device_id',
+        'deviceName' => 'device_name',
+        'domainId' => 'domain_id',
+        'existLink' => 'exist_link',
+        'expireTime' => 'expire_time',
+        'expiresIn' => 'expires_in',
+        'isFirstLogin' => 'is_first_login',
+        'needLink' => 'need_link',
+        'needRpVerify' => 'need_rp_verify',
+        'nickName' => 'nick_name',
+        'pinSetup' => 'pin_setup',
+        'refreshToken' => 'refresh_token',
+        'role' => 'role',
+        'state' => 'state',
+        'status' => 'status',
+        'tokenType' => 'token_type',
+        'userData' => 'user_data',
+        'userId' => 'user_id',
+        'userName' => 'user_name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -266,7 +264,7 @@ class Token extends Model
         if (isset($map['exist_link'])) {
             if (!empty($map['exist_link'])) {
                 $model->existLink = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['exist_link'] as $item) {
                     $model->existLink[$n++] = null !== $item ? LinkInfo::fromMap($item) : $item;
                 }

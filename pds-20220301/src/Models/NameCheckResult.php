@@ -18,13 +18,11 @@ class NameCheckResult extends Model
      */
     public $existFileType;
     protected $_name = [
-        'existFileId'   => 'exist_file_id',
+        'existFileId' => 'exist_file_id',
         'existFileType' => 'exist_file_type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,10 @@ class MoveFileResponseBody extends Model
     /**
      * @description The ID of the asynchronous task.
      *
+     * If an empty string is returned, the file is moved.
+     *
      * If a non-empty string is returned, an asynchronous task is required. You can call the GetAsyncTask operation to obtain the information about an asynchronous task based on the task ID.
+     *
      * @example 23ebd1a24dba4166b1527add476ef2866051b4d5del106
      *
      * @var string
@@ -55,15 +58,13 @@ class MoveFileResponseBody extends Model
     public $fileId;
     protected $_name = [
         'asyncTaskId' => 'async_task_id',
-        'domainId'    => 'domain_id',
-        'driveId'     => 'drive_id',
-        'exist'       => 'exist',
-        'fileId'      => 'file_id',
+        'domainId' => 'domain_id',
+        'driveId' => 'drive_id',
+        'exist' => 'exist',
+        'fileId' => 'file_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

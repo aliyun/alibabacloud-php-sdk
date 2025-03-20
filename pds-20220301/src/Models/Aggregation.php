@@ -28,15 +28,13 @@ class Aggregation extends Model
      */
     public $value;
     protected $_name = [
-        'field'     => 'field',
-        'groups'    => 'groups',
+        'field' => 'field',
+        'groups' => 'groups',
         'operation' => 'operation',
-        'value'     => 'value',
+        'value' => 'value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -77,7 +75,7 @@ class Aggregation extends Model
         if (isset($map['groups'])) {
             if (!empty($map['groups'])) {
                 $model->groups = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['groups'] as $item) {
                     $model->groups[$n++] = null !== $item ? AggregationsGroup::fromMap($item) : $item;
                 }

@@ -30,6 +30,7 @@ class ListShareLinkRequest extends Model
      * @description The maximum number of results to return. Valid values: 0 to 100.
      *
      * The number of returned results must be less than or equal to the specified number.
+     *
      * @example 50
      *
      * @var int
@@ -39,6 +40,7 @@ class ListShareLinkRequest extends Model
     /**
      * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
      * By default, this parameter is left empty.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -71,17 +73,15 @@ class ListShareLinkRequest extends Model
      */
     public $orderDirection;
     protected $_name = [
-        'creator'          => 'creator',
+        'creator' => 'creator',
         'includeCancelled' => 'include_cancelled',
-        'limit'            => 'limit',
-        'marker'           => 'marker',
-        'orderBy'          => 'order_by',
-        'orderDirection'   => 'order_direction',
+        'limit' => 'limit',
+        'marker' => 'marker',
+        'orderBy' => 'order_by',
+        'orderDirection' => 'order_direction',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

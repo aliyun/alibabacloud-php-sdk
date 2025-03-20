@@ -29,14 +29,12 @@ class ClearRecycleBinItem extends Model
     public $taskId;
     protected $_name = [
         'asyncTaskId' => 'async_task_id',
-        'domainId'    => 'domain_id',
-        'driveId'     => 'drive_id',
-        'taskId'      => 'task_id',
+        'domainId' => 'domain_id',
+        'driveId' => 'drive_id',
+        'taskId' => 'task_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -19,12 +19,10 @@ class DomainBuildClientConfig extends Model
     public $name;
     protected $_name = [
         'copyright' => 'copyright',
-        'name'      => 'name',
+        'name' => 'name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

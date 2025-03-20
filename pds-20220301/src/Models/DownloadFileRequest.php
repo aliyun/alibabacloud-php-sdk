@@ -21,6 +21,7 @@ class DownloadFileRequest extends Model
      * @description The file ID.
      *
      * This parameter is required.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -63,17 +64,15 @@ class DownloadFileRequest extends Model
      */
     public $videoThumbnailProcess;
     protected $_name = [
-        'driveId'                => 'drive_id',
-        'fileId'                 => 'file_id',
-        'imageThumbnailProcess'  => 'image_thumbnail_process',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
+        'imageThumbnailProcess' => 'image_thumbnail_process',
         'officeThumbnailProcess' => 'office_thumbnail_process',
-        'shareId'                => 'share_id',
-        'videoThumbnailProcess'  => 'video_thumbnail_process',
+        'shareId' => 'share_id',
+        'videoThumbnailProcess' => 'video_thumbnail_process',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

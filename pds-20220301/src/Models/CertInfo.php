@@ -29,14 +29,12 @@ class CertInfo extends Model
      */
     public $certPrivatekey;
     protected $_name = [
-        'certBody'       => 'cert_body',
-        'certName'       => 'cert_name',
+        'certBody' => 'cert_body',
+        'certName' => 'cert_name',
         'certPrivatekey' => 'cert_privatekey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

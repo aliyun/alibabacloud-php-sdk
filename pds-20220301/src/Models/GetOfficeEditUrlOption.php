@@ -23,14 +23,12 @@ class GetOfficeEditUrlOption extends Model
      */
     public $readonly;
     protected $_name = [
-        'copy'     => 'copy',
-        'print'    => 'print',
+        'copy' => 'copy',
+        'print' => 'print',
         'readonly' => 'readonly',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

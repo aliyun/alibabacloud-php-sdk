@@ -32,15 +32,13 @@ class AddStoryFile extends Model
      */
     public $revisionId;
     protected $_name = [
-        'errorCode'    => 'error_code',
+        'errorCode' => 'error_code',
         'errorMessage' => 'error_message',
-        'fileId'       => 'file_id',
-        'revisionId'   => 'revision_id',
+        'fileId' => 'file_id',
+        'revisionId' => 'revision_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

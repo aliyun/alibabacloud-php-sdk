@@ -43,18 +43,16 @@ class Group extends Model
      */
     public $updatedAt;
     protected $_name = [
-        'createdAt'   => 'created_at',
-        'creator'     => 'creator',
+        'createdAt' => 'created_at',
+        'creator' => 'creator',
         'description' => 'description',
-        'domainId'    => 'domain_id',
-        'groupId'     => 'group_id',
-        'groupName'   => 'group_name',
-        'updatedAt'   => 'updated_at',
+        'domainId' => 'domain_id',
+        'groupId' => 'group_id',
+        'groupName' => 'group_name',
+        'updatedAt' => 'updated_at',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

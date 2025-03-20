@@ -105,22 +105,20 @@ class CreateFileResponseBody extends Model
      */
     public $uploadId;
     protected $_name = [
-        'domainId'     => 'domain_id',
-        'driveId'      => 'drive_id',
-        'exist'        => 'exist',
-        'fileId'       => 'file_id',
-        'fileName'     => 'file_name',
+        'domainId' => 'domain_id',
+        'driveId' => 'drive_id',
+        'exist' => 'exist',
+        'fileId' => 'file_id',
+        'fileName' => 'file_name',
         'parentFileId' => 'parent_file_id',
         'partInfoList' => 'part_info_list',
-        'rapidUpload'  => 'rapid_upload',
-        'status'       => 'status',
-        'type'         => 'type',
-        'uploadId'     => 'upload_id',
+        'rapidUpload' => 'rapid_upload',
+        'status' => 'status',
+        'type' => 'type',
+        'uploadId' => 'upload_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -197,7 +195,7 @@ class CreateFileResponseBody extends Model
         if (isset($map['part_info_list'])) {
             if (!empty($map['part_info_list'])) {
                 $model->partInfoList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['part_info_list'] as $item) {
                     $model->partInfoList[$n++] = null !== $item ? UploadPartInfo::fromMap($item) : $item;
                 }

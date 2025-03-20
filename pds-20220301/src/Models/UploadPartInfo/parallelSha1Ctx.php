@@ -18,13 +18,11 @@ class parallelSha1Ctx extends Model
      */
     public $partOffset;
     protected $_name = [
-        'h'          => 'h',
+        'h' => 'h',
         'partOffset' => 'part_offset',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

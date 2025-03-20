@@ -63,22 +63,20 @@ class CssProduce extends Model
      */
     public $userId;
     protected $_name = [
-        'bid'         => 'bid',
-        'buyerId'     => 'buyerId',
-        'childId'     => 'childId',
-        'fromApp'     => 'fromApp',
-        'orderId'     => 'orderId',
-        'payerId'     => 'payerId',
-        'purchases'   => 'purchases',
-        'requestId'   => 'requestId',
+        'bid' => 'bid',
+        'buyerId' => 'buyerId',
+        'childId' => 'childId',
+        'fromApp' => 'fromApp',
+        'orderId' => 'orderId',
+        'payerId' => 'payerId',
+        'purchases' => 'purchases',
+        'requestId' => 'requestId',
         'skipChannel' => 'skipChannel',
-        'token'       => 'token',
-        'userId'      => 'userId',
+        'token' => 'token',
+        'userId' => 'userId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -155,7 +153,7 @@ class CssProduce extends Model
         if (isset($map['purchases'])) {
             if (!empty($map['purchases'])) {
                 $model->purchases = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['purchases'] as $item) {
                     $model->purchases[$n++] = null !== $item ? CssPurchase::fromMap($item) : $item;
                 }

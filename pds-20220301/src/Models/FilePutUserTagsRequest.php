@@ -13,6 +13,7 @@ class FilePutUserTagsRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +24,7 @@ class FilePutUserTagsRequest extends Model
      * @description The file ID.
      *
      * This parameter is required.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -33,18 +35,17 @@ class FilePutUserTagsRequest extends Model
      * @description The tags to be added to the file. You cannot leave this parameter empty. You can specify up to 1,000 tags. You cannot specify tags that have the same name.
      *
      * This parameter is required.
+     *
      * @var userTags[]
      */
     public $userTags;
     protected $_name = [
-        'driveId'  => 'drive_id',
-        'fileId'   => 'file_id',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
         'userTags' => 'user_tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -85,7 +86,7 @@ class FilePutUserTagsRequest extends Model
         if (isset($map['user_tags'])) {
             if (!empty($map['user_tags'])) {
                 $model->userTags = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['user_tags'] as $item) {
                     $model->userTags[$n++] = null !== $item ? userTags::fromMap($item) : $item;
                 }

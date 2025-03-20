@@ -12,6 +12,7 @@ class userTags extends Model
      * @description The name of the tag. The tag name cannot be empty and cannot contain number signs (#).
      *
      * This parameter is required.
+     *
      * @example tag
      *
      * @var string
@@ -27,13 +28,11 @@ class userTags extends Model
      */
     public $value;
     protected $_name = [
-        'key'   => 'key',
+        'key' => 'key',
         'value' => 'value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

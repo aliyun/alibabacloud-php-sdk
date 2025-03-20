@@ -26,13 +26,11 @@ class GetShareLinkTokenResponseBody extends Model
      */
     public $shareToken;
     protected $_name = [
-        'expiresIn'  => 'expires_in',
+        'expiresIn' => 'expires_in',
         'shareToken' => 'share_token',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

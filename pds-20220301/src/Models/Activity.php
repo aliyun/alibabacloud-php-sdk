@@ -53,20 +53,18 @@ class Activity extends Model
      */
     public $userId;
     protected $_name = [
-        'activityId'         => 'activity_id',
-        'device'             => 'device',
-        'driveId'            => 'drive_id',
-        'eventType'          => 'event_type',
-        'latestEventTime'    => 'latest_event_time',
-        'resourceCategory'   => 'resource_category',
-        'resourceList'       => 'resource_list',
+        'activityId' => 'activity_id',
+        'device' => 'device',
+        'driveId' => 'drive_id',
+        'eventType' => 'event_type',
+        'latestEventTime' => 'latest_event_time',
+        'resourceCategory' => 'resource_category',
+        'resourceList' => 'resource_list',
         'totalResourceCount' => 'total_resource_count',
-        'userId'             => 'user_id',
+        'userId' => 'user_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

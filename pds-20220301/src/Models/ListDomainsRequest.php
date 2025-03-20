@@ -40,15 +40,13 @@ class ListDomainsRequest extends Model
      */
     public $serviceCode;
     protected $_name = [
-        'limit'          => 'limit',
-        'marker'         => 'marker',
+        'limit' => 'limit',
+        'marker' => 'marker',
         'parentDomainId' => 'parent_domain_id',
-        'serviceCode'    => 'service_code',
+        'serviceCode' => 'service_code',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

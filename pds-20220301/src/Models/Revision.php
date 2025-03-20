@@ -113,32 +113,30 @@ class Revision extends Model
      */
     public $url;
     protected $_name = [
-        'contentHash'         => 'content_hash',
-        'contentHashName'     => 'content_hash_name',
-        'crc64Hash'           => 'crc64_hash',
-        'createdAt'           => 'created_at',
-        'creatorId'           => 'creator_id',
-        'creatorName'         => 'creator_name',
-        'domainId'            => 'domain_id',
-        'downloadUrl'         => 'download_url',
-        'driveId'             => 'drive_id',
-        'fileExtension'       => 'file_extension',
-        'fileId'              => 'file_id',
-        'isLatestVersion'     => 'is_latest_version',
-        'keepForever'         => 'keep_forever',
+        'contentHash' => 'content_hash',
+        'contentHashName' => 'content_hash_name',
+        'crc64Hash' => 'crc64_hash',
+        'createdAt' => 'created_at',
+        'creatorId' => 'creator_id',
+        'creatorName' => 'creator_name',
+        'domainId' => 'domain_id',
+        'downloadUrl' => 'download_url',
+        'driveId' => 'drive_id',
+        'fileExtension' => 'file_extension',
+        'fileId' => 'file_id',
+        'isLatestVersion' => 'is_latest_version',
+        'keepForever' => 'keep_forever',
         'revisionDescription' => 'revision_description',
-        'revisionId'          => 'revision_id',
-        'revisionName'        => 'revision_name',
-        'revisionVersion'     => 'revision_version',
-        'size'                => 'size',
-        'thumbnail'           => 'thumbnail',
-        'updatedAt'           => 'updated_at',
-        'url'                 => 'url',
+        'revisionId' => 'revision_id',
+        'revisionName' => 'revision_name',
+        'revisionVersion' => 'revision_version',
+        'size' => 'size',
+        'thumbnail' => 'thumbnail',
+        'updatedAt' => 'updated_at',
+        'url' => 'url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

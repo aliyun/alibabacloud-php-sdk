@@ -43,16 +43,14 @@ class Address extends Model
      */
     public $township;
     protected $_name = [
-        'city'     => 'city',
-        'country'  => 'country',
+        'city' => 'city',
+        'country' => 'country',
         'district' => 'district',
         'province' => 'province',
         'township' => 'township',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

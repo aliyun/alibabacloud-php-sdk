@@ -24,13 +24,11 @@ class VideoPreviewSubtitleInfo extends Model
     public $url;
     protected $_name = [
         'language' => 'language',
-        'status'   => 'status',
-        'url'      => 'url',
+        'status' => 'status',
+        'url' => 'url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

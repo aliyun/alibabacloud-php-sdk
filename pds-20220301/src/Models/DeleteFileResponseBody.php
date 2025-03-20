@@ -45,14 +45,12 @@ class DeleteFileResponseBody extends Model
     public $fileId;
     protected $_name = [
         'asyncTaskId' => 'async_task_id',
-        'domainId'    => 'domain_id',
-        'driveId'     => 'drive_id',
-        'fileId'      => 'file_id',
+        'domainId' => 'domain_id',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

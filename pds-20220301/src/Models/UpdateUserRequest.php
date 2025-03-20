@@ -12,7 +12,10 @@ class UpdateUserRequest extends Model
     /**
      * @description The URL of the profile picture.
      *
+     * If you specify the parameter in the HTTP URL format, the URL must start with http:// or https:// and can be up to 4 KB in size.
+     *
      * If you specify the parameter in the DATA URL format, the URL must start with data:// and be encoded in Base64. The URL can be up to 300 KB in size.
+     *
      * @example http://a.b.c/pds.jpg
      *
      * @var string
@@ -96,27 +99,26 @@ class UpdateUserRequest extends Model
      * @description The user ID. The ID can be up to 64 characters in length and cannot contain a number sign (#).
      *
      * This parameter is required.
+     *
      * @example c9b7a5aa04d14ae3867fdc886fa01da4
      *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'avatar'        => 'avatar',
-        'description'   => 'description',
-        'email'         => 'email',
+        'avatar' => 'avatar',
+        'description' => 'description',
+        'email' => 'email',
         'groupInfoList' => 'group_info_list',
-        'nickName'      => 'nick_name',
-        'phone'         => 'phone',
-        'role'          => 'role',
-        'status'        => 'status',
-        'userData'      => 'user_data',
-        'userId'        => 'user_id',
+        'nickName' => 'nick_name',
+        'phone' => 'phone',
+        'role' => 'role',
+        'status' => 'status',
+        'userData' => 'user_data',
+        'userId' => 'user_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -181,7 +183,7 @@ class UpdateUserRequest extends Model
         if (isset($map['group_info_list'])) {
             if (!empty($map['group_info_list'])) {
                 $model->groupInfoList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['group_info_list'] as $item) {
                     $model->groupInfoList[$n++] = null !== $item ? groupInfoList::fromMap($item) : $item;
                 }

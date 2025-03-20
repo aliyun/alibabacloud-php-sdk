@@ -63,22 +63,20 @@ class Album extends Model
      */
     public $userTags;
     protected $_name = [
-        'albumId'         => 'album_id',
-        'baseFaceFile'    => 'base_face_file',
+        'albumId' => 'album_id',
+        'baseFaceFile' => 'base_face_file',
         'baseFaceGroupId' => 'base_face_group_id',
-        'coverFile'       => 'cover_file',
-        'createdAt'       => 'created_at',
-        'description'     => 'description',
-        'fileCount'       => 'file_count',
-        'name'            => 'name',
-        'owner'           => 'owner',
-        'updatedAt'       => 'updated_at',
-        'userTags'        => 'user_tags',
+        'coverFile' => 'cover_file',
+        'createdAt' => 'created_at',
+        'description' => 'description',
+        'fileCount' => 'file_count',
+        'name' => 'name',
+        'owner' => 'owner',
+        'updatedAt' => 'updated_at',
+        'userTags' => 'user_tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

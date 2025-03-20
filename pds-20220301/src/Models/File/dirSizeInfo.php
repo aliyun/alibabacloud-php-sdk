@@ -18,13 +18,11 @@ class dirSizeInfo extends Model
      */
     public $fileCount;
     protected $_name = [
-        'dirCount'  => 'dir_count',
+        'dirCount' => 'dir_count',
         'fileCount' => 'file_count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

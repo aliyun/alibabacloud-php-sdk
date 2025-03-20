@@ -22,9 +22,7 @@ class UncompressConfigResponse extends Model
         'version' => 'version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

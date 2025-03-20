@@ -29,14 +29,12 @@ class ListFacegroupsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'items'      => 'items',
+        'items' => 'items',
         'nextMarker' => 'next_marker',
         'totalCount' => 'total_count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -71,7 +69,7 @@ class ListFacegroupsResponseBody extends Model
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['items'] as $item) {
                     $model->items[$n++] = null !== $item ? FaceGroup::fromMap($item) : $item;
                 }

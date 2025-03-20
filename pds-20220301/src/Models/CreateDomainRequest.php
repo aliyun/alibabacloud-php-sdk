@@ -21,6 +21,7 @@ class CreateDomainRequest extends Model
      * @description If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
      *
      * This parameter is required.
+     *
      * @example 你好企业网盘
      *
      * @var string
@@ -72,18 +73,16 @@ class CreateDomainRequest extends Model
      */
     public $userCountQuota;
     protected $_name = [
-        'description'     => 'description',
-        'domainName'      => 'domain_name',
+        'description' => 'description',
+        'domainName' => 'domain_name',
         'initDriveEnable' => 'init_drive_enable',
-        'initDriveSize'   => 'init_drive_size',
-        'parentDomainId'  => 'parent_domain_id',
-        'sizeQuota'       => 'size_quota',
-        'userCountQuota'  => 'user_count_quota',
+        'initDriveSize' => 'init_drive_size',
+        'parentDomainId' => 'parent_domain_id',
+        'sizeQuota' => 'size_quota',
+        'userCountQuota' => 'user_count_quota',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

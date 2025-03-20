@@ -88,27 +88,25 @@ class Domain extends Model
      */
     public $userCountQuota;
     protected $_name = [
-        'createdAt'                  => 'created_at',
-        'dataHashName'               => 'data_hash_name',
-        'description'                => 'description',
-        'domainId'                   => 'domain_id',
-        'domainName'                 => 'domain_name',
-        'initDriveEnable'            => 'init_drive_enable',
-        'initDriveSize'              => 'init_drive_size',
-        'parentDomainId'             => 'parent_domain_id',
+        'createdAt' => 'created_at',
+        'dataHashName' => 'data_hash_name',
+        'description' => 'description',
+        'domainId' => 'domain_id',
+        'domainName' => 'domain_name',
+        'initDriveEnable' => 'init_drive_enable',
+        'initDriveSize' => 'init_drive_size',
+        'parentDomainId' => 'parent_domain_id',
         'publishedAppAccessStrategy' => 'published_app_access_strategy',
-        'sharable'                   => 'sharable',
-        'sizeQuota'                  => 'size_quota',
-        'sizeQuotaUsed'              => 'size_quota_used',
-        'status'                     => 'status',
-        'updatedAt'                  => 'updated_at',
-        'usedSize'                   => 'used_size',
-        'userCountQuota'             => 'user_count_quota',
+        'sharable' => 'sharable',
+        'sizeQuota' => 'size_quota',
+        'sizeQuotaUsed' => 'size_quota_used',
+        'status' => 'status',
+        'updatedAt' => 'updated_at',
+        'usedSize' => 'used_size',
+        'userCountQuota' => 'user_count_quota',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

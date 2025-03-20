@@ -51,16 +51,14 @@ class GetVideoPreviewPlayInfoResponseBody extends Model
      */
     public $videoPreviewPlayInfo;
     protected $_name = [
-        'domainId'             => 'domain_id',
-        'driveId'              => 'drive_id',
-        'fileId'               => 'file_id',
-        'shareId'              => 'share_id',
+        'domainId' => 'domain_id',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
+        'shareId' => 'share_id',
         'videoPreviewPlayInfo' => 'video_preview_play_info',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

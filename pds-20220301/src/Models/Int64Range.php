@@ -19,12 +19,10 @@ class Int64Range extends Model
     public $to;
     protected $_name = [
         'from' => 'from',
-        'to'   => 'to',
+        'to' => 'to',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

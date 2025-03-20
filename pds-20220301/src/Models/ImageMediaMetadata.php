@@ -100,25 +100,23 @@ class ImageMediaMetadata extends Model
      */
     public $width;
     protected $_name = [
-        'addressLine'    => 'address_line',
-        'city'           => 'city',
-        'country'        => 'country',
-        'district'       => 'district',
-        'exif'           => 'exif',
+        'addressLine' => 'address_line',
+        'city' => 'city',
+        'country' => 'country',
+        'district' => 'district',
+        'exif' => 'exif',
         'facesThumbnail' => 'faces_thumbnail',
-        'height'         => 'height',
-        'imageQuality'   => 'image_quality',
-        'imageTags'      => 'image_tags',
-        'location'       => 'location',
-        'province'       => 'province',
-        'time'           => 'time',
-        'township'       => 'township',
-        'width'          => 'width',
+        'height' => 'height',
+        'imageQuality' => 'image_quality',
+        'imageTags' => 'image_tags',
+        'location' => 'location',
+        'province' => 'province',
+        'time' => 'time',
+        'township' => 'township',
+        'width' => 'width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -207,7 +205,7 @@ class ImageMediaMetadata extends Model
         if (isset($map['faces_thumbnail'])) {
             if (!empty($map['faces_thumbnail'])) {
                 $model->facesThumbnail = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['faces_thumbnail'] as $item) {
                     $model->facesThumbnail[$n++] = null !== $item ? FaceThumbnail::fromMap($item) : $item;
                 }
@@ -222,7 +220,7 @@ class ImageMediaMetadata extends Model
         if (isset($map['image_tags'])) {
             if (!empty($map['image_tags'])) {
                 $model->imageTags = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['image_tags'] as $item) {
                     $model->imageTags[$n++] = null !== $item ? SystemTag::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class GetDriveRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -21,9 +22,7 @@ class GetDriveRequest extends Model
         'driveId' => 'drive_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

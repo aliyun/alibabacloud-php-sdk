@@ -24,13 +24,11 @@ class AuditLogDetail extends Model
     public $userLogDetail;
     protected $_name = [
         'driveLogDetail' => 'drive_log_detail',
-        'fileLogDetail'  => 'file_log_detail',
-        'userLogDetail'  => 'user_log_detail',
+        'fileLogDetail' => 'file_log_detail',
+        'userLogDetail' => 'user_log_detail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

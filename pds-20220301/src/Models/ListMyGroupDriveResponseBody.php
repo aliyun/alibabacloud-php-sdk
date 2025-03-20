@@ -29,14 +29,12 @@ class ListMyGroupDriveResponseBody extends Model
      */
     public $rootGroupDrive;
     protected $_name = [
-        'items'          => 'items',
-        'nextMarker'     => 'next_marker',
+        'items' => 'items',
+        'nextMarker' => 'next_marker',
         'rootGroupDrive' => 'root_group_drive',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -71,7 +69,7 @@ class ListMyGroupDriveResponseBody extends Model
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['items'] as $item) {
                     $model->items[$n++] = null !== $item ? Drive::fromMap($item) : $item;
                 }

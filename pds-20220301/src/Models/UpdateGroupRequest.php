@@ -21,6 +21,7 @@ class UpdateGroupRequest extends Model
      * @description The ID of the group that you want to modify.
      *
      * This parameter is required.
+     *
      * @example 2e43ec8427dd45f19431b7504649a1b4
      *
      * @var string
@@ -37,13 +38,11 @@ class UpdateGroupRequest extends Model
     public $groupName;
     protected $_name = [
         'description' => 'description',
-        'groupId'     => 'group_id',
-        'groupName'   => 'group_name',
+        'groupId' => 'group_id',
+        'groupName' => 'group_name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

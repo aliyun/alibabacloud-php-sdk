@@ -132,26 +132,24 @@ class SearchStoriesRequest extends Model
     protected $_name = [
         'coverImageThumbnailProcess' => 'cover_image_thumbnail_process',
         'coverVideoThumbnailProcess' => 'cover_video_thumbnail_process',
-        'createTimeRange'            => 'create_time_range',
-        'customLabels'               => 'custom_labels',
-        'driveId'                    => 'drive_id',
-        'faceGroupIds'               => 'face_group_ids',
-        'limit'                      => 'limit',
-        'marker'                     => 'marker',
-        'order'                      => 'order',
-        'sort'                       => 'sort',
-        'storyEndTimeRange'          => 'story_end_time_range',
-        'storyId'                    => 'story_id',
-        'storyName'                  => 'story_name',
-        'storyStartTimeRange'        => 'story_start_time_range',
-        'storyType'                  => 'story_type',
-        'urlExpireSec'               => 'url_expire_sec',
-        'withEmptyStories'           => 'with_empty_stories',
+        'createTimeRange' => 'create_time_range',
+        'customLabels' => 'custom_labels',
+        'driveId' => 'drive_id',
+        'faceGroupIds' => 'face_group_ids',
+        'limit' => 'limit',
+        'marker' => 'marker',
+        'order' => 'order',
+        'sort' => 'sort',
+        'storyEndTimeRange' => 'story_end_time_range',
+        'storyId' => 'story_id',
+        'storyName' => 'story_name',
+        'storyStartTimeRange' => 'story_start_time_range',
+        'storyType' => 'story_type',
+        'urlExpireSec' => 'url_expire_sec',
+        'withEmptyStories' => 'with_empty_stories',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

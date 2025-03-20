@@ -28,15 +28,13 @@ class BaseAlbumFileOperationResult extends Model
      */
     public $isSucceed;
     protected $_name = [
-        'errorCode'    => 'error_code',
+        'errorCode' => 'error_code',
         'errorMessage' => 'error_message',
-        'file'         => 'file',
-        'isSucceed'    => 'is_succeed',
+        'file' => 'file',
+        'isSucceed' => 'is_succeed',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

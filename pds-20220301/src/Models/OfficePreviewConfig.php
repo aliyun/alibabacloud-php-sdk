@@ -16,9 +16,7 @@ class OfficePreviewConfig extends Model
         'enabled' => 'enabled',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

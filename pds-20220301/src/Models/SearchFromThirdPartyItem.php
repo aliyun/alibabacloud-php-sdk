@@ -29,14 +29,12 @@ class SearchFromThirdPartyItem extends Model
     public $others;
     protected $_name = [
         'authenticationType' => 'authentication_type',
-        'extra'              => 'extra',
-        'identity'           => 'identity',
-        'others'             => 'others',
+        'extra' => 'extra',
+        'identity' => 'identity',
+        'others' => 'others',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

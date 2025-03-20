@@ -44,15 +44,13 @@ class SystemTag extends Model
     public $tagLevel;
     protected $_name = [
         'centricScore' => 'centric_score',
-        'confidence'   => 'confidence',
-        'name'         => 'name',
-        'parentName'   => 'parent_name',
-        'tagLevel'     => 'tag_level',
+        'confidence' => 'confidence',
+        'name' => 'name',
+        'parentName' => 'parent_name',
+        'tagLevel' => 'tag_level',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

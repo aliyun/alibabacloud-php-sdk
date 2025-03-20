@@ -9,7 +9,14 @@ use AlibabaCloud\Tea\Model;
 class VideoDRMLicenseRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The type of DRM encryption.
+     *
+     * Valid values:
+     *
+     *   fairplay
+     *   widevine
+     *
+     * This parameter is required.
      *
      * @example widevine
      *
@@ -18,19 +25,19 @@ class VideoDRMLicenseRequest extends Model
     public $drmType;
 
     /**
+     * @description The request that is initiated to obtain the license.
+     *
      * @example CAES6B8SQgpACioSENGxDhqCLIVwwCBOyPayyWoSENGxDhqCLIVwwCBOyPayyWpI88aJmwYQARoQdRV32
      *
      * @var string
      */
     public $licenseRequest;
     protected $_name = [
-        'drmType'        => 'drmType',
+        'drmType' => 'drmType',
         'licenseRequest' => 'licenseRequest',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

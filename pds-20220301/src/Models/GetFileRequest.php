@@ -21,7 +21,11 @@ class GetFileRequest extends Model
      * @description The fields to return.
      *
      * 1.  If this parameter is set to \\*, all fields of the file except the fields that must be specified are returned.
+     * 2.  If only specific fields are required, you can specify the following fields: url, thumbnail, exif, cropping_suggestion, characteristic_hash, video_metadata, and video_preview_metadata. If multiple fields are required, separate them with commas (,). Example: url,thumbnail.
+     * 3.  The investigation_info field is returned only if you specify this field.
+     *
      * By default, all fields except the fields that must be specified are returned.
+     *
      * @example *
      *
      * @var string
@@ -32,6 +36,7 @@ class GetFileRequest extends Model
      * @description The file ID.
      *
      * This parameter is required.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -63,17 +68,15 @@ class GetFileRequest extends Model
      */
     public $urlExpireSec;
     protected $_name = [
-        'driveId'            => 'drive_id',
-        'fields'             => 'fields',
-        'fileId'             => 'file_id',
-        'shareId'            => 'share_id',
+        'driveId' => 'drive_id',
+        'fields' => 'fields',
+        'fileId' => 'file_id',
+        'shareId' => 'share_id',
         'thumbnailProcesses' => 'thumbnail_processes',
-        'urlExpireSec'       => 'url_expire_sec',
+        'urlExpireSec' => 'url_expire_sec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

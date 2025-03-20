@@ -21,6 +21,7 @@ class ListUploadedPartsRequest extends Model
      * @description The file ID.
      *
      * This parameter is required.
+     *
      * @example 322fb07b975f4b0ae1b543fe8475eee4c19eb2b2
      *
      * @var string
@@ -58,23 +59,22 @@ class ListUploadedPartsRequest extends Model
      * @description The ID of the upload task.
      *
      * This parameter is required.
+     *
      * @example 00166D06127B413BA1EC8ABB1144D101
      *
      * @var string
      */
     public $uploadId;
     protected $_name = [
-        'driveId'          => 'drive_id',
-        'fileId'           => 'file_id',
-        'limit'            => 'limit',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
+        'limit' => 'limit',
         'partNumberMarker' => 'part_number_marker',
-        'shareId'          => 'share_id',
-        'uploadId'         => 'upload_id',
+        'shareId' => 'share_id',
+        'uploadId' => 'upload_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

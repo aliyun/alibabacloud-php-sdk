@@ -30,6 +30,7 @@ class GetDownloadUrlRequest extends Model
      * @description The file ID.
      *
      * This parameter is required.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -61,17 +62,15 @@ class GetDownloadUrlRequest extends Model
      */
     public $shareId;
     protected $_name = [
-        'driveId'             => 'drive_id',
-        'expireSec'           => 'expire_sec',
-        'fileId'              => 'file_id',
-        'fileName'            => 'file_name',
+        'driveId' => 'drive_id',
+        'expireSec' => 'expire_sec',
+        'fileId' => 'file_id',
+        'fileName' => 'file_name',
         'responseContentType' => 'response_content_type',
-        'shareId'             => 'share_id',
+        'shareId' => 'share_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

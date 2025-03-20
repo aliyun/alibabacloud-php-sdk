@@ -18,9 +18,7 @@ class ListTagsResponseBody extends Model
         'tags' => 'tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -49,7 +47,7 @@ class ListTagsResponseBody extends Model
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['tags'] as $item) {
                     $model->tags[$n++] = null !== $item ? ImageTag::fromMap($item) : $item;
                 }

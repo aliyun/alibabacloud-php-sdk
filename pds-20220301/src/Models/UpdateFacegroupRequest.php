@@ -12,6 +12,7 @@ class UpdateFacegroupRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -31,6 +32,7 @@ class UpdateFacegroupRequest extends Model
      * @description The ID of the face-based group. You can call the ListFacegroups operation to query the group ID.
      *
      * This parameter is required.
+     *
      * @example group-abc
      *
      * @var string
@@ -51,16 +53,14 @@ class UpdateFacegroupRequest extends Model
      */
     public $remarks;
     protected $_name = [
-        'driveId'          => 'drive_id',
+        'driveId' => 'drive_id',
         'groupCoverFaceId' => 'group_cover_face_id',
-        'groupId'          => 'group_id',
-        'groupName'        => 'group_name',
-        'remarks'          => 'remarks',
+        'groupId' => 'group_id',
+        'groupName' => 'group_name',
+        'remarks' => 'remarks',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

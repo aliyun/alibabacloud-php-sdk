@@ -27,6 +27,7 @@ class SearchDriveRequest extends Model
     /**
      * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
      * By default, this parameter is left empty.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -46,6 +47,7 @@ class SearchDriveRequest extends Model
      * @description The type of the owner. Valid values:
      *
      * user group
+     *
      * @example user
      *
      * @var string
@@ -53,15 +55,13 @@ class SearchDriveRequest extends Model
     public $ownerType;
     protected $_name = [
         'driveName' => 'drive_name',
-        'limit'     => 'limit',
-        'marker'    => 'marker',
-        'owner'     => 'owner',
+        'limit' => 'limit',
+        'marker' => 'marker',
+        'owner' => 'owner',
         'ownerType' => 'owner_type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

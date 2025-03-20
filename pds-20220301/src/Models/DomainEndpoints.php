@@ -8,9 +8,7 @@ use AlibabaCloud\Tea\Model;
 
 class DomainEndpoints extends Model
 {
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

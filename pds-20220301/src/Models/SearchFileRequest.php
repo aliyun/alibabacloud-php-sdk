@@ -30,6 +30,7 @@ class SearchFileRequest extends Model
      * @description The maximum number of results to return. Valid values: 1 to 100.
      *
      * The number of returned results must be less than or equal to the specified number.
+     *
      * @example 50
      *
      * @var int
@@ -39,6 +40,7 @@ class SearchFileRequest extends Model
     /**
      * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
      * By default, this parameter is left empty.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -74,6 +76,7 @@ class SearchFileRequest extends Model
      * @description The search condition. Fuzzy searches based on the file name or directory name are supported. The search condition can be up to 4,096 characters in length.
      *
      * This parameter is required.
+     *
      * @example not name=123
      *
      * @var string
@@ -99,20 +102,18 @@ class SearchFileRequest extends Model
      */
     public $thumbnailProcesses;
     protected $_name = [
-        'driveId'            => 'drive_id',
-        'fields'             => 'fields',
-        'limit'              => 'limit',
-        'marker'             => 'marker',
-        'orderBy'            => 'order_by',
-        'query'              => 'query',
-        'recursive'          => 'recursive',
-        'returnTotalCount'   => 'return_total_count',
+        'driveId' => 'drive_id',
+        'fields' => 'fields',
+        'limit' => 'limit',
+        'marker' => 'marker',
+        'orderBy' => 'order_by',
+        'query' => 'query',
+        'recursive' => 'recursive',
+        'returnTotalCount' => 'return_total_count',
         'thumbnailProcesses' => 'thumbnail_processes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

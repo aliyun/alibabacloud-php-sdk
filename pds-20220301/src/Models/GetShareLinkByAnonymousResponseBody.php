@@ -186,31 +186,29 @@ class GetShareLinkByAnonymousResponseBody extends Model
      */
     public $videoPreviewCount;
     protected $_name = [
-        'accessCount'       => 'access_count',
-        'avatar'            => 'avatar',
-        'creatorId'         => 'creator_id',
-        'creatorName'       => 'creator_name',
-        'creatorPhone'      => 'creator_phone',
-        'disableDownload'   => 'disable_download',
-        'disablePreview'    => 'disable_preview',
-        'disableSave'       => 'disable_save',
-        'downloadCount'     => 'download_count',
-        'downloadLimit'     => 'download_limit',
-        'expiration'        => 'expiration',
-        'previewCount'      => 'preview_count',
-        'previewLimit'      => 'preview_limit',
-        'reportCount'       => 'report_count',
-        'saveCount'         => 'save_count',
+        'accessCount' => 'access_count',
+        'avatar' => 'avatar',
+        'creatorId' => 'creator_id',
+        'creatorName' => 'creator_name',
+        'creatorPhone' => 'creator_phone',
+        'disableDownload' => 'disable_download',
+        'disablePreview' => 'disable_preview',
+        'disableSave' => 'disable_save',
+        'downloadCount' => 'download_count',
+        'downloadLimit' => 'download_limit',
+        'expiration' => 'expiration',
+        'previewCount' => 'preview_count',
+        'previewLimit' => 'preview_limit',
+        'reportCount' => 'report_count',
+        'saveCount' => 'save_count',
         'saveDownloadLimit' => 'save_download_limit',
-        'saveLimit'         => 'save_limit',
-        'shareName'         => 'share_name',
-        'updatedAt'         => 'updated_at',
+        'saveLimit' => 'save_limit',
+        'shareName' => 'share_name',
+        'updatedAt' => 'updated_at',
         'videoPreviewCount' => 'video_preview_count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

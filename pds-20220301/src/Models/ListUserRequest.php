@@ -26,13 +26,11 @@ class ListUserRequest extends Model
      */
     public $marker;
     protected $_name = [
-        'limit'  => 'limit',
+        'limit' => 'limit',
         'marker' => 'marker',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

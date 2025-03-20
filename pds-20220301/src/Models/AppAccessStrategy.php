@@ -18,13 +18,11 @@ class AppAccessStrategy extends Model
      */
     public $exceptAppIdList;
     protected $_name = [
-        'effect'          => 'effect',
+        'effect' => 'effect',
         'exceptAppIdList' => 'except_app_id_list',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

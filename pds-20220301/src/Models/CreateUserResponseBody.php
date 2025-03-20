@@ -148,26 +148,24 @@ class CreateUserResponseBody extends Model
      */
     public $userName;
     protected $_name = [
-        'avatar'         => 'avatar',
-        'createdAt'      => 'created_at',
-        'creator'        => 'creator',
+        'avatar' => 'avatar',
+        'createdAt' => 'created_at',
+        'creator' => 'creator',
         'defaultDriveId' => 'default_drive_id',
-        'description'    => 'description',
-        'domainId'       => 'domain_id',
-        'email'          => 'email',
-        'nickName'       => 'nick_name',
-        'phone'          => 'phone',
-        'role'           => 'role',
-        'status'         => 'status',
-        'updatedAt'      => 'updated_at',
-        'userData'       => 'user_data',
-        'userId'         => 'user_id',
-        'userName'       => 'user_name',
+        'description' => 'description',
+        'domainId' => 'domain_id',
+        'email' => 'email',
+        'nickName' => 'nick_name',
+        'phone' => 'phone',
+        'role' => 'role',
+        'status' => 'status',
+        'updatedAt' => 'updated_at',
+        'userData' => 'user_data',
+        'userId' => 'user_id',
+        'userName' => 'user_name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -49,19 +49,17 @@ class DriveLogDetail extends Model
      */
     public $updateTo;
     protected $_name = [
-        'forceDelete'       => 'force_delete',
+        'forceDelete' => 'force_delete',
         'handoverOwnerName' => 'handover_owner_name',
-        'name'              => 'name',
-        'ownerId'           => 'owner_id',
-        'ownerName'         => 'owner_name',
-        'ownerType'         => 'owner_type',
-        'totalSize'         => 'total_size',
-        'updateTo'          => 'update_to',
+        'name' => 'name',
+        'ownerId' => 'owner_id',
+        'ownerName' => 'owner_name',
+        'ownerType' => 'owner_type',
+        'totalSize' => 'total_size',
+        'updateTo' => 'update_to',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

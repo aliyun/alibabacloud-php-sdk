@@ -98,29 +98,27 @@ class KnowledgeFile extends Model
      */
     public $revisionId;
     protected $_name = [
-        'creatorId'            => 'creator_id',
-        'driveId'              => 'drive_id',
-        'driveName'            => 'drive_name',
-        'fileCategory'         => 'file_category',
-        'fileCreatedAt'        => 'file_created_at',
-        'fileCreatorId'        => 'file_creator_id',
-        'fileId'               => 'file_id',
-        'fileImageTime'        => 'file_image_time',
-        'fileLastModifierId'   => 'file_last_modifier_id',
+        'creatorId' => 'creator_id',
+        'driveId' => 'drive_id',
+        'driveName' => 'drive_name',
+        'fileCategory' => 'file_category',
+        'fileCreatedAt' => 'file_created_at',
+        'fileCreatorId' => 'file_creator_id',
+        'fileId' => 'file_id',
+        'fileImageTime' => 'file_image_time',
+        'fileLastModifierId' => 'file_last_modifier_id',
         'fileLastModifierType' => 'file_last_modifier_type',
-        'fileName'             => 'file_name',
-        'fileNamePath'         => 'file_name_path',
-        'fileSize'             => 'file_size',
-        'fileUpdatedAt'        => 'file_updated_at',
-        'joinedAt'             => 'joined_at',
-        'knowledgeBaseId'      => 'knowledge_base_id',
-        'knowledgeCategoryId'  => 'knowledge_category_id',
-        'revisionId'           => 'revision_id',
+        'fileName' => 'file_name',
+        'fileNamePath' => 'file_name_path',
+        'fileSize' => 'file_size',
+        'fileUpdatedAt' => 'file_updated_at',
+        'joinedAt' => 'joined_at',
+        'knowledgeBaseId' => 'knowledge_base_id',
+        'knowledgeCategoryId' => 'knowledge_category_id',
+        'revisionId' => 'revision_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

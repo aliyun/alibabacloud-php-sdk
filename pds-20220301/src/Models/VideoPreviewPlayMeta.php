@@ -39,16 +39,14 @@ class VideoPreviewPlayMeta extends Model
      */
     public $quickVideoList;
     protected $_name = [
-        'category'                    => 'category',
-        'liveTranscodingTaskList'     => 'live_transcoding_task_list',
-        'meta'                        => 'meta',
+        'category' => 'category',
+        'liveTranscodingTaskList' => 'live_transcoding_task_list',
+        'meta' => 'meta',
         'offlineVideoTranscodingList' => 'offline_video_transcoding_list',
-        'quickVideoList'              => 'quick_video_list',
+        'quickVideoList' => 'quick_video_list',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -104,7 +102,7 @@ class VideoPreviewPlayMeta extends Model
         if (isset($map['live_transcoding_task_list'])) {
             if (!empty($map['live_transcoding_task_list'])) {
                 $model->liveTranscodingTaskList = [];
-                $n                              = 0;
+                $n = 0;
                 foreach ($map['live_transcoding_task_list'] as $item) {
                     $model->liveTranscodingTaskList[$n++] = null !== $item ? liveTranscodingTaskList::fromMap($item) : $item;
                 }
@@ -116,7 +114,7 @@ class VideoPreviewPlayMeta extends Model
         if (isset($map['offline_video_transcoding_list'])) {
             if (!empty($map['offline_video_transcoding_list'])) {
                 $model->offlineVideoTranscodingList = [];
-                $n                                  = 0;
+                $n = 0;
                 foreach ($map['offline_video_transcoding_list'] as $item) {
                     $model->offlineVideoTranscodingList[$n++] = null !== $item ? offlineVideoTranscodingList::fromMap($item) : $item;
                 }
@@ -125,7 +123,7 @@ class VideoPreviewPlayMeta extends Model
         if (isset($map['quick_video_list'])) {
             if (!empty($map['quick_video_list'])) {
                 $model->quickVideoList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['quick_video_list'] as $item) {
                     $model->quickVideoList[$n++] = null !== $item ? quickVideoList::fromMap($item) : $item;
                 }

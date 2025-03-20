@@ -26,9 +26,7 @@ class RemoveStoryFilesResponseBody extends Model
         'storyId' => 'story_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

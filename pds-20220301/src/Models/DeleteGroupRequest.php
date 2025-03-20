@@ -12,6 +12,7 @@ class DeleteGroupRequest extends Model
      * @description The group ID.
      *
      * This parameter is required.
+     *
      * @example g123
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteGroupRequest extends Model
         'groupId' => 'group_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

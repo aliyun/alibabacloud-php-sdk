@@ -11,7 +11,10 @@ class ListIdentityToBenefitPkgMappingRequest extends Model
     /**
      * @description The unique identifier of the entity.
      *
+     * If you call this operation to manage the benefits of a user, set this parameter to the ID of the user.
+     *
      * This parameter is required.
+     *
      * @example user123
      *
      * @var string
@@ -22,6 +25,7 @@ class ListIdentityToBenefitPkgMappingRequest extends Model
      * @description The type of the entity. If you call this operation to manage the benefits of a user, set this parameter to user.
      *
      * This parameter is required.
+     *
      * @example user
      *
      * @var string
@@ -37,14 +41,12 @@ class ListIdentityToBenefitPkgMappingRequest extends Model
      */
     public $includeExpired;
     protected $_name = [
-        'identityId'     => 'identity_id',
-        'identityType'   => 'identity_type',
+        'identityId' => 'identity_id',
+        'identityType' => 'identity_type',
         'includeExpired' => 'include_expired',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

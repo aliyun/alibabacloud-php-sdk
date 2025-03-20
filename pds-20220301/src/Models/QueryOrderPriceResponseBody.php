@@ -25,12 +25,10 @@ class QueryOrderPriceResponseBody extends Model
     protected $_name = [
         'discountPrice' => 'discount_price',
         'originalPrice' => 'original_price',
-        'tradePrice'    => 'trade_price',
+        'tradePrice' => 'trade_price',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

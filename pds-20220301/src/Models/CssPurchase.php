@@ -53,20 +53,18 @@ class CssPurchase extends Model
      */
     public $startDate;
     protected $_name = [
-        'chargeType'         => 'chargeType',
-        'commodityCode'      => 'commodityCode',
-        'endDate'            => 'endDate',
-        'gmtCreate'          => 'gmtCreate',
+        'chargeType' => 'chargeType',
+        'commodityCode' => 'commodityCode',
+        'endDate' => 'endDate',
+        'gmtCreate' => 'gmtCreate',
         'instanceComponents' => 'instanceComponents',
-        'instanceId'         => 'instanceId',
-        'orderType'          => 'orderType',
-        'purchaseParams'     => 'purchaseParams',
-        'startDate'          => 'startDate',
+        'instanceId' => 'instanceId',
+        'orderType' => 'orderType',
+        'purchaseParams' => 'purchaseParams',
+        'startDate' => 'startDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -131,7 +129,7 @@ class CssPurchase extends Model
         if (isset($map['instanceComponents'])) {
             if (!empty($map['instanceComponents'])) {
                 $model->instanceComponents = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['instanceComponents'] as $item) {
                     $model->instanceComponents[$n++] = null !== $item ? CssInstanceComponent::fromMap($item) : $item;
                 }

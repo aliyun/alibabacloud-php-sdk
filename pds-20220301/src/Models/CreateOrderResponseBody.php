@@ -19,12 +19,10 @@ class CreateOrderResponseBody extends Model
     public $orderId;
     protected $_name = [
         'instanceId' => 'instance_id',
-        'orderId'    => 'order_id',
+        'orderId' => 'order_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

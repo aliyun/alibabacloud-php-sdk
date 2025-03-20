@@ -21,6 +21,7 @@ class GetLinkInfoRequest extends Model
      * @description The unique identifier of the account, such as a mobile number.
      *
      * This parameter is required.
+     *
      * @example 130***
      *
      * @var string
@@ -39,20 +40,19 @@ class GetLinkInfoRequest extends Model
      *   custom: a custom account.
      *
      * This parameter is required.
+     *
      * @example mobile
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'extra'    => 'extra',
+        'extra' => 'extra',
         'identity' => 'identity',
-        'type'     => 'type',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

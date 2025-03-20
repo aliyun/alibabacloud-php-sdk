@@ -70,18 +70,16 @@ class assignmentList extends Model
      */
     public $roleId;
     protected $_name = [
-        'createdAt'          => 'created_at',
-        'creator'            => 'creator',
-        'domainId'           => 'domain_id',
-        'identity'           => 'identity',
-        'manageResourceId'   => 'manage_resource_id',
+        'createdAt' => 'created_at',
+        'creator' => 'creator',
+        'domainId' => 'domain_id',
+        'identity' => 'identity',
+        'manageResourceId' => 'manage_resource_id',
         'manageResourceType' => 'manage_resource_type',
-        'roleId'             => 'role_id',
+        'roleId' => 'role_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

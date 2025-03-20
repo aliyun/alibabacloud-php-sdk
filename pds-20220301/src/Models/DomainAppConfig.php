@@ -34,15 +34,13 @@ class DomainAppConfig extends Model
     public $webClientDownloadMode;
     protected $_name = [
         'allowUploadCustomFileExtList' => 'allow_upload_custom_file_ext_list',
-        'allowUploadFileCategoryList'  => 'allow_upload_file_category_list',
-        'sameNameFileUploadMode'       => 'same_name_file_upload_mode',
-        'singleFileUploadSizeLimit'    => 'single_file_upload_size_limit',
-        'webClientDownloadMode'        => 'web_client_download_mode',
+        'allowUploadFileCategoryList' => 'allow_upload_file_category_list',
+        'sameNameFileUploadMode' => 'same_name_file_upload_mode',
+        'singleFileUploadSizeLimit' => 'single_file_upload_size_limit',
+        'webClientDownloadMode' => 'web_client_download_mode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

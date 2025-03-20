@@ -143,38 +143,36 @@ class ShareLink extends Model
      */
     public $videoPreviewCount;
     protected $_name = [
-        'accessCount'       => 'access_count',
-        'createdAt'         => 'created_at',
-        'creator'           => 'creator',
-        'description'       => 'description',
-        'disableDownload'   => 'disable_download',
-        'disablePreview'    => 'disable_preview',
-        'disableSave'       => 'disable_save',
-        'downloadCount'     => 'download_count',
-        'downloadLimit'     => 'download_limit',
-        'driveId'           => 'drive_id',
-        'expiration'        => 'expiration',
-        'expired'           => 'expired',
-        'fileIdList'        => 'file_id_list',
-        'officeEditable'    => 'office_editable',
-        'previewCount'      => 'preview_count',
-        'previewLimit'      => 'preview_limit',
-        'reportCount'       => 'report_count',
-        'saveCount'         => 'save_count',
+        'accessCount' => 'access_count',
+        'createdAt' => 'created_at',
+        'creator' => 'creator',
+        'description' => 'description',
+        'disableDownload' => 'disable_download',
+        'disablePreview' => 'disable_preview',
+        'disableSave' => 'disable_save',
+        'downloadCount' => 'download_count',
+        'downloadLimit' => 'download_limit',
+        'driveId' => 'drive_id',
+        'expiration' => 'expiration',
+        'expired' => 'expired',
+        'fileIdList' => 'file_id_list',
+        'officeEditable' => 'office_editable',
+        'previewCount' => 'preview_count',
+        'previewLimit' => 'preview_limit',
+        'reportCount' => 'report_count',
+        'saveCount' => 'save_count',
         'saveDownloadLimit' => 'save_download_limit',
-        'saveLimit'         => 'save_limit',
-        'shareAllFiles'     => 'share_all_files',
-        'shareId'           => 'share_id',
-        'shareName'         => 'share_name',
-        'sharePwd'          => 'share_pwd',
-        'status'            => 'status',
-        'updatedAt'         => 'updated_at',
+        'saveLimit' => 'save_limit',
+        'shareAllFiles' => 'share_all_files',
+        'shareId' => 'share_id',
+        'shareName' => 'share_name',
+        'sharePwd' => 'share_pwd',
+        'status' => 'status',
+        'updatedAt' => 'updated_at',
         'videoPreviewCount' => 'video_preview_count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

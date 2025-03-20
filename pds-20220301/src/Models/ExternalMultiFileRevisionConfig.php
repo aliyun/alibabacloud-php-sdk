@@ -23,14 +23,12 @@ class ExternalMultiFileRevisionConfig extends Model
      */
     public $revisionRecyclePeriod;
     protected $_name = [
-        'revisionCount'         => 'revision_count',
-        'revisionMergeEnabled'  => 'revision_merge_enabled',
+        'revisionCount' => 'revision_count',
+        'revisionMergeEnabled' => 'revision_merge_enabled',
         'revisionRecyclePeriod' => 'revision_recycle_period',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

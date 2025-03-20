@@ -65,22 +65,20 @@ class BaseFileUserPermissionResponse extends Model
      */
     public $roleId;
     protected $_name = [
-        'canAccess'          => 'can_access',
-        'createdAt'          => 'created_at',
-        'creator'            => 'creator',
+        'canAccess' => 'can_access',
+        'createdAt' => 'created_at',
+        'creator' => 'creator',
         'disinheritSubGroup' => 'disinherit_sub_group',
-        'domainId'           => 'domain_id',
-        'driveId'            => 'drive_id',
-        'expireTime'         => 'expire_time',
-        'fileFullPath'       => 'file_full_path',
-        'fileId'             => 'file_id',
-        'identity'           => 'identity',
-        'roleId'             => 'role_id',
+        'domainId' => 'domain_id',
+        'driveId' => 'drive_id',
+        'expireTime' => 'expire_time',
+        'fileFullPath' => 'file_full_path',
+        'fileId' => 'file_id',
+        'identity' => 'identity',
+        'roleId' => 'role_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

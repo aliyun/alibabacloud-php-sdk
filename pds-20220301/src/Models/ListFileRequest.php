@@ -11,7 +11,10 @@ class ListFileRequest extends Model
     /**
      * @description The category of the file. Valid values:
      *
+     * app: installation package. zip: compressed package. image: image. doc: document. video: video. audio: audio. others: other files.
+     *
      * By default, files of all categories are returned.
+     *
      * @example image
      *
      * @var string
@@ -31,7 +34,11 @@ class ListFileRequest extends Model
      * @description The fields to return.
      *
      * 1.  If this parameter is set to \\*, all fields of the file except the fields that must be specified are returned.
+     * 2.  If only specific fields are required, you can specify the following fields: url, exif, cropping_suggestion, characteristic_hash, video_metadata, and video_preview_metadata. If multiple fields are required, separate them with commas (,). Example: url,exif.
+     * 3.  The investigation_info field is returned only if you specify this field.
+     *
      * By default, all fields except the fields that must be specified are returned.
+     *
      * @example *
      *
      * @var string
@@ -42,6 +49,7 @@ class ListFileRequest extends Model
      * @description The maximum number of results to return. Valid values: 1 to 100.
      *
      * The number of returned results must be less than or equal to the specified number.
+     *
      * @example 50
      *
      * @var int
@@ -51,6 +59,7 @@ class ListFileRequest extends Model
     /**
      * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
      * By default, this parameter is empty.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -60,23 +69,66 @@ class ListFileRequest extends Model
     /**
      * @description The sorting field.
      *
+     * Default value: created_at.
+     *
      * Valid values:
      *
      *   updated_at
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * sorts the results based on the time when the file was last modified
+     *
+     * <!-- -->
      *
      * .
      *
      *   size
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * sorts the results based on the size of the file
+     *
+     * <!-- -->
+     *
      * .
      *
      *   name
+     *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * sorts the results based on the name of the file
+     *
+     * <!-- -->
      *
      * .
      *
      *   created_at
      *
+     * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * sorts the results based on the time when the file was created
+     *
+     * <!-- -->
+     *
      * .
+     *
      * @example updated_at
      *
      * @var string
@@ -86,7 +138,10 @@ class ListFileRequest extends Model
     /**
      * @description The sorting direction. Valid values:
      *
+     * ASC: ascending order. DESC: descending order.
+     *
      * Default value: ASC.
+     *
      * @example ASC
      *
      * @var string
@@ -97,6 +152,7 @@ class ListFileRequest extends Model
      * @description The ID of the parent folder. If the parent folder is a root directory, set this parameter to root.
      *
      * This parameter is required.
+     *
      * @example root
      *
      * @var string
@@ -115,7 +171,10 @@ class ListFileRequest extends Model
     /**
      * @description The state of the file. Valid values:
      *
+     * available: Only normal files are returned. uploading: Only files that are being uploaded are returned.
+     *
      * By default, only files in the available state are returned.
+     *
      * @example available
      *
      * @var string
@@ -132,30 +191,31 @@ class ListFileRequest extends Model
     /**
      * @description The type of the file. Valid values:
      *
+     * file: Only files are returned. folder: Only folders are returned.
+     *
      * By default, files of all types are returned.
+     *
      * @example file
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'category'           => 'category',
-        'driveId'            => 'drive_id',
-        'fields'             => 'fields',
-        'limit'              => 'limit',
-        'marker'             => 'marker',
-        'orderBy'            => 'order_by',
-        'orderDirection'     => 'order_direction',
-        'parentFileId'       => 'parent_file_id',
-        'shareId'            => 'share_id',
-        'status'             => 'status',
+        'category' => 'category',
+        'driveId' => 'drive_id',
+        'fields' => 'fields',
+        'limit' => 'limit',
+        'marker' => 'marker',
+        'orderBy' => 'order_by',
+        'orderDirection' => 'order_direction',
+        'parentFileId' => 'parent_file_id',
+        'shareId' => 'share_id',
+        'status' => 'status',
         'thumbnailProcesses' => 'thumbnail_processes',
-        'type'               => 'type',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

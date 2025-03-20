@@ -32,15 +32,13 @@ class VideoMediaMetadata extends Model
      */
     public $width;
     protected $_name = [
-        'height'                => 'height',
+        'height' => 'height',
         'videoMediaAudioStream' => 'video_media_audio_stream',
         'videoMediaVideoStream' => 'video_media_video_stream',
-        'width'                 => 'width',
+        'width' => 'width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -87,7 +85,7 @@ class VideoMediaMetadata extends Model
         if (isset($map['video_media_audio_stream'])) {
             if (!empty($map['video_media_audio_stream'])) {
                 $model->videoMediaAudioStream = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['video_media_audio_stream'] as $item) {
                     $model->videoMediaAudioStream[$n++] = null !== $item ? VideoMediaAudioStream::fromMap($item) : $item;
                 }
@@ -96,7 +94,7 @@ class VideoMediaMetadata extends Model
         if (isset($map['video_media_video_stream'])) {
             if (!empty($map['video_media_video_stream'])) {
                 $model->videoMediaVideoStream = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['video_media_video_stream'] as $item) {
                     $model->videoMediaVideoStream[$n++] = null !== $item ? VideoMediaVideoStream::fromMap($item) : $item;
                 }

@@ -12,6 +12,7 @@ class ListAddressGroupsRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -54,16 +55,14 @@ class ListAddressGroupsRequest extends Model
      */
     public $videoThumbnailProcess;
     protected $_name = [
-        'driveId'               => 'drive_id',
+        'driveId' => 'drive_id',
         'imageThumbnailProcess' => 'image_thumbnail_process',
-        'limit'                 => 'limit',
-        'marker'                => 'marker',
+        'limit' => 'limit',
+        'marker' => 'marker',
         'videoThumbnailProcess' => 'video_thumbnail_process',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

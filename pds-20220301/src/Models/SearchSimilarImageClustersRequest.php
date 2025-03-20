@@ -47,16 +47,14 @@ class SearchSimilarImageClustersRequest extends Model
      */
     public $order;
     protected $_name = [
-        'driveId'               => 'drive_id',
+        'driveId' => 'drive_id',
         'imageThumbnailProcess' => 'image_thumbnail_process',
-        'limit'                 => 'limit',
-        'marker'                => 'marker',
-        'order'                 => 'order',
+        'limit' => 'limit',
+        'marker' => 'marker',
+        'order' => 'order',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

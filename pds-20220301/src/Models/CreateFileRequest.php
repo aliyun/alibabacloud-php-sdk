@@ -12,7 +12,14 @@ class CreateFileRequest extends Model
     /**
      * @description The processing method that is used if the file that you want to create has the same name as an existing file in the cloud. Valid values:
      *
+     * ignore: allows you to create the file by using the same name as an existing file in the cloud.
+     *
+     * auto_rename: automatically renames the file that you want to create. By default, the current point in time is added to the end of the file name. Example: xxx_20060102_150405.
+     *
+     * refuse: does not create the file that you want to create but returns the information about the file that has the same name in the cloud.
+     *
      * Default value: ignore.
+     *
      * @example ignore
      *
      * @var string
@@ -111,6 +118,7 @@ class CreateFileRequest extends Model
      * @description The name of the file. The name can be up to 1,024 bytes in length based on the UTF-8 encoding rule and cannot contain forward slash (/).
      *
      * This parameter is required.
+     *
      * @example a.txt
      *
      * @var string
@@ -130,6 +138,7 @@ class CreateFileRequest extends Model
      * @description The ID of the parent directory. If you want to create a file or folder in the root directory, set this parameter to root.
      *
      * This parameter is required.
+     *
      * @example fileid1
      *
      * @var string
@@ -173,7 +182,10 @@ class CreateFileRequest extends Model
     /**
      * @description The type of the file. Valid values:
      *
+     * file folder
+     *
      * This parameter is required.
+     *
      * @example file
      *
      * @var string
@@ -194,32 +206,30 @@ class CreateFileRequest extends Model
      */
     public $videoMediaMetadata;
     protected $_name = [
-        'checkNameMode'      => 'check_name_mode',
-        'contentHash'        => 'content_hash',
-        'contentHashName'    => 'content_hash_name',
-        'contentType'        => 'content_type',
-        'description'        => 'description',
-        'driveId'            => 'drive_id',
-        'fileId'             => 'file_id',
-        'hidden'             => 'hidden',
+        'checkNameMode' => 'check_name_mode',
+        'contentHash' => 'content_hash',
+        'contentHashName' => 'content_hash_name',
+        'contentType' => 'content_type',
+        'description' => 'description',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
+        'hidden' => 'hidden',
         'imageMediaMetadata' => 'image_media_metadata',
-        'localCreatedAt'     => 'local_created_at',
-        'localModifiedAt'    => 'local_modified_at',
-        'name'               => 'name',
-        'parallelUpload'     => 'parallel_upload',
-        'parentFileId'       => 'parent_file_id',
-        'partInfoList'       => 'part_info_list',
-        'preHash'            => 'pre_hash',
-        'shareId'            => 'share_id',
-        'size'               => 'size',
-        'type'               => 'type',
-        'userTags'           => 'user_tags',
+        'localCreatedAt' => 'local_created_at',
+        'localModifiedAt' => 'local_modified_at',
+        'name' => 'name',
+        'parallelUpload' => 'parallel_upload',
+        'parentFileId' => 'parent_file_id',
+        'partInfoList' => 'part_info_list',
+        'preHash' => 'pre_hash',
+        'shareId' => 'share_id',
+        'size' => 'size',
+        'type' => 'type',
+        'userTags' => 'user_tags',
         'videoMediaMetadata' => 'video_media_metadata',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -356,7 +366,7 @@ class CreateFileRequest extends Model
         if (isset($map['part_info_list'])) {
             if (!empty($map['part_info_list'])) {
                 $model->partInfoList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['part_info_list'] as $item) {
                     $model->partInfoList[$n++] = null !== $item ? partInfoList::fromMap($item) : $item;
                 }
@@ -377,7 +387,7 @@ class CreateFileRequest extends Model
         if (isset($map['user_tags'])) {
             if (!empty($map['user_tags'])) {
                 $model->userTags = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['user_tags'] as $item) {
                     $model->userTags[$n++] = null !== $item ? UserTag::fromMap($item) : $item;
                 }

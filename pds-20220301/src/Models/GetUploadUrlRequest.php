@@ -13,6 +13,7 @@ class GetUploadUrlRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +24,7 @@ class GetUploadUrlRequest extends Model
      * @description The file ID.
      *
      * This parameter is required.
+     *
      * @example 5d5b846942cf94fa72324c14a4bda34e81da635d
      *
      * @var string
@@ -33,6 +35,7 @@ class GetUploadUrlRequest extends Model
      * @description The information about the file parts.
      *
      * This parameter is required.
+     *
      * @var partInfoList[]
      */
     public $partInfoList;
@@ -50,22 +53,21 @@ class GetUploadUrlRequest extends Model
      * @description The ID of the upload task.
      *
      * This parameter is required.
+     *
      * @example 10166D06127B413BA1EC8ABB1144D111
      *
      * @var string
      */
     public $uploadId;
     protected $_name = [
-        'driveId'      => 'drive_id',
-        'fileId'       => 'file_id',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
         'partInfoList' => 'part_info_list',
-        'shareId'      => 'share_id',
-        'uploadId'     => 'upload_id',
+        'shareId' => 'share_id',
+        'uploadId' => 'upload_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -112,7 +114,7 @@ class GetUploadUrlRequest extends Model
         if (isset($map['part_info_list'])) {
             if (!empty($map['part_info_list'])) {
                 $model->partInfoList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['part_info_list'] as $item) {
                     $model->partInfoList[$n++] = null !== $item ? partInfoList::fromMap($item) : $item;
                 }

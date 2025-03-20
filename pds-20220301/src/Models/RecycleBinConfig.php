@@ -23,14 +23,12 @@ class RecycleBinConfig extends Model
      */
     public $deleteTrashNormalFileDisabled;
     protected $_name = [
-        'autoDeleteEnabled'             => 'auto_delete_enabled',
-        'autoDeleteKeepSecond'          => 'auto_delete_keep_second',
+        'autoDeleteEnabled' => 'auto_delete_enabled',
+        'autoDeleteKeepSecond' => 'auto_delete_keep_second',
         'deleteTrashNormalFileDisabled' => 'delete_trash_normal_file_disabled',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

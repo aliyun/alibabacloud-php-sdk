@@ -16,9 +16,7 @@ class OfficeEditConfig extends Model
         'enabled' => 'enabled',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

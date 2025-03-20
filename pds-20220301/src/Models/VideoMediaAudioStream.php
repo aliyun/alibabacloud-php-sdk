@@ -29,14 +29,12 @@ class VideoMediaAudioStream extends Model
      */
     public $duration;
     protected $_name = [
-        'bitRate'  => 'bit_rate',
+        'bitRate' => 'bit_rate',
         'codeName' => 'code_name',
         'duration' => 'duration',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -60,17 +60,15 @@ class GetUploadUrlResponseBody extends Model
      */
     public $uploadId;
     protected $_name = [
-        'createAt'     => 'create_at',
-        'domainId'     => 'domain_id',
-        'driveId'      => 'drive_id',
-        'fileId'       => 'file_id',
+        'createAt' => 'create_at',
+        'domainId' => 'domain_id',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
         'partInfoList' => 'part_info_list',
-        'uploadId'     => 'upload_id',
+        'uploadId' => 'upload_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -126,7 +124,7 @@ class GetUploadUrlResponseBody extends Model
         if (isset($map['part_info_list'])) {
             if (!empty($map['part_info_list'])) {
                 $model->partInfoList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['part_info_list'] as $item) {
                     $model->partInfoList[$n++] = null !== $item ? UploadPartInfo::fromMap($item) : $item;
                 }

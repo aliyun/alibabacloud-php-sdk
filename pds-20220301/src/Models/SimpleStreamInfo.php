@@ -43,18 +43,16 @@ class SimpleStreamInfo extends Model
      */
     public $url;
     protected $_name = [
-        'contentHash'     => 'content_hash',
+        'contentHash' => 'content_hash',
         'contentHashName' => 'content_hash_name',
-        'crc64Hash'       => 'crc64_hash',
-        'downloadUrl'     => 'download_url',
-        'size'            => 'size',
-        'thumbnail'       => 'thumbnail',
-        'url'             => 'url',
+        'crc64Hash' => 'crc64_hash',
+        'downloadUrl' => 'download_url',
+        'size' => 'size',
+        'thumbnail' => 'thumbnail',
+        'url' => 'url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

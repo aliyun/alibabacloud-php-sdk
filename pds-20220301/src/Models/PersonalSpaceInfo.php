@@ -19,12 +19,10 @@ class PersonalSpaceInfo extends Model
     public $usedSize;
     protected $_name = [
         'totalSize' => 'total_size',
-        'usedSize'  => 'used_size',
+        'usedSize' => 'used_size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

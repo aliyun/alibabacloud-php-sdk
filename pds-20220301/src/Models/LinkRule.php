@@ -38,17 +38,15 @@ class LinkRule extends Model
      */
     public $srcValid;
     protected $_name = [
-        'linkType'     => 'link_type',
-        'srcDriveId'   => 'src_drive_id',
+        'linkType' => 'link_type',
+        'srcDriveId' => 'src_drive_id',
         'srcDriveName' => 'src_drive_name',
-        'srcFileId'    => 'src_file_id',
-        'srcFileName'  => 'src_file_name',
-        'srcValid'     => 'src_valid',
+        'srcFileId' => 'src_file_id',
+        'srcFileName' => 'src_file_name',
+        'srcValid' => 'src_valid',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

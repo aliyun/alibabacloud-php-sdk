@@ -153,40 +153,38 @@ class CssCreateOrderParam extends Model
      */
     public $userId;
     protected $_name = [
-        'agentId'             => 'agentId',
-        'autoPay'             => 'autoPay',
-        'autoUseCoupon'       => 'autoUseCoupon',
-        'bid'                 => 'bid',
-        'buyerId'             => 'buyerId',
-        'certificate'         => 'certificate',
-        'childId'             => 'childId',
-        'cilentIp'            => 'cilentIp',
-        'commodities'         => 'commodities',
-        'createrNick'         => 'createrNick',
+        'agentId' => 'agentId',
+        'autoPay' => 'autoPay',
+        'autoUseCoupon' => 'autoUseCoupon',
+        'bid' => 'bid',
+        'buyerId' => 'buyerId',
+        'certificate' => 'certificate',
+        'childId' => 'childId',
+        'cilentIp' => 'cilentIp',
+        'commodities' => 'commodities',
+        'createrNick' => 'createrNick',
         'cssAuthRequestParam' => 'cssAuthRequestParam',
-        'fromApp'             => 'fromApp',
-        'language'            => 'language',
-        'marketType'          => 'marketType',
-        'memo'                => 'memo',
-        'orderOrigin'         => 'orderOrigin',
-        'orderParams'         => 'orderParams',
-        'payerId'             => 'payerId',
-        'planGroupId'         => 'planGroupId',
-        'planId'              => 'planId',
-        'planInstanceId'      => 'planInstanceId',
-        'promotionCode'       => 'promotionCode',
+        'fromApp' => 'fromApp',
+        'language' => 'language',
+        'marketType' => 'marketType',
+        'memo' => 'memo',
+        'orderOrigin' => 'orderOrigin',
+        'orderParams' => 'orderParams',
+        'payerId' => 'payerId',
+        'planGroupId' => 'planGroupId',
+        'planId' => 'planId',
+        'planInstanceId' => 'planInstanceId',
+        'promotionCode' => 'promotionCode',
         'promotionInputParam' => 'promotionInputParam',
-        'requestId'           => 'requestId',
-        'skipChannel'         => 'skipChannel',
-        'token'               => 'token',
-        'transientAccess'     => 'transientAccess',
-        'umidToken'           => 'umidToken',
-        'userId'              => 'userId',
+        'requestId' => 'requestId',
+        'skipChannel' => 'skipChannel',
+        'token' => 'token',
+        'transientAccess' => 'transientAccess',
+        'umidToken' => 'umidToken',
+        'userId' => 'userId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -323,7 +321,7 @@ class CssCreateOrderParam extends Model
         if (isset($map['commodities'])) {
             if (!empty($map['commodities'])) {
                 $model->commodities = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['commodities'] as $item) {
                     $model->commodities[$n++] = null !== $item ? CssInstanceCommodity::fromMap($item) : $item;
                 }

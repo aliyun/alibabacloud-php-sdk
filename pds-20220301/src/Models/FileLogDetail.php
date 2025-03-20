@@ -54,19 +54,17 @@ class FileLogDetail extends Model
     public $type;
     protected $_name = [
         'decompressFileList' => 'decompress_file_list',
-        'newName'            => 'new_name',
-        'parentPath'         => 'parent_path',
-        'revVersion'         => 'rev_version',
-        'revisionId'         => 'revision_id',
-        'size'               => 'size',
-        'toParentPath'       => 'to_parent_path',
-        'toParentPathType'   => 'to_parent_path_type',
-        'type'               => 'type',
+        'newName' => 'new_name',
+        'parentPath' => 'parent_path',
+        'revVersion' => 'rev_version',
+        'revisionId' => 'revision_id',
+        'size' => 'size',
+        'toParentPath' => 'to_parent_path',
+        'toParentPathType' => 'to_parent_path_type',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

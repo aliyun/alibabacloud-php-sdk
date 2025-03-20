@@ -23,14 +23,12 @@ class CommonFileItem extends Model
      */
     public $revisionId;
     protected $_name = [
-        'driveId'    => 'drive_id',
-        'fileId'     => 'file_id',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
         'revisionId' => 'revision_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

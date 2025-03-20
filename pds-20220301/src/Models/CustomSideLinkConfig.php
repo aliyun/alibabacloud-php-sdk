@@ -28,9 +28,7 @@ class CustomSideLinkConfig extends Model
         'text' => 'text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

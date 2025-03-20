@@ -16,9 +16,7 @@ class stringLike extends Model
         'vpcId' => 'vpc_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

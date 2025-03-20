@@ -69,22 +69,20 @@ class DomainSeniorConfig extends Model
     public $wxTxtList;
     protected $_name = [
         'clientDownloadEnable' => 'client_download_enable',
-        'cspFrameAncestors'    => 'csp_frame_ancestors',
-        'customLoginAppid'     => 'custom_login_appid',
-        'customLoginUrl'       => 'custom_login_url',
-        'customLogoutUrl'      => 'custom_logout_url',
-        'customSideLinkList'   => 'custom_side_link_list',
-        'homePageBgImageUrl'   => 'home_page_bg_image_url',
-        'homePageFooter'       => 'home_page_footer',
-        'homePageFooter2'      => 'home_page_footer2',
-        'homePageSlogan'       => 'home_page_slogan',
-        'refererEnable'        => 'referer_enable',
-        'wxTxtList'            => 'wx_txt_list',
+        'cspFrameAncestors' => 'csp_frame_ancestors',
+        'customLoginAppid' => 'custom_login_appid',
+        'customLoginUrl' => 'custom_login_url',
+        'customLogoutUrl' => 'custom_logout_url',
+        'customSideLinkList' => 'custom_side_link_list',
+        'homePageBgImageUrl' => 'home_page_bg_image_url',
+        'homePageFooter' => 'home_page_footer',
+        'homePageFooter2' => 'home_page_footer2',
+        'homePageSlogan' => 'home_page_slogan',
+        'refererEnable' => 'referer_enable',
+        'wxTxtList' => 'wx_txt_list',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -161,7 +159,7 @@ class DomainSeniorConfig extends Model
         if (isset($map['custom_side_link_list'])) {
             if (!empty($map['custom_side_link_list'])) {
                 $model->customSideLinkList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['custom_side_link_list'] as $item) {
                     $model->customSideLinkList[$n++] = null !== $item ? CustomSideLinkConfig::fromMap($item) : $item;
                 }

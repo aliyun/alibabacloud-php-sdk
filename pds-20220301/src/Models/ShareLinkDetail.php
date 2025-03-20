@@ -16,9 +16,7 @@ class ShareLinkDetail extends Model
         'enableOfficeEditable' => 'enable_office_editable',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

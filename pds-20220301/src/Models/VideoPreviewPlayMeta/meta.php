@@ -30,13 +30,11 @@ class meta extends Model
     public $width;
     protected $_name = [
         'duration' => 'duration',
-        'height'   => 'height',
-        'width'    => 'width',
+        'height' => 'height',
+        'width' => 'width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

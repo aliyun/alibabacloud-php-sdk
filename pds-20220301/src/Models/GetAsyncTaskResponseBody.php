@@ -48,6 +48,7 @@ class GetAsyncTaskResponseBody extends Model
      * @description <warning>This parameter is no longer used. We recommend that you use error_code instead.</warning>
      *
      * The error code returned if the asynchronous task failed.
+     *
      * @example InternalError
      *
      * @var int
@@ -90,6 +91,7 @@ class GetAsyncTaskResponseBody extends Model
      * @description <warning>This parameter is no longer used. We recommend that you use error_message instead.</warning>
      *
      * The error message returned if the asynchronous task failed.
+     *
      * @example The request has been failed due to some unknown error. Please try again later.
      *
      * @var string
@@ -165,28 +167,26 @@ class GetAsyncTaskResponseBody extends Model
      */
     public $url;
     protected $_name = [
-        'asyncTaskId'        => 'async_task_id',
-        'category'           => 'category',
-        'consumedProcess'    => 'consumed_process',
-        'createdAt'          => 'created_at',
-        'errCode'            => 'err_code',
-        'errorCode'          => 'error_code',
-        'errorMessage'       => 'error_message',
-        'failedProcess'      => 'failed_process',
-        'finishedAt'         => 'finished_at',
-        'message'            => 'message',
-        'skippedProcess'     => 'skipped_process',
-        'startedAt'          => 'started_at',
-        'state'              => 'state',
-        'status'             => 'status',
-        'totalProcess'       => 'total_process',
+        'asyncTaskId' => 'async_task_id',
+        'category' => 'category',
+        'consumedProcess' => 'consumed_process',
+        'createdAt' => 'created_at',
+        'errCode' => 'err_code',
+        'errorCode' => 'error_code',
+        'errorMessage' => 'error_message',
+        'failedProcess' => 'failed_process',
+        'finishedAt' => 'finished_at',
+        'message' => 'message',
+        'skippedProcess' => 'skipped_process',
+        'startedAt' => 'started_at',
+        'state' => 'state',
+        'status' => 'status',
+        'totalProcess' => 'total_process',
         'uncompressFileList' => 'uncompress_file_list',
-        'url'                => 'url',
+        'url' => 'url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -308,7 +308,7 @@ class GetAsyncTaskResponseBody extends Model
         if (isset($map['uncompress_file_list'])) {
             if (!empty($map['uncompress_file_list'])) {
                 $model->uncompressFileList = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['uncompress_file_list'] as $item) {
                     $model->uncompressFileList[$n++] = null !== $item ? UncompressedFileInfo::fromMap($item) : $item;
                 }

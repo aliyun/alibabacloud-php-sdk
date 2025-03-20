@@ -12,6 +12,7 @@ class ListFacegroupsRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -48,16 +49,14 @@ class ListFacegroupsRequest extends Model
      */
     public $returnTotalCount;
     protected $_name = [
-        'driveId'          => 'drive_id',
-        'limit'            => 'limit',
-        'marker'           => 'marker',
-        'remarks'          => 'remarks',
+        'driveId' => 'drive_id',
+        'limit' => 'limit',
+        'marker' => 'marker',
+        'remarks' => 'remarks',
         'returnTotalCount' => 'return_total_count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

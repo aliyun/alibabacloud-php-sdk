@@ -68,17 +68,15 @@ class CreateCustomizedStoryRequest extends Model
     public $storyType;
     protected $_name = [
         'customLabels' => 'custom_labels',
-        'driveId'      => 'drive_id',
-        'storyCover'   => 'story_cover',
-        'storyFiles'   => 'story_files',
-        'storyName'    => 'story_name',
+        'driveId' => 'drive_id',
+        'storyCover' => 'story_cover',
+        'storyFiles' => 'story_files',
+        'storyName' => 'story_name',
         'storySubType' => 'story_sub_type',
-        'storyType'    => 'story_type',
+        'storyType' => 'story_type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -134,7 +132,7 @@ class CreateCustomizedStoryRequest extends Model
         if (isset($map['story_files'])) {
             if (!empty($map['story_files'])) {
                 $model->storyFiles = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['story_files'] as $item) {
                     $model->storyFiles[$n++] = null !== $item ? storyFiles::fromMap($item) : $item;
                 }

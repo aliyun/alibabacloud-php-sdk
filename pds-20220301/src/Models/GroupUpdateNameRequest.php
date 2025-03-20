@@ -21,12 +21,10 @@ class GroupUpdateNameRequest extends Model
     public $name;
     protected $_name = [
         'groupId' => 'group_id',
-        'name'    => 'name',
+        'name' => 'name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

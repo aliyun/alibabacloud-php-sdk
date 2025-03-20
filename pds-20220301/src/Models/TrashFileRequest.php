@@ -12,6 +12,7 @@ class TrashFileRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -22,6 +23,7 @@ class TrashFileRequest extends Model
      * @description The ID of the file or folder.
      *
      * This parameter is required.
+     *
      * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
      *
      * @var string
@@ -29,12 +31,10 @@ class TrashFileRequest extends Model
     public $fileId;
     protected $_name = [
         'driveId' => 'drive_id',
-        'fileId'  => 'file_id',
+        'fileId' => 'file_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

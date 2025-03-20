@@ -22,9 +22,7 @@ class BaseFileListInheritPermissionResponse extends Model
         'member' => 'member',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

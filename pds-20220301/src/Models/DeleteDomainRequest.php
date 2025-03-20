@@ -20,9 +20,7 @@ class DeleteDomainRequest extends Model
         'domainId' => 'domain_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

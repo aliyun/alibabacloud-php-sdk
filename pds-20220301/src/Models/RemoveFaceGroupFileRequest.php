@@ -35,14 +35,12 @@ class RemoveFaceGroupFileRequest extends Model
      */
     public $fileId;
     protected $_name = [
-        'driveId'     => 'drive_id',
+        'driveId' => 'drive_id',
         'faceGroupId' => 'face_group_id',
-        'fileId'      => 'file_id',
+        'fileId' => 'file_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

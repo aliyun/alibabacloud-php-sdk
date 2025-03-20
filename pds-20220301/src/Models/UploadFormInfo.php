@@ -53,20 +53,18 @@ class UploadFormInfo extends Model
      */
     public $signature;
     protected $_name = [
-        'bucketName'       => 'bucket_name',
-        'endpoint'         => 'endpoint',
-        'formData'         => 'form_data',
-        'objectKey'        => 'object_key',
-        'ossAccessKeyId'   => 'oss_access_key_id',
-        'ossEndPoint'      => 'oss_end_point',
+        'bucketName' => 'bucket_name',
+        'endpoint' => 'endpoint',
+        'formData' => 'form_data',
+        'objectKey' => 'object_key',
+        'ossAccessKeyId' => 'oss_access_key_id',
+        'ossEndPoint' => 'oss_end_point',
         'ossSecurityToken' => 'oss_security_token',
-        'policy'           => 'policy',
-        'signature'        => 'signature',
+        'policy' => 'policy',
+        'signature' => 'signature',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

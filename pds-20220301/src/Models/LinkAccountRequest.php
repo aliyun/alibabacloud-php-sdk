@@ -21,6 +21,7 @@ class LinkAccountRequest extends Model
      * @description The unique identifier of the account, such as a mobile number.
      *
      * This parameter is required.
+     *
      * @example eyy***
      *
      * @var string
@@ -39,6 +40,7 @@ class LinkAccountRequest extends Model
      *   custom: a custom account.
      *
      * This parameter is required.
+     *
      * @example ding
      *
      * @var string
@@ -49,21 +51,20 @@ class LinkAccountRequest extends Model
      * @description The ID of the user with which you want to associate an account.
      *
      * This parameter is required.
+     *
      * @example xxx
      *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'extra'    => 'extra',
+        'extra' => 'extra',
         'identity' => 'identity',
-        'type'     => 'type',
-        'userId'   => 'user_id',
+        'type' => 'type',
+        'userId' => 'user_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

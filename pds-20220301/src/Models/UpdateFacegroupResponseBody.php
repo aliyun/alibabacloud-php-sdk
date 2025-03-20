@@ -30,9 +30,7 @@ class UpdateFacegroupResponseBody extends Model
         'groupId' => 'group_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

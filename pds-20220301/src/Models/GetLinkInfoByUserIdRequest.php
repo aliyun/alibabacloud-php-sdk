@@ -12,6 +12,7 @@ class GetLinkInfoByUserIdRequest extends Model
      * @description The user ID.
      *
      * This parameter is required.
+     *
      * @example xxx
      *
      * @var string
@@ -21,9 +22,7 @@ class GetLinkInfoByUserIdRequest extends Model
         'userId' => 'user_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

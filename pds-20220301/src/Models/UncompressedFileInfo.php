@@ -24,7 +24,7 @@ class UncompressedFileInfo extends Model
     public $isFolder;
 
     /**
-     * @var \AlibabaCloud\SDK\Pds\V20220301\Models\UncompressedFileInfo[]
+     * @var UncompressedFileInfo[]
      */
     public $items;
 
@@ -43,18 +43,16 @@ class UncompressedFileInfo extends Model
      */
     public $updatedAt;
     protected $_name = [
-        'driveId'   => 'drive_id',
-        'fileId'    => 'file_id',
-        'isFolder'  => 'is_folder',
-        'items'     => 'items',
-        'name'      => 'name',
-        'size'      => 'size',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
+        'isFolder' => 'is_folder',
+        'items' => 'items',
+        'name' => 'name',
+        'size' => 'size',
         'updatedAt' => 'updated_at',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -110,7 +108,7 @@ class UncompressedFileInfo extends Model
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['items'] as $item) {
                     $model->items[$n++] = null !== $item ? self::fromMap($item) : $item;
                 }

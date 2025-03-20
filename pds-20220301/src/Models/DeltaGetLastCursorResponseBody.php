@@ -20,9 +20,7 @@ class DeltaGetLastCursorResponseBody extends Model
         'cursor' => 'cursor',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

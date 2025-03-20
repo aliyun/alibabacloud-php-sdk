@@ -30,6 +30,7 @@ class CopyFileRequest extends Model
      * @description The file ID or folder ID.
      *
      * This parameter is required.
+     *
      * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
      *
      * @var string
@@ -58,23 +59,22 @@ class CopyFileRequest extends Model
      * @description The ID of the destination parent folder. If you want to copy the file or folder to a root directory, set this parameter to root.
      *
      * This parameter is required.
+     *
      * @example 6520943DC261
      *
      * @var string
      */
     public $toParentFileId;
     protected $_name = [
-        'autoRename'     => 'auto_rename',
-        'driveId'        => 'drive_id',
-        'fileId'         => 'file_id',
-        'shareId'        => 'share_id',
-        'toDriveId'      => 'to_drive_id',
+        'autoRename' => 'auto_rename',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
+        'shareId' => 'share_id',
+        'toDriveId' => 'to_drive_id',
         'toParentFileId' => 'to_parent_file_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

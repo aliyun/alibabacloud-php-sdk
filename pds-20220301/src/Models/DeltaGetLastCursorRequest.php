@@ -12,6 +12,7 @@ class DeltaGetLastCursorRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -27,13 +28,11 @@ class DeltaGetLastCursorRequest extends Model
      */
     public $syncRootId;
     protected $_name = [
-        'driveId'    => 'drive_id',
+        'driveId' => 'drive_id',
         'syncRootId' => 'sync_root_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

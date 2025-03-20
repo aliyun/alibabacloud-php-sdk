@@ -18,9 +18,7 @@ class ListIdentityRoleRequest extends Model
         'identity' => 'identity',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

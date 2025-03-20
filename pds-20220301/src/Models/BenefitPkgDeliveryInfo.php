@@ -28,15 +28,13 @@ class BenefitPkgDeliveryInfo extends Model
      */
     public $isPermanent;
     protected $_name = [
-        'amount'      => 'amount',
-        'createdAt'   => 'created_at',
-        'expireTime'  => 'expire_time',
+        'amount' => 'amount',
+        'createdAt' => 'created_at',
+        'expireTime' => 'expire_time',
         'isPermanent' => 'is_permanent',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

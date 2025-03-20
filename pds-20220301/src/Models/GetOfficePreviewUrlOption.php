@@ -18,13 +18,11 @@ class GetOfficePreviewUrlOption extends Model
      */
     public $print;
     protected $_name = [
-        'copy'  => 'copy',
+        'copy' => 'copy',
         'print' => 'print',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

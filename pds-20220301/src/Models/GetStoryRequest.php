@@ -82,17 +82,15 @@ class GetStoryRequest extends Model
     protected $_name = [
         'coverImageThumbnailProcess' => 'cover_image_thumbnail_process',
         'coverVideoThumbnailProcess' => 'cover_video_thumbnail_process',
-        'driveId'                    => 'drive_id',
-        'imageThumbnailProcess'      => 'image_thumbnail_process',
-        'imageUrlProcess'            => 'image_url_process',
-        'storyId'                    => 'story_id',
-        'urlExpireSec'               => 'url_expire_sec',
-        'videoThumbnailProcess'      => 'video_thumbnail_process',
+        'driveId' => 'drive_id',
+        'imageThumbnailProcess' => 'image_thumbnail_process',
+        'imageUrlProcess' => 'image_url_process',
+        'storyId' => 'story_id',
+        'urlExpireSec' => 'url_expire_sec',
+        'videoThumbnailProcess' => 'video_thumbnail_process',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

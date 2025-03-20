@@ -68,23 +68,21 @@ class Drive extends Model
      */
     public $usedSize;
     protected $_name = [
-        'createdAt'   => 'created_at',
-        'creator'     => 'creator',
+        'createdAt' => 'created_at',
+        'creator' => 'creator',
         'description' => 'description',
-        'domainId'    => 'domain_id',
-        'driveId'     => 'drive_id',
-        'driveName'   => 'drive_name',
-        'driveType'   => 'drive_type',
-        'owner'       => 'owner',
-        'ownerType'   => 'owner_type',
-        'status'      => 'status',
-        'totalSize'   => 'total_size',
-        'usedSize'    => 'used_size',
+        'domainId' => 'domain_id',
+        'driveId' => 'drive_id',
+        'driveName' => 'drive_name',
+        'driveType' => 'drive_type',
+        'owner' => 'owner',
+        'ownerType' => 'owner_type',
+        'status' => 'status',
+        'totalSize' => 'total_size',
+        'usedSize' => 'used_size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

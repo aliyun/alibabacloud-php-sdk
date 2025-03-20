@@ -12,7 +12,10 @@ class BatchRequest extends Model
     /**
      * @description The child requests.
      *
+     * The number of child requests. Valid value: 1 to 100.
+     *
      * This parameter is required.
+     *
      * @var requests[]
      */
     public $requests;
@@ -29,6 +32,7 @@ class BatchRequest extends Model
      *   async_task: an asynchronous task.
      *
      * This parameter is required.
+     *
      * @example file
      *
      * @var string
@@ -39,9 +43,7 @@ class BatchRequest extends Model
         'resource' => 'resource',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -73,7 +75,7 @@ class BatchRequest extends Model
         if (isset($map['requests'])) {
             if (!empty($map['requests'])) {
                 $model->requests = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['requests'] as $item) {
                     $model->requests[$n++] = null !== $item ? requests::fromMap($item) : $item;
                 }

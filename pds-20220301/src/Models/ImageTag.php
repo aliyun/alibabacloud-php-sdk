@@ -57,18 +57,16 @@ class ImageTag extends Model
      */
     public $name;
     protected $_name = [
-        'count'              => 'count',
-        'coverFileCategory'  => 'cover_file_category',
-        'coverFileId'        => 'cover_file_id',
-        'coverOverallScore'  => 'cover_overall_score',
+        'count' => 'count',
+        'coverFileCategory' => 'cover_file_category',
+        'coverFileId' => 'cover_file_id',
+        'coverOverallScore' => 'cover_overall_score',
         'coverTagConfidence' => 'cover_tag_confidence',
-        'coverUrl'           => 'cover_url',
-        'name'               => 'name',
+        'coverUrl' => 'cover_url',
+        'name' => 'name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

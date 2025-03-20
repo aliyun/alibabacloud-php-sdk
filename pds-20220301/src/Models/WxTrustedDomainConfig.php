@@ -24,13 +24,11 @@ class WxTrustedDomainConfig extends Model
     public $show;
     protected $_name = [
         'content' => 'content',
-        'name'    => 'name',
-        'show'    => 'show',
+        'name' => 'name',
+        'show' => 'show',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

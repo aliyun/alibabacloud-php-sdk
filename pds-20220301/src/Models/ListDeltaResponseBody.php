@@ -34,14 +34,12 @@ class ListDeltaResponseBody extends Model
      */
     public $items;
     protected $_name = [
-        'cursor'  => 'cursor',
+        'cursor' => 'cursor',
         'hasMore' => 'has_more',
-        'items'   => 'items',
+        'items' => 'items',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class ListDeltaResponseBody extends Model
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['items'] as $item) {
                     $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
                 }

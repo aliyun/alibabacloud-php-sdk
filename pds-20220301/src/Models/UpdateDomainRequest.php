@@ -19,6 +19,7 @@ class UpdateDomainRequest extends Model
      * @description The domain ID.
      *
      * This parameter is required.
+     *
      * @example bj1
      *
      * @var string
@@ -75,19 +76,17 @@ class UpdateDomainRequest extends Model
      */
     public $userCountQuota;
     protected $_name = [
-        'description'                => 'description',
-        'domainId'                   => 'domain_id',
-        'domainName'                 => 'domain_name',
-        'initDriveEnable'            => 'init_drive_enable',
-        'initDriveSize'              => 'init_drive_size',
+        'description' => 'description',
+        'domainId' => 'domain_id',
+        'domainName' => 'domain_name',
+        'initDriveEnable' => 'init_drive_enable',
+        'initDriveSize' => 'init_drive_size',
         'publishedAppAccessStrategy' => 'published_app_access_strategy',
-        'sizeQuota'                  => 'size_quota',
-        'userCountQuota'             => 'user_count_quota',
+        'sizeQuota' => 'size_quota',
+        'userCountQuota' => 'user_count_quota',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,7 +12,10 @@ class CreateUserRequest extends Model
     /**
      * @description The URL of the profile picture.
      *
+     * If you specify the parameter in the HTTP URL format, the URL must start with http:// or https:// and can be up to 4 KB in size.
+     *
      * If you specify the parameter in the data URL format, the URL must start with data:// and be encoded in Base64. The URL can be up to 300 KB in size.
+     *
      * @example http://a.b.c/pds.jpg
      *
      * @var string
@@ -69,9 +72,15 @@ class CreateUserRequest extends Model
      *   admin
      *   user
      *
+     * If the domain can be divided into subdomains, the subdomain_super_admin and subdomain_admin roles are also supported.
+     *
      * Valid values:
      *
      *   subdomain_super_admin
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -79,7 +88,15 @@ class CreateUserRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   superadmin
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
@@ -87,9 +104,18 @@ class CreateUserRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   user
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example user
      *
      * @var string
@@ -121,6 +147,7 @@ class CreateUserRequest extends Model
      * @description The user ID. The ID can be up to 64 characters in length and cannot contain number signs (#).
      *
      * This parameter is required.
+     *
      * @example pdsuserid1
      *
      * @var string
@@ -136,22 +163,20 @@ class CreateUserRequest extends Model
      */
     public $userName;
     protected $_name = [
-        'avatar'        => 'avatar',
-        'description'   => 'description',
-        'email'         => 'email',
+        'avatar' => 'avatar',
+        'description' => 'description',
+        'email' => 'email',
         'groupInfoList' => 'group_info_list',
-        'nickName'      => 'nick_name',
-        'phone'         => 'phone',
-        'role'          => 'role',
-        'status'        => 'status',
-        'userData'      => 'user_data',
-        'userId'        => 'user_id',
-        'userName'      => 'user_name',
+        'nickName' => 'nick_name',
+        'phone' => 'phone',
+        'role' => 'role',
+        'status' => 'status',
+        'userData' => 'user_data',
+        'userId' => 'user_id',
+        'userName' => 'user_name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -219,7 +244,7 @@ class CreateUserRequest extends Model
         if (isset($map['group_info_list'])) {
             if (!empty($map['group_info_list'])) {
                 $model->groupInfoList = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['group_info_list'] as $item) {
                     $model->groupInfoList[$n++] = null !== $item ? groupInfoList::fromMap($item) : $item;
                 }

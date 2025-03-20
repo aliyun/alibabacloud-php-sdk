@@ -65,6 +65,7 @@ class CreateShareLinkRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -151,29 +152,27 @@ class CreateShareLinkRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'creatable'           => 'creatable',
+        'creatable' => 'creatable',
         'creatableFileIdList' => 'creatable_file_id_list',
-        'description'         => 'description',
-        'disableDownload'     => 'disable_download',
-        'disablePreview'      => 'disable_preview',
-        'disableSave'         => 'disable_save',
-        'downloadLimit'       => 'download_limit',
-        'driveId'             => 'drive_id',
-        'expiration'          => 'expiration',
-        'fileIdList'          => 'file_id_list',
-        'officeEditable'      => 'office_editable',
-        'previewLimit'        => 'preview_limit',
-        'requireLogin'        => 'require_login',
-        'saveLimit'           => 'save_limit',
-        'shareAllFiles'       => 'share_all_files',
-        'shareName'           => 'share_name',
-        'sharePwd'            => 'share_pwd',
-        'userId'              => 'user_id',
+        'description' => 'description',
+        'disableDownload' => 'disable_download',
+        'disablePreview' => 'disable_preview',
+        'disableSave' => 'disable_save',
+        'downloadLimit' => 'download_limit',
+        'driveId' => 'drive_id',
+        'expiration' => 'expiration',
+        'fileIdList' => 'file_id_list',
+        'officeEditable' => 'office_editable',
+        'previewLimit' => 'preview_limit',
+        'requireLogin' => 'require_login',
+        'saveLimit' => 'save_limit',
+        'shareAllFiles' => 'share_all_files',
+        'shareName' => 'share_name',
+        'sharePwd' => 'share_pwd',
+        'userId' => 'user_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

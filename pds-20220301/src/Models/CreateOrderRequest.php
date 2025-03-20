@@ -74,21 +74,19 @@ class CreateOrderRequest extends Model
      */
     public $userCount;
     protected $_name = [
-        'autoPay'    => 'auto_pay',
-        'autoRenew'  => 'auto_renew',
-        'code'       => 'code',
+        'autoPay' => 'auto_pay',
+        'autoRenew' => 'auto_renew',
+        'code' => 'code',
         'instanceId' => 'instance_id',
-        'orderType'  => 'order_type',
-        'package'    => 'package',
-        'period'     => 'period',
+        'orderType' => 'order_type',
+        'package' => 'package',
+        'period' => 'period',
         'periodUnit' => 'period_unit',
-        'totalSize'  => 'total_size',
-        'userCount'  => 'user_count',
+        'totalSize' => 'total_size',
+        'userCount' => 'user_count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ScanFileRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -35,6 +36,7 @@ class ScanFileRequest extends Model
      * @description The maximum number of results to return. Valid values: 1 to 100.
      *
      * The number of returned results must be less than or equal to the specified number.
+     *
      * @example 50
      *
      * @var int
@@ -44,6 +46,7 @@ class ScanFileRequest extends Model
     /**
      * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
      * By default, this parameter is left empty.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -51,14 +54,12 @@ class ScanFileRequest extends Model
     public $marker;
     protected $_name = [
         'driveId' => 'drive_id',
-        'fields'  => 'fields',
-        'limit'   => 'limit',
-        'marker'  => 'marker',
+        'fields' => 'fields',
+        'limit' => 'limit',
+        'marker' => 'marker',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

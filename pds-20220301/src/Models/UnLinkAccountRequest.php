@@ -21,6 +21,7 @@ class UnLinkAccountRequest extends Model
      * @description Unique identifier of the account, such as a phone number
      *
      * This parameter is required.
+     *
      * @example 139****
      *
      * @var string
@@ -30,7 +31,22 @@ class UnLinkAccountRequest extends Model
     /**
      * @description Account type
      *
+     * mobile: Phone number
+     *
+     * email: Email address
+     *
+     * ding: DingTalk
+     *
+     * ram: Alibaba Cloud RAM User
+     *
+     * wechat: WeCom
+     *
+     * ldap: LDAP account
+     *
+     * custom: Custom account
+     *
      * This parameter is required.
+     *
      * @example mobile
      *
      * @var string
@@ -41,21 +57,20 @@ class UnLinkAccountRequest extends Model
      * @description User identifier
      *
      * This parameter is required.
+     *
      * @example uid1
      *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'extra'    => 'extra',
+        'extra' => 'extra',
         'identity' => 'identity',
-        'type'     => 'type',
-        'userId'   => 'user_id',
+        'type' => 'type',
+        'userId' => 'user_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

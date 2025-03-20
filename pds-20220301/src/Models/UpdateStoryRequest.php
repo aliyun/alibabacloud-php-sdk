@@ -46,16 +46,14 @@ class UpdateStoryRequest extends Model
      */
     public $storyName;
     protected $_name = [
-        'cover'        => 'cover',
+        'cover' => 'cover',
         'customLabels' => 'custom_labels',
-        'driveId'      => 'drive_id',
-        'storyId'      => 'story_id',
-        'storyName'    => 'story_name',
+        'driveId' => 'drive_id',
+        'storyId' => 'story_id',
+        'storyName' => 'story_name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

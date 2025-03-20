@@ -26,12 +26,10 @@ class ListAssignmentResponseBody extends Model
     public $nextMarker;
     protected $_name = [
         'assignmentList' => 'assignment_list',
-        'nextMarker'     => 'next_marker',
+        'nextMarker' => 'next_marker',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListAssignmentResponseBody extends Model
         if (isset($map['assignment_list'])) {
             if (!empty($map['assignment_list'])) {
                 $model->assignmentList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['assignment_list'] as $item) {
                     $model->assignmentList[$n++] = null !== $item ? assignmentList::fromMap($item) : $item;
                 }

@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\AddStoryFilesRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AddStoryFilesResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AssignRoleRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AssignRoleResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\AuditLogExportRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\AuditLogExportResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AuthorizeRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AuthorizeResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AuthorizeShrinkRequest;
@@ -239,9 +241,9 @@ class Pds extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_productId    = 'pds';
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
+        $this->_productId = 'pds';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_disableHttp2 = true;
         $this->_endpointRule = '';
     }
@@ -270,18 +272,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddGroupMember',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/group/add_member',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddGroupMember',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/group/add_member',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
@@ -326,18 +328,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddStoryFiles',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/add_story_files',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddStoryFiles',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/add_story_files',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddStoryFilesResponse::fromMap($this->execute($params, $req, $runtime));
@@ -387,18 +389,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AssignRole',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/role/assign',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AssignRole',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/role/assign',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AssignRoleResponse::fromMap($this->execute($params, $req, $runtime));
@@ -419,6 +421,65 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->assignRoleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 导出审计日志
+     *  *
+     * @param AuditLogExportRequest $request AuditLogExportRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AuditLogExportResponse AuditLogExportResponse
+     */
+    public function auditLogExportWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $body['file_name'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $body['order_by'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $body['query'] = $request->query;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AuditLogExport',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/audit_log/export',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AuditLogExportResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出审计日志
+     *  *
+     * @param AuditLogExportRequest $request AuditLogExportRequest
+     *
+     * @return AuditLogExportResponse AuditLogExportResponse
+     */
+    public function auditLogExport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->auditLogExportWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -464,18 +525,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Authorize',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/oauth/authorize',
-            'method'      => 'GET',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'Authorize',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/oauth/authorize',
+            'method' => 'GET',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'binary',
+            'bodyType' => 'binary',
         ]);
 
         return AuthorizeResponse::fromMap($this->execute($params, $req, $runtime));
@@ -519,18 +580,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'Batch',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/batch',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'Batch',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/batch',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchResponse::fromMap($this->execute($params, $req, $runtime));
@@ -580,18 +641,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CancelAssignRole',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/role/cancel_assign',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CancelAssignRole',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/role/cancel_assign',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelAssignRoleResponse::fromMap($this->execute($params, $req, $runtime));
@@ -632,18 +693,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CancelShareLink',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/share_link/cancel',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CancelShareLink',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/share_link/cancel',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelShareLinkResponse::fromMap($this->execute($params, $req, $runtime));
@@ -682,18 +743,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ClearRecyclebin',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/recyclebin/clear',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ClearRecyclebin',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/recyclebin/clear',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ClearRecyclebinResponse::fromMap($this->execute($params, $req, $runtime));
@@ -738,18 +799,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CompleteFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/complete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CompleteFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/complete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CompleteFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -803,18 +864,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CopyFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/copy',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CopyFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/copy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CopyFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -871,18 +932,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateCustomizedStory',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/create_customized_story',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateCustomizedStory',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/create_customized_story',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateCustomizedStoryResponse::fromMap($this->execute($params, $req, $runtime));
@@ -941,18 +1002,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDomain',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/domain/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDomain',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/domain/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDomainResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1014,18 +1075,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDrive',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/drive/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDrive',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/drive/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDriveResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1124,18 +1185,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1183,18 +1244,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateGroup',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/group/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateGroup',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/group/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateGroupResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1247,18 +1308,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateIdentityToBenefitPkgMapping',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/benefit/identity_to_benefit_pkg_mapping/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateIdentityToBenefitPkgMapping',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/benefit/identity_to_benefit_pkg_mapping/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateIdentityToBenefitPkgMappingResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1326,18 +1387,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateOrder',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/domain/create_order',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateOrder',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/domain/create_order',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateOrderResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1429,18 +1490,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateShareLink',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/share_link/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateShareLink',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/share_link/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateShareLinkResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1481,18 +1542,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSimilarImageClusterTask',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/create_similar_image_cluster_task',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSimilarImageClusterTask',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/create_similar_image_cluster_task',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSimilarImageClusterTaskResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1561,18 +1622,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateStory',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/create_story',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateStory',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/create_story',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateStoryResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1641,18 +1702,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateUser',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/user/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateUser',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/user/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateUserResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1697,18 +1758,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CsiGetFileInfo',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/csi/get_file_info',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CsiGetFileInfo',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/csi/get_file_info',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CsiGetFileInfoResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1747,18 +1808,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDomain',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/domain/delete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDomain',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/domain/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1797,18 +1858,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDrive',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/drive/delete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDrive',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/drive/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDriveResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1850,18 +1911,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/delete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1900,18 +1961,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGroup',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/group/delete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteGroup',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/group/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteGroupResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1956,18 +2017,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRevision',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/revision/delete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteRevision',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/revision/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteRevisionResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2009,18 +2070,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteStory',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/delete_story',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteStory',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/delete_story',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteStoryResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2059,18 +2120,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUser',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/user/delete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteUser',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/user/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteUserResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2112,18 +2173,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeltaGetLastCursor',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/get_last_cursor',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeltaGetLastCursor',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/get_last_cursor',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeltaGetLastCursorResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2179,18 +2240,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DownloadFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/download',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DownloadFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/download',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'binary',
+            'bodyType' => 'binary',
         ]);
 
         return DownloadFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2237,18 +2298,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FileAddPermission',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/add_permission',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FileAddPermission',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/add_permission',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FileAddPermissionResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2293,18 +2354,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FileDeleteUserTags',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/delete_usertags',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FileDeleteUserTags',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/delete_usertags',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FileDeleteUserTagsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2346,18 +2407,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FileListPermission',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/list_permission',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FileListPermission',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/list_permission',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'array',
+            'bodyType' => 'array',
         ]);
 
         return FileListPermissionResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2407,18 +2468,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FilePutUserTags',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/put_usertags',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FilePutUserTags',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/put_usertags',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FilePutUserTagsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2468,18 +2529,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FileRemovePermission',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/remove_permission',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FileRemovePermission',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/remove_permission',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return FileRemovePermissionResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2518,18 +2579,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetAsyncTask',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/async_task/get',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAsyncTask',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/async_task/get',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetAsyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2568,18 +2629,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDefaultDrive',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/drive/get_default_drive',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDefaultDrive',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/drive/get_default_drive',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDefaultDriveResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2624,18 +2685,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDomain',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/domain/get',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDomain',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/domain/get',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDomainResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2670,15 +2731,15 @@ class Pds extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetDomainQuota',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/domain/get_quota',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDomainQuota',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/domain/get_quota',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDomainQuotaResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2730,18 +2791,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDownloadUrl',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/get_download_url',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDownloadUrl',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/get_download_url',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDownloadUrlResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2780,18 +2841,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDrive',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/drive/get',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDrive',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/drive/get',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDriveResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2845,18 +2906,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/get',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/get',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2895,18 +2956,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetGroup',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/group/get',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetGroup',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/group/get',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetGroupResponse::fromMap($this->execute($params, $req, $runtime));
@@ -2951,18 +3012,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetIdentityToBenefitPkgMapping',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/benefit/identity_to_benefit_pkg_mapping/get',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetIdentityToBenefitPkgMapping',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/benefit/identity_to_benefit_pkg_mapping/get',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetIdentityToBenefitPkgMappingResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3007,18 +3068,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetLinkInfo',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/account/get_link_info',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetLinkInfo',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/account/get_link_info',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetLinkInfoResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3057,18 +3118,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetLinkInfoByUserId',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/account/get_link_info_by_user_id',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetLinkInfoByUserId',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/account/get_link_info_by_user_id',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetLinkInfoByUserIdResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3119,18 +3180,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetRevision',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/revision/get',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetRevision',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/revision/get',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetRevisionResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3169,18 +3230,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetShareLink',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/share_link/get',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetShareLink',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/share_link/get',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetShareLinkResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3219,18 +3280,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetShareLinkByAnonymous',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/share_link/get_by_anonymous',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'GetShareLinkByAnonymous',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/share_link/get_by_anonymous',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetShareLinkByAnonymousResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3277,18 +3338,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetShareLinkToken',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/share_link/get_share_token',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'GetShareLinkToken',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/share_link/get_share_token',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetShareLinkTokenResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3350,18 +3411,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetStory',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/get_story',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetStory',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/get_story',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetStoryResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3407,18 +3468,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTaskStatus',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/get_task_status',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTaskStatus',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/get_task_status',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3473,18 +3534,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUploadUrl',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/get_upload_url',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetUploadUrl',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/get_upload_url',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUploadUrlResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3523,18 +3584,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUser',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/user/get',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetUser',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/user/get',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUserResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3599,18 +3660,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetVideoPreviewPlayInfo',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/get_video_preview_play_info',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetVideoPreviewPlayInfo',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/get_video_preview_play_info',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetVideoPreviewPlayInfoResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3662,18 +3723,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetVideoPreviewPlayMeta',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/get_video_preview_play_meta',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetVideoPreviewPlayMeta',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/get_video_preview_play_meta',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetVideoPreviewPlayMetaResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3717,18 +3778,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GroupUpdateName',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/group/update_name',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GroupUpdateName',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/group/update_name',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GroupUpdateNameResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3788,18 +3849,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ImportUser',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/user/import',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ImportUser',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/user/import',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ImportUserResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3838,18 +3899,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InvestigateFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/csi/investigate_file',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InvestigateFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/csi/investigate_file',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InvestigateFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3897,18 +3958,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'LinkAccount',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/account/link',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'LinkAccount',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/account/link',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return LinkAccountResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3959,18 +4020,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListAddressGroups',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/list_address_groups',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAddressGroups',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/list_address_groups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAddressGroupsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4018,18 +4079,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListAssignment',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/role/list_assignment',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAssignment',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/role/list_assignment',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAssignmentResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4077,18 +4138,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDelta',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/list_delta',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDelta',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/list_delta',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDeltaResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4136,18 +4197,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDomains',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/domain/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDomains',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/domain/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDomainsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4195,18 +4256,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDrive',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/drive/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDrive',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/drive/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListDriveResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4257,18 +4318,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListFacegroups',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/list_facegroups',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListFacegroups',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/list_facegroups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListFacegroupsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4340,18 +4401,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4393,18 +4454,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListGroup',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/group/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListGroup',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/group/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListGroupResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4452,18 +4513,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListGroupMember',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/group/list_member',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListGroupMember',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/group/list_member',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4502,18 +4563,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListIdentityRole',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/role/list_identity_role',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListIdentityRole',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/role/list_identity_role',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListIdentityRoleResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4558,18 +4619,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListIdentityToBenefitPkgMapping',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/benefit/identity_to_benefit_pkg_mapping/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListIdentityToBenefitPkgMapping',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/benefit/identity_to_benefit_pkg_mapping/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListIdentityToBenefitPkgMappingResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4611,18 +4672,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMyDrives',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/drive/list_my_drives',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMyDrives',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/drive/list_my_drives',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMyDrivesResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4667,18 +4728,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMyGroupDrive',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/drive/list_my_group_drive',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMyGroupDrive',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/drive/list_my_group_drive',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMyGroupDriveResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4720,18 +4781,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListReceivedFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/list_received_file',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListReceivedFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/list_received_file',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListReceivedFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4782,18 +4843,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListRecyclebin',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/recyclebin/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListRecyclebin',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/recyclebin/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListRecyclebinResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4844,18 +4905,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListRevision',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/revision/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListRevision',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/revision/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListRevisionResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4911,18 +4972,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListShareLink',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/share_link/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListShareLink',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/share_link/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListShareLinkResponse::fromMap($this->execute($params, $req, $runtime));
@@ -4971,18 +5032,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTags',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/list_tags',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTags',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/list_tags',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5038,18 +5099,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListUploadedParts',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/list_uploaded_parts',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListUploadedParts',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/list_uploaded_parts',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUploadedPartsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5091,18 +5152,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListUser',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/user/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListUser',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/user/list',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUserResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5150,18 +5211,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'MoveFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/move',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'MoveFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/move',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MoveFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5221,18 +5282,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryOrderPrice',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/domain/query_order_price',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryOrderPrice',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/domain/query_order_price',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryOrderPriceResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5277,18 +5338,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveFaceGroupFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/albums/unassign_facegroup_item',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveFaceGroupFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/albums/unassign_facegroup_item',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveFaceGroupFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5333,18 +5394,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveGroupMember',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/group/remove_member',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveGroupMember',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/group/remove_member',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5389,18 +5450,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveStoryFiles',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/remove_story_files',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveStoryFiles',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/remove_story_files',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveStoryFilesResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5442,18 +5503,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RestoreFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/recyclebin/restore',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RestoreFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/recyclebin/restore',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RestoreFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5498,18 +5559,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RestoreRevision',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/revision/restore',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RestoreRevision',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/revision/restore',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RestoreRevisionResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5557,18 +5618,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ScanFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/scan',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ScanFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/scan',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ScanFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5625,18 +5686,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchAddressGroups',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/search_address_groups',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchAddressGroups',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/search_address_groups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchAddressGroupsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5684,18 +5745,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchDomains',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/domain/search',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchDomains',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/domain/search',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchDomainsResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5746,18 +5807,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchDrive',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/drive/search',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchDrive',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/drive/search',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchDriveResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5820,18 +5881,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/search',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/search',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5888,18 +5949,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchShareLink',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/share_link/search',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchShareLink',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/share_link/search',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchShareLinkResponse::fromMap($this->execute($params, $req, $runtime));
@@ -5950,18 +6011,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchSimilarImageClusters',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/query_similar_image_clusters',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchSimilarImageClusters',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/query_similar_image_clusters',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchSimilarImageClustersResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6048,18 +6109,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchStories',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/find_stories',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchStories',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/find_stories',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchStoriesResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6122,18 +6183,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchUser',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/user/search',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SearchUser',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/user/search',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SearchUserResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6193,18 +6254,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'Token',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/oauth/token',
-            'method'      => 'POST',
-            'authType'    => 'Anonymous',
-            'style'       => 'ROA',
+            'action' => 'Token',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/oauth/token',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TokenResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6249,18 +6310,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TrashFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/recyclebin/trash',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TrashFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/recyclebin/trash',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TrashFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6308,18 +6369,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnLinkAccount',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/account/unlink',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UnLinkAccount',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/account/unlink',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnLinkAccountResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6379,18 +6440,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDomain',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/domain/update',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDomain',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/domain/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDomainResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6444,18 +6505,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDrive',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/drive/update',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDrive',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/drive/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateDriveResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6506,18 +6567,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFacegroup',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/update_facegroup_info',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateFacegroup',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/update_facegroup_info',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateFacegroupResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6580,18 +6641,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFile',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/update',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateFile',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6636,18 +6697,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateGroup',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/group/update',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateGroup',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/group/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateGroupResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6698,18 +6759,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIdentityToBenefitPkgMapping',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/benefit/identity_to_benefit_pkg_mapping/update',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateIdentityToBenefitPkgMapping',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/benefit/identity_to_benefit_pkg_mapping/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateIdentityToBenefitPkgMappingResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6760,18 +6821,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRevision',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/revision/update',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateRevision',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/revision/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateRevisionResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6861,18 +6922,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateShareLink',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/share_link/update',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateShareLink',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/share_link/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateShareLinkResponse::fromMap($this->execute($params, $req, $runtime));
@@ -6923,18 +6984,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateStory',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/update_story',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateStory',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/image/update_story',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateStoryResponse::fromMap($this->execute($params, $req, $runtime));
@@ -7000,18 +7061,18 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUser',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/user/update',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateUser',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/user/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateUserResponse::fromMap($this->execute($params, $req, $runtime));
@@ -7033,7 +7094,7 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 获取视频的DRM License
+     * @summary Obtain the digital rights management (DRM) license of a video.
      *  *
      * @param VideoDRMLicenseRequest $request VideoDRMLicenseRequest
      * @param string[]               $headers map
@@ -7053,25 +7114,25 @@ class Pds extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'VideoDRMLicense',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/file/video_drm_license',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'VideoDRMLicense',
+            'version' => '2022-03-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/file/video_drm_license',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return VideoDRMLicenseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取视频的DRM License
+     * @summary Obtain the digital rights management (DRM) license of a video.
      *  *
      * @param VideoDRMLicenseRequest $request VideoDRMLicenseRequest
      *

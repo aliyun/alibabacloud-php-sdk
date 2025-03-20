@@ -39,17 +39,15 @@ class UserLogDetail extends Model
      */
     public $updateTo;
     protected $_name = [
-        'email'     => 'email',
+        'email' => 'email',
         'expiredAt' => 'expired_at',
-        'name'      => 'name',
-        'phone'     => 'phone',
-        'roleId'    => 'role_id',
-        'updateTo'  => 'update_to',
+        'name' => 'name',
+        'phone' => 'phone',
+        'roleId' => 'role_id',
+        'updateTo' => 'update_to',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

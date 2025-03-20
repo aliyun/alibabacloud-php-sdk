@@ -63,18 +63,16 @@ class HotDriveFile extends Model
     public $revisionId;
     protected $_name = [
         'actionCount' => 'action_count',
-        'actionList'  => 'action_list',
-        'category'    => 'category',
-        'countAt'     => 'count_at',
-        'driveId'     => 'drive_id',
-        'fileId'      => 'file_id',
-        'name'        => 'name',
-        'revisionId'  => 'revision_id',
+        'actionList' => 'action_list',
+        'category' => 'category',
+        'countAt' => 'count_at',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
+        'name' => 'name',
+        'revisionId' => 'revision_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

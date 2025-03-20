@@ -12,6 +12,7 @@ class FilePutUserTagsResponseBody extends Model
      * @description The file ID.
      *
      * This parameter is required.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -21,9 +22,7 @@ class FilePutUserTagsResponseBody extends Model
         'fileId' => 'file_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -53,20 +53,18 @@ class JWTPayload extends Model
      */
     public $subType;
     protected $_name = [
-        'aud'        => 'aud',
+        'aud' => 'aud',
         'autoCreate' => 'auto_create',
-        'exp'        => 'exp',
-        'iat'        => 'iat',
-        'iss'        => 'iss',
-        'jti'        => 'jti',
-        'nbf'        => 'nbf',
-        'sub'        => 'sub',
-        'subType'    => 'sub_type',
+        'exp' => 'exp',
+        'iat' => 'iat',
+        'iss' => 'iss',
+        'jti' => 'jti',
+        'nbf' => 'nbf',
+        'sub' => 'sub',
+        'subType' => 'sub_type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,13 +21,11 @@ class SearchSimilarImageClustersResponseBody extends Model
      */
     public $similarImageClusters;
     protected $_name = [
-        'nextMarker'           => 'next_marker',
+        'nextMarker' => 'next_marker',
         'similarImageClusters' => 'similar_image_clusters',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -62,7 +60,7 @@ class SearchSimilarImageClustersResponseBody extends Model
         if (isset($map['similar_image_clusters'])) {
             if (!empty($map['similar_image_clusters'])) {
                 $model->similarImageClusters = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['similar_image_clusters'] as $item) {
                     $model->similarImageClusters[$n++] = null !== $item ? similarImageClusters::fromMap($item) : $item;
                 }

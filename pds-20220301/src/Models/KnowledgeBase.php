@@ -63,22 +63,20 @@ class KnowledgeBase extends Model
      */
     public $updatedAt;
     protected $_name = [
-        'coverUri'        => 'cover_uri',
-        'createdAt'       => 'created_at',
-        'description'     => 'description',
-        'fileFilter'      => 'file_filter',
+        'coverUri' => 'cover_uri',
+        'createdAt' => 'created_at',
+        'description' => 'description',
+        'fileFilter' => 'file_filter',
         'knowledgeBaseId' => 'knowledge_base_id',
-        'linkRuleList'    => 'link_rule_list',
-        'name'            => 'name',
-        'ownerId'         => 'owner_id',
-        'ownerName'       => 'owner_name',
-        'ownerType'       => 'owner_type',
-        'updatedAt'       => 'updated_at',
+        'linkRuleList' => 'link_rule_list',
+        'name' => 'name',
+        'ownerId' => 'owner_id',
+        'ownerName' => 'owner_name',
+        'ownerType' => 'owner_type',
+        'updatedAt' => 'updated_at',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -152,7 +150,7 @@ class KnowledgeBase extends Model
         if (isset($map['link_rule_list'])) {
             if (!empty($map['link_rule_list'])) {
                 $model->linkRuleList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['link_rule_list'] as $item) {
                     $model->linkRuleList[$n++] = null !== $item ? LinkRule::fromMap($item) : $item;
                 }

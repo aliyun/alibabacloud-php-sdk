@@ -16,9 +16,7 @@ class actionList extends Model
         'action' => 'action',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

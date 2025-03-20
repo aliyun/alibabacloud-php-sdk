@@ -29,6 +29,7 @@ class SearchUserRequest extends Model
     /**
      * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
      * By default, this parameter is left empty.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -96,20 +97,18 @@ class SearchUserRequest extends Model
      */
     public $userName;
     protected $_name = [
-        'email'            => 'email',
-        'limit'            => 'limit',
-        'marker'           => 'marker',
-        'nickName'         => 'nick_name',
+        'email' => 'email',
+        'limit' => 'limit',
+        'marker' => 'marker',
+        'nickName' => 'nick_name',
         'nickNameForFuzzy' => 'nick_name_for_fuzzy',
-        'phone'            => 'phone',
-        'role'             => 'role',
-        'status'           => 'status',
-        'userName'         => 'user_name',
+        'phone' => 'phone',
+        'role' => 'role',
+        'status' => 'status',
+        'userName' => 'user_name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -31,14 +31,12 @@ class FaceThumbnail extends Model
      */
     public $faceThumbnail;
     protected $_name = [
-        'faceGroupId'   => 'face_group_id',
-        'faceId'        => 'face_id',
+        'faceGroupId' => 'face_group_id',
+        'faceId' => 'face_id',
         'faceThumbnail' => 'face_thumbnail',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

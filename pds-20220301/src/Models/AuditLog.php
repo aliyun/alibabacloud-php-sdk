@@ -83,26 +83,24 @@ class AuditLog extends Model
      */
     public $objectName;
     protected $_name = [
-        'actedAt'        => 'acted_at',
+        'actedAt' => 'acted_at',
         'actionCategory' => 'action_category',
-        'actionType'     => 'action_type',
-        'actorId'        => 'actor_id',
-        'actorName'      => 'actor_name',
-        'actorType'      => 'actor_type',
-        'clientDevice'   => 'client_device',
-        'clientIp'       => 'client_ip',
-        'clientType'     => 'client_type',
-        'clientVersion'  => 'client_version',
-        'detail'         => 'detail',
-        'filePathType'   => 'file_path_type',
-        'logId'          => 'log_id',
-        'objectId'       => 'object_id',
-        'objectName'     => 'object_name',
+        'actionType' => 'action_type',
+        'actorId' => 'actor_id',
+        'actorName' => 'actor_name',
+        'actorType' => 'actor_type',
+        'clientDevice' => 'client_device',
+        'clientIp' => 'client_ip',
+        'clientType' => 'client_type',
+        'clientVersion' => 'client_version',
+        'detail' => 'detail',
+        'filePathType' => 'file_path_type',
+        'logId' => 'log_id',
+        'objectId' => 'object_id',
+        'objectName' => 'object_name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

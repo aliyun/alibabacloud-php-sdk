@@ -33,16 +33,14 @@ class updateTo extends Model
      */
     public $roleId;
     protected $_name = [
-        'email'     => 'email',
+        'email' => 'email',
         'expiredAt' => 'expired_at',
-        'name'      => 'name',
-        'phone'     => 'phone',
-        'roleId'    => 'role_id',
+        'name' => 'name',
+        'phone' => 'phone',
+        'roleId' => 'role_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

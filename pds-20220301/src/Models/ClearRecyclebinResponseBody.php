@@ -12,6 +12,7 @@ class ClearRecyclebinResponseBody extends Model
      * @description The ID of the asynchronous task.
      *
      * You can call the GetAsyncTask operation to query the information about the asynchronous task based on the task ID.
+     *
      * @example 13ebd3a24dba4166b1527add676ef2866051b4d5dele16
      *
      * @var string
@@ -37,13 +38,11 @@ class ClearRecyclebinResponseBody extends Model
     public $driveId;
     protected $_name = [
         'asyncTaskId' => 'async_task_id',
-        'domainId'    => 'domain_id',
-        'driveId'     => 'drive_id',
+        'domainId' => 'domain_id',
+        'driveId' => 'drive_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -38,17 +38,15 @@ class CssInstanceComponent extends Model
      */
     public $tag;
     protected $_name = [
-        'componentCode'    => 'componentCode',
-        'componentName'    => 'componentName',
-        'globalKey'        => 'globalKey',
+        'componentCode' => 'componentCode',
+        'componentName' => 'componentName',
+        'globalKey' => 'globalKey',
         'instanceProperty' => 'instanceProperty',
         'moduleAttrStatus' => 'moduleAttrStatus',
-        'tag'              => 'tag',
+        'tag' => 'tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -101,7 +99,7 @@ class CssInstanceComponent extends Model
         if (isset($map['instanceProperty'])) {
             if (!empty($map['instanceProperty'])) {
                 $model->instanceProperty = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['instanceProperty'] as $item) {
                     $model->instanceProperty[$n++] = null !== $item ? CssInstanceProperty::fromMap($item) : $item;
                 }

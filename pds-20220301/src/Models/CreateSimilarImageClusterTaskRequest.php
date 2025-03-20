@@ -20,9 +20,7 @@ class CreateSimilarImageClusterTaskRequest extends Model
         'driveId' => 'drive_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

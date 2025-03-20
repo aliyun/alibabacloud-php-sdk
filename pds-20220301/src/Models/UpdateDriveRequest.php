@@ -19,6 +19,7 @@ class UpdateDriveRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -47,6 +48,7 @@ class UpdateDriveRequest extends Model
      * @description The state of the drive. Valid values:
      *
      * enabled and disabled.
+     *
      * @example enabled
      *
      * @var string
@@ -63,16 +65,14 @@ class UpdateDriveRequest extends Model
     public $totalSize;
     protected $_name = [
         'description' => 'description',
-        'driveId'     => 'drive_id',
-        'driveName'   => 'drive_name',
-        'owner'       => 'owner',
-        'status'      => 'status',
-        'totalSize'   => 'total_size',
+        'driveId' => 'drive_id',
+        'driveName' => 'drive_name',
+        'owner' => 'owner',
+        'status' => 'status',
+        'totalSize' => 'total_size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

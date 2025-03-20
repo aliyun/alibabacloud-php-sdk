@@ -15,15 +15,46 @@ class GetTaskStatusResponseBody extends Model
      *
      *   running
      *
+     * <!-- -->
+     *
+     * : The task is
+     *
+     * <!-- -->
+     *
+     * running
+     *
+     * <!-- -->
+     *
      * .
      *
      *   failed
+     *
+     * <!-- -->
+     *
+     * : The task
+     *
+     * <!-- -->
+     *
+     * fails
+     *
+     * <!-- -->
      *
      * .
      *
      *   succeeded
      *
+     * <!-- -->
+     *
+     * : The task is
+     *
+     * <!-- -->
+     *
+     * successful
+     *
+     * <!-- -->
+     *
      * .
+     *
      * @example running
      *
      * @var string
@@ -33,9 +64,7 @@ class GetTaskStatusResponseBody extends Model
         'status' => 'status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

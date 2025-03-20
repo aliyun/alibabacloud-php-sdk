@@ -68,23 +68,21 @@ class App extends Model
      */
     public $updatedAt;
     protected $_name = [
-        'appId'       => 'app_id',
-        'appName'     => 'app_name',
-        'appSecret'   => 'app_secret',
-        'createdAt'   => 'created_at',
+        'appId' => 'app_id',
+        'appName' => 'app_name',
+        'appSecret' => 'app_secret',
+        'createdAt' => 'created_at',
         'description' => 'description',
-        'logo'        => 'logo',
-        'provider'    => 'provider',
+        'logo' => 'logo',
+        'provider' => 'provider',
         'redirectUri' => 'redirect_uri',
-        'scope'       => 'scope',
-        'stage'       => 'stage',
-        'type'        => 'type',
-        'updatedAt'   => 'updated_at',
+        'scope' => 'scope',
+        'stage' => 'stage',
+        'type' => 'type',
+        'updatedAt' => 'updated_at',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

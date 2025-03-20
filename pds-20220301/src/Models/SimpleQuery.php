@@ -19,7 +19,7 @@ class SimpleQuery extends Model
     public $operation;
 
     /**
-     * @var \AlibabaCloud\SDK\Pds\V20220301\Models\SimpleQuery[]
+     * @var SimpleQuery[]
      */
     public $subQueries;
 
@@ -28,15 +28,13 @@ class SimpleQuery extends Model
      */
     public $value;
     protected $_name = [
-        'field'      => 'field',
-        'operation'  => 'operation',
+        'field' => 'field',
+        'operation' => 'operation',
         'subQueries' => 'sub_queries',
-        'value'      => 'value',
+        'value' => 'value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -80,7 +78,7 @@ class SimpleQuery extends Model
         if (isset($map['sub_queries'])) {
             if (!empty($map['sub_queries'])) {
                 $model->subQueries = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['sub_queries'] as $item) {
                     $model->subQueries[$n++] = null !== $item ? self::fromMap($item) : $item;
                 }

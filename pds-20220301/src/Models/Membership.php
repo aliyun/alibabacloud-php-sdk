@@ -58,21 +58,19 @@ class Membership extends Model
      */
     public $userId;
     protected $_name = [
-        'createdAt'   => 'created_at',
-        'creator'     => 'creator',
+        'createdAt' => 'created_at',
+        'creator' => 'creator',
         'description' => 'description',
-        'domainId'    => 'domain_id',
-        'groupId'     => 'group_id',
-        'memberRole'  => 'member_role',
-        'memberType'  => 'member_type',
-        'subGroupId'  => 'sub_group_id',
-        'updatedAt'   => 'updated_at',
-        'userId'      => 'user_id',
+        'domainId' => 'domain_id',
+        'groupId' => 'group_id',
+        'memberRole' => 'member_role',
+        'memberType' => 'member_type',
+        'subGroupId' => 'sub_group_id',
+        'updatedAt' => 'updated_at',
+        'userId' => 'user_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

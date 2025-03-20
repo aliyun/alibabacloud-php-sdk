@@ -29,14 +29,12 @@ class IDPermission extends Model
     public $roles;
     protected $_name = [
         'disinheritSubGroup' => 'disinherit_sub_group',
-        'expireTime'         => 'expire_time',
-        'permission'         => 'permission',
-        'roles'              => 'roles',
+        'expireTime' => 'expire_time',
+        'permission' => 'permission',
+        'roles' => 'roles',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -29,14 +29,12 @@ class offlineVideoTranscodingList extends Model
     public $url;
     protected $_name = [
         'keepOriginalResolution' => 'keep_original_resolution',
-        'status'                 => 'status',
-        'templateId'             => 'template_id',
-        'url'                    => 'url',
+        'status' => 'status',
+        'templateId' => 'template_id',
+        'url' => 'url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

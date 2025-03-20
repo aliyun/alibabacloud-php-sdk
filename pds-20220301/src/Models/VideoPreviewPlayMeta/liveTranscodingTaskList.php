@@ -30,13 +30,11 @@ class liveTranscodingTaskList extends Model
     public $templateId;
     protected $_name = [
         'keepOriginalResolution' => 'keep_original_resolution',
-        'status'                 => 'status',
-        'templateId'             => 'template_id',
+        'status' => 'status',
+        'templateId' => 'template_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

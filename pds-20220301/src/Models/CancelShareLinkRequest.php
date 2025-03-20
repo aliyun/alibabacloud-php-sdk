@@ -12,6 +12,7 @@ class CancelShareLinkRequest extends Model
      * @description The share ID.
      *
      * This parameter is required.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -21,9 +22,7 @@ class CancelShareLinkRequest extends Model
         'shareId' => 'share_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

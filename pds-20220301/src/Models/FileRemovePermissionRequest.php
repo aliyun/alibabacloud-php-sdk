@@ -13,6 +13,7 @@ class FileRemovePermissionRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +24,7 @@ class FileRemovePermissionRequest extends Model
      * @description The file ID.
      *
      * This parameter is required.
+     *
      * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
      *
      * @var string
@@ -33,18 +35,17 @@ class FileRemovePermissionRequest extends Model
      * @description The identities with whom the file is shared.
      *
      * This parameter is required.
+     *
      * @var memberList[]
      */
     public $memberList;
     protected $_name = [
-        'driveId'    => 'drive_id',
-        'fileId'     => 'file_id',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
         'memberList' => 'member_list',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -85,7 +86,7 @@ class FileRemovePermissionRequest extends Model
         if (isset($map['member_list'])) {
             if (!empty($map['member_list'])) {
                 $model->memberList = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['member_list'] as $item) {
                     $model->memberList[$n++] = null !== $item ? memberList::fromMap($item) : $item;
                 }

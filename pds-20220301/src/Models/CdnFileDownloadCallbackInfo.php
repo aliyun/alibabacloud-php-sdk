@@ -68,19 +68,17 @@ class CdnFileDownloadCallbackInfo extends Model
      */
     public $userId;
     protected $_name = [
-        'bucket'   => 'bucket',
+        'bucket' => 'bucket',
         'domainId' => 'domain_id',
-        'driveId'  => 'drive_id',
-        'expire'   => 'expire',
-        'fileId'   => 'file_id',
-        'object'   => 'object',
-        'token'    => 'token',
-        'userId'   => 'user_id',
+        'driveId' => 'drive_id',
+        'expire' => 'expire',
+        'fileId' => 'file_id',
+        'object' => 'object',
+        'token' => 'token',
+        'userId' => 'user_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

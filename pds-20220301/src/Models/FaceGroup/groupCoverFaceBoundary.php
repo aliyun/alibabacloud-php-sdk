@@ -37,14 +37,12 @@ class groupCoverFaceBoundary extends Model
     public $width;
     protected $_name = [
         'height' => 'Height',
-        'left'   => 'Left',
-        'top'    => 'Top',
-        'width'  => 'Width',
+        'left' => 'Left',
+        'top' => 'Top',
+        'width' => 'Width',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,13 +18,11 @@ class investigationInfo extends Model
      */
     public $suggestion;
     protected $_name = [
-        'status'     => 'status',
+        'status' => 'status',
         'suggestion' => 'suggestion',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

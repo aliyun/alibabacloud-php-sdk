@@ -53,20 +53,18 @@ class View extends Model
      */
     public $viewId;
     protected $_name = [
-        'category'     => 'category',
-        'createdAt'    => 'created_at',
-        'description'  => 'description',
+        'category' => 'category',
+        'createdAt' => 'created_at',
+        'description' => 'description',
         'exFieldsInfo' => 'ex_fields_info',
-        'fileCount'    => 'file_count',
-        'name'         => 'name',
-        'owner'        => 'owner',
-        'updatedAt'    => 'updated_at',
-        'viewId'       => 'view_id',
+        'fileCount' => 'file_count',
+        'name' => 'name',
+        'owner' => 'owner',
+        'updatedAt' => 'updated_at',
+        'viewId' => 'view_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class DeleteFileRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -22,6 +23,7 @@ class DeleteFileRequest extends Model
      * @description The file ID or folder ID.
      *
      * This parameter is required.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -29,12 +31,10 @@ class DeleteFileRequest extends Model
     public $fileId;
     protected $_name = [
         'driveId' => 'drive_id',
-        'fileId'  => 'file_id',
+        'fileId' => 'file_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

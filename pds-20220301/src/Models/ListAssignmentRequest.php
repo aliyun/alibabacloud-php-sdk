@@ -12,6 +12,7 @@ class ListAssignmentRequest extends Model
      * @description The maximum number of results to return. Valid values: 1 to 100.
      *
      * The number of returned results must be less than or equal to the specified number.
+     *
      * @example 50
      *
      * @var int
@@ -22,6 +23,7 @@ class ListAssignmentRequest extends Model
      * @description The ID of the managed resource, such as a group ID.
      *
      * This parameter is required.
+     *
      * @example 105***b82
      *
      * @var string
@@ -32,6 +34,7 @@ class ListAssignmentRequest extends Model
      * @description The type of the managed resource. Set the value to RT_Group, which specifies that the administrators of a group are queried.
      *
      * This parameter is required.
+     *
      * @example RT_Group
      *
      * @var string
@@ -47,15 +50,13 @@ class ListAssignmentRequest extends Model
      */
     public $marker;
     protected $_name = [
-        'limit'              => 'limit',
-        'manageResourceId'   => 'manage_resource_id',
+        'limit' => 'limit',
+        'manageResourceId' => 'manage_resource_id',
         'manageResourceType' => 'manage_resource_type',
-        'marker'             => 'marker',
+        'marker' => 'marker',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

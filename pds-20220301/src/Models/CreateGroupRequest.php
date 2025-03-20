@@ -21,6 +21,7 @@ class CreateGroupRequest extends Model
      * @description The name of the group. The name must be 1 to 128 characters in length.
      *
      * This parameter is required.
+     *
      * @example test group
      *
      * @var string
@@ -45,15 +46,13 @@ class CreateGroupRequest extends Model
      */
     public $parentGroupId;
     protected $_name = [
-        'description'   => 'description',
-        'groupName'     => 'group_name',
-        'isRoot'        => 'is_root',
+        'description' => 'description',
+        'groupName' => 'group_name',
+        'isRoot' => 'is_root',
         'parentGroupId' => 'parent_group_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

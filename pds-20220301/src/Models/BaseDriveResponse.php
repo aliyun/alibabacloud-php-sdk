@@ -147,34 +147,32 @@ class BaseDriveResponse extends Model
      */
     public $usedSize;
     protected $_name = [
-        'actionList'        => 'action_list',
-        'category'          => 'category',
-        'createdAt'         => 'created_at',
-        'creator'           => 'creator',
-        'deltaEnabled'      => 'delta_enabled',
-        'description'       => 'description',
-        'domainId'          => 'domain_id',
-        'driveId'           => 'drive_id',
-        'driveName'         => 'drive_name',
-        'driveType'         => 'drive_type',
+        'actionList' => 'action_list',
+        'category' => 'category',
+        'createdAt' => 'created_at',
+        'creator' => 'creator',
+        'deltaEnabled' => 'delta_enabled',
+        'description' => 'description',
+        'domainId' => 'domain_id',
+        'driveId' => 'drive_id',
+        'driveName' => 'drive_name',
+        'driveType' => 'drive_type',
         'encryptDataAccess' => 'encrypt_data_access',
-        'encryptMode'       => 'encrypt_mode',
-        'isHandover'        => 'is_handover',
-        'owner'             => 'owner',
-        'ownerType'         => 'owner_type',
-        'pathStatus'        => 'path_status',
-        'permission'        => 'permission',
-        'relativePath'      => 'relative_path',
-        'status'            => 'status',
-        'storeId'           => 'store_id',
-        'totalSize'         => 'total_size',
-        'updatedAt'         => 'updated_at',
-        'usedSize'          => 'used_size',
+        'encryptMode' => 'encrypt_mode',
+        'isHandover' => 'is_handover',
+        'owner' => 'owner',
+        'ownerType' => 'owner_type',
+        'pathStatus' => 'path_status',
+        'permission' => 'permission',
+        'relativePath' => 'relative_path',
+        'status' => 'status',
+        'storeId' => 'store_id',
+        'totalSize' => 'total_size',
+        'updatedAt' => 'updated_at',
+        'usedSize' => 'used_size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -59,20 +59,18 @@ class BaseAssignmentResponse extends Model
     public $updatedAt;
     protected $_name = [
         'associatedRoleTagId' => 'associated_role_tag_id',
-        'createdAt'           => 'created_at',
-        'creator'             => 'creator',
-        'disinheritSubGroup'  => 'disinherit_sub_group',
-        'domainId'            => 'domain_id',
-        'identity'            => 'identity',
-        'manageResourceId'    => 'manage_resource_id',
-        'manageResourceType'  => 'manage_resource_type',
-        'roleId'              => 'role_id',
-        'updatedAt'           => 'updated_at',
+        'createdAt' => 'created_at',
+        'creator' => 'creator',
+        'disinheritSubGroup' => 'disinherit_sub_group',
+        'domainId' => 'domain_id',
+        'identity' => 'identity',
+        'manageResourceId' => 'manage_resource_id',
+        'manageResourceType' => 'manage_resource_type',
+        'roleId' => 'role_id',
+        'updatedAt' => 'updated_at',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

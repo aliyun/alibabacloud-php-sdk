@@ -33,14 +33,12 @@ class CsiGetFileInfoRequest extends Model
      */
     public $urlExpireSec;
     protected $_name = [
-        'driveId'      => 'drive_id',
-        'fileId'       => 'file_id',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
         'urlExpireSec' => 'url_expire_sec',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,14 +23,12 @@ class blockFrames extends Model
      */
     public $rate;
     protected $_name = [
-        'label'  => 'label',
+        'label' => 'label',
         'offset' => 'offset',
-        'rate'   => 'rate',
+        'rate' => 'rate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

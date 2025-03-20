@@ -24,13 +24,11 @@ class DataBoxPrivileges extends Model
     public $quota;
     protected $_name = [
         'featureAttrId' => 'feature_attr_id',
-        'featureId'     => 'feature_id',
-        'quota'         => 'quota',
+        'featureId' => 'feature_id',
+        'quota' => 'quota',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

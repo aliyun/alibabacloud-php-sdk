@@ -53,20 +53,18 @@ class Role extends Model
      */
     public $updatedAt;
     protected $_name = [
-        'createdAt'          => 'created_at',
-        'creator'            => 'creator',
-        'description'        => 'description',
+        'createdAt' => 'created_at',
+        'creator' => 'creator',
+        'description' => 'description',
         'manageResourceType' => 'manage_resource_type',
-        'name'               => 'name',
-        'permissions'        => 'permissions',
-        'roleId'             => 'role_id',
-        'status'             => 'status',
-        'updatedAt'          => 'updated_at',
+        'name' => 'name',
+        'permissions' => 'permissions',
+        'roleId' => 'role_id',
+        'status' => 'status',
+        'updatedAt' => 'updated_at',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -134,7 +132,7 @@ class Role extends Model
         if (isset($map['permissions'])) {
             if (!empty($map['permissions'])) {
                 $model->permissions = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['permissions'] as $item) {
                     $model->permissions[$n++] = null !== $item ? Permission::fromMap($item) : $item;
                 }

@@ -32,15 +32,13 @@ class PermissionCondition extends Model
      */
     public $stringNotLike;
     protected $_name = [
-        'ipEquals'      => 'ip_equals',
-        'ipNotEquals'   => 'ip_not_equals',
-        'stringLike'    => 'string_like',
+        'ipEquals' => 'ip_equals',
+        'ipNotEquals' => 'ip_not_equals',
+        'stringLike' => 'string_like',
         'stringNotLike' => 'string_not_like',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

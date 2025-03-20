@@ -16,9 +16,7 @@ class ipEquals extends Model
         'clientIp' => 'client_ip',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,14 +23,12 @@ class ImageProcess extends Model
      */
     public $videoThumbnailProcess;
     protected $_name = [
-        'imageThumbnailProcess'  => 'image_thumbnail_process',
+        'imageThumbnailProcess' => 'image_thumbnail_process',
         'officeThumbnailProcess' => 'office_thumbnail_process',
-        'videoThumbnailProcess'  => 'video_thumbnail_process',
+        'videoThumbnailProcess' => 'video_thumbnail_process',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

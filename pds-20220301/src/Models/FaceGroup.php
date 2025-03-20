@@ -82,22 +82,20 @@ class FaceGroup extends Model
      */
     public $updatedAt;
     protected $_name = [
-        'createdAt'              => 'created_at',
+        'createdAt' => 'created_at',
         'groupCoverFaceBoundary' => 'group_cover_face_boundary',
-        'groupCoverFileId'       => 'group_cover_file_id',
-        'groupCoverHeight'       => 'group_cover_height',
-        'groupCoverUrl'          => 'group_cover_url',
-        'groupCoverWidth'        => 'group_cover_width',
-        'groupId'                => 'group_id',
-        'groupName'              => 'group_name',
-        'imageCount'             => 'image_count',
-        'remarks'                => 'remarks',
-        'updatedAt'              => 'updated_at',
+        'groupCoverFileId' => 'group_cover_file_id',
+        'groupCoverHeight' => 'group_cover_height',
+        'groupCoverUrl' => 'group_cover_url',
+        'groupCoverWidth' => 'group_cover_width',
+        'groupId' => 'group_id',
+        'groupName' => 'group_name',
+        'imageCount' => 'image_count',
+        'remarks' => 'remarks',
+        'updatedAt' => 'updated_at',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

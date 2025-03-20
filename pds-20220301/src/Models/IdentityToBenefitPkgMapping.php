@@ -64,21 +64,19 @@ class IdentityToBenefitPkgMapping extends Model
     public $updatedAt;
     protected $_name = [
         'benefitPkgComputationRule' => 'benefit_pkg_computation_rule',
-        'benefitPkgId'              => 'benefit_pkg_id',
-        'benefitPkgName'            => 'benefit_pkg_name',
-        'benefitPkgOwnerId'         => 'benefit_pkg_owner_id',
-        'benefitPkgPriority'        => 'benefit_pkg_priority',
-        'benefitPkgType'            => 'benefit_pkg_type',
-        'createdAt'                 => 'created_at',
-        'deliveryInfoList'          => 'delivery_info_list',
-        'identityId'                => 'identity_id',
-        'identityType'              => 'identity_type',
-        'updatedAt'                 => 'updated_at',
+        'benefitPkgId' => 'benefit_pkg_id',
+        'benefitPkgName' => 'benefit_pkg_name',
+        'benefitPkgOwnerId' => 'benefit_pkg_owner_id',
+        'benefitPkgPriority' => 'benefit_pkg_priority',
+        'benefitPkgType' => 'benefit_pkg_type',
+        'createdAt' => 'created_at',
+        'deliveryInfoList' => 'delivery_info_list',
+        'identityId' => 'identity_id',
+        'identityType' => 'identity_type',
+        'updatedAt' => 'updated_at',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -158,7 +156,7 @@ class IdentityToBenefitPkgMapping extends Model
         if (isset($map['delivery_info_list'])) {
             if (!empty($map['delivery_info_list'])) {
                 $model->deliveryInfoList = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['delivery_info_list'] as $item) {
                     $model->deliveryInfoList[$n++] = null !== $item ? BenefitPkgDeliveryInfo::fromMap($item) : $item;
                 }

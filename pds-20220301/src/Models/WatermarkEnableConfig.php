@@ -28,15 +28,13 @@ class WatermarkEnableConfig extends Model
      */
     public $enableDocPreview;
     protected $_name = [
-        'displayAccessUserName'       => 'display_access_user_name',
-        'displayCustomText'           => 'display_custom_text',
+        'displayAccessUserName' => 'display_access_user_name',
+        'displayCustomText' => 'display_custom_text',
         'displayShareLinkCreatorName' => 'display_shareLink_creator_name',
-        'enableDocPreview'            => 'enable_doc_preview',
+        'enableDocPreview' => 'enable_doc_preview',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

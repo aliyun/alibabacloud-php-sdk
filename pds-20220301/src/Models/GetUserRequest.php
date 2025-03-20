@@ -20,9 +20,7 @@ class GetUserRequest extends Model
         'userId' => 'user_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

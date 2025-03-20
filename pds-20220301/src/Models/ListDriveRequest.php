@@ -38,22 +38,23 @@ class ListDriveRequest extends Model
     /**
      * @description The type of the owner. Valid values:
      *
+     * user and group.
+     *
      * By default, drives of all owner types are returned.
+     *
      * @example user
      *
      * @var string
      */
     public $ownerType;
     protected $_name = [
-        'limit'     => 'limit',
-        'marker'    => 'marker',
-        'owner'     => 'owner',
+        'limit' => 'limit',
+        'marker' => 'marker',
+        'owner' => 'owner',
         'ownerType' => 'owner_type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

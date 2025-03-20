@@ -12,6 +12,7 @@ class SearchShareLinkRequest extends Model
      * @description The creators of shares. Set this parameter to a user ID. If you do not specify this parameter, Drive and Photo Service automatically queries shares based on your permissions. If you are a drive administrator or the super administrator, the shares created by all members are queried. If you are a team administrator, the shares created by all team members are queried. If you are a common user, only the shares created by yourself are queried.
      *
      * If you specify this parameter, this parameter must be set to the ID of the super administrator, a drive administrator, or a team administrator.
+     *
      * @var string[]
      */
     public $creators;
@@ -20,6 +21,7 @@ class SearchShareLinkRequest extends Model
      * @description The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
      *
      * The number of returned results must be less than or equal to the specified number.
+     *
      * @example 50
      *
      * @var int
@@ -29,6 +31,7 @@ class SearchShareLinkRequest extends Model
     /**
      * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker.\\
      * By default, this parameter is left empty.
+     *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
      * @var string
@@ -79,18 +82,16 @@ class SearchShareLinkRequest extends Model
      */
     public $returnTotalCount;
     protected $_name = [
-        'creators'         => 'creators',
-        'limit'            => 'limit',
-        'marker'           => 'marker',
-        'orderBy'          => 'order_by',
-        'orderDirection'   => 'order_direction',
-        'query'            => 'query',
+        'creators' => 'creators',
+        'limit' => 'limit',
+        'marker' => 'marker',
+        'orderBy' => 'order_by',
+        'orderDirection' => 'order_direction',
+        'query' => 'query',
         'returnTotalCount' => 'return_total_count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

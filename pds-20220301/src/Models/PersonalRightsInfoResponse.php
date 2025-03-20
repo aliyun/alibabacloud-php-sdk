@@ -14,7 +14,7 @@ class PersonalRightsInfoResponse extends Model
     public $expiresTime;
 
     /**
-     * @var \AlibabaCloud\SDK\Pds\V20220301\Models\PersonalRightsInfoResponse
+     * @var PersonalRightsInfoResponse
      */
     public $historyLatestRights;
 
@@ -34,7 +34,7 @@ class PersonalRightsInfoResponse extends Model
     public $name;
 
     /**
-     * @var \AlibabaCloud\SDK\Pds\V20220301\Models\PersonalRightsInfoResponse
+     * @var PersonalRightsInfoResponse
      */
     public $otherRights;
 
@@ -53,20 +53,18 @@ class PersonalRightsInfoResponse extends Model
      */
     public $title;
     protected $_name = [
-        'expiresTime'         => 'expires_time',
+        'expiresTime' => 'expires_time',
         'historyLatestRights' => 'history_latest_rights',
-        'icon'                => 'icon',
-        'isExpires'           => 'is_expires',
-        'name'                => 'name',
-        'otherRights'         => 'other_rights',
-        'privileges'          => 'privileges',
-        'spuId'               => 'spu_id',
-        'title'               => 'title',
+        'icon' => 'icon',
+        'isExpires' => 'is_expires',
+        'name' => 'name',
+        'otherRights' => 'other_rights',
+        'privileges' => 'privileges',
+        'spuId' => 'spu_id',
+        'title' => 'title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -137,7 +135,7 @@ class PersonalRightsInfoResponse extends Model
         if (isset($map['privileges'])) {
             if (!empty($map['privileges'])) {
                 $model->privileges = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['privileges'] as $item) {
                     $model->privileges[$n++] = null !== $item ? DataBoxPrivileges::fromMap($item) : $item;
                 }

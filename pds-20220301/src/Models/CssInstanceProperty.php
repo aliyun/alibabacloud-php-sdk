@@ -33,16 +33,14 @@ class CssInstanceProperty extends Model
      */
     public $value;
     protected $_name = [
-        'code'      => 'code',
+        'code' => 'code',
         'globalKey' => 'globalKey',
-        'name'      => 'name',
-        'unit'      => 'unit',
-        'value'     => 'value',
+        'name' => 'name',
+        'unit' => 'unit',
+        'value' => 'value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

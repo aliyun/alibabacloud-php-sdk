@@ -12,6 +12,7 @@ class GetDomainRequest extends Model
      * @description The ID of the domain.
      *
      * This parameter is required.
+     *
      * @example bj1
      *
      * @var string
@@ -32,14 +33,12 @@ class GetDomainRequest extends Model
      */
     public $getQuotaUsed;
     protected $_name = [
-        'domainId'     => 'domain_id',
-        'fields'       => 'fields',
+        'domainId' => 'domain_id',
+        'fields' => 'fields',
         'getQuotaUsed' => 'get_quota_used',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

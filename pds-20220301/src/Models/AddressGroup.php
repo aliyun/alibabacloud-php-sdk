@@ -39,16 +39,14 @@ class AddressGroup extends Model
     public $name;
     protected $_name = [
         'addressDetail' => 'address_detail',
-        'count'         => 'count',
-        'coverFileId'   => 'cover_file_id',
-        'coverUrl'      => 'cover_url',
-        'location'      => 'location',
-        'name'          => 'name',
+        'count' => 'count',
+        'coverFileId' => 'cover_file_id',
+        'coverUrl' => 'cover_url',
+        'location' => 'location',
+        'name' => 'name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

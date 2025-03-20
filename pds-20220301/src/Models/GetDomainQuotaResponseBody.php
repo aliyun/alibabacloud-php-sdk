@@ -28,15 +28,13 @@ class GetDomainQuotaResponseBody extends Model
      */
     public $userCountUsed;
     protected $_name = [
-        'sizeQuota'      => 'size_quota',
-        'sizeUsed'       => 'size_used',
+        'sizeQuota' => 'size_quota',
+        'sizeUsed' => 'size_used',
         'userCountQuota' => 'user_count_quota',
-        'userCountUsed'  => 'user_count_used',
+        'userCountUsed' => 'user_count_used',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

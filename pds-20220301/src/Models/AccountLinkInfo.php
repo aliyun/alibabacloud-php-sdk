@@ -54,19 +54,17 @@ class AccountLinkInfo extends Model
     public $userId;
     protected $_name = [
         'authenticationType' => 'authentication_type',
-        'createdAt'          => 'created_at',
-        'displayName'        => 'display_name',
-        'domainId'           => 'domain_id',
-        'extra'              => 'extra',
-        'identity'           => 'identity',
-        'lastLoginTime'      => 'last_login_time',
-        'status'             => 'status',
-        'userId'             => 'user_id',
+        'createdAt' => 'created_at',
+        'displayName' => 'display_name',
+        'domainId' => 'domain_id',
+        'extra' => 'extra',
+        'identity' => 'identity',
+        'lastLoginTime' => 'last_login_time',
+        'status' => 'status',
+        'userId' => 'user_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

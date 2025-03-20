@@ -33,12 +33,10 @@ class ListGroupMemberResponseBody extends Model
     protected $_name = [
         'groupItems' => 'group_items',
         'nextMarker' => 'next_marker',
-        'userItems'  => 'user_items',
+        'userItems' => 'user_items',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class ListGroupMemberResponseBody extends Model
         if (isset($map['group_items'])) {
             if (!empty($map['group_items'])) {
                 $model->groupItems = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['group_items'] as $item) {
                     $model->groupItems[$n++] = null !== $item ? Group::fromMap($item) : $item;
                 }
@@ -91,7 +89,7 @@ class ListGroupMemberResponseBody extends Model
         if (isset($map['user_items'])) {
             if (!empty($map['user_items'])) {
                 $model->userItems = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['user_items'] as $item) {
                     $model->userItems[$n++] = null !== $item ? User::fromMap($item) : $item;
                 }

@@ -39,16 +39,14 @@ class DataCName extends Model
     public $storeId;
     protected $_name = [
         'certExpireTime' => 'cert_expire_time',
-        'certName'       => 'cert_name',
-        'cname'          => 'cname',
-        'cnameType'      => 'cname_type',
-        'location'       => 'location',
-        'storeId'        => 'store_id',
+        'certName' => 'cert_name',
+        'cname' => 'cname',
+        'cnameType' => 'cname_type',
+        'location' => 'location',
+        'storeId' => 'store_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

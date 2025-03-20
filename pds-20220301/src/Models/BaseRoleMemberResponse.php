@@ -49,18 +49,16 @@ class BaseRoleMemberResponse extends Model
     public $subdomainId;
     protected $_name = [
         'assignmentList' => 'assignment_list',
-        'createdAt'      => 'created_at',
-        'creator'        => 'creator',
-        'domainId'       => 'domain_id',
-        'identity'       => 'identity',
-        'identityName'   => 'identity_name',
-        'isAdmin'        => 'is_admin',
-        'subdomainId'    => 'subdomain_id',
+        'createdAt' => 'created_at',
+        'creator' => 'creator',
+        'domainId' => 'domain_id',
+        'identity' => 'identity',
+        'identityName' => 'identity_name',
+        'isAdmin' => 'is_admin',
+        'subdomainId' => 'subdomain_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -110,7 +108,7 @@ class BaseRoleMemberResponse extends Model
         if (isset($map['assignment_list'])) {
             if (!empty($map['assignment_list'])) {
                 $model->assignmentList = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['assignment_list'] as $item) {
                     $model->assignmentList[$n++] = null !== $item ? BaseAssignmentResponse::fromMap($item) : $item;
                 }

@@ -11,7 +11,14 @@ class MoveFileRequest extends Model
     /**
      * @description The processing method that is used if the file that you want to move has the same name as an existing file in the destination directory. Valid values:
      *
+     * ignore: allows you to move the file by using the same name as an existing file in the destination directory.
+     *
+     * auto_rename: automatically renames the file that has the same name exists in the destination directory. By default, the current point in time is added to the end of the file name. Example: xxx_20060102_150405.
+     *
+     * refuse: does not move the file that you want to move but returns the information about the file that has the same name in the destination directory.
+     *
      * Default value: ignore.
+     *
      * @example ignore
      *
      * @var string
@@ -22,6 +29,7 @@ class MoveFileRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -32,6 +40,7 @@ class MoveFileRequest extends Model
      * @description The file ID.
      *
      * This parameter is required.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -42,21 +51,20 @@ class MoveFileRequest extends Model
      * @description The ID of the destination parent directory to which you want to move a file or folder. If you want to move a file or folder to the root directory, set this parameter to root.
      *
      * This parameter is required.
+     *
      * @example 6520943DC261
      *
      * @var string
      */
     public $toParentFileId;
     protected $_name = [
-        'checkNameMode'  => 'check_name_mode',
-        'driveId'        => 'drive_id',
-        'fileId'         => 'file_id',
+        'checkNameMode' => 'check_name_mode',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
         'toParentFileId' => 'to_parent_file_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

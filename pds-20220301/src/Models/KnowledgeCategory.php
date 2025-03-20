@@ -68,23 +68,21 @@ class KnowledgeCategory extends Model
      */
     public $updatedAt;
     protected $_name = [
-        'createdAt'                 => 'created_at',
-        'description'               => 'description',
-        'keywords'                  => 'keywords',
-        'knowledgeBaseId'           => 'knowledge_base_id',
-        'knowledgeBaseName'         => 'knowledge_base_name',
-        'knowledgeCategoryId'       => 'knowledge_category_id',
-        'name'                      => 'name',
-        'owner'                     => 'owner',
-        'ownerType'                 => 'owner_type',
+        'createdAt' => 'created_at',
+        'description' => 'description',
+        'keywords' => 'keywords',
+        'knowledgeBaseId' => 'knowledge_base_id',
+        'knowledgeBaseName' => 'knowledge_base_name',
+        'knowledgeCategoryId' => 'knowledge_category_id',
+        'name' => 'name',
+        'owner' => 'owner',
+        'ownerType' => 'owner_type',
         'parentKnowledgeCategoryId' => 'parent_knowledge_category_id',
-        'status'                    => 'status',
-        'updatedAt'                 => 'updated_at',
+        'status' => 'status',
+        'updatedAt' => 'updated_at',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

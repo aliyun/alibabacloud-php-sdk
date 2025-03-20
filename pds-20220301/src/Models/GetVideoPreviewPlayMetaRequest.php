@@ -17,6 +17,7 @@ class GetVideoPreviewPlayMetaRequest extends Model
      *   offline_video: previews a video after the video is transcoded offline.
      *
      * This parameter is required.
+     *
      * @example live_transcoding
      *
      * @var string
@@ -36,6 +37,7 @@ class GetVideoPreviewPlayMetaRequest extends Model
      * @description The file ID.
      *
      * This parameter is required.
+     *
      * @example 9520943DC264
      *
      * @var string
@@ -52,14 +54,12 @@ class GetVideoPreviewPlayMetaRequest extends Model
     public $shareId;
     protected $_name = [
         'category' => 'category',
-        'driveId'  => 'drive_id',
-        'fileId'   => 'file_id',
-        'shareId'  => 'share_id',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
+        'shareId' => 'share_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

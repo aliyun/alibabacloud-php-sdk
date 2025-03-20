@@ -123,34 +123,32 @@ class CssInstanceCommodity extends Model
      */
     public $upgradeInquireFinancialValue;
     protected $_name = [
-        'activityId'                   => 'activityId',
-        'aliyunProduceCode'            => 'aliyunProduceCode',
-        'chargeType'                   => 'chargeType',
-        'commodityCode'                => 'commodityCode',
-        'components'                   => 'components',
-        'duration'                     => 'duration',
-        'instanceId'                   => 'instanceId',
-        'isFree'                       => 'isFree',
-        'isPrePayPostCharge'           => 'isPrePayPostCharge',
-        'isRenewChange'                => 'isRenewChange',
-        'isSyncToSubscription'         => 'isSyncToSubscription',
-        'orderParams'                  => 'orderParams',
-        'orderType'                    => 'orderType',
-        'planItemId'                   => 'planItemId',
-        'pricingCycle'                 => 'pricingCycle',
-        'quantity'                     => 'quantity',
-        'redeemNoList'                 => 'redeemNoList',
-        'redeemOrderType'              => 'redeemOrderType',
-        'refundSpecCode'               => 'refundSpecCode',
-        'specCode'                     => 'specCode',
-        'specUpgradeOriginSpecCodes'   => 'specUpgradeOriginSpecCodes',
-        'specifyStartDate'             => 'specifyStartDate',
+        'activityId' => 'activityId',
+        'aliyunProduceCode' => 'aliyunProduceCode',
+        'chargeType' => 'chargeType',
+        'commodityCode' => 'commodityCode',
+        'components' => 'components',
+        'duration' => 'duration',
+        'instanceId' => 'instanceId',
+        'isFree' => 'isFree',
+        'isPrePayPostCharge' => 'isPrePayPostCharge',
+        'isRenewChange' => 'isRenewChange',
+        'isSyncToSubscription' => 'isSyncToSubscription',
+        'orderParams' => 'orderParams',
+        'orderType' => 'orderType',
+        'planItemId' => 'planItemId',
+        'pricingCycle' => 'pricingCycle',
+        'quantity' => 'quantity',
+        'redeemNoList' => 'redeemNoList',
+        'redeemOrderType' => 'redeemOrderType',
+        'refundSpecCode' => 'refundSpecCode',
+        'specCode' => 'specCode',
+        'specUpgradeOriginSpecCodes' => 'specUpgradeOriginSpecCodes',
+        'specifyStartDate' => 'specifyStartDate',
         'upgradeInquireFinancialValue' => 'upgradeInquireFinancialValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -257,7 +255,7 @@ class CssInstanceCommodity extends Model
         if (isset($map['components'])) {
             if (!empty($map['components'])) {
                 $model->components = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['components'] as $item) {
                     $model->components[$n++] = null !== $item ? CssInstanceComponent::fromMap($item) : $item;
                 }

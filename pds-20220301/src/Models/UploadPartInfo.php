@@ -55,18 +55,16 @@ class UploadPartInfo extends Model
      */
     public $uploadUrl;
     protected $_name = [
-        'etag'              => 'etag',
+        'etag' => 'etag',
         'internalUploadUrl' => 'internal_upload_url',
-        'parallelSha1Ctx'   => 'parallel_sha1_ctx',
+        'parallelSha1Ctx' => 'parallel_sha1_ctx',
         'parallelSha256Ctx' => 'parallel_sha256_ctx',
-        'partNumber'        => 'part_number',
-        'partSize'          => 'part_size',
-        'uploadUrl'         => 'upload_url',
+        'partNumber' => 'part_number',
+        'partSize' => 'part_size',
+        'uploadUrl' => 'upload_url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

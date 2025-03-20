@@ -17,9 +17,7 @@ class similarImageClusters extends Model
         'files' => 'files',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class similarImageClusters extends Model
         if (isset($map['files'])) {
             if (!empty($map['files'])) {
                 $model->files = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['files'] as $item) {
                     $model->files[$n++] = null !== $item ? File::fromMap($item) : $item;
                 }

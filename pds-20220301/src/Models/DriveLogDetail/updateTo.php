@@ -33,16 +33,14 @@ class updateTo extends Model
      */
     public $totalSize;
     protected $_name = [
-        'name'      => 'name',
-        'ownerId'   => 'owner_id',
+        'name' => 'name',
+        'ownerId' => 'owner_id',
         'ownerName' => 'owner_name',
         'ownerType' => 'owner_type',
         'totalSize' => 'total_size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

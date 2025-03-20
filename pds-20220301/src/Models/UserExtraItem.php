@@ -173,38 +173,36 @@ class UserExtraItem extends Model
      */
     public $userName;
     protected $_name = [
-        'account'                     => 'account',
-        'avatar'                      => 'avatar',
-        'createdAt'                   => 'created_at',
-        'creator'                     => 'creator',
-        'defaultDrive'                => 'default_drive',
-        'defaultDriveId'              => 'default_drive_id',
-        'defaultLocation'             => 'default_location',
-        'denyChangePasswordBySelf'    => 'deny_change_password_by_self',
-        'description'                 => 'description',
-        'domainId'                    => 'domain_id',
-        'email'                       => 'email',
-        'expiredAt'                   => 'expired_at',
-        'isSync'                      => 'is_sync',
-        'lastLoginTime'               => 'last_login_time',
+        'account' => 'account',
+        'avatar' => 'avatar',
+        'createdAt' => 'created_at',
+        'creator' => 'creator',
+        'defaultDrive' => 'default_drive',
+        'defaultDriveId' => 'default_drive_id',
+        'defaultLocation' => 'default_location',
+        'denyChangePasswordBySelf' => 'deny_change_password_by_self',
+        'description' => 'description',
+        'domainId' => 'domain_id',
+        'email' => 'email',
+        'expiredAt' => 'expired_at',
+        'isSync' => 'is_sync',
+        'lastLoginTime' => 'last_login_time',
         'needChangePasswordNextLogin' => 'need_change_password_next_login',
-        'nickName'                    => 'nick_name',
-        'parentGroup'                 => 'parent_group',
-        'pathStatus'                  => 'path_status',
-        'permission'                  => 'permission',
-        'phone'                       => 'phone',
-        'phoneRegion'                 => 'phone_region',
-        'role'                        => 'role',
-        'status'                      => 'status',
-        'updatedAt'                   => 'updated_at',
-        'userData'                    => 'user_data',
-        'userId'                      => 'user_id',
-        'userName'                    => 'user_name',
+        'nickName' => 'nick_name',
+        'parentGroup' => 'parent_group',
+        'pathStatus' => 'path_status',
+        'permission' => 'permission',
+        'phone' => 'phone',
+        'phoneRegion' => 'phone_region',
+        'role' => 'role',
+        'status' => 'status',
+        'updatedAt' => 'updated_at',
+        'userData' => 'user_data',
+        'userId' => 'user_id',
+        'userName' => 'user_name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -322,7 +320,7 @@ class UserExtraItem extends Model
         if (isset($map['account'])) {
             if (!empty($map['account'])) {
                 $model->account = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['account'] as $item) {
                     $model->account[$n++] = null !== $item ? AccountLinkInfo::fromMap($item) : $item;
                 }
@@ -376,7 +374,7 @@ class UserExtraItem extends Model
         if (isset($map['parent_group'])) {
             if (!empty($map['parent_group'])) {
                 $model->parentGroup = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['parent_group'] as $item) {
                     $model->parentGroup[$n++] = null !== $item ? BaseDriveResponse::fromMap($item) : $item;
                 }

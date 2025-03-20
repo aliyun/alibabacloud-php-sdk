@@ -18,9 +18,7 @@ class ImageQuality extends Model
         'overallScore' => 'overall_score',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

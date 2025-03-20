@@ -58,21 +58,19 @@ class LocationDateCluster extends Model
      */
     public $updatedAt;
     protected $_name = [
-        'address'      => 'address',
-        'clusterId'    => 'cluster_id',
-        'createdAt'    => 'created_at',
+        'address' => 'address',
+        'clusterId' => 'cluster_id',
+        'createdAt' => 'created_at',
         'customLabels' => 'custom_labels',
-        'driveId'      => 'drive_id',
-        'endTime'      => 'end_time',
-        'level'        => 'level',
-        'startTime'    => 'start_time',
-        'title'        => 'title',
-        'updatedAt'    => 'updated_at',
+        'driveId' => 'drive_id',
+        'endTime' => 'end_time',
+        'level' => 'level',
+        'startTime' => 'start_time',
+        'title' => 'title',
+        'updatedAt' => 'updated_at',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

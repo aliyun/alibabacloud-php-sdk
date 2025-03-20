@@ -48,19 +48,17 @@ class RefundNoticeParam extends Model
      */
     public $refundType;
     protected $_name = [
-        'aliuid'            => 'aliuid',
+        'aliuid' => 'aliuid',
         'aliyunProduceCode' => 'aliyunProduceCode',
-        'commodityCode'     => 'commodityCode',
-        'instanceId'        => 'instanceId',
-        'newExpireTime'     => 'newExpireTime',
-        'orderIds'          => 'orderIds',
-        'refundParamMap'    => 'refundParamMap',
-        'refundType'        => 'refundType',
+        'commodityCode' => 'commodityCode',
+        'instanceId' => 'instanceId',
+        'newExpireTime' => 'newExpireTime',
+        'orderIds' => 'orderIds',
+        'refundParamMap' => 'refundParamMap',
+        'refundType' => 'refundType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,13 +22,11 @@ class quickVideoList extends Model
      */
     public $templateId;
     protected $_name = [
-        'status'     => 'status',
+        'status' => 'status',
         'templateId' => 'template_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

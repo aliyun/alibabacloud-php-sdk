@@ -11,7 +11,10 @@ class TrashFileResponseBody extends Model
     /**
      * @description The ID of the asynchronous task.
      *
+     * If an empty string is returned, the file or folder is moved to the recycle bin.
+     *
      * If a non-empty string is returned, an asynchronous task is required. You can call the GetAsyncTask operation to obtain the information about an asynchronous task based on the task ID.
+     *
      * @example 13ebd3a24dba4166b1527add676ef2866051b4d5dele16
      *
      * @var string
@@ -46,14 +49,12 @@ class TrashFileResponseBody extends Model
     public $fileId;
     protected $_name = [
         'asyncTaskId' => 'async_task_id',
-        'domainId'    => 'domain_id',
-        'driveId'     => 'drive_id',
-        'fileId'      => 'file_id',
+        'domainId' => 'domain_id',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

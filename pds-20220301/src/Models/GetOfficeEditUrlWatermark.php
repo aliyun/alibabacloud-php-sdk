@@ -43,18 +43,16 @@ class GetOfficeEditUrlWatermark extends Model
      */
     public $vertical;
     protected $_name = [
-        'fillstyle'  => 'fillstyle',
-        'font'       => 'font',
+        'fillstyle' => 'fillstyle',
+        'font' => 'font',
         'horizontal' => 'horizontal',
-        'rotate'     => 'rotate',
-        'type'       => 'type',
-        'value'      => 'value',
-        'vertical'   => 'vertical',
+        'rotate' => 'rotate',
+        'type' => 'type',
+        'value' => 'value',
+        'vertical' => 'vertical',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

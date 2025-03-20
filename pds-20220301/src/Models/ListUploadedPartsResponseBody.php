@@ -51,16 +51,14 @@ class ListUploadedPartsResponseBody extends Model
      */
     public $uploadedParts;
     protected $_name = [
-        'fileId'               => 'file_id',
+        'fileId' => 'file_id',
         'nextPartNumberMarker' => 'next_part_number_marker',
-        'parallelUpload'       => 'parallel_upload',
-        'uploadId'             => 'upload_id',
-        'uploadedParts'        => 'uploaded_parts',
+        'parallelUpload' => 'parallel_upload',
+        'uploadId' => 'upload_id',
+        'uploadedParts' => 'uploaded_parts',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -113,7 +111,7 @@ class ListUploadedPartsResponseBody extends Model
         if (isset($map['uploaded_parts'])) {
             if (!empty($map['uploaded_parts'])) {
                 $model->uploadedParts = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['uploaded_parts'] as $item) {
                     $model->uploadedParts[$n++] = null !== $item ? UploadPartInfo::fromMap($item) : $item;
                 }

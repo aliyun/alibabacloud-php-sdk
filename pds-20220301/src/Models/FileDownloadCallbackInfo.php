@@ -52,17 +52,15 @@ class FileDownloadCallbackInfo extends Model
      */
     public $userId;
     protected $_name = [
-        'bucket'   => 'bucket',
+        'bucket' => 'bucket',
         'domainId' => 'domain_id',
-        'driveId'  => 'drive_id',
-        'fileId'   => 'file_id',
-        'object'   => 'object',
-        'userId'   => 'user_id',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
+        'object' => 'object',
+        'userId' => 'user_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

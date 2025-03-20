@@ -48,19 +48,17 @@ class FileStreamInfo extends Model
      */
     public $size;
     protected $_name = [
-        'contentHash'     => 'content_hash',
+        'contentHash' => 'content_hash',
         'contentHashName' => 'content_hash_name',
-        'contentMd5'      => 'content_md5',
-        'partInfoList'    => 'part_info_list',
-        'preHash'         => 'pre_hash',
-        'proofCode'       => 'proof_code',
-        'proofVersion'    => 'proof_version',
-        'size'            => 'size',
+        'contentMd5' => 'content_md5',
+        'partInfoList' => 'part_info_list',
+        'preHash' => 'pre_hash',
+        'proofCode' => 'proof_code',
+        'proofVersion' => 'proof_version',
+        'size' => 'size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

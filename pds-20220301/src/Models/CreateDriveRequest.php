@@ -30,6 +30,7 @@ class CreateDriveRequest extends Model
      * @description The name of the drive. The name can be up to 128 characters in length.
      *
      * This parameter is required.
+     *
      * @example test_drive
      *
      * @var string
@@ -49,6 +50,7 @@ class CreateDriveRequest extends Model
      * @description The owner of the drive.
      *
      * This parameter is required.
+     *
      * @example 3b3d7245c159488da17d081ad6c64687
      *
      * @var string
@@ -58,7 +60,10 @@ class CreateDriveRequest extends Model
     /**
      * @description The type of the owner. Valid values:
      *
+     * user and group.
+     *
      * This parameter is required.
+     *
      * @example user
      *
      * @var string
@@ -68,7 +73,10 @@ class CreateDriveRequest extends Model
     /**
      * @description The state of the drive. Valid values:
      *
+     * enabled and disabled.
+     *
      * Default value: enabled.
+     *
      * @example enabled
      *
      * @var string
@@ -84,19 +92,17 @@ class CreateDriveRequest extends Model
      */
     public $totalSize;
     protected $_name = [
-        'default'     => 'default',
+        'default' => 'default',
         'description' => 'description',
-        'driveName'   => 'drive_name',
-        'driveType'   => 'drive_type',
-        'owner'       => 'owner',
-        'ownerType'   => 'owner_type',
-        'status'      => 'status',
-        'totalSize'   => 'total_size',
+        'driveName' => 'drive_name',
+        'driveType' => 'drive_type',
+        'owner' => 'owner',
+        'ownerType' => 'owner_type',
+        'status' => 'status',
+        'totalSize' => 'total_size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

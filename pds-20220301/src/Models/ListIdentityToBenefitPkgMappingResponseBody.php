@@ -18,9 +18,7 @@ class ListIdentityToBenefitPkgMappingResponseBody extends Model
         'items' => 'items',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -49,7 +47,7 @@ class ListIdentityToBenefitPkgMappingResponseBody extends Model
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['items'] as $item) {
                     $model->items[$n++] = null !== $item ? IdentityToBenefitPkgMapping::fromMap($item) : $item;
                 }

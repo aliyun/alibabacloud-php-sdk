@@ -11,7 +11,10 @@ class RestoreFileResponseBody extends Model
     /**
      * @description The ID of the asynchronous task.
      *
+     * If an empty string is returned, the file or folder is restored.
+     *
      * If a non-empty string is returned, an asynchronous task is required. You can call the GetAsyncTask operation to obtain the information about an asynchronous task based on the task ID.
+     *
      * @example 4221bf6e6ab43c255edc4463bf3a6f5f5d317406
      *
      * @var string
@@ -46,14 +49,12 @@ class RestoreFileResponseBody extends Model
     public $fileId;
     protected $_name = [
         'asyncTaskId' => 'async_task_id',
-        'domainId'    => 'domain_id',
-        'driveId'     => 'drive_id',
-        'fileId'      => 'file_id',
+        'domainId' => 'domain_id',
+        'driveId' => 'drive_id',
+        'fileId' => 'file_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

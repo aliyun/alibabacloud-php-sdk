@@ -158,35 +158,33 @@ class BaseUserResponse extends Model
      */
     public $userName;
     protected $_name = [
-        'avatar'                      => 'avatar',
-        'createdAt'                   => 'created_at',
-        'creator'                     => 'creator',
-        'defaultDriveId'              => 'default_drive_id',
-        'defaultLocation'             => 'default_location',
-        'denyChangePasswordBySelf'    => 'deny_change_password_by_self',
-        'description'                 => 'description',
-        'domainId'                    => 'domain_id',
-        'email'                       => 'email',
-        'expiredAt'                   => 'expired_at',
-        'isSync'                      => 'is_sync',
-        'lastLoginTime'               => 'last_login_time',
+        'avatar' => 'avatar',
+        'createdAt' => 'created_at',
+        'creator' => 'creator',
+        'defaultDriveId' => 'default_drive_id',
+        'defaultLocation' => 'default_location',
+        'denyChangePasswordBySelf' => 'deny_change_password_by_self',
+        'description' => 'description',
+        'domainId' => 'domain_id',
+        'email' => 'email',
+        'expiredAt' => 'expired_at',
+        'isSync' => 'is_sync',
+        'lastLoginTime' => 'last_login_time',
         'needChangePasswordNextLogin' => 'need_change_password_next_login',
-        'nickName'                    => 'nick_name',
-        'pathStatus'                  => 'path_status',
-        'permission'                  => 'permission',
-        'phone'                       => 'phone',
-        'phoneRegion'                 => 'phone_region',
-        'role'                        => 'role',
-        'status'                      => 'status',
-        'updatedAt'                   => 'updated_at',
-        'userData'                    => 'user_data',
-        'userId'                      => 'user_id',
-        'userName'                    => 'user_name',
+        'nickName' => 'nick_name',
+        'pathStatus' => 'path_status',
+        'permission' => 'permission',
+        'phone' => 'phone',
+        'phoneRegion' => 'phone_region',
+        'role' => 'role',
+        'status' => 'status',
+        'updatedAt' => 'updated_at',
+        'userData' => 'user_data',
+        'userId' => 'user_id',
+        'userName' => 'user_name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

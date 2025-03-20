@@ -21,6 +21,7 @@ class GetShareLinkTokenRequest extends Model
      * @description The share ID.
      *
      * This parameter is required.
+     *
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -37,13 +38,11 @@ class GetShareLinkTokenRequest extends Model
     public $sharePwd;
     protected $_name = [
         'expireSec' => 'expire_sec',
-        'shareId'   => 'share_id',
-        'sharePwd'  => 'share_pwd',
+        'shareId' => 'share_id',
+        'sharePwd' => 'share_pwd',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -85,22 +85,20 @@ class CreateStoryRequest extends Model
      */
     public $storyType;
     protected $_name = [
-        'address'        => 'address',
-        'customLabels'   => 'custom_labels',
-        'driveId'        => 'drive_id',
-        'maxImageCount'  => 'max_image_count',
-        'minImageCount'  => 'min_image_count',
-        'storyEndTime'   => 'story_end_time',
-        'storyId'        => 'story_id',
-        'storyName'      => 'story_name',
+        'address' => 'address',
+        'customLabels' => 'custom_labels',
+        'driveId' => 'drive_id',
+        'maxImageCount' => 'max_image_count',
+        'minImageCount' => 'min_image_count',
+        'storyEndTime' => 'story_end_time',
+        'storyId' => 'story_id',
+        'storyName' => 'story_name',
         'storyStartTime' => 'story_start_time',
-        'storySubType'   => 'story_sub_type',
-        'storyType'      => 'story_type',
+        'storySubType' => 'story_sub_type',
+        'storyType' => 'story_type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

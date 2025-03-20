@@ -16,9 +16,7 @@ class ShareLinkConfig extends Model
         'enableShareLinkOfficeEdit' => 'enable_share_link_office_edit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

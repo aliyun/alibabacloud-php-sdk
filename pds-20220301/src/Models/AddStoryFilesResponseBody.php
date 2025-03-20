@@ -32,15 +32,13 @@ class AddStoryFilesResponseBody extends Model
      */
     public $storyId;
     protected $_name = [
-        'driveId'   => 'drive_id',
-        'files'     => 'files',
+        'driveId' => 'drive_id',
+        'files' => 'files',
         'requestId' => 'request_id',
-        'storyId'   => 'story_id',
+        'storyId' => 'story_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -81,7 +79,7 @@ class AddStoryFilesResponseBody extends Model
         if (isset($map['files'])) {
             if (!empty($map['files'])) {
                 $model->files = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['files'] as $item) {
                     $model->files[$n++] = null !== $item ? AddStoryFile::fromMap($item) : $item;
                 }

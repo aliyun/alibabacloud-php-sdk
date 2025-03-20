@@ -36,15 +36,13 @@ class VideoMediaVideoStream extends Model
      */
     public $frameCount;
     protected $_name = [
-        'bitrate'    => 'bitrate',
-        'codeName'   => 'code_name',
-        'duration'   => 'duration',
+        'bitrate' => 'bitrate',
+        'codeName' => 'code_name',
+        'duration' => 'duration',
         'frameCount' => 'frame_count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

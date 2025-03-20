@@ -19,9 +19,7 @@ class InvestigateFileRequest extends Model
         'driveFileIds' => 'drive_file_ids',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class InvestigateFileRequest extends Model
         if (isset($map['drive_file_ids'])) {
             if (!empty($map['drive_file_ids'])) {
                 $model->driveFileIds = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['drive_file_ids'] as $item) {
                     $model->driveFileIds[$n++] = null !== $item ? driveFileIds::fromMap($item) : $item;
                 }

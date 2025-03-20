@@ -29,6 +29,7 @@ class ImportUserRequest extends Model
      *   custom: custom account.
      *
      * This parameter is required.
+     *
      * @example mobile
      *
      * @var string
@@ -57,6 +58,7 @@ class ImportUserRequest extends Model
      * @description The additional information.
      *
      * If authentication_type is set to mobile, set this parameter to a country code. If you do not specify this parameter, 86 is used by default.
+     *
      * @example 1
      *
      * @var string
@@ -67,6 +69,7 @@ class ImportUserRequest extends Model
      * @description The unique identifier.
      *
      * This parameter is required.
+     *
      * @example 130****
      *
      * @var string
@@ -77,6 +80,7 @@ class ImportUserRequest extends Model
      * @description The nickname of the user.
      *
      * This parameter is required.
+     *
      * @example pdsuer
      *
      * @var string
@@ -93,18 +97,16 @@ class ImportUserRequest extends Model
     public $parentGroupId;
     protected $_name = [
         'authenticationDisplayName' => 'authentication_display_name',
-        'authenticationType'        => 'authentication_type',
-        'autoCreateDrive'           => 'auto_create_drive',
-        'driveTotalSize'            => 'drive_total_size',
-        'extra'                     => 'extra',
-        'identity'                  => 'identity',
-        'nickName'                  => 'nick_name',
-        'parentGroupId'             => 'parent_group_id',
+        'authenticationType' => 'authentication_type',
+        'autoCreateDrive' => 'auto_create_drive',
+        'driveTotalSize' => 'drive_total_size',
+        'extra' => 'extra',
+        'identity' => 'identity',
+        'nickName' => 'nick_name',
+        'parentGroupId' => 'parent_group_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

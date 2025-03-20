@@ -12,6 +12,7 @@ class ListRecyclebinRequest extends Model
      * @description The drive ID.
      *
      * This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -19,11 +20,14 @@ class ListRecyclebinRequest extends Model
     public $driveId;
 
     /**
-     * @description Specifies the returned fields.
+     * @description The fields of an entry (file or folder) to return.
      *
-     * 1\\. If you set this parameter to \\*, all fields of the file are returned.
+     * 1\\. If you set this parameter to \\*, all fields are returned.
+     *
+     * 2\\. If you set this parameter to a null value or leave this parameter empty, the fields, such as file creator, file modifier, and custom tags, are not returned.
      *
      * The default value is a null value, which indicates that only some fields are returned.
+     *
      * @example *
      *
      * @var string
@@ -31,9 +35,10 @@ class ListRecyclebinRequest extends Model
     public $fields;
 
     /**
-     * @description The maximum number of results to return. Valid values: 1 to 200. Default value: 50.
+     * @description The maximum number of entries to return. Valid values: 1 to 200. Default value: 50.
      *
-     * The number of returned results must be less than or equal to the specified number.
+     * The number of returned entries must be less than or equal to the value of this parameter.
+     *
      * @example 50
      *
      * @var int
@@ -41,7 +46,7 @@ class ListRecyclebinRequest extends Model
     public $limit;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of marker. By default, this parameter is left empty.
+     * @description The name of the entry after which the list begins. Entries whose names are alphabetically after the value of this parameter are returned. If you do not specify this parameter, all entries are returned. This parameter is left empty by default.
      *
      * @example NWQ1Yjk4YmI1ZDRlYmU1Y2E0YWE0NmJhYWJmODBhNDQ2NzhlMTRhMg
      *
@@ -50,20 +55,20 @@ class ListRecyclebinRequest extends Model
     public $marker;
 
     /**
+     * @description The thumbnail configurations. Up to five thumbnails can be returned at a time. The value contains key-value pairs. You can customize the keys. The URL of a thumbnail is returned based on the key.
+     *
      * @var ImageProcess[]
      */
     public $thumbnailProcesses;
     protected $_name = [
-        'driveId'            => 'drive_id',
-        'fields'             => 'fields',
-        'limit'              => 'limit',
-        'marker'             => 'marker',
+        'driveId' => 'drive_id',
+        'fields' => 'fields',
+        'limit' => 'limit',
+        'marker' => 'marker',
         'thumbnailProcesses' => 'thumbnail_processes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

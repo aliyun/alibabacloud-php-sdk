@@ -34,14 +34,12 @@ class partInfoList extends Model
      */
     public $partNumber;
     protected $_name = [
-        'contentMd5'      => 'content_md5',
+        'contentMd5' => 'content_md5',
         'parallelSha1Ctx' => 'parallel_sha1_ctx',
-        'partNumber'      => 'part_number',
+        'partNumber' => 'part_number',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

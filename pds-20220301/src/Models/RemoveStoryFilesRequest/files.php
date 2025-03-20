@@ -24,13 +24,11 @@ class files extends Model
      */
     public $revisionId;
     protected $_name = [
-        'fileId'     => 'file_id',
+        'fileId' => 'file_id',
         'revisionId' => 'revision_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

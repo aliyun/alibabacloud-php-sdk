@@ -32,13 +32,11 @@ class ListMyGroupDriveRequest extends Model
     public $marker;
     protected $_name = [
         'driveName' => 'drive_name',
-        'limit'     => 'limit',
-        'marker'    => 'marker',
+        'limit' => 'limit',
+        'marker' => 'marker',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
