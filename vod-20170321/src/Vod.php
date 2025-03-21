@@ -190,6 +190,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\GetAuditHistoryRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAuditHistoryResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetCategoriesRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetCategoriesResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetDailyPlayRegionStatisRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetDailyPlayRegionStatisResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetDefaultAITemplateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetDefaultAITemplateResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetDigitalWatermarkExtractResultRequest;
@@ -6671,6 +6673,59 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCategoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 支持区域化媒资ID级别播放数据查询
+     *  *
+     * @param GetDailyPlayRegionStatisRequest $request GetDailyPlayRegionStatisRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDailyPlayRegionStatisResponse GetDailyPlayRegionStatisResponse
+     */
+    public function getDailyPlayRegionStatisWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->date)) {
+            $query['Date'] = $request->date;
+        }
+        if (!Utils::isUnset($request->mediaRegion)) {
+            $query['MediaRegion'] = $request->mediaRegion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDailyPlayRegionStatis',
+            'version' => '2017-03-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDailyPlayRegionStatisResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetDailyPlayRegionStatisResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 支持区域化媒资ID级别播放数据查询
+     *  *
+     * @param GetDailyPlayRegionStatisRequest $request GetDailyPlayRegionStatisRequest
+     *
+     * @return GetDailyPlayRegionStatisResponse GetDailyPlayRegionStatisResponse
+     */
+    public function getDailyPlayRegionStatis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDailyPlayRegionStatisWithOptions($request, $runtime);
     }
 
     /**

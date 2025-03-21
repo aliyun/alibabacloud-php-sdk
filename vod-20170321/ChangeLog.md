@@ -1,3 +1,7 @@
+2025-03-21 Version: 3.7.0
+- Support API GetDailyPlayRegionStatis.
+
+
 2025-03-20 Version: 3.6.0
 - Support API DescribeVodEditingUsageData.
 - Update API DescribeVodTieringStorageData: add param AppId.
