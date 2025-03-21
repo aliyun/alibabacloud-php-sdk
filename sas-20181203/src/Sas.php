@@ -15155,6 +15155,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }

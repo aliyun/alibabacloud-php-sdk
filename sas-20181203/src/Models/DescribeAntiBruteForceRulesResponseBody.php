@@ -27,7 +27,7 @@ class DescribeAntiBruteForceRulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of the details of the defense rule.
+     * @description An array that consists of the defense rules returned.
      *
      * @var rules[]
      */

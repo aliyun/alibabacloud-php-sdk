@@ -15,8 +15,6 @@ class CreateAntiBruteForceRuleRequest extends Model
      *   **true**: yes
      *   **false**: no
      *
-     * >  If no defense rule is created for a server, the default rule is applied to the server.
-     *
      * @example true
      *
      * @var bool
@@ -37,15 +35,15 @@ class CreateAntiBruteForceRuleRequest extends Model
     /**
      * @description The period of time during which logons from an account are not allowed. Unit: minutes. Valid values:
      *
-     *   **5**: 5 minutes
-     *   **15**: 15 minutes
-     *   **30**: 30 minutes
-     *   **60**: 1 hour
-     *   **120**: 2 hours
-     *   **360**: 6 hours
-     *   **720**: 12 hours
-     *   **1440**: 24 hours
-     *   **10080**: 7 days
+     *   **5**
+     *   **15**
+     *   **30**
+     *   **60**
+     *   **120**
+     *   **360**
+     *   **720**
+     *   **1440**
+     *   **10080**
      *   **52560000**: permanent
      *
      * This parameter is required.
@@ -68,6 +66,8 @@ class CreateAntiBruteForceRuleRequest extends Model
     public $name;
 
     /**
+     * @description The types of protocols supported for interception by the brute force attack rule creation.
+     *
      * @var protocolType
      */
     public $protocolType;

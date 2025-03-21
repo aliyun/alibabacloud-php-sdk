@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @description The timestamp when the rule was created. Unit: milliseconds.
+     * @description 防暴力破解规则创建时间戳。单位：毫秒。
      *
      * @example 1669800181000
      *
@@ -21,10 +21,10 @@ class rules extends Model
     /**
      * @description Indicates whether the defense rule is the default rule. Valid values:
      *
-     *   **true**: The defense rule is the default rule.
-     *   **false**: The defense rule is not the default rule.
+     *   **true**: yes
+     *   **false**: no
      *
-     * > The default rule takes effect on all servers that are not protected by defense rules against brute-force attacks.
+     * >  The default rule takes effect on all servers that are not protected by defense rules against brute-force attacks.
      *
      * @example true
      *
@@ -42,7 +42,7 @@ class rules extends Model
     public $enableSmartRule;
 
     /**
-     * @description The threshold of logon failures that is specified in the defense rule.
+     * @description The threshold of logon failures that you specify.
      *
      * @example 15
      *
@@ -87,6 +87,8 @@ class rules extends Model
     public $name;
 
     /**
+     * @description The types of protocols that the brute force cracking rule supports to intercept.
+     *
      * @var protocolType
      */
     public $protocolType;

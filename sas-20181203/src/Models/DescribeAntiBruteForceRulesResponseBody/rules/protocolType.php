@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class protocolType extends Model
 {
     /**
+     * @description RDP interception method, values:
+     * - **on**: enable
+     * - **off**: disable
+     *
+     * @example on
+     *
      * @var string
      */
     public $rdp;
 
     /**
+     * @description SqlServer interception mode, with values:
+     * - **on**: enable
+     * - **off**: disable
+     *
+     * @example off
+     *
      * @var string
      */
     public $sqlServer;
 
     /**
+     * @description SSH interception method, with values:
+     * - **on**: enabled
+     * - **off**: disabled
+     *
+     * @example on
+     *
      * @var string
      */
     public $ssh;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCycleTaskListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $configId;
+
+    /**
      * @description The number of the page to return.
      *
      * @example 1
@@ -46,14 +51,13 @@ class DescribeCycleTaskListRequest extends Model
      *   **IMAGE_SCAN**: image scan task
      *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
      *
-     * This parameter is required.
-     *
      * @example IMAGE_SCAN
      *
      * @var string
      */
     public $taskType;
     protected $_name = [
+        'configId' => 'ConfigId',
         'currentPage' => 'CurrentPage',
         'pageSize' => 'PageSize',
         'taskName' => 'TaskName',
@@ -65,6 +69,9 @@ class DescribeCycleTaskListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -89,6 +96,9 @@ class DescribeCycleTaskListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }

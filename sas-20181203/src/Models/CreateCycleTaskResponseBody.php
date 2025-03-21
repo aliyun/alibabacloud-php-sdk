@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateCycleTaskResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $configId;
+
+    /**
      * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 86CFF42E-E00A-57A3-8656-22291EFB****
@@ -17,6 +22,7 @@ class CreateCycleTaskResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'configId' => 'ConfigId',
         'requestId' => 'RequestId',
     ];
 
@@ -25,6 +31,9 @@ class CreateCycleTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,6 +49,9 @@ class CreateCycleTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

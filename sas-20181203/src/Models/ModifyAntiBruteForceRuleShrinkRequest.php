@@ -79,6 +79,8 @@ class ModifyAntiBruteForceRuleShrinkRequest extends Model
     public $name;
 
     /**
+     * @description The protocol types supported by the anti-brute force rule for interception.
+     *
      * @var string
      */
     public $protocolTypeShrink;

@@ -80,6 +80,8 @@ class ModifyAntiBruteForceRuleRequest extends Model
     public $name;
 
     /**
+     * @description The protocol types supported by the anti-brute force rule for interception.
+     *
      * @var protocolType
      */
     public $protocolType;

@@ -19,7 +19,6 @@ class DescribeAntiBruteForceRulesRequest extends Model
 
     /**
      * @description The ID of the defense rule.
-     *
      * > You can call the [DescribeAntiBruteForceRules](~~DescribeAntiBruteForceRules~~) operation to query the IDs of defense rules.
      *
      * @example 1141****
