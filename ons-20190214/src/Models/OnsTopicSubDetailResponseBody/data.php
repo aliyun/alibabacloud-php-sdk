@@ -26,12 +26,10 @@ class data extends Model
     public $topic;
     protected $_name = [
         'subscriptionDataList' => 'SubscriptionDataList',
-        'topic'                => 'Topic',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

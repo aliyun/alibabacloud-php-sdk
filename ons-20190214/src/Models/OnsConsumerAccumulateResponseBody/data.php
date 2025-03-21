@@ -64,17 +64,15 @@ class data extends Model
      */
     public $totalDiff;
     protected $_name = [
-        'consumeTps'        => 'ConsumeTps',
-        'delayTime'         => 'DelayTime',
+        'consumeTps' => 'ConsumeTps',
+        'delayTime' => 'DelayTime',
         'detailInTopicList' => 'DetailInTopicList',
-        'lastTimestamp'     => 'LastTimestamp',
-        'online'            => 'Online',
-        'totalDiff'         => 'TotalDiff',
+        'lastTimestamp' => 'LastTimestamp',
+        'online' => 'Online',
+        'totalDiff' => 'TotalDiff',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

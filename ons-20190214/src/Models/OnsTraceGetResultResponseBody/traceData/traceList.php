@@ -17,9 +17,7 @@ class traceList extends Model
         'traceMapDo' => 'TraceMapDo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class traceList extends Model
         if (isset($map['TraceMapDo'])) {
             if (!empty($map['TraceMapDo'])) {
                 $model->traceMapDo = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['TraceMapDo'] as $item) {
                     $model->traceMapDo[$n++] = null !== $item ? traceMapDo::fromMap($item) : $item;
                 }

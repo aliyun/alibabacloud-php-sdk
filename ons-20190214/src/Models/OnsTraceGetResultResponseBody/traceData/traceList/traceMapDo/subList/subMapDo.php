@@ -43,15 +43,13 @@ class subMapDo extends Model
      */
     public $successCount;
     protected $_name = [
-        'clientList'   => 'ClientList',
-        'failCount'    => 'FailCount',
+        'clientList' => 'ClientList',
+        'failCount' => 'FailCount',
         'subGroupName' => 'SubGroupName',
         'successCount' => 'SuccessCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

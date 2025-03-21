@@ -22,12 +22,10 @@ class data extends Model
     public $messageModel;
     protected $_name = [
         'connectionList' => 'ConnectionList',
-        'messageModel'   => 'MessageModel',
+        'messageModel' => 'MessageModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

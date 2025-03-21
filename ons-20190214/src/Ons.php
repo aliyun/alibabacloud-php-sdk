@@ -96,37 +96,37 @@ class Ons extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-2-pop'          => 'ons.ap-northeast-1.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'ons.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'ons.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'ons.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'ons.aliyuncs.com',
-            'cn-edge-1'                   => 'ons.aliyuncs.com',
-            'cn-fujian'                   => 'ons.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'ons.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'ons.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-2-pop' => 'ons.ap-northeast-1.aliyuncs.com',
+            'cn-beijing-finance-1' => 'ons.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'ons.aliyuncs.com',
+            'cn-beijing-gov-1' => 'ons.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'ons.aliyuncs.com',
+            'cn-edge-1' => 'ons.aliyuncs.com',
+            'cn-fujian' => 'ons.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'ons.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'ons.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'ons.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'ons.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'ons.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'ons.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'ons.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'ons.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'ons.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'ons.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'ons.aliyuncs.com',
-            'cn-shanghai-inner'           => 'ons.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'ons.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'ons.aliyuncs.com',
+            'cn-qingdao-nebula' => 'ons.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'ons.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'ons.aliyuncs.com',
+            'cn-shanghai-inner' => 'ons.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'ons.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'ons.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'ons.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'ons.aliyuncs.com',
-            'cn-wuhan'                    => 'ons.aliyuncs.com',
-            'cn-yushanfang'               => 'ons.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'ons.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'ons.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'ons.aliyuncs.com',
-            'eu-west-1-oxs'               => 'ons.ap-northeast-1.aliyuncs.com',
-            'rus-west-1-pop'              => 'ons.ap-northeast-1.aliyuncs.com',
+            'cn-shenzhen-inner' => 'ons.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'ons.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'ons.aliyuncs.com',
+            'cn-wuhan' => 'ons.aliyuncs.com',
+            'cn-yushanfang' => 'ons.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'ons.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'ons.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'ons.aliyuncs.com',
+            'eu-west-1-oxs' => 'ons.ap-northeast-1.aliyuncs.com',
+            'rus-west-1-pop' => 'ons.ap-northeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ons', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -191,18 +191,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -252,18 +255,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsConsumerAccumulate',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsConsumerAccumulate',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsConsumerAccumulateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsConsumerAccumulateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsConsumerAccumulateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -308,18 +314,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsConsumerGetConnection',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsConsumerGetConnection',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsConsumerGetConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsConsumerGetConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsConsumerGetConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -375,18 +384,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsConsumerResetOffset',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsConsumerResetOffset',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsConsumerResetOffsetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsConsumerResetOffsetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsConsumerResetOffsetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -440,18 +452,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsConsumerStatus',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsConsumerStatus',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsConsumerStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsConsumerStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsConsumerStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -500,18 +515,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsConsumerTimeSpan',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsConsumerTimeSpan',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsConsumerTimeSpanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsConsumerTimeSpanResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsConsumerTimeSpanResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -559,18 +577,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsDLQMessageGetById',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsDLQMessageGetById',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsDLQMessageGetByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsDLQMessageGetByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsDLQMessageGetByIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -633,18 +654,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsDLQMessagePageQueryByGroupId',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsDLQMessagePageQueryByGroupId',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsDLQMessagePageQueryByGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsDLQMessagePageQueryByGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsDLQMessagePageQueryByGroupIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -697,18 +721,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsDLQMessageResendById',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsDLQMessageResendById',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsDLQMessageResendByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsDLQMessageResendByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsDLQMessageResendByIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -758,18 +785,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsGroupConsumerUpdate',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsGroupConsumerUpdate',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsGroupConsumerUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsGroupConsumerUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsGroupConsumerUpdateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -820,18 +850,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsGroupCreate',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsGroupCreate',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsGroupCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsGroupCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsGroupCreateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -878,18 +911,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsGroupDelete',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsGroupDelete',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsGroupDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsGroupDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsGroupDeleteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -941,18 +977,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsGroupList',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsGroupList',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsGroupListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -995,18 +1034,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsGroupSubDetail',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsGroupSubDetail',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsGroupSubDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsGroupSubDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsGroupSubDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1047,18 +1089,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsInstanceBaseInfo',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsInstanceBaseInfo',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsInstanceBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsInstanceBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsInstanceBaseInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1105,18 +1150,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsInstanceCreate',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsInstanceCreate',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsInstanceCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsInstanceCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsInstanceCreateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1161,18 +1209,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsInstanceDelete',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsInstanceDelete',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsInstanceDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsInstanceDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsInstanceDeleteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1217,18 +1268,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsInstanceInServiceList',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsInstanceInServiceList',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsInstanceInServiceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsInstanceInServiceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsInstanceInServiceListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1275,18 +1329,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsInstanceUpdate',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsInstanceUpdate',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsInstanceUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsInstanceUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsInstanceUpdateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1320,22 +1377,25 @@ class Ons extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsMessageDetail',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsMessageDetail',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsMessageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsMessageDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsMessageDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1385,18 +1445,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsMessageGetByKey',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsMessageGetByKey',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsMessageGetByKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsMessageGetByKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsMessageGetByKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1448,18 +1511,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsMessageGetByMsgId',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsMessageGetByMsgId',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsMessageGetByMsgIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsMessageGetByMsgIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsMessageGetByMsgIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1523,18 +1589,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsMessagePageQueryByTopic',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsMessagePageQueryByTopic',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsMessagePageQueryByTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsMessagePageQueryByTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsMessagePageQueryByTopicResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1591,18 +1660,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsMessagePush',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsMessagePush',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsMessagePushResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsMessagePushResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsMessagePushResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1651,18 +1723,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsMessageTrace',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsMessageTrace',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsMessageTraceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsMessageTraceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsMessageTraceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1697,20 +1772,23 @@ class Ons extends OpenApiClient
      */
     public function onsRegionListWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'OnsRegionList',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsRegionList',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsRegionListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsRegionListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsRegionListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1761,18 +1839,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsTopicCreate',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsTopicCreate',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsTopicCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsTopicCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsTopicCreateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1817,18 +1898,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsTopicDelete',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsTopicDelete',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsTopicDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsTopicDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsTopicDeleteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1879,18 +1963,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsTopicList',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsTopicList',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsTopicListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsTopicListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsTopicListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1935,18 +2022,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsTopicStatus',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsTopicStatus',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsTopicStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsTopicStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsTopicStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1991,18 +2081,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsTopicSubDetail',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsTopicSubDetail',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsTopicSubDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsTopicSubDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsTopicSubDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2054,18 +2147,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsTopicUpdate',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsTopicUpdate',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsTopicUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsTopicUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsTopicUpdateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2118,18 +2214,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsTraceGetResult',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsTraceGetResult',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsTraceGetResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsTraceGetResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsTraceGetResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2184,18 +2283,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsTraceQueryByMsgId',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsTraceQueryByMsgId',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsTraceQueryByMsgIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsTraceQueryByMsgIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsTraceQueryByMsgIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2249,18 +2351,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsTraceQueryByMsgKey',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsTraceQueryByMsgKey',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsTraceQueryByMsgKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsTraceQueryByMsgKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsTraceQueryByMsgKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2323,18 +2428,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsTrendGroupOutputTps',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsTrendGroupOutputTps',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsTrendGroupOutputTpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsTrendGroupOutputTpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsTrendGroupOutputTpsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2395,18 +2503,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OnsTrendTopicInputTps',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OnsTrendTopicInputTps',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OnsTrendTopicInputTpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OnsTrendTopicInputTpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OnsTrendTopicInputTpsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2440,20 +2551,23 @@ class Ons extends OpenApiClient
      */
     public function openOnsServiceWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'OpenOnsService',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenOnsService',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OpenOnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OpenOnsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OpenOnsServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2503,18 +2617,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2567,18 +2684,21 @@ class Ons extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2019-02-14',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2019-02-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

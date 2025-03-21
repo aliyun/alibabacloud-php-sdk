@@ -29,9 +29,7 @@ class OnsTraceGetResultResponseBody extends Model
         'traceData' => 'TraceData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

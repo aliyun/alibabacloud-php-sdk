@@ -17,9 +17,7 @@ class clientList extends Model
         'subClientInfoDo' => 'SubClientInfoDo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class clientList extends Model
         if (isset($map['SubClientInfoDo'])) {
             if (!empty($map['SubClientInfoDo'])) {
                 $model->subClientInfoDo = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['SubClientInfoDo'] as $item) {
                     $model->subClientInfoDo[$n++] = null !== $item ? subClientInfoDo::fromMap($item) : $item;
                 }

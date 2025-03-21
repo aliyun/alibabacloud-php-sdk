@@ -12,6 +12,7 @@ class OnsTopicSubDetailRequest extends Model
      * @description The ID of the instance that contains the topic you want to query.
      *
      * This parameter is required.
+     *
      * @example MQ_INST_111111111111_DOxxxxxx
      *
      * @var string
@@ -22,6 +23,7 @@ class OnsTopicSubDetailRequest extends Model
      * @description The name of the topic that you want to query.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -29,12 +31,10 @@ class OnsTopicSubDetailRequest extends Model
     public $topic;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'topic'      => 'Topic',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

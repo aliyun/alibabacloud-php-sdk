@@ -12,6 +12,7 @@ class OnsMessagePageQueryByTopicRequest extends Model
      * @description The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the BeginTime parameter that you specified in the request when you created the specified query task.
      *
      * This parameter is required.
+     *
      * @example 1570723200000
      *
      * @var int
@@ -22,6 +23,7 @@ class OnsMessagePageQueryByTopicRequest extends Model
      * @description The number of the page to return. Pages start from page 1. Valid values: 1 to 50.
      *
      * This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -32,6 +34,7 @@ class OnsMessagePageQueryByTopicRequest extends Model
      * @description The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds. If you specify a valid value for the **TaskId** parameter in the request, this parameter does not take effect. The system uses the value of the EndTime parameter that you specified in the request when you created the specified query task.
      *
      * This parameter is required.
+     *
      * @example 1570809600000
      *
      * @var int
@@ -69,24 +72,23 @@ class OnsMessagePageQueryByTopicRequest extends Model
      * @description The name of the topic whose messages you want to query.
      *
      * This parameter is required.
+     *
      * @example test-mq_topic
      *
      * @var string
      */
     public $topic;
     protected $_name = [
-        'beginTime'   => 'BeginTime',
+        'beginTime' => 'BeginTime',
         'currentPage' => 'CurrentPage',
-        'endTime'     => 'EndTime',
-        'instanceId'  => 'InstanceId',
-        'pageSize'    => 'PageSize',
-        'taskId'      => 'TaskId',
-        'topic'       => 'Topic',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'pageSize' => 'PageSize',
+        'taskId' => 'TaskId',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -27,12 +27,10 @@ class subscriptionDataList extends Model
     public $topic;
     protected $_name = [
         'subString' => 'SubString',
-        'topic'     => 'Topic',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

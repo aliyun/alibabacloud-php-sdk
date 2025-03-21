@@ -94,20 +94,18 @@ class subscribeInfoDo extends Model
      */
     public $updateTime;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'groupId'           => 'GroupId',
-        'groupType'         => 'GroupType',
+        'createTime' => 'CreateTime',
+        'groupId' => 'GroupId',
+        'groupType' => 'GroupType',
         'independentNaming' => 'IndependentNaming',
-        'instanceId'        => 'InstanceId',
-        'owner'             => 'Owner',
-        'remark'            => 'Remark',
-        'tags'              => 'Tags',
-        'updateTime'        => 'UpdateTime',
+        'instanceId' => 'InstanceId',
+        'owner' => 'Owner',
+        'remark' => 'Remark',
+        'tags' => 'Tags',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

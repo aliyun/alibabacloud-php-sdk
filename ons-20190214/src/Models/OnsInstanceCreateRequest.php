@@ -15,6 +15,7 @@ class OnsInstanceCreateRequest extends Model
      *   The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
      *
      * This parameter is required.
+     *
      * @example Test instance
      *
      * @var string
@@ -31,12 +32,10 @@ class OnsInstanceCreateRequest extends Model
     public $remark;
     protected $_name = [
         'instanceName' => 'InstanceName',
-        'remark'       => 'Remark',
+        'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

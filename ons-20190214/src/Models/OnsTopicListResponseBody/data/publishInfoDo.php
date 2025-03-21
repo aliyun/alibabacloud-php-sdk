@@ -123,22 +123,20 @@ class publishInfoDo extends Model
      */
     public $topic;
     protected $_name = [
-        'createTime'        => 'CreateTime',
+        'createTime' => 'CreateTime',
         'independentNaming' => 'IndependentNaming',
-        'instanceId'        => 'InstanceId',
-        'messageType'       => 'MessageType',
-        'owner'             => 'Owner',
-        'relation'          => 'Relation',
-        'relationName'      => 'RelationName',
-        'remark'            => 'Remark',
-        'serviceStatus'     => 'ServiceStatus',
-        'tags'              => 'Tags',
-        'topic'             => 'Topic',
+        'instanceId' => 'InstanceId',
+        'messageType' => 'MessageType',
+        'owner' => 'Owner',
+        'relation' => 'Relation',
+        'relationName' => 'RelationName',
+        'remark' => 'Remark',
+        'serviceStatus' => 'ServiceStatus',
+        'tags' => 'Tags',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

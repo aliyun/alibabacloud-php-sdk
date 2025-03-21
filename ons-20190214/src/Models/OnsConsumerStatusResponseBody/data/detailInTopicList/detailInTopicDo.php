@@ -21,6 +21,7 @@ class detailInTopicDo extends Model
      * @description The most recent point in time when a message was consumed.
      *
      * The value of this parameter is a UNIX timestamp in milliseconds.
+     *
      * @example 1570701259403
      *
      * @var int
@@ -45,15 +46,13 @@ class detailInTopicDo extends Model
      */
     public $totalDiff;
     protected $_name = [
-        'delayTime'     => 'DelayTime',
+        'delayTime' => 'DelayTime',
         'lastTimestamp' => 'LastTimestamp',
-        'topic'         => 'Topic',
-        'totalDiff'     => 'TotalDiff',
+        'topic' => 'Topic',
+        'totalDiff' => 'TotalDiff',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class OnsConsumerTimeSpanRequest extends Model
      * @description The ID of the consumer group whose reset time range you want to query.
      *
      * This parameter is required.
+     *
      * @example GID_test_group_id
      *
      * @var string
@@ -31,20 +32,19 @@ class OnsConsumerTimeSpanRequest extends Model
      * @description The topic to which the consumer group subscribes.
      *
      * This parameter is required.
+     *
      * @example test-mq_topic
      *
      * @var string
      */
     public $topic;
     protected $_name = [
-        'groupId'    => 'GroupId',
+        'groupId' => 'GroupId',
         'instanceId' => 'InstanceId',
-        'topic'      => 'Topic',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

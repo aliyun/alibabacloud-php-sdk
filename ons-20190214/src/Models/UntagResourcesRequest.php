@@ -30,6 +30,7 @@ class UntagResourcesRequest extends Model
      * @description The resource IDs.
      *
      * This parameter is required.
+     *
      * @example TopicA
      *
      * @var string[]
@@ -44,6 +45,7 @@ class UntagResourcesRequest extends Model
      *   **GROUP**
      *
      * This parameter is required.
+     *
      * @example TOPIC
      *
      * @var string
@@ -59,16 +61,14 @@ class UntagResourcesRequest extends Model
      */
     public $tagKey;
     protected $_name = [
-        'all'          => 'All',
-        'instanceId'   => 'InstanceId',
-        'resourceId'   => 'ResourceId',
+        'all' => 'All',
+        'instanceId' => 'InstanceId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tagKey'       => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

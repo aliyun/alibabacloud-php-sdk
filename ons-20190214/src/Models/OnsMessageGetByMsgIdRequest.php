@@ -21,6 +21,7 @@ class OnsMessageGetByMsgIdRequest extends Model
      * @description The ID of the message that you want to query.
      *
      * This parameter is required.
+     *
      * @example 1E0578FE110F18B4AAC235C05F2*****
      *
      * @var string
@@ -31,6 +32,7 @@ class OnsMessageGetByMsgIdRequest extends Model
      * @description The topic that contains the message you want to query.
      *
      * This parameter is required.
+     *
      * @example test-mq_topic
      *
      * @var string
@@ -38,13 +40,11 @@ class OnsMessageGetByMsgIdRequest extends Model
     public $topic;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'msgId'      => 'MsgId',
-        'topic'      => 'Topic',
+        'msgId' => 'MsgId',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

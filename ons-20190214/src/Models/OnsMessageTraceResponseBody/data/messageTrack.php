@@ -42,13 +42,11 @@ class messageTrack extends Model
     public $trackType;
     protected $_name = [
         'consumerGroup' => 'ConsumerGroup',
-        'instanceId'    => 'InstanceId',
-        'trackType'     => 'TrackType',
+        'instanceId' => 'InstanceId',
+        'trackType' => 'TrackType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,12 +26,10 @@ class OnsInstanceBaseInfoResponseBody extends Model
     public $requestId;
     protected $_name = [
         'instanceBaseInfo' => 'InstanceBaseInfo',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

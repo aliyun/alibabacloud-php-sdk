@@ -17,9 +17,7 @@ class data extends Model
         'subscribeInfoDo' => 'SubscribeInfoDo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class data extends Model
         if (isset($map['SubscribeInfoDo'])) {
             if (!empty($map['SubscribeInfoDo'])) {
                 $model->subscribeInfoDo = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['SubscribeInfoDo'] as $item) {
                     $model->subscribeInfoDo[$n++] = null !== $item ? subscribeInfoDo::fromMap($item) : $item;
                 }

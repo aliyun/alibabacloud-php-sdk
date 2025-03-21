@@ -17,9 +17,7 @@ class data extends Model
         'messageTrack' => 'MessageTrack',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class data extends Model
         if (isset($map['MessageTrack'])) {
             if (!empty($map['MessageTrack'])) {
                 $model->messageTrack = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['MessageTrack'] as $item) {
                     $model->messageTrack[$n++] = null !== $item ? messageTrack::fromMap($item) : $item;
                 }

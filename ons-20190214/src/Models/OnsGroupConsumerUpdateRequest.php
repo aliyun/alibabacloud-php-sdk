@@ -12,6 +12,7 @@ class OnsGroupConsumerUpdateRequest extends Model
      * @description The ID of the consumer group for which you want to configure read permissions.
      *
      * This parameter is required.
+     *
      * @example GID_test_groupId
      *
      * @var string
@@ -36,20 +37,19 @@ class OnsGroupConsumerUpdateRequest extends Model
      * Default value: **true**.
      *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
      */
     public $readEnable;
     protected $_name = [
-        'groupId'    => 'GroupId',
+        'groupId' => 'GroupId',
         'instanceId' => 'InstanceId',
         'readEnable' => 'ReadEnable',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

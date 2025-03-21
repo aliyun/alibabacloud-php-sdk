@@ -62,16 +62,14 @@ class endpoints extends Model
      */
     public $tcpInternetEndpoint;
     protected $_name = [
-        'httpInternalEndpoint'       => 'HttpInternalEndpoint',
-        'httpInternetEndpoint'       => 'HttpInternetEndpoint',
+        'httpInternalEndpoint' => 'HttpInternalEndpoint',
+        'httpInternetEndpoint' => 'HttpInternetEndpoint',
         'httpInternetSecureEndpoint' => 'HttpInternetSecureEndpoint',
-        'tcpEndpoint'                => 'TcpEndpoint',
-        'tcpInternetEndpoint'        => 'TcpInternetEndpoint',
+        'tcpEndpoint' => 'TcpEndpoint',
+        'tcpInternetEndpoint' => 'TcpInternetEndpoint',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -50,6 +50,7 @@ class instanceBaseInfo extends Model
      * @description The name of the instance.
      *
      * The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+     *
      * @example test
      *
      * @var string
@@ -77,6 +78,7 @@ class instanceBaseInfo extends Model
      *   **2**: Enterprise Platinum Edition instances that use the subscription billing method.
      *
      * For information about the editions and specifications of ApsaraMQ for RocketMQ instances, see [Instance editions](https://help.aliyun.com/document_detail/185261.html).
+     *
      * @example 2
      *
      * @var int
@@ -86,7 +88,10 @@ class instanceBaseInfo extends Model
     /**
      * @description The maximum messaging transactions per second (TPS). Valid values: 5000, 10000, 20000, 50000, 100000, 200000, 300000, 500000, 800000, and 1000000.
      *
+     * You can view the details about messaging TPS on the buy page of ApsaraMQ for RocketMQ.
+     *
      * > This parameter is available only to the ApsaraMQ for RocketMQ Enterprise Platinum Edition instances.
+     *
      * @example 10000
      *
      * @var int
@@ -115,6 +120,7 @@ class instanceBaseInfo extends Model
      * @description The maximum number of topics that can be created on the instance. Valid values: 25, 50, 100, 300, and 500.
      *
      * > This parameter is available only to the ApsaraMQ for RocketMQ Enterprise Platinum Edition instances.
+     *
      * @example 50
      *
      * @var int
@@ -139,24 +145,22 @@ class instanceBaseInfo extends Model
      */
     public $spInstanceType;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'endpoints'         => 'Endpoints',
+        'createTime' => 'CreateTime',
+        'endpoints' => 'Endpoints',
         'independentNaming' => 'IndependentNaming',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
-        'instanceStatus'    => 'InstanceStatus',
-        'instanceType'      => 'InstanceType',
-        'maxTps'            => 'MaxTps',
-        'releaseTime'       => 'ReleaseTime',
-        'remark'            => 'Remark',
-        'topicCapacity'     => 'TopicCapacity',
-        'spInstanceId'      => 'spInstanceId',
-        'spInstanceType'    => 'spInstanceType',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'instanceStatus' => 'InstanceStatus',
+        'instanceType' => 'InstanceType',
+        'maxTps' => 'MaxTps',
+        'releaseTime' => 'ReleaseTime',
+        'remark' => 'Remark',
+        'topicCapacity' => 'TopicCapacity',
+        'spInstanceId' => 'spInstanceId',
+        'spInstanceType' => 'spInstanceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

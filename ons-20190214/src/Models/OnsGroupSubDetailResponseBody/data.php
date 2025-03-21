@@ -25,6 +25,7 @@ class data extends Model
      *   **BROADCASTING**: the broadcasting consumption mode
      *
      * For more information about consumption modes, see [Clustering consumption and broadcasting consumption](https://help.aliyun.com/document_detail/43163.html).
+     *
      * @example CLUSTERING
      *
      * @var string
@@ -47,15 +48,13 @@ class data extends Model
      */
     public $subscriptionDataList;
     protected $_name = [
-        'groupId'              => 'GroupId',
-        'messageModel'         => 'MessageModel',
-        'online'               => 'Online',
+        'groupId' => 'GroupId',
+        'messageModel' => 'MessageModel',
+        'online' => 'Online',
         'subscriptionDataList' => 'SubscriptionDataList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class OnsTopicStatusRequest extends Model
      * @description The name of the topic that you want to query.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -28,12 +29,10 @@ class OnsTopicStatusRequest extends Model
     public $topic;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'topic'      => 'Topic',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

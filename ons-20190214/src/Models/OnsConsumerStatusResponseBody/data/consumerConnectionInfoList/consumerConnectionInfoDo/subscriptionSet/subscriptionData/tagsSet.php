@@ -16,9 +16,7 @@ class tagsSet extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

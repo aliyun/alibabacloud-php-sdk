@@ -17,9 +17,7 @@ class subscriptionSet extends Model
         'subscriptionData' => 'SubscriptionData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class subscriptionSet extends Model
         if (isset($map['SubscriptionData'])) {
             if (!empty($map['SubscriptionData'])) {
                 $model->subscriptionData = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['SubscriptionData'] as $item) {
                     $model->subscriptionData[$n++] = null !== $item ? subscriptionData::fromMap($item) : $item;
                 }

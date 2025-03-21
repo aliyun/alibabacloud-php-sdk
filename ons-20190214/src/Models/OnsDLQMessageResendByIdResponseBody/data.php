@@ -16,9 +16,7 @@ class data extends Model
         'msgId' => 'MsgId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -28,13 +28,11 @@ class data extends Model
      */
     public $instanceType;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

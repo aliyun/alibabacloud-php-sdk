@@ -26,13 +26,11 @@ class OnsTraceQueryByMsgIdResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'queryId'   => 'QueryId',
+        'queryId' => 'QueryId',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

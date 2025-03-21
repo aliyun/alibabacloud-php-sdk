@@ -106,22 +106,20 @@ class onsRestMessageDo extends Model
      */
     public $topic;
     protected $_name = [
-        'bodyCRC'        => 'BodyCRC',
-        'bornHost'       => 'BornHost',
-        'bornTimestamp'  => 'BornTimestamp',
-        'instanceId'     => 'InstanceId',
-        'msgId'          => 'MsgId',
-        'propertyList'   => 'PropertyList',
+        'bodyCRC' => 'BodyCRC',
+        'bornHost' => 'BornHost',
+        'bornTimestamp' => 'BornTimestamp',
+        'instanceId' => 'InstanceId',
+        'msgId' => 'MsgId',
+        'propertyList' => 'PropertyList',
         'reconsumeTimes' => 'ReconsumeTimes',
-        'storeHost'      => 'StoreHost',
-        'storeSize'      => 'StoreSize',
+        'storeHost' => 'StoreHost',
+        'storeSize' => 'StoreSize',
         'storeTimestamp' => 'StoreTimestamp',
-        'topic'          => 'Topic',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

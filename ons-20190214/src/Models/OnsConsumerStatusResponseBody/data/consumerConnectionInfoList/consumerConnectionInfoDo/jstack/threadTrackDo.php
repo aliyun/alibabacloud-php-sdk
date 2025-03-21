@@ -25,13 +25,11 @@ class threadTrackDo extends Model
      */
     public $trackList;
     protected $_name = [
-        'thread'    => 'Thread',
+        'thread' => 'Thread',
         'trackList' => 'TrackList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

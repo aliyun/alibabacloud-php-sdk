@@ -15,6 +15,7 @@ class tag extends Model
      *   The tag value must be 1 to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
      *
      * This parameter is required.
+     *
      * @example CartService
      *
      * @var string
@@ -28,19 +29,18 @@ class tag extends Model
      *   The tag key must be 1 to 128 characters in length and cannot contain `http://` or `https://`. It cannot start with `acs:` or `aliyun`.
      *
      * This parameter is required.
+     *
      * @example ServiceA
      *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

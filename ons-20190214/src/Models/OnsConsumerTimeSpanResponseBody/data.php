@@ -54,15 +54,13 @@ class data extends Model
     public $topic;
     protected $_name = [
         'consumeTimeStamp' => 'ConsumeTimeStamp',
-        'instanceId'       => 'InstanceId',
-        'maxTimeStamp'     => 'MaxTimeStamp',
-        'minTimeStamp'     => 'MinTimeStamp',
-        'topic'            => 'Topic',
+        'instanceId' => 'InstanceId',
+        'maxTimeStamp' => 'MaxTimeStamp',
+        'minTimeStamp' => 'MinTimeStamp',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

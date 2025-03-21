@@ -21,6 +21,7 @@ class OnsMessageGetByKeyRequest extends Model
      * @description The key of the messages that you want to query.
      *
      * This parameter is required.
+     *
      * @example messageKey1
      *
      * @var string
@@ -31,6 +32,7 @@ class OnsMessageGetByKeyRequest extends Model
      * @description The topic that contains the messages that you want to query.
      *
      * This parameter is required.
+     *
      * @example test-mq_topic
      *
      * @var string
@@ -38,13 +40,11 @@ class OnsMessageGetByKeyRequest extends Model
     public $topic;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'key'        => 'Key',
-        'topic'      => 'Topic',
+        'key' => 'Key',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

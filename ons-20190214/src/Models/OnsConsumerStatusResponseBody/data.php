@@ -25,6 +25,7 @@ class data extends Model
      *   **BROADCASTING**: the broadcasting consumption mode
      *
      * For more information about consumption modes, see [Clustering consumption and broadcasting consumption](https://help.aliyun.com/document_detail/43163.html).
+     *
      * @example CLUSTERING
      *
      * @var string
@@ -76,6 +77,7 @@ class data extends Model
      * @description The most recent point in time when a message was consumed.
      *
      * The value of this parameter is a UNIX timestamp in milliseconds.
+     *
      * @example 1566883844954
      *
      * @var int
@@ -121,23 +123,21 @@ class data extends Model
      */
     public $totalDiff;
     protected $_name = [
-        'connectionSet'              => 'ConnectionSet',
-        'consumeModel'               => 'ConsumeModel',
-        'consumeTps'                 => 'ConsumeTps',
+        'connectionSet' => 'ConnectionSet',
+        'consumeModel' => 'ConsumeModel',
+        'consumeTps' => 'ConsumeTps',
         'consumerConnectionInfoList' => 'ConsumerConnectionInfoList',
-        'delayTime'                  => 'DelayTime',
-        'detailInTopicList'          => 'DetailInTopicList',
-        'instanceId'                 => 'InstanceId',
-        'lastTimestamp'              => 'LastTimestamp',
-        'online'                     => 'Online',
-        'rebalanceOK'                => 'RebalanceOK',
-        'subscriptionSame'           => 'SubscriptionSame',
-        'totalDiff'                  => 'TotalDiff',
+        'delayTime' => 'DelayTime',
+        'detailInTopicList' => 'DetailInTopicList',
+        'instanceId' => 'InstanceId',
+        'lastTimestamp' => 'LastTimestamp',
+        'online' => 'Online',
+        'rebalanceOK' => 'RebalanceOK',
+        'subscriptionSame' => 'SubscriptionSame',
+        'totalDiff' => 'TotalDiff',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

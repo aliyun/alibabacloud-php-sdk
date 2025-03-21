@@ -44,14 +44,12 @@ class data extends Model
     public $YUnit;
     protected $_name = [
         'records' => 'Records',
-        'title'   => 'Title',
-        'XUnit'   => 'XUnit',
-        'YUnit'   => 'YUnit',
+        'title' => 'Title',
+        'XUnit' => 'XUnit',
+        'YUnit' => 'YUnit',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

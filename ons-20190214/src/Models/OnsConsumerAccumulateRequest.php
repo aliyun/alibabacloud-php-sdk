@@ -24,6 +24,7 @@ class OnsConsumerAccumulateRequest extends Model
      * @description The ID of the consumer group.
      *
      * This parameter is required.
+     *
      * @example GID_test_consumer_id
      *
      * @var string
@@ -39,14 +40,12 @@ class OnsConsumerAccumulateRequest extends Model
      */
     public $instanceId;
     protected $_name = [
-        'detail'     => 'Detail',
-        'groupId'    => 'GroupId',
+        'detail' => 'Detail',
+        'groupId' => 'GroupId',
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -63,16 +63,14 @@ class regionDo extends Model
     public $updateTime;
     protected $_name = [
         'channelName' => 'ChannelName',
-        'createTime'  => 'CreateTime',
-        'id'          => 'Id',
+        'createTime' => 'CreateTime',
+        'id' => 'Id',
         'onsRegionId' => 'OnsRegionId',
-        'regionName'  => 'RegionName',
-        'updateTime'  => 'UpdateTime',
+        'regionName' => 'RegionName',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

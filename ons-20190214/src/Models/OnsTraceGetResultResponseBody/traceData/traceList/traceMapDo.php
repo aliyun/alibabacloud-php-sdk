@@ -103,21 +103,19 @@ class traceMapDo extends Model
      */
     public $topic;
     protected $_name = [
-        'bornHost'     => 'BornHost',
-        'costTime'     => 'CostTime',
-        'msgId'        => 'MsgId',
-        'msgKey'       => 'MsgKey',
+        'bornHost' => 'BornHost',
+        'costTime' => 'CostTime',
+        'msgId' => 'MsgId',
+        'msgKey' => 'MsgKey',
         'pubGroupName' => 'PubGroupName',
-        'pubTime'      => 'PubTime',
-        'status'       => 'Status',
-        'subList'      => 'SubList',
-        'tag'          => 'Tag',
-        'topic'        => 'Topic',
+        'pubTime' => 'PubTime',
+        'status' => 'Status',
+        'subList' => 'SubList',
+        'tag' => 'Tag',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

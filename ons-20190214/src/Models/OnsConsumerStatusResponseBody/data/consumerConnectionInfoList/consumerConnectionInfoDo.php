@@ -36,6 +36,7 @@ class consumerConnectionInfoDo extends Model
      *   **BROADCASTING**: the broadcasting consumption mode
      *
      * For more information about consumption modes, see [Clustering consumption and broadcasting consumption](https://help.aliyun.com/document_detail/43163.html).
+     *
      * @example CLUSTERING
      *
      * @var string
@@ -74,6 +75,7 @@ class consumerConnectionInfoDo extends Model
      * @description The most recent point in time when a message was consumed.
      *
      * The value of this parameter is a UNIX timestamp in milliseconds.
+     *
      * @example 1570701368114
      *
      * @var int
@@ -91,6 +93,7 @@ class consumerConnectionInfoDo extends Model
      * @description The earliest point in time when a message was consumed.
      *
      * The value of this parameter is a UNIX timestamp in milliseconds.
+     *
      * @example 1570701361528
      *
      * @var int
@@ -122,23 +125,21 @@ class consumerConnectionInfoDo extends Model
      */
     public $version;
     protected $_name = [
-        'clientId'        => 'ClientId',
-        'connection'      => 'Connection',
-        'consumeModel'    => 'ConsumeModel',
-        'consumeType'     => 'ConsumeType',
-        'jstack'          => 'Jstack',
-        'language'        => 'Language',
-        'lastTimeStamp'   => 'LastTimeStamp',
+        'clientId' => 'ClientId',
+        'connection' => 'Connection',
+        'consumeModel' => 'ConsumeModel',
+        'consumeType' => 'ConsumeType',
+        'jstack' => 'Jstack',
+        'language' => 'Language',
+        'lastTimeStamp' => 'LastTimeStamp',
         'runningDataList' => 'RunningDataList',
-        'startTimeStamp'  => 'StartTimeStamp',
+        'startTimeStamp' => 'StartTimeStamp',
         'subscriptionSet' => 'SubscriptionSet',
-        'threadCount'     => 'ThreadCount',
-        'version'         => 'Version',
+        'threadCount' => 'ThreadCount',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

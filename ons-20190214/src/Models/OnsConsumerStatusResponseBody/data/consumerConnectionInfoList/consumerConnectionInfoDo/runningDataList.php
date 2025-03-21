@@ -17,9 +17,7 @@ class runningDataList extends Model
         'consumerRunningDataDo' => 'ConsumerRunningDataDo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class runningDataList extends Model
         if (isset($map['ConsumerRunningDataDo'])) {
             if (!empty($map['ConsumerRunningDataDo'])) {
                 $model->consumerRunningDataDo = [];
-                $n                            = 0;
+                $n = 0;
                 foreach ($map['ConsumerRunningDataDo'] as $item) {
                     $model->consumerRunningDataDo[$n++] = null !== $item ? consumerRunningDataDo::fromMap($item) : $item;
                 }

@@ -17,9 +17,7 @@ class subList extends Model
         'subMapDo' => 'SubMapDo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class subList extends Model
         if (isset($map['SubMapDo'])) {
             if (!empty($map['SubMapDo'])) {
                 $model->subMapDo = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['SubMapDo'] as $item) {
                     $model->subMapDo[$n++] = null !== $item ? subMapDo::fromMap($item) : $item;
                 }

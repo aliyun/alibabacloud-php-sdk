@@ -12,6 +12,7 @@ class OnsDLQMessageGetByIdRequest extends Model
      * @description The ID of the consumer group whose dead-letter message you want to query.
      *
      * This parameter is required.
+     *
      * @example GID_test_group_id
      *
      * @var string
@@ -31,20 +32,19 @@ class OnsDLQMessageGetByIdRequest extends Model
      * @description The ID of the dead-letter message that you want to query.
      *
      * This parameter is required.
+     *
      * @example 0BC16699165C03B925DB8A404E2D****
      *
      * @var string
      */
     public $msgId;
     protected $_name = [
-        'groupId'    => 'GroupId',
+        'groupId' => 'GroupId',
         'instanceId' => 'InstanceId',
-        'msgId'      => 'MsgId',
+        'msgId' => 'MsgId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

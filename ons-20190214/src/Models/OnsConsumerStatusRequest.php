@@ -24,6 +24,7 @@ class OnsConsumerStatusRequest extends Model
      * @description The ID of the consumer group whose details you want to query.
      *
      * This parameter is required.
+     *
      * @example GID_test_group_id
      *
      * @var string
@@ -54,15 +55,13 @@ class OnsConsumerStatusRequest extends Model
      */
     public $needJstack;
     protected $_name = [
-        'detail'     => 'Detail',
-        'groupId'    => 'GroupId',
+        'detail' => 'Detail',
+        'groupId' => 'GroupId',
         'instanceId' => 'InstanceId',
         'needJstack' => 'NeedJstack',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

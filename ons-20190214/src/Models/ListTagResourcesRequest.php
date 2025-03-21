@@ -13,6 +13,7 @@ class ListTagResourcesRequest extends Model
      * @description The ID of the ApsaraMQ for RocketMQ instance to which the resource whose tags you want to query belongs.
      *
      * > This parameter is required when you query the tags of a topic or a group.
+     *
      * @example MQ_INST_188077086902****_BXSuW61e
      *
      * @var string
@@ -45,6 +46,7 @@ class ListTagResourcesRequest extends Model
      *   **GROUP**
      *
      * This parameter is required.
+     *
      * @example TOPIC
      *
      * @var string
@@ -58,16 +60,14 @@ class ListTagResourcesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'nextToken'    => 'NextToken',
-        'resourceId'   => 'ResourceId',
+        'instanceId' => 'InstanceId',
+        'nextToken' => 'NextToken',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -122,7 +122,7 @@ class ListTagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

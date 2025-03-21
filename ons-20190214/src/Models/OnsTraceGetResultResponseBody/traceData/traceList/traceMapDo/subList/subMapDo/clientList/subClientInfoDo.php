@@ -68,17 +68,15 @@ class subClientInfoDo extends Model
      */
     public $subTime;
     protected $_name = [
-        'clientHost'     => 'ClientHost',
-        'costTime'       => 'CostTime',
+        'clientHost' => 'ClientHost',
+        'costTime' => 'CostTime',
         'reconsumeTimes' => 'ReconsumeTimes',
-        'status'         => 'Status',
-        'subGroupName'   => 'SubGroupName',
-        'subTime'        => 'SubTime',
+        'status' => 'Status',
+        'subGroupName' => 'SubGroupName',
+        'subTime' => 'SubTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

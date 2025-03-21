@@ -17,9 +17,7 @@ class data extends Model
         'publishInfoDo' => 'PublishInfoDo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class data extends Model
         if (isset($map['PublishInfoDo'])) {
             if (!empty($map['PublishInfoDo'])) {
                 $model->publishInfoDo = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['PublishInfoDo'] as $item) {
                     $model->publishInfoDo[$n++] = null !== $item ? publishInfoDo::fromMap($item) : $item;
                 }

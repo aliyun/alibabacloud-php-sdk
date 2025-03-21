@@ -12,6 +12,7 @@ class OnsInstanceDeleteRequest extends Model
      * @description The ID of the instance.
      *
      * This parameter is required.
+     *
      * @example MQ_INST_188077086902****_BXSuW61e
      *
      * @var string
@@ -21,9 +22,7 @@ class OnsInstanceDeleteRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

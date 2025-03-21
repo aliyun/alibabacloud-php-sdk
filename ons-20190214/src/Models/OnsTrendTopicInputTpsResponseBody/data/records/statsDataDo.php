@@ -30,9 +30,7 @@ class statsDataDo extends Model
         'y' => 'Y',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

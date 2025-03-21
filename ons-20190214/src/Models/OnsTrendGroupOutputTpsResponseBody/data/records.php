@@ -17,9 +17,7 @@ class records extends Model
         'statsDataDo' => 'StatsDataDo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class records extends Model
         if (isset($map['StatsDataDo'])) {
             if (!empty($map['StatsDataDo'])) {
                 $model->statsDataDo = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['StatsDataDo'] as $item) {
                     $model->statsDataDo[$n++] = null !== $item ? statsDataDo::fromMap($item) : $item;
                 }

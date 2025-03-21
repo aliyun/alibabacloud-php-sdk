@@ -17,9 +17,7 @@ class consumerConnectionInfoList extends Model
         'consumerConnectionInfoDo' => 'ConsumerConnectionInfoDo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class consumerConnectionInfoList extends Model
         if (isset($map['ConsumerConnectionInfoDo'])) {
             if (!empty($map['ConsumerConnectionInfoDo'])) {
                 $model->consumerConnectionInfoDo = [];
-                $n                               = 0;
+                $n = 0;
                 foreach ($map['ConsumerConnectionInfoDo'] as $item) {
                     $model->consumerConnectionInfoDo[$n++] = null !== $item ? consumerConnectionInfoDo::fromMap($item) : $item;
                 }

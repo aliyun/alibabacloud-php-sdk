@@ -14,6 +14,7 @@ class tag extends Model
      *   A tag key must be 1 to 128 characters in length and cannot contain `http://` or `https://`. A tag key cannot start with `acs:` or `aliyun`.
      *
      * This parameter is required.
+     *
      * @example FinanceDept
      *
      * @var string
@@ -26,19 +27,18 @@ class tag extends Model
      *   A tag value must be 1 to 128 characters in length and cannot contain `http://` or `https://`. A tag value cannot start with `acs:` or `aliyun`.
      *
      * This parameter is required.
+     *
      * @example FinanceJoshua
      *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

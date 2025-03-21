@@ -12,6 +12,7 @@ class OnsTraceQueryByMsgIdRequest extends Model
      * @description The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
      *
      * This parameter is required.
+     *
      * @example 1570852800000
      *
      * @var int
@@ -22,6 +23,7 @@ class OnsTraceQueryByMsgIdRequest extends Model
      * @description The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
      *
      * This parameter is required.
+     *
      * @example 1570968000000
      *
      * @var int
@@ -41,6 +43,7 @@ class OnsTraceQueryByMsgIdRequest extends Model
      * @description The ID of the message that you want to query.
      *
      * This parameter is required.
+     *
      * @example 1E05791C117818B4AAC23B1BB0CE****
      *
      * @var string
@@ -51,22 +54,21 @@ class OnsTraceQueryByMsgIdRequest extends Model
      * @description The topic that contains the message you want to query.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
      */
     public $topic;
     protected $_name = [
-        'beginTime'  => 'BeginTime',
-        'endTime'    => 'EndTime',
+        'beginTime' => 'BeginTime',
+        'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
-        'msgId'      => 'MsgId',
-        'topic'      => 'Topic',
+        'msgId' => 'MsgId',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

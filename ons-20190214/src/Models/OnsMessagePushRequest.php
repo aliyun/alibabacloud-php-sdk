@@ -12,6 +12,7 @@ class OnsMessagePushRequest extends Model
      * @description The ID of the consumer client. You can call the [OnsConsumerGetConnection](https://help.aliyun.com/document_detail/29598.html) operation to query client IDs.
      *
      * This parameter is required.
+     *
      * @example 30.5.121.**@24813#-1999745829#-1737591554#453111174894656
      *
      * @var string
@@ -22,6 +23,7 @@ class OnsMessagePushRequest extends Model
      * @description The ID of the consumer group. For information about what a consumer group is, see [Terms](https://help.aliyun.com/document_detail/29533.html).
      *
      * This parameter is required.
+     *
      * @example GID_test_group_id
      *
      * @var string
@@ -41,6 +43,7 @@ class OnsMessagePushRequest extends Model
      * @description The ID of the message.
      *
      * This parameter is required.
+     *
      * @example 0BC1669963053CF68F733BB70396****
      *
      * @var string
@@ -51,22 +54,21 @@ class OnsMessagePushRequest extends Model
      * @description The topic to which the message is pushed.
      *
      * This parameter is required.
+     *
      * @example test-mq_topic
      *
      * @var string
      */
     public $topic;
     protected $_name = [
-        'clientId'   => 'ClientId',
-        'groupId'    => 'GroupId',
+        'clientId' => 'ClientId',
+        'groupId' => 'GroupId',
         'instanceId' => 'InstanceId',
-        'msgId'      => 'MsgId',
-        'topic'      => 'Topic',
+        'msgId' => 'MsgId',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

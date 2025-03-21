@@ -44,15 +44,13 @@ class detailInTopicDo extends Model
      */
     public $totalDiff;
     protected $_name = [
-        'delayTime'     => 'DelayTime',
+        'delayTime' => 'DelayTime',
         'lastTimestamp' => 'LastTimestamp',
-        'topic'         => 'Topic',
-        'totalDiff'     => 'TotalDiff',
+        'topic' => 'Topic',
+        'totalDiff' => 'TotalDiff',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

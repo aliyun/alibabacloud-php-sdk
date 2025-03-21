@@ -22,6 +22,7 @@ class OnsGroupCreateRequest extends Model
      *   To check whether an instance uses a namespace, log on to the ApsaraMQ for RocketMQ console, go to the **Instance Details** page, and then view the value of the Namespace field in the **Basic Information** section.
      *
      * This parameter is required.
+     *
      * @example GID_test_groupId
      *
      * @var string
@@ -58,15 +59,13 @@ class OnsGroupCreateRequest extends Model
      */
     public $remark;
     protected $_name = [
-        'groupId'    => 'GroupId',
-        'groupType'  => 'GroupType',
+        'groupId' => 'GroupId',
+        'groupType' => 'GroupType',
         'instanceId' => 'InstanceId',
-        'remark'     => 'Remark',
+        'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

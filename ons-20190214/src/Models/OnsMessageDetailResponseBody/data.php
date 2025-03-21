@@ -124,24 +124,22 @@ class data extends Model
      */
     public $topic;
     protected $_name = [
-        'body'           => 'Body',
-        'bodyCRC'        => 'BodyCRC',
-        'bodyStr'        => 'BodyStr',
-        'bornHost'       => 'BornHost',
-        'bornTimestamp'  => 'BornTimestamp',
-        'instanceId'     => 'InstanceId',
-        'msgId'          => 'MsgId',
-        'propertyList'   => 'PropertyList',
+        'body' => 'Body',
+        'bodyCRC' => 'BodyCRC',
+        'bodyStr' => 'BodyStr',
+        'bornHost' => 'BornHost',
+        'bornTimestamp' => 'BornTimestamp',
+        'instanceId' => 'InstanceId',
+        'msgId' => 'MsgId',
+        'propertyList' => 'PropertyList',
         'reconsumeTimes' => 'ReconsumeTimes',
-        'storeHost'      => 'StoreHost',
-        'storeSize'      => 'StoreSize',
+        'storeHost' => 'StoreHost',
+        'storeSize' => 'StoreSize',
         'storeTimestamp' => 'StoreTimestamp',
-        'topic'          => 'Topic',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -227,7 +225,7 @@ class data extends Model
         if (isset($map['PropertyList'])) {
             if (!empty($map['PropertyList'])) {
                 $model->propertyList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['PropertyList'] as $item) {
                     $model->propertyList[$n++] = null !== $item ? propertyList::fromMap($item) : $item;
                 }

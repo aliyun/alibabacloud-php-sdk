@@ -17,9 +17,7 @@ class connectionSet extends Model
         'connectionDo' => 'ConnectionDo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class connectionSet extends Model
         if (isset($map['ConnectionDo'])) {
             if (!empty($map['ConnectionDo'])) {
                 $model->connectionDo = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ConnectionDo'] as $item) {
                     $model->connectionDo[$n++] = null !== $item ? connectionDo::fromMap($item) : $item;
                 }

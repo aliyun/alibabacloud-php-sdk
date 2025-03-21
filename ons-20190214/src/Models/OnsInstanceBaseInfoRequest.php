@@ -12,6 +12,7 @@ class OnsInstanceBaseInfoRequest extends Model
      * @description The ID of the instance that you want to query.
      *
      * This parameter is required.
+     *
      * @example MQ_INST_138015630679****_BAAy1Hac
      *
      * @var string
@@ -21,9 +22,7 @@ class OnsInstanceBaseInfoRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

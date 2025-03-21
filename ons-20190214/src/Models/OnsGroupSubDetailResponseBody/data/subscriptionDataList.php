@@ -9,16 +9,14 @@ use AlibabaCloud\Tea\Model;
 class subscriptionDataList extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Ons\V20190214\Models\OnsGroupSubDetailResponseBody\data\subscriptionDataList\subscriptionDataList[]
+     * @var subscriptionDataList\subscriptionDataList[]
      */
     public $subscriptionDataList;
     protected $_name = [
         'subscriptionDataList' => 'SubscriptionDataList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -47,9 +45,9 @@ class subscriptionDataList extends Model
         if (isset($map['SubscriptionDataList'])) {
             if (!empty($map['SubscriptionDataList'])) {
                 $model->subscriptionDataList = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['SubscriptionDataList'] as $item) {
-                    $model->subscriptionDataList[$n++] = null !== $item ? \AlibabaCloud\SDK\Ons\V20190214\Models\OnsGroupSubDetailResponseBody\data\subscriptionDataList\subscriptionDataList::fromMap($item) : $item;
+                    $model->subscriptionDataList[$n++] = null !== $item ? subscriptionDataList\subscriptionDataList::fromMap($item) : $item;
                 }
             }
         }

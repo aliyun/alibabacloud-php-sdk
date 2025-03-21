@@ -12,6 +12,7 @@ class OnsConsumerGetConnectionRequest extends Model
      * @description The ID of the consumer group whose client connection status you want to query.
      *
      * This parameter is required.
+     *
      * @example GID_test_consumer_id
      *
      * @var string
@@ -27,13 +28,11 @@ class OnsConsumerGetConnectionRequest extends Model
      */
     public $instanceId;
     protected $_name = [
-        'groupId'    => 'GroupId',
+        'groupId' => 'GroupId',
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

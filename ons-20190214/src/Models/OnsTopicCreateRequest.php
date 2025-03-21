@@ -26,7 +26,10 @@ class OnsTopicCreateRequest extends Model
      *   **4**: transactional messages
      *   **5**: scheduled or delayed messages
      *
+     * For more information about message types, see [Message types](https://help.aliyun.com/document_detail/155952.html).
+     *
      * This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -53,21 +56,20 @@ class OnsTopicCreateRequest extends Model
      * > To check whether an instance uses a namespace, log on to the ApsaraMQ for RocketMQ console, go to the **Instance Details** page, and then view the value of the Namespace field in the **Basic Information** section.
      *
      * This parameter is required.
+     *
      * @example test
      *
      * @var string
      */
     public $topic;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'messageType' => 'MessageType',
-        'remark'      => 'Remark',
-        'topic'       => 'Topic',
+        'remark' => 'Remark',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

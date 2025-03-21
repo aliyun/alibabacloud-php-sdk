@@ -54,15 +54,13 @@ class consumerRunningDataDo extends Model
     public $topic;
     protected $_name = [
         'failedCountPerHour' => 'FailedCountPerHour',
-        'failedTps'          => 'FailedTps',
-        'okTps'              => 'OkTps',
-        'rt'                 => 'Rt',
-        'topic'              => 'Topic',
+        'failedTps' => 'FailedTps',
+        'okTps' => 'OkTps',
+        'rt' => 'Rt',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

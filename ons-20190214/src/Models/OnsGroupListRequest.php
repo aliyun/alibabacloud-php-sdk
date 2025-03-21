@@ -13,6 +13,7 @@ class OnsGroupListRequest extends Model
      * @description This parameter is required only when you query specific consumer groups by using the fuzzy search method. If this parameter is not configured, the system queries all consumer groups that can be accessed by the current account.
      *
      * If you set this parameter to GID_ABC, the information about the consumer groups whose IDs contain GID_ABC is returned. For example, the information about the GID_test_GID_ABC_123 and GID_ABC_356 consumer groups is returned.
+     *
      * @example GID_test_group_id
      *
      * @var string
@@ -47,15 +48,13 @@ class OnsGroupListRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'groupId'    => 'GroupId',
-        'groupType'  => 'GroupType',
+        'groupId' => 'GroupId',
+        'groupType' => 'GroupType',
         'instanceId' => 'InstanceId',
-        'tag'        => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +101,7 @@ class OnsGroupListRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

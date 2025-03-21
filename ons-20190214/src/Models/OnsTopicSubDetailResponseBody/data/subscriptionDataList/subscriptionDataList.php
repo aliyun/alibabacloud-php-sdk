@@ -24,11 +24,17 @@ class subscriptionDataList extends Model
      *   **BROADCASTING**: the broadcasting consumption mode
      *
      * For more information about consumption modes, see [Clustering consumption and broadcasting consumption](https://help.aliyun.com/document_detail/43163.html).
+     *
      * @example CLUSTERING
      *
      * @var string
      */
     public $messageModel;
+
+    /**
+     * @var string
+     */
+    public $online;
 
     /**
      * @description The expression based on which consumers in the consumer group subscribe to the topic.
@@ -39,14 +45,13 @@ class subscriptionDataList extends Model
      */
     public $subString;
     protected $_name = [
-        'groupId'      => 'GroupId',
+        'groupId' => 'GroupId',
         'messageModel' => 'MessageModel',
-        'subString'    => 'SubString',
+        'online' => 'Online',
+        'subString' => 'SubString',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -56,6 +61,9 @@ class subscriptionDataList extends Model
         }
         if (null !== $this->messageModel) {
             $res['MessageModel'] = $this->messageModel;
+        }
+        if (null !== $this->online) {
+            $res['Online'] = $this->online;
         }
         if (null !== $this->subString) {
             $res['SubString'] = $this->subString;
@@ -77,6 +85,9 @@ class subscriptionDataList extends Model
         }
         if (isset($map['MessageModel'])) {
             $model->messageModel = $map['MessageModel'];
+        }
+        if (isset($map['Online'])) {
+            $model->online = $map['Online'];
         }
         if (isset($map['SubString'])) {
             $model->subString = $map['SubString'];

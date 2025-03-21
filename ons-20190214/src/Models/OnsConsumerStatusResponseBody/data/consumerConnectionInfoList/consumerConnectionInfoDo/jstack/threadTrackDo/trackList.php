@@ -16,9 +16,7 @@ class trackList extends Model
         'track' => 'Track',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -43,15 +43,13 @@ class msgFoundDo extends Model
      */
     public $taskId;
     protected $_name = [
-        'currentPage'  => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'maxPageCount' => 'MaxPageCount',
         'msgFoundList' => 'MsgFoundList',
-        'taskId'       => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

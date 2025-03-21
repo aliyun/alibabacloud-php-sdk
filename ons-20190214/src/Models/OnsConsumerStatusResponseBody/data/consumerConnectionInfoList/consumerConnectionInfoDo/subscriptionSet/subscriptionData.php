@@ -43,15 +43,13 @@ class subscriptionData extends Model
      */
     public $topic;
     protected $_name = [
-        'subString'  => 'SubString',
+        'subString' => 'SubString',
         'subVersion' => 'SubVersion',
-        'tagsSet'    => 'TagsSet',
-        'topic'      => 'Topic',
+        'tagsSet' => 'TagsSet',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

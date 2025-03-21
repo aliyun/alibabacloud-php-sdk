@@ -12,6 +12,7 @@ class OnsGroupDeleteRequest extends Model
      * @description The ID of the consumer group that you want to delete.
      *
      * This parameter is required.
+     *
      * @example GID_test_groupId
      *
      * @var string
@@ -27,13 +28,11 @@ class OnsGroupDeleteRequest extends Model
      */
     public $instanceId;
     protected $_name = [
-        'groupId'    => 'GroupId',
+        'groupId' => 'GroupId',
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

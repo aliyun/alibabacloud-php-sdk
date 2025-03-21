@@ -12,6 +12,7 @@ class OnsInstanceUpdateRequest extends Model
      * @description The ID of the instance whose name or description you want to update.
      *
      * This parameter is required.
+     *
      * @example MQ_INST_188077086902****_BXSuW61e
      *
      * @var string
@@ -40,14 +41,12 @@ class OnsInstanceUpdateRequest extends Model
      */
     public $remark;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'remark'       => 'Remark',
+        'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

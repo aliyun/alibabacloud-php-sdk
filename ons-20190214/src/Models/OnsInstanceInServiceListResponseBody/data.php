@@ -17,9 +17,7 @@ class data extends Model
         'instanceVO' => 'InstanceVO',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class data extends Model
         if (isset($map['InstanceVO'])) {
             if (!empty($map['InstanceVO'])) {
                 $model->instanceVO = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['InstanceVO'] as $item) {
                     $model->instanceVO[$n++] = null !== $item ? instanceVO::fromMap($item) : $item;
                 }

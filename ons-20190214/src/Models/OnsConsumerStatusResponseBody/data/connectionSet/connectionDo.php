@@ -54,15 +54,13 @@ class connectionDo extends Model
     public $version;
     protected $_name = [
         'clientAddr' => 'ClientAddr',
-        'clientId'   => 'ClientId',
-        'language'   => 'Language',
-        'remoteIP'   => 'RemoteIP',
-        'version'    => 'Version',
+        'clientId' => 'ClientId',
+        'language' => 'Language',
+        'remoteIP' => 'RemoteIP',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

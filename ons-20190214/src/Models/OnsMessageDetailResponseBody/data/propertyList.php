@@ -18,6 +18,7 @@ class propertyList extends Model
      *   **UNIQ_KEY**: The ID of the message.
      *
      * For information about the terms that are used in ApsaraMQ for RocketMQ, see [Terms](https://help.aliyun.com/document_detail/29533.html).
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -33,13 +34,11 @@ class propertyList extends Model
      */
     public $value;
     protected $_name = [
-        'name'  => 'Name',
+        'name' => 'Name',
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

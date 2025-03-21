@@ -17,9 +17,7 @@ class data extends Model
         'onsRestMessageDo' => 'OnsRestMessageDo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class data extends Model
         if (isset($map['OnsRestMessageDo'])) {
             if (!empty($map['OnsRestMessageDo'])) {
                 $model->onsRestMessageDo = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['OnsRestMessageDo'] as $item) {
                     $model->onsRestMessageDo[$n++] = null !== $item ? onsRestMessageDo::fromMap($item) : $item;
                 }

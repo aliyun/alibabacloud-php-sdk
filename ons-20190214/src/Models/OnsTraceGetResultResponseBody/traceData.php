@@ -103,19 +103,17 @@ class traceData extends Model
     protected $_name = [
         'createTime' => 'CreateTime',
         'instanceId' => 'InstanceId',
-        'msgId'      => 'MsgId',
-        'msgKey'     => 'MsgKey',
-        'queryId'    => 'QueryId',
-        'status'     => 'Status',
-        'topic'      => 'Topic',
-        'traceList'  => 'TraceList',
+        'msgId' => 'MsgId',
+        'msgKey' => 'MsgKey',
+        'queryId' => 'QueryId',
+        'status' => 'Status',
+        'topic' => 'Topic',
+        'traceList' => 'TraceList',
         'updateTime' => 'UpdateTime',
-        'userId'     => 'UserId',
+        'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -21,6 +21,7 @@ class OnsTraceGetResultRequest extends Model
      * @description The ID of the task that was created to query the trace of the message.
      *
      * This parameter is required.
+     *
      * @example 272967562652883649157096685****
      *
      * @var string
@@ -37,13 +38,11 @@ class OnsTraceGetResultRequest extends Model
     public $topic;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'queryId'    => 'QueryId',
-        'topic'      => 'Topic',
+        'queryId' => 'QueryId',
+        'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

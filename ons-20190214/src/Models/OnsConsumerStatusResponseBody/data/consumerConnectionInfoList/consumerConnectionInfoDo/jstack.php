@@ -17,9 +17,7 @@ class jstack extends Model
         'threadTrackDo' => 'ThreadTrackDo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class jstack extends Model
         if (isset($map['ThreadTrackDo'])) {
             if (!empty($map['ThreadTrackDo'])) {
                 $model->threadTrackDo = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['ThreadTrackDo'] as $item) {
                     $model->threadTrackDo[$n++] = null !== $item ? threadTrackDo::fromMap($item) : $item;
                 }

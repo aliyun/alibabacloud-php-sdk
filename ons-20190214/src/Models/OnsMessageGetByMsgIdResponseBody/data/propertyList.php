@@ -17,9 +17,7 @@ class propertyList extends Model
         'messageProperty' => 'MessageProperty',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class propertyList extends Model
         if (isset($map['MessageProperty'])) {
             if (!empty($map['MessageProperty'])) {
                 $model->messageProperty = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['MessageProperty'] as $item) {
                     $model->messageProperty[$n++] = null !== $item ? messageProperty::fromMap($item) : $item;
                 }

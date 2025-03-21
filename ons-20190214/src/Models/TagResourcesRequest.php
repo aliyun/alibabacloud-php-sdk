@@ -13,6 +13,7 @@ class TagResourcesRequest extends Model
      * @description The ID of the ApsaraMQ for RocketMQ instance that contains the resource to which you want to attach tags.
      *
      * > This parameter is required when you attach tags to a topic or a group.
+     *
      * @example MQ_INST_188077086902****_BXSuW61e
      *
      * @var string
@@ -23,6 +24,7 @@ class TagResourcesRequest extends Model
      * @description The resource IDs.
      *
      * This parameter is required.
+     *
      * @example TopicA
      *
      * @var string[]
@@ -37,6 +39,7 @@ class TagResourcesRequest extends Model
      *   **GROUP**
      *
      * This parameter is required.
+     *
      * @example TOPIC
      *
      * @var string
@@ -47,19 +50,18 @@ class TagResourcesRequest extends Model
      * @description The tags that you want to attach to the resource.
      *
      * This parameter is required.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'resourceId'   => 'ResourceId',
+        'instanceId' => 'InstanceId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -108,7 +110,7 @@ class TagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

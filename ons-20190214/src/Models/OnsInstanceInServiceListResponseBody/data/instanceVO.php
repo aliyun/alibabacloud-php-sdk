@@ -52,6 +52,7 @@ class instanceVO extends Model
      * @description The instance name.
      *
      * The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+     *
      * @example test1
      *
      * @var string
@@ -79,6 +80,7 @@ class instanceVO extends Model
      *   **2**: Enterprise Platinum Edition
      *
      * For information about the instance editions and the differences between the editions, see [Instance editions](https://help.aliyun.com/document_detail/185261.html).
+     *
      * @example 2
      *
      * @var int
@@ -110,21 +112,19 @@ class instanceVO extends Model
      */
     public $topicCount;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'groupCount'        => 'GroupCount',
+        'createTime' => 'CreateTime',
+        'groupCount' => 'GroupCount',
         'independentNaming' => 'IndependentNaming',
-        'instanceId'        => 'InstanceId',
-        'instanceName'      => 'InstanceName',
-        'instanceStatus'    => 'InstanceStatus',
-        'instanceType'      => 'InstanceType',
-        'releaseTime'       => 'ReleaseTime',
-        'tags'              => 'Tags',
-        'topicCount'        => 'TopicCount',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'instanceStatus' => 'InstanceStatus',
+        'instanceType' => 'InstanceType',
+        'releaseTime' => 'ReleaseTime',
+        'tags' => 'Tags',
+        'topicCount' => 'TopicCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
