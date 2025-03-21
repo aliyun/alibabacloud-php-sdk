@@ -34,16 +34,14 @@ class privateNetwork extends Model
      */
     public $whiteIpGroup;
     protected $_name = [
-        'enabled'       => 'enabled',
+        'enabled' => 'enabled',
         'pvlEndpointId' => 'pvlEndpointId',
-        'type'          => 'type',
-        'vpcId'         => 'vpcId',
-        'whiteIpGroup'  => 'whiteIpGroup',
+        'type' => 'type',
+        'vpcId' => 'vpcId',
+        'whiteIpGroup' => 'whiteIpGroup',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -96,7 +94,7 @@ class privateNetwork extends Model
         if (isset($map['whiteIpGroup'])) {
             if (!empty($map['whiteIpGroup'])) {
                 $model->whiteIpGroup = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['whiteIpGroup'] as $item) {
                     $model->whiteIpGroup[$n++] = null !== $item ? whiteIpGroup::fromMap($item) : $item;
                 }

@@ -45,15 +45,13 @@ class UpdateDictRequest extends Model
     public $dryRun;
     protected $_name = [
         'allowCover' => 'allowCover',
-        'files'      => 'files',
+        'files' => 'files',
         'sourceType' => 'sourceType',
-        'type'       => 'type',
-        'dryRun'     => 'dryRun',
+        'type' => 'type',
+        'dryRun' => 'dryRun',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -97,7 +95,7 @@ class UpdateDictRequest extends Model
         if (isset($map['files'])) {
             if (!empty($map['files'])) {
                 $model->files = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['files'] as $item) {
                     $model->files[$n++] = null !== $item ? files::fromMap($item) : $item;
                 }

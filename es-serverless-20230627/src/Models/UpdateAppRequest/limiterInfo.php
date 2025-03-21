@@ -17,9 +17,7 @@ class limiterInfo extends Model
         'limiters' => 'limiters',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class limiterInfo extends Model
         if (isset($map['limiters'])) {
             if (!empty($map['limiters'])) {
                 $model->limiters = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['limiters'] as $item) {
                     $model->limiters[$n++] = null !== $item ? limiters::fromMap($item) : $item;
                 }

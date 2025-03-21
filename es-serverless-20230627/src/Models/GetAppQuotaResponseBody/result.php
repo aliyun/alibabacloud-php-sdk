@@ -20,12 +20,10 @@ class result extends Model
     public $quotaInfo;
     protected $_name = [
         'limiterInfo' => 'limiterInfo',
-        'quotaInfo'   => 'quotaInfo',
+        'quotaInfo' => 'quotaInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

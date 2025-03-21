@@ -16,6 +16,7 @@ class CreateAppRequest extends Model
      * @description 应用名
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $appName;
@@ -76,22 +77,20 @@ class CreateAppRequest extends Model
      */
     public $dryRun;
     protected $_name = [
-        'appName'        => 'appName',
+        'appName' => 'appName',
         'authentication' => 'authentication',
-        'chargeType'     => 'chargeType',
-        'description'    => 'description',
-        'network'        => 'network',
+        'chargeType' => 'chargeType',
+        'description' => 'description',
+        'network' => 'network',
         'privateNetwork' => 'privateNetwork',
-        'quotaInfo'      => 'quotaInfo',
-        'regionId'       => 'regionId',
-        'scenario'       => 'scenario',
-        'version'        => 'version',
-        'dryRun'         => 'dryRun',
+        'quotaInfo' => 'quotaInfo',
+        'regionId' => 'regionId',
+        'scenario' => 'scenario',
+        'version' => 'version',
+        'dryRun' => 'dryRun',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -168,7 +167,7 @@ class CreateAppRequest extends Model
         if (isset($map['network'])) {
             if (!empty($map['network'])) {
                 $model->network = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['network'] as $item) {
                     $model->network[$n++] = null !== $item ? network::fromMap($item) : $item;
                 }
@@ -177,7 +176,7 @@ class CreateAppRequest extends Model
         if (isset($map['privateNetwork'])) {
             if (!empty($map['privateNetwork'])) {
                 $model->privateNetwork = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['privateNetwork'] as $item) {
                     $model->privateNetwork[$n++] = null !== $item ? privateNetwork::fromMap($item) : $item;
                 }

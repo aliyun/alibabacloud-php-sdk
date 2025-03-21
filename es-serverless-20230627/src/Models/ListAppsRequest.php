@@ -57,18 +57,16 @@ class ListAppsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'appName'     => 'appName',
-        'createTime'  => 'createTime',
+        'appName' => 'appName',
+        'createTime' => 'createTime',
         'description' => 'description',
-        'orderType'   => 'orderType',
-        'pageNumber'  => 'pageNumber',
-        'pageSize'    => 'pageSize',
-        'status'      => 'status',
+        'orderType' => 'orderType',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
+        'status' => 'status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

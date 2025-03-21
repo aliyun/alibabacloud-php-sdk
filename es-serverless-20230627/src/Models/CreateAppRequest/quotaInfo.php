@@ -24,13 +24,11 @@ class quotaInfo extends Model
     public $storage;
     protected $_name = [
         'appType' => 'appType',
-        'cu'      => 'cu',
+        'cu' => 'cu',
         'storage' => 'storage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

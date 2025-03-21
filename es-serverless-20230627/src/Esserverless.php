@@ -100,18 +100,21 @@ class Esserverless extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'CancelSpecReviewTask',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/spec-review-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CancelSpecReviewTask',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/spec-review-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CancelSpecReviewTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelSpecReviewTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelSpecReviewTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -179,22 +182,25 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateApp',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateApp',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -240,22 +246,25 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateEndpoint',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/endpoints',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateEndpoint',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/endpoints',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -300,22 +309,25 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSnapshot',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/snapshot-repositories/' . OpenApiUtilClient::getEncodeParam($repository) . '/snapshots',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateSnapshot',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/snapshot-repositories/' . OpenApiUtilClient::getEncodeParam($repository) . '/snapshots',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSnapshotResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -350,18 +362,21 @@ class Esserverless extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteApp',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteApp',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -401,21 +416,24 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDict',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/dicts/actions/remove',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDict',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/dicts/actions/remove',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteDictResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDictResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDictResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -449,18 +467,21 @@ class Esserverless extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteEndpoint',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/endpoints/' . OpenApiUtilClient::getEncodeParam($endpointId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteEndpoint',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/endpoints/' . OpenApiUtilClient::getEncodeParam($endpointId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -495,18 +516,21 @@ class Esserverless extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteSnapshot',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/snapshot-repositories/' . OpenApiUtilClient::getEncodeParam($repository) . '/snapshots/' . OpenApiUtilClient::getEncodeParam($snapshot) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteSnapshot',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/snapshot-repositories/' . OpenApiUtilClient::getEncodeParam($repository) . '/snapshots/' . OpenApiUtilClient::getEncodeParam($snapshot) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSnapshotResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -545,21 +569,24 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetApp',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetApp',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -593,18 +620,21 @@ class Esserverless extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetAppQuota',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/quota',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAppQuota',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/quota',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAppQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAppQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAppQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -636,21 +666,24 @@ class Esserverless extends OpenApiClient
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'GetMonitorData',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/emon/metrics/query',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMonitorData',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/emon/metrics/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMonitorDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -683,18 +716,21 @@ class Esserverless extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetSnapshotSetting',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/auto-snapshot-setting',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSnapshotSetting',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/auto-snapshot-setting',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetSnapshotSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSnapshotSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSnapshotSettingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -728,18 +764,21 @@ class Esserverless extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetSpecReviewTask',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/spec-review-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSpecReviewTask',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/spec-review-tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetSpecReviewTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSpecReviewTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSpecReviewTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -794,21 +833,24 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApps',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListApps',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAppsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -848,21 +890,24 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDicts',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/dicts',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDicts',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/dicts',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDictsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDictsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDictsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -911,21 +956,24 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEndpoints',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/endpoints',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListEndpoints',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/endpoints',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEndpointsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -958,18 +1006,21 @@ class Esserverless extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListIndices',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/indices',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListIndices',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/indices',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIndicesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1002,18 +1053,21 @@ class Esserverless extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListSnapshotRepositories',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/snapshot-repositories',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSnapshotRepositories',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/snapshot-repositories',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListSnapshotRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSnapshotRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSnapshotRepositoriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1059,21 +1113,24 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSnapshots',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/snapshots',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSnapshots',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/snapshots',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSnapshotsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1109,29 +1166,41 @@ class Esserverless extends OpenApiClient
         if (!Utils::isUnset($request->page)) {
             $query['page'] = $request->page;
         }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
         if (!Utils::isUnset($request->size)) {
             $query['size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['status'] = $request->status;
         }
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSpecReviewTasks',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/spec-review-tasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSpecReviewTasks',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/spec-review-tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListSpecReviewTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSpecReviewTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSpecReviewTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1187,21 +1256,24 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateApp',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateApp',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1252,22 +1324,25 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDict',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/dicts',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDict',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/dicts',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateDictResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDictResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDictResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1308,21 +1383,24 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateEndpoint',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/endpoints/' . OpenApiUtilClient::getEncodeParam($endpointId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateEndpoint',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/endpoints/' . OpenApiUtilClient::getEncodeParam($endpointId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1363,21 +1441,24 @@ class Esserverless extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSnapshotSetting',
-            'version'     => '2023-06-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/auto-snapshot-setting',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateSnapshotSetting',
+            'version' => '2023-06-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/es-serverless/instances/' . OpenApiUtilClient::getEncodeParam($appName) . '/auto-snapshot-setting',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateSnapshotSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSnapshotSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSnapshotSettingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

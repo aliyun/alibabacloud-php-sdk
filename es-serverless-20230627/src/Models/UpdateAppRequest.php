@@ -49,18 +49,16 @@ class UpdateAppRequest extends Model
      */
     public $privateNetwork;
     protected $_name = [
-        'applyReason'    => 'applyReason',
+        'applyReason' => 'applyReason',
         'authentication' => 'authentication',
-        'contactInfo'    => 'contactInfo',
-        'description'    => 'description',
-        'limiterInfo'    => 'limiterInfo',
-        'network'        => 'network',
+        'contactInfo' => 'contactInfo',
+        'description' => 'description',
+        'limiterInfo' => 'limiterInfo',
+        'network' => 'network',
         'privateNetwork' => 'privateNetwork',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -128,7 +126,7 @@ class UpdateAppRequest extends Model
         if (isset($map['network'])) {
             if (!empty($map['network'])) {
                 $model->network = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['network'] as $item) {
                     $model->network[$n++] = null !== $item ? network::fromMap($item) : $item;
                 }
@@ -137,7 +135,7 @@ class UpdateAppRequest extends Model
         if (isset($map['privateNetwork'])) {
             if (!empty($map['privateNetwork'])) {
                 $model->privateNetwork = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['privateNetwork'] as $item) {
                     $model->privateNetwork[$n++] = null !== $item ? privateNetwork::fromMap($item) : $item;
                 }

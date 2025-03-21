@@ -30,13 +30,11 @@ class limiters extends Model
     protected $_name = [
         'maxValue' => 'maxValue',
         'minValue' => 'minValue',
-        'type'     => 'type',
-        'values'   => 'values',
+        'type' => 'type',
+        'values' => 'values',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

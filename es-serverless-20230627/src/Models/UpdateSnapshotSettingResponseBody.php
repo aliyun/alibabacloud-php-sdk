@@ -18,18 +18,18 @@ class UpdateSnapshotSettingResponseBody extends Model
     /**
      * @example {
      * "quartzRegex": "0 0 01 ? * * *",
+     * "enable": true
      * }
+     *
      * @var mixed[]
      */
     public $result;
     protected $_name = [
         'requestId' => 'requestId',
-        'result'    => 'result',
+        'result' => 'result',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

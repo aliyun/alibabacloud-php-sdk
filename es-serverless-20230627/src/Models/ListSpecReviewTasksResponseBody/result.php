@@ -57,18 +57,16 @@ class result extends Model
      */
     public $type;
     protected $_name = [
-        'id'          => 'Id',
-        'appName'     => 'appName',
+        'id' => 'Id',
+        'appName' => 'appName',
         'applyReason' => 'applyReason',
-        'gmtCreate'   => 'gmtCreate',
-        'source'      => 'source',
-        'status'      => 'status',
-        'type'        => 'type',
+        'gmtCreate' => 'gmtCreate',
+        'source' => 'source',
+        'status' => 'status',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

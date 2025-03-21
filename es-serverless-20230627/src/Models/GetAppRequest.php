@@ -18,9 +18,7 @@ class GetAppRequest extends Model
         'detailed' => 'detailed',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

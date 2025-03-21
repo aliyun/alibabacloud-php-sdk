@@ -23,12 +23,10 @@ class endpointZones extends Model
     public $zoneId;
     protected $_name = [
         'vswitchId' => 'vswitchId',
-        'zoneId'    => 'zoneId',
+        'zoneId' => 'zoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

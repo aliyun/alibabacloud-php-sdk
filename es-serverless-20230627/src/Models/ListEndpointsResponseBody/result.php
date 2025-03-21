@@ -90,22 +90,20 @@ class result extends Model
     public $vpcId;
     protected $_name = [
         'connectionStatus' => 'connectionStatus',
-        'created'          => 'created',
-        'domain'           => 'domain',
-        'endpointId'       => 'endpointId',
-        'endpointZones'    => 'endpointZones',
-        'name'             => 'name',
-        'resourceId'       => 'resourceId',
+        'created' => 'created',
+        'domain' => 'domain',
+        'endpointId' => 'endpointId',
+        'endpointZones' => 'endpointZones',
+        'name' => 'name',
+        'resourceId' => 'resourceId',
         'securityGroupIds' => 'securityGroupIds',
-        'status'           => 'status',
-        'type'             => 'type',
-        'updated'          => 'updated',
-        'vpcId'            => 'vpcId',
+        'status' => 'status',
+        'type' => 'type',
+        'updated' => 'updated',
+        'vpcId' => 'vpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -179,7 +177,7 @@ class result extends Model
         if (isset($map['endpointZones'])) {
             if (!empty($map['endpointZones'])) {
                 $model->endpointZones = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['endpointZones'] as $item) {
                     $model->endpointZones[$n++] = null !== $item ? endpointZones::fromMap($item) : $item;
                 }

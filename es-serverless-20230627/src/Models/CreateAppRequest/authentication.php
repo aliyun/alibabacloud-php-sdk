@@ -17,9 +17,7 @@ class authentication extends Model
         'basicAuth' => 'basicAuth',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class authentication extends Model
         if (isset($map['basicAuth'])) {
             if (!empty($map['basicAuth'])) {
                 $model->basicAuth = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['basicAuth'] as $item) {
                     $model->basicAuth[$n++] = null !== $item ? basicAuth::fromMap($item) : $item;
                 }

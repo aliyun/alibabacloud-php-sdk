@@ -21,13 +21,11 @@ class files extends Model
      */
     public $ossObject;
     protected $_name = [
-        'name'      => 'name',
+        'name' => 'name',
         'ossObject' => 'ossObject',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

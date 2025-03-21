@@ -34,15 +34,13 @@ class ListSnapshotsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'nextToken'  => 'nextToken',
-        'requestId'  => 'requestId',
-        'result'     => 'result',
+        'nextToken' => 'nextToken',
+        'requestId' => 'requestId',
+        'result' => 'result',
         'totalCount' => 'totalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -46,15 +46,13 @@ class ListEndpointsRequest extends Model
     public $vpcId;
     protected $_name = [
         'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
+        'pageSize' => 'pageSize',
         'resourceId' => 'resourceId',
-        'type'       => 'type',
-        'vpcId'      => 'vpcId',
+        'type' => 'type',
+        'vpcId' => 'vpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

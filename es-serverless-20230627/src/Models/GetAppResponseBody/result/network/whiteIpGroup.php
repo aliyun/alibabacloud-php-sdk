@@ -19,12 +19,10 @@ class whiteIpGroup extends Model
     public $ips;
     protected $_name = [
         'groupName' => 'groupName',
-        'ips'       => 'ips',
+        'ips' => 'ips',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

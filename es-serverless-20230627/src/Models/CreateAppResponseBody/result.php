@@ -18,9 +18,7 @@ class result extends Model
         'instaneId' => 'instaneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

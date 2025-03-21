@@ -10,7 +10,9 @@ class result extends Model
 {
     /**
      * @example {
+     * "1689480600":28676235.104761902
      * }
+     *
      * @var mixed[]
      */
     public $dps;
@@ -45,22 +47,22 @@ class result extends Model
 
     /**
      * @example {
+     * "indexName":"test"
      * }
+     *
      * @var mixed[]
      */
     public $tags;
     protected $_name = [
-        'dps'              => 'dps',
-        'integrity'        => 'integrity',
+        'dps' => 'dps',
+        'integrity' => 'integrity',
         'messageWatermark' => 'messageWatermark',
-        'metric'           => 'metric',
-        'summary'          => 'summary',
-        'tags'             => 'tags',
+        'metric' => 'metric',
+        'summary' => 'summary',
+        'tags' => 'tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -16,11 +16,26 @@ class ListSpecReviewTasksRequest extends Model
     public $page;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @example 10
      *
      * @var int
      */
     public $size;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @example QUOTA
@@ -30,13 +45,14 @@ class ListSpecReviewTasksRequest extends Model
     public $type;
     protected $_name = [
         'page' => 'page',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
         'size' => 'size',
+        'status' => 'status',
         'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -44,8 +60,17 @@ class ListSpecReviewTasksRequest extends Model
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
+        }
         if (null !== $this->size) {
             $res['size'] = $this->size;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -65,8 +90,17 @@ class ListSpecReviewTasksRequest extends Model
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
+        }
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
+        }
         if (isset($map['size'])) {
             $model->size = $map['size'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

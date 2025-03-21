@@ -91,24 +91,22 @@ class result extends Model
      */
     public $version;
     protected $_name = [
-        'appId'          => 'appId',
-        'appName'        => 'appName',
-        'appType'        => 'appType',
-        'createTime'     => 'createTime',
-        'description'    => 'description',
-        'instanceId'     => 'instanceId',
-        'modifiedTime'   => 'modifiedTime',
-        'network'        => 'network',
-        'ownerId'        => 'ownerId',
+        'appId' => 'appId',
+        'appName' => 'appName',
+        'appType' => 'appType',
+        'createTime' => 'createTime',
+        'description' => 'description',
+        'instanceId' => 'instanceId',
+        'modifiedTime' => 'modifiedTime',
+        'network' => 'network',
+        'ownerId' => 'ownerId',
         'privateNetwork' => 'privateNetwork',
-        'regionId'       => 'regionId',
-        'status'         => 'status',
-        'version'        => 'version',
+        'regionId' => 'regionId',
+        'status' => 'status',
+        'version' => 'version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -200,7 +198,7 @@ class result extends Model
         if (isset($map['network'])) {
             if (!empty($map['network'])) {
                 $model->network = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['network'] as $item) {
                     $model->network[$n++] = null !== $item ? network::fromMap($item) : $item;
                 }
@@ -212,7 +210,7 @@ class result extends Model
         if (isset($map['privateNetwork'])) {
             if (!empty($map['privateNetwork'])) {
                 $model->privateNetwork = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['privateNetwork'] as $item) {
                     $model->privateNetwork[$n++] = null !== $item ? privateNetwork::fromMap($item) : $item;
                 }

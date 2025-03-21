@@ -18,9 +18,7 @@ class result extends Model
         'endpointId' => 'endpointId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

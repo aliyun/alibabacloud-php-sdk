@@ -37,14 +37,12 @@ class ListSnapshotsRequest extends Model
     public $snapshot;
     protected $_name = [
         'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
+        'pageSize' => 'pageSize',
         'repository' => 'repository',
-        'snapshot'   => 'snapshot',
+        'snapshot' => 'snapshot',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

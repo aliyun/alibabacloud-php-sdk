@@ -33,14 +33,12 @@ class CreateSnapshotRequest extends Model
      */
     public $dryRun;
     protected $_name = [
-        'indices'  => 'indices',
+        'indices' => 'indices',
         'snapshot' => 'snapshot',
-        'dryRun'   => 'dryRun',
+        'dryRun' => 'dryRun',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

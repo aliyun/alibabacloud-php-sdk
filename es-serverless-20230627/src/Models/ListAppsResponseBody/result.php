@@ -91,22 +91,20 @@ class result extends Model
      */
     public $version;
     protected $_name = [
-        'appId'        => 'appId',
-        'appName'      => 'appName',
-        'appType'      => 'appType',
-        'createTime'   => 'createTime',
-        'description'  => 'description',
-        'instanceId'   => 'instanceId',
+        'appId' => 'appId',
+        'appName' => 'appName',
+        'appType' => 'appType',
+        'createTime' => 'createTime',
+        'description' => 'description',
+        'instanceId' => 'instanceId',
         'modifiedTime' => 'modifiedTime',
-        'ownerId'      => 'ownerId',
-        'regionId'     => 'regionId',
-        'status'       => 'status',
-        'version'      => 'version',
+        'ownerId' => 'ownerId',
+        'regionId' => 'regionId',
+        'status' => 'status',
+        'version' => 'version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

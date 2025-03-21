@@ -23,12 +23,10 @@ class ossObject extends Model
     public $key;
     protected $_name = [
         'bucketName' => 'bucketName',
-        'key'        => 'key',
+        'key' => 'key',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

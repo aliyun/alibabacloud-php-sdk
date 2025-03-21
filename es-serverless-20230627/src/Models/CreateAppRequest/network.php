@@ -34,16 +34,14 @@ class network extends Model
      */
     public $whiteIpGroup;
     protected $_name = [
-        'domain'       => 'domain',
-        'enabled'      => 'enabled',
-        'port'         => 'port',
-        'type'         => 'type',
+        'domain' => 'domain',
+        'enabled' => 'enabled',
+        'port' => 'port',
+        'type' => 'type',
         'whiteIpGroup' => 'whiteIpGroup',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -96,7 +94,7 @@ class network extends Model
         if (isset($map['whiteIpGroup'])) {
             if (!empty($map['whiteIpGroup'])) {
                 $model->whiteIpGroup = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['whiteIpGroup'] as $item) {
                     $model->whiteIpGroup[$n++] = null !== $item ? whiteIpGroup::fromMap($item) : $item;
                 }

@@ -26,13 +26,11 @@ class UpdateSnapshotSettingRequest extends Model
      */
     public $quartzRegex;
     protected $_name = [
-        'enable'      => 'enable',
+        'enable' => 'enable',
         'quartzRegex' => 'quartzRegex',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

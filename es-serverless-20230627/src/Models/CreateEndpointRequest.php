@@ -40,14 +40,12 @@ class CreateEndpointRequest extends Model
     public $type;
     protected $_name = [
         'endpointZones' => 'endpointZones',
-        'name'          => 'name',
-        'vpcId'         => 'vpcId',
-        'type'          => 'type',
+        'name' => 'name',
+        'vpcId' => 'vpcId',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -85,7 +83,7 @@ class CreateEndpointRequest extends Model
         if (isset($map['endpointZones'])) {
             if (!empty($map['endpointZones'])) {
                 $model->endpointZones = [];
-                $n                    = 0;
+                $n = 0;
                 foreach ($map['endpointZones'] as $item) {
                     $model->endpointZones[$n++] = null !== $item ? endpointZones::fromMap($item) : $item;
                 }

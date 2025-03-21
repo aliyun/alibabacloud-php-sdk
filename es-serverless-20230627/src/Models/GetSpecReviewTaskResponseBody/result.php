@@ -26,14 +26,26 @@ class result extends Model
 
     /**
      * @example {
+     * "limiters": [
+     * {
+     * "type": "INDEX_QUOTA",
+     * "maxValue": 500,
+     * "immutable": false
      * }
+     * ]
+     * }
+     *
      * @var mixed[]
      */
     public $applyLimiter;
 
     /**
      * @example {
+     * "appType": "TRIAL",
+     * "cu": 4,
+     * "storage": 100
      * }
+     *
      * @var mixed[]
      */
     public $applyQuota;
@@ -45,14 +57,26 @@ class result extends Model
 
     /**
      * @example {
+     * "limiters": [
+     * {
+     * "type": "INDEX_QUOTA",
+     * "maxValue": 500,
+     * "immutable": false
      * }
+     * ]
+     * }
+     *
      * @var mixed[]
      */
     public $effectiveLimiter;
 
     /**
      * @example {
+     * "appType": "TRIAL",
+     * "cu": 4,
+     * "storage": 100
      * }
+     *
      * @var mixed[]
      */
     public $effectiveQuota;
@@ -73,14 +97,26 @@ class result extends Model
 
     /**
      * @example {
+     * "limiters": [
+     * {
+     * "type": "INDEX_QUOTA",
+     * "maxValue": 500,
+     * "immutable": false
      * }
+     * ]
+     * }
+     *
      * @var mixed[]
      */
     public $oldLimiter;
 
     /**
      * @example {
+     * "appType": "TRIAL",
+     * "cu": 2,
+     * "storage": 1
      * }
+     *
      * @var mixed[]
      */
     public $oldQuota;
@@ -106,25 +142,23 @@ class result extends Model
      */
     public $type;
     protected $_name = [
-        'id'               => 'Id',
-        'appName'          => 'appName',
-        'applyLimiter'     => 'applyLimiter',
-        'applyQuota'       => 'applyQuota',
-        'applyReason'      => 'applyReason',
+        'id' => 'Id',
+        'appName' => 'appName',
+        'applyLimiter' => 'applyLimiter',
+        'applyQuota' => 'applyQuota',
+        'applyReason' => 'applyReason',
         'effectiveLimiter' => 'effectiveLimiter',
-        'effectiveQuota'   => 'effectiveQuota',
-        'gmtCreate'        => 'gmtCreate',
-        'gmtModified'      => 'gmtModified',
-        'oldLimiter'       => 'oldLimiter',
-        'oldQuota'         => 'oldQuota',
-        'source'           => 'source',
-        'status'           => 'status',
-        'type'             => 'type',
+        'effectiveQuota' => 'effectiveQuota',
+        'gmtCreate' => 'gmtCreate',
+        'gmtModified' => 'gmtModified',
+        'oldLimiter' => 'oldLimiter',
+        'oldQuota' => 'oldQuota',
+        'source' => 'source',
+        'status' => 'status',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

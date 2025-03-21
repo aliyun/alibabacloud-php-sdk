@@ -37,14 +37,12 @@ class result extends Model
     public $type;
     protected $_name = [
         'downloadUrl' => 'downloadUrl',
-        'name'        => 'name',
-        'sourceType'  => 'sourceType',
-        'type'        => 'type',
+        'name' => 'name',
+        'sourceType' => 'sourceType',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
