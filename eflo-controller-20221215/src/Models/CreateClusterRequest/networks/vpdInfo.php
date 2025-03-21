@@ -24,13 +24,11 @@ class vpdInfo extends Model
      */
     public $vpdSubnets;
     protected $_name = [
-        'vpdId'      => 'VpdId',
+        'vpdId' => 'VpdId',
         'vpdSubnets' => 'VpdSubnets',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

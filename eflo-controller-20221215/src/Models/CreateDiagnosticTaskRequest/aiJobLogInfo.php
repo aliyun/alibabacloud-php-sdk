@@ -19,6 +19,7 @@ class aiJobLogInfo extends Model
     /**
      * @description End time. In timestamp format, unit: seconds.
      * > Must be on the hour or half-hour mark.
+     *
      * @example 2024-08-05T10:10:01
      *
      * @var string
@@ -28,6 +29,7 @@ class aiJobLogInfo extends Model
     /**
      * @description Start time. In timestamp format, unit: seconds.
      * > Must be on the hour or half-hour mark.
+     *
      * @example 2024-10-11T00:00:00Z
      *
      * @var string
@@ -35,13 +37,11 @@ class aiJobLogInfo extends Model
     public $startTime;
     protected $_name = [
         'aiJobLogs' => 'AiJobLogs',
-        'endTime'   => 'EndTime',
+        'endTime' => 'EndTime',
         'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +76,7 @@ class aiJobLogInfo extends Model
         if (isset($map['AiJobLogs'])) {
             if (!empty($map['AiJobLogs'])) {
                 $model->aiJobLogs = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['AiJobLogs'] as $item) {
                     $model->aiJobLogs[$n++] = null !== $item ? aiJobLogs::fromMap($item) : $item;
                 }

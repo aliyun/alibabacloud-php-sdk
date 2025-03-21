@@ -71,18 +71,16 @@ class machineNetworkInfo extends Model
      */
     public $regionId;
     protected $_name = [
-        'clusterNet'       => 'ClusterNet',
+        'clusterNet' => 'ClusterNet',
         'enableJumboFrame' => 'EnableJumboFrame',
-        'hpnZone'          => 'HpnZone',
-        'isDpuMode'        => 'IsDpuMode',
-        'machineType'      => 'MachineType',
-        'netArch'          => 'NetArch',
-        'regionId'         => 'RegionId',
+        'hpnZone' => 'HpnZone',
+        'isDpuMode' => 'IsDpuMode',
+        'machineType' => 'MachineType',
+        'netArch' => 'NetArch',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

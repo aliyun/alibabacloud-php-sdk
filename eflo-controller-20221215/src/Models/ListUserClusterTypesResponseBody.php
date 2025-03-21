@@ -35,13 +35,11 @@ class ListUserClusterTypesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'clusterTypes' => 'ClusterTypes',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListUserClusterTypesResponseBody extends Model
         if (isset($map['ClusterTypes'])) {
             if (!empty($map['ClusterTypes'])) {
                 $model->clusterTypes = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['ClusterTypes'] as $item) {
                     $model->clusterTypes[$n++] = null !== $item ? clusterTypes::fromMap($item) : $item;
                 }

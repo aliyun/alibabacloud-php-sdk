@@ -38,19 +38,18 @@ class ReimageNodesShrinkRequest extends Model
      *
      * @example #!/bin/sh
      * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
+     *
      * @var string
      */
     public $userData;
     protected $_name = [
-        'clusterId'             => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
-        'nodesShrink'           => 'Nodes',
-        'userData'              => 'UserData',
+        'nodesShrink' => 'Nodes',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

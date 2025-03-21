@@ -53,16 +53,14 @@ class CreateSessionResponseBody extends Model
      */
     public $wssEndpoint;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'serverSn'     => 'ServerSn',
-        'sessionId'    => 'SessionId',
+        'requestId' => 'RequestId',
+        'serverSn' => 'ServerSn',
+        'sessionId' => 'SessionId',
         'sessionToken' => 'SessionToken',
-        'wssEndpoint'  => 'WssEndpoint',
+        'wssEndpoint' => 'WssEndpoint',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

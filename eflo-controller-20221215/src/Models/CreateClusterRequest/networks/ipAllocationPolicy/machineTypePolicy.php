@@ -25,13 +25,11 @@ class machineTypePolicy extends Model
      */
     public $machineType;
     protected $_name = [
-        'bonds'       => 'Bonds',
+        'bonds' => 'Bonds',
         'machineType' => 'MachineType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class machineTypePolicy extends Model
         if (isset($map['Bonds'])) {
             if (!empty($map['Bonds'])) {
                 $model->bonds = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Bonds'] as $item) {
                     $model->bonds[$n++] = null !== $item ? bonds::fromMap($item) : $item;
                 }

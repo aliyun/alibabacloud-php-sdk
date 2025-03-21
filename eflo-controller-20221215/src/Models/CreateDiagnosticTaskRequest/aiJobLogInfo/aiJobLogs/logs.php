@@ -26,13 +26,11 @@ class logs extends Model
      */
     public $logContent;
     protected $_name = [
-        'datetime'   => 'Datetime',
+        'datetime' => 'Datetime',
         'logContent' => 'LogContent',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

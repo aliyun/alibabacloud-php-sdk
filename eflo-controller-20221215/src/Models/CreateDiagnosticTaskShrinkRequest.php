@@ -41,14 +41,12 @@ class CreateDiagnosticTaskShrinkRequest extends Model
     public $nodeIdsShrink;
     protected $_name = [
         'aiJobLogInfoShrink' => 'AiJobLogInfo',
-        'clusterId'          => 'ClusterId',
-        'diagnosticType'     => 'DiagnosticType',
-        'nodeIdsShrink'      => 'NodeIds',
+        'clusterId' => 'ClusterId',
+        'diagnosticType' => 'DiagnosticType',
+        'nodeIdsShrink' => 'NodeIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

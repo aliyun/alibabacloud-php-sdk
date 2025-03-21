@@ -35,13 +35,11 @@ class DescribeSendFileResultsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'invocations' => 'Invocations',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

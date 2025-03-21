@@ -12,7 +12,9 @@ class invocation extends Model
     /**
      * @description Output information after command execution.
      *
+     * If ContentEncoding is specified as PlainText, the original output information is returned.
      * If ContentEncoding is specified as Base64, the Base64 encoded output information is returned.
+     *
      * @example Base64
      *
      * @var string
@@ -22,7 +24,10 @@ class invocation extends Model
     /**
      * @description File content type.
      *
+     * PlainText: Plain text.
+     * Base64: Base64 encoding.
      * The default value is PlainText.
+     *
      * @example PlainText
      *
      * @var string
@@ -77,7 +82,17 @@ class invocation extends Model
     /**
      * @description Overall status of the file distribution. The overall status depends on the common execution status of all instances involved in this distribution, possible values are:
      *
+     * - Pending: The system is verifying or distributing the file. If at least one instance has a file distribution status of Pending, the overall execution status will be Pending.
+     * - Running: The file is being distributed on the instance. If at least one instance has a file distribution status of Running, the overall execution status will be Running.
+     * - Success: All instances have a file distribution status of Success, then the overall execution status will be Success.
+     * - Failed: All instances have a file distribution status of Failed, then the overall execution status will be Failed. If any of the following conditions occur for the file distribution status on an instance, the return value will be Failed:
+     * - The specified file parameters are incorrect, verification failed (Invalid).
+     * - Failed to distribute the file to the instance (Aborted).
+     * - The file creation failed within the instance (Failed).
+     * - The file distribution timed out (Timeout).
+     * - An exception occurred during file distribution and could not continue (Error).
      * - PartialFailed: Some instances successfully received the file while others failed. If the file distribution status of all instances is either Success or Failed, the overall execution status will be PartialFailed.
+     *
      * @example Pending
      *
      * @var string
@@ -111,7 +126,11 @@ class invocation extends Model
 
     /**
      * @description Whether to overwrite the file if a file with the same name already exists in the target directory.
+     * - true: Overwrite.
+     * - false: Do not overwrite.
+     *
      * The default value is false.
+     *
      * @example true
      *
      * @var bool
@@ -127,24 +146,22 @@ class invocation extends Model
      */
     public $targetDir;
     protected $_name = [
-        'content'          => 'Content',
-        'contentType'      => 'ContentType',
-        'creationTime'     => 'CreationTime',
-        'description'      => 'Description',
-        'fileGroup'        => 'FileGroup',
-        'fileMode'         => 'FileMode',
-        'fileOwner'        => 'FileOwner',
+        'content' => 'Content',
+        'contentType' => 'ContentType',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'fileGroup' => 'FileGroup',
+        'fileMode' => 'FileMode',
+        'fileOwner' => 'FileOwner',
         'invocationStatus' => 'InvocationStatus',
-        'invokeNodes'      => 'InvokeNodes',
-        'name'             => 'Name',
-        'nodeCount'        => 'NodeCount',
-        'overwrite'        => 'Overwrite',
-        'targetDir'        => 'TargetDir',
+        'invokeNodes' => 'InvokeNodes',
+        'name' => 'Name',
+        'nodeCount' => 'NodeCount',
+        'overwrite' => 'Overwrite',
+        'targetDir' => 'TargetDir',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

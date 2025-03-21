@@ -107,23 +107,21 @@ class CreateClusterShrinkRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'clusterDescription'    => 'ClusterDescription',
-        'clusterName'           => 'ClusterName',
-        'clusterType'           => 'ClusterType',
-        'componentsShrink'      => 'Components',
-        'hpnZone'               => 'HpnZone',
+        'clusterDescription' => 'ClusterDescription',
+        'clusterName' => 'ClusterName',
+        'clusterType' => 'ClusterType',
+        'componentsShrink' => 'Components',
+        'hpnZone' => 'HpnZone',
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
-        'networksShrink'        => 'Networks',
-        'nimizVSwitchesShrink'  => 'NimizVSwitches',
-        'nodeGroupsShrink'      => 'NodeGroups',
-        'openEniJumboFrame'     => 'OpenEniJumboFrame',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'tag'                   => 'Tag',
+        'networksShrink' => 'Networks',
+        'nimizVSwitchesShrink' => 'NimizVSwitches',
+        'nodeGroupsShrink' => 'NodeGroups',
+        'openEniJumboFrame' => 'OpenEniJumboFrame',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -218,7 +216,7 @@ class CreateClusterShrinkRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

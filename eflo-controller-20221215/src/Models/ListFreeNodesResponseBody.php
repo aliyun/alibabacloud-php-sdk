@@ -35,13 +35,11 @@ class ListFreeNodesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'nextToken' => 'NextToken',
-        'nodes'     => 'Nodes',
+        'nodes' => 'Nodes',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class ListFreeNodesResponseBody extends Model
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Nodes'] as $item) {
                     $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
                 }

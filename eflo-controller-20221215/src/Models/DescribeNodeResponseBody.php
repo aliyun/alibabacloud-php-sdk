@@ -169,29 +169,27 @@ class DescribeNodeResponseBody extends Model
      */
     public $zoneId;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
-        'clusterName'     => 'ClusterName',
-        'createTime'      => 'CreateTime',
-        'expiredTime'     => 'ExpiredTime',
-        'hostname'        => 'Hostname',
-        'hpnZone'         => 'HpnZone',
-        'imageId'         => 'ImageId',
-        'imageName'       => 'ImageName',
-        'machineType'     => 'MachineType',
-        'networks'        => 'Networks',
-        'nodeGroupId'     => 'NodeGroupId',
-        'nodeGroupName'   => 'NodeGroupName',
-        'nodeId'          => 'NodeId',
-        'operatingState'  => 'OperatingState',
-        'requestId'       => 'RequestId',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'createTime' => 'CreateTime',
+        'expiredTime' => 'ExpiredTime',
+        'hostname' => 'Hostname',
+        'hpnZone' => 'HpnZone',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
+        'machineType' => 'MachineType',
+        'networks' => 'Networks',
+        'nodeGroupId' => 'NodeGroupId',
+        'nodeGroupName' => 'NodeGroupName',
+        'nodeId' => 'NodeId',
+        'operatingState' => 'OperatingState',
+        'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
-        'sn'              => 'Sn',
-        'zoneId'          => 'ZoneId',
+        'sn' => 'Sn',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -298,7 +296,7 @@ class DescribeNodeResponseBody extends Model
         if (isset($map['Networks'])) {
             if (!empty($map['Networks'])) {
                 $model->networks = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Networks'] as $item) {
                     $model->networks[$n++] = null !== $item ? networks::fromMap($item) : $item;
                 }

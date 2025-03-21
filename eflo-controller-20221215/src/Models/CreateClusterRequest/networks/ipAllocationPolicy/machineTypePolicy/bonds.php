@@ -26,13 +26,11 @@ class bonds extends Model
      */
     public $subnet;
     protected $_name = [
-        'name'   => 'Name',
+        'name' => 'Name',
         'subnet' => 'Subnet',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

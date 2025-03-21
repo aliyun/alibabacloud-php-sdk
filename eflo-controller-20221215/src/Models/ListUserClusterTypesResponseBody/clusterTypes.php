@@ -27,12 +27,10 @@ class clusterTypes extends Model
     public $typeName;
     protected $_name = [
         'accessType' => 'AccessType',
-        'typeName'   => 'TypeName',
+        'typeName' => 'TypeName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

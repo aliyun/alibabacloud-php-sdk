@@ -53,16 +53,14 @@ class ListFreeNodesRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'hpnZone'         => 'HpnZone',
-        'machineType'     => 'MachineType',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
+        'hpnZone' => 'HpnZone',
+        'machineType' => 'MachineType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

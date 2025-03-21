@@ -63,16 +63,14 @@ class subTasks extends Model
     public $updateTime;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'message'    => 'Message',
-        'taskId'     => 'TaskId',
-        'taskState'  => 'TaskState',
-        'taskType'   => 'TaskType',
+        'message' => 'Message',
+        'taskId' => 'TaskId',
+        'taskState' => 'TaskState',
+        'taskType' => 'TaskType',
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

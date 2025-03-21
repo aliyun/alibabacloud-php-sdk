@@ -95,21 +95,19 @@ class DescribeTaskResponseBody extends Model
      */
     public $updateTime;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
-        'createTime'  => 'CreateTime',
-        'message'     => 'Message',
-        'nodeIds'     => 'NodeIds',
-        'requestId'   => 'RequestId',
-        'steps'       => 'Steps',
-        'taskState'   => 'TaskState',
-        'taskType'    => 'TaskType',
-        'updateTime'  => 'UpdateTime',
+        'createTime' => 'CreateTime',
+        'message' => 'Message',
+        'nodeIds' => 'NodeIds',
+        'requestId' => 'RequestId',
+        'steps' => 'Steps',
+        'taskState' => 'TaskState',
+        'taskType' => 'TaskType',
+        'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -185,7 +183,7 @@ class DescribeTaskResponseBody extends Model
         if (isset($map['Steps'])) {
             if (!empty($map['Steps'])) {
                 $model->steps = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Steps'] as $item) {
                     $model->steps[$n++] = null !== $item ? steps::fromMap($item) : $item;
                 }

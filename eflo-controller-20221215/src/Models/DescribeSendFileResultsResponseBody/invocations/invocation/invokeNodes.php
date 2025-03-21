@@ -19,9 +19,7 @@ class invokeNodes extends Model
         'invokeNode' => 'InvokeNode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class invokeNodes extends Model
         if (isset($map['InvokeNode'])) {
             if (!empty($map['InvokeNode'])) {
                 $model->invokeNode = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['InvokeNode'] as $item) {
                     $model->invokeNode[$n++] = null !== $item ? invokeNode::fromMap($item) : $item;
                 }

@@ -34,14 +34,12 @@ class ShrinkClusterRequest extends Model
      */
     public $nodeGroups;
     protected $_name = [
-        'clusterId'             => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
-        'nodeGroups'            => 'NodeGroups',
+        'nodeGroups' => 'NodeGroups',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class ShrinkClusterRequest extends Model
         if (isset($map['NodeGroups'])) {
             if (!empty($map['NodeGroups'])) {
                 $model->nodeGroups = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['NodeGroups'] as $item) {
                     $model->nodeGroups[$n++] = null !== $item ? nodeGroups::fromMap($item) : $item;
                 }

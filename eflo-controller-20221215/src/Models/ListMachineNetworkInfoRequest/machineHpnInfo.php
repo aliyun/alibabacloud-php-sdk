@@ -35,14 +35,12 @@ class machineHpnInfo extends Model
      */
     public $regionId;
     protected $_name = [
-        'hpnZone'     => 'HpnZone',
+        'hpnZone' => 'HpnZone',
         'machineType' => 'MachineType',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

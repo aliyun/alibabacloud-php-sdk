@@ -26,13 +26,11 @@ class components extends Model
      */
     public $componentType;
     protected $_name = [
-        'componentId'   => 'ComponentId',
+        'componentId' => 'ComponentId',
         'componentType' => 'ComponentType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

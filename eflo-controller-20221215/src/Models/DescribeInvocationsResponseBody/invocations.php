@@ -19,9 +19,7 @@ class invocations extends Model
         'invocation' => 'Invocation',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class invocations extends Model
         if (isset($map['Invocation'])) {
             if (!empty($map['Invocation'])) {
                 $model->invocation = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Invocation'] as $item) {
                     $model->invocation[$n++] = null !== $item ? invocation::fromMap($item) : $item;
                 }

@@ -20,7 +20,11 @@ class ListNodeGroupsRequest extends Model
     /**
      * @description Number of items per page in a paginated query. The maximum value is 100.
      *
+     * Default value:
+     *
+     * - If no value is set or the set value is less than 20, the default value is 20.
      * - If the set value is greater than 100, the default value is 100.
+     *
      * @example 20
      *
      * @var int
@@ -45,15 +49,13 @@ class ListNodeGroupsRequest extends Model
      */
     public $nodeGroupId;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
+        'clusterId' => 'ClusterId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'nodeGroupId' => 'NodeGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

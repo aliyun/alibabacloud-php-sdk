@@ -21,7 +21,9 @@ class CreateSessionRequest extends Model
      * @description Session type corresponding to the session package.
      *
      * @example N	两种：
+     * Sol：基于串口[默认]
      * Assistant：基于云助手
+     *
      * @var string
      */
     public $sessionType;
@@ -35,14 +37,12 @@ class CreateSessionRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'nodeId'      => 'NodeId',
+        'nodeId' => 'NodeId',
         'sessionType' => 'SessionType',
-        'startTime'   => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -78,18 +78,16 @@ class networks extends Model
     public $vpdInfo;
     protected $_name = [
         'ipAllocationPolicy' => 'IpAllocationPolicy',
-        'newVpdInfo'         => 'NewVpdInfo',
-        'securityGroupId'    => 'SecurityGroupId',
-        'tailIpVersion'      => 'TailIpVersion',
-        'vSwitchId'          => 'VSwitchId',
-        'vSwitchZoneId'      => 'VSwitchZoneId',
-        'vpcId'              => 'VpcId',
-        'vpdInfo'            => 'VpdInfo',
+        'newVpdInfo' => 'NewVpdInfo',
+        'securityGroupId' => 'SecurityGroupId',
+        'tailIpVersion' => 'TailIpVersion',
+        'vSwitchId' => 'VSwitchId',
+        'vSwitchZoneId' => 'VSwitchZoneId',
+        'vpcId' => 'VpcId',
+        'vpdInfo' => 'VpdInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -139,7 +137,7 @@ class networks extends Model
         if (isset($map['IpAllocationPolicy'])) {
             if (!empty($map['IpAllocationPolicy'])) {
                 $model->ipAllocationPolicy = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['IpAllocationPolicy'] as $item) {
                     $model->ipAllocationPolicy[$n++] = null !== $item ? ipAllocationPolicy::fromMap($item) : $item;
                 }

@@ -33,14 +33,12 @@ class RebootNodesShrinkRequest extends Model
      */
     public $nodesShrink;
     protected $_name = [
-        'clusterId'             => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
-        'nodesShrink'           => 'Nodes',
+        'nodesShrink' => 'Nodes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

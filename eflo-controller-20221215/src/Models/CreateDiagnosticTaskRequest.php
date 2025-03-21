@@ -41,15 +41,13 @@ class CreateDiagnosticTaskRequest extends Model
      */
     public $nodeIds;
     protected $_name = [
-        'aiJobLogInfo'   => 'AiJobLogInfo',
-        'clusterId'      => 'ClusterId',
+        'aiJobLogInfo' => 'AiJobLogInfo',
+        'clusterId' => 'ClusterId',
         'diagnosticType' => 'DiagnosticType',
-        'nodeIds'        => 'NodeIds',
+        'nodeIds' => 'NodeIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -11,7 +11,11 @@ class SendFileRequest extends Model
     /**
      * @description The content of the file. After Base64 encoding, the size cannot exceed 32 KB.
      *
+     * - When the `ContentType` parameter is `PlainText`, this field is plain text.
+     * - When the `ContentType` parameter is `Base64`, this field is Base64 encoded text.
+     *
      * This parameter is required.
+     *
      * @example #!/bin/bash echo "Current User is :" echo $(ps | grep "$$" | awk \\"{print $2}\\") -------- oss://bucketName/objectName
      *
      * @var string
@@ -21,7 +25,10 @@ class SendFileRequest extends Model
     /**
      * @description The content type of the file.
      *
+     * PlainText: Plain text.
+     * Base64: Base64 encoded.
      * The default value is PlainText.
+     *
      * @example PlainText
      *
      * @var string
@@ -40,7 +47,9 @@ class SendFileRequest extends Model
     /**
      * @description The group of the file. Applies only to Linux instances, and the default is root. The length must not exceed 64 characters.
      *
+     * Note
      * When using other groups, ensure that the group exists in the instance.
+     *
      * @example test
      *
      * @var string
@@ -51,6 +60,7 @@ class SendFileRequest extends Model
      * @description The permissions of the file. Applies only to Linux instances, and the setting method is the same as the chmod command.
      *
      * The default value is 0644, which means the user has read and write permissions, while the group and other users have read-only permissions.
+     *
      * @example 0644
      *
      * @var string
@@ -70,6 +80,7 @@ class SendFileRequest extends Model
      * @description The name of the file. Supports all character sets, and the length must not exceed 255 characters.
      *
      * This parameter is required.
+     *
      * @example file.txt
      *
      * @var string
@@ -80,13 +91,18 @@ class SendFileRequest extends Model
      * @description List of nodes.
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $nodeIdList;
 
     /**
      * @description Whether to overwrite the file if a file with the same name already exists in the target directory.
+     * - true: Overwrite.
+     * - false: Do not overwrite.
+     *
      * The default value is false.
+     *
      * @example True
      *
      * @var bool
@@ -97,6 +113,7 @@ class SendFileRequest extends Model
      * @description The directory in the target Lingjun node where the file will be sent. If it does not exist, it will be automatically created.
      *
      * This parameter is required.
+     *
      * @example /home
      *
      * @var string
@@ -106,29 +123,31 @@ class SendFileRequest extends Model
     /**
      * @description The timeout for sending the file. Unit: seconds.
      *
+     * - A timeout may occur due to process reasons, missing modules, or missing Cloud Assistant Agent.
+     * - If the set timeout is less than 10 seconds, to ensure successful delivery, the system will automatically set the timeout to 10 seconds.
+     *
      * The default value is 60.
+     *
      * @example 600
      *
      * @var int
      */
     public $timeout;
     protected $_name = [
-        'content'     => 'Content',
+        'content' => 'Content',
         'contentType' => 'ContentType',
         'description' => 'Description',
-        'fileGroup'   => 'FileGroup',
-        'fileMode'    => 'FileMode',
-        'fileOwner'   => 'FileOwner',
-        'name'        => 'Name',
-        'nodeIdList'  => 'NodeIdList',
-        'overwrite'   => 'Overwrite',
-        'targetDir'   => 'TargetDir',
-        'timeout'     => 'Timeout',
+        'fileGroup' => 'FileGroup',
+        'fileMode' => 'FileMode',
+        'fileOwner' => 'FileOwner',
+        'name' => 'Name',
+        'nodeIdList' => 'NodeIdList',
+        'overwrite' => 'Overwrite',
+        'targetDir' => 'TargetDir',
+        'timeout' => 'Timeout',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

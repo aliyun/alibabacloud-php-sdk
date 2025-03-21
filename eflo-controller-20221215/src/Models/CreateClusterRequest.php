@@ -110,23 +110,21 @@ class CreateClusterRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'clusterDescription'    => 'ClusterDescription',
-        'clusterName'           => 'ClusterName',
-        'clusterType'           => 'ClusterType',
-        'components'            => 'Components',
-        'hpnZone'               => 'HpnZone',
+        'clusterDescription' => 'ClusterDescription',
+        'clusterName' => 'ClusterName',
+        'clusterType' => 'ClusterType',
+        'components' => 'Components',
+        'hpnZone' => 'HpnZone',
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
-        'networks'              => 'Networks',
-        'nimizVSwitches'        => 'NimizVSwitches',
-        'nodeGroups'            => 'NodeGroups',
-        'openEniJumboFrame'     => 'OpenEniJumboFrame',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'tag'                   => 'Tag',
+        'networks' => 'Networks',
+        'nimizVSwitches' => 'NimizVSwitches',
+        'nodeGroups' => 'NodeGroups',
+        'openEniJumboFrame' => 'OpenEniJumboFrame',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -209,7 +207,7 @@ class CreateClusterRequest extends Model
         if (isset($map['Components'])) {
             if (!empty($map['Components'])) {
                 $model->components = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Components'] as $item) {
                     $model->components[$n++] = null !== $item ? components::fromMap($item) : $item;
                 }
@@ -232,7 +230,7 @@ class CreateClusterRequest extends Model
         if (isset($map['NodeGroups'])) {
             if (!empty($map['NodeGroups'])) {
                 $model->nodeGroups = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['NodeGroups'] as $item) {
                     $model->nodeGroups[$n++] = null !== $item ? nodeGroups::fromMap($item) : $item;
                 }
@@ -247,7 +245,7 @@ class CreateClusterRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

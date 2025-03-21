@@ -90,7 +90,10 @@ class netTestResults extends Model
 
     /**
      * @description Status of the network test task. Possible values:</br>
+     * - InProgress: Testing in progress.</br>
+     * - Finished: Test completed.</br>
      * - Failed: Test failed.
+     *
      * @example InProgress
      *
      * @var string
@@ -113,23 +116,21 @@ class netTestResults extends Model
      */
     public $trafficTest;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
-        'clusterName'  => 'ClusterName',
-        'commTest'     => 'CommTest',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'commTest' => 'CommTest',
         'creationTime' => 'CreationTime',
-        'delayTest'    => 'DelayTest',
+        'delayTest' => 'DelayTest',
         'finishedTime' => 'FinishedTime',
-        'netTestType'  => 'NetTestType',
-        'networkMode'  => 'NetworkMode',
-        'port'         => 'Port',
-        'status'       => 'Status',
-        'testId'       => 'TestId',
-        'trafficTest'  => 'TrafficTest',
+        'netTestType' => 'NetTestType',
+        'networkMode' => 'NetworkMode',
+        'port' => 'Port',
+        'status' => 'Status',
+        'testId' => 'TestId',
+        'trafficTest' => 'TrafficTest',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

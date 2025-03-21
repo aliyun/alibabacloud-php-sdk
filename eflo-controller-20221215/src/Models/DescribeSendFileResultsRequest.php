@@ -12,6 +12,7 @@ class DescribeSendFileResultsRequest extends Model
      * @description Command execution ID.
      *
      * This parameter is required.
+     *
      * @example t-bj038i0d6r8zoqo
      *
      * @var string
@@ -28,12 +29,10 @@ class DescribeSendFileResultsRequest extends Model
     public $nodeId;
     protected $_name = [
         'invokeId' => 'InvokeId',
-        'nodeId'   => 'NodeId',
+        'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

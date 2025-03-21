@@ -12,6 +12,7 @@ class StopInvocationRequest extends Model
      * @description Command execution ID.
      *
      * This parameter is required.
+     *
      * @example f-hz044748dzepds0
      *
      * @var string
@@ -25,13 +26,11 @@ class StopInvocationRequest extends Model
      */
     public $nodeIdList;
     protected $_name = [
-        'invokeId'   => 'InvokeId',
+        'invokeId' => 'InvokeId',
         'nodeIdList' => 'NodeIdList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

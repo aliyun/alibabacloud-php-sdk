@@ -35,13 +35,11 @@ class aiJobLogs extends Model
     public $nodeId;
     protected $_name = [
         'aiInstance' => 'AiInstance',
-        'logs'       => 'Logs',
-        'nodeId'     => 'NodeId',
+        'logs' => 'Logs',
+        'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class aiJobLogs extends Model
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Logs'] as $item) {
                     $model->logs[$n++] = null !== $item ? logs::fromMap($item) : $item;
                 }

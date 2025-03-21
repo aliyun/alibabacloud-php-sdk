@@ -44,15 +44,13 @@ class hosts extends Model
      */
     public $serverName;
     protected $_name = [
-        'IP'         => 'IP',
-        'nodeId'     => 'NodeId',
+        'IP' => 'IP',
+        'nodeId' => 'NodeId',
         'resourceId' => 'ResourceId',
         'serverName' => 'ServerName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

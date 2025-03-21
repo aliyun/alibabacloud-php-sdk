@@ -79,19 +79,17 @@ class steps extends Model
      */
     public $updateTime;
     protected $_name = [
-        'message'    => 'Message',
-        'stageTag'   => 'StageTag',
-        'startTime'  => 'StartTime',
-        'stepName'   => 'StepName',
-        'stepState'  => 'StepState',
-        'stepType'   => 'StepType',
-        'subTasks'   => 'SubTasks',
+        'message' => 'Message',
+        'stageTag' => 'StageTag',
+        'startTime' => 'StartTime',
+        'stepName' => 'StepName',
+        'stepState' => 'StepState',
+        'stepType' => 'StepType',
+        'subTasks' => 'SubTasks',
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -159,7 +157,7 @@ class steps extends Model
         if (isset($map['SubTasks'])) {
             if (!empty($map['SubTasks'])) {
                 $model->subTasks = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['SubTasks'] as $item) {
                     $model->subTasks[$n++] = null !== $item ? subTasks::fromMap($item) : $item;
                 }

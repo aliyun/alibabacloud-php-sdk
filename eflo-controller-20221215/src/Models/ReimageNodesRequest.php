@@ -39,19 +39,18 @@ class ReimageNodesRequest extends Model
      *
      * @example #!/bin/sh
      * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
+     *
      * @var string
      */
     public $userData;
     protected $_name = [
-        'clusterId'             => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
-        'nodes'                 => 'Nodes',
-        'userData'              => 'UserData',
+        'nodes' => 'Nodes',
+        'userData' => 'UserData',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -95,7 +94,7 @@ class ReimageNodesRequest extends Model
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Nodes'] as $item) {
                     $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
                 }

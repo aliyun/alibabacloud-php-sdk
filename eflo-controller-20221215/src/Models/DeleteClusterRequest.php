@@ -12,6 +12,7 @@ class DeleteClusterRequest extends Model
      * @description Cluster ID
      *
      * This parameter is required.
+     *
      * @example i116913051662373010974
      *
      * @var string
@@ -21,9 +22,7 @@ class DeleteClusterRequest extends Model
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -37,12 +37,10 @@ class CreateClusterResponseBody extends Model
     protected $_name = [
         'clusterId' => 'ClusterId',
         'requestId' => 'RequestId',
-        'taskId'    => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

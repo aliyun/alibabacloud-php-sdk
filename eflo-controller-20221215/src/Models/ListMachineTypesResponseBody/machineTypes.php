@@ -98,21 +98,19 @@ class machineTypes extends Model
      */
     public $type;
     protected $_name = [
-        'bondNum'      => 'BondNum',
-        'cpuInfo'      => 'CpuInfo',
-        'diskInfo'     => 'DiskInfo',
-        'gpuInfo'      => 'GpuInfo',
-        'memoryInfo'   => 'MemoryInfo',
-        'name'         => 'Name',
-        'networkInfo'  => 'NetworkInfo',
-        'nodeCount'    => 'NodeCount',
+        'bondNum' => 'BondNum',
+        'cpuInfo' => 'CpuInfo',
+        'diskInfo' => 'DiskInfo',
+        'gpuInfo' => 'GpuInfo',
+        'memoryInfo' => 'MemoryInfo',
+        'name' => 'Name',
+        'networkInfo' => 'NetworkInfo',
+        'nodeCount' => 'NodeCount',
         'totalCpuCore' => 'TotalCpuCore',
-        'type'         => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

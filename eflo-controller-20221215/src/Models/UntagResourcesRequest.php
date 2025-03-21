@@ -11,7 +11,11 @@ class UntagResourcesRequest extends Model
     /**
      * @description Whether to remove all, only effective when TagKey.N is empty. Valid values:
      *
+     * - True, remove all
+     * - False, do not remove all
+     *
      * Default is False
+     *
      * @example False
      *
      * @var bool
@@ -22,6 +26,7 @@ class UntagResourcesRequest extends Model
      * @description Region ID
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +37,7 @@ class UntagResourcesRequest extends Model
      * @description List of resource IDs
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -40,6 +46,7 @@ class UntagResourcesRequest extends Model
      * @description Resource type
      *
      * This parameter is required.
+     *
      * @example Cluster
      *
      * @var string
@@ -53,16 +60,14 @@ class UntagResourcesRequest extends Model
      */
     public $tagKey;
     protected $_name = [
-        'all'          => 'All',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'all' => 'All',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tagKey'       => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

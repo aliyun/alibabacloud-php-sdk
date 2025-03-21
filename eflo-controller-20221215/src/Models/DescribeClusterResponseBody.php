@@ -169,28 +169,26 @@ class DescribeClusterResponseBody extends Model
     public $vpcId;
     protected $_name = [
         'clusterDescription' => 'ClusterDescription',
-        'clusterId'          => 'ClusterId',
-        'clusterName'        => 'ClusterName',
-        'clusterType'        => 'ClusterType',
-        'components'         => 'Components',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'clusterType' => 'ClusterType',
+        'components' => 'Components',
         'computingIpVersion' => 'ComputingIpVersion',
-        'createTime'         => 'CreateTime',
-        'hpnZone'            => 'HpnZone',
-        'networks'           => 'Networks',
-        'nodeCount'          => 'NodeCount',
-        'nodeGroupCount'     => 'NodeGroupCount',
-        'openEniJumboFrame'  => 'OpenEniJumboFrame',
-        'operatingState'     => 'OperatingState',
-        'requestId'          => 'RequestId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'taskId'             => 'TaskId',
-        'updateTime'         => 'UpdateTime',
-        'vpcId'              => 'VpcId',
+        'createTime' => 'CreateTime',
+        'hpnZone' => 'HpnZone',
+        'networks' => 'Networks',
+        'nodeCount' => 'NodeCount',
+        'nodeGroupCount' => 'NodeGroupCount',
+        'openEniJumboFrame' => 'OpenEniJumboFrame',
+        'operatingState' => 'OperatingState',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'taskId' => 'TaskId',
+        'updateTime' => 'UpdateTime',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -288,7 +286,7 @@ class DescribeClusterResponseBody extends Model
         if (isset($map['Components'])) {
             if (!empty($map['Components'])) {
                 $model->components = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Components'] as $item) {
                     $model->components[$n++] = null !== $item ? components::fromMap($item) : $item;
                 }
@@ -306,7 +304,7 @@ class DescribeClusterResponseBody extends Model
         if (isset($map['Networks'])) {
             if (!empty($map['Networks'])) {
                 $model->networks = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Networks'] as $item) {
                     $model->networks[$n++] = null !== $item ? networks::fromMap($item) : $item;
                 }

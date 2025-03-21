@@ -53,16 +53,14 @@ class nodes extends Model
      */
     public $vpcId;
     protected $_name = [
-        'hostname'      => 'Hostname',
+        'hostname' => 'Hostname',
         'loginPassword' => 'LoginPassword',
-        'nodeId'        => 'NodeId',
-        'vSwitchId'     => 'VSwitchId',
-        'vpcId'         => 'VpcId',
+        'nodeId' => 'NodeId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

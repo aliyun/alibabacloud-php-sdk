@@ -33,14 +33,12 @@ class ShrinkClusterShrinkRequest extends Model
      */
     public $nodeGroupsShrink;
     protected $_name = [
-        'clusterId'             => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
-        'nodeGroupsShrink'      => 'NodeGroups',
+        'nodeGroupsShrink' => 'NodeGroups',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

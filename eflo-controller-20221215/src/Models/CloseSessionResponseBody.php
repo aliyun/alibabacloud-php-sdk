@@ -37,12 +37,10 @@ class CloseSessionResponseBody extends Model
     protected $_name = [
         'requestId' => 'RequestId',
         'sessionId' => 'SessionId',
-        'state'     => 'State',
+        'state' => 'State',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

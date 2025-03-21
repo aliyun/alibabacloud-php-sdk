@@ -99,7 +99,10 @@ class DescribeNetTestResultResponseBody extends Model
 
     /**
      * @description Diagnosis task status. Possible values:
+     * - InProgress: Diagnosis in progress.
+     * - Finished: Diagnosis completed.
      * - Failed: Diagnosis failed.
+     *
      * @example Failed
      *
      * @var string
@@ -122,24 +125,22 @@ class DescribeNetTestResultResponseBody extends Model
      */
     public $trafficTest;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
-        'clusterName'  => 'ClusterName',
-        'commTest'     => 'CommTest',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'commTest' => 'CommTest',
         'creationTime' => 'CreationTime',
-        'delayTest'    => 'DelayTest',
+        'delayTest' => 'DelayTest',
         'finishedTime' => 'FinishedTime',
-        'netTestType'  => 'NetTestType',
-        'port'         => 'Port',
-        'requestId'    => 'RequestId',
+        'netTestType' => 'NetTestType',
+        'port' => 'Port',
+        'requestId' => 'RequestId',
         'resultDetial' => 'ResultDetial',
-        'status'       => 'Status',
-        'testId'       => 'TestId',
-        'trafficTest'  => 'TrafficTest',
+        'status' => 'Status',
+        'testId' => 'TestId',
+        'trafficTest' => 'TrafficTest',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

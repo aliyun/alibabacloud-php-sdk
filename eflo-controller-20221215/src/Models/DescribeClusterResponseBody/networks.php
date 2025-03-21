@@ -20,9 +20,7 @@ class networks extends Model
         'vpdId' => 'VpdId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

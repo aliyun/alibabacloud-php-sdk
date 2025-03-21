@@ -20,7 +20,11 @@ class ListDiagnosticResultsRequest extends Model
     /**
      * @description Number of items per page in a paginated query. The maximum value is 100.
      *
+     * Default value:
+     *
+     * - If no value is set or the set value is less than 20, the default is 20.
      * - If the set value is greater than 100, the default is 100.
+     *
      * @example 20
      *
      * @var int
@@ -45,15 +49,13 @@ class ListDiagnosticResultsRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'diagType'        => 'DiagType',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
+        'diagType' => 'DiagType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

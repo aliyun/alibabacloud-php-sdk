@@ -9,6 +9,7 @@ use AlibabaCloud\Tea\Model;
 
 /**
  * @internal
+ *
  * @coversNothing
  */
 class commTest extends Model
@@ -48,14 +49,12 @@ class commTest extends Model
     public $type;
     protected $_name = [
         'GPUNum' => 'GPUNum',
-        'hosts'  => 'Hosts',
-        'model'  => 'Model',
-        'type'   => 'Type',
+        'hosts' => 'Hosts',
+        'model' => 'Model',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -96,7 +95,7 @@ class commTest extends Model
         if (isset($map['Hosts'])) {
             if (!empty($map['Hosts'])) {
                 $model->hosts = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Hosts'] as $item) {
                     $model->hosts[$n++] = null !== $item ? hosts::fromMap($item) : $item;
                 }

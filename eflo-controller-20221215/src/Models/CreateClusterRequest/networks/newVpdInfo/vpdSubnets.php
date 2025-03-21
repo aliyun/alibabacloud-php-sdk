@@ -37,12 +37,10 @@ class vpdSubnets extends Model
     protected $_name = [
         'subnetCidr' => 'SubnetCidr',
         'subnetType' => 'SubnetType',
-        'zoneId'     => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

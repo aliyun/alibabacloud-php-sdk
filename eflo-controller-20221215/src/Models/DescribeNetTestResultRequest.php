@@ -20,9 +20,7 @@ class DescribeNetTestResultRequest extends Model
         'testId' => 'TestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

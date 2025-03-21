@@ -11,7 +11,11 @@ class DescribeInvocationsRequest extends Model
     /**
      * @description Sets the encoding method for the `CommandContent` and `Output` fields in the returned data. Possible values:
      *
+     * - PlainText: Returns the original command content and output information.
+     * - Base64: Returns the Base64-encoded command content and output information.
+     *
      * Default value: Base64.
+     *
      * @example PlainText
      *
      * @var string
@@ -21,7 +25,11 @@ class DescribeInvocationsRequest extends Model
     /**
      * @description Indicates whether to return the output information of the command execution in the result.
      *
+     * - true: Return. In this case, you must specify at least the `InvokeId` or `InstanceId` parameter.
+     * - false: Do not return.
+     *
      * Default value: false.
+     *
      * @example true
      *
      * @var bool
@@ -32,6 +40,7 @@ class DescribeInvocationsRequest extends Model
      * @description Command execution ID
      *
      * This parameter is required.
+     *
      * @example t-cd03crwys0lrls0
      *
      * @var string
@@ -48,14 +57,12 @@ class DescribeInvocationsRequest extends Model
     public $nodeId;
     protected $_name = [
         'contentEncoding' => 'ContentEncoding',
-        'includeOutput'   => 'IncludeOutput',
-        'invokeId'        => 'InvokeId',
-        'nodeId'          => 'NodeId',
+        'includeOutput' => 'IncludeOutput',
+        'invokeId' => 'InvokeId',
+        'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

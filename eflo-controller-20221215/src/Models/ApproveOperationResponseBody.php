@@ -27,12 +27,10 @@ class ApproveOperationResponseBody extends Model
     public $requestId;
     protected $_name = [
         'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

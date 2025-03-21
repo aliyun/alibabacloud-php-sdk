@@ -116,23 +116,21 @@ class groups extends Model
      */
     public $zoneId;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
-        'createTime'  => 'CreateTime',
+        'createTime' => 'CreateTime',
         'description' => 'Description',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
-        'imageId'     => 'ImageId',
-        'imageName'   => 'ImageName',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
         'machineType' => 'MachineType',
-        'nodeCount'   => 'NodeCount',
-        'updateTime'  => 'UpdateTime',
-        'zoneId'      => 'ZoneId',
+        'nodeCount' => 'NodeCount',
+        'updateTime' => 'UpdateTime',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,7 +12,12 @@ class ListNetTestResultsResponseBody extends Model
     /**
      * @description 分页查询时每页行数。最大值为100。
      *
+     * 默认值：
+     *
+     * •当不设置值或设置的值小于20时，默认值为20。
+     *
      * •当设置的值大于100时，默认值为100。
+     *
      * @example 20
      *
      * @var int
@@ -44,15 +49,13 @@ class ListNetTestResultsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'maxResults'     => 'MaxResults',
+        'maxResults' => 'MaxResults',
         'netTestResults' => 'NetTestResults',
-        'nextToken'      => 'NextToken',
-        'requestId'      => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -93,7 +96,7 @@ class ListNetTestResultsResponseBody extends Model
         if (isset($map['NetTestResults'])) {
             if (!empty($map['NetTestResults'])) {
                 $model->netTestResults = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['NetTestResults'] as $item) {
                     $model->netTestResults[$n++] = null !== $item ? netTestResults::fromMap($item) : $item;
                 }

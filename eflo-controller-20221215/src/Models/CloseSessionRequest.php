@@ -26,13 +26,11 @@ class CloseSessionRequest extends Model
      */
     public $sessionToken;
     protected $_name = [
-        'sessionId'    => 'SessionId',
+        'sessionId' => 'SessionId',
         'sessionToken' => 'SessionToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

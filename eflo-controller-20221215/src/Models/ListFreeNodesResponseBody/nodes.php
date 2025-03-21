@@ -80,19 +80,17 @@ class nodes extends Model
      */
     public $zoneId;
     protected $_name = [
-        'createTime'      => 'CreateTime',
-        'expiredTime'     => 'ExpiredTime',
-        'hpnZone'         => 'HpnZone',
-        'machineType'     => 'MachineType',
-        'nodeId'          => 'NodeId',
+        'createTime' => 'CreateTime',
+        'expiredTime' => 'ExpiredTime',
+        'hpnZone' => 'HpnZone',
+        'machineType' => 'MachineType',
+        'nodeId' => 'NodeId',
         'resourceGroupId' => 'ResourceGroupId',
-        'sn'              => 'Sn',
-        'zoneId'          => 'ZoneId',
+        'sn' => 'Sn',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,6 +9,7 @@ use AlibabaCloud\Tea\Model;
 
 /**
  * @internal
+ *
  * @coversNothing
  */
 class delayTest extends Model
@@ -23,9 +24,7 @@ class delayTest extends Model
         'hosts' => 'Hosts',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -54,7 +53,7 @@ class delayTest extends Model
         if (isset($map['Hosts'])) {
             if (!empty($map['Hosts'])) {
                 $model->hosts = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Hosts'] as $item) {
                     $model->hosts[$n++] = null !== $item ? hosts::fromMap($item) : $item;
                 }

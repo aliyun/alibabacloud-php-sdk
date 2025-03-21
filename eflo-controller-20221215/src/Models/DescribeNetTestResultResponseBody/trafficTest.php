@@ -10,6 +10,7 @@ use AlibabaCloud\Tea\Model;
 
 /**
  * @internal
+ *
  * @coversNothing
  */
 class trafficTest extends Model
@@ -73,18 +74,16 @@ class trafficTest extends Model
      */
     public $trafficModel;
     protected $_name = [
-        'clients'      => 'Clients',
-        'duration'     => 'Duration',
-        'GDR'          => 'GDR',
-        'protocol'     => 'Protocol',
-        'QP'           => 'QP',
-        'servers'      => 'Servers',
+        'clients' => 'Clients',
+        'duration' => 'Duration',
+        'GDR' => 'GDR',
+        'protocol' => 'Protocol',
+        'QP' => 'QP',
+        'servers' => 'Servers',
         'trafficModel' => 'TrafficModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -137,7 +136,7 @@ class trafficTest extends Model
         if (isset($map['Clients'])) {
             if (!empty($map['Clients'])) {
                 $model->clients = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Clients'] as $item) {
                     $model->clients[$n++] = null !== $item ? clients::fromMap($item) : $item;
                 }
@@ -158,7 +157,7 @@ class trafficTest extends Model
         if (isset($map['Servers'])) {
             if (!empty($map['Servers'])) {
                 $model->servers = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Servers'] as $item) {
                     $model->servers[$n++] = null !== $item ? servers::fromMap($item) : $item;
                 }

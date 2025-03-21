@@ -11,7 +11,10 @@ class DescribeZonesRequest extends Model
     /**
      * @description Filter the returned results based on Chinese or English. For more information, see RFC7231. Valid values:
      *
+     * zh-CN
+     * en-US
      * Default value: zh-CN
+     *
      * @example zh-CN
      *
      * @var string
@@ -21,9 +24,7 @@ class DescribeZonesRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

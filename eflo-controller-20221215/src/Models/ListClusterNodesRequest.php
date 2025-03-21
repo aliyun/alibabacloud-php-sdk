@@ -12,6 +12,7 @@ class ListClusterNodesRequest extends Model
      * @description Cluster ID
      *
      * This parameter is required.
+     *
      * @example i15b480fbd2fcdbc2869cd80
      *
      * @var string
@@ -45,15 +46,13 @@ class ListClusterNodesRequest extends Model
      */
     public $nodeGroupId;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
+        'clusterId' => 'ClusterId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'nodeGroupId' => 'NodeGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

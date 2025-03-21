@@ -20,9 +20,7 @@ class nodes extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

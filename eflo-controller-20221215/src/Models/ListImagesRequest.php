@@ -37,12 +37,10 @@ class ListImagesRequest extends Model
     protected $_name = [
         'architecture' => 'Architecture',
         'imageVersion' => 'ImageVersion',
-        'platform'     => 'Platform',
+        'platform' => 'Platform',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

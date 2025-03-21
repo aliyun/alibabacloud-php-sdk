@@ -25,12 +25,10 @@ class StopNodesShrinkRequest extends Model
     public $nodesShrink;
     protected $_name = [
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
-        'nodesShrink'           => 'Nodes',
+        'nodesShrink' => 'Nodes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

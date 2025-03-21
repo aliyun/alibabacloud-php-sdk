@@ -53,16 +53,14 @@ class clients extends Model
      */
     public $serverName;
     protected $_name = [
-        'bond'       => 'Bond',
-        'IP'         => 'IP',
-        'nodeId'     => 'NodeId',
+        'bond' => 'Bond',
+        'IP' => 'IP',
+        'nodeId' => 'NodeId',
         'resourceId' => 'ResourceId',
         'serverName' => 'ServerName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

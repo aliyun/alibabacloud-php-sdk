@@ -116,6 +116,16 @@ class nodes extends Model
     public $sn;
 
     /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
      * @description Zone ID
      *
      * @example cn-hangzhou-b
@@ -124,24 +134,24 @@ class nodes extends Model
      */
     public $zoneId;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'expiredTime'    => 'ExpiredTime',
-        'hostname'       => 'Hostname',
-        'hpnZone'        => 'HpnZone',
-        'imageId'        => 'ImageId',
-        'machineType'    => 'MachineType',
-        'networks'       => 'Networks',
-        'nodeGroupId'    => 'NodeGroupId',
-        'nodeGroupName'  => 'NodeGroupName',
-        'nodeId'         => 'NodeId',
+        'createTime' => 'CreateTime',
+        'expiredTime' => 'ExpiredTime',
+        'hostname' => 'Hostname',
+        'hpnZone' => 'HpnZone',
+        'imageId' => 'ImageId',
+        'machineType' => 'MachineType',
+        'networks' => 'Networks',
+        'nodeGroupId' => 'NodeGroupId',
+        'nodeGroupName' => 'NodeGroupName',
+        'nodeId' => 'NodeId',
         'operatingState' => 'OperatingState',
-        'sn'             => 'Sn',
-        'zoneId'         => 'ZoneId',
+        'sn' => 'Sn',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -188,6 +198,12 @@ class nodes extends Model
         if (null !== $this->sn) {
             $res['Sn'] = $this->sn;
         }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -224,7 +240,7 @@ class nodes extends Model
         if (isset($map['Networks'])) {
             if (!empty($map['Networks'])) {
                 $model->networks = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Networks'] as $item) {
                     $model->networks[$n++] = null !== $item ? networks::fromMap($item) : $item;
                 }
@@ -244,6 +260,12 @@ class nodes extends Model
         }
         if (isset($map['Sn'])) {
             $model->sn = $map['Sn'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

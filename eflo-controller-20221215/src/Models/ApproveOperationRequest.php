@@ -26,13 +26,11 @@ class ApproveOperationRequest extends Model
      */
     public $operationType;
     protected $_name = [
-        'nodeId'        => 'NodeId',
+        'nodeId' => 'NodeId',
         'operationType' => 'OperationType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

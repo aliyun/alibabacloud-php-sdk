@@ -98,21 +98,19 @@ class images extends Model
      */
     public $type;
     protected $_name = [
-        'architecture'    => 'Architecture',
-        'description'     => 'Description',
-        'imageId'         => 'ImageId',
-        'imageName'       => 'ImageName',
-        'imageVersion'    => 'ImageVersion',
-        'nodeCount'       => 'NodeCount',
-        'platform'        => 'Platform',
-        'releaseFileMd5'  => 'ReleaseFileMd5',
+        'architecture' => 'Architecture',
+        'description' => 'Description',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
+        'imageVersion' => 'ImageVersion',
+        'nodeCount' => 'NodeCount',
+        'platform' => 'Platform',
+        'releaseFileMd5' => 'ReleaseFileMd5',
         'releaseFileSize' => 'ReleaseFileSize',
-        'type'            => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

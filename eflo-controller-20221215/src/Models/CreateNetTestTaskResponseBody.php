@@ -27,12 +27,10 @@ class CreateNetTestTaskResponseBody extends Model
     public $testId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'testId'    => 'TestId',
+        'testId' => 'TestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

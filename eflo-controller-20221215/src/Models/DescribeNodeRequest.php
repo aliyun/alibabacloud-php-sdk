@@ -12,6 +12,7 @@ class DescribeNodeRequest extends Model
      * @description Node ID
      *
      * This parameter is required.
+     *
      * @example mock-sn-2060
      *
      * @var string
@@ -21,9 +22,7 @@ class DescribeNodeRequest extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

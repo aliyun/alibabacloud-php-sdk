@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupResponseBody extends Model
 {
     /**
-     * @description ID of the request
+     * @description Id of the request
      *
      * @example 8F065DDD-6996-5973-9691-9EC57BD0072E
      *
@@ -20,9 +20,7 @@ class ChangeResourceGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

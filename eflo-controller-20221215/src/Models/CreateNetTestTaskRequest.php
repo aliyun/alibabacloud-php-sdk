@@ -46,6 +46,7 @@ class CreateNetTestTaskRequest extends Model
     /**
      * @description Network test type.
      * For example: DelayTest for latency testing, TrafficTest for traffic testing, CommTest for communication library testing.
+     *
      * @example DelayTest
      *
      * @var string
@@ -77,19 +78,17 @@ class CreateNetTestTaskRequest extends Model
      */
     public $trafficTest;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
-        'commTest'    => 'CommTest',
-        'delayTest'   => 'DelayTest',
+        'commTest' => 'CommTest',
+        'delayTest' => 'DelayTest',
         'netTestType' => 'NetTestType',
         'networkMode' => 'NetworkMode',
-        'port'        => 'Port',
+        'port' => 'Port',
         'trafficTest' => 'TrafficTest',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

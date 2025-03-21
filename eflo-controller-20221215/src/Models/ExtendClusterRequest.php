@@ -58,17 +58,15 @@ class ExtendClusterRequest extends Model
      */
     public $vpdSubnets;
     protected $_name = [
-        'clusterId'             => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
-        'ipAllocationPolicy'    => 'IpAllocationPolicy',
-        'nodeGroups'            => 'NodeGroups',
-        'vSwitchZoneId'         => 'VSwitchZoneId',
-        'vpdSubnets'            => 'VpdSubnets',
+        'ipAllocationPolicy' => 'IpAllocationPolicy',
+        'nodeGroups' => 'NodeGroups',
+        'vSwitchZoneId' => 'VSwitchZoneId',
+        'vpdSubnets' => 'VpdSubnets',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -124,7 +122,7 @@ class ExtendClusterRequest extends Model
         if (isset($map['IpAllocationPolicy'])) {
             if (!empty($map['IpAllocationPolicy'])) {
                 $model->ipAllocationPolicy = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['IpAllocationPolicy'] as $item) {
                     $model->ipAllocationPolicy[$n++] = null !== $item ? ipAllocationPolicy::fromMap($item) : $item;
                 }
@@ -133,7 +131,7 @@ class ExtendClusterRequest extends Model
         if (isset($map['NodeGroups'])) {
             if (!empty($map['NodeGroups'])) {
                 $model->nodeGroups = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['NodeGroups'] as $item) {
                     $model->nodeGroups[$n++] = null !== $item ? nodeGroups::fromMap($item) : $item;
                 }

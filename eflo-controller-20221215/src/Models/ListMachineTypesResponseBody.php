@@ -35,13 +35,11 @@ class ListMachineTypesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'machineTypes' => 'MachineTypes',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListMachineTypesResponseBody extends Model
         if (isset($map['MachineTypes'])) {
             if (!empty($map['MachineTypes'])) {
                 $model->machineTypes = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['MachineTypes'] as $item) {
                     $model->machineTypes[$n++] = null !== $item ? machineTypes::fromMap($item) : $item;
                 }

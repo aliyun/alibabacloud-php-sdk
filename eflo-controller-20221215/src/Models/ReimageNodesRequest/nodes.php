@@ -44,15 +44,13 @@ class nodes extends Model
      */
     public $nodeId;
     protected $_name = [
-        'hostname'      => 'Hostname',
-        'imageId'       => 'ImageId',
+        'hostname' => 'Hostname',
+        'imageId' => 'ImageId',
         'loginPassword' => 'LoginPassword',
-        'nodeId'        => 'NodeId',
+        'nodeId' => 'NodeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

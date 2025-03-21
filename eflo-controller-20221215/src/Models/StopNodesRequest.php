@@ -25,12 +25,10 @@ class StopNodesRequest extends Model
     public $nodes;
     protected $_name = [
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
-        'nodes'                 => 'Nodes',
+        'nodes' => 'Nodes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

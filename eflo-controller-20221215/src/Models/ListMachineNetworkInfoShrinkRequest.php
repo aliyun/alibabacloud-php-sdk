@@ -18,9 +18,7 @@ class ListMachineNetworkInfoShrinkRequest extends Model
         'machineHpnInfoShrink' => 'MachineHpnInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

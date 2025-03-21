@@ -144,25 +144,23 @@ class clusters extends Model
     public $vpcId;
     protected $_name = [
         'clusterDescription' => 'ClusterDescription',
-        'clusterId'          => 'ClusterId',
-        'clusterName'        => 'ClusterName',
-        'clusterType'        => 'ClusterType',
-        'components'         => 'Components',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'clusterType' => 'ClusterType',
+        'components' => 'Components',
         'computingIpVersion' => 'ComputingIpVersion',
-        'createTime'         => 'CreateTime',
-        'hpnZone'            => 'HpnZone',
-        'nodeCount'          => 'NodeCount',
-        'nodeGroupCount'     => 'NodeGroupCount',
-        'operatingState'     => 'OperatingState',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'taskId'             => 'TaskId',
-        'updateTime'         => 'UpdateTime',
-        'vpcId'              => 'VpcId',
+        'createTime' => 'CreateTime',
+        'hpnZone' => 'HpnZone',
+        'nodeCount' => 'NodeCount',
+        'nodeGroupCount' => 'NodeGroupCount',
+        'operatingState' => 'OperatingState',
+        'resourceGroupId' => 'ResourceGroupId',
+        'taskId' => 'TaskId',
+        'updateTime' => 'UpdateTime',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

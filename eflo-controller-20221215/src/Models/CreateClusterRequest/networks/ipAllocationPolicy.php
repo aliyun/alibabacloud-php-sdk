@@ -32,14 +32,12 @@ class ipAllocationPolicy extends Model
      */
     public $nodePolicy;
     protected $_name = [
-        'bondPolicy'        => 'BondPolicy',
+        'bondPolicy' => 'BondPolicy',
         'machineTypePolicy' => 'MachineTypePolicy',
-        'nodePolicy'        => 'NodePolicy',
+        'nodePolicy' => 'NodePolicy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -83,7 +81,7 @@ class ipAllocationPolicy extends Model
         if (isset($map['MachineTypePolicy'])) {
             if (!empty($map['MachineTypePolicy'])) {
                 $model->machineTypePolicy = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['MachineTypePolicy'] as $item) {
                     $model->machineTypePolicy[$n++] = null !== $item ? machineTypePolicy::fromMap($item) : $item;
                 }
@@ -92,7 +90,7 @@ class ipAllocationPolicy extends Model
         if (isset($map['NodePolicy'])) {
             if (!empty($map['NodePolicy'])) {
                 $model->nodePolicy = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['NodePolicy'] as $item) {
                     $model->nodePolicy[$n++] = null !== $item ? nodePolicy::fromMap($item) : $item;
                 }

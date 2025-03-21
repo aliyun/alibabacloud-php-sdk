@@ -19,7 +19,12 @@ class ListDiagnosticResultsResponseBody extends Model
     /**
      * @description 分页查询时每页行数。最大值为100。
      *
+     * 默认值：
+     *
+     * •当不设置值或设置的值小于20时，默认值为20。
+     *
      * •当设置的值大于100时，默认值为100。
+     *
      * @example 20
      *
      * @var int
@@ -45,14 +50,12 @@ class ListDiagnosticResultsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'diagnosticResults' => 'DiagnosticResults',
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
-        'requestId'         => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -90,7 +93,7 @@ class ListDiagnosticResultsResponseBody extends Model
         if (isset($map['DiagnosticResults'])) {
             if (!empty($map['DiagnosticResults'])) {
                 $model->diagnosticResults = [];
-                $n                        = 0;
+                $n = 0;
                 foreach ($map['DiagnosticResults'] as $item) {
                     $model->diagnosticResults[$n++] = null !== $item ? diagnosticResults::fromMap($item) : $item;
                 }

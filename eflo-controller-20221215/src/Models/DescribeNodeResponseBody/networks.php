@@ -45,14 +45,12 @@ class networks extends Model
     public $vpdId;
     protected $_name = [
         'bondName' => 'BondName',
-        'ip'       => 'Ip',
+        'ip' => 'Ip',
         'subnetId' => 'SubnetId',
-        'vpdId'    => 'VpdId',
+        'vpdId' => 'VpdId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

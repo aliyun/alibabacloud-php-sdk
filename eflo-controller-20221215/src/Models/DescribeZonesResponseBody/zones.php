@@ -27,12 +27,10 @@ class zones extends Model
     public $zoneId;
     protected $_name = [
         'localName' => 'LocalName',
-        'zoneId'    => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

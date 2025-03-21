@@ -19,9 +19,7 @@ class ListMachineNetworkInfoRequest extends Model
         'machineHpnInfo' => 'MachineHpnInfo',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -50,7 +48,7 @@ class ListMachineNetworkInfoRequest extends Model
         if (isset($map['MachineHpnInfo'])) {
             if (!empty($map['MachineHpnInfo'])) {
                 $model->machineHpnInfo = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['MachineHpnInfo'] as $item) {
                     $model->machineHpnInfo[$n++] = null !== $item ? machineHpnInfo::fromMap($item) : $item;
                 }

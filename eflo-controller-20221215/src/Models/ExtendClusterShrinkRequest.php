@@ -56,17 +56,15 @@ class ExtendClusterShrinkRequest extends Model
      */
     public $vpdSubnetsShrink;
     protected $_name = [
-        'clusterId'                => 'ClusterId',
-        'ignoreFailedNodeTasks'    => 'IgnoreFailedNodeTasks',
+        'clusterId' => 'ClusterId',
+        'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
         'ipAllocationPolicyShrink' => 'IpAllocationPolicy',
-        'nodeGroupsShrink'         => 'NodeGroups',
-        'vSwitchZoneId'            => 'VSwitchZoneId',
-        'vpdSubnetsShrink'         => 'VpdSubnets',
+        'nodeGroupsShrink' => 'NodeGroups',
+        'vSwitchZoneId' => 'VSwitchZoneId',
+        'vpdSubnetsShrink' => 'VpdSubnets',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

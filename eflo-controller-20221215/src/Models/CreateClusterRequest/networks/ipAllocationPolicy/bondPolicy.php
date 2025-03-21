@@ -26,12 +26,10 @@ class bondPolicy extends Model
     public $bonds;
     protected $_name = [
         'bondDefaultSubnet' => 'BondDefaultSubnet',
-        'bonds'             => 'Bonds',
+        'bonds' => 'Bonds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -66,7 +64,7 @@ class bondPolicy extends Model
         if (isset($map['Bonds'])) {
             if (!empty($map['Bonds'])) {
                 $model->bonds = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Bonds'] as $item) {
                     $model->bonds[$n++] = null !== $item ? bonds::fromMap($item) : $item;
                 }

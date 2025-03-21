@@ -12,6 +12,7 @@ class DescribeClusterRequest extends Model
      * @description Cluster ID.
      *
      * This parameter is required.
+     *
      * @example i119982311660892626523
      *
      * @var string
@@ -21,9 +22,7 @@ class DescribeClusterRequest extends Model
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

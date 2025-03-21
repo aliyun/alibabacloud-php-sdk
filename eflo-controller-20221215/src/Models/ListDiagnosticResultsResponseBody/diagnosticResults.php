@@ -98,21 +98,19 @@ class diagnosticResults extends Model
      */
     public $status;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
-        'clusterName'  => 'ClusterName',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
         'creationTime' => 'CreationTime',
-        'diagContent'  => 'DiagContent',
-        'diagId'       => 'DiagId',
-        'diagResult'   => 'DiagResult',
+        'diagContent' => 'DiagContent',
+        'diagId' => 'DiagId',
+        'diagResult' => 'DiagResult',
         'finishedTime' => 'FinishedTime',
-        'resourceId'   => 'ResourceId',
-        'serverName'   => 'ServerName',
-        'status'       => 'Status',
+        'resourceId' => 'ResourceId',
+        'serverName' => 'ServerName',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

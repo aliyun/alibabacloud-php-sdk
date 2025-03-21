@@ -43,6 +43,7 @@ class CreateNetTestTaskShrinkRequest extends Model
     /**
      * @description Network test type.
      * For example: DelayTest for latency testing, TrafficTest for traffic testing, CommTest for communication library testing.
+     *
      * @example DelayTest
      *
      * @var string
@@ -74,19 +75,17 @@ class CreateNetTestTaskShrinkRequest extends Model
      */
     public $trafficTestShrink;
     protected $_name = [
-        'clusterId'         => 'ClusterId',
-        'clusterName'       => 'ClusterName',
-        'commTestShrink'    => 'CommTest',
-        'delayTestShrink'   => 'DelayTest',
-        'netTestType'       => 'NetTestType',
-        'networkMode'       => 'NetworkMode',
-        'port'              => 'Port',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'commTestShrink' => 'CommTest',
+        'delayTestShrink' => 'DelayTest',
+        'netTestType' => 'NetTestType',
+        'networkMode' => 'NetworkMode',
+        'port' => 'Port',
         'trafficTestShrink' => 'TrafficTest',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

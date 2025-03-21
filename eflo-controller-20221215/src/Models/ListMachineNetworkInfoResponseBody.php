@@ -26,12 +26,10 @@ class ListMachineNetworkInfoResponseBody extends Model
     public $requestId;
     protected $_name = [
         'machineNetworkInfo' => 'MachineNetworkInfo',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListMachineNetworkInfoResponseBody extends Model
         if (isset($map['MachineNetworkInfo'])) {
             if (!empty($map['MachineNetworkInfo'])) {
                 $model->machineNetworkInfo = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['MachineNetworkInfo'] as $item) {
                     $model->machineNetworkInfo[$n++] = null !== $item ? machineNetworkInfo::fromMap($item) : $item;
                 }

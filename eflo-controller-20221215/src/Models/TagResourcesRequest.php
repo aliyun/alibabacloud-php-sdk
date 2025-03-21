@@ -13,6 +13,7 @@ class TagResourcesRequest extends Model
      * @description Region ID
      *
      * This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +24,7 @@ class TagResourcesRequest extends Model
      * @description List of resource IDs
      *
      * This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -31,6 +33,7 @@ class TagResourcesRequest extends Model
      * @description Resource type
      *
      * This parameter is required.
+     *
      * @example Cluster
      *
      * @var string
@@ -41,19 +44,18 @@ class TagResourcesRequest extends Model
      * @description Tags
      *
      * This parameter is required.
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -102,7 +104,7 @@ class TagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
+                $n = 0;
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }

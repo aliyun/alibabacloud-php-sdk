@@ -34,14 +34,12 @@ class ListImagesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'images'    => 'Images',
+        'images' => 'Images',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListImagesResponseBody extends Model
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Images'] as $item) {
                     $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
                 }

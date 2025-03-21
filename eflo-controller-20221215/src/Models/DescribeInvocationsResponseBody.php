@@ -26,12 +26,10 @@ class DescribeInvocationsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'invocations' => 'Invocations',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

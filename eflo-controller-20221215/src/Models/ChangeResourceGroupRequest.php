@@ -9,9 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
-     * @description Target Resource Group
+     * @description System-defined parameter. Value: **ChangeResourceGroup**.
      *
      * This parameter is required.
+     *
      * @example rg-aekzyqdwnfabx6q
      *
      * @var string
@@ -19,9 +20,10 @@ class ChangeResourceGroupRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description Resource ID
+     * @description $.parameters[1].schema.example
      *
      * This parameter is required.
+     *
      * @example i118099391667548921125
      *
      * @var string
@@ -29,9 +31,10 @@ class ChangeResourceGroupRequest extends Model
     public $resourceId;
 
     /**
-     * @description Region ID
+     * @description Resource Group Change
      *
      * This parameter is required.
+     *
      * @example cn-wulanchabu
      *
      * @var string
@@ -39,19 +42,21 @@ class ChangeResourceGroupRequest extends Model
     public $resourceRegionId;
 
     /**
+     * @description $.parameters[3].schema.enumValueTitles
+     *
+     * @example Node
+     *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'resourceGroupId'  => 'ResourceGroupId',
-        'resourceId'       => 'ResourceId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId' => 'ResourceId',
         'resourceRegionId' => 'ResourceRegionId',
-        'resourceType'     => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

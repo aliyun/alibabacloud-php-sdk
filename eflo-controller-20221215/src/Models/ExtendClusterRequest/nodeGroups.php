@@ -30,6 +30,7 @@ class nodeGroups extends Model
      *
      * @example #!/bin/sh
      * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
+     *
      * @var string
      */
     public $userData;
@@ -44,14 +45,12 @@ class nodeGroups extends Model
     public $zoneId;
     protected $_name = [
         'nodeGroupId' => 'NodeGroupId',
-        'nodes'       => 'Nodes',
-        'userData'    => 'UserData',
-        'zoneId'      => 'ZoneId',
+        'nodes' => 'Nodes',
+        'userData' => 'UserData',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +91,7 @@ class nodeGroups extends Model
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Nodes'] as $item) {
                     $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
                 }

@@ -70,18 +70,16 @@ class newVpdInfo extends Model
      */
     public $vpdSubnets;
     protected $_name = [
-        'cenId'            => 'CenId',
-        'cloudLinkCidr'    => 'CloudLinkCidr',
-        'cloudLinkId'      => 'CloudLinkId',
-        'monitorVpcId'     => 'MonitorVpcId',
+        'cenId' => 'CenId',
+        'cloudLinkCidr' => 'CloudLinkCidr',
+        'cloudLinkId' => 'CloudLinkId',
+        'monitorVpcId' => 'MonitorVpcId',
         'monitorVswitchId' => 'MonitorVswitchId',
-        'vpdCidr'          => 'VpdCidr',
-        'vpdSubnets'       => 'VpdSubnets',
+        'vpdCidr' => 'VpdCidr',
+        'vpdSubnets' => 'VpdSubnets',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -146,7 +144,7 @@ class newVpdInfo extends Model
         if (isset($map['VpdSubnets'])) {
             if (!empty($map['VpdSubnets'])) {
                 $model->vpdSubnets = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['VpdSubnets'] as $item) {
                     $model->vpdSubnets[$n++] = null !== $item ? vpdSubnets::fromMap($item) : $item;
                 }

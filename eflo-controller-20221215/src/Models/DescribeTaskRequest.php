@@ -12,6 +12,7 @@ class DescribeTaskRequest extends Model
      * @description Task ID
      *
      * This parameter is required.
+     *
      * @example i156331731670384438138
      *
      * @var string
@@ -21,9 +22,7 @@ class DescribeTaskRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

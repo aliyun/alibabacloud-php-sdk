@@ -34,14 +34,12 @@ class ListClustersResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'clusters'  => 'Clusters',
+        'clusters' => 'Clusters',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class ListClustersResponseBody extends Model
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
                 $model->clusters = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['Clusters'] as $item) {
                     $model->clusters[$n++] = null !== $item ? clusters::fromMap($item) : $item;
                 }

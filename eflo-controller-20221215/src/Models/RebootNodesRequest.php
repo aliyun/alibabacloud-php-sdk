@@ -33,14 +33,12 @@ class RebootNodesRequest extends Model
      */
     public $nodes;
     protected $_name = [
-        'clusterId'             => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
-        'nodes'                 => 'Nodes',
+        'nodes' => 'Nodes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
