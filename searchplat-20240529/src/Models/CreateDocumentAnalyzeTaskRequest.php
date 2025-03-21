@@ -21,12 +21,10 @@ class CreateDocumentAnalyzeTaskRequest extends Model
     public $output;
     protected $_name = [
         'document' => 'document',
-        'output'   => 'output',
+        'output' => 'output',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

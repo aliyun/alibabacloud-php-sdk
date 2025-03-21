@@ -17,9 +17,7 @@ class CreateImageAnalyzeTaskRequest extends Model
         'document' => 'document',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

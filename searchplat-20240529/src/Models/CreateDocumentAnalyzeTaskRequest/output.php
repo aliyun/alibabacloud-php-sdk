@@ -16,9 +16,7 @@ class output extends Model
         'imageStorage' => 'image_storage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

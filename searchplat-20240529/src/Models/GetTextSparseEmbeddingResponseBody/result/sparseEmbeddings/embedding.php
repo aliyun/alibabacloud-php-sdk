@@ -23,14 +23,12 @@ class embedding extends Model
      */
     public $weight;
     protected $_name = [
-        'token'   => 'token',
+        'token' => 'token',
         'tokenId' => 'token_id',
-        'weight'  => 'weight',
+        'weight' => 'weight',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -22,13 +22,11 @@ class GetTextEmbeddingRequest extends Model
      */
     public $inputType;
     protected $_name = [
-        'input'     => 'input',
+        'input' => 'input',
         'inputType' => 'input_type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

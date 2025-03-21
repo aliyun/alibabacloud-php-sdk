@@ -23,14 +23,12 @@ class data extends Model
      */
     public $pageNum;
     protected $_name = [
-        'content'     => 'content',
+        'content' => 'content',
         'contentType' => 'content_type',
-        'pageNum'     => 'page_num',
+        'pageNum' => 'page_num',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

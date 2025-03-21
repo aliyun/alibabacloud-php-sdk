@@ -28,15 +28,13 @@ class result extends Model
      */
     public $sql;
     protected $_name = [
-        'intent'  => 'intent',
+        'intent' => 'intent',
         'queries' => 'queries',
-        'query'   => 'query',
-        'sql'     => 'sql',
+        'query' => 'query',
+        'sql' => 'sql',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

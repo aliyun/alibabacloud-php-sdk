@@ -17,9 +17,7 @@ class result extends Model
         'embeddings' => 'embeddings',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class result extends Model
         if (isset($map['embeddings'])) {
             if (!empty($map['embeddings'])) {
                 $model->embeddings = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['embeddings'] as $item) {
                     $model->embeddings[$n++] = null !== $item ? embeddings::fromMap($item) : $item;
                 }

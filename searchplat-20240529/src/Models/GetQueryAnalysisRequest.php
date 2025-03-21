@@ -28,13 +28,11 @@ class GetQueryAnalysisRequest extends Model
     public $query;
     protected $_name = [
         'functions' => 'functions',
-        'history'   => 'history',
-        'query'     => 'query',
+        'history' => 'history',
+        'query' => 'query',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -75,7 +73,7 @@ class GetQueryAnalysisRequest extends Model
         if (isset($map['functions'])) {
             if (!empty($map['functions'])) {
                 $model->functions = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['functions'] as $item) {
                     $model->functions[$n++] = null !== $item ? functions::fromMap($item) : $item;
                 }
@@ -84,7 +82,7 @@ class GetQueryAnalysisRequest extends Model
         if (isset($map['history'])) {
             if (!empty($map['history'])) {
                 $model->history = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['history'] as $item) {
                     $model->history[$n++] = null !== $item ? history::fromMap($item) : $item;
                 }

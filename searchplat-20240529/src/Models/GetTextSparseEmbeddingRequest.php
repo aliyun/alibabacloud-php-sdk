@@ -27,14 +27,12 @@ class GetTextSparseEmbeddingRequest extends Model
      */
     public $returnToken;
     protected $_name = [
-        'input'       => 'input',
-        'inputType'   => 'input_type',
+        'input' => 'input',
+        'inputType' => 'input_type',
         'returnToken' => 'return_token',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

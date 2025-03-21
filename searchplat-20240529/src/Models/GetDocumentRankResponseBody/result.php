@@ -17,9 +17,7 @@ class result extends Model
         'scores' => 'scores',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class result extends Model
         if (isset($map['scores'])) {
             if (!empty($map['scores'])) {
                 $model->scores = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['scores'] as $item) {
                     $model->scores[$n++] = null !== $item ? scores::fromMap($item) : $item;
                 }

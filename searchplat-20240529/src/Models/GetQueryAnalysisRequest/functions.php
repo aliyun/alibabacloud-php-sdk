@@ -18,13 +18,11 @@ class functions extends Model
      */
     public $parameters;
     protected $_name = [
-        'name'       => 'name',
+        'name' => 'name',
         'parameters' => 'parameters',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

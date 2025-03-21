@@ -18,9 +18,7 @@ class GetImageAnalyzeTaskStatusRequest extends Model
         'taskId' => 'task_id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

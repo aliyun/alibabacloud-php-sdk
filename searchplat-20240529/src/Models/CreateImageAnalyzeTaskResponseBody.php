@@ -24,14 +24,12 @@ class CreateImageAnalyzeTaskResponseBody extends Model
      */
     public $result;
     protected $_name = [
-        'latency'   => 'latency',
+        'latency' => 'latency',
         'requestId' => 'request_id',
-        'result'    => 'result',
+        'result' => 'result',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

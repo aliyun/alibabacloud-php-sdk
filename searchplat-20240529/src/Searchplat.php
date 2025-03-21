@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextGenerationRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextGenerationResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextSparseEmbeddingRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextSparseEmbeddingResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetWebSearchResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\GatewayPop\Client;
@@ -42,8 +44,9 @@ class Searchplat extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
+        $this->_productId = 'Searchplat';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = '';
     }
 
@@ -70,18 +73,18 @@ class Searchplat extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDocumentAnalyzeTask',
-            'version'     => '2024-05-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/document-analyze/' . $serviceId . '/async',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDocumentAnalyzeTask',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/document-analyze/' . $serviceId . '/async',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDocumentAnalyzeTaskResponse::fromMap($this->execute($params, $req, $runtime));
@@ -124,18 +127,18 @@ class Searchplat extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateImageAnalyzeTask',
-            'version'     => '2024-05-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/image-analyze/' . $serviceId . '/async',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateImageAnalyzeTask',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/image-analyze/' . $serviceId . '/async',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateImageAnalyzeTaskResponse::fromMap($this->execute($params, $req, $runtime));
@@ -178,18 +181,18 @@ class Searchplat extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDocumentAnalyzeTaskStatus',
-            'version'     => '2024-05-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/document-analyze/' . $serviceId . '/async/task-status',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDocumentAnalyzeTaskStatus',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/document-analyze/' . $serviceId . '/async/task-status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDocumentAnalyzeTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
@@ -235,18 +238,18 @@ class Searchplat extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDocumentRank',
-            'version'     => '2024-05-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/ranker/' . $serviceId . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDocumentRank',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/ranker/' . $serviceId . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDocumentRankResponse::fromMap($this->execute($params, $req, $runtime));
@@ -292,18 +295,18 @@ class Searchplat extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDocumentSplit',
-            'version'     => '2024-05-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/document-split/' . $serviceId . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDocumentSplit',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/document-split/' . $serviceId . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetDocumentSplitResponse::fromMap($this->execute($params, $req, $runtime));
@@ -349,18 +352,18 @@ class Searchplat extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetEmbeddingTuning',
-            'version'     => '2024-05-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/embedding-tuning/' . $serviceId . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetEmbeddingTuning',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/embedding-tuning/' . $serviceId . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetEmbeddingTuningResponse::fromMap($this->execute($params, $req, $runtime));
@@ -403,18 +406,18 @@ class Searchplat extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetImageAnalyzeTaskStatus',
-            'version'     => '2024-05-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/image-analyze/' . $serviceId . '/async/task-status',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetImageAnalyzeTaskStatus',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/image-analyze/' . $serviceId . '/async/task-status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetImageAnalyzeTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
@@ -459,18 +462,18 @@ class Searchplat extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => $request->body,
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'GetPrediction',
-            'version'     => '2024-05-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v3/openapi/deployments/' . $deploymentId . '/predict',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetPrediction',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/deployments/' . $deploymentId . '/predict',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'string',
+            'bodyType' => 'string',
         ]);
 
         return GetPredictionResponse::fromMap($this->execute($params, $req, $runtime));
@@ -518,18 +521,18 @@ class Searchplat extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetQueryAnalysis',
-            'version'     => '2024-05-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/query-analyze/' . $serviceId . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetQueryAnalysis',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/query-analyze/' . $serviceId . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetQueryAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
@@ -575,18 +578,18 @@ class Searchplat extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTextEmbedding',
-            'version'     => '2024-05-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/text-embedding/' . $serviceId . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTextEmbedding',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/text-embedding/' . $serviceId . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTextEmbeddingResponse::fromMap($this->execute($params, $req, $runtime));
@@ -627,6 +630,9 @@ class Searchplat extends OpenApiClient
         if (!Utils::isUnset($request->csiLevel)) {
             $body['csi_level'] = $request->csiLevel;
         }
+        if (!Utils::isUnset($request->enableSearch)) {
+            $body['enable_search'] = $request->enableSearch;
+        }
         if (!Utils::isUnset($request->messages)) {
             $body['messages'] = $request->messages;
         }
@@ -638,18 +644,18 @@ class Searchplat extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTextGeneration',
-            'version'     => '2024-05-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/text-generation/' . $serviceId . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTextGeneration',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/text-generation/' . $serviceId . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTextGenerationResponse::fromMap($this->execute($params, $req, $runtime));
@@ -698,18 +704,18 @@ class Searchplat extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTextSparseEmbedding',
-            'version'     => '2024-05-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/text-sparse-embedding/' . $serviceId . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTextSparseEmbedding',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/text-sparse-embedding/' . $serviceId . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTextSparseEmbeddingResponse::fromMap($this->execute($params, $req, $runtime));
@@ -730,5 +736,65 @@ class Searchplat extends OpenApiClient
         $headers = [];
 
         return $this->getTextSparseEmbeddingWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 联网搜索
+     *  *
+     * @param string              $workspaceName
+     * @param string              $serviceId
+     * @param GetWebSearchRequest $request       GetWebSearchRequest
+     * @param string[]            $headers       map
+     * @param RuntimeOptions      $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return GetWebSearchResponse GetWebSearchResponse
+     */
+    public function getWebSearchWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->query)) {
+            $body['query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->topK)) {
+            $body['top_k'] = $request->topK;
+        }
+        if (!Utils::isUnset($request->way)) {
+            $body['way'] = $request->way;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetWebSearch',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/web-search/' . $serviceId . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWebSearchResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 联网搜索
+     *  *
+     * @param string              $workspaceName
+     * @param string              $serviceId
+     * @param GetWebSearchRequest $request       GetWebSearchRequest
+     *
+     * @return GetWebSearchResponse GetWebSearchResponse
+     */
+    public function getWebSearch($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWebSearchWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
     }
 }

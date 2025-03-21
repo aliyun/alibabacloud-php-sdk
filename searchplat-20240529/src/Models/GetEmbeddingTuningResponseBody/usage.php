@@ -16,9 +16,7 @@ class usage extends Model
         'docCount' => 'doc_count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

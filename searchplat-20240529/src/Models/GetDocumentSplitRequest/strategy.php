@@ -23,14 +23,12 @@ class strategy extends Model
      */
     public $needSentence;
     protected $_name = [
-        'computeType'  => 'compute_type',
+        'computeType' => 'compute_type',
         'maxChunkSize' => 'max_chunk_size',
         'needSentence' => 'need_sentence',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

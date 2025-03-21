@@ -26,9 +26,7 @@ class GetDocumentSplitRequest extends Model
         'strategy' => 'strategy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

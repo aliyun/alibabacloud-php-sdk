@@ -20,12 +20,10 @@ class sparseEmbeddings extends Model
     public $index;
     protected $_name = [
         'embedding' => 'embedding',
-        'index'     => 'index',
+        'index' => 'index',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -57,7 +55,7 @@ class sparseEmbeddings extends Model
         if (isset($map['embedding'])) {
             if (!empty($map['embedding'])) {
                 $model->embedding = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['embedding'] as $item) {
                     $model->embedding[$n++] = null !== $item ? embedding::fromMap($item) : $item;
                 }

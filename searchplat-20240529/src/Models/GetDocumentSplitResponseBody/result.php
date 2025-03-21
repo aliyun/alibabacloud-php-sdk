@@ -31,15 +31,13 @@ class result extends Model
      */
     public $sentences;
     protected $_name = [
-        'chunks'    => 'chunks',
-        'nodes'     => 'nodes',
+        'chunks' => 'chunks',
+        'nodes' => 'nodes',
         'richTexts' => 'rich_texts',
         'sentences' => 'sentences',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class result extends Model
         if (isset($map['chunks'])) {
             if (!empty($map['chunks'])) {
                 $model->chunks = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['chunks'] as $item) {
                     $model->chunks[$n++] = null !== $item ? chunks::fromMap($item) : $item;
                 }
@@ -103,7 +101,7 @@ class result extends Model
         if (isset($map['rich_texts'])) {
             if (!empty($map['rich_texts'])) {
                 $model->richTexts = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['rich_texts'] as $item) {
                     $model->richTexts[$n++] = null !== $item ? richTexts::fromMap($item) : $item;
                 }
@@ -112,7 +110,7 @@ class result extends Model
         if (isset($map['sentences'])) {
             if (!empty($map['sentences'])) {
                 $model->sentences = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['sentences'] as $item) {
                     $model->sentences[$n++] = null !== $item ? sentences::fromMap($item) : $item;
                 }

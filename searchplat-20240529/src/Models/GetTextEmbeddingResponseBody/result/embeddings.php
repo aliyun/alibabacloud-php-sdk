@@ -19,12 +19,10 @@ class embeddings extends Model
     public $index;
     protected $_name = [
         'embedding' => 'embedding',
-        'index'     => 'index',
+        'index' => 'index',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,14 +23,12 @@ class document extends Model
      */
     public $contentType;
     protected $_name = [
-        'content'         => 'content',
+        'content' => 'content',
         'contentEncoding' => 'content_encoding',
-        'contentType'     => 'content_type',
+        'contentType' => 'content_type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

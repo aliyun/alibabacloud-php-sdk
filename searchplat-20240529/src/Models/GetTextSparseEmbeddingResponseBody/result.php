@@ -17,9 +17,7 @@ class result extends Model
         'sparseEmbeddings' => 'sparse_embeddings',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -48,7 +46,7 @@ class result extends Model
         if (isset($map['sparse_embeddings'])) {
             if (!empty($map['sparse_embeddings'])) {
                 $model->sparseEmbeddings = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['sparse_embeddings'] as $item) {
                     $model->sparseEmbeddings[$n++] = null !== $item ? sparseEmbeddings::fromMap($item) : $item;
                 }

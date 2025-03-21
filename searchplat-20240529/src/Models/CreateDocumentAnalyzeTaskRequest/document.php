@@ -28,15 +28,13 @@ class document extends Model
      */
     public $url;
     protected $_name = [
-        'content'  => 'content',
+        'content' => 'content',
         'fileName' => 'file_name',
         'fileType' => 'file_type',
-        'url'      => 'url',
+        'url' => 'url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

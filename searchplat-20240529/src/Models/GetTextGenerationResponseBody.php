@@ -30,15 +30,13 @@ class GetTextGenerationResponseBody extends Model
      */
     public $usage;
     protected $_name = [
-        'latency'   => 'latency',
+        'latency' => 'latency',
         'requestId' => 'request_id',
-        'result'    => 'result',
-        'usage'     => 'usage',
+        'result' => 'result',
+        'usage' => 'usage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

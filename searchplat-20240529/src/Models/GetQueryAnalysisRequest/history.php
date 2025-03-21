@@ -19,12 +19,10 @@ class history extends Model
     public $role;
     protected $_name = [
         'content' => 'content',
-        'role'    => 'role',
+        'role' => 'role',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

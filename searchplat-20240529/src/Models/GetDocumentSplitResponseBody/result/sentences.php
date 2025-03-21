@@ -19,12 +19,10 @@ class sentences extends Model
     public $meta;
     protected $_name = [
         'content' => 'content',
-        'meta'    => 'meta',
+        'meta' => 'meta',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,13 +18,11 @@ class usage extends Model
      */
     public $tokenCount;
     protected $_name = [
-        'pvCount'    => 'pv_count',
+        'pvCount' => 'pv_count',
         'tokenCount' => 'token_count',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

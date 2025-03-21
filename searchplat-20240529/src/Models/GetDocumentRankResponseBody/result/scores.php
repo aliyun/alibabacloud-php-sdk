@@ -22,9 +22,7 @@ class scores extends Model
         'score' => 'score',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

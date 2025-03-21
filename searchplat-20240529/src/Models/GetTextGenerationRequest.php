@@ -15,6 +15,11 @@ class GetTextGenerationRequest extends Model
     public $csiLevel;
 
     /**
+     * @var bool
+     */
+    public $enableSearch;
+
+    /**
      * @description This parameter is required.
      *
      * @var messages[]
@@ -22,7 +27,7 @@ class GetTextGenerationRequest extends Model
     public $messages;
 
     /**
-     * @var string[]
+     * @var mixed[]
      */
     public $parameters;
 
@@ -31,21 +36,23 @@ class GetTextGenerationRequest extends Model
      */
     public $stream;
     protected $_name = [
-        'csiLevel'   => 'csi_level',
-        'messages'   => 'messages',
+        'csiLevel' => 'csi_level',
+        'enableSearch' => 'enable_search',
+        'messages' => 'messages',
         'parameters' => 'parameters',
-        'stream'     => 'stream',
+        'stream' => 'stream',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
         $res = [];
         if (null !== $this->csiLevel) {
             $res['csi_level'] = $this->csiLevel;
+        }
+        if (null !== $this->enableSearch) {
+            $res['enable_search'] = $this->enableSearch;
         }
         if (null !== $this->messages) {
             $res['messages'] = [];
@@ -77,10 +84,13 @@ class GetTextGenerationRequest extends Model
         if (isset($map['csi_level'])) {
             $model->csiLevel = $map['csi_level'];
         }
+        if (isset($map['enable_search'])) {
+            $model->enableSearch = $map['enable_search'];
+        }
         if (isset($map['messages'])) {
             if (!empty($map['messages'])) {
                 $model->messages = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['messages'] as $item) {
                     $model->messages[$n++] = null !== $item ? messages::fromMap($item) : $item;
                 }

@@ -18,13 +18,11 @@ class GetEmbeddingTuningRequest extends Model
      */
     public $parameters;
     protected $_name = [
-        'input'      => 'input',
+        'input' => 'input',
         'parameters' => 'parameters',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

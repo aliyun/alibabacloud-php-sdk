@@ -23,14 +23,12 @@ class usage extends Model
      */
     public $totalTokens;
     protected $_name = [
-        'inputTokens'  => 'input_tokens',
+        'inputTokens' => 'input_tokens',
         'outputTokens' => 'output_tokens',
-        'totalTokens'  => 'total_tokens',
+        'totalTokens' => 'total_tokens',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

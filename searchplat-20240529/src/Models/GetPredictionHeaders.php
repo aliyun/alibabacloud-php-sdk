@@ -18,9 +18,7 @@ class GetPredictionHeaders extends Model
         'token' => 'Token',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

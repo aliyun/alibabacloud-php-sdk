@@ -22,13 +22,11 @@ class GetDocumentRankRequest extends Model
      */
     public $query;
     protected $_name = [
-        'docs'  => 'docs',
+        'docs' => 'docs',
         'query' => 'query',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
