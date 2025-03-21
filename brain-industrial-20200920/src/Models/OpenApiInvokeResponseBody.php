@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models;
 
-use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateEssOptJobResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CreateEssOptJobResponseBody extends Model
+class OpenApiInvokeResponseBody extends Model
 {
     /**
      * @example 200
@@ -17,7 +16,9 @@ class CreateEssOptJobResponseBody extends Model
     public $code;
 
     /**
-     * @var data
+     * @example {"dd":{"keyName":"dd","type":"Int","value":2,"quality":192}}
+     *
+     * @var string
      */
     public $data;
 
@@ -60,7 +61,7 @@ class CreateEssOptJobResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = $this->data;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -78,7 +79,7 @@ class CreateEssOptJobResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateEssOptJobResponseBody
+     * @return OpenApiInvokeResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -87,7 +88,7 @@ class CreateEssOptJobResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            $model->data = $map['Data'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetAivppAlgoJobRequest extends Model
 {
     /**
+     * @example 5854bfa6-f002-43c2-8e1d-e9b2c28f9384
+     *
      * @var string
      */
     public $jobId;
@@ -16,12 +18,9 @@ class GetAivppAlgoJobRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -31,11 +30,11 @@ class GetAivppAlgoJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAivppAlgoJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

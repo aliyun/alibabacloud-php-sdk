@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetAivppAlgoJobResponse extends Model
+class OpenApiInvokeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetAivppAlgoJobResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetAivppAlgoJobResponseBody
+     * @var OpenApiInvokeResponseBody
      */
     public $body;
     protected $_name = [
@@ -49,7 +49,7 @@ class GetAivppAlgoJobResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetAivppAlgoJobResponse
+     * @return OpenApiInvokeResponse
      */
     public static function fromMap($map = [])
     {
@@ -61,7 +61,7 @@ class GetAivppAlgoJobResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetAivppAlgoJobResponseBody::fromMap($map['body']);
+            $model->body = OpenApiInvokeResponseBody::fromMap($map['body']);
         }
 
         return $model;

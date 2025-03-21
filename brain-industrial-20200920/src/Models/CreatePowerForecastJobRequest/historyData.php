@@ -4,35 +4,36 @@
 
 namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreatePowerForecastJobRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class historyData extends Model
 {
     /**
+     * @example 2025-02-12 00:00:00
+     *
      * @var string
      */
     public $runTime;
+
     /**
+     * @example 1.0
+     *
      * @var float
      */
     public $value;
     protected $_name = [
         'runTime' => 'RunTime',
-        'value'   => 'Value',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->runTime) {
             $res['RunTime'] = $this->runTime;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -40,18 +41,17 @@ class historyData extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return historyData
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RunTime'])) {
             $model->runTime = $map['RunTime'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
