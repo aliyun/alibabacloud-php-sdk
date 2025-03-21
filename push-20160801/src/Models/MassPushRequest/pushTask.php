@@ -290,6 +290,8 @@ class pushTask extends Model
     /**
      * @example https://f6.market.xiaomi.com/download/MiPass/aaa/bbb.png
      *
+     * @deprecated
+     *
      * @var string
      */
     public $androidXiaomiBigPictureUrl;
@@ -297,13 +299,13 @@ class pushTask extends Model
     /**
      * @example https://imag.example.com/image.png
      *
+     * @deprecated
+     *
      * @var string
      */
     public $androidXiaomiImageUrl;
 
     /**
-     * @description This parameter is required.
-     *
      * @example hello
      *
      * @var string
@@ -535,6 +537,41 @@ class pushTask extends Model
     public $iOSInterruptionLevel;
 
     /**
+     * @var string
+     */
+    public $iOSLiveActivityAttributes;
+
+    /**
+     * @var string
+     */
+    public $iOSLiveActivityAttributesType;
+
+    /**
+     * @var string
+     */
+    public $iOSLiveActivityContentState;
+
+    /**
+     * @var int
+     */
+    public $iOSLiveActivityDismissalDate;
+
+    /**
+     * @var string
+     */
+    public $iOSLiveActivityEvent;
+
+    /**
+     * @var string
+     */
+    public $iOSLiveActivityId;
+
+    /**
+     * @var int
+     */
+    public $iOSLiveActivityStaleDate;
+
+    /**
      * @example ””
      *
      * @var string
@@ -684,6 +721,13 @@ class pushTask extends Model
         'iOSBadgeAutoIncrement' => 'iOSBadgeAutoIncrement',
         'iOSExtParameters' => 'iOSExtParameters',
         'iOSInterruptionLevel' => 'iOSInterruptionLevel',
+        'iOSLiveActivityAttributes' => 'iOSLiveActivityAttributes',
+        'iOSLiveActivityAttributesType' => 'iOSLiveActivityAttributesType',
+        'iOSLiveActivityContentState' => 'iOSLiveActivityContentState',
+        'iOSLiveActivityDismissalDate' => 'iOSLiveActivityDismissalDate',
+        'iOSLiveActivityEvent' => 'iOSLiveActivityEvent',
+        'iOSLiveActivityId' => 'iOSLiveActivityId',
+        'iOSLiveActivityStaleDate' => 'iOSLiveActivityStaleDate',
         'iOSMusic' => 'iOSMusic',
         'iOSMutableContent' => 'iOSMutableContent',
         'iOSNotificationCategory' => 'iOSNotificationCategory',
@@ -946,6 +990,27 @@ class pushTask extends Model
         }
         if (null !== $this->iOSInterruptionLevel) {
             $res['iOSInterruptionLevel'] = $this->iOSInterruptionLevel;
+        }
+        if (null !== $this->iOSLiveActivityAttributes) {
+            $res['iOSLiveActivityAttributes'] = $this->iOSLiveActivityAttributes;
+        }
+        if (null !== $this->iOSLiveActivityAttributesType) {
+            $res['iOSLiveActivityAttributesType'] = $this->iOSLiveActivityAttributesType;
+        }
+        if (null !== $this->iOSLiveActivityContentState) {
+            $res['iOSLiveActivityContentState'] = $this->iOSLiveActivityContentState;
+        }
+        if (null !== $this->iOSLiveActivityDismissalDate) {
+            $res['iOSLiveActivityDismissalDate'] = $this->iOSLiveActivityDismissalDate;
+        }
+        if (null !== $this->iOSLiveActivityEvent) {
+            $res['iOSLiveActivityEvent'] = $this->iOSLiveActivityEvent;
+        }
+        if (null !== $this->iOSLiveActivityId) {
+            $res['iOSLiveActivityId'] = $this->iOSLiveActivityId;
+        }
+        if (null !== $this->iOSLiveActivityStaleDate) {
+            $res['iOSLiveActivityStaleDate'] = $this->iOSLiveActivityStaleDate;
         }
         if (null !== $this->iOSMusic) {
             $res['iOSMusic'] = $this->iOSMusic;
@@ -1234,6 +1299,27 @@ class pushTask extends Model
         }
         if (isset($map['iOSInterruptionLevel'])) {
             $model->iOSInterruptionLevel = $map['iOSInterruptionLevel'];
+        }
+        if (isset($map['iOSLiveActivityAttributes'])) {
+            $model->iOSLiveActivityAttributes = $map['iOSLiveActivityAttributes'];
+        }
+        if (isset($map['iOSLiveActivityAttributesType'])) {
+            $model->iOSLiveActivityAttributesType = $map['iOSLiveActivityAttributesType'];
+        }
+        if (isset($map['iOSLiveActivityContentState'])) {
+            $model->iOSLiveActivityContentState = $map['iOSLiveActivityContentState'];
+        }
+        if (isset($map['iOSLiveActivityDismissalDate'])) {
+            $model->iOSLiveActivityDismissalDate = $map['iOSLiveActivityDismissalDate'];
+        }
+        if (isset($map['iOSLiveActivityEvent'])) {
+            $model->iOSLiveActivityEvent = $map['iOSLiveActivityEvent'];
+        }
+        if (isset($map['iOSLiveActivityId'])) {
+            $model->iOSLiveActivityId = $map['iOSLiveActivityId'];
+        }
+        if (isset($map['iOSLiveActivityStaleDate'])) {
+            $model->iOSLiveActivityStaleDate = $map['iOSLiveActivityStaleDate'];
         }
         if (isset($map['iOSMusic'])) {
             $model->iOSMusic = $map['iOSMusic'];

@@ -1093,6 +1093,27 @@ class Push extends OpenApiClient
         if (!Utils::isUnset($request->iOSInterruptionLevel)) {
             $query['iOSInterruptionLevel'] = $request->iOSInterruptionLevel;
         }
+        if (!Utils::isUnset($request->iOSLiveActivityAttributes)) {
+            $query['iOSLiveActivityAttributes'] = $request->iOSLiveActivityAttributes;
+        }
+        if (!Utils::isUnset($request->iOSLiveActivityAttributesType)) {
+            $query['iOSLiveActivityAttributesType'] = $request->iOSLiveActivityAttributesType;
+        }
+        if (!Utils::isUnset($request->iOSLiveActivityContentState)) {
+            $query['iOSLiveActivityContentState'] = $request->iOSLiveActivityContentState;
+        }
+        if (!Utils::isUnset($request->iOSLiveActivityDismissalDate)) {
+            $query['iOSLiveActivityDismissalDate'] = $request->iOSLiveActivityDismissalDate;
+        }
+        if (!Utils::isUnset($request->iOSLiveActivityEvent)) {
+            $query['iOSLiveActivityEvent'] = $request->iOSLiveActivityEvent;
+        }
+        if (!Utils::isUnset($request->iOSLiveActivityId)) {
+            $query['iOSLiveActivityId'] = $request->iOSLiveActivityId;
+        }
+        if (!Utils::isUnset($request->iOSLiveActivityStaleDate)) {
+            $query['iOSLiveActivityStaleDate'] = $request->iOSLiveActivityStaleDate;
+        }
         if (!Utils::isUnset($request->iOSMusic)) {
             $query['iOSMusic'] = $request->iOSMusic;
         }
