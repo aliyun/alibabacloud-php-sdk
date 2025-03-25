@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeQuotaPlanRequest\quota;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class parameter extends Model
 {
     /**
+     * @description The value of elastic Reserved CUs in the level-1 quota.
+     * > The default value is 0. The maximum value of this parameter must be equal to the number of subscription-based reserved CUs and cannot exceed 10,000 CUs.
+     *
+     * This parameter is required.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $elasticReservedCU;
@@ -16,12 +23,9 @@ class parameter extends Model
         'elasticReservedCU' => 'elasticReservedCU',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->elasticReservedCU) {
@@ -31,11 +35,11 @@ class parameter extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return parameter
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

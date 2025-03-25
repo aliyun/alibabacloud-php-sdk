@@ -4,44 +4,53 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data\properties\storageTierInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class storageTierSize extends Model
 {
     /**
+     * @description The storage usage at the long-term storage tier.
+     *
+     * @example 21764917
+     *
      * @var int
      */
     public $longTermSize;
+
     /**
+     * @description The storage usage at the Infrequent Access (IA) layer.
+     *
+     * @example 767693
+     *
      * @var int
      */
     public $lowFrequencySize;
+
     /**
+     * @description The storage usage at the standard storage tier.
+     *
+     * @example 27649172
+     *
      * @var int
      */
     public $standardSize;
     protected $_name = [
-        'longTermSize'     => 'longTermSize',
+        'longTermSize' => 'longTermSize',
         'lowFrequencySize' => 'lowFrequencySize',
-        'standardSize'     => 'standardSize',
+        'standardSize' => 'standardSize',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->longTermSize) {
             $res['longTermSize'] = $this->longTermSize;
         }
-
         if (null !== $this->lowFrequencySize) {
             $res['lowFrequencySize'] = $this->lowFrequencySize;
         }
-
         if (null !== $this->standardSize) {
             $res['standardSize'] = $this->standardSize;
         }
@@ -49,22 +58,20 @@ class storageTierSize extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return storageTierSize
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['longTermSize'])) {
             $model->longTermSize = $map['longTermSize'];
         }
-
         if (isset($map['lowFrequencySize'])) {
             $model->lowFrequencySize = $map['lowFrequencySize'];
         }
-
         if (isset($map['standardSize'])) {
             $model->standardSize = $map['standardSize'];
         }

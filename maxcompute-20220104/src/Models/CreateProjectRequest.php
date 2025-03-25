@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateProjectRequest extends Model
 {
     /**
+     * @description The request body parameters.
+     *
      * @var string
      */
     public $body;
@@ -16,12 +18,9 @@ class CreateProjectRequest extends Model
         'body' => 'body',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->body) {
@@ -31,11 +30,11 @@ class CreateProjectRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateProjectRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

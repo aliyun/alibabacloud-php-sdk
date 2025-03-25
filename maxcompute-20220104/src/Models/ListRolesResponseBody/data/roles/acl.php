@@ -4,131 +4,122 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListRolesResponseBody\data\roles;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListRolesResponseBody\data\roles\acl\function_;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListRolesResponseBody\data\roles\acl\instance;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListRolesResponseBody\data\roles\acl\package;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListRolesResponseBody\data\roles\acl\project;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListRolesResponseBody\data\roles\acl\resource;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListRolesResponseBody\data\roles\acl\table;
+use AlibabaCloud\Tea\Model;
 
 class acl extends Model
 {
     /**
+     * @description The function.
+     *
      * @var function_[]
      */
     public $function;
+
     /**
+     * @description The instance.
+     *
      * @var instance[]
      */
     public $instance;
+
     /**
+     * @description The package.
+     *
      * @var package[]
      */
     public $package;
+
     /**
+     * @description The project.
+     *
      * @var project[]
      */
     public $project;
+
     /**
+     * @description The resource.
+     *
      * @var resource[]
      */
     public $resource;
+
     /**
+     * @description The table.
+     *
      * @var table[]
      */
     public $table;
     protected $_name = [
         'function' => 'function',
         'instance' => 'instance',
-        'package'  => 'package',
-        'project'  => 'project',
+        'package' => 'package',
+        'project' => 'project',
         'resource' => 'resource',
-        'table'    => 'table',
+        'table' => 'table',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->function)) {
-            Model::validateArray($this->function);
-        }
-        if (\is_array($this->instance)) {
-            Model::validateArray($this->instance);
-        }
-        if (\is_array($this->package)) {
-            Model::validateArray($this->package);
-        }
-        if (\is_array($this->project)) {
-            Model::validateArray($this->project);
-        }
-        if (\is_array($this->resource)) {
-            Model::validateArray($this->resource);
-        }
-        if (\is_array($this->table)) {
-            Model::validateArray($this->table);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->function) {
-            if (\is_array($this->function)) {
-                $res['function'] = [];
-                $n1              = 0;
-                foreach ($this->function as $item1) {
-                    $res['function'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['function'] = [];
+            if (null !== $this->function && \is_array($this->function)) {
+                $n = 0;
+                foreach ($this->function as $item) {
+                    $res['function'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->instance) {
-            if (\is_array($this->instance)) {
-                $res['instance'] = [];
-                $n1              = 0;
-                foreach ($this->instance as $item1) {
-                    $res['instance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['instance'] = [];
+            if (null !== $this->instance && \is_array($this->instance)) {
+                $n = 0;
+                foreach ($this->instance as $item) {
+                    $res['instance'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->package) {
-            if (\is_array($this->package)) {
-                $res['package'] = [];
-                $n1             = 0;
-                foreach ($this->package as $item1) {
-                    $res['package'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['package'] = [];
+            if (null !== $this->package && \is_array($this->package)) {
+                $n = 0;
+                foreach ($this->package as $item) {
+                    $res['package'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->project) {
-            if (\is_array($this->project)) {
-                $res['project'] = [];
-                $n1             = 0;
-                foreach ($this->project as $item1) {
-                    $res['project'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['project'] = [];
+            if (null !== $this->project && \is_array($this->project)) {
+                $n = 0;
+                foreach ($this->project as $item) {
+                    $res['project'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->resource) {
-            if (\is_array($this->resource)) {
-                $res['resource'] = [];
-                $n1              = 0;
-                foreach ($this->resource as $item1) {
-                    $res['resource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['resource'] = [];
+            if (null !== $this->resource && \is_array($this->resource)) {
+                $n = 0;
+                foreach ($this->resource as $item) {
+                    $res['resource'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->table) {
-            if (\is_array($this->table)) {
-                $res['table'] = [];
-                $n1           = 0;
-                foreach ($this->table as $item1) {
-                    $res['table'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['table'] = [];
+            if (null !== $this->table && \is_array($this->table)) {
+                $n = 0;
+                foreach ($this->table as $item) {
+                    $res['table'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -136,70 +127,65 @@ class acl extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return acl
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['function'])) {
             if (!empty($map['function'])) {
                 $model->function = [];
-                $n1              = 0;
-                foreach ($map['function'] as $item1) {
-                    $model->function[$n1++] = function_::fromMap($item1);
+                $n = 0;
+                foreach ($map['function'] as $item) {
+                    $model->function[$n++] = null !== $item ? function_::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['instance'])) {
             if (!empty($map['instance'])) {
                 $model->instance = [];
-                $n1              = 0;
-                foreach ($map['instance'] as $item1) {
-                    $model->instance[$n1++] = instance::fromMap($item1);
+                $n = 0;
+                foreach ($map['instance'] as $item) {
+                    $model->instance[$n++] = null !== $item ? instance::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['package'])) {
             if (!empty($map['package'])) {
                 $model->package = [];
-                $n1             = 0;
-                foreach ($map['package'] as $item1) {
-                    $model->package[$n1++] = package::fromMap($item1);
+                $n = 0;
+                foreach ($map['package'] as $item) {
+                    $model->package[$n++] = null !== $item ? package::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['project'])) {
             if (!empty($map['project'])) {
                 $model->project = [];
-                $n1             = 0;
-                foreach ($map['project'] as $item1) {
-                    $model->project[$n1++] = project::fromMap($item1);
+                $n = 0;
+                foreach ($map['project'] as $item) {
+                    $model->project[$n++] = null !== $item ? project::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['resource'])) {
             if (!empty($map['resource'])) {
                 $model->resource = [];
-                $n1              = 0;
-                foreach ($map['resource'] as $item1) {
-                    $model->resource[$n1++] = resource::fromMap($item1);
+                $n = 0;
+                foreach ($map['resource'] as $item) {
+                    $model->resource[$n++] = null !== $item ? resource::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['table'])) {
             if (!empty($map['table'])) {
                 $model->table = [];
-                $n1           = 0;
-                foreach ($map['table'] as $item1) {
-                    $model->table[$n1++] = table::fromMap($item1);
+                $n = 0;
+                foreach ($map['table'] as $item) {
+                    $model->table[$n++] = null !== $item ? table::fromMap($item) : $item;
                 }
             }
         }

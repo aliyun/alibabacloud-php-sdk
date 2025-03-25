@@ -4,152 +4,196 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetComputeEffectivePlanResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetComputeEffectivePlanResponseBody\data\quota\subQuotaInfoList;
+use AlibabaCloud\Tea\Model;
 
 class quota extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example AT-120N
+     *
      * @var string
      */
     public $cluster;
+
     /**
+     * @description The time when the level-1 quota was created.
+     *
+     * @example 1719886322347
+     *
      * @var int
      */
     public $createTime;
+
     /**
+     * @description The ID of the Alibaba Cloud account that is used to create the resource.
+     *
+     * @example 672863518
+     *
      * @var string
      */
     public $creatorId;
+
     /**
+     * @description The ID of the level-1 quota.
+     *
+     * @example 2413
+     *
      * @var string
      */
     public $id;
+
     /**
+     * @description The name of the level-1 quota.
+     *
+     * @example dp_cn_shanghai_1699533470_p
+     *
      * @var string
      */
     public $name;
+
     /**
+     * @description The nickname of the level-1 quota.
+     *
+     * @example os_MyQuota_p
+     *
      * @var string
      */
     public $nickName;
+
     /**
+     * @description The description of the level-2 quota.
+     *
+     * @example {
+     * "enablePriority": false,
+     * "minCU": 25,
+     * "adhocCU": 0,
+     * "elasticReservedCU": 0,
+     * "forceReservedMin": false,
+     * "maxCU": 50,
+     * "schedulerType": "Fifo"
+     * }
+     *
      * @var mixed[]
      */
     public $parameter;
+
     /**
+     * @description The region ID.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
+
     /**
+     * @description The status of the resource.
+     *
+     * @example ON
+     *
      * @var string
      */
     public $status;
+
     /**
+     * @description The list of subquotas.
+     *
      * @var subQuotaInfoList[]
      */
     public $subQuotaInfoList;
+
     /**
+     * @description The ID of the tenant.
+     *
+     * @example 478403690625249
+     *
      * @var string
      */
     public $tenantId;
+
     /**
+     * @description The type of quota.
+     *
+     * @example FUXI_ONLINE
+     *
      * @var string
      */
     public $type;
+
     /**
+     * @description The version number.
+     *
+     * @example 1964
+     *
      * @var string
      */
     public $version;
     protected $_name = [
-        'cluster'          => 'cluster',
-        'createTime'       => 'createTime',
-        'creatorId'        => 'creatorId',
-        'id'               => 'id',
-        'name'             => 'name',
-        'nickName'         => 'nickName',
-        'parameter'        => 'parameter',
-        'regionId'         => 'regionId',
-        'status'           => 'status',
+        'cluster' => 'cluster',
+        'createTime' => 'createTime',
+        'creatorId' => 'creatorId',
+        'id' => 'id',
+        'name' => 'name',
+        'nickName' => 'nickName',
+        'parameter' => 'parameter',
+        'regionId' => 'regionId',
+        'status' => 'status',
         'subQuotaInfoList' => 'subQuotaInfoList',
-        'tenantId'         => 'tenantId',
-        'type'             => 'type',
-        'version'          => 'version',
+        'tenantId' => 'tenantId',
+        'type' => 'type',
+        'version' => 'version',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->parameter)) {
-            Model::validateArray($this->parameter);
-        }
-        if (\is_array($this->subQuotaInfoList)) {
-            Model::validateArray($this->subQuotaInfoList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cluster) {
             $res['cluster'] = $this->cluster;
         }
-
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
-
         if (null !== $this->creatorId) {
             $res['creatorId'] = $this->creatorId;
         }
-
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-
         if (null !== $this->nickName) {
             $res['nickName'] = $this->nickName;
         }
-
         if (null !== $this->parameter) {
-            if (\is_array($this->parameter)) {
-                $res['parameter'] = [];
-                foreach ($this->parameter as $key1 => $value1) {
-                    $res['parameter'][$key1] = $value1;
-                }
-            }
+            $res['parameter'] = $this->parameter;
         }
-
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
-
         if (null !== $this->subQuotaInfoList) {
-            if (\is_array($this->subQuotaInfoList)) {
-                $res['subQuotaInfoList'] = [];
-                $n1                      = 0;
-                foreach ($this->subQuotaInfoList as $item1) {
-                    $res['subQuotaInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['subQuotaInfoList'] = [];
+            if (null !== $this->subQuotaInfoList && \is_array($this->subQuotaInfoList)) {
+                $n = 0;
+                foreach ($this->subQuotaInfoList as $item) {
+                    $res['subQuotaInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->tenantId) {
             $res['tenantId'] = $this->tenantId;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
-
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -157,73 +201,56 @@ class quota extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return quota
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cluster'])) {
             $model->cluster = $map['cluster'];
         }
-
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
-
         if (isset($map['creatorId'])) {
             $model->creatorId = $map['creatorId'];
         }
-
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
-
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
-
         if (isset($map['nickName'])) {
             $model->nickName = $map['nickName'];
         }
-
         if (isset($map['parameter'])) {
-            if (!empty($map['parameter'])) {
-                $model->parameter = [];
-                foreach ($map['parameter'] as $key1 => $value1) {
-                    $model->parameter[$key1] = $value1;
-                }
-            }
+            $model->parameter = $map['parameter'];
         }
-
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
-
         if (isset($map['subQuotaInfoList'])) {
             if (!empty($map['subQuotaInfoList'])) {
                 $model->subQuotaInfoList = [];
-                $n1                      = 0;
-                foreach ($map['subQuotaInfoList'] as $item1) {
-                    $model->subQuotaInfoList[$n1++] = subQuotaInfoList::fromMap($item1);
+                $n = 0;
+                foreach ($map['subQuotaInfoList'] as $item) {
+                    $model->subQuotaInfoList[$n++] = null !== $item ? subQuotaInfoList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['tenantId'])) {
             $model->tenantId = $map['tenantId'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
-
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

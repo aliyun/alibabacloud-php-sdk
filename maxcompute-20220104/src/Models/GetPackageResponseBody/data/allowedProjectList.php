@@ -4,35 +4,40 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetPackageResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class allowedProjectList extends Model
 {
     /**
+     * @description The security level for sensitive data.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $label;
+
     /**
+     * @description The name of the MaxCompute project.
+     *
+     * @example proejctB
+     *
      * @var string
      */
     public $project;
     protected $_name = [
-        'label'   => 'label',
+        'label' => 'label',
         'project' => 'project',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->label) {
             $res['label'] = $this->label;
         }
-
         if (null !== $this->project) {
             $res['project'] = $this->project;
         }
@@ -40,18 +45,17 @@ class allowedProjectList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return allowedProjectList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['label'])) {
             $model->label = $map['label'];
         }
-
         if (isset($map['project'])) {
             $model->project = $map['project'];
         }

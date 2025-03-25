@@ -4,15 +4,20 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListJobMetricResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class metrics extends Model
 {
     /**
+     * @description Metric related information.
+     *
      * @var string[]
      */
     public $metric;
+
     /**
+     * @description Metric values information.
+     *
      * @var float[][]
      */
     public $values;
@@ -21,78 +26,35 @@ class metrics extends Model
         'values' => 'values',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->metric)) {
-            Model::validateArray($this->metric);
-        }
-        if (\is_array($this->values)) {
-            Model::validateArray($this->values);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->metric) {
-            if (\is_array($this->metric)) {
-                $res['metric'] = [];
-                foreach ($this->metric as $key1 => $value1) {
-                    $res['metric'][$key1] = $value1;
-                }
-            }
+            $res['metric'] = $this->metric;
         }
-
         if (null !== $this->values) {
-            if (\is_array($this->values)) {
-                $res['values'] = [];
-                $n1            = 0;
-                foreach ($this->values as $item1) {
-                    if (\is_array($item1)) {
-                        $res['values'][$n1++] = [];
-                        $n2                   = 0;
-                        foreach ($item1 as $item2) {
-                            $res['values'][$n1++][$n2++] = $item2;
-                        }
-                    }
-                }
-            }
+            $res['values'] = $this->values;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return metrics
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['metric'])) {
-            if (!empty($map['metric'])) {
-                $model->metric = [];
-                foreach ($map['metric'] as $key1 => $value1) {
-                    $model->metric[$key1] = $value1;
-                }
-            }
+            $model->metric = $map['metric'];
         }
-
         if (isset($map['values'])) {
             if (!empty($map['values'])) {
-                $model->values = [];
-                $n1            = 0;
-                foreach ($map['values'] as $item1) {
-                    if (!empty($item1)) {
-                        $model->values[$n1++] = [];
-                        $n2                   = 0;
-                        foreach ($item1 as $item2) {
-                            $model->values[$n1++][$n2++] = $item2;
-                        }
-                    }
-                }
+                $model->values = $map['values'];
             }
         }
 

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetProjectRequest extends Model
 {
     /**
+     * @description Specifies whether to use additional information.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $verbose;
@@ -16,12 +20,9 @@ class GetProjectRequest extends Model
         'verbose' => 'verbose',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->verbose) {
@@ -31,11 +32,11 @@ class GetProjectRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetProjectRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

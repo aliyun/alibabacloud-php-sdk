@@ -4,63 +4,71 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListJobInfosResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListJobInfosResponseBody\data\jobInfoList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The information about the jobs.
+     *
      * @var jobInfoList[]
      */
     public $jobInfoList;
+
     /**
+     * @description The page number.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageNumber;
+
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
+
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 64
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'jobInfoList' => 'jobInfoList',
-        'pageNumber'  => 'pageNumber',
-        'pageSize'    => 'pageSize',
-        'totalCount'  => 'totalCount',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
+        'totalCount' => 'totalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->jobInfoList)) {
-            Model::validateArray($this->jobInfoList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobInfoList) {
-            if (\is_array($this->jobInfoList)) {
-                $res['jobInfoList'] = [];
-                $n1                 = 0;
-                foreach ($this->jobInfoList as $item1) {
-                    $res['jobInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['jobInfoList'] = [];
+            if (null !== $this->jobInfoList && \is_array($this->jobInfoList)) {
+                $n = 0;
+                foreach ($this->jobInfoList as $item) {
+                    $res['jobInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -68,32 +76,29 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['jobInfoList'])) {
             if (!empty($map['jobInfoList'])) {
                 $model->jobInfoList = [];
-                $n1                 = 0;
-                foreach ($map['jobInfoList'] as $item1) {
-                    $model->jobInfoList[$n1++] = jobInfoList::fromMap($item1);
+                $n = 0;
+                foreach ($map['jobInfoList'] as $item) {
+                    $model->jobInfoList[$n++] = null !== $item ? jobInfoList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

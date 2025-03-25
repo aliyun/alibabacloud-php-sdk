@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateProjectIpWhiteListRequest extends Model
 {
     /**
+     * @description The request body parameters.
+     *
+     * @example json {"ipWhiteList":{"ipList": "", // The IP address whitelists are of the STRING data type. Separate multiple IP address whitelists with commas (,). "vpcIpList": "", //} }
+     *
      * @var string
      */
     public $body;
@@ -16,12 +20,9 @@ class UpdateProjectIpWhiteListRequest extends Model
         'body' => 'body',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->body) {
@@ -31,11 +32,11 @@ class UpdateProjectIpWhiteListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateProjectIpWhiteListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

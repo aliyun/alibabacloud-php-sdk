@@ -4,48 +4,57 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeSubQuotaRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeSubQuotaRequest\subQuotaInfoList\parameter;
+use AlibabaCloud\Tea\Model;
 
 class subQuotaInfoList extends Model
 {
     /**
+     * @description The nickname of the level-2 quota.
+     *
+     * This parameter is required.
+     *
+     * @example os_ComputeQuota
+     *
      * @var string
      */
     public $nickName;
+
     /**
+     * @description The parameters of the level-2 quota.
+     *
      * @var parameter
      */
     public $parameter;
+
     /**
+     * @description The type of quota.
+     *
+     * >
+     * > - FUXI_OFFLINE(default) : Quotas of this type are used to run batch jobs.
+     *
+     * @example FUXI_OFFLINE
+     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'nickName'  => 'nickName',
+        'nickName' => 'nickName',
         'parameter' => 'parameter',
-        'type'      => 'type',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->parameter) {
-            $this->parameter->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nickName) {
             $res['nickName'] = $this->nickName;
         }
-
         if (null !== $this->parameter) {
-            $res['parameter'] = null !== $this->parameter ? $this->parameter->toArray($noStream) : $this->parameter;
+            $res['parameter'] = null !== $this->parameter ? $this->parameter->toMap() : null;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -53,22 +62,20 @@ class subQuotaInfoList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return subQuotaInfoList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nickName'])) {
             $model->nickName = $map['nickName'];
         }
-
         if (isset($map['parameter'])) {
             $model->parameter = parameter::fromMap($map['parameter']);
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

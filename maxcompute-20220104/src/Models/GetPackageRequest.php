@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetPackageRequest extends Model
 {
     /**
+     * @description The project to which the package belongs. This parameter is required if the package is installed in the MaxCompute project.
+     *
+     * @example projectB
+     *
      * @var string
      */
     public $sourceProject;
@@ -16,12 +20,9 @@ class GetPackageRequest extends Model
         'sourceProject' => 'sourceProject',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->sourceProject) {
@@ -31,11 +32,11 @@ class GetPackageRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetPackageRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

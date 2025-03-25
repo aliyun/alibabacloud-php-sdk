@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetMmsDbResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class GetMmsDbResponseBody extends Model
 {
@@ -13,30 +13,26 @@ class GetMmsDbResponseBody extends Model
      * @var data
      */
     public $data;
+
     /**
+     * @example 90D64EB6-2962-5B1C-A039-BC41C8176C7F
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'data',
+        'data' => 'data',
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -44,18 +40,17 @@ class GetMmsDbResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetMmsDbResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

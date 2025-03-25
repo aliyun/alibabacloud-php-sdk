@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsPartitionsRequest\sorter;
+use AlibabaCloud\Tea\Model;
 
 class ListMmsPartitionsRequest extends Model
 {
@@ -13,120 +13,123 @@ class ListMmsPartitionsRequest extends Model
      * @var sorter
      */
     public $sorter;
+
     /**
+     * @example 2
+     *
      * @var int
      */
     public $dbId;
+
     /**
+     * @example d1
+     *
      * @var string
      */
     public $dbName;
+
     /**
+     * @example 2024-12-17 19:44:42
+     *
      * @var string
      */
     public $lastDdlTimeEnd;
+
     /**
+     * @example 2024-12-17 15:44:42
+     *
      * @var string
      */
     public $lastDdlTimeStart;
+
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
+
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string[]
      */
     public $status;
+
     /**
+     * @example t1
+     *
      * @var string
      */
     public $tableName;
+
     /**
+     * @example false
+     *
      * @var bool
      */
     public $updated;
+
     /**
+     * @example p1=1/p2=abc
+     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'sorter'           => 'sorter',
-        'dbId'             => 'dbId',
-        'dbName'           => 'dbName',
-        'lastDdlTimeEnd'   => 'lastDdlTimeEnd',
+        'sorter' => 'sorter',
+        'dbId' => 'dbId',
+        'dbName' => 'dbName',
+        'lastDdlTimeEnd' => 'lastDdlTimeEnd',
         'lastDdlTimeStart' => 'lastDdlTimeStart',
-        'pageNum'          => 'pageNum',
-        'pageSize'         => 'pageSize',
-        'status'           => 'status',
-        'tableName'        => 'tableName',
-        'updated'          => 'updated',
-        'value'            => 'value',
+        'pageNum' => 'pageNum',
+        'pageSize' => 'pageSize',
+        'status' => 'status',
+        'tableName' => 'tableName',
+        'updated' => 'updated',
+        'value' => 'value',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->sorter) {
-            $this->sorter->validate();
-        }
-        if (\is_array($this->status)) {
-            Model::validateArray($this->status);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->sorter) {
-            $res['sorter'] = null !== $this->sorter ? $this->sorter->toArray($noStream) : $this->sorter;
+            $res['sorter'] = null !== $this->sorter ? $this->sorter->toMap() : null;
         }
-
         if (null !== $this->dbId) {
             $res['dbId'] = $this->dbId;
         }
-
         if (null !== $this->dbName) {
             $res['dbName'] = $this->dbName;
         }
-
         if (null !== $this->lastDdlTimeEnd) {
             $res['lastDdlTimeEnd'] = $this->lastDdlTimeEnd;
         }
-
         if (null !== $this->lastDdlTimeStart) {
             $res['lastDdlTimeStart'] = $this->lastDdlTimeStart;
         }
-
         if (null !== $this->pageNum) {
             $res['pageNum'] = $this->pageNum;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-
         if (null !== $this->status) {
-            if (\is_array($this->status)) {
-                $res['status'] = [];
-                $n1            = 0;
-                foreach ($this->status as $item1) {
-                    $res['status'][$n1++] = $item1;
-                }
-            }
+            $res['status'] = $this->status;
         }
-
         if (null !== $this->tableName) {
             $res['tableName'] = $this->tableName;
         }
-
         if (null !== $this->updated) {
             $res['updated'] = $this->updated;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -134,60 +137,46 @@ class ListMmsPartitionsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListMmsPartitionsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['sorter'])) {
             $model->sorter = sorter::fromMap($map['sorter']);
         }
-
         if (isset($map['dbId'])) {
             $model->dbId = $map['dbId'];
         }
-
         if (isset($map['dbName'])) {
             $model->dbName = $map['dbName'];
         }
-
         if (isset($map['lastDdlTimeEnd'])) {
             $model->lastDdlTimeEnd = $map['lastDdlTimeEnd'];
         }
-
         if (isset($map['lastDdlTimeStart'])) {
             $model->lastDdlTimeStart = $map['lastDdlTimeStart'];
         }
-
         if (isset($map['pageNum'])) {
             $model->pageNum = $map['pageNum'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-
         if (isset($map['status'])) {
             if (!empty($map['status'])) {
-                $model->status = [];
-                $n1            = 0;
-                foreach ($map['status'] as $item1) {
-                    $model->status[$n1++] = $item1;
-                }
+                $model->status = $map['status'];
             }
         }
-
         if (isset($map['tableName'])) {
             $model->tableName = $map['tableName'];
         }
-
         if (isset($map['updated'])) {
             $model->updated = $map['updated'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

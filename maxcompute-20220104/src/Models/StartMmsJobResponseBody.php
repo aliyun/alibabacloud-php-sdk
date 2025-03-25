@@ -4,35 +4,36 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StartMmsJobResponseBody extends Model
 {
     /**
+     * @example 88
+     *
      * @var int
      */
     public $data;
+
     /**
+     * @example 5CA6292A-E301-5CD8-B4E2-AF060F99147B
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'data',
+        'data' => 'data',
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
             $res['data'] = $this->data;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -40,18 +41,17 @@ class StartMmsJobResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartMmsJobResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = $map['data'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
