@@ -12,6 +12,7 @@ class GetManagerInfoByAuthCodeRequest extends Model
      * @description The authorization code.
      *
      * This parameter is required.
+     *
      * @example e49cd070452f0044813a467d4743****
      *
      * @var string
@@ -21,9 +22,7 @@ class GetManagerInfoByAuthCodeRequest extends Model
         'authCode' => 'AuthCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

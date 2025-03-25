@@ -26,13 +26,11 @@ class propertyKeyValueFilterParam extends Model
      */
     public $propertyValues;
     protected $_name = [
-        'propertyKey'    => 'PropertyKey',
+        'propertyKey' => 'PropertyKey',
         'propertyValues' => 'PropertyValues',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -61,17 +61,15 @@ class userSetPropertiesModels extends Model
      */
     public $userName;
     protected $_name = [
-        'propertyId'     => 'PropertyId',
-        'propertyKey'    => 'PropertyKey',
-        'propertyType'   => 'PropertyType',
+        'propertyId' => 'PropertyId',
+        'propertyKey' => 'PropertyKey',
+        'propertyType' => 'PropertyType',
         'propertyValues' => 'PropertyValues',
-        'userId'         => 'UserId',
-        'userName'       => 'UserName',
+        'userId' => 'UserId',
+        'userName' => 'UserName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -124,7 +122,7 @@ class userSetPropertiesModels extends Model
         if (isset($map['PropertyValues'])) {
             if (!empty($map['PropertyValues'])) {
                 $model->propertyValues = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['PropertyValues'] as $item) {
                     $model->propertyValues[$n++] = null !== $item ? propertyValues::fromMap($item) : $item;
                 }

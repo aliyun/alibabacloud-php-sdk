@@ -22,9 +22,7 @@ class secrets extends Model
         'secret' => 'Secret',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

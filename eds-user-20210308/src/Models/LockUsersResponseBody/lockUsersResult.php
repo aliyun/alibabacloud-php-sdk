@@ -27,9 +27,7 @@ class lockUsersResult extends Model
         'lockedUsers' => 'LockedUsers',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -61,7 +59,7 @@ class lockUsersResult extends Model
         if (isset($map['FailedUsers'])) {
             if (!empty($map['FailedUsers'])) {
                 $model->failedUsers = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['FailedUsers'] as $item) {
                     $model->failedUsers[$n++] = null !== $item ? failedUsers::fromMap($item) : $item;
                 }

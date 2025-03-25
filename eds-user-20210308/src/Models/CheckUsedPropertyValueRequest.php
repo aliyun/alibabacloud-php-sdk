@@ -12,6 +12,7 @@ class CheckUsedPropertyValueRequest extends Model
      * @description The property ID. You can call the [ListProperty](~~ListProperty~~) operation to query property ID.
      *
      * This parameter is required.
+     *
      * @example 380
      *
      * @var int
@@ -22,19 +23,18 @@ class CheckUsedPropertyValueRequest extends Model
      * @description The ID of the property value. You can call the [ListProperty](~~ListProperty~~) operation to query the ID of the property value.
      *
      * This parameter is required.
+     *
      * @example 978
      *
      * @var int
      */
     public $propertyValueId;
     protected $_name = [
-        'propertyId'      => 'PropertyId',
+        'propertyId' => 'PropertyId',
         'propertyValueId' => 'PropertyValueId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

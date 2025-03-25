@@ -26,13 +26,11 @@ class groups extends Model
      */
     public $groupName;
     protected $_name = [
-        'groupId'   => 'GroupId',
+        'groupId' => 'GroupId',
         'groupName' => 'GroupName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

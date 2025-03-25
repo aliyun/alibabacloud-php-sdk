@@ -53,20 +53,18 @@ class endpoints extends Model
      */
     public $userinfoEndpoint;
     protected $_name = [
-        'authorizationEndpoint'      => 'AuthorizationEndpoint',
-        'discoveryEndpoint'          => 'DiscoveryEndpoint',
+        'authorizationEndpoint' => 'AuthorizationEndpoint',
+        'discoveryEndpoint' => 'DiscoveryEndpoint',
         'guestAuthorizationEndpoint' => 'GuestAuthorizationEndpoint',
-        'issuer'                     => 'Issuer',
-        'jwksEndpoint'               => 'JwksEndpoint',
-        'logoutEndpoint'             => 'LogoutEndpoint',
-        'revokeEndpoint'             => 'RevokeEndpoint',
-        'tokenEndpoint'              => 'TokenEndpoint',
-        'userinfoEndpoint'           => 'UserinfoEndpoint',
+        'issuer' => 'Issuer',
+        'jwksEndpoint' => 'JwksEndpoint',
+        'logoutEndpoint' => 'LogoutEndpoint',
+        'revokeEndpoint' => 'RevokeEndpoint',
+        'tokenEndpoint' => 'TokenEndpoint',
+        'userinfoEndpoint' => 'UserinfoEndpoint',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

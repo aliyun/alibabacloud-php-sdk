@@ -25,12 +25,10 @@ class savePropertyValueModel extends Model
     public $savePropertyValues;
     protected $_name = [
         'failedPropertyValues' => 'FailedPropertyValues',
-        'savePropertyValues'   => 'SavePropertyValues',
+        'savePropertyValues' => 'SavePropertyValues',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -68,7 +66,7 @@ class savePropertyValueModel extends Model
         if (isset($map['FailedPropertyValues'])) {
             if (!empty($map['FailedPropertyValues'])) {
                 $model->failedPropertyValues = [];
-                $n                           = 0;
+                $n = 0;
                 foreach ($map['FailedPropertyValues'] as $item) {
                     $model->failedPropertyValues[$n++] = null !== $item ? failedPropertyValues::fromMap($item) : $item;
                 }
@@ -77,7 +75,7 @@ class savePropertyValueModel extends Model
         if (isset($map['SavePropertyValues'])) {
             if (!empty($map['SavePropertyValues'])) {
                 $model->savePropertyValues = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['SavePropertyValues'] as $item) {
                     $model->savePropertyValues[$n++] = null !== $item ? savePropertyValues::fromMap($item) : $item;
                 }

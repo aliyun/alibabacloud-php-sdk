@@ -25,13 +25,11 @@ class UnlockUsersResponseBody extends Model
      */
     public $unlockUsersResult;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'unlockUsersResult' => 'UnlockUsersResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

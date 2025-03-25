@@ -11,6 +11,7 @@ class DescribeOrgsRequest extends Model
     /**
      * @description The maximum number of entries to return. Valid values: 1 to 100.\\
      * Default value: 100.
+     *
      * @example 20
      *
      * @var int
@@ -44,15 +45,13 @@ class DescribeOrgsRequest extends Model
      */
     public $parentOrgId;
     protected $_name = [
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'orgName'     => 'OrgName',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'orgName' => 'OrgName',
         'parentOrgId' => 'ParentOrgId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

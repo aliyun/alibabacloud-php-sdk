@@ -21,6 +21,7 @@ class users extends Model
      * @description The username of the convenience user. The name can contain lowercase letters, digits, and underscores (_), and must be 3 to 24 characters in length.
      *
      * This parameter is required.
+     *
      * @example test1
      *
      * @var string
@@ -54,6 +55,7 @@ class users extends Model
      * @description The user password.
      *
      * >  The password must be at least 10 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters (excluding spaces).
+     *
      * @example password1
      *
      * @var string
@@ -87,19 +89,17 @@ class users extends Model
      */
     public $remark;
     protected $_name = [
-        'email'        => 'Email',
-        'endUserId'    => 'EndUserId',
-        'orgId'        => 'OrgId',
-        'ownerType'    => 'OwnerType',
-        'password'     => 'Password',
-        'phone'        => 'Phone',
+        'email' => 'Email',
+        'endUserId' => 'EndUserId',
+        'orgId' => 'OrgId',
+        'ownerType' => 'OwnerType',
+        'password' => 'Password',
+        'phone' => 'Phone',
         'realNickName' => 'RealNickName',
-        'remark'       => 'Remark',
+        'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

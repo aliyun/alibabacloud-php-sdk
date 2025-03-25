@@ -44,15 +44,13 @@ class failedPropertyValues extends Model
      */
     public $propertyValue;
     protected $_name = [
-        'errorCode'     => 'ErrorCode',
-        'errorMessage'  => 'ErrorMessage',
-        'propertyId'    => 'PropertyId',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'propertyId' => 'PropertyId',
         'propertyValue' => 'PropertyValue',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

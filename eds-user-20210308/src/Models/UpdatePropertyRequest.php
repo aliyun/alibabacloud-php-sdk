@@ -13,6 +13,7 @@ class UpdatePropertyRequest extends Model
      * @description The ID of the property that you want to modify. You can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the property ID.
      *
      * This parameter is required.
+     *
      * @example 390
      *
      * @var int
@@ -23,6 +24,7 @@ class UpdatePropertyRequest extends Model
      * @description The new property name.
      *
      * This parameter is required.
+     *
      * @example testkey
      *
      * @var string
@@ -36,14 +38,12 @@ class UpdatePropertyRequest extends Model
      */
     public $propertyValues;
     protected $_name = [
-        'propertyId'     => 'PropertyId',
-        'propertyKey'    => 'PropertyKey',
+        'propertyId' => 'PropertyId',
+        'propertyKey' => 'PropertyKey',
         'propertyValues' => 'PropertyValues',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -84,7 +84,7 @@ class UpdatePropertyRequest extends Model
         if (isset($map['PropertyValues'])) {
             if (!empty($map['PropertyValues'])) {
                 $model->propertyValues = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['PropertyValues'] as $item) {
                     $model->propertyValues[$n++] = null !== $item ? propertyValues::fromMap($item) : $item;
                 }

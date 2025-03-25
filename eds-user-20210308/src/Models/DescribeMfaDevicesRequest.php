@@ -29,6 +29,7 @@ class DescribeMfaDevicesRequest extends Model
     /**
      * @description The maximum number of entries to return. Valid values: 1 to 500.\\
      * Default value: 100.
+     *
      * @example 100
      *
      * @var int
@@ -53,16 +54,14 @@ class DescribeMfaDevicesRequest extends Model
      */
     public $serialNumbers;
     protected $_name = [
-        'adDomain'      => 'AdDomain',
-        'endUserIds'    => 'EndUserIds',
-        'maxResults'    => 'MaxResults',
-        'nextToken'     => 'NextToken',
+        'adDomain' => 'AdDomain',
+        'endUserIds' => 'EndUserIds',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'serialNumbers' => 'SerialNumbers',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

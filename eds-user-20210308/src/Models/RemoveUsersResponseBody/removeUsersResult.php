@@ -23,13 +23,11 @@ class removeUsersResult extends Model
      */
     public $removedUsers;
     protected $_name = [
-        'failedUsers'  => 'FailedUsers',
+        'failedUsers' => 'FailedUsers',
         'removedUsers' => 'RemovedUsers',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -61,7 +59,7 @@ class removeUsersResult extends Model
         if (isset($map['FailedUsers'])) {
             if (!empty($map['FailedUsers'])) {
                 $model->failedUsers = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['FailedUsers'] as $item) {
                     $model->failedUsers[$n++] = null !== $item ? failedUsers::fromMap($item) : $item;
                 }

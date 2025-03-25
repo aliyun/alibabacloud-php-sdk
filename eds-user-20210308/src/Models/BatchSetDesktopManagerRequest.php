@@ -23,12 +23,10 @@ class BatchSetDesktopManagerRequest extends Model
     public $users;
     protected $_name = [
         'isDesktopManager' => 'IsDesktopManager',
-        'users'            => 'Users',
+        'users' => 'Users',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

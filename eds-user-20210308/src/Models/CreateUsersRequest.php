@@ -41,22 +41,21 @@ class CreateUsersRequest extends Model
      * @description The information about the convenience user.
      *
      * This parameter is required.
+     *
      * @example CreateUsers
      *
      * @var users[]
      */
     public $users;
     protected $_name = [
-        'autoLockTime'       => 'AutoLockTime',
-        'isLocalAdmin'       => 'IsLocalAdmin',
-        'password'           => 'Password',
+        'autoLockTime' => 'AutoLockTime',
+        'isLocalAdmin' => 'IsLocalAdmin',
+        'password' => 'Password',
         'passwordExpireDays' => 'PasswordExpireDays',
-        'users'              => 'Users',
+        'users' => 'Users',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -109,7 +108,7 @@ class CreateUsersRequest extends Model
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
                 $model->users = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['Users'] as $item) {
                     $model->users[$n++] = null !== $item ? users::fromMap($item) : $item;
                 }

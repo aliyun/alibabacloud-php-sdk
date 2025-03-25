@@ -60,20 +60,18 @@ class oidcSsoConfig extends Model
     public $refreshTokenEffective;
     protected $_name = [
         'accessTokenEffectiveTime' => 'AccessTokenEffectiveTime',
-        'codeEffectiveTime'        => 'CodeEffectiveTime',
-        'enableAuthLogin'          => 'EnableAuthLogin',
-        'endpoints'                => 'Endpoints',
-        'grantScopes'              => 'GrantScopes',
-        'grantTypes'               => 'GrantTypes',
-        'idTokenAlgorithmType'     => 'IdTokenAlgorithmType',
-        'idTokenEffectiveTime'     => 'IdTokenEffectiveTime',
-        'redirectUris'             => 'RedirectUris',
-        'refreshTokenEffective'    => 'RefreshTokenEffective',
+        'codeEffectiveTime' => 'CodeEffectiveTime',
+        'enableAuthLogin' => 'EnableAuthLogin',
+        'endpoints' => 'Endpoints',
+        'grantScopes' => 'GrantScopes',
+        'grantTypes' => 'GrantTypes',
+        'idTokenAlgorithmType' => 'IdTokenAlgorithmType',
+        'idTokenEffectiveTime' => 'IdTokenEffectiveTime',
+        'redirectUris' => 'RedirectUris',
+        'refreshTokenEffective' => 'RefreshTokenEffective',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

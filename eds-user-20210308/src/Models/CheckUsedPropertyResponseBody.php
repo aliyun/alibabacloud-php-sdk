@@ -27,12 +27,10 @@ class CheckUsedPropertyResponseBody extends Model
     public $useCount;
     protected $_name = [
         'requestId' => 'RequestId',
-        'useCount'  => 'UseCount',
+        'useCount' => 'UseCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

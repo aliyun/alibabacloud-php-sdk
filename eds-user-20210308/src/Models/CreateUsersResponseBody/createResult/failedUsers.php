@@ -53,16 +53,14 @@ class failedUsers extends Model
      */
     public $phone;
     protected $_name = [
-        'email'        => 'Email',
-        'endUserId'    => 'EndUserId',
-        'errorCode'    => 'ErrorCode',
+        'email' => 'Email',
+        'endUserId' => 'EndUserId',
+        'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
-        'phone'        => 'Phone',
+        'phone' => 'Phone',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

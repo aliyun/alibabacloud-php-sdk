@@ -25,12 +25,10 @@ class createResult extends Model
     public $failedUsers;
     protected $_name = [
         'createdUsers' => 'CreatedUsers',
-        'failedUsers'  => 'FailedUsers',
+        'failedUsers' => 'FailedUsers',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -68,7 +66,7 @@ class createResult extends Model
         if (isset($map['CreatedUsers'])) {
             if (!empty($map['CreatedUsers'])) {
                 $model->createdUsers = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['CreatedUsers'] as $item) {
                     $model->createdUsers[$n++] = null !== $item ? createdUsers::fromMap($item) : $item;
                 }
@@ -77,7 +75,7 @@ class createResult extends Model
         if (isset($map['FailedUsers'])) {
             if (!empty($map['FailedUsers'])) {
                 $model->failedUsers = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['FailedUsers'] as $item) {
                     $model->failedUsers[$n++] = null !== $item ? failedUsers::fromMap($item) : $item;
                 }

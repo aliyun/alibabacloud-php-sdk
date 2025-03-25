@@ -71,20 +71,18 @@ class data extends Model
      */
     public $status;
     protected $_name = [
-        'aliUid'            => 'AliUid',
-        'corpId'            => 'CorpId',
-        'gmtCreated'        => 'GmtCreated',
-        'gmtModified'       => 'GmtModified',
-        'id'                => 'Id',
-        'latestBeginTime'   => 'LatestBeginTime',
-        'latestEndTime'     => 'LatestEndTime',
+        'aliUid' => 'AliUid',
+        'corpId' => 'CorpId',
+        'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'latestBeginTime' => 'LatestBeginTime',
+        'latestEndTime' => 'LatestEndTime',
         'latestSuccessTime' => 'LatestSuccessTime',
-        'status'            => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

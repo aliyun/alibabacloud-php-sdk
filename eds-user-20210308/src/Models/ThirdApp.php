@@ -30,15 +30,13 @@ class ThirdApp extends Model
      */
     public $secrets;
     protected $_name = [
-        'appKey'        => 'AppKey',
-        'name'          => 'Name',
+        'appKey' => 'AppKey',
+        'name' => 'Name',
         'oidcSsoConfig' => 'OidcSsoConfig',
-        'secrets'       => 'Secrets',
+        'secrets' => 'Secrets',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -85,7 +83,7 @@ class ThirdApp extends Model
         if (isset($map['Secrets'])) {
             if (!empty($map['Secrets'])) {
                 $model->secrets = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Secrets'] as $item) {
                     $model->secrets[$n++] = null !== $item ? secrets::fromMap($item) : $item;
                 }

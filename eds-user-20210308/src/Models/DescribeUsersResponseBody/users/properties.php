@@ -6,14 +6,20 @@ namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponseBody\us
 
 use AlibabaCloud\Tea\Model;
 
-class extras extends Model
+class properties extends Model
 {
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $assignedResourceCount;
+    public $key;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'assignedResourceCount' => 'AssignedResourceCount',
+        'key' => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate() {}
@@ -21,8 +27,11 @@ class extras extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->assignedResourceCount) {
-            $res['AssignedResourceCount'] = $this->assignedResourceCount;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -31,13 +40,16 @@ class extras extends Model
     /**
      * @param array $map
      *
-     * @return extras
+     * @return properties
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AssignedResourceCount'])) {
-            $model->assignedResourceCount = $map['AssignedResourceCount'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

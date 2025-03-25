@@ -12,6 +12,7 @@ class CreatePropertyRequest extends Model
      * @description The property name.
      *
      * This parameter is required.
+     *
      * @example department
      *
      * @var string
@@ -25,13 +26,11 @@ class CreatePropertyRequest extends Model
      */
     public $propertyValues;
     protected $_name = [
-        'propertyKey'    => 'PropertyKey',
+        'propertyKey' => 'PropertyKey',
         'propertyValues' => 'PropertyValues',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

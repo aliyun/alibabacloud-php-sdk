@@ -53,16 +53,14 @@ class createdUsers extends Model
      */
     public $remark;
     protected $_name = [
-        'email'        => 'Email',
-        'endUserId'    => 'EndUserId',
-        'phone'        => 'Phone',
+        'email' => 'Email',
+        'endUserId' => 'EndUserId',
+        'phone' => 'Phone',
         'realNickName' => 'RealNickName',
-        'remark'       => 'Remark',
+        'remark' => 'Remark',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

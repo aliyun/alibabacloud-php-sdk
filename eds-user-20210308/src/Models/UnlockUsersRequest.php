@@ -21,6 +21,7 @@ class UnlockUsersRequest extends Model
      * @description The usernames of the convenience users that you want to unlock.
      *
      * This parameter is required.
+     *
      * @example test1
      *
      * @var string[]
@@ -28,12 +29,10 @@ class UnlockUsersRequest extends Model
     public $users;
     protected $_name = [
         'autoLockTime' => 'AutoLockTime',
-        'users'        => 'Users',
+        'users' => 'Users',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

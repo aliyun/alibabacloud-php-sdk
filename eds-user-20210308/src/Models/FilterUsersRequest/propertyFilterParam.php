@@ -26,13 +26,11 @@ class propertyFilterParam extends Model
      */
     public $propertyValueIds;
     protected $_name = [
-        'propertyId'       => 'PropertyId',
+        'propertyId' => 'PropertyId',
         'propertyValueIds' => 'PropertyValueIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

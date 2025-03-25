@@ -17,6 +17,7 @@ class LockUsersRequest extends Model
      * @description The usernames of the convenience users that you want to lock.
      *
      * This parameter is required.
+     *
      * @example test1
      *
      * @var string[]
@@ -24,12 +25,10 @@ class LockUsersRequest extends Model
     public $users;
     protected $_name = [
         'logoutSession' => 'LogoutSession',
-        'users'         => 'Users',
+        'users' => 'Users',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

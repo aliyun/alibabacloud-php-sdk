@@ -26,13 +26,11 @@ class propertyValues extends Model
      */
     public $propertyValueId;
     protected $_name = [
-        'propertyValue'   => 'PropertyValue',
+        'propertyValue' => 'PropertyValue',
         'propertyValueId' => 'PropertyValueId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

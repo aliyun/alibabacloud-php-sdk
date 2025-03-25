@@ -35,13 +35,11 @@ class DescribeOrgsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'nextToken' => 'NextToken',
-        'orgs'      => 'Orgs',
+        'orgs' => 'Orgs',
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class DescribeOrgsResponseBody extends Model
         if (isset($map['Orgs'])) {
             if (!empty($map['Orgs'])) {
                 $model->orgs = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Orgs'] as $item) {
                     $model->orgs[$n++] = null !== $item ? orgs::fromMap($item) : $item;
                 }

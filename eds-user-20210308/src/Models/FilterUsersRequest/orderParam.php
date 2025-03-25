@@ -32,9 +32,18 @@ class orderParam extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   DESC (default): descending
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example ASC
      *
      * @var string
@@ -42,12 +51,10 @@ class orderParam extends Model
     public $orderType;
     protected $_name = [
         'orderField' => 'OrderField',
-        'orderType'  => 'OrderType',
+        'orderType' => 'OrderType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

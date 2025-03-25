@@ -62,17 +62,15 @@ class GetManagerInfoByAuthCodeResponseBody extends Model
      */
     public $waId;
     protected $_name = [
-        'orgId'     => 'OrgId',
-        'phone'     => 'Phone',
+        'orgId' => 'OrgId',
+        'phone' => 'Phone',
         'requestId' => 'RequestId',
-        'teamName'  => 'TeamName',
-        'userName'  => 'UserName',
-        'waId'      => 'WaId',
+        'teamName' => 'TeamName',
+        'userName' => 'UserName',
+        'waId' => 'WaId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

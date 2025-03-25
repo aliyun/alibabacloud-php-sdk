@@ -89,13 +89,26 @@ class mfaDevices extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   UNBOUND
+     *
+     * <!-- -->
+     *
+     * <!-- -->
      *
      * <!-- -->
      *
      *   NORMAL
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example NORMAL
      *
      * @var string
@@ -103,19 +116,17 @@ class mfaDevices extends Model
     public $status;
     protected $_name = [
         'consecutiveFails' => 'ConsecutiveFails',
-        'deviceType'       => 'DeviceType',
-        'email'            => 'Email',
-        'endUserId'        => 'EndUserId',
-        'gmtEnabled'       => 'GmtEnabled',
-        'gmtUnlock'        => 'GmtUnlock',
-        'id'               => 'Id',
-        'serialNumber'     => 'SerialNumber',
-        'status'           => 'Status',
+        'deviceType' => 'DeviceType',
+        'email' => 'Email',
+        'endUserId' => 'EndUserId',
+        'gmtEnabled' => 'GmtEnabled',
+        'gmtUnlock' => 'GmtUnlock',
+        'id' => 'Id',
+        'serialNumber' => 'SerialNumber',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

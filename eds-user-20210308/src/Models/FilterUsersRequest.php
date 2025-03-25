@@ -36,9 +36,18 @@ class FilterUsersRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example true
      *
      * @var bool
@@ -54,14 +63,33 @@ class FilterUsersRequest extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example false
      *
      * @var bool
      */
     public $includeDesktopGroupCount;
+
+    /**
+     * @var bool
+     */
+    public $includeOrgInfo;
+
+    /**
+     * @var bool
+     */
+    public $includeSupportIdps;
 
     /**
      * @var bool
@@ -130,24 +158,24 @@ class FilterUsersRequest extends Model
      */
     public $status;
     protected $_name = [
-        'excludeEndUserIds'           => 'ExcludeEndUserIds',
-        'filter'                      => 'Filter',
-        'includeDesktopCount'         => 'IncludeDesktopCount',
-        'includeDesktopGroupCount'    => 'IncludeDesktopGroupCount',
-        'isQueryAllSubOrgs'           => 'IsQueryAllSubOrgs',
-        'maxResults'                  => 'MaxResults',
-        'nextToken'                   => 'NextToken',
-        'orderParam'                  => 'OrderParam',
-        'orgId'                       => 'OrgId',
-        'ownerType'                   => 'OwnerType',
-        'propertyFilterParam'         => 'PropertyFilterParam',
+        'excludeEndUserIds' => 'ExcludeEndUserIds',
+        'filter' => 'Filter',
+        'includeDesktopCount' => 'IncludeDesktopCount',
+        'includeDesktopGroupCount' => 'IncludeDesktopGroupCount',
+        'includeOrgInfo' => 'IncludeOrgInfo',
+        'includeSupportIdps' => 'IncludeSupportIdps',
+        'isQueryAllSubOrgs' => 'IsQueryAllSubOrgs',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'orderParam' => 'OrderParam',
+        'orgId' => 'OrgId',
+        'ownerType' => 'OwnerType',
+        'propertyFilterParam' => 'PropertyFilterParam',
         'propertyKeyValueFilterParam' => 'PropertyKeyValueFilterParam',
-        'status'                      => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -163,6 +191,12 @@ class FilterUsersRequest extends Model
         }
         if (null !== $this->includeDesktopGroupCount) {
             $res['IncludeDesktopGroupCount'] = $this->includeDesktopGroupCount;
+        }
+        if (null !== $this->includeOrgInfo) {
+            $res['IncludeOrgInfo'] = $this->includeOrgInfo;
+        }
+        if (null !== $this->includeSupportIdps) {
+            $res['IncludeSupportIdps'] = $this->includeSupportIdps;
         }
         if (null !== $this->isQueryAllSubOrgs) {
             $res['IsQueryAllSubOrgs'] = $this->isQueryAllSubOrgs;
@@ -229,6 +263,12 @@ class FilterUsersRequest extends Model
         if (isset($map['IncludeDesktopGroupCount'])) {
             $model->includeDesktopGroupCount = $map['IncludeDesktopGroupCount'];
         }
+        if (isset($map['IncludeOrgInfo'])) {
+            $model->includeOrgInfo = $map['IncludeOrgInfo'];
+        }
+        if (isset($map['IncludeSupportIdps'])) {
+            $model->includeSupportIdps = $map['IncludeSupportIdps'];
+        }
         if (isset($map['IsQueryAllSubOrgs'])) {
             $model->isQueryAllSubOrgs = $map['IsQueryAllSubOrgs'];
         }
@@ -250,7 +290,7 @@ class FilterUsersRequest extends Model
         if (isset($map['PropertyFilterParam'])) {
             if (!empty($map['PropertyFilterParam'])) {
                 $model->propertyFilterParam = [];
-                $n                          = 0;
+                $n = 0;
                 foreach ($map['PropertyFilterParam'] as $item) {
                     $model->propertyFilterParam[$n++] = null !== $item ? propertyFilterParam::fromMap($item) : $item;
                 }
@@ -259,7 +299,7 @@ class FilterUsersRequest extends Model
         if (isset($map['PropertyKeyValueFilterParam'])) {
             if (!empty($map['PropertyKeyValueFilterParam'])) {
                 $model->propertyKeyValueFilterParam = [];
-                $n                                  = 0;
+                $n = 0;
                 foreach ($map['PropertyKeyValueFilterParam'] as $item) {
                     $model->propertyKeyValueFilterParam[$n++] = null !== $item ? propertyKeyValueFilterParam::fromMap($item) : $item;
                 }

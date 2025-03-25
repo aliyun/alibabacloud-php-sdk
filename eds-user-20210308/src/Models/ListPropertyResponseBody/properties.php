@@ -34,14 +34,12 @@ class properties extends Model
      */
     public $propertyValues;
     protected $_name = [
-        'propertyId'     => 'PropertyId',
-        'propertyKey'    => 'PropertyKey',
+        'propertyId' => 'PropertyId',
+        'propertyKey' => 'PropertyKey',
         'propertyValues' => 'PropertyValues',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -82,7 +80,7 @@ class properties extends Model
         if (isset($map['PropertyValues'])) {
             if (!empty($map['PropertyValues'])) {
                 $model->propertyValues = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['PropertyValues'] as $item) {
                     $model->propertyValues[$n++] = null !== $item ? propertyValues::fromMap($item) : $item;
                 }

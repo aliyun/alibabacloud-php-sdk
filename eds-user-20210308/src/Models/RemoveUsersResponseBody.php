@@ -26,12 +26,10 @@ class RemoveUsersResponseBody extends Model
     public $requestId;
     protected $_name = [
         'removeUsersResult' => 'RemoveUsersResult',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

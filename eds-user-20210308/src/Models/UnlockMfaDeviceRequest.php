@@ -21,19 +21,18 @@ class UnlockMfaDeviceRequest extends Model
      * @description The serial number of the virtual MFA device. The serial number is unique for each device.
      *
      * This parameter is required.
+     *
      * @example dc856334-446b-4035-bfbc-18af261e****
      *
      * @var string
      */
     public $serialNumber;
     protected $_name = [
-        'adDomain'     => 'AdDomain',
+        'adDomain' => 'AdDomain',
         'serialNumber' => 'SerialNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

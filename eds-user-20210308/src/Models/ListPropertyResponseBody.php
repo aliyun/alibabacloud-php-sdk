@@ -34,14 +34,12 @@ class ListPropertyResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
         'properties' => 'Properties',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -79,7 +77,7 @@ class ListPropertyResponseBody extends Model
         if (isset($map['Properties'])) {
             if (!empty($map['Properties'])) {
                 $model->properties = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['Properties'] as $item) {
                     $model->properties[$n++] = null !== $item ? properties::fromMap($item) : $item;
                 }

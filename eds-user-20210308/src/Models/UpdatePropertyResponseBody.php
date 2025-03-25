@@ -25,13 +25,11 @@ class UpdatePropertyResponseBody extends Model
      */
     public $updateResult;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'updateResult' => 'UpdateResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

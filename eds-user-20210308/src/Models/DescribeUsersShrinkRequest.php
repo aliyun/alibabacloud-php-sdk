@@ -39,6 +39,11 @@ class DescribeUsersShrinkRequest extends Model
     /**
      * @var string
      */
+    public $filterWithAssignedResourceShrink;
+
+    /**
+     * @var string
+     */
     public $filterWithAssignedResourcesShrink;
 
     /**
@@ -70,6 +75,7 @@ class DescribeUsersShrinkRequest extends Model
     /**
      * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.\\
      * If not all results are returned in a query, a value is returned for the NextToken parameter. In this case, you can use the return value of NextToken to perform the next query.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -95,23 +101,22 @@ class DescribeUsersShrinkRequest extends Model
      */
     public $solutionId;
     protected $_name = [
-        'bizType'                           => 'BizType',
-        'endUserIds'                        => 'EndUserIds',
-        'excludeEndUserIds'                 => 'ExcludeEndUserIds',
-        'filter'                            => 'Filter',
+        'bizType' => 'BizType',
+        'endUserIds' => 'EndUserIds',
+        'excludeEndUserIds' => 'ExcludeEndUserIds',
+        'filter' => 'Filter',
+        'filterWithAssignedResourceShrink' => 'FilterWithAssignedResource',
         'filterWithAssignedResourcesShrink' => 'FilterWithAssignedResources',
-        'groupId'                           => 'GroupId',
-        'isQueryAllSubOrgs'                 => 'IsQueryAllSubOrgs',
-        'maxResults'                        => 'MaxResults',
-        'nextToken'                         => 'NextToken',
-        'orgId'                             => 'OrgId',
-        'showExtrasShrink'                  => 'ShowExtras',
-        'solutionId'                        => 'SolutionId',
+        'groupId' => 'GroupId',
+        'isQueryAllSubOrgs' => 'IsQueryAllSubOrgs',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'orgId' => 'OrgId',
+        'showExtrasShrink' => 'ShowExtras',
+        'solutionId' => 'SolutionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -127,6 +132,9 @@ class DescribeUsersShrinkRequest extends Model
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->filterWithAssignedResourceShrink) {
+            $res['FilterWithAssignedResource'] = $this->filterWithAssignedResourceShrink;
         }
         if (null !== $this->filterWithAssignedResourcesShrink) {
             $res['FilterWithAssignedResources'] = $this->filterWithAssignedResourcesShrink;
@@ -179,6 +187,9 @@ class DescribeUsersShrinkRequest extends Model
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['FilterWithAssignedResource'])) {
+            $model->filterWithAssignedResourceShrink = $map['FilterWithAssignedResource'];
         }
         if (isset($map['FilterWithAssignedResources'])) {
             $model->filterWithAssignedResourcesShrink = $map['FilterWithAssignedResources'];

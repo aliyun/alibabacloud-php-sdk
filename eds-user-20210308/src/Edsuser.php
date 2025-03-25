@@ -71,7 +71,7 @@ class Edsuser extends OpenApiClient
     {
         parent::__construct($config);
         $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = 'regional';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eds-user', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -121,18 +121,21 @@ class Edsuser extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchSetDesktopManager',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchSetDesktopManager',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchSetDesktopManagerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchSetDesktopManagerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchSetDesktopManagerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -171,18 +174,21 @@ class Edsuser extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChangeUserPassword',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeUserPassword',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChangeUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeUserPasswordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -218,18 +224,21 @@ class Edsuser extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckUsedProperty',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckUsedProperty',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CheckUsedPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckUsedPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckUsedPropertyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -270,18 +279,21 @@ class Edsuser extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckUsedPropertyValue',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckUsedPropertyValue',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CheckUsedPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckUsedPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckUsedPropertyValueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -322,18 +334,21 @@ class Edsuser extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateProperty',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateProperty',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreatePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePropertyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -382,21 +397,24 @@ class Edsuser extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateUsers',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateUsers',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -442,18 +460,21 @@ class Edsuser extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteUserPropertyValue',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteUserPropertyValue',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteUserPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserPropertyValueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -503,18 +524,21 @@ class Edsuser extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMfaDevices',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMfaDevices',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeMfaDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeMfaDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMfaDevicesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -561,18 +585,21 @@ class Edsuser extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOrgs',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOrgs',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeOrgsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeOrgsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeOrgsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -604,6 +631,9 @@ class Edsuser extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new DescribeUsersShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filterWithAssignedResource)) {
+            $request->filterWithAssignedResourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterWithAssignedResource, 'FilterWithAssignedResource', 'json');
+        }
         if (!Utils::isUnset($tmpReq->filterWithAssignedResources)) {
             $request->filterWithAssignedResourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterWithAssignedResources, 'FilterWithAssignedResources', 'json');
         }
@@ -613,6 +643,9 @@ class Edsuser extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->filterWithAssignedResourceShrink)) {
+            $query['FilterWithAssignedResource'] = $request->filterWithAssignedResourceShrink;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
@@ -650,21 +683,24 @@ class Edsuser extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUsers',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUsers',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -710,6 +746,12 @@ class Edsuser extends OpenApiClient
         if (!Utils::isUnset($request->includeDesktopGroupCount)) {
             $query['IncludeDesktopGroupCount'] = $request->includeDesktopGroupCount;
         }
+        if (!Utils::isUnset($request->includeOrgInfo)) {
+            $query['IncludeOrgInfo'] = $request->includeOrgInfo;
+        }
+        if (!Utils::isUnset($request->includeSupportIdps)) {
+            $query['IncludeSupportIdps'] = $request->includeSupportIdps;
+        }
         if (!Utils::isUnset($request->isQueryAllSubOrgs)) {
             $query['IsQueryAllSubOrgs'] = $request->isQueryAllSubOrgs;
         }
@@ -741,18 +783,21 @@ class Edsuser extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FilterUsers',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FilterUsers',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return FilterUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return FilterUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return FilterUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -788,18 +833,21 @@ class Edsuser extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetManagerInfoByAuthCode',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetManagerInfoByAuthCode',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetManagerInfoByAuthCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetManagerInfoByAuthCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetManagerInfoByAuthCodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -825,20 +873,23 @@ class Edsuser extends OpenApiClient
      */
     public function listPropertyWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListProperty',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProperty',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPropertyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -872,18 +923,21 @@ class Edsuser extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPropertyValue',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPropertyValue',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPropertyValueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -924,18 +978,21 @@ class Edsuser extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'LockMfaDevice',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LockMfaDevice',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return LockMfaDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return LockMfaDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LockMfaDeviceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -975,21 +1032,24 @@ class Edsuser extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'LockUsers',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LockUsers',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return LockUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return LockUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LockUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1031,18 +1091,21 @@ class Edsuser extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyUser',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyUser',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1068,20 +1131,23 @@ class Edsuser extends OpenApiClient
      */
     public function querySyncStatusByAliUidWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'QuerySyncStatusByAliUid',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySyncStatusByAliUid',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QuerySyncStatusByAliUidResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QuerySyncStatusByAliUidResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySyncStatusByAliUidResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1120,18 +1186,21 @@ class Edsuser extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveMfaDevice',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveMfaDevice',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RemoveMfaDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveMfaDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveMfaDeviceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1169,18 +1238,21 @@ class Edsuser extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveProperty',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveProperty',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RemovePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemovePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemovePropertyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1216,18 +1288,21 @@ class Edsuser extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveUsers',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveUsers',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RemoveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1266,18 +1341,21 @@ class Edsuser extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ResetUserPassword',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetUserPassword',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ResetUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetUserPasswordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1322,18 +1400,21 @@ class Edsuser extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetUserPropertyValue',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetUserPropertyValue',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetUserPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetUserPropertyValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetUserPropertyValueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1359,20 +1440,23 @@ class Edsuser extends OpenApiClient
      */
     public function syncAllEduInfoWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'SyncAllEduInfo',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SyncAllEduInfo',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SyncAllEduInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SyncAllEduInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SyncAllEduInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1409,18 +1493,21 @@ class Edsuser extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnlockMfaDevice',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnlockMfaDevice',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UnlockMfaDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnlockMfaDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnlockMfaDeviceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1458,21 +1545,24 @@ class Edsuser extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnlockUsers',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnlockUsers',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UnlockUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnlockUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnlockUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1514,18 +1604,21 @@ class Edsuser extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateProperty',
-            'version'     => '2021-03-08',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateProperty',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdatePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePropertyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

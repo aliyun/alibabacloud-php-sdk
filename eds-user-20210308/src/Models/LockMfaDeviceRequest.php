@@ -26,13 +26,11 @@ class LockMfaDeviceRequest extends Model
      */
     public $serialNumber;
     protected $_name = [
-        'adDomain'     => 'AdDomain',
+        'adDomain' => 'AdDomain',
         'serialNumber' => 'SerialNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody;
 
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\externalInfo;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\orgList;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\supportLoginIdps;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\FilterUsersResponseBody\users\userSetPropertiesModels;
 use AlibabaCloud\Tea\Model;
 
@@ -51,9 +53,18 @@ class users extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example true
      *
      * @var bool
@@ -94,14 +105,28 @@ class users extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   false
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example true
      *
      * @var bool
      */
     public $isTenantManager;
+
+    /**
+     * @var orgList[]
+     */
+    public $orgList;
 
     /**
      * @description The type of the account ownership.
@@ -163,14 +188,28 @@ class users extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   9: The convenience user is locked.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example 0
      *
      * @var int
      */
     public $status;
+
+    /**
+     * @var supportLoginIdps[]
+     */
+    public $supportLoginIdps;
 
     /**
      * @description The information about the properties.
@@ -179,28 +218,28 @@ class users extends Model
      */
     public $userSetPropertiesModels;
     protected $_name = [
-        'autoLockTime'            => 'AutoLockTime',
-        'desktopCount'            => 'DesktopCount',
-        'desktopGroupCount'       => 'DesktopGroupCount',
-        'email'                   => 'Email',
-        'enableAdminAccess'       => 'EnableAdminAccess',
-        'endUserId'               => 'EndUserId',
-        'externalInfo'            => 'ExternalInfo',
-        'id'                      => 'Id',
-        'isTenantManager'         => 'IsTenantManager',
-        'ownerType'               => 'OwnerType',
-        'passwordExpireDays'      => 'PasswordExpireDays',
-        'passwordExpireRestDays'  => 'PasswordExpireRestDays',
-        'phone'                   => 'Phone',
-        'realNickName'            => 'RealNickName',
-        'remark'                  => 'Remark',
-        'status'                  => 'Status',
+        'autoLockTime' => 'AutoLockTime',
+        'desktopCount' => 'DesktopCount',
+        'desktopGroupCount' => 'DesktopGroupCount',
+        'email' => 'Email',
+        'enableAdminAccess' => 'EnableAdminAccess',
+        'endUserId' => 'EndUserId',
+        'externalInfo' => 'ExternalInfo',
+        'id' => 'Id',
+        'isTenantManager' => 'IsTenantManager',
+        'orgList' => 'OrgList',
+        'ownerType' => 'OwnerType',
+        'passwordExpireDays' => 'PasswordExpireDays',
+        'passwordExpireRestDays' => 'PasswordExpireRestDays',
+        'phone' => 'Phone',
+        'realNickName' => 'RealNickName',
+        'remark' => 'Remark',
+        'status' => 'Status',
+        'supportLoginIdps' => 'SupportLoginIdps',
         'userSetPropertiesModels' => 'UserSetPropertiesModels',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -232,6 +271,15 @@ class users extends Model
         if (null !== $this->isTenantManager) {
             $res['IsTenantManager'] = $this->isTenantManager;
         }
+        if (null !== $this->orgList) {
+            $res['OrgList'] = [];
+            if (null !== $this->orgList && \is_array($this->orgList)) {
+                $n = 0;
+                foreach ($this->orgList as $item) {
+                    $res['OrgList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ownerType) {
             $res['OwnerType'] = $this->ownerType;
         }
@@ -252,6 +300,15 @@ class users extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->supportLoginIdps) {
+            $res['SupportLoginIdps'] = [];
+            if (null !== $this->supportLoginIdps && \is_array($this->supportLoginIdps)) {
+                $n = 0;
+                foreach ($this->supportLoginIdps as $item) {
+                    $res['SupportLoginIdps'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->userSetPropertiesModels) {
             $res['UserSetPropertiesModels'] = [];
@@ -301,6 +358,15 @@ class users extends Model
         if (isset($map['IsTenantManager'])) {
             $model->isTenantManager = $map['IsTenantManager'];
         }
+        if (isset($map['OrgList'])) {
+            if (!empty($map['OrgList'])) {
+                $model->orgList = [];
+                $n = 0;
+                foreach ($map['OrgList'] as $item) {
+                    $model->orgList[$n++] = null !== $item ? orgList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['OwnerType'])) {
             $model->ownerType = $map['OwnerType'];
         }
@@ -322,10 +388,19 @@ class users extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['SupportLoginIdps'])) {
+            if (!empty($map['SupportLoginIdps'])) {
+                $model->supportLoginIdps = [];
+                $n = 0;
+                foreach ($map['SupportLoginIdps'] as $item) {
+                    $model->supportLoginIdps[$n++] = null !== $item ? supportLoginIdps::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['UserSetPropertiesModels'])) {
             if (!empty($map['UserSetPropertiesModels'])) {
                 $model->userSetPropertiesModels = [];
-                $n                              = 0;
+                $n = 0;
                 foreach ($map['UserSetPropertiesModels'] as $item) {
                     $model->userSetPropertiesModels[$n++] = null !== $item ? userSetPropertiesModels::fromMap($item) : $item;
                 }

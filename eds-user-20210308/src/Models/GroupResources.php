@@ -23,14 +23,12 @@ class GroupResources extends Model
      */
     public $resourceType;
     protected $_name = [
-        'region'       => 'Region',
-        'resourceId'   => 'ResourceId',
+        'region' => 'Region',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

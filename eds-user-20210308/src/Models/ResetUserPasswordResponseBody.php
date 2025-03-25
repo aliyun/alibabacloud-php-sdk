@@ -25,13 +25,11 @@ class ResetUserPasswordResponseBody extends Model
      */
     public $resetUsersResult;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'resetUsersResult' => 'ResetUsersResult',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

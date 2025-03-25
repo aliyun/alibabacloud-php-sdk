@@ -24,7 +24,7 @@ class WaIdPermissions extends Model
     public $name;
 
     /**
-     * @var \AlibabaCloud\SDK\Edsuser\V20210308\Models\WaIdPermissions[]
+     * @var WaIdPermissions[]
      */
     public $subPermissions;
 
@@ -33,16 +33,14 @@ class WaIdPermissions extends Model
      */
     public $type;
     protected $_name = [
-        'code'           => 'Code',
-        'isBasicChild'   => 'IsBasicChild',
-        'name'           => 'Name',
+        'code' => 'Code',
+        'isBasicChild' => 'IsBasicChild',
+        'name' => 'Name',
         'subPermissions' => 'SubPermissions',
-        'type'           => 'Type',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class WaIdPermissions extends Model
         if (isset($map['SubPermissions'])) {
             if (!empty($map['SubPermissions'])) {
                 $model->subPermissions = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['SubPermissions'] as $item) {
                     $model->subPermissions[$n++] = null !== $item ? self::fromMap($item) : $item;
                 }

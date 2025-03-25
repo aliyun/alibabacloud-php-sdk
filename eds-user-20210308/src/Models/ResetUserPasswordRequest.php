@@ -12,6 +12,7 @@ class ResetUserPasswordRequest extends Model
      * @description The method to notify the user after the password is reset.
      *
      * > Alibaba Cloud accounts of the international site do not support sending notification through text messages.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +23,7 @@ class ResetUserPasswordRequest extends Model
      * @description The names of the convenience users whose passwords you want to reset.
      *
      * This parameter is required.
+     *
      * @example test1
      *
      * @var string[]
@@ -29,12 +31,10 @@ class ResetUserPasswordRequest extends Model
     public $users;
     protected $_name = [
         'notifyType' => 'NotifyType',
-        'users'      => 'Users',
+        'users' => 'Users',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

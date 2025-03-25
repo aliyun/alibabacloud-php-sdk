@@ -35,13 +35,11 @@ class DescribeMfaDevicesResponseBody extends Model
     public $requestId;
     protected $_name = [
         'mfaDevices' => 'MfaDevices',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -76,7 +74,7 @@ class DescribeMfaDevicesResponseBody extends Model
         if (isset($map['MfaDevices'])) {
             if (!empty($map['MfaDevices'])) {
                 $model->mfaDevices = [];
-                $n                 = 0;
+                $n = 0;
                 foreach ($map['MfaDevices'] as $item) {
                     $model->mfaDevices[$n++] = null !== $item ? mfaDevices::fromMap($item) : $item;
                 }

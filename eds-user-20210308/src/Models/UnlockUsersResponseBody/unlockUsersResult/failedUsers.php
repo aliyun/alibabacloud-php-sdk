@@ -35,14 +35,12 @@ class failedUsers extends Model
      */
     public $errorMessage;
     protected $_name = [
-        'endUserId'    => 'EndUserId',
-        'errorCode'    => 'ErrorCode',
+        'endUserId' => 'EndUserId',
+        'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

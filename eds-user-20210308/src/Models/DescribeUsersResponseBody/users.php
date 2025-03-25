@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponseBody;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponseBody\users\extras;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponseBody\users\groups;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponseBody\users\orgs;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponseBody\users\properties;
 use AlibabaCloud\Tea\Model;
 
 class users extends Model
@@ -46,6 +47,11 @@ class users extends Model
      * @var string
      */
     public $endUserId;
+
+    /**
+     * @var string
+     */
+    public $externalName;
 
     /**
      * @var extras
@@ -99,6 +105,7 @@ class users extends Model
      * @description The ID of the organization to which the convenience user belongs.
      *
      * >  This parameter will be deprecated in the future.
+     *
      * @example org-4mdgc1cocc59z****
      *
      * @var string
@@ -124,9 +131,26 @@ class users extends Model
      *
      * <!-- -->
      *
+     * :
+     *
+     * <!-- -->
+     *
+     * administrator-activated
+     *
+     * <!-- -->
+     *
      *   Normal
      *
      * <!-- -->
+     *
+     * :
+     *
+     * <!-- -->
+     *
+     * user-activated
+     *
+     * <!-- -->
+     *
      * @example Normal
      *
      * @var string
@@ -141,6 +165,11 @@ class users extends Model
      * @var string
      */
     public $phone;
+
+    /**
+     * @var properties[]
+     */
+    public $properties;
 
     /**
      * @var string
@@ -165,9 +194,18 @@ class users extends Model
      *
      * <!-- -->
      *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      *   9: The convenience user is locked.
      *
      * <!-- -->
+     *
+     * <!-- -->
+     *
+     * <!-- -->
+     *
      * @example 0
      *
      * @var int
@@ -183,29 +221,29 @@ class users extends Model
      */
     public $wyId;
     protected $_name = [
-        'address'         => 'Address',
-        'avatar'          => 'Avatar',
-        'email'           => 'Email',
-        'endUserId'       => 'EndUserId',
-        'extras'          => 'Extras',
-        'groups'          => 'Groups',
-        'id'              => 'Id',
+        'address' => 'Address',
+        'avatar' => 'Avatar',
+        'email' => 'Email',
+        'endUserId' => 'EndUserId',
+        'externalName' => 'ExternalName',
+        'extras' => 'Extras',
+        'groups' => 'Groups',
+        'id' => 'Id',
         'isTenantManager' => 'IsTenantManager',
-        'jobNumber'       => 'JobNumber',
-        'nickName'        => 'NickName',
-        'orgId'           => 'OrgId',
-        'orgs'            => 'Orgs',
-        'ownerType'       => 'OwnerType',
-        'phone'           => 'Phone',
-        'realNickName'    => 'RealNickName',
-        'remark'          => 'Remark',
-        'status'          => 'Status',
-        'wyId'            => 'WyId',
+        'jobNumber' => 'JobNumber',
+        'nickName' => 'NickName',
+        'orgId' => 'OrgId',
+        'orgs' => 'Orgs',
+        'ownerType' => 'OwnerType',
+        'phone' => 'Phone',
+        'properties' => 'Properties',
+        'realNickName' => 'RealNickName',
+        'remark' => 'Remark',
+        'status' => 'Status',
+        'wyId' => 'WyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -221,6 +259,9 @@ class users extends Model
         }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+        if (null !== $this->externalName) {
+            $res['ExternalName'] = $this->externalName;
         }
         if (null !== $this->extras) {
             $res['Extras'] = null !== $this->extras ? $this->extras->toMap() : null;
@@ -264,6 +305,15 @@ class users extends Model
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
         }
+        if (null !== $this->properties) {
+            $res['Properties'] = [];
+            if (null !== $this->properties && \is_array($this->properties)) {
+                $n = 0;
+                foreach ($this->properties as $item) {
+                    $res['Properties'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->realNickName) {
             $res['RealNickName'] = $this->realNickName;
         }
@@ -300,13 +350,16 @@ class users extends Model
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+        if (isset($map['ExternalName'])) {
+            $model->externalName = $map['ExternalName'];
+        }
         if (isset($map['Extras'])) {
             $model->extras = extras::fromMap($map['Extras']);
         }
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {
                 $model->groups = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Groups'] as $item) {
                     $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
                 }
@@ -330,7 +383,7 @@ class users extends Model
         if (isset($map['Orgs'])) {
             if (!empty($map['Orgs'])) {
                 $model->orgs = [];
-                $n           = 0;
+                $n = 0;
                 foreach ($map['Orgs'] as $item) {
                     $model->orgs[$n++] = null !== $item ? orgs::fromMap($item) : $item;
                 }
@@ -341,6 +394,15 @@ class users extends Model
         }
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
+        }
+        if (isset($map['Properties'])) {
+            if (!empty($map['Properties'])) {
+                $model->properties = [];
+                $n = 0;
+                foreach ($map['Properties'] as $item) {
+                    $model->properties[$n++] = null !== $item ? properties::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RealNickName'])) {
             $model->realNickName = $map['RealNickName'];

@@ -22,13 +22,11 @@ class ChangeUserPasswordRequest extends Model
      */
     public $newPassword;
     protected $_name = [
-        'endUserId'   => 'EndUserId',
+        'endUserId' => 'EndUserId',
         'newPassword' => 'NewPassword',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

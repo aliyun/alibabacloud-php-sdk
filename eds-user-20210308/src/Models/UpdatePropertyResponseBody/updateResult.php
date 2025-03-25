@@ -34,14 +34,12 @@ class updateResult extends Model
      */
     public $savePropertyValueModel;
     protected $_name = [
-        'propertyId'             => 'PropertyId',
-        'propertyKey'            => 'PropertyKey',
+        'propertyId' => 'PropertyId',
+        'propertyKey' => 'PropertyKey',
         'savePropertyValueModel' => 'SavePropertyValueModel',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

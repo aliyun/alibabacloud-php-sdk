@@ -23,13 +23,11 @@ class unlockUsersResult extends Model
      */
     public $unlockedUsers;
     protected $_name = [
-        'failedUsers'   => 'FailedUsers',
+        'failedUsers' => 'FailedUsers',
         'unlockedUsers' => 'UnlockedUsers',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -61,7 +59,7 @@ class unlockUsersResult extends Model
         if (isset($map['FailedUsers'])) {
             if (!empty($map['FailedUsers'])) {
                 $model->failedUsers = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['FailedUsers'] as $item) {
                     $model->failedUsers[$n++] = null !== $item ? failedUsers::fromMap($item) : $item;
                 }

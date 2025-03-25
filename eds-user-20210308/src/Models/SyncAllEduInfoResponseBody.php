@@ -43,16 +43,14 @@ class SyncAllEduInfoResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

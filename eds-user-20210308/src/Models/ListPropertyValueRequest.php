@@ -12,6 +12,7 @@ class ListPropertyValueRequest extends Model
      * @description The ID of the property. You can call the [ListProperty](https://help.aliyun.com/document_detail/410890.html) operation to query the property ID.
      *
      * This parameter is required.
+     *
      * @example 390
      *
      * @var int
@@ -21,9 +22,7 @@ class ListPropertyValueRequest extends Model
         'propertyId' => 'PropertyId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

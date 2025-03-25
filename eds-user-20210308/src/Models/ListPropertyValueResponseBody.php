@@ -26,12 +26,10 @@ class ListPropertyValueResponseBody extends Model
     public $requestId;
     protected $_name = [
         'propertyValueInfos' => 'PropertyValueInfos',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -63,7 +61,7 @@ class ListPropertyValueResponseBody extends Model
         if (isset($map['PropertyValueInfos'])) {
             if (!empty($map['PropertyValueInfos'])) {
                 $model->propertyValueInfos = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['PropertyValueInfos'] as $item) {
                     $model->propertyValueInfos[$n++] = null !== $item ? propertyValueInfos::fromMap($item) : $item;
                 }

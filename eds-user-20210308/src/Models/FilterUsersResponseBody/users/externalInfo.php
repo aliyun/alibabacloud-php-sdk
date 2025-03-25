@@ -27,12 +27,10 @@ class externalInfo extends Model
     public $jobNumber;
     protected $_name = [
         'externalName' => 'ExternalName',
-        'jobNumber'    => 'JobNumber',
+        'jobNumber' => 'JobNumber',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
