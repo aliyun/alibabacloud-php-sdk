@@ -22,10 +22,6 @@ class QueryContentRequest extends Model
     public $collection;
 
     /**
-     * @description Text content for retrieval.
-     *
-     * @example What is ADBPG?
-     *
      * @var string
      */
     public $content;

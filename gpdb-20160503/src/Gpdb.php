@@ -12359,9 +12359,6 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->collection)) {
             $query['Collection'] = $request->collection;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
-        }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -12416,8 +12413,13 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->useFullTextRetrieval)) {
             $query['UseFullTextRetrieval'] = $request->useFullTextRetrieval;
         }
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QueryContent',
