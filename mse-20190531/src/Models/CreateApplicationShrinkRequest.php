@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationRequest\tags;
 use AlibabaCloud\Tea\Model;
 
-class CreateApplicationRequest extends Model
+class CreateApplicationShrinkRequest extends Model
 {
     /**
      * @description The language of the response. Valid values:
@@ -89,9 +88,9 @@ class CreateApplicationRequest extends Model
     public $switchEnable;
 
     /**
-     * @var tags[]
+     * @var string
      */
-    public $tags;
+    public $tagsShrink;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'appName' => 'AppName',
@@ -101,7 +100,7 @@ class CreateApplicationRequest extends Model
         'sentinelEnable' => 'SentinelEnable',
         'source' => 'Source',
         'switchEnable' => 'SwitchEnable',
-        'tags' => 'Tags',
+        'tagsShrink' => 'Tags',
     ];
 
     public function validate() {}
@@ -133,14 +132,8 @@ class CreateApplicationRequest extends Model
         if (null !== $this->switchEnable) {
             $res['SwitchEnable'] = $this->switchEnable;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
         }
 
         return $res;
@@ -149,7 +142,7 @@ class CreateApplicationRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateApplicationRequest
+     * @return CreateApplicationShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -179,13 +172,7 @@ class CreateApplicationRequest extends Model
             $model->switchEnable = $map['SwitchEnable'];
         }
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
+            $model->tagsShrink = $map['Tags'];
         }
 
         return $model;

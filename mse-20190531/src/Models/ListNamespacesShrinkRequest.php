@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamespacesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class ListNamespacesRequest extends Model
+class ListNamespacesShrinkRequest extends Model
 {
     /**
      * @example zh
@@ -47,16 +46,16 @@ class ListNamespacesRequest extends Model
     public $region;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $tagShrink;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'name' => 'Name',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'region' => 'Region',
-        'tag' => 'Tag',
+        'tagShrink' => 'Tag',
     ];
 
     public function validate() {}
@@ -79,14 +78,8 @@ class ListNamespacesRequest extends Model
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
 
         return $res;
@@ -95,7 +88,7 @@ class ListNamespacesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListNamespacesRequest
+     * @return ListNamespacesShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -116,13 +109,7 @@ class ListNamespacesRequest extends Model
             $model->region = $map['Region'];
         }
         if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
+            $model->tagShrink = $map['Tag'];
         }
 
         return $model;

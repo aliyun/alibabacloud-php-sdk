@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class GetApplicationListRequest extends Model
@@ -115,6 +116,11 @@ class GetApplicationListRequest extends Model
      * @var bool
      */
     public $switchEnable;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'appId' => 'AppId',
@@ -127,6 +133,7 @@ class GetApplicationListRequest extends Model
         'sentinelEnable' => 'SentinelEnable',
         'source' => 'Source',
         'switchEnable' => 'SwitchEnable',
+        'tags' => 'Tags',
     ];
 
     public function validate() {}
@@ -166,6 +173,15 @@ class GetApplicationListRequest extends Model
         }
         if (null !== $this->switchEnable) {
             $res['SwitchEnable'] = $this->switchEnable;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -211,6 +227,15 @@ class GetApplicationListRequest extends Model
         }
         if (isset($map['SwitchEnable'])) {
             $model->switchEnable = $map['SwitchEnable'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

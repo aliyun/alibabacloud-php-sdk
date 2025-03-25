@@ -57,6 +57,7 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CloneSentinelRuleFromAhasRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneSentinelRuleFromAhasResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateCircuitBreakerRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateCircuitBreakerRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateClusterRequest;
@@ -83,6 +84,7 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosServiceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosServiceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNamespaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNamespaceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNamespaceShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupShrinkRequest;
@@ -172,6 +174,7 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationInstanceListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationInstanceListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetAppMessageQueueRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetAppMessageQueueRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetBlackWhiteListRequest;
@@ -324,6 +327,7 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosHistoryConfigsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosHistoryConfigsResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamespacesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamespacesResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamespacesShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamingTrackRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamingTrackResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSecurityGroupRequest;
@@ -2229,14 +2233,19 @@ class Mse extends OpenApiClient
     /**
      * @summary Creates an application.
      *  *
-     * @param CreateApplicationRequest $request CreateApplicationRequest
+     * @param CreateApplicationRequest $tmpReq  CreateApplicationRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateApplicationResponse CreateApplicationResponse
      */
-    public function createApplicationWithOptions($request, $runtime)
+    public function createApplicationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateApplicationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -2261,6 +2270,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->switchEnable)) {
             $query['SwitchEnable'] = $request->switchEnable;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3333,14 +3345,19 @@ class Mse extends OpenApiClient
     /**
      * @summary CreateNamespace
      *  *
-     * @param CreateNamespaceRequest $request CreateNamespaceRequest
+     * @param CreateNamespaceRequest $tmpReq  CreateNamespaceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateNamespaceResponse CreateNamespaceResponse
      */
-    public function createNamespaceWithOptions($request, $runtime)
+    public function createNamespaceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateNamespaceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -3350,6 +3367,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5978,14 +5998,19 @@ class Mse extends OpenApiClient
     /**
      * @summary Obtains the list of applications.
      *  *
-     * @param GetApplicationListRequest $request GetApplicationListRequest
+     * @param GetApplicationListRequest $tmpReq  GetApplicationListRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
      * @return GetApplicationListResponse GetApplicationListResponse
      */
-    public function getApplicationListWithOptions($request, $runtime)
+    public function getApplicationListWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GetApplicationListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -6019,6 +6044,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->switchEnable)) {
             $query['SwitchEnable'] = $request->switchEnable;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -10578,14 +10606,19 @@ class Mse extends OpenApiClient
     /**
      * @summary 展示命名空间列表
      *  *
-     * @param ListNamespacesRequest $request ListNamespacesRequest
+     * @param ListNamespacesRequest $tmpReq  ListNamespacesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
      * @return ListNamespacesResponse ListNamespacesResponse
      */
-    public function listNamespacesWithOptions($request, $runtime)
+    public function listNamespacesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListNamespacesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -10601,6 +10634,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationRequest\tags;
 use AlibabaCloud\Tea\Model;
 
-class CreateApplicationRequest extends Model
+class GetApplicationListShrinkRequest extends Model
 {
     /**
      * @description The language of the response. Valid values:
@@ -22,36 +21,65 @@ class CreateApplicationRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The name of the application.
+     * @description The ID of an application.
      *
-     * This parameter is required.
+     * @example hkhon1po62@c3df23522b*****
      *
-     * @example spring-cloud-a
+     * @var string
+     */
+    public $appId;
+
+    /**
+     * @description The name of an application.
+     *
+     * @example rest-container
      *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The programming language of the application.
+     * @description The programming language of the application, such as Java and Go.
      *
-     * @example JAVA
+     * @example Java
      *
      * @var string
      */
     public $language;
 
     /**
-     * @description MSE命名空间名字。
+     * @description The microservice namespace to which the application belongs.
      *
-     * @example prod
+     * @example default
      *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The region to which the application belongs.
+     * @description The number of the page to return.
+     *
+     * This parameter is required.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @description The number of entries to return on each page.
+     *
+     * This parameter is required.
+     *
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @description The ID of the region.
      *
      * This parameter is required.
      *
@@ -62,46 +90,49 @@ class CreateApplicationRequest extends Model
     public $region;
 
     /**
-     * @description Specifies whether to start the switch.
+     * @description Specifies whether to enable the Sentinel-compatible mode.
      *
      * @example true
      *
-     * @var string
+     * @var bool
      */
     public $sentinelEnable;
 
     /**
-     * @description The service where the application is deployed. A value of ACK indicates Container Service for Kubernetes.
+     * @description The source of the application. The value is fixed as edasmsc.
      *
-     * @example ACK
+     * @example edasmsc
      *
      * @var string
      */
     public $source;
 
     /**
-     * @description The name of the Microservices Engine (MSE) namespace.
+     * @description Specifies whether to enable switching.
      *
      * @example true
      *
-     * @var string
+     * @var bool
      */
     public $switchEnable;
 
     /**
-     * @var tags[]
+     * @var string
      */
-    public $tags;
+    public $tagsShrink;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
+        'appId' => 'AppId',
         'appName' => 'AppName',
         'language' => 'Language',
         'namespace' => 'Namespace',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'region' => 'Region',
         'sentinelEnable' => 'SentinelEnable',
         'source' => 'Source',
         'switchEnable' => 'SwitchEnable',
-        'tags' => 'Tags',
+        'tagsShrink' => 'Tags',
     ];
 
     public function validate() {}
@@ -112,6 +143,9 @@ class CreateApplicationRequest extends Model
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -120,6 +154,12 @@ class CreateApplicationRequest extends Model
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -133,14 +173,8 @@ class CreateApplicationRequest extends Model
         if (null !== $this->switchEnable) {
             $res['SwitchEnable'] = $this->switchEnable;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagsShrink) {
+            $res['Tags'] = $this->tagsShrink;
         }
 
         return $res;
@@ -149,13 +183,16 @@ class CreateApplicationRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateApplicationRequest
+     * @return GetApplicationListShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
@@ -165,6 +202,12 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
@@ -179,13 +222,7 @@ class CreateApplicationRequest extends Model
             $model->switchEnable = $map['SwitchEnable'];
         }
         if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
-                }
-            }
+            $model->tagsShrink = $map['Tags'];
         }
 
         return $model;

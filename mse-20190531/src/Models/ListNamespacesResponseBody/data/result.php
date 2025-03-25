@@ -49,6 +49,11 @@ class result extends Model
     public $region;
 
     /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
      * @example 2024-09-02T09:49:48.000+0000
      *
      * @var int
@@ -75,6 +80,7 @@ class result extends Model
         'instanceCount' => 'InstanceCount',
         'namespace' => 'Namespace',
         'region' => 'Region',
+        'tags' => 'Tags',
         'updateTime' => 'UpdateTime',
         'userId' => 'UserId',
         'version' => 'Version',
@@ -102,6 +108,9 @@ class result extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
@@ -141,6 +150,9 @@ class result extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];

@@ -90,6 +90,11 @@ class result extends Model
     public $status;
 
     /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
      * @description The user ID.
      *
      * @example 1234567890
@@ -107,6 +112,7 @@ class result extends Model
         'regionId' => 'RegionId',
         'source' => 'Source',
         'status' => 'Status',
+        'tags' => 'Tags',
         'userId' => 'UserId',
     ];
 
@@ -141,6 +147,9 @@ class result extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -183,6 +192,9 @@ class result extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
