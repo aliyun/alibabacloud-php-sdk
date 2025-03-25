@@ -57,18 +57,16 @@ class taskProgress extends Model
      */
     public $total;
     protected $_name = [
-        'failed'  => 'Failed',
-        'name'    => 'Name',
-        'pulled'  => 'Pulled',
-        'queue'   => 'Queue',
+        'failed' => 'Failed',
+        'name' => 'Name',
+        'pulled' => 'Pulled',
+        'queue' => 'Queue',
         'running' => 'Running',
         'success' => 'Success',
-        'total'   => 'Total',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

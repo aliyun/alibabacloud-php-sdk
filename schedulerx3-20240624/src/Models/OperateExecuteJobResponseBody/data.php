@@ -18,9 +18,7 @@ class data extends Model
         'jobExecutionId' => 'JobExecutionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

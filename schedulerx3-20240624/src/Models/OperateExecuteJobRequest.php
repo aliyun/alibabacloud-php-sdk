@@ -56,17 +56,15 @@ class OperateExecuteJobRequest extends Model
      */
     public $worker;
     protected $_name = [
-        'appName'            => 'AppName',
-        'clusterId'          => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'instanceParameters' => 'InstanceParameters',
-        'jobId'              => 'JobId',
-        'label'              => 'Label',
-        'worker'             => 'Worker',
+        'jobId' => 'JobId',
+        'label' => 'Label',
+        'worker' => 'Worker',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -23,12 +23,10 @@ class vSwitches extends Model
     public $zoneId;
     protected $_name = [
         'vSwitchId' => 'VSwitchId',
-        'zoneId'    => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

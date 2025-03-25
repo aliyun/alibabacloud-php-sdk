@@ -37,14 +37,12 @@ class data extends Model
     public $size;
     protected $_name = [
         'isDesignated' => 'IsDesignated',
-        'label'        => 'Label',
-        'online'       => 'Online',
-        'size'         => 'Size',
+        'label' => 'Label',
+        'online' => 'Online',
+        'size' => 'Size',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

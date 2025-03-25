@@ -32,6 +32,11 @@ class UpdateJobShrinkRequest extends Model
     public $calendar;
 
     /**
+     * @var string
+     */
+    public $childJobId;
+
+    /**
      * @description This parameter is required.
      *
      * @example xxljob-b6ec1xxxx
@@ -150,31 +155,30 @@ class UpdateJobShrinkRequest extends Model
      */
     public $timezone;
     protected $_name = [
-        'appName'               => 'AppName',
-        'attemptInterval'       => 'AttemptInterval',
-        'calendar'              => 'Calendar',
-        'clusterId'             => 'ClusterId',
-        'description'           => 'Description',
+        'appName' => 'AppName',
+        'attemptInterval' => 'AttemptInterval',
+        'calendar' => 'Calendar',
+        'childJobId' => 'ChildJobId',
+        'clusterId' => 'ClusterId',
+        'description' => 'Description',
         'executorBlockStrategy' => 'ExecutorBlockStrategy',
-        'jobHandler'            => 'JobHandler',
-        'jobId'                 => 'JobId',
-        'maxAttempt'            => 'MaxAttempt',
-        'maxConcurrency'        => 'MaxConcurrency',
-        'name'                  => 'Name',
-        'noticeConfigShrink'    => 'NoticeConfig',
-        'noticeContactsShrink'  => 'NoticeContacts',
-        'parameters'            => 'Parameters',
-        'priority'              => 'Priority',
-        'routeStrategy'         => 'RouteStrategy',
-        'startTime'             => 'StartTime',
-        'timeExpression'        => 'TimeExpression',
-        'timeType'              => 'TimeType',
-        'timezone'              => 'Timezone',
+        'jobHandler' => 'JobHandler',
+        'jobId' => 'JobId',
+        'maxAttempt' => 'MaxAttempt',
+        'maxConcurrency' => 'MaxConcurrency',
+        'name' => 'Name',
+        'noticeConfigShrink' => 'NoticeConfig',
+        'noticeContactsShrink' => 'NoticeContacts',
+        'parameters' => 'Parameters',
+        'priority' => 'Priority',
+        'routeStrategy' => 'RouteStrategy',
+        'startTime' => 'StartTime',
+        'timeExpression' => 'TimeExpression',
+        'timeType' => 'TimeType',
+        'timezone' => 'Timezone',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -187,6 +191,9 @@ class UpdateJobShrinkRequest extends Model
         }
         if (null !== $this->calendar) {
             $res['Calendar'] = $this->calendar;
+        }
+        if (null !== $this->childJobId) {
+            $res['ChildJobId'] = $this->childJobId;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
@@ -259,6 +266,9 @@ class UpdateJobShrinkRequest extends Model
         }
         if (isset($map['Calendar'])) {
             $model->calendar = $map['Calendar'];
+        }
+        if (isset($map['ChildJobId'])) {
+            $model->childJobId = $map['ChildJobId'];
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];

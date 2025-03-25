@@ -58,17 +58,15 @@ class OperateDesignateExecutorsRequest extends Model
      */
     public $transferable;
     protected $_name = [
-        'addressList'   => 'AddressList',
-        'appName'       => 'AppName',
-        'clusterId'     => 'ClusterId',
+        'addressList' => 'AddressList',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'designateType' => 'DesignateType',
-        'jobId'         => 'JobId',
-        'transferable'  => 'Transferable',
+        'jobId' => 'JobId',
+        'transferable' => 'Transferable',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

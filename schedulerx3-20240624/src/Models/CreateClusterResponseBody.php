@@ -51,17 +51,15 @@ class CreateClusterResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
+        'code' => 'Code',
+        'data' => 'Data',
         'errorCode' => 'ErrorCode',
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

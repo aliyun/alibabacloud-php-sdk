@@ -51,17 +51,15 @@ class shardingProgress extends Model
      */
     public $workerAddr;
     protected $_name = [
-        'id'             => 'Id',
+        'id' => 'Id',
         'jobExecutionId' => 'JobExecutionId',
-        'result'         => 'Result',
-        'status'         => 'Status',
-        'statusType'     => 'StatusType',
-        'workerAddr'     => 'WorkerAddr',
+        'result' => 'Result',
+        'status' => 'Status',
+        'statusType' => 'StatusType',
+        'workerAddr' => 'WorkerAddr',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

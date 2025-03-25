@@ -40,15 +40,13 @@ class OperateStopJobExecutionRequest extends Model
      */
     public $taskList;
     protected $_name = [
-        'appName'        => 'AppName',
-        'clusterId'      => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'jobExecutionId' => 'JobExecutionId',
-        'taskList'       => 'TaskList',
+        'taskList' => 'TaskList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

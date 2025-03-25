@@ -59,18 +59,16 @@ class records extends Model
      */
     public $workerAddr;
     protected $_name = [
-        'appName'        => 'AppName',
-        'content'        => 'Content',
-        'event'          => 'Event',
+        'appName' => 'AppName',
+        'content' => 'Content',
+        'event' => 'Event',
         'jobExecutionId' => 'JobExecutionId',
-        'jobName'        => 'JobName',
-        'time'           => 'Time',
-        'workerAddr'     => 'WorkerAddr',
+        'jobName' => 'JobName',
+        'time' => 'Time',
+        'workerAddr' => 'WorkerAddr',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

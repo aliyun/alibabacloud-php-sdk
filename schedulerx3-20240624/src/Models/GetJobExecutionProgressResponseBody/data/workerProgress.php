@@ -64,19 +64,17 @@ class workerProgress extends Model
      */
     public $workerAddr;
     protected $_name = [
-        'failed'     => 'Failed',
-        'pulled'     => 'Pulled',
-        'queue'      => 'Queue',
-        'running'    => 'Running',
-        'success'    => 'Success',
-        'total'      => 'Total',
-        'traceId'    => 'TraceId',
+        'failed' => 'Failed',
+        'pulled' => 'Pulled',
+        'queue' => 'Queue',
+        'running' => 'Running',
+        'success' => 'Success',
+        'total' => 'Total',
+        'traceId' => 'TraceId',
         'workerAddr' => 'WorkerAddr',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -45,14 +45,12 @@ class ImportCalendarRequest extends Model
     public $year;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'months'    => 'Months',
-        'name'      => 'Name',
-        'year'      => 'Year',
+        'months' => 'Months',
+        'name' => 'Name',
+        'year' => 'Year',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

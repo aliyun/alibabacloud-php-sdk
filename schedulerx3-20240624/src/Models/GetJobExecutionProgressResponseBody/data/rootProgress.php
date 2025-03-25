@@ -23,12 +23,10 @@ class rootProgress extends Model
     public $total;
     protected $_name = [
         'finished' => 'Finished',
-        'total'    => 'Total',
+        'total' => 'Total',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

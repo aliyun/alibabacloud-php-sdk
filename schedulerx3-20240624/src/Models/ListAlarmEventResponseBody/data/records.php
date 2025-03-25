@@ -62,19 +62,17 @@ class records extends Model
      */
     public $time;
     protected $_name = [
-        'alarmChannel'  => 'AlarmChannel',
+        'alarmChannel' => 'AlarmChannel',
         'alarmContacts' => 'AlarmContacts',
-        'alarmMessage'  => 'AlarmMessage',
-        'alarmStatus'   => 'AlarmStatus',
-        'alarmType'     => 'AlarmType',
-        'appName'       => 'AppName',
-        'jobName'       => 'JobName',
-        'time'          => 'Time',
+        'alarmMessage' => 'AlarmMessage',
+        'alarmStatus' => 'AlarmStatus',
+        'alarmType' => 'AlarmType',
+        'appName' => 'AppName',
+        'jobName' => 'JobName',
+        'time' => 'Time',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

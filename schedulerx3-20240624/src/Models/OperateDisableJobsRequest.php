@@ -33,14 +33,12 @@ class OperateDisableJobsRequest extends Model
      */
     public $jobIds;
     protected $_name = [
-        'appName'   => 'AppName',
+        'appName' => 'AppName',
         'clusterId' => 'ClusterId',
-        'jobIds'    => 'JobIds',
+        'jobIds' => 'JobIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

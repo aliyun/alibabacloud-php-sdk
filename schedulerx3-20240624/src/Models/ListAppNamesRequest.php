@@ -24,13 +24,11 @@ class ListAppNamesRequest extends Model
      */
     public $clusterId;
     protected $_name = [
-        'appName'   => 'AppName',
+        'appName' => 'AppName',
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

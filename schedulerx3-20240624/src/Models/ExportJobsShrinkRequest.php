@@ -40,15 +40,13 @@ class ExportJobsShrinkRequest extends Model
      */
     public $jobIdsShrink;
     protected $_name = [
-        'appName'       => 'AppName',
-        'clusterId'     => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'exportJobType' => 'ExportJobType',
-        'jobIdsShrink'  => 'JobIds',
+        'jobIdsShrink' => 'JobIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

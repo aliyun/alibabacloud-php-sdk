@@ -58,17 +58,15 @@ class ListScheduleTimesRequest extends Model
      */
     public $timeZone;
     protected $_name = [
-        'appName'        => 'AppName',
-        'calendar'       => 'Calendar',
-        'clusterId'      => 'ClusterId',
+        'appName' => 'AppName',
+        'calendar' => 'Calendar',
+        'clusterId' => 'ClusterId',
         'timeExpression' => 'TimeExpression',
-        'timeType'       => 'TimeType',
-        'timeZone'       => 'TimeZone',
+        'timeType' => 'TimeType',
+        'timeZone' => 'TimeZone',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

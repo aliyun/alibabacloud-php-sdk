@@ -35,14 +35,12 @@ class GetDesigateInfoRequest extends Model
      */
     public $jobId;
     protected $_name = [
-        'appName'   => 'AppName',
+        'appName' => 'AppName',
         'clusterId' => 'ClusterId',
-        'jobId'     => 'JobId',
+        'jobId' => 'JobId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

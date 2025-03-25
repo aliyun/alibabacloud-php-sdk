@@ -141,30 +141,28 @@ class records extends Model
      */
     public $workAddr;
     protected $_name = [
-        'appName'        => 'AppName',
-        'attempt'        => 'Attempt',
-        'dataTime'       => 'DataTime',
-        'duration'       => 'Duration',
-        'endTime'        => 'EndTime',
-        'executor'       => 'Executor',
+        'appName' => 'AppName',
+        'attempt' => 'Attempt',
+        'dataTime' => 'DataTime',
+        'duration' => 'Duration',
+        'endTime' => 'EndTime',
+        'executor' => 'Executor',
         'jobExecutionId' => 'JobExecutionId',
-        'jobId'          => 'JobId',
-        'jobName'        => 'JobName',
-        'jobType'        => 'JobType',
-        'parameters'     => 'Parameters',
-        'result'         => 'Result',
-        'routeStrategy'  => 'RouteStrategy',
-        'scheduleTime'   => 'ScheduleTime',
-        'serverIp'       => 'ServerIp',
-        'status'         => 'Status',
-        'timeType'       => 'TimeType',
-        'triggerType'    => 'TriggerType',
-        'workAddr'       => 'WorkAddr',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
+        'jobType' => 'JobType',
+        'parameters' => 'Parameters',
+        'result' => 'Result',
+        'routeStrategy' => 'RouteStrategy',
+        'scheduleTime' => 'ScheduleTime',
+        'serverIp' => 'ServerIp',
+        'status' => 'Status',
+        'timeType' => 'TimeType',
+        'triggerType' => 'TriggerType',
+        'workAddr' => 'WorkAddr',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

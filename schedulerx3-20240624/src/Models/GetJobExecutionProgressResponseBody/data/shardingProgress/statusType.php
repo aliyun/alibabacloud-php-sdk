@@ -34,9 +34,7 @@ class statusType extends Model
         'tips' => 'Tips',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -47,6 +47,7 @@ class CreateClusterRequest extends Model
      * @description VPC id
      *
      * This parameter is required.
+     *
      * @example vpc-aa1a18236n90rqhuhhnhh
      *
      * @var string
@@ -55,14 +56,12 @@ class CreateClusterRequest extends Model
     protected $_name = [
         'clusterName' => 'ClusterName',
         'clusterSpec' => 'ClusterSpec',
-        'engineType'  => 'EngineType',
-        'vSwitches'   => 'VSwitches',
-        'vpcId'       => 'VpcId',
+        'engineType' => 'EngineType',
+        'vSwitches' => 'VSwitches',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -112,7 +111,7 @@ class CreateClusterRequest extends Model
         if (isset($map['VSwitches'])) {
             if (!empty($map['VSwitches'])) {
                 $model->vSwitches = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['VSwitches'] as $item) {
                     $model->vSwitches[$n++] = null !== $item ? vSwitches::fromMap($item) : $item;
                 }

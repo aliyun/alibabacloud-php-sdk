@@ -43,17 +43,15 @@ class data extends Model
      */
     public $workerProgress;
     protected $_name = [
-        'jobDescription'   => 'JobDescription',
-        'rootProgress'     => 'RootProgress',
+        'jobDescription' => 'JobDescription',
+        'rootProgress' => 'RootProgress',
         'shardingProgress' => 'ShardingProgress',
-        'taskProgress'     => 'TaskProgress',
-        'totalProgress'    => 'TotalProgress',
-        'workerProgress'   => 'WorkerProgress',
+        'taskProgress' => 'TaskProgress',
+        'totalProgress' => 'TotalProgress',
+        'workerProgress' => 'WorkerProgress',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -115,7 +113,7 @@ class data extends Model
         if (isset($map['ShardingProgress'])) {
             if (!empty($map['ShardingProgress'])) {
                 $model->shardingProgress = [];
-                $n                       = 0;
+                $n = 0;
                 foreach ($map['ShardingProgress'] as $item) {
                     $model->shardingProgress[$n++] = null !== $item ? shardingProgress::fromMap($item) : $item;
                 }
@@ -124,7 +122,7 @@ class data extends Model
         if (isset($map['TaskProgress'])) {
             if (!empty($map['TaskProgress'])) {
                 $model->taskProgress = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['TaskProgress'] as $item) {
                     $model->taskProgress[$n++] = null !== $item ? taskProgress::fromMap($item) : $item;
                 }
@@ -136,7 +134,7 @@ class data extends Model
         if (isset($map['WorkerProgress'])) {
             if (!empty($map['WorkerProgress'])) {
                 $model->workerProgress = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['WorkerProgress'] as $item) {
                     $model->workerProgress[$n++] = null !== $item ? workerProgress::fromMap($item) : $item;
                 }

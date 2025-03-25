@@ -23,12 +23,10 @@ class data extends Model
     public $orderId;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'orderId'   => 'OrderId',
+        'orderId' => 'OrderId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

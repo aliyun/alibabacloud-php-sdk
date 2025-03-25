@@ -80,21 +80,19 @@ class ListJobExecutionsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'appName'        => 'AppName',
-        'clusterId'      => 'ClusterId',
-        'endTime'        => 'EndTime',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
+        'endTime' => 'EndTime',
         'jobExecutionId' => 'JobExecutionId',
-        'jobId'          => 'JobId',
-        'jobName'        => 'JobName',
-        'pageNum'        => 'PageNum',
-        'pageSize'       => 'PageSize',
-        'startTime'      => 'StartTime',
-        'status'         => 'Status',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

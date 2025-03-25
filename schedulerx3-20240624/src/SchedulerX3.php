@@ -159,18 +159,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateApp',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateApp',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -223,18 +226,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateCluster',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCluster',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -279,6 +285,9 @@ class SchedulerX3 extends OpenApiClient
         }
         if (!Utils::isUnset($request->calendar)) {
             $body['Calendar'] = $request->calendar;
+        }
+        if (!Utils::isUnset($request->childJobId)) {
+            $body['ChildJobId'] = $request->childJobId;
         }
         if (!Utils::isUnset($request->clusterId)) {
             $body['ClusterId'] = $request->clusterId;
@@ -338,18 +347,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateJob',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateJob',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -388,18 +400,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteApp',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteApp',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -435,18 +450,21 @@ class SchedulerX3 extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCluster',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCluster',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -493,18 +511,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteJobs',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteJobs',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -554,18 +575,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExportJobs',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportJobs',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'byte',
+            'bodyType' => 'byte',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExportJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -594,22 +618,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCluster',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCluster',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -638,22 +665,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDesigateInfo',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDesigateInfo',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDesigateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDesigateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDesigateInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -682,22 +712,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetJobExecutionProgress',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetJobExecutionProgress',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetJobExecutionProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetJobExecutionProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetJobExecutionProgressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -726,22 +759,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetLog',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetLog',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -786,18 +822,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ImportCalendar',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportCalendar',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ImportCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ImportCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImportCalendarResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -842,18 +881,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ImportJobs',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportJobs',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ImportJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ImportJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImportJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -882,22 +924,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAlarmEvent',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAlarmEvent',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAlarmEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAlarmEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAlarmEventResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -926,22 +971,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAppNames',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAppNames',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAppNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAppNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAppNamesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -968,22 +1016,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListApps',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApps',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAppsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1010,22 +1061,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCalendarNames',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCalendarNames',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListCalendarNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCalendarNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCalendarNamesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1054,22 +1108,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListClusters',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListClusters',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListClustersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1098,22 +1155,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListExecutors',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListExecutors',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListExecutorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1142,22 +1202,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListJobExecutions',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListJobExecutions',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListJobExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListJobExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListJobExecutionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1184,22 +1247,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListJobs',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListJobs',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1226,22 +1292,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLables',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLables',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListLablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLablesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLablesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1267,20 +1336,23 @@ class SchedulerX3 extends OpenApiClient
      */
     public function listRegionZoneWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListRegionZone',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRegionZone',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListRegionZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRegionZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRegionZoneResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1304,20 +1376,23 @@ class SchedulerX3 extends OpenApiClient
      */
     public function listRegionsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListRegions',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRegions',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1344,22 +1419,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListScheduleEvent',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListScheduleEvent',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListScheduleEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListScheduleEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListScheduleEventResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1388,22 +1466,25 @@ class SchedulerX3 extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListScheduleTimes',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListScheduleTimes',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListScheduleTimesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListScheduleTimesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListScheduleTimesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1459,18 +1540,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'OperateDesignateExecutors',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OperateDesignateExecutors',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OperateDesignateExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OperateDesignateExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OperateDesignateExecutorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1517,18 +1601,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'OperateDisableJobs',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OperateDisableJobs',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OperateDisableJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OperateDisableJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OperateDisableJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1575,18 +1662,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'OperateEnableJobs',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OperateEnableJobs',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OperateEnableJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OperateEnableJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OperateEnableJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1637,18 +1727,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'OperateExecuteJob',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OperateExecuteJob',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OperateExecuteJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OperateExecuteJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OperateExecuteJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1699,18 +1792,21 @@ class SchedulerX3 extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OperateRerunJob',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OperateRerunJob',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OperateRerunJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OperateRerunJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OperateRerunJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1760,18 +1856,21 @@ class SchedulerX3 extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OperateRetryJobExecution',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OperateRetryJobExecution',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OperateRetryJobExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OperateRetryJobExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OperateRetryJobExecutionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1821,18 +1920,21 @@ class SchedulerX3 extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OperateStopJobExecution',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OperateStopJobExecution',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return OperateStopJobExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OperateStopJobExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OperateStopJobExecutionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1883,18 +1985,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateApp',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateApp',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1933,18 +2038,21 @@ class SchedulerX3 extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCluster',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCluster',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1989,6 +2097,9 @@ class SchedulerX3 extends OpenApiClient
         }
         if (!Utils::isUnset($request->calendar)) {
             $body['Calendar'] = $request->calendar;
+        }
+        if (!Utils::isUnset($request->childJobId)) {
+            $body['ChildJobId'] = $request->childJobId;
         }
         if (!Utils::isUnset($request->clusterId)) {
             $body['ClusterId'] = $request->clusterId;
@@ -2045,18 +2156,21 @@ class SchedulerX3 extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateJob',
-            'version'     => '2024-06-24',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateJob',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

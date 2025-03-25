@@ -40,15 +40,13 @@ class ListExecutorsRequest extends Model
      */
     public $label;
     protected $_name = [
-        'appName'   => 'AppName',
+        'appName' => 'AppName',
         'clusterId' => 'ClusterId',
-        'jobId'     => 'JobId',
-        'label'     => 'Label',
+        'jobId' => 'JobId',
+        'label' => 'Label',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

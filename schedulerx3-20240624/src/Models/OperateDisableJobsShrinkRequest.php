@@ -33,14 +33,12 @@ class OperateDisableJobsShrinkRequest extends Model
      */
     public $jobIdsShrink;
     protected $_name = [
-        'appName'      => 'AppName',
-        'clusterId'    => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'jobIdsShrink' => 'JobIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

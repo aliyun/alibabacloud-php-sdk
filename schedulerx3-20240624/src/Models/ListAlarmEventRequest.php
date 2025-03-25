@@ -88,21 +88,19 @@ class ListAlarmEventRequest extends Model
     public $startTime;
     protected $_name = [
         'alarmChannel' => 'AlarmChannel',
-        'alarmStatus'  => 'AlarmStatus',
-        'alarmType'    => 'AlarmType',
-        'appName'      => 'AppName',
-        'clusterId'    => 'ClusterId',
-        'endTime'      => 'EndTime',
-        'jobName'      => 'JobName',
-        'pageNum'      => 'PageNum',
-        'pageSize'     => 'PageSize',
-        'reverse'      => 'Reverse',
-        'startTime'    => 'StartTime',
+        'alarmStatus' => 'AlarmStatus',
+        'alarmType' => 'AlarmType',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
+        'endTime' => 'EndTime',
+        'jobName' => 'JobName',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'reverse' => 'Reverse',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

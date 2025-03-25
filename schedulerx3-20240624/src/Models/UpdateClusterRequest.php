@@ -26,13 +26,11 @@ class UpdateClusterRequest extends Model
      */
     public $clusterName;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

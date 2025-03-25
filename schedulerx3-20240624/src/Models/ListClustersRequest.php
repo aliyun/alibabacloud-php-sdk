@@ -36,15 +36,13 @@ class ListClustersRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

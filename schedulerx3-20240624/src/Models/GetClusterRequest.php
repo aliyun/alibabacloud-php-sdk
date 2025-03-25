@@ -20,9 +20,7 @@ class GetClusterRequest extends Model
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

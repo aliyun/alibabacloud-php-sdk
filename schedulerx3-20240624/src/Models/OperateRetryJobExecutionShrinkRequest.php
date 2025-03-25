@@ -40,15 +40,13 @@ class OperateRetryJobExecutionShrinkRequest extends Model
      */
     public $taskListShrink;
     protected $_name = [
-        'appName'        => 'AppName',
-        'clusterId'      => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'jobExecutionId' => 'JobExecutionId',
         'taskListShrink' => 'TaskList',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

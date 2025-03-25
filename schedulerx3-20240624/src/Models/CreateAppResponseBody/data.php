@@ -23,12 +23,10 @@ class data extends Model
     public $appGroupId;
     protected $_name = [
         'accessToken' => 'AccessToken',
-        'appGroupId'  => 'AppGroupId',
+        'appGroupId' => 'AppGroupId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

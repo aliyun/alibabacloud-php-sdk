@@ -40,15 +40,13 @@ class ExportJobsRequest extends Model
      */
     public $jobIds;
     protected $_name = [
-        'appName'       => 'AppName',
-        'clusterId'     => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'exportJobType' => 'ExportJobType',
-        'jobIds'        => 'JobIds',
+        'jobIds' => 'JobIds',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

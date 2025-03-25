@@ -57,18 +57,16 @@ class data extends Model
      */
     public $version;
     protected $_name = [
-        'address'      => 'Address',
-        'ip'           => 'Ip',
+        'address' => 'Address',
+        'ip' => 'Ip',
         'isDesignated' => 'IsDesignated',
-        'label'        => 'Label',
-        'online'       => 'Online',
-        'port'         => 'Port',
-        'version'      => 'Version',
+        'label' => 'Label',
+        'online' => 'Online',
+        'port' => 'Port',
+        'version' => 'Version',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -30,6 +30,11 @@ class records extends Model
     public $calendar;
 
     /**
+     * @var string
+     */
+    public $childJobId;
+
+    /**
      * @example {"cleanMode":"NUM_ONLY","totalRemain":300}
      *
      * @var string
@@ -199,40 +204,39 @@ class records extends Model
      */
     public $xattrs;
     protected $_name = [
-        'appName'               => 'AppName',
-        'attemptInterval'       => 'AttemptInterval',
-        'calendar'              => 'Calendar',
-        'cleanMode'             => 'CleanMode',
-        'creator'               => 'Creator',
-        'currentExecuteStatus'  => 'CurrentExecuteStatus',
-        'dataOffset'            => 'DataOffset',
-        'description'           => 'Description',
+        'appName' => 'AppName',
+        'attemptInterval' => 'AttemptInterval',
+        'calendar' => 'Calendar',
+        'childJobId' => 'ChildJobId',
+        'cleanMode' => 'CleanMode',
+        'creator' => 'Creator',
+        'currentExecuteStatus' => 'CurrentExecuteStatus',
+        'dataOffset' => 'DataOffset',
+        'description' => 'Description',
         'executorBlockStrategy' => 'ExecutorBlockStrategy',
-        'jobHandler'            => 'JobHandler',
-        'jobId'                 => 'JobId',
-        'jobType'               => 'JobType',
-        'lastExecuteEndTime'    => 'LastExecuteEndTime',
-        'lastExecuteStatus'     => 'LastExecuteStatus',
-        'maxAttempt'            => 'MaxAttempt',
-        'maxConcurrency'        => 'MaxConcurrency',
-        'name'                  => 'Name',
-        'noticeConfig'          => 'NoticeConfig',
-        'noticeContacts'        => 'NoticeContacts',
-        'parameters'            => 'Parameters',
-        'priority'              => 'Priority',
-        'routeStrategy'         => 'RouteStrategy',
-        'status'                => 'Status',
-        'timeExpression'        => 'TimeExpression',
-        'timeType'              => 'TimeType',
-        'timeZone'              => 'TimeZone',
-        'timezone'              => 'Timezone',
-        'updater'               => 'Updater',
-        'xattrs'                => 'Xattrs',
+        'jobHandler' => 'JobHandler',
+        'jobId' => 'JobId',
+        'jobType' => 'JobType',
+        'lastExecuteEndTime' => 'LastExecuteEndTime',
+        'lastExecuteStatus' => 'LastExecuteStatus',
+        'maxAttempt' => 'MaxAttempt',
+        'maxConcurrency' => 'MaxConcurrency',
+        'name' => 'Name',
+        'noticeConfig' => 'NoticeConfig',
+        'noticeContacts' => 'NoticeContacts',
+        'parameters' => 'Parameters',
+        'priority' => 'Priority',
+        'routeStrategy' => 'RouteStrategy',
+        'status' => 'Status',
+        'timeExpression' => 'TimeExpression',
+        'timeType' => 'TimeType',
+        'timeZone' => 'TimeZone',
+        'timezone' => 'Timezone',
+        'updater' => 'Updater',
+        'xattrs' => 'Xattrs',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -245,6 +249,9 @@ class records extends Model
         }
         if (null !== $this->calendar) {
             $res['Calendar'] = $this->calendar;
+        }
+        if (null !== $this->childJobId) {
+            $res['ChildJobId'] = $this->childJobId;
         }
         if (null !== $this->cleanMode) {
             $res['CleanMode'] = $this->cleanMode;
@@ -344,6 +351,9 @@ class records extends Model
         }
         if (isset($map['Calendar'])) {
             $model->calendar = $map['Calendar'];
+        }
+        if (isset($map['ChildJobId'])) {
+            $model->childJobId = $map['ChildJobId'];
         }
         if (isset($map['CleanMode'])) {
             $model->cleanMode = $map['CleanMode'];

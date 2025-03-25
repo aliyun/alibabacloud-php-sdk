@@ -35,14 +35,12 @@ class data extends Model
     public $title;
     protected $_name = [
         'appGroupId' => 'AppGroupId',
-        'appName'    => 'AppName',
-        'id'         => 'Id',
-        'title'      => 'Title',
+        'appName' => 'AppName',
+        'id' => 'Id',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

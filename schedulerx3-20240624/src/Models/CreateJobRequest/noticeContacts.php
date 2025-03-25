@@ -23,12 +23,10 @@ class noticeContacts extends Model
     public $name;
     protected $_name = [
         'contactType' => 'ContactType',
-        'name'        => 'Name',
+        'name' => 'Name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

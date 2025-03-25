@@ -43,16 +43,14 @@ class ListAppsRequest extends Model
      */
     public $title;
     protected $_name = [
-        'appName'   => 'AppName',
+        'appName' => 'AppName',
         'clusterId' => 'ClusterId',
-        'pageNum'   => 'PageNum',
-        'pageSize'  => 'PageSize',
-        'title'     => 'Title',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

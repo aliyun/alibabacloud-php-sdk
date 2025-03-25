@@ -89,22 +89,20 @@ class GetLogRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'appName'        => 'AppName',
-        'clusterId'      => 'ClusterId',
-        'endTime'        => 'EndTime',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
+        'endTime' => 'EndTime',
         'jobExecutionId' => 'JobExecutionId',
-        'keyword'        => 'Keyword',
-        'level'          => 'Level',
-        'lineNum'        => 'LineNum',
-        'logId'          => 'LogId',
-        'offset'         => 'Offset',
-        'reverse'        => 'Reverse',
-        'startTime'      => 'StartTime',
+        'keyword' => 'Keyword',
+        'level' => 'Level',
+        'lineNum' => 'LineNum',
+        'logId' => 'LogId',
+        'offset' => 'Offset',
+        'reverse' => 'Reverse',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

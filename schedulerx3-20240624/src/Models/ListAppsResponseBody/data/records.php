@@ -92,23 +92,21 @@ class records extends Model
      */
     public $updater;
     protected $_name = [
-        'accessToken'    => 'AccessToken',
-        'appName'        => 'AppName',
-        'creator'        => 'Creator',
-        'enableLog'      => 'EnableLog',
-        'executorNum'    => 'ExecutorNum',
-        'id'             => 'Id',
-        'jobNum'         => 'JobNum',
-        'leader'         => 'Leader',
+        'accessToken' => 'AccessToken',
+        'appName' => 'AppName',
+        'creator' => 'Creator',
+        'enableLog' => 'EnableLog',
+        'executorNum' => 'ExecutorNum',
+        'id' => 'Id',
+        'jobNum' => 'JobNum',
+        'leader' => 'Leader',
         'maxConcurrency' => 'MaxConcurrency',
-        'maxJobs'        => 'MaxJobs',
-        'title'          => 'Title',
-        'updater'        => 'Updater',
+        'maxJobs' => 'MaxJobs',
+        'title' => 'Title',
+        'updater' => 'Updater',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -31,14 +31,12 @@ class regions extends Model
      */
     public $regionId;
     protected $_name = [
-        'localName'      => 'LocalName',
+        'localName' => 'LocalName',
         'regionEndpoint' => 'RegionEndpoint',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

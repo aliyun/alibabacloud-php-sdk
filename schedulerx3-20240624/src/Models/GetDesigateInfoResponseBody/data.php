@@ -23,12 +23,10 @@ class data extends Model
     public $transferable;
     protected $_name = [
         'designateType' => 'DesignateType',
-        'transferable'  => 'Transferable',
+        'transferable' => 'Transferable',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

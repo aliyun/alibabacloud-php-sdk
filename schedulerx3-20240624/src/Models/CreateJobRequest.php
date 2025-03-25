@@ -34,6 +34,11 @@ class CreateJobRequest extends Model
     public $calendar;
 
     /**
+     * @var string
+     */
+    public $childJobId;
+
+    /**
      * @description This parameter is required.
      *
      * @example xxljob-b6ec1xxxx
@@ -165,32 +170,31 @@ class CreateJobRequest extends Model
      */
     public $timezone;
     protected $_name = [
-        'appName'               => 'AppName',
-        'attemptInterval'       => 'AttemptInterval',
-        'calendar'              => 'Calendar',
-        'clusterId'             => 'ClusterId',
-        'description'           => 'Description',
+        'appName' => 'AppName',
+        'attemptInterval' => 'AttemptInterval',
+        'calendar' => 'Calendar',
+        'childJobId' => 'ChildJobId',
+        'clusterId' => 'ClusterId',
+        'description' => 'Description',
         'executorBlockStrategy' => 'ExecutorBlockStrategy',
-        'jobHandler'            => 'JobHandler',
-        'jobType'               => 'JobType',
-        'maxAttempt'            => 'MaxAttempt',
-        'maxConcurrency'        => 'MaxConcurrency',
-        'name'                  => 'Name',
-        'noticeConfig'          => 'NoticeConfig',
-        'noticeContacts'        => 'NoticeContacts',
-        'parameters'            => 'Parameters',
-        'priority'              => 'Priority',
-        'routeStrategy'         => 'RouteStrategy',
-        'startTime'             => 'StartTime',
-        'status'                => 'Status',
-        'timeExpression'        => 'TimeExpression',
-        'timeType'              => 'TimeType',
-        'timezone'              => 'Timezone',
+        'jobHandler' => 'JobHandler',
+        'jobType' => 'JobType',
+        'maxAttempt' => 'MaxAttempt',
+        'maxConcurrency' => 'MaxConcurrency',
+        'name' => 'Name',
+        'noticeConfig' => 'NoticeConfig',
+        'noticeContacts' => 'NoticeContacts',
+        'parameters' => 'Parameters',
+        'priority' => 'Priority',
+        'routeStrategy' => 'RouteStrategy',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'timeExpression' => 'TimeExpression',
+        'timeType' => 'TimeType',
+        'timezone' => 'Timezone',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -203,6 +207,9 @@ class CreateJobRequest extends Model
         }
         if (null !== $this->calendar) {
             $res['Calendar'] = $this->calendar;
+        }
+        if (null !== $this->childJobId) {
+            $res['ChildJobId'] = $this->childJobId;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
@@ -285,6 +292,9 @@ class CreateJobRequest extends Model
         if (isset($map['Calendar'])) {
             $model->calendar = $map['Calendar'];
         }
+        if (isset($map['ChildJobId'])) {
+            $model->childJobId = $map['ChildJobId'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -315,7 +325,7 @@ class CreateJobRequest extends Model
         if (isset($map['NoticeContacts'])) {
             if (!empty($map['NoticeContacts'])) {
                 $model->noticeContacts = [];
-                $n                     = 0;
+                $n = 0;
                 foreach ($map['NoticeContacts'] as $item) {
                     $model->noticeContacts[$n++] = null !== $item ? noticeContacts::fromMap($item) : $item;
                 }

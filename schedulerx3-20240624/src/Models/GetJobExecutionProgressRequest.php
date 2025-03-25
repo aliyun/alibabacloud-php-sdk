@@ -35,14 +35,12 @@ class GetJobExecutionProgressRequest extends Model
      */
     public $jobExecutionId;
     protected $_name = [
-        'appName'        => 'AppName',
-        'clusterId'      => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'jobExecutionId' => 'JobExecutionId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

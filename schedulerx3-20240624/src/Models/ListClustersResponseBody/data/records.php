@@ -110,26 +110,24 @@ class records extends Model
      */
     public $vpcId;
     protected $_name = [
-        'chargeType'     => 'ChargeType',
-        'clusterId'      => 'ClusterId',
-        'clusterName'    => 'ClusterName',
-        'clusterSpec'    => 'ClusterSpec',
-        'createTime'     => 'CreateTime',
-        'endTime'        => 'EndTime',
-        'engineType'     => 'EngineType',
-        'engineVersion'  => 'EngineVersion',
+        'chargeType' => 'ChargeType',
+        'clusterId' => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'clusterSpec' => 'ClusterSpec',
+        'createTime' => 'CreateTime',
+        'endTime' => 'EndTime',
+        'engineType' => 'EngineType',
+        'engineVersion' => 'EngineVersion',
         'internetDomain' => 'InternetDomain',
         'intranetDomain' => 'IntranetDomain',
-        'productType'    => 'ProductType',
-        'spInstanceId'   => 'SpInstanceId',
-        'status'         => 'Status',
-        'vSwitches'      => 'VSwitches',
-        'vpcId'          => 'VpcId',
+        'productType' => 'ProductType',
+        'spInstanceId' => 'SpInstanceId',
+        'status' => 'Status',
+        'vSwitches' => 'VSwitches',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -239,7 +237,7 @@ class records extends Model
         if (isset($map['VSwitches'])) {
             if (!empty($map['VSwitches'])) {
                 $model->vSwitches = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['VSwitches'] as $item) {
                     $model->vSwitches[$n++] = null !== $item ? vSwitches::fromMap($item) : $item;
                 }

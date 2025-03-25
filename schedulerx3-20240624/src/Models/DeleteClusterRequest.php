@@ -20,9 +20,7 @@ class DeleteClusterRequest extends Model
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

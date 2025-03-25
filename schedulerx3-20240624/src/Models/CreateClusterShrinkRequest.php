@@ -46,22 +46,21 @@ class CreateClusterShrinkRequest extends Model
      * @description VPC id
      *
      * This parameter is required.
+     *
      * @example vpc-aa1a18236n90rqhuhhnhh
      *
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'clusterName'     => 'ClusterName',
-        'clusterSpec'     => 'ClusterSpec',
-        'engineType'      => 'EngineType',
+        'clusterName' => 'ClusterName',
+        'clusterSpec' => 'ClusterSpec',
+        'engineType' => 'EngineType',
         'vSwitchesShrink' => 'VSwitches',
-        'vpcId'           => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

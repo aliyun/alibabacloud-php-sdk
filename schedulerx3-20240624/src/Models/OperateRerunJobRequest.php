@@ -62,17 +62,15 @@ class OperateRerunJobRequest extends Model
      */
     public $startDate;
     protected $_name = [
-        'appName'   => 'AppName',
+        'appName' => 'AppName',
         'clusterId' => 'ClusterId',
-        'dataTime'  => 'DataTime',
-        'endDate'   => 'EndDate',
-        'jobId'     => 'JobId',
+        'dataTime' => 'DataTime',
+        'endDate' => 'EndDate',
+        'jobId' => 'JobId',
         'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

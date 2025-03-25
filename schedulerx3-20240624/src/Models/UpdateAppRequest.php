@@ -54,17 +54,15 @@ class UpdateAppRequest extends Model
      */
     public $title;
     protected $_name = [
-        'accessToken'    => 'AccessToken',
-        'appName'        => 'AppName',
-        'clusterId'      => 'ClusterId',
-        'enableLog'      => 'EnableLog',
+        'accessToken' => 'AccessToken',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
+        'enableLog' => 'EnableLog',
         'maxConcurrency' => 'MaxConcurrency',
-        'title'          => 'Title',
+        'title' => 'Title',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

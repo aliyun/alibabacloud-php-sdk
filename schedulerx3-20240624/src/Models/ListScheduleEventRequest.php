@@ -87,22 +87,20 @@ class ListScheduleEventRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'appName'        => 'AppName',
-        'clusterId'      => 'ClusterId',
-        'endTime'        => 'EndTime',
-        'event'          => 'Event',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
+        'endTime' => 'EndTime',
+        'event' => 'Event',
         'jobExecutionId' => 'JobExecutionId',
-        'jobName'        => 'JobName',
-        'keyword'        => 'Keyword',
-        'pageNum'        => 'PageNum',
-        'pageSize'       => 'PageSize',
-        'reverse'        => 'Reverse',
-        'startTime'      => 'StartTime',
+        'jobName' => 'JobName',
+        'keyword' => 'Keyword',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'reverse' => 'Reverse',
+        'startTime' => 'StartTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -59,16 +59,14 @@ class OperateDesignateExecutorsShrinkRequest extends Model
     public $transferable;
     protected $_name = [
         'addressListShrink' => 'AddressList',
-        'appName'           => 'AppName',
-        'clusterId'         => 'ClusterId',
-        'designateType'     => 'DesignateType',
-        'jobId'             => 'JobId',
-        'transferable'      => 'Transferable',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
+        'designateType' => 'DesignateType',
+        'jobId' => 'JobId',
+        'transferable' => 'Transferable',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

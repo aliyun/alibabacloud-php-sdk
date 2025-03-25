@@ -64,19 +64,17 @@ class noticeConfig extends Model
      */
     public $timeoutKillEnable;
     protected $_name = [
-        'failEnable'        => 'FailEnable',
-        'failLimitTimes'    => 'FailLimitTimes',
-        'missWorkerEnable'  => 'MissWorkerEnable',
-        'sendChannel'       => 'SendChannel',
-        'successNotice'     => 'SuccessNotice',
-        'timeout'           => 'Timeout',
-        'timeoutEnable'     => 'TimeoutEnable',
+        'failEnable' => 'FailEnable',
+        'failLimitTimes' => 'FailLimitTimes',
+        'missWorkerEnable' => 'MissWorkerEnable',
+        'sendChannel' => 'SendChannel',
+        'successNotice' => 'SuccessNotice',
+        'timeout' => 'Timeout',
+        'timeoutEnable' => 'TimeoutEnable',
         'timeoutKillEnable' => 'TimeoutKillEnable',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -71,20 +71,18 @@ class ListJobsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'appName'     => 'AppName',
-        'clusterId'   => 'ClusterId',
+        'appName' => 'AppName',
+        'clusterId' => 'ClusterId',
         'description' => 'Description',
-        'jobHandler'  => 'JobHandler',
-        'jobId'       => 'JobId',
-        'jobName'     => 'JobName',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
-        'status'      => 'Status',
+        'jobHandler' => 'JobHandler',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
