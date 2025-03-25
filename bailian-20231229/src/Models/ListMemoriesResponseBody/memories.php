@@ -21,12 +21,10 @@ class memories extends Model
     public $memoryId;
     protected $_name = [
         'description' => 'description',
-        'memoryId'    => 'memoryId',
+        'memoryId' => 'memoryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

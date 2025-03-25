@@ -34,6 +34,11 @@ class documents extends Model
     public $docName;
 
     /**
+     * @var int
+     */
+    public $gmtModified;
+
+    /**
      * @description The error message.
      *
      * @example document parse error
@@ -56,16 +61,15 @@ class documents extends Model
      */
     public $status;
     protected $_name = [
-        'code'    => 'Code',
-        'docId'   => 'DocId',
+        'code' => 'Code',
+        'docId' => 'DocId',
         'docName' => 'DocName',
+        'gmtModified' => 'GmtModified',
         'message' => 'Message',
-        'status'  => 'Status',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -78,6 +82,9 @@ class documents extends Model
         }
         if (null !== $this->docName) {
             $res['DocName'] = $this->docName;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -105,6 +112,9 @@ class documents extends Model
         }
         if (isset($map['DocName'])) {
             $model->docName = $map['DocName'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

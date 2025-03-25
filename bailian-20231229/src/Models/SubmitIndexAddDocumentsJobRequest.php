@@ -26,6 +26,7 @@ class SubmitIndexAddDocumentsJobRequest extends Model
      * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
      * This parameter is required.
+     *
      * @example 79c0aly8zw
      *
      * @var string
@@ -38,7 +39,10 @@ class SubmitIndexAddDocumentsJobRequest extends Model
      *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
      *   DATA_CENTER_FILE: The document type. Import one or more documents from Data Center.
      *
+     * >  If this parameter is set to DATA_CENTER_CATEGORY, you must specify the `CategoryIds` parameter. If this parameter is set to DATA_CENTER_FILE, you must specify the `DocumentIds` parameter.
+     *
      * This parameter is required.
+     *
      * @example DATA_CENTER_FILE
      *
      * @var string
@@ -47,13 +51,11 @@ class SubmitIndexAddDocumentsJobRequest extends Model
     protected $_name = [
         'categoryIds' => 'CategoryIds',
         'documentIds' => 'DocumentIds',
-        'indexId'     => 'IndexId',
-        'sourceType'  => 'SourceType',
+        'indexId' => 'IndexId',
+        'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -34,15 +34,13 @@ class CreateAndPulishAgentShrinkRequest extends Model
     public $sampleLibraryShrink;
     protected $_name = [
         'applicationConfigShrink' => 'applicationConfig',
-        'instructions'            => 'instructions',
-        'modelId'                 => 'modelId',
-        'name'                    => 'name',
-        'sampleLibraryShrink'     => 'sampleLibrary',
+        'instructions' => 'instructions',
+        'modelId' => 'modelId',
+        'name' => 'name',
+        'sampleLibraryShrink' => 'sampleLibrary',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

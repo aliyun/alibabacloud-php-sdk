@@ -18,9 +18,7 @@ class data extends Model
         'deletedDocument' => 'DeletedDocument',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

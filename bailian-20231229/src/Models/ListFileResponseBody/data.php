@@ -42,16 +42,14 @@ class data extends Model
      */
     public $totalCount;
     protected $_name = [
-        'fileList'   => 'FileList',
-        'hasNext'    => 'HasNext',
+        'fileList' => 'FileList',
+        'hasNext' => 'HasNext',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class data extends Model
         if (isset($map['FileList'])) {
             if (!empty($map['FileList'])) {
                 $model->fileList = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['FileList'] as $item) {
                     $model->fileList[$n++] = null !== $item ? fileList::fromMap($item) : $item;
                 }

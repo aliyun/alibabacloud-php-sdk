@@ -171,26 +171,24 @@ class indices extends Model
      */
     public $structureType;
     protected $_name = [
-        'chunkSize'          => 'ChunkSize',
-        'description'        => 'Description',
-        'documentIds'        => 'DocumentIds',
+        'chunkSize' => 'ChunkSize',
+        'description' => 'Description',
+        'documentIds' => 'DocumentIds',
         'embeddingModelName' => 'EmbeddingModelName',
-        'id'                 => 'Id',
-        'name'               => 'Name',
-        'overlapSize'        => 'OverlapSize',
-        'rerankMinScore'     => 'RerankMinScore',
-        'rerankModelName'    => 'RerankModelName',
-        'separator'          => 'Separator',
-        'sinkInstanceId'     => 'SinkInstanceId',
-        'sinkRegion'         => 'SinkRegion',
-        'sinkType'           => 'SinkType',
-        'sourceType'         => 'SourceType',
-        'structureType'      => 'StructureType',
+        'id' => 'Id',
+        'name' => 'Name',
+        'overlapSize' => 'OverlapSize',
+        'rerankMinScore' => 'RerankMinScore',
+        'rerankModelName' => 'RerankModelName',
+        'separator' => 'Separator',
+        'sinkInstanceId' => 'SinkInstanceId',
+        'sinkRegion' => 'SinkRegion',
+        'sinkType' => 'SinkType',
+        'sourceType' => 'SourceType',
+        'structureType' => 'StructureType',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

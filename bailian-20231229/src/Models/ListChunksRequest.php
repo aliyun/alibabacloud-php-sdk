@@ -33,6 +33,7 @@ class ListChunksRequest extends Model
      * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
      * This parameter is required.
+     *
      * @example otoru9en4v
      *
      * @var string
@@ -57,17 +58,15 @@ class ListChunksRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'fields'   => 'Fields',
-        'fileId'   => 'FileId',
-        'filed'    => 'Filed',
-        'indexId'  => 'IndexId',
-        'pageNum'  => 'PageNum',
+        'fields' => 'Fields',
+        'fileId' => 'FileId',
+        'filed' => 'Filed',
+        'indexId' => 'IndexId',
+        'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

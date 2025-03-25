@@ -20,13 +20,11 @@ class memoryNodes extends Model
      */
     public $memoryNodeId;
     protected $_name = [
-        'content'      => 'content',
+        'content' => 'content',
         'memoryNodeId' => 'memoryNodeId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePromptTemplateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example FE9B6CBF-47E6-5D76-9C5D-B814DD5ABxxx
      *
      * @var string
@@ -18,9 +20,7 @@ class DeletePromptTemplateResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

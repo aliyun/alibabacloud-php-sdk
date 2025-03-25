@@ -38,13 +38,11 @@ class data extends Model
     public $type;
     protected $_name = [
         'fileUploadLeaseId' => 'FileUploadLeaseId',
-        'param'             => 'Param',
-        'type'              => 'Type',
+        'param' => 'Param',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

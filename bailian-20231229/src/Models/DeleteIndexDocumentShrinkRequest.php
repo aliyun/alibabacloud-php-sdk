@@ -12,6 +12,7 @@ class DeleteIndexDocumentShrinkRequest extends Model
      * @description The list of the primary key IDs of the documents.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $documentIdsShrink;
@@ -20,6 +21,7 @@ class DeleteIndexDocumentShrinkRequest extends Model
      * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
      * This parameter is required.
+     *
      * @example 79c0aly8zw
      *
      * @var string
@@ -27,12 +29,10 @@ class DeleteIndexDocumentShrinkRequest extends Model
     public $indexId;
     protected $_name = [
         'documentIdsShrink' => 'DocumentIds',
-        'indexId'           => 'IndexId',
+        'indexId' => 'IndexId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

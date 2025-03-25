@@ -18,13 +18,11 @@ class ListPublishedAgentRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'pageNo'   => 'pageNo',
+        'pageNo' => 'pageNo',
         'pageSize' => 'pageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

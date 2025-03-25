@@ -18,9 +18,7 @@ class data extends Model
         'categoryId' => 'CategoryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

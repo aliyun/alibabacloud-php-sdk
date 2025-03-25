@@ -49,17 +49,15 @@ class ListMemoriesResponseBody extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'maxResults'  => 'maxResults',
-        'memories'    => 'memories',
-        'nextToken'   => 'nextToken',
-        'requestId'   => 'requestId',
-        'totalCount'  => 'totalCount',
+        'maxResults' => 'maxResults',
+        'memories' => 'memories',
+        'nextToken' => 'nextToken',
+        'requestId' => 'requestId',
+        'totalCount' => 'totalCount',
         'workspaceId' => 'workspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -106,7 +104,7 @@ class ListMemoriesResponseBody extends Model
         if (isset($map['memories'])) {
             if (!empty($map['memories'])) {
                 $model->memories = [];
-                $n               = 0;
+                $n = 0;
                 foreach ($map['memories'] as $item) {
                     $model->memories[$n++] = null !== $item ? memories::fromMap($item) : $item;
                 }

@@ -36,15 +36,13 @@ class CreateAndPulishAgentRequest extends Model
     public $sampleLibrary;
     protected $_name = [
         'applicationConfig' => 'applicationConfig',
-        'instructions'      => 'instructions',
-        'modelId'           => 'modelId',
-        'name'              => 'name',
-        'sampleLibrary'     => 'sampleLibrary',
+        'instructions' => 'instructions',
+        'modelId' => 'modelId',
+        'name' => 'name',
+        'sampleLibrary' => 'sampleLibrary',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

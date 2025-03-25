@@ -124,6 +124,8 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @summary 添加类目
+     *  *
      * @param string             $WorkspaceId
      * @param AddCategoryRequest $request     AddCategoryRequest
      * @param string[]           $headers     map
@@ -146,24 +148,29 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddCategory',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/category/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddCategory',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/category/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddCategoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary 添加类目
+     *  *
      * @param string             $WorkspaceId
      * @param AddCategoryRequest $request     AddCategoryRequest
      *
@@ -219,21 +226,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddFile',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddFile',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -292,21 +302,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ApplyFileUploadLease',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/category/' . OpenApiUtilClient::getEncodeParam($CategoryId) . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ApplyFileUploadLease',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/category/' . OpenApiUtilClient::getEncodeParam($CategoryId) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ApplyFileUploadLeaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ApplyFileUploadLeaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApplyFileUploadLeaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -370,21 +383,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAndPulishAgent',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAndPulishAgent',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateAndPulishAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAndPulishAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAndPulishAgentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -497,21 +513,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIndex',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/create',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateIndex',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -553,21 +572,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMemory',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateMemory',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateMemoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -606,21 +628,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMemoryNode',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateMemoryNode',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateMemoryNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -641,7 +666,7 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 创建Prompt模板
+     * @summary Creates a prompt template.
      *  *
      * @param string                      $workspaceId
      * @param CreatePromptTemplateRequest $request     CreatePromptTemplateRequest
@@ -662,25 +687,28 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePromptTemplate',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreatePromptTemplate',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreatePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePromptTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建Prompt模板
+     * @summary Creates a prompt template.
      *  *
      * @param string                      $workspaceId
      * @param CreatePromptTemplateRequest $request     CreatePromptTemplateRequest
@@ -711,18 +739,21 @@ class Bailian extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteAgent',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteAgent',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAgentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -742,6 +773,8 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @summary 删除类目
+     *  *
      * @param string         $CategoryId
      * @param string         $WorkspaceId
      * @param string[]       $headers     map
@@ -755,21 +788,26 @@ class Bailian extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteCategory',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/category/' . OpenApiUtilClient::getEncodeParam($CategoryId) . '/',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteCategory',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/category/' . OpenApiUtilClient::getEncodeParam($CategoryId) . '/',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCategoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @summary 删除类目
+     *  *
      * @param string $CategoryId
      * @param string $WorkspaceId
      *
@@ -799,18 +837,21 @@ class Bailian extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteFile',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file/' . OpenApiUtilClient::getEncodeParam($FileId) . '/',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteFile',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file/' . OpenApiUtilClient::getEncodeParam($FileId) . '/',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -854,21 +895,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIndex',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/delete',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteIndex',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIndexResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -926,21 +970,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIndexDocument',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/delete_index_document',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteIndexDocument',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/delete_index_document',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteIndexDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteIndexDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIndexDocumentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -981,18 +1028,21 @@ class Bailian extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteMemory',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteMemory',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteMemoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1028,18 +1078,21 @@ class Bailian extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteMemoryNode',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes/' . OpenApiUtilClient::getEncodeParam($memoryNodeId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteMemoryNode',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes/' . OpenApiUtilClient::getEncodeParam($memoryNodeId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteMemoryNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1060,7 +1113,7 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 基于模板Id删除Prompt模板。
+     * @summary Deletes a prompt template based on the template ID.
      *  *
      * @param string         $workspaceId
      * @param string         $promptTemplateId
@@ -1075,22 +1128,25 @@ class Bailian extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeletePromptTemplate',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates/' . OpenApiUtilClient::getEncodeParam($promptTemplateId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeletePromptTemplate',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates/' . OpenApiUtilClient::getEncodeParam($promptTemplateId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeletePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePromptTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 基于模板Id删除Prompt模板。
+     * @summary Deletes a prompt template based on the template ID.
      *  *
      * @param string $workspaceId
      * @param string $promptTemplateId
@@ -1126,18 +1182,21 @@ class Bailian extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeFile',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file/' . OpenApiUtilClient::getEncodeParam($FileId) . '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeFile',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file/' . OpenApiUtilClient::getEncodeParam($FileId) . '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1193,21 +1252,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetIndexJobStatus',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/job/status',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetIndexJobStatus',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/job/status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetIndexJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetIndexJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetIndexJobStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1246,18 +1308,21 @@ class Bailian extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetMemory',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMemory',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMemoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1293,18 +1358,21 @@ class Bailian extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetMemoryNode',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes/' . OpenApiUtilClient::getEncodeParam($memoryNodeId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMemoryNode',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes/' . OpenApiUtilClient::getEncodeParam($memoryNodeId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMemoryNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1325,7 +1393,7 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 基于模板Id获取Prompt模板。
+     * @summary Obtains a prompt template based on the template ID.
      *  *
      * @param string         $workspaceId
      * @param string         $promptTemplateId
@@ -1340,22 +1408,25 @@ class Bailian extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetPromptTemplate',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates/' . OpenApiUtilClient::getEncodeParam($promptTemplateId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetPromptTemplate',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates/' . OpenApiUtilClient::getEncodeParam($promptTemplateId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPromptTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 基于模板Id获取Prompt模板。
+     * @summary Obtains a prompt template based on the template ID.
      *  *
      * @param string $workspaceId
      * @param string $promptTemplateId
@@ -1386,18 +1457,21 @@ class Bailian extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetPublishedAgent',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetPublishedAgent',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPublishedAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPublishedAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPublishedAgentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1444,21 +1518,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListCategory',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/categories',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListCategory',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/categories',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCategoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1514,21 +1591,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListChunks',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/list_chunks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListChunks',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/list_chunks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListChunksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1578,21 +1658,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListFile',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/files',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListFile',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/files',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1645,21 +1728,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIndexDocuments',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/list_index_documents',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListIndexDocuments',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/list_index_documents',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListIndexDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIndexDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIndexDocumentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1708,21 +1794,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIndices',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/list_indices',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListIndices',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/list_indices',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIndicesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1765,21 +1854,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMemories',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMemories',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMemoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMemoriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1821,21 +1913,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMemoryNodes',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMemoryNodes',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListMemoryNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMemoryNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMemoryNodesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1856,7 +1951,7 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 获取Prompt模板列表。
+     * @summary Obtains a list of prompt templates.
      *  *
      * @param string                     $workspaceId
      * @param ListPromptTemplatesRequest $request     ListPromptTemplatesRequest
@@ -1883,25 +1978,28 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPromptTemplates',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListPromptTemplates',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPromptTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPromptTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPromptTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取Prompt模板列表。
+     * @summary Obtains a list of prompt templates.
      *  *
      * @param string                     $workspaceId
      * @param ListPromptTemplatesRequest $request     ListPromptTemplatesRequest
@@ -1938,21 +2036,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPublishedAgent',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListPublishedAgent',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListPublishedAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPublishedAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPublishedAgentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2044,21 +2145,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Retrieve',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/retrieve',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'Retrieve',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/retrieve',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RetrieveResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RetrieveResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RetrieveResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2122,21 +2226,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitIndexAddDocumentsJob',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/add_documents_to_index',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SubmitIndexAddDocumentsJob',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/add_documents_to_index',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitIndexAddDocumentsJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitIndexAddDocumentsJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitIndexAddDocumentsJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2184,21 +2291,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SubmitIndexJob',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/submit_index_job',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SubmitIndexJob',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/submit_index_job',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitIndexJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitIndexJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitIndexJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2262,21 +2372,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAndPublishAgent',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateAndPublishAgent',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateAndPublishAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAndPublishAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAndPublishAgentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2336,21 +2449,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAndPublishAgentSelective',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '/updateAndPublishAgentSelective',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateAndPublishAgentSelective',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '/updateAndPublishAgentSelective',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateAndPublishAgentSelectiveResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAndPublishAgentSelectiveResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAndPublishAgentSelectiveResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2395,21 +2511,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFileTag',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file/' . OpenApiUtilClient::getEncodeParam($FileId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateFileTag',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/datacenter/file/' . OpenApiUtilClient::getEncodeParam($FileId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateFileTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateFileTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFileTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2449,21 +2568,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMemory',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateMemory',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateMemoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2504,21 +2626,24 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMemoryNode',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes/' . OpenApiUtilClient::getEncodeParam($memoryNodeId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateMemoryNode',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/memories/' . OpenApiUtilClient::getEncodeParam($memoryId) . '/memoryNodes/' . OpenApiUtilClient::getEncodeParam($memoryNodeId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateMemoryNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateMemoryNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2540,7 +2665,7 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary 基于模板Id增量更新Prompt模板。
+     * @summary Updates a prompt template based on the template ID.
      *  *
      * @param string                      $workspaceId
      * @param string                      $promptTemplateId
@@ -2562,25 +2687,28 @@ class Bailian extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePromptTemplate',
-            'version'     => '2023-12-29',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates/' . OpenApiUtilClient::getEncodeParam($promptTemplateId) . '',
-            'method'      => 'PATCH',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdatePromptTemplate',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/promptTemplates/' . OpenApiUtilClient::getEncodeParam($promptTemplateId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdatePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePromptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePromptTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 基于模板Id增量更新Prompt模板。
+     * @summary Updates a prompt template based on the template ID.
      *  *
      * @param string                      $workspaceId
      * @param string                      $promptTemplateId

@@ -14,6 +14,7 @@ class rewrite extends Model
      *   conv-rewrite-qwen-1.8b
      *
      * By default, this parameter is left empty, which means conv-rewrite-qwen-1.8b is used.
+     *
      * @example conv-rewrite-qwen-1.8b
      *
      * @var string
@@ -23,9 +24,7 @@ class rewrite extends Model
         'modelName' => 'ModelName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

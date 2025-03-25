@@ -43,15 +43,13 @@ class data extends Model
      */
     public $totalCount;
     protected $_name = [
-        'indices'    => 'Indices',
+        'indices' => 'Indices',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -89,7 +87,7 @@ class data extends Model
         if (isset($map['Indices'])) {
             if (!empty($map['Indices'])) {
                 $model->indices = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Indices'] as $item) {
                     $model->indices[$n++] = null !== $item ? indices::fromMap($item) : $item;
                 }

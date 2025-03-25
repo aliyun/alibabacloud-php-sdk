@@ -41,16 +41,14 @@ class categoryList extends Model
      */
     public $parentCategoryId;
     protected $_name = [
-        'categoryId'       => 'CategoryId',
-        'categoryName'     => 'CategoryName',
-        'categoryType'     => 'CategoryType',
-        'isDefault'        => 'IsDefault',
+        'categoryId' => 'CategoryId',
+        'categoryName' => 'CategoryName',
+        'categoryType' => 'CategoryType',
+        'isDefault' => 'IsDefault',
         'parentCategoryId' => 'ParentCategoryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -18,9 +18,7 @@ class UpdateFileTagShrinkRequest extends Model
         'tagsShrink' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

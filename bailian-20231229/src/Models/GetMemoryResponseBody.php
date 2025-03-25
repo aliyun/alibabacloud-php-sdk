@@ -35,14 +35,12 @@ class GetMemoryResponseBody extends Model
     public $workspaceId;
     protected $_name = [
         'description' => 'description',
-        'memoryId'    => 'memoryId',
-        'requestId'   => 'requestId',
+        'memoryId' => 'memoryId',
+        'requestId' => 'requestId',
         'workspaceId' => 'workspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

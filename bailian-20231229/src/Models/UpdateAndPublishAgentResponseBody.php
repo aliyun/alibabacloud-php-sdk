@@ -38,17 +38,15 @@ class UpdateAndPublishAgentResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'code',
-        'data'           => 'data',
+        'code' => 'code',
+        'data' => 'data',
         'httpStatusCode' => 'httpStatusCode',
-        'message'        => 'message',
-        'requestId'      => 'requestId',
-        'success'        => 'success',
+        'message' => 'message',
+        'requestId' => 'requestId',
+        'success' => 'success',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class AddFileRequest extends Model
      * @description The primary key ID of the category to which the document is uploaded. This parameter corresponds to the `CategoryId`<props="china"> returned by the [AddCategory](https://www.alibabacloud.com/help/zh/model-studio/developer-reference/api-bailian-2023-12-29-addcategory) operation. You can also click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.alibabacloud.com/#/data-center) page to view the ID. You can set the parameter to default, which specifies the Default Category created by the system.
      *
      * This parameter is required.
+     *
      * @example cate_cdd11b1b79a74e8bbd675c356a91ee3510024405
      *
      * @var string
@@ -27,6 +28,7 @@ class AddFileRequest extends Model
      * @description The lease ID, which corresponds to the `FileUploadLeaseId` parameter returned by the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation.
      *
      * This parameter is required.
+     *
      * @example 68abd1dea7b6404d8f7d7b9f7fbd332d.1716698936847
      *
      * @var string
@@ -39,6 +41,7 @@ class AddFileRequest extends Model
      *   DASHSCOPE_DOCMIND: Intelligent document parsing by Alibaba Cloud.
      *
      * This parameter is required.
+     *
      * @example DASHSCOPE_DOCMIND
      *
      * @var string
@@ -52,16 +55,14 @@ class AddFileRequest extends Model
      */
     public $tags;
     protected $_name = [
-        'categoryId'   => 'CategoryId',
+        'categoryId' => 'CategoryId',
         'categoryType' => 'CategoryType',
-        'leaseId'      => 'LeaseId',
-        'parser'       => 'Parser',
-        'tags'         => 'Tags',
+        'leaseId' => 'LeaseId',
+        'parser' => 'Parser',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

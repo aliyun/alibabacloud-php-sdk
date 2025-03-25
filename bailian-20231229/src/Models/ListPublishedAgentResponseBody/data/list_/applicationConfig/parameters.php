@@ -24,13 +24,11 @@ class parameters extends Model
     public $temperature;
     protected $_name = [
         'dialogRound' => 'dialogRound',
-        'maxTokens'   => 'maxTokens',
+        'maxTokens' => 'maxTokens',
         'temperature' => 'temperature',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

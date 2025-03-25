@@ -37,14 +37,12 @@ class ListFileRequest extends Model
     public $nextToken;
     protected $_name = [
         'categoryId' => 'CategoryId',
-        'fileName'   => 'FileName',
+        'fileName' => 'FileName',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

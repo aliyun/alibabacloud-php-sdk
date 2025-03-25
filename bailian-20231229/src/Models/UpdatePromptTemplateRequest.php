@@ -9,22 +9,24 @@ use AlibabaCloud\Tea\Model;
 class UpdatePromptTemplateRequest extends Model
 {
     /**
+     * @description The template content.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The template name.
+     *
      * @var string
      */
     public $name;
     protected $_name = [
         'content' => 'content',
-        'name'    => 'name',
+        'name' => 'name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -26,13 +26,11 @@ class data extends Model
      */
     public $indexId;
     protected $_name = [
-        'id'      => 'Id',
+        'id' => 'Id',
         'indexId' => 'IndexId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -43,15 +43,13 @@ class data extends Model
     public $totalCount;
     protected $_name = [
         'categoryList' => 'CategoryList',
-        'hasNext'      => 'HasNext',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'totalCount'   => 'TotalCount',
+        'hasNext' => 'HasNext',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -92,7 +90,7 @@ class data extends Model
         if (isset($map['CategoryList'])) {
             if (!empty($map['CategoryList'])) {
                 $model->categoryList = [];
-                $n                   = 0;
+                $n = 0;
                 foreach ($map['CategoryList'] as $item) {
                     $model->categoryList[$n++] = null !== $item ? categoryList::fromMap($item) : $item;
                 }

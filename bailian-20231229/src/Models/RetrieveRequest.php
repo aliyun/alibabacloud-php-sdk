@@ -14,6 +14,7 @@ class RetrieveRequest extends Model
      * @description Vector retrieval top K. After generating vectors based on input text, the top K chunks in the knowledge base that are most similar to the vector representation of the input text are retrieved. Valid values: 0 to 100. The sum of the `DenseSimilarityTopK` and `SparseSimilarityTopK` parameters must be less than or equal to 200.
      *
      * Default value: 100.
+     *
      * @example 100
      *
      * @var int
@@ -27,6 +28,7 @@ class RetrieveRequest extends Model
      *   false
      *
      * Default value: true.
+     *
      * @example true
      *
      * @var bool
@@ -40,6 +42,7 @@ class RetrieveRequest extends Model
      *   false
      *
      * Default value: false.
+     *
      * @example false
      *
      * @var bool
@@ -55,6 +58,7 @@ class RetrieveRequest extends Model
      * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
      * This parameter is required.
+     *
      * @example 5pwe0m2g6t
      *
      * @var string
@@ -79,6 +83,7 @@ class RetrieveRequest extends Model
      * @description Similarity Threshold The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00]. The priority of this parameter is greater than the similarity threshold configured for the knowledge base.
      *
      * By default, this parameter is left empty. In this case, the similarity threshold of the knowledge base is used.
+     *
      * @example 0.20
      *
      * @var float
@@ -108,6 +113,7 @@ class RetrieveRequest extends Model
      *   false
      *
      * Default value: false.
+     *
      * @example false
      *
      * @var bool
@@ -125,30 +131,29 @@ class RetrieveRequest extends Model
      * @description The top K of keyword retrieval. Chunks that exactly match the keywords of the input text are retrieved from the knowledge base. This filters out irrelevant chunks and boosts accuracy. Valid values: 0 to 100. The sum of the `DenseSimilarityTopK` and `SparseSimilarityTopK` parameters must be less than or equal to 200.
      *
      * Default value: 100.
+     *
      * @example 100
      *
      * @var int
      */
     public $sparseSimilarityTopK;
     protected $_name = [
-        'denseSimilarityTopK'  => 'DenseSimilarityTopK',
-        'enableReranking'      => 'EnableReranking',
-        'enableRewrite'        => 'EnableRewrite',
-        'images'               => 'Images',
-        'indexId'              => 'IndexId',
-        'query'                => 'Query',
-        'rerank'               => 'Rerank',
-        'rerankMinScore'       => 'RerankMinScore',
-        'rerankTopN'           => 'RerankTopN',
-        'rewrite'              => 'Rewrite',
+        'denseSimilarityTopK' => 'DenseSimilarityTopK',
+        'enableReranking' => 'EnableReranking',
+        'enableRewrite' => 'EnableRewrite',
+        'images' => 'Images',
+        'indexId' => 'IndexId',
+        'query' => 'Query',
+        'rerank' => 'Rerank',
+        'rerankMinScore' => 'RerankMinScore',
+        'rerankTopN' => 'RerankTopN',
+        'rewrite' => 'Rewrite',
         'saveRetrieverHistory' => 'SaveRetrieverHistory',
-        'searchFilters'        => 'SearchFilters',
+        'searchFilters' => 'SearchFilters',
         'sparseSimilarityTopK' => 'SparseSimilarityTopK',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -239,7 +244,7 @@ class RetrieveRequest extends Model
         if (isset($map['Rerank'])) {
             if (!empty($map['Rerank'])) {
                 $model->rerank = [];
-                $n             = 0;
+                $n = 0;
                 foreach ($map['Rerank'] as $item) {
                     $model->rerank[$n++] = null !== $item ? rerank::fromMap($item) : $item;
                 }
@@ -254,7 +259,7 @@ class RetrieveRequest extends Model
         if (isset($map['Rewrite'])) {
             if (!empty($map['Rewrite'])) {
                 $model->rewrite = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Rewrite'] as $item) {
                     $model->rewrite[$n++] = null !== $item ? rewrite::fromMap($item) : $item;
                 }

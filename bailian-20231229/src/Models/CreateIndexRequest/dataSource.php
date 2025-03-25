@@ -78,21 +78,19 @@ class dataSource extends Model
      */
     public $type;
     protected $_name = [
-        'credentialId'  => 'CredentialId',
+        'credentialId' => 'CredentialId',
         'credentialKey' => 'CredentialKey',
-        'database'      => 'Database',
-        'endpoint'      => 'Endpoint',
+        'database' => 'Database',
+        'endpoint' => 'Endpoint',
         'isPrivateLink' => 'IsPrivateLink',
-        'region'        => 'Region',
-        'subPath'       => 'SubPath',
-        'subType'       => 'SubType',
-        'table'         => 'Table',
-        'type'          => 'Type',
+        'region' => 'Region',
+        'subPath' => 'SubPath',
+        'subType' => 'SubType',
+        'table' => 'Table',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -35,15 +35,13 @@ class data extends Model
     public $name;
     protected $_name = [
         'applicationConfig' => 'applicationConfig',
-        'code'              => 'code',
-        'instructions'      => 'instructions',
-        'modelId'           => 'modelId',
-        'name'              => 'name',
+        'code' => 'code',
+        'instructions' => 'instructions',
+        'modelId' => 'modelId',
+        'name' => 'name',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

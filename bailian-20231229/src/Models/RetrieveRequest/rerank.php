@@ -23,9 +23,7 @@ class rerank extends Model
         'modelName' => 'ModelName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

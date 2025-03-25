@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListPromptTemplatesResponseBody extends Model
 {
     /**
+     * @description The maximum number of returned entries.
+     *
      * @example 10
      *
      * @var int
@@ -17,6 +19,8 @@ class ListPromptTemplatesResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The token that determines the start position of the next query.
+     *
      * @example dc270401186b433f975d7e1faaa34e0e
      *
      * @var string
@@ -24,11 +28,15 @@ class ListPromptTemplatesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The templates.
+     *
      * @var promptTemplates[]
      */
     public $promptTemplates;
 
     /**
+     * @description The request ID.
+     *
      * @example FE9B6CBF-47E6-5D76-9C5D-B814DD5AB071
      *
      * @var string
@@ -36,6 +44,8 @@ class ListPromptTemplatesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 15
      *
      * @var int
@@ -43,23 +53,23 @@ class ListPromptTemplatesResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The workspace ID.
+     *
      * @example llm-us9hjmt32nysdxxx
      *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'maxResults'      => 'maxResults',
-        'nextToken'       => 'nextToken',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
         'promptTemplates' => 'promptTemplates',
-        'requestId'       => 'requestId',
-        'totalCount'      => 'totalCount',
-        'workspaceId'     => 'workspaceId',
+        'requestId' => 'requestId',
+        'totalCount' => 'totalCount',
+        'workspaceId' => 'workspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -109,7 +119,7 @@ class ListPromptTemplatesResponseBody extends Model
         if (isset($map['promptTemplates'])) {
             if (!empty($map['promptTemplates'])) {
                 $model->promptTemplates = [];
-                $n                      = 0;
+                $n = 0;
                 foreach ($map['promptTemplates'] as $item) {
                     $model->promptTemplates[$n++] = null !== $item ? promptTemplates::fromMap($item) : $item;
                 }

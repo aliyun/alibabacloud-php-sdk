@@ -21,7 +21,10 @@ class CreateIndexRequest extends Model
     /**
      * @description The estimated length of chunks. The maximum number of characters for a chunk. Texts exceeding this limit are splited. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: [1-2048].
      *
+     * The default value is empty, which means using the intelligent splitting method.
+     *
      * >  If you specify the `ChunkSize` parameter, you must also specify the `OverlapSize` and `Separator` parameters. If you do not specify these three parameters, the system uses the intelligent splitting method by default.
+     *
      * @example 128
      *
      * @var int
@@ -60,6 +63,7 @@ class CreateIndexRequest extends Model
      *   text-embedding-v2
      *
      * The default value is null, which means using the text-embedding-v2 model.
+     *
      * @example text-embedding-v2
      *
      * @var string
@@ -70,6 +74,7 @@ class CreateIndexRequest extends Model
      * @description The name of the knowledge base. The name must be 1 to 20 characters in length and can contain characters classified as letter in Unicode, including English letters, Chinese characters, digits, among others. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -78,6 +83,7 @@ class CreateIndexRequest extends Model
      * @description The overlap length. The number of overlapping characters between two consecutive chunks. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: 0 to 1024.
      *
      * The default value is empty, which means using the intelligent splitting method.
+     *
      * @example 16
      *
      * @var int
@@ -88,6 +94,7 @@ class CreateIndexRequest extends Model
      * @description Similarity Threshold. The lowest similarity score of chunks that can be returned. This parameter is used to filter text chunks returned by the rank model. For more information, see [Create a knowledge base](https://www.alibabacloud.com/help/en/model-studio/user-guide/rag-knowledge-base). Valid values: [0.01-1.00].
      *
      * Default value: 0.20.
+     *
      * @example 0.20
      *
      * @var float
@@ -100,7 +107,10 @@ class CreateIndexRequest extends Model
      *   gte-rerank-hybrid
      *   gte-rerank
      *
+     * The default value is empty, which means using the official gte-rerank-hybrid model.
+     *
      * >  If you need only semantic ranking, we recommend that you use gte-rerank. If you need both semantic ranking and text matching features to ensure relevance, we recommend that you use gte-rerank-hybrid.
+     *
      * @example gte-rerank-hybrid
      *
      * @var string
@@ -123,6 +133,7 @@ class CreateIndexRequest extends Model
      *   ?: English question mark
      *
      * The default value is empty, which means using the intelligent splitting method.
+     *
      * @example ,
      *
      * @var string
@@ -153,7 +164,10 @@ class CreateIndexRequest extends Model
      *   DEFAULT: The built-in vector database.
      *   ADB: AnalyticDB for PostgreSQL database. If you need advanced features, such as managing, auditing, and monitoring, we recommend that you specify ADB.
      *
+     * >  If you have not used AnalyticDB for AnalyticDB in Model Studio before, go to the [Create Knowledge Base](https://bailian.console.aliyun.com/#/knowledge-base/create) page, select ADB-PG as Vector Storage Type, and follow the instructions to grant permissions. If you specify ADB, you must also specify the `SinkInstanceId` and `SinkRegion` parameters.
+     *
      * This parameter is required.
+     *
      * @example DEFAULT
      *
      * @var string
@@ -166,7 +180,12 @@ class CreateIndexRequest extends Model
      *   DATA_CENTER_CATEGORY: The category type. Import all documents from one or more categories in Data Center.
      *   DATA_CENTER_FILE: The document type. Import one or more documents from Data Center.
      *
+     * >  If this parameter is set to DATA_CENTER_CATEGORY, you must specify the `CategoryIds` parameter. If this parameter is set to DATA_CENTER_FILE, you must specify the `DocumentIds` parameter.
+     *
+     * >  If you want to create an empty knowledge base, you can use an empty category. Set this parameter to DATA_CENTER_CATEGORY. And specify the ID of an empty category for the `CategoryIds` parameter.
+     *
      * This parameter is required.
+     *
      * @example DATA_CENTER_FILE
      *
      * @var string
@@ -178,7 +197,10 @@ class CreateIndexRequest extends Model
      *
      *   unstructured
      *
+     * >  After a knowledge base is created, its data type cannot be changed. You cannot create a structured knowledge base by calling an API operation. Use the console instead.
+     *
      * This parameter is required.
+     *
      * @example structured
      *
      * @var string
@@ -195,30 +217,28 @@ class CreateIndexRequest extends Model
      */
     public $metaExtractColumns;
     protected $_name = [
-        'categoryIds'        => 'CategoryIds',
-        'chunkSize'          => 'ChunkSize',
-        'columns'            => 'Columns',
-        'dataSource'         => 'DataSource',
-        'description'        => 'Description',
-        'documentIds'        => 'DocumentIds',
+        'categoryIds' => 'CategoryIds',
+        'chunkSize' => 'ChunkSize',
+        'columns' => 'Columns',
+        'dataSource' => 'DataSource',
+        'description' => 'Description',
+        'documentIds' => 'DocumentIds',
         'embeddingModelName' => 'EmbeddingModelName',
-        'name'               => 'Name',
-        'overlapSize'        => 'OverlapSize',
-        'rerankMinScore'     => 'RerankMinScore',
-        'rerankModelName'    => 'RerankModelName',
-        'separator'          => 'Separator',
-        'sinkInstanceId'     => 'SinkInstanceId',
-        'sinkRegion'         => 'SinkRegion',
-        'sinkType'           => 'SinkType',
-        'sourceType'         => 'SourceType',
-        'structureType'      => 'StructureType',
-        'enableHeaders'      => 'enableHeaders',
+        'name' => 'Name',
+        'overlapSize' => 'OverlapSize',
+        'rerankMinScore' => 'RerankMinScore',
+        'rerankModelName' => 'RerankModelName',
+        'separator' => 'Separator',
+        'sinkInstanceId' => 'SinkInstanceId',
+        'sinkRegion' => 'SinkRegion',
+        'sinkType' => 'SinkType',
+        'sourceType' => 'SourceType',
+        'structureType' => 'StructureType',
+        'enableHeaders' => 'enableHeaders',
         'metaExtractColumns' => 'metaExtractColumns',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -315,7 +335,7 @@ class CreateIndexRequest extends Model
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n              = 0;
+                $n = 0;
                 foreach ($map['Columns'] as $item) {
                     $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
                 }
@@ -371,7 +391,7 @@ class CreateIndexRequest extends Model
         if (isset($map['metaExtractColumns'])) {
             if (!empty($map['metaExtractColumns'])) {
                 $model->metaExtractColumns = [];
-                $n                         = 0;
+                $n = 0;
                 foreach ($map['metaExtractColumns'] as $item) {
                     $model->metaExtractColumns[$n++] = null !== $item ? metaExtractColumns::fromMap($item) : $item;
                 }

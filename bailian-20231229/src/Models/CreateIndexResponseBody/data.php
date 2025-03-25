@@ -12,6 +12,7 @@ class data extends Model
      * @description The primary key ID of the knowledge base, `IndexId`.
      *
      * >  We recommend that you store this ID. It is required for all subsequent API operations related to this knowledge base.
+     *
      * @example jkurxhju6b
      *
      * @var string
@@ -21,9 +22,7 @@ class data extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

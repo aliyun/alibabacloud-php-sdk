@@ -24,6 +24,7 @@ class ListIndexDocumentsRequest extends Model
      *   FINISH
      *
      * The default value is null, which means the import status is not used to filter the results.
+     *
      * @example FINISH
      *
      * @var string
@@ -34,6 +35,7 @@ class ListIndexDocumentsRequest extends Model
      * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
      * This parameter is required.
+     *
      * @example 79c0aly8zw
      *
      * @var string
@@ -58,16 +60,14 @@ class ListIndexDocumentsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'documentName'   => 'DocumentName',
+        'documentName' => 'DocumentName',
         'documentStatus' => 'DocumentStatus',
-        'indexId'        => 'IndexId',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'indexId' => 'IndexId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

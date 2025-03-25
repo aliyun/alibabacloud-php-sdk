@@ -32,13 +32,11 @@ class nodes extends Model
     public $text;
     protected $_name = [
         'metadata' => 'Metadata',
-        'score'    => 'Score',
-        'text'     => 'Text',
+        'score' => 'Score',
+        'text' => 'Text',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

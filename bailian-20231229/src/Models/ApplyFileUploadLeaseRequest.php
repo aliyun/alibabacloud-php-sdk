@@ -17,6 +17,7 @@ class ApplyFileUploadLeaseRequest extends Model
      * @description The name of the uploaded document, including the extension. Supported formats: pdf, doc, docx, md, txt, ppt, and pptx. The document name must be 4 to 128 characters in length.
      *
      * This parameter is required.
+     *
      * @var string
      */
     public $fileName;
@@ -25,6 +26,7 @@ class ApplyFileUploadLeaseRequest extends Model
      * @description The MD5 value of the uploaded document. This parameter is verified by the server (not in the current version).
      *
      * This parameter is required.
+     *
      * @example 19657c391f6c70bcea63c154d8606bb3
      *
      * @var string
@@ -35,6 +37,7 @@ class ApplyFileUploadLeaseRequest extends Model
      * @description The size of the uploaded document, in bytes. This parameter is verified by the server (not in the current version). Valid values: 1 to 100000000.
      *
      * This parameter is required.
+     *
      * @example 1000
      *
      * @var string
@@ -42,14 +45,12 @@ class ApplyFileUploadLeaseRequest extends Model
     public $sizeInBytes;
     protected $_name = [
         'categoryType' => 'CategoryType',
-        'fileName'     => 'FileName',
-        'md5'          => 'Md5',
-        'sizeInBytes'  => 'SizeInBytes',
+        'fileName' => 'FileName',
+        'md5' => 'Md5',
+        'sizeInBytes' => 'SizeInBytes',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

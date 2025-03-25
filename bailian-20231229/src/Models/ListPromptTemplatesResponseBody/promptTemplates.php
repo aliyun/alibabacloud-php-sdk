@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class promptTemplates extends Model
 {
     /**
+     * @description The template content
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The template name.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The template ID.
+     *
      * @example d6935b7efbe34d11b13df9307151cf8c
      *
      * @var string
@@ -26,6 +32,8 @@ class promptTemplates extends Model
     public $promptTemplateId;
 
     /**
+     * @description The template type.
+     *
      * @example "System"
      *
      * @var string
@@ -33,20 +41,20 @@ class promptTemplates extends Model
     public $type;
 
     /**
+     * @description The variables of the template.
+     *
      * @var string[]
      */
     public $variables;
     protected $_name = [
-        'content'          => 'content',
-        'name'             => 'name',
+        'content' => 'content',
+        'name' => 'name',
         'promptTemplateId' => 'promptTemplateId',
-        'type'             => 'type',
-        'variables'        => 'variables',
+        'type' => 'type',
+        'variables' => 'variables',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

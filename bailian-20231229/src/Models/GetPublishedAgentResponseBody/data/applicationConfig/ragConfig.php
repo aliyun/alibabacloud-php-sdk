@@ -28,15 +28,13 @@ class ragConfig extends Model
      */
     public $topK;
     protected $_name = [
-        'enableCitation'        => 'enableCitation',
-        'enableSearch'          => 'enableSearch',
+        'enableCitation' => 'enableCitation',
+        'enableSearch' => 'enableSearch',
         'knowledgeBaseCodeList' => 'knowledgeBaseCodeList',
-        'topK'                  => 'topK',
+        'topK' => 'topK',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

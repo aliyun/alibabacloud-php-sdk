@@ -12,6 +12,7 @@ class GetIndexJobStatusRequest extends Model
      * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
      *
      * This parameter is required.
+     *
      * @example 79c0aly8zw
      *
      * @var string
@@ -22,6 +23,7 @@ class GetIndexJobStatusRequest extends Model
      * @description The knowledge base job ID, which is the `Data.Id` parameter returned by the [SubmitIndexJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexjob) or [SubmitIndexAddDocumentsJob](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-submitindexadddocumentsjob) operations.
      *
      * This parameter is required.
+     *
      * @example 20230718xxxx-146c93bf
      *
      * @var string
@@ -46,15 +48,13 @@ class GetIndexJobStatusRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'indexId'    => 'IndexId',
-        'jobId'      => 'JobId',
+        'indexId' => 'IndexId',
+        'jobId' => 'JobId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'pageSize',
+        'pageSize' => 'pageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

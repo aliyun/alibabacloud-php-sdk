@@ -16,9 +16,7 @@ class CreateMemoryRequest extends Model
         'description' => 'description',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

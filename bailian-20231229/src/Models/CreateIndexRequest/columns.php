@@ -33,16 +33,14 @@ class columns extends Model
      */
     public $type;
     protected $_name = [
-        'column'   => 'Column',
+        'column' => 'Column',
         'isRecall' => 'IsRecall',
         'isSearch' => 'IsSearch',
-        'name'     => 'Name',
-        'type'     => 'Type',
+        'name' => 'Name',
+        'type' => 'Type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

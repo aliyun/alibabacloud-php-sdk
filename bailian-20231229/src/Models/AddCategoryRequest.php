@@ -31,14 +31,12 @@ class AddCategoryRequest extends Model
      */
     public $parentCategoryId;
     protected $_name = [
-        'categoryName'     => 'CategoryName',
-        'categoryType'     => 'CategoryType',
+        'categoryName' => 'CategoryName',
+        'categoryType' => 'CategoryType',
         'parentCategoryId' => 'ParentCategoryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

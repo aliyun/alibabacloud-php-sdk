@@ -68,23 +68,21 @@ class ragConfig extends Model
      */
     public $topK;
     protected $_name = [
-        'answerScope'           => 'answerScope',
-        'enableCitation'        => 'enableCitation',
-        'enableSearch'          => 'enableSearch',
-        'enableWebSearch'       => 'enableWebSearch',
-        'fixedReplyDetail'      => 'fixedReplyDetail',
+        'answerScope' => 'answerScope',
+        'enableCitation' => 'enableCitation',
+        'enableSearch' => 'enableSearch',
+        'enableWebSearch' => 'enableWebSearch',
+        'fixedReplyDetail' => 'fixedReplyDetail',
         'knowledgeBaseCodeList' => 'knowledgeBaseCodeList',
-        'promptStrategy'        => 'promptStrategy',
-        'ragRejectType'         => 'ragRejectType',
-        'rejectFilterPrompt'    => 'rejectFilterPrompt',
-        'rejectFilterType'      => 'rejectFilterType',
-        'retrieveMaxLength'     => 'retrieveMaxLength',
-        'topK'                  => 'topK',
+        'promptStrategy' => 'promptStrategy',
+        'ragRejectType' => 'ragRejectType',
+        'rejectFilterPrompt' => 'rejectFilterPrompt',
+        'rejectFilterType' => 'rejectFilterType',
+        'retrieveMaxLength' => 'retrieveMaxLength',
+        'topK' => 'topK',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

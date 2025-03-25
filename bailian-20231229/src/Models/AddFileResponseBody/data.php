@@ -32,9 +32,7 @@ class data extends Model
         'parser' => 'Parser',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

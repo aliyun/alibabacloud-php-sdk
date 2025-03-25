@@ -38,17 +38,15 @@ class metaExtractColumns extends Model
      */
     public $value;
     protected $_name = [
-        'desc'         => 'Desc',
-        'enableLlm'    => 'EnableLlm',
+        'desc' => 'Desc',
+        'enableLlm' => 'EnableLlm',
         'enableSearch' => 'EnableSearch',
-        'key'          => 'Key',
-        'type'         => 'Type',
-        'value'        => 'Value',
+        'key' => 'Key',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

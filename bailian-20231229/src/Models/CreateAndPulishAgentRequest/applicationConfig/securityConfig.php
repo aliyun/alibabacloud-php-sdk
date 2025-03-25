@@ -16,9 +16,7 @@ class securityConfig extends Model
         'processingStrategy' => 'processingStrategy',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

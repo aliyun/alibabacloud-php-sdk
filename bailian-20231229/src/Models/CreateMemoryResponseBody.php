@@ -22,13 +22,11 @@ class CreateMemoryResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'memoryId'  => 'memoryId',
+        'memoryId' => 'memoryId',
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

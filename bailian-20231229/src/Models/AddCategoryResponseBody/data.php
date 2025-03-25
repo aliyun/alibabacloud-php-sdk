@@ -20,13 +20,11 @@ class data extends Model
      */
     public $categoryName;
     protected $_name = [
-        'categoryId'   => 'CategoryId',
+        'categoryId' => 'CategoryId',
         'categoryName' => 'CategoryName',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

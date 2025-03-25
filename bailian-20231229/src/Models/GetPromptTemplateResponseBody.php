@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetPromptTemplateResponseBody extends Model
 {
     /**
+     * @description The template content.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The template name.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The template ID.
+     *
      * @example 6e49109bfeb94a39bb268f4e483ccxxx
      *
      * @var string
@@ -26,6 +32,8 @@ class GetPromptTemplateResponseBody extends Model
     public $promptTemplateId;
 
     /**
+     * @description The request ID.
+     *
      * @example 8C56C7AF-6573-19CE-B018-E05E1EDCF4C5
      *
      * @var string
@@ -33,6 +41,8 @@ class GetPromptTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The variables of the template.
+     *
      * @example ["theme"]
      *
      * @var string[]
@@ -40,23 +50,23 @@ class GetPromptTemplateResponseBody extends Model
     public $variables;
 
     /**
+     * @description The workspace ID.
+     *
      * @example llm-us9hjmt32nysdxxx
      *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'content'          => 'content',
-        'name'             => 'name',
+        'content' => 'content',
+        'name' => 'name',
         'promptTemplateId' => 'promptTemplateId',
-        'requestId'        => 'requestId',
-        'variables'        => 'variables',
-        'workspaceId'      => 'workspaceId',
+        'requestId' => 'requestId',
+        'variables' => 'variables',
+        'workspaceId' => 'workspaceId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

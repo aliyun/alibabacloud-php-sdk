@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPromptTemplatesRequest extends Model
 {
     /**
+     * @description The maximum number of returned entries.
+     *
      * @example 10
      *
      * @var int
@@ -16,11 +18,15 @@ class ListPromptTemplatesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The keyword that is used to search for templates.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The token that determines the start position of the query. Set this parameter to the value of the NextToken parameter that is returned from the last call.
+     *
      * @example dc270401186b433f975d7e1faaa34e0e
      *
      * @var string
@@ -28,6 +34,8 @@ class ListPromptTemplatesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The type of the template. Valid values: · System · Custom
+     *
      * @example System
      *
      * @var string
@@ -35,14 +43,12 @@ class ListPromptTemplatesRequest extends Model
     public $type;
     protected $_name = [
         'maxResults' => 'maxResults',
-        'name'       => 'name',
-        'nextToken'  => 'nextToken',
-        'type'       => 'type',
+        'name' => 'name',
+        'nextToken' => 'nextToken',
+        'type' => 'type',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

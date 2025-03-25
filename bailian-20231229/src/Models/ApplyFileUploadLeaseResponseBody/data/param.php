@@ -13,6 +13,7 @@ class param extends Model
      *
      * @example "X-bailian-extra": "MTAwNTQyNjQ5NTE2OTE3OA==",
      * "Content-Type": "application/pdf"
+     *
      * @var mixed
      */
     public $headers;
@@ -39,13 +40,11 @@ class param extends Model
     public $url;
     protected $_name = [
         'headers' => 'Headers',
-        'method'  => 'Method',
-        'url'     => 'Url',
+        'method' => 'Method',
+        'url' => 'Url',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

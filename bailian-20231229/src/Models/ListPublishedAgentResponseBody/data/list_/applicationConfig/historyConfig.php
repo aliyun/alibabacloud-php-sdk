@@ -34,15 +34,13 @@ class historyConfig extends Model
     public $storeCode;
     protected $_name = [
         'enableAdbRecord' => 'enableAdbRecord',
-        'enableRecord'    => 'enableRecord',
-        'instanceId'      => 'instanceId',
-        'region'          => 'region',
-        'storeCode'       => 'storeCode',
+        'enableRecord' => 'enableRecord',
+        'instanceId' => 'instanceId',
+        'region' => 'region',
+        'storeCode' => 'storeCode',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

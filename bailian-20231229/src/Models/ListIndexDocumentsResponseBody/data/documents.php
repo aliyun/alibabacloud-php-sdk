@@ -27,6 +27,11 @@ class documents extends Model
     public $documentType;
 
     /**
+     * @var int
+     */
+    public $gmtModified;
+
+    /**
      * @description The primary key ID of the document.
      *
      * @example doc_c134aa2073204a5d936d870bf960f56a10024701
@@ -64,6 +69,7 @@ class documents extends Model
      * @description For unstructured knowledge base, this parameter is the category ID. To view the category ID, you can click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
      *
      * For structured knowledge base, this parameter is the data table ID. To view the table ID, you can click the ID icon next to the table name on the Structured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page.
+     *
      * @example cate_21a407a3372c4ba7aedc649709143f0c10021401
      *
      * @var string
@@ -84,19 +90,18 @@ class documents extends Model
      */
     public $status;
     protected $_name = [
-        'code'         => 'Code',
+        'code' => 'Code',
         'documentType' => 'DocumentType',
-        'id'           => 'Id',
-        'message'      => 'Message',
-        'name'         => 'Name',
-        'size'         => 'Size',
-        'sourceId'     => 'SourceId',
-        'status'       => 'Status',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'message' => 'Message',
+        'name' => 'Name',
+        'size' => 'Size',
+        'sourceId' => 'SourceId',
+        'status' => 'Status',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -106,6 +111,9 @@ class documents extends Model
         }
         if (null !== $this->documentType) {
             $res['DocumentType'] = $this->documentType;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -142,6 +150,9 @@ class documents extends Model
         }
         if (isset($map['DocumentType'])) {
             $model->documentType = $map['DocumentType'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

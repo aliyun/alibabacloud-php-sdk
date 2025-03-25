@@ -42,16 +42,14 @@ class ListMemoryNodesResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'  => 'maxResults',
+        'maxResults' => 'maxResults',
         'memoryNodes' => 'memoryNodes',
-        'nextToken'   => 'nextToken',
-        'requestId'   => 'requestId',
-        'totalCount'  => 'totalCount',
+        'nextToken' => 'nextToken',
+        'requestId' => 'requestId',
+        'totalCount' => 'totalCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -95,7 +93,7 @@ class ListMemoryNodesResponseBody extends Model
         if (isset($map['memoryNodes'])) {
             if (!empty($map['memoryNodes'])) {
                 $model->memoryNodes = [];
-                $n                  = 0;
+                $n = 0;
                 foreach ($map['memoryNodes'] as $item) {
                     $model->memoryNodes[$n++] = null !== $item ? memoryNodes::fromMap($item) : $item;
                 }

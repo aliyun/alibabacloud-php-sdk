@@ -38,15 +38,13 @@ class ListCategoryRequest extends Model
      */
     public $parentCategoryId;
     protected $_name = [
-        'categoryType'     => 'CategoryType',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
+        'categoryType' => 'CategoryType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'parentCategoryId' => 'ParentCategoryId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

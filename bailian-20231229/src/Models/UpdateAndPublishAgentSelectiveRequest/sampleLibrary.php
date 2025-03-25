@@ -23,14 +23,12 @@ class sampleLibrary extends Model
      */
     public $topK;
     protected $_name = [
-        'enableSample'        => 'enableSample',
+        'enableSample' => 'enableSample',
         'sampleLibraryIdList' => 'sampleLibraryIdList',
-        'topK'                => 'topK',
+        'topK' => 'topK',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

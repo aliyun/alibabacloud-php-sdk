@@ -69,20 +69,18 @@ class fileList extends Model
      */
     public $tags;
     protected $_name = [
-        'categoryId'  => 'CategoryId',
-        'createTime'  => 'CreateTime',
-        'fileId'      => 'FileId',
-        'fileName'    => 'FileName',
-        'fileType'    => 'FileType',
-        'parser'      => 'Parser',
+        'categoryId' => 'CategoryId',
+        'createTime' => 'CreateTime',
+        'fileId' => 'FileId',
+        'fileName' => 'FileName',
+        'fileType' => 'FileType',
+        'parser' => 'Parser',
         'sizeInBytes' => 'SizeInBytes',
-        'status'      => 'Status',
-        'tags'        => 'Tags',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -12,6 +12,7 @@ class ListIndicesRequest extends Model
      * @description The name of the knowledge base. You can query knowledge base by name. The name must be 1 to 20 characters in length and can contain characters classified as letter in Unicode, including English letters, Chinese characters, digits, among others. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * This parameter is left empty by default, which means that all knowledge bases in the specified workspace are queried.
+     *
      * @example idx_status_score
      *
      * @var string
@@ -36,14 +37,12 @@ class ListIndicesRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'indexName'  => 'IndexName',
+        'indexName' => 'IndexName',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

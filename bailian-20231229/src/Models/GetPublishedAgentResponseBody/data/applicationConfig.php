@@ -50,18 +50,16 @@ class applicationConfig extends Model
      */
     public $workFlows;
     protected $_name = [
-        'historyConfig'  => 'historyConfig',
+        'historyConfig' => 'historyConfig',
         'longTermMemory' => 'longTermMemory',
-        'parameters'     => 'parameters',
-        'ragConfig'      => 'ragConfig',
-        'security'       => 'security',
-        'tools'          => 'tools',
-        'workFlows'      => 'workFlows',
+        'parameters' => 'parameters',
+        'ragConfig' => 'ragConfig',
+        'security' => 'security',
+        'tools' => 'tools',
+        'workFlows' => 'workFlows',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -129,7 +127,7 @@ class applicationConfig extends Model
         if (isset($map['tools'])) {
             if (!empty($map['tools'])) {
                 $model->tools = [];
-                $n            = 0;
+                $n = 0;
                 foreach ($map['tools'] as $item) {
                     $model->tools[$n++] = null !== $item ? tools::fromMap($item) : $item;
                 }
@@ -138,7 +136,7 @@ class applicationConfig extends Model
         if (isset($map['workFlows'])) {
             if (!empty($map['workFlows'])) {
                 $model->workFlows = [];
-                $n                = 0;
+                $n = 0;
                 foreach ($map['workFlows'] as $item) {
                     $model->workFlows[$n++] = null !== $item ? workFlows::fromMap($item) : $item;
                 }

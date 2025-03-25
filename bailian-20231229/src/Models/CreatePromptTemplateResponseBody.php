@@ -23,12 +23,10 @@ class CreatePromptTemplateResponseBody extends Model
     public $requestId;
     protected $_name = [
         'promptTemplateId' => 'promptTemplateId',
-        'requestId'        => 'requestId',
+        'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
