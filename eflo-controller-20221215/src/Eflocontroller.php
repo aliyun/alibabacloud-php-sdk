@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ApproveOperationRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ApproveOperationResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeResourceGroupRequest;
@@ -100,11 +99,10 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UpdateNodeGroupRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UpdateNodeGroupResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Eflocontroller extends OpenApiClient
 {
@@ -129,36 +127,44 @@ class Eflocontroller extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Approve Operation
-     *  *
-     * @param ApproveOperationRequest $request ApproveOperationRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Approve Operation.
      *
-     * @return ApproveOperationResponse ApproveOperationResponse
+     * @param request - ApproveOperationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApproveOperationResponse
+     *
+     * @param ApproveOperationRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ApproveOperationResponse
      */
     public function approveOperationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['NodeId'] = $request->nodeId;
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->operationType)) {
-            $body['OperationType'] = $request->operationType;
+
+        if (null !== $request->operationType) {
+            @$body['OperationType'] = $request->operationType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ApproveOperation',
@@ -171,7 +177,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ApproveOperationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -179,11 +185,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Approve Operation
-     *  *
-     * @param ApproveOperationRequest $request ApproveOperationRequest
+     * Approve Operation.
      *
-     * @return ApproveOperationResponse ApproveOperationResponse
+     * @param request - ApproveOperationRequest
+     *
+     * @returns ApproveOperationResponse
+     *
+     * @param ApproveOperationRequest $request
+     *
+     * @return ApproveOperationResponse
      */
     public function approveOperation($request)
     {
@@ -193,31 +203,40 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Target Resource Group
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Target Resource Group.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            $query['ResourceRegionId'] = $request->resourceRegionId;
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ChangeResourceGroup',
@@ -230,7 +249,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -238,11 +257,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Target Resource Group
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * Target Resource Group.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -252,27 +275,35 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Disconnect Connection
-     *  *
-     * @description An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
-     *  *
-     * @param CloseSessionRequest $request CloseSessionRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Disconnect Connection.
      *
-     * @return CloseSessionResponse CloseSessionResponse
+     * @remarks
+     * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
+     *
+     * @param request - CloseSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseSessionResponse
+     *
+     * @param CloseSessionRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CloseSessionResponse
      */
     public function closeSessionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['SessionId'] = $request->sessionId;
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->sessionToken)) {
-            $body['SessionToken'] = $request->sessionToken;
+
+        if (null !== $request->sessionToken) {
+            @$body['SessionToken'] = $request->sessionToken;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CloseSession',
@@ -285,7 +316,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CloseSessionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -293,13 +324,18 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Disconnect Connection
-     *  *
-     * @description An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
-     *  *
-     * @param CloseSessionRequest $request CloseSessionRequest
+     * Disconnect Connection.
      *
-     * @return CloseSessionResponse CloseSessionResponse
+     * @remarks
+     * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
+     *
+     * @param request - CloseSessionRequest
+     *
+     * @returns CloseSessionResponse
+     *
+     * @param CloseSessionRequest $request
+     *
+     * @return CloseSessionResponse
      */
     public function closeSession($request)
     {
@@ -309,71 +345,92 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Create a large-scale computing cluster
-     *  *
-     * @param CreateClusterRequest $tmpReq  CreateClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Create a large-scale computing cluster.
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @param tmpReq - CreateClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateClusterResponse
+     *
+     * @param CreateClusterRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateClusterResponse
      */
     public function createClusterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateClusterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->components)) {
-            $request->componentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->components, 'Components', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->components) {
+            $request->componentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->components, 'Components', 'json');
         }
-        if (!Utils::isUnset($tmpReq->networks)) {
-            $request->networksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->networks, 'Networks', 'json');
+
+        if (null !== $tmpReq->networks) {
+            $request->networksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->networks, 'Networks', 'json');
         }
-        if (!Utils::isUnset($tmpReq->nimizVSwitches)) {
-            $request->nimizVSwitchesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nimizVSwitches, 'NimizVSwitches', 'json');
+
+        if (null !== $tmpReq->nimizVSwitches) {
+            $request->nimizVSwitchesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nimizVSwitches, 'NimizVSwitches', 'json');
         }
-        if (!Utils::isUnset($tmpReq->nodeGroups)) {
-            $request->nodeGroupsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeGroups, 'NodeGroups', 'json');
+
+        if (null !== $tmpReq->nodeGroups) {
+            $request->nodeGroupsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeGroups, 'NodeGroups', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clusterDescription)) {
-            $body['ClusterDescription'] = $request->clusterDescription;
+        if (null !== $request->clusterDescription) {
+            @$body['ClusterDescription'] = $request->clusterDescription;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $body['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$body['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->clusterType)) {
-            $body['ClusterType'] = $request->clusterType;
+
+        if (null !== $request->clusterType) {
+            @$body['ClusterType'] = $request->clusterType;
         }
-        if (!Utils::isUnset($request->componentsShrink)) {
-            $body['Components'] = $request->componentsShrink;
+
+        if (null !== $request->componentsShrink) {
+            @$body['Components'] = $request->componentsShrink;
         }
-        if (!Utils::isUnset($request->hpnZone)) {
-            $body['HpnZone'] = $request->hpnZone;
+
+        if (null !== $request->hpnZone) {
+            @$body['HpnZone'] = $request->hpnZone;
         }
-        if (!Utils::isUnset($request->ignoreFailedNodeTasks)) {
-            $body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
+
+        if (null !== $request->ignoreFailedNodeTasks) {
+            @$body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
         }
-        if (!Utils::isUnset($request->networksShrink)) {
-            $body['Networks'] = $request->networksShrink;
+
+        if (null !== $request->networksShrink) {
+            @$body['Networks'] = $request->networksShrink;
         }
-        if (!Utils::isUnset($request->nimizVSwitchesShrink)) {
-            $body['NimizVSwitches'] = $request->nimizVSwitchesShrink;
+
+        if (null !== $request->nimizVSwitchesShrink) {
+            @$body['NimizVSwitches'] = $request->nimizVSwitchesShrink;
         }
-        if (!Utils::isUnset($request->nodeGroupsShrink)) {
-            $body['NodeGroups'] = $request->nodeGroupsShrink;
+
+        if (null !== $request->nodeGroupsShrink) {
+            @$body['NodeGroups'] = $request->nodeGroupsShrink;
         }
-        if (!Utils::isUnset($request->openEniJumboFrame)) {
-            $body['OpenEniJumboFrame'] = $request->openEniJumboFrame;
+
+        if (null !== $request->openEniJumboFrame) {
+            @$body['OpenEniJumboFrame'] = $request->openEniJumboFrame;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateCluster',
@@ -386,7 +443,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -394,11 +451,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Create a large-scale computing cluster
-     *  *
-     * @param CreateClusterRequest $request CreateClusterRequest
+     * Create a large-scale computing cluster.
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @param request - CreateClusterRequest
+     *
+     * @returns CreateClusterResponse
+     *
+     * @param CreateClusterRequest $request
+     *
+     * @return CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -408,39 +469,50 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Diagnostic Task Creation Interface
-     *  *
-     * @param CreateDiagnosticTaskRequest $tmpReq  CreateDiagnosticTaskRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Diagnostic Task Creation Interface.
      *
-     * @return CreateDiagnosticTaskResponse CreateDiagnosticTaskResponse
+     * @param tmpReq - CreateDiagnosticTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDiagnosticTaskResponse
+     *
+     * @param CreateDiagnosticTaskRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDiagnosticTaskResponse
      */
     public function createDiagnosticTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDiagnosticTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->aiJobLogInfo)) {
-            $request->aiJobLogInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aiJobLogInfo, 'AiJobLogInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->aiJobLogInfo) {
+            $request->aiJobLogInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->aiJobLogInfo, 'AiJobLogInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->nodeIds)) {
-            $request->nodeIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeIds, 'NodeIds', 'simple');
+
+        if (null !== $tmpReq->nodeIds) {
+            $request->nodeIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeIds, 'NodeIds', 'simple');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->aiJobLogInfoShrink)) {
-            $body['AiJobLogInfo'] = $request->aiJobLogInfoShrink;
+        if (null !== $request->aiJobLogInfoShrink) {
+            @$body['AiJobLogInfo'] = $request->aiJobLogInfoShrink;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->diagnosticType)) {
-            $body['DiagnosticType'] = $request->diagnosticType;
+
+        if (null !== $request->diagnosticType) {
+            @$body['DiagnosticType'] = $request->diagnosticType;
         }
-        if (!Utils::isUnset($request->nodeIdsShrink)) {
-            $body['NodeIds'] = $request->nodeIdsShrink;
+
+        if (null !== $request->nodeIdsShrink) {
+            @$body['NodeIds'] = $request->nodeIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDiagnosticTask',
@@ -453,7 +525,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDiagnosticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -461,11 +533,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Diagnostic Task Creation Interface
-     *  *
-     * @param CreateDiagnosticTaskRequest $request CreateDiagnosticTaskRequest
+     * Diagnostic Task Creation Interface.
      *
-     * @return CreateDiagnosticTaskResponse CreateDiagnosticTaskResponse
+     * @param request - CreateDiagnosticTaskRequest
+     *
+     * @returns CreateDiagnosticTaskResponse
+     *
+     * @param CreateDiagnosticTaskRequest $request
+     *
+     * @return CreateDiagnosticTaskResponse
      */
     public function createDiagnosticTask($request)
     {
@@ -475,56 +551,73 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Create Network Test Task
-     *  *
-     * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
-     *  *
-     * @param CreateNetTestTaskRequest $tmpReq  CreateNetTestTaskRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Create Network Test Task.
      *
-     * @return CreateNetTestTaskResponse CreateNetTestTaskResponse
+     * @remarks
+     * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+     *
+     * @param tmpReq - CreateNetTestTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNetTestTaskResponse
+     *
+     * @param CreateNetTestTaskRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateNetTestTaskResponse
      */
     public function createNetTestTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateNetTestTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->commTest)) {
-            $request->commTestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commTest, 'CommTest', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->commTest) {
+            $request->commTestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->commTest, 'CommTest', 'json');
         }
-        if (!Utils::isUnset($tmpReq->delayTest)) {
-            $request->delayTestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->delayTest, 'DelayTest', 'json');
+
+        if (null !== $tmpReq->delayTest) {
+            $request->delayTestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->delayTest, 'DelayTest', 'json');
         }
-        if (!Utils::isUnset($tmpReq->trafficTest)) {
-            $request->trafficTestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->trafficTest, 'TrafficTest', 'json');
+
+        if (null !== $tmpReq->trafficTest) {
+            $request->trafficTestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->trafficTest, 'TrafficTest', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $body['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$body['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->commTestShrink)) {
-            $body['CommTest'] = $request->commTestShrink;
+
+        if (null !== $request->commTestShrink) {
+            @$body['CommTest'] = $request->commTestShrink;
         }
-        if (!Utils::isUnset($request->delayTestShrink)) {
-            $body['DelayTest'] = $request->delayTestShrink;
+
+        if (null !== $request->delayTestShrink) {
+            @$body['DelayTest'] = $request->delayTestShrink;
         }
-        if (!Utils::isUnset($request->netTestType)) {
-            $body['NetTestType'] = $request->netTestType;
+
+        if (null !== $request->netTestType) {
+            @$body['NetTestType'] = $request->netTestType;
         }
-        if (!Utils::isUnset($request->networkMode)) {
-            $body['NetworkMode'] = $request->networkMode;
+
+        if (null !== $request->networkMode) {
+            @$body['NetworkMode'] = $request->networkMode;
         }
-        if (!Utils::isUnset($request->port)) {
-            $body['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$body['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->trafficTestShrink)) {
-            $body['TrafficTest'] = $request->trafficTestShrink;
+
+        if (null !== $request->trafficTestShrink) {
+            @$body['TrafficTest'] = $request->trafficTestShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateNetTestTask',
@@ -537,7 +630,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateNetTestTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -545,13 +638,18 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Create Network Test Task
-     *  *
-     * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
-     *  *
-     * @param CreateNetTestTaskRequest $request CreateNetTestTaskRequest
+     * Create Network Test Task.
      *
-     * @return CreateNetTestTaskResponse CreateNetTestTaskResponse
+     * @remarks
+     * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+     *
+     * @param request - CreateNetTestTaskRequest
+     *
+     * @returns CreateNetTestTaskResponse
+     *
+     * @param CreateNetTestTaskRequest $request
+     *
+     * @return CreateNetTestTaskResponse
      */
     public function createNetTestTask($request)
     {
@@ -561,36 +659,46 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 创建集群下的节点分组
-     *  *
-     * @param CreateNodeGroupRequest $tmpReq  CreateNodeGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建集群下的节点分组.
      *
-     * @return CreateNodeGroupResponse CreateNodeGroupResponse
+     * @param tmpReq - CreateNodeGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNodeGroupResponse
+     *
+     * @param CreateNodeGroupRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateNodeGroupResponse
      */
     public function createNodeGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateNodeGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->nodeGroup)) {
-            $request->nodeGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeGroup, 'NodeGroup', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeGroup) {
+            $request->nodeGroupShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeGroup, 'NodeGroup', 'json');
         }
-        if (!Utils::isUnset($tmpReq->nodeUnit)) {
-            $request->nodeUnitShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeUnit, 'NodeUnit', 'json');
+
+        if (null !== $tmpReq->nodeUnit) {
+            $request->nodeUnitShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeUnit, 'NodeUnit', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->nodeGroupShrink)) {
-            $body['NodeGroup'] = $request->nodeGroupShrink;
+
+        if (null !== $request->nodeGroupShrink) {
+            @$body['NodeGroup'] = $request->nodeGroupShrink;
         }
-        if (!Utils::isUnset($request->nodeUnitShrink)) {
-            $body['NodeUnit'] = $request->nodeUnitShrink;
+
+        if (null !== $request->nodeUnitShrink) {
+            @$body['NodeUnit'] = $request->nodeUnitShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateNodeGroup',
@@ -603,7 +711,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateNodeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -611,11 +719,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 创建集群下的节点分组
-     *  *
-     * @param CreateNodeGroupRequest $request CreateNodeGroupRequest
+     * 创建集群下的节点分组.
      *
-     * @return CreateNodeGroupResponse CreateNodeGroupResponse
+     * @param request - CreateNodeGroupRequest
+     *
+     * @returns CreateNodeGroupResponse
+     *
+     * @param CreateNodeGroupRequest $request
+     *
+     * @return CreateNodeGroupResponse
      */
     public function createNodeGroup($request)
     {
@@ -625,30 +737,39 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Create Web Terminal Session
-     *  *
-     * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
-     *  *
-     * @param CreateSessionRequest $request CreateSessionRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Create Web Terminal Session.
      *
-     * @return CreateSessionResponse CreateSessionResponse
+     * @remarks
+     * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+     *
+     * @param request - CreateSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSessionResponse
+     *
+     * @param CreateSessionRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateSessionResponse
      */
     public function createSessionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['NodeId'] = $request->nodeId;
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->sessionType)) {
-            $body['SessionType'] = $request->sessionType;
+
+        if (null !== $request->sessionType) {
+            @$body['SessionType'] = $request->sessionType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateSession',
@@ -661,7 +782,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSessionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -669,13 +790,18 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Create Web Terminal Session
-     *  *
-     * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
-     *  *
-     * @param CreateSessionRequest $request CreateSessionRequest
+     * Create Web Terminal Session.
      *
-     * @return CreateSessionResponse CreateSessionResponse
+     * @remarks
+     * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+     *
+     * @param request - CreateSessionRequest
+     *
+     * @returns CreateSessionResponse
+     *
+     * @param CreateSessionRequest $request
+     *
+     * @return CreateSessionResponse
      */
     public function createSession($request)
     {
@@ -685,22 +811,28 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Delete cluster instance
-     *  *
-     * @param DeleteClusterRequest $request DeleteClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Delete cluster instance.
      *
-     * @return DeleteClusterResponse DeleteClusterResponse
+     * @param request - DeleteClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteClusterResponse
+     *
+     * @param DeleteClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteClusterResponse
      */
     public function deleteClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteCluster',
@@ -713,7 +845,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -721,11 +853,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Delete cluster instance
-     *  *
-     * @param DeleteClusterRequest $request DeleteClusterRequest
+     * Delete cluster instance.
      *
-     * @return DeleteClusterResponse DeleteClusterResponse
+     * @param request - DeleteClusterRequest
+     *
+     * @returns DeleteClusterResponse
+     *
+     * @param DeleteClusterRequest $request
+     *
+     * @return DeleteClusterResponse
      */
     public function deleteCluster($request)
     {
@@ -735,25 +871,32 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 删除节点分组
-     *  *
-     * @param DeleteNodeGroupRequest $request DeleteNodeGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除节点分组.
      *
-     * @return DeleteNodeGroupResponse DeleteNodeGroupResponse
+     * @param request - DeleteNodeGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNodeGroupResponse
+     *
+     * @param DeleteNodeGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteNodeGroupResponse
      */
     public function deleteNodeGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->nodeGroupId)) {
-            $body['NodeGroupId'] = $request->nodeGroupId;
+
+        if (null !== $request->nodeGroupId) {
+            @$body['NodeGroupId'] = $request->nodeGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteNodeGroup',
@@ -766,7 +909,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteNodeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -774,11 +917,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 删除节点分组
-     *  *
-     * @param DeleteNodeGroupRequest $request DeleteNodeGroupRequest
+     * 删除节点分组.
      *
-     * @return DeleteNodeGroupResponse DeleteNodeGroupResponse
+     * @param request - DeleteNodeGroupRequest
+     *
+     * @returns DeleteNodeGroupResponse
+     *
+     * @param DeleteNodeGroupRequest $request
+     *
+     * @return DeleteNodeGroupResponse
      */
     public function deleteNodeGroup($request)
     {
@@ -788,22 +935,28 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Cluster Details
-     *  *
-     * @param DescribeClusterRequest $request DescribeClusterRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Cluster Details.
      *
-     * @return DescribeClusterResponse DescribeClusterResponse
+     * @param request - DescribeClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeClusterResponse
+     *
+     * @param DescribeClusterRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeClusterResponse
      */
     public function describeClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeCluster',
@@ -816,7 +969,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -824,11 +977,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Cluster Details
-     *  *
-     * @param DescribeClusterRequest $request DescribeClusterRequest
+     * Cluster Details.
      *
-     * @return DescribeClusterResponse DescribeClusterResponse
+     * @param request - DescribeClusterRequest
+     *
+     * @returns DescribeClusterResponse
+     *
+     * @param DescribeClusterRequest $request
+     *
+     * @return DescribeClusterResponse
      */
     public function describeCluster($request)
     {
@@ -838,22 +995,28 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 诊断任务查询接口
-     *  *
-     * @param DescribeDiagnosticResultRequest $request DescribeDiagnosticResultRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 诊断任务查询接口.
      *
-     * @return DescribeDiagnosticResultResponse DescribeDiagnosticResultResponse
+     * @param request - DescribeDiagnosticResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDiagnosticResultResponse
+     *
+     * @param DescribeDiagnosticResultRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDiagnosticResultResponse
      */
     public function describeDiagnosticResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->diagnosticId)) {
-            $body['DiagnosticId'] = $request->diagnosticId;
+        if (null !== $request->diagnosticId) {
+            @$body['DiagnosticId'] = $request->diagnosticId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeDiagnosticResult',
@@ -866,7 +1029,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDiagnosticResultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -874,11 +1037,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 诊断任务查询接口
-     *  *
-     * @param DescribeDiagnosticResultRequest $request DescribeDiagnosticResultRequest
+     * 诊断任务查询接口.
      *
-     * @return DescribeDiagnosticResultResponse DescribeDiagnosticResultResponse
+     * @param request - DescribeDiagnosticResultRequest
+     *
+     * @returns DescribeDiagnosticResultResponse
+     *
+     * @param DescribeDiagnosticResultRequest $request
+     *
+     * @return DescribeDiagnosticResultResponse
      */
     public function describeDiagnosticResult($request)
     {
@@ -888,31 +1055,40 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query the list and status of operations assistant command executions
-     *  *
-     * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Query the list and status of operations assistant command executions.
      *
-     * @return DescribeInvocationsResponse DescribeInvocationsResponse
+     * @param request - DescribeInvocationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInvocationsResponse
+     *
+     * @param DescribeInvocationsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeInvocationsResponse
      */
     public function describeInvocationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->contentEncoding)) {
-            $body['ContentEncoding'] = $request->contentEncoding;
+        if (null !== $request->contentEncoding) {
+            @$body['ContentEncoding'] = $request->contentEncoding;
         }
-        if (!Utils::isUnset($request->includeOutput)) {
-            $body['IncludeOutput'] = $request->includeOutput;
+
+        if (null !== $request->includeOutput) {
+            @$body['IncludeOutput'] = $request->includeOutput;
         }
-        if (!Utils::isUnset($request->invokeId)) {
-            $body['InvokeId'] = $request->invokeId;
+
+        if (null !== $request->invokeId) {
+            @$body['InvokeId'] = $request->invokeId;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeInvocations',
@@ -925,7 +1101,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -933,11 +1109,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query the list and status of operations assistant command executions
-     *  *
-     * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
+     * Query the list and status of operations assistant command executions.
      *
-     * @return DescribeInvocationsResponse DescribeInvocationsResponse
+     * @param request - DescribeInvocationsRequest
+     *
+     * @returns DescribeInvocationsResponse
+     *
+     * @param DescribeInvocationsRequest $request
+     *
+     * @return DescribeInvocationsResponse
      */
     public function describeInvocations($request)
     {
@@ -947,24 +1127,31 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query Network Test Result
-     *  *
-     * @description An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
-     *  *
-     * @param DescribeNetTestResultRequest $request DescribeNetTestResultRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Query Network Test Result.
      *
-     * @return DescribeNetTestResultResponse DescribeNetTestResultResponse
+     * @remarks
+     * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
+     *
+     * @param request - DescribeNetTestResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNetTestResultResponse
+     *
+     * @param DescribeNetTestResultRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeNetTestResultResponse
      */
     public function describeNetTestResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->testId)) {
-            $body['TestId'] = $request->testId;
+        if (null !== $request->testId) {
+            @$body['TestId'] = $request->testId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeNetTestResult',
@@ -977,7 +1164,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeNetTestResultResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -985,13 +1172,18 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query Network Test Result
-     *  *
-     * @description An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
-     *  *
-     * @param DescribeNetTestResultRequest $request DescribeNetTestResultRequest
+     * Query Network Test Result.
      *
-     * @return DescribeNetTestResultResponse DescribeNetTestResultResponse
+     * @remarks
+     * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
+     *
+     * @param request - DescribeNetTestResultRequest
+     *
+     * @returns DescribeNetTestResultResponse
+     *
+     * @param DescribeNetTestResultRequest $request
+     *
+     * @return DescribeNetTestResultResponse
      */
     public function describeNetTestResult($request)
     {
@@ -1001,22 +1193,28 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query node list
-     *  *
-     * @param DescribeNodeRequest $request DescribeNodeRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Query node list.
      *
-     * @return DescribeNodeResponse DescribeNodeResponse
+     * @param request - DescribeNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNodeResponse
+     *
+     * @param DescribeNodeRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeNodeResponse
      */
     public function describeNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['NodeId'] = $request->nodeId;
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeNode',
@@ -1029,7 +1227,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeNodeResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1037,11 +1235,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query node list
-     *  *
-     * @param DescribeNodeRequest $request DescribeNodeRequest
+     * Query node list.
      *
-     * @return DescribeNodeResponse DescribeNodeResponse
+     * @param request - DescribeNodeRequest
+     *
+     * @returns DescribeNodeResponse
+     *
+     * @param DescribeNodeRequest $request
+     *
+     * @return DescribeNodeResponse
      */
     public function describeNode($request)
     {
@@ -1051,22 +1253,28 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Region List
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Region List.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $body['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeRegions',
@@ -1079,7 +1287,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1087,11 +1295,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Region List
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Region List.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1101,25 +1313,32 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query the list and status of files sent by the operation assistant
-     *  *
-     * @param DescribeSendFileResultsRequest $request DescribeSendFileResultsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Query the list and status of files sent by the operation assistant.
      *
-     * @return DescribeSendFileResultsResponse DescribeSendFileResultsResponse
+     * @param request - DescribeSendFileResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSendFileResultsResponse
+     *
+     * @param DescribeSendFileResultsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSendFileResultsResponse
      */
     public function describeSendFileResultsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->invokeId)) {
-            $body['InvokeId'] = $request->invokeId;
+        if (null !== $request->invokeId) {
+            @$body['InvokeId'] = $request->invokeId;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeSendFileResults',
@@ -1132,7 +1351,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSendFileResultsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1140,11 +1359,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query the list and status of files sent by the operation assistant
-     *  *
-     * @param DescribeSendFileResultsRequest $request DescribeSendFileResultsRequest
+     * Query the list and status of files sent by the operation assistant.
      *
-     * @return DescribeSendFileResultsResponse DescribeSendFileResultsResponse
+     * @param request - DescribeSendFileResultsRequest
+     *
+     * @returns DescribeSendFileResultsResponse
+     *
+     * @param DescribeSendFileResultsRequest $request
+     *
+     * @return DescribeSendFileResultsResponse
      */
     public function describeSendFileResults($request)
     {
@@ -1154,22 +1377,28 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query Task Details
-     *  *
-     * @param DescribeTaskRequest $request DescribeTaskRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Query Task Details.
      *
-     * @return DescribeTaskResponse DescribeTaskResponse
+     * @param request - DescribeTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTaskResponse
+     *
+     * @param DescribeTaskRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeTaskResponse
      */
     public function describeTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeTask',
@@ -1182,7 +1411,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1190,11 +1419,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query Task Details
-     *  *
-     * @param DescribeTaskRequest $request DescribeTaskRequest
+     * Query Task Details.
      *
-     * @return DescribeTaskResponse DescribeTaskResponse
+     * @param request - DescribeTaskRequest
+     *
+     * @returns DescribeTaskResponse
+     *
+     * @param DescribeTaskRequest $request
+     *
+     * @return DescribeTaskResponse
      */
     public function describeTask($request)
     {
@@ -1204,22 +1437,28 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary List of Available Zones
-     *  *
-     * @param DescribeZonesRequest $request DescribeZonesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * List of Available Zones.
      *
-     * @return DescribeZonesResponse DescribeZonesResponse
+     * @param request - DescribeZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $body['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$body['AcceptLanguage'] = $request->acceptLanguage;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeZones',
@@ -1232,7 +1471,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1240,11 +1479,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary List of Available Zones
-     *  *
-     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * List of Available Zones.
      *
-     * @return DescribeZonesResponse DescribeZonesResponse
+     * @param request - DescribeZonesRequest
+     *
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     *
+     * @return DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -1254,48 +1497,62 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Cluster Scaling
-     *  *
-     * @param ExtendClusterRequest $tmpReq  ExtendClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Cluster Scaling.
      *
-     * @return ExtendClusterResponse ExtendClusterResponse
+     * @param tmpReq - ExtendClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExtendClusterResponse
+     *
+     * @param ExtendClusterRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ExtendClusterResponse
      */
     public function extendClusterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ExtendClusterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ipAllocationPolicy)) {
-            $request->ipAllocationPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipAllocationPolicy, 'IpAllocationPolicy', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ipAllocationPolicy) {
+            $request->ipAllocationPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ipAllocationPolicy, 'IpAllocationPolicy', 'json');
         }
-        if (!Utils::isUnset($tmpReq->nodeGroups)) {
-            $request->nodeGroupsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeGroups, 'NodeGroups', 'json');
+
+        if (null !== $tmpReq->nodeGroups) {
+            $request->nodeGroupsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeGroups, 'NodeGroups', 'json');
         }
-        if (!Utils::isUnset($tmpReq->vpdSubnets)) {
-            $request->vpdSubnetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vpdSubnets, 'VpdSubnets', 'json');
+
+        if (null !== $tmpReq->vpdSubnets) {
+            $request->vpdSubnetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->vpdSubnets, 'VpdSubnets', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->ignoreFailedNodeTasks)) {
-            $body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
+
+        if (null !== $request->ignoreFailedNodeTasks) {
+            @$body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
         }
-        if (!Utils::isUnset($request->ipAllocationPolicyShrink)) {
-            $body['IpAllocationPolicy'] = $request->ipAllocationPolicyShrink;
+
+        if (null !== $request->ipAllocationPolicyShrink) {
+            @$body['IpAllocationPolicy'] = $request->ipAllocationPolicyShrink;
         }
-        if (!Utils::isUnset($request->nodeGroupsShrink)) {
-            $body['NodeGroups'] = $request->nodeGroupsShrink;
+
+        if (null !== $request->nodeGroupsShrink) {
+            @$body['NodeGroups'] = $request->nodeGroupsShrink;
         }
-        if (!Utils::isUnset($request->vSwitchZoneId)) {
-            $body['VSwitchZoneId'] = $request->vSwitchZoneId;
+
+        if (null !== $request->vSwitchZoneId) {
+            @$body['VSwitchZoneId'] = $request->vSwitchZoneId;
         }
-        if (!Utils::isUnset($request->vpdSubnetsShrink)) {
-            $body['VpdSubnets'] = $request->vpdSubnetsShrink;
+
+        if (null !== $request->vpdSubnetsShrink) {
+            @$body['VpdSubnets'] = $request->vpdSubnetsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExtendCluster',
@@ -1308,7 +1565,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExtendClusterResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1316,11 +1573,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Cluster Scaling
-     *  *
-     * @param ExtendClusterRequest $request ExtendClusterRequest
+     * Cluster Scaling.
      *
-     * @return ExtendClusterResponse ExtendClusterResponse
+     * @param request - ExtendClusterRequest
+     *
+     * @returns ExtendClusterResponse
+     *
+     * @param ExtendClusterRequest $request
+     *
+     * @return ExtendClusterResponse
      */
     public function extendCluster($request)
     {
@@ -1330,31 +1591,50 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary List of host groups under the cluster, and list of hosts under each group
-     *  *
-     * @param ListClusterNodesRequest $request ListClusterNodesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * List of host groups under the cluster, and list of hosts under each group.
      *
-     * @return ListClusterNodesResponse ListClusterNodesResponse
+     * @param request - ListClusterNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClusterNodesResponse
+     *
+     * @param ListClusterNodesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListClusterNodesResponse
      */
     public function listClusterNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->nodeGroupId)) {
-            $body['NodeGroupId'] = $request->nodeGroupId;
+
+        if (null !== $request->nodeGroupId) {
+            @$body['NodeGroupId'] = $request->nodeGroupId;
         }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListClusterNodes',
@@ -1367,7 +1647,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListClusterNodesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1375,11 +1655,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary List of host groups under the cluster, and list of hosts under each group
-     *  *
-     * @param ListClusterNodesRequest $request ListClusterNodesRequest
+     * List of host groups under the cluster, and list of hosts under each group.
      *
-     * @return ListClusterNodesResponse ListClusterNodesResponse
+     * @param request - ListClusterNodesRequest
+     *
+     * @returns ListClusterNodesResponse
+     *
+     * @param ListClusterNodesRequest $request
+     *
+     * @return ListClusterNodesResponse
      */
     public function listClusterNodes($request)
     {
@@ -1389,28 +1673,42 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Get the list of cluster instances
-     *  *
-     * @param ListClustersRequest $request ListClustersRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Get the list of cluster instances.
      *
-     * @return ListClustersResponse ListClustersResponse
+     * @param request - ListClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListClustersResponse
+     *
+     * @param ListClustersRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListClustersResponse
      */
     public function listClustersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListClusters',
@@ -1423,7 +1721,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1431,11 +1729,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Get the list of cluster instances
-     *  *
-     * @param ListClustersRequest $request ListClustersRequest
+     * Get the list of cluster instances.
      *
-     * @return ListClustersResponse ListClustersResponse
+     * @param request - ListClustersRequest
+     *
+     * @returns ListClustersResponse
+     *
+     * @param ListClustersRequest $request
+     *
+     * @return ListClustersResponse
      */
     public function listClusters($request)
     {
@@ -1445,33 +1747,43 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary List of Diagnostic Tasks
-     *  *
-     * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
-     *  *
-     * @param ListDiagnosticResultsRequest $request ListDiagnosticResultsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * List of Diagnostic Tasks.
      *
-     * @return ListDiagnosticResultsResponse ListDiagnosticResultsResponse
+     * @remarks
+     * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+     *
+     * @param request - ListDiagnosticResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDiagnosticResultsResponse
+     *
+     * @param ListDiagnosticResultsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDiagnosticResultsResponse
      */
     public function listDiagnosticResultsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->diagType)) {
-            $body['DiagType'] = $request->diagType;
+        if (null !== $request->diagType) {
+            @$body['DiagType'] = $request->diagType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListDiagnosticResults',
@@ -1484,7 +1796,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDiagnosticResultsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1492,13 +1804,18 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary List of Diagnostic Tasks
-     *  *
-     * @description An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
-     *  *
-     * @param ListDiagnosticResultsRequest $request ListDiagnosticResultsRequest
+     * List of Diagnostic Tasks.
      *
-     * @return ListDiagnosticResultsResponse ListDiagnosticResultsResponse
+     * @remarks
+     * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+     *
+     * @param request - ListDiagnosticResultsRequest
+     *
+     * @returns ListDiagnosticResultsResponse
+     *
+     * @param ListDiagnosticResultsRequest $request
+     *
+     * @return ListDiagnosticResultsResponse
      */
     public function listDiagnosticResults($request)
     {
@@ -1508,34 +1825,50 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary List of Available Physical Machines
-     *  *
-     * @param ListFreeNodesRequest $request ListFreeNodesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * List of Available Physical Machines.
      *
-     * @return ListFreeNodesResponse ListFreeNodesResponse
+     * @param request - ListFreeNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFreeNodesResponse
+     *
+     * @param ListFreeNodesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListFreeNodesResponse
      */
     public function listFreeNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->hpnZone)) {
-            $body['HpnZone'] = $request->hpnZone;
+        if (null !== $request->hpnZone) {
+            @$body['HpnZone'] = $request->hpnZone;
         }
-        if (!Utils::isUnset($request->machineType)) {
-            $body['MachineType'] = $request->machineType;
+
+        if (null !== $request->machineType) {
+            @$body['MachineType'] = $request->machineType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListFreeNodes',
@@ -1548,7 +1881,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFreeNodesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1556,11 +1889,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary List of Available Physical Machines
-     *  *
-     * @param ListFreeNodesRequest $request ListFreeNodesRequest
+     * List of Available Physical Machines.
      *
-     * @return ListFreeNodesResponse ListFreeNodesResponse
+     * @param request - ListFreeNodesRequest
+     *
+     * @returns ListFreeNodesResponse
+     *
+     * @param ListFreeNodesRequest $request
+     *
+     * @return ListFreeNodesResponse
      */
     public function listFreeNodes($request)
     {
@@ -1570,28 +1907,36 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query the list of images available to the user
-     *  *
-     * @param ListImagesRequest $request ListImagesRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Query the list of images available to the user.
      *
-     * @return ListImagesResponse ListImagesResponse
+     * @param request - ListImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImagesResponse
+     *
+     * @param ListImagesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListImagesResponse
      */
     public function listImagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->architecture)) {
-            $body['Architecture'] = $request->architecture;
+        if (null !== $request->architecture) {
+            @$body['Architecture'] = $request->architecture;
         }
-        if (!Utils::isUnset($request->imageVersion)) {
-            $body['ImageVersion'] = $request->imageVersion;
+
+        if (null !== $request->imageVersion) {
+            @$body['ImageVersion'] = $request->imageVersion;
         }
-        if (!Utils::isUnset($request->platform)) {
-            $body['Platform'] = $request->platform;
+
+        if (null !== $request->platform) {
+            @$body['Platform'] = $request->platform;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListImages',
@@ -1604,7 +1949,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1612,11 +1957,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query the list of images available to the user
-     *  *
-     * @param ListImagesRequest $request ListImagesRequest
+     * Query the list of images available to the user.
      *
-     * @return ListImagesResponse ListImagesResponse
+     * @param request - ListImagesRequest
+     *
+     * @returns ListImagesResponse
+     *
+     * @param ListImagesRequest $request
+     *
+     * @return ListImagesResponse
      */
     public function listImages($request)
     {
@@ -1626,29 +1975,37 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query machine network configuration using HPNZone and machine type
-     *  *
-     * @description An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status
-     *  *
-     * @param ListMachineNetworkInfoRequest $tmpReq  ListMachineNetworkInfoRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Query machine network configuration using HPNZone and machine type.
      *
-     * @return ListMachineNetworkInfoResponse ListMachineNetworkInfoResponse
+     * @remarks
+     * An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status
+     *
+     * @param tmpReq - ListMachineNetworkInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMachineNetworkInfoResponse
+     *
+     * @param ListMachineNetworkInfoRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListMachineNetworkInfoResponse
      */
     public function listMachineNetworkInfoWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListMachineNetworkInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->machineHpnInfo)) {
-            $request->machineHpnInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->machineHpnInfo, 'MachineHpnInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->machineHpnInfo) {
+            $request->machineHpnInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->machineHpnInfo, 'MachineHpnInfo', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->machineHpnInfoShrink)) {
-            $body['MachineHpnInfo'] = $request->machineHpnInfoShrink;
+        if (null !== $request->machineHpnInfoShrink) {
+            @$body['MachineHpnInfo'] = $request->machineHpnInfoShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListMachineNetworkInfo',
@@ -1661,7 +2018,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMachineNetworkInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1669,13 +2026,18 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query machine network configuration using HPNZone and machine type
-     *  *
-     * @description An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status
-     *  *
-     * @param ListMachineNetworkInfoRequest $request ListMachineNetworkInfoRequest
+     * Query machine network configuration using HPNZone and machine type.
      *
-     * @return ListMachineNetworkInfoResponse ListMachineNetworkInfoResponse
+     * @remarks
+     * An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status
+     *
+     * @param request - ListMachineNetworkInfoRequest
+     *
+     * @returns ListMachineNetworkInfoResponse
+     *
+     * @param ListMachineNetworkInfoRequest $request
+     *
+     * @return ListMachineNetworkInfoResponse
      */
     public function listMachineNetworkInfo($request)
     {
@@ -1685,22 +2047,28 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query the list of machine types available to the user
-     *  *
-     * @param ListMachineTypesRequest $request ListMachineTypesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Query the list of machine types available to the user.
      *
-     * @return ListMachineTypesResponse ListMachineTypesResponse
+     * @param request - ListMachineTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMachineTypesResponse
+     *
+     * @param ListMachineTypesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMachineTypesResponse
      */
     public function listMachineTypesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListMachineTypes',
@@ -1713,7 +2081,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMachineTypesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1721,11 +2089,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query the list of machine types available to the user
-     *  *
-     * @param ListMachineTypesRequest $request ListMachineTypesRequest
+     * Query the list of machine types available to the user.
      *
-     * @return ListMachineTypesResponse ListMachineTypesResponse
+     * @param request - ListMachineTypesRequest
+     *
+     * @returns ListMachineTypesResponse
+     *
+     * @param ListMachineTypesRequest $request
+     *
+     * @return ListMachineTypesResponse
      */
     public function listMachineTypes($request)
     {
@@ -1735,33 +2107,43 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Network Test List
-     *  *
-     * @description An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status.
-     *  *
-     * @param ListNetTestResultsRequest $request ListNetTestResultsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Network Test List.
      *
-     * @return ListNetTestResultsResponse ListNetTestResultsResponse
+     * @remarks
+     * An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status.
+     *
+     * @param request - ListNetTestResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNetTestResultsResponse
+     *
+     * @param ListNetTestResultsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListNetTestResultsResponse
      */
     public function listNetTestResultsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->netTestType)) {
-            $body['NetTestType'] = $request->netTestType;
+
+        if (null !== $request->netTestType) {
+            @$body['NetTestType'] = $request->netTestType;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListNetTestResults',
@@ -1774,7 +2156,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListNetTestResultsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1782,13 +2164,18 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Network Test List
-     *  *
-     * @description An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status.
-     *  *
-     * @param ListNetTestResultsRequest $request ListNetTestResultsRequest
+     * Network Test List.
      *
-     * @return ListNetTestResultsResponse ListNetTestResultsResponse
+     * @remarks
+     * An interface for creating a session, returning the frontend EndPoint, and initiating a periodic task to track the session status.
+     *
+     * @param request - ListNetTestResultsRequest
+     *
+     * @returns ListNetTestResultsResponse
+     *
+     * @param ListNetTestResultsRequest $request
+     *
+     * @return ListNetTestResultsResponse
      */
     public function listNetTestResults($request)
     {
@@ -1798,31 +2185,40 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query Node Group Information Under the Cluster
-     *  *
-     * @param ListNodeGroupsRequest $request ListNodeGroupsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Query Node Group Information Under the Cluster.
      *
-     * @return ListNodeGroupsResponse ListNodeGroupsResponse
+     * @param request - ListNodeGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodeGroupsResponse
+     *
+     * @param ListNodeGroupsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListNodeGroupsResponse
      */
     public function listNodeGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->nodeGroupId)) {
-            $body['NodeGroupId'] = $request->nodeGroupId;
+
+        if (null !== $request->nodeGroupId) {
+            @$body['NodeGroupId'] = $request->nodeGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListNodeGroups',
@@ -1835,7 +2231,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListNodeGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1843,11 +2239,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query Node Group Information Under the Cluster
-     *  *
-     * @param ListNodeGroupsRequest $request ListNodeGroupsRequest
+     * Query Node Group Information Under the Cluster.
      *
-     * @return ListNodeGroupsResponse ListNodeGroupsResponse
+     * @param request - ListNodeGroupsRequest
+     *
+     * @returns ListNodeGroupsResponse
+     *
+     * @param ListNodeGroupsRequest $request
+     *
+     * @return ListNodeGroupsResponse
      */
     public function listNodeGroups($request)
     {
@@ -1857,34 +2257,44 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query Resource Tags
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Query Resource Tags.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTagResources',
@@ -1897,7 +2307,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1905,11 +2315,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query Resource Tags
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Query Resource Tags.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -1919,13 +2333,19 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query the cluster types available to the user
-     *  *
-     * @description An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Query the cluster types available to the user.
      *
-     * @return ListUserClusterTypesResponse ListUserClusterTypesResponse
+     * @remarks
+     * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
+     *
+     * @param request - ListUserClusterTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserClusterTypesResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListUserClusterTypesResponse
      */
     public function listUserClusterTypesWithOptions($runtime)
     {
@@ -1941,7 +2361,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListUserClusterTypesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1949,11 +2369,14 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Query the cluster types available to the user
-     *  *
-     * @description An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
-     *  *
-     * @return ListUserClusterTypesResponse ListUserClusterTypesResponse
+     * Query the cluster types available to the user.
+     *
+     * @remarks
+     * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
+     *
+     * @returns ListUserClusterTypesResponse
+     *
+     * @return ListUserClusterTypesResponse
      */
     public function listUserClusterTypes()
     {
@@ -1963,33 +2386,42 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Reboot Machine
-     *  *
-     * @param RebootNodesRequest $tmpReq  RebootNodesRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Reboot Machine.
      *
-     * @return RebootNodesResponse RebootNodesResponse
+     * @param tmpReq - RebootNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RebootNodesResponse
+     *
+     * @param RebootNodesRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RebootNodesResponse
      */
     public function rebootNodesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RebootNodesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->nodes)) {
-            $request->nodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'Nodes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodes) {
+            $request->nodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'Nodes', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->ignoreFailedNodeTasks)) {
-            $body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
+
+        if (null !== $request->ignoreFailedNodeTasks) {
+            @$body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
         }
-        if (!Utils::isUnset($request->nodesShrink)) {
-            $body['Nodes'] = $request->nodesShrink;
+
+        if (null !== $request->nodesShrink) {
+            @$body['Nodes'] = $request->nodesShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RebootNodes',
@@ -2002,7 +2434,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RebootNodesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2010,11 +2442,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Reboot Machine
-     *  *
-     * @param RebootNodesRequest $request RebootNodesRequest
+     * Reboot Machine.
      *
-     * @return RebootNodesResponse RebootNodesResponse
+     * @param request - RebootNodesRequest
+     *
+     * @returns RebootNodesResponse
+     *
+     * @param RebootNodesRequest $request
+     *
+     * @return RebootNodesResponse
      */
     public function rebootNodes($request)
     {
@@ -2024,36 +2460,46 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Machine Reinstallation
-     *  *
-     * @param ReimageNodesRequest $tmpReq  ReimageNodesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Machine Reinstallation.
      *
-     * @return ReimageNodesResponse ReimageNodesResponse
+     * @param tmpReq - ReimageNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReimageNodesResponse
+     *
+     * @param ReimageNodesRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ReimageNodesResponse
      */
     public function reimageNodesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ReimageNodesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->nodes)) {
-            $request->nodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'Nodes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodes) {
+            $request->nodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'Nodes', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->ignoreFailedNodeTasks)) {
-            $body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
+
+        if (null !== $request->ignoreFailedNodeTasks) {
+            @$body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
         }
-        if (!Utils::isUnset($request->nodesShrink)) {
-            $body['Nodes'] = $request->nodesShrink;
+
+        if (null !== $request->nodesShrink) {
+            @$body['Nodes'] = $request->nodesShrink;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $body['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$body['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ReimageNodes',
@@ -2066,7 +2512,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReimageNodesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2074,11 +2520,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Machine Reinstallation
-     *  *
-     * @param ReimageNodesRequest $request ReimageNodesRequest
+     * Machine Reinstallation.
      *
-     * @return ReimageNodesResponse ReimageNodesResponse
+     * @param request - ReimageNodesRequest
+     *
+     * @returns ReimageNodesResponse
+     *
+     * @param ReimageNodesRequest $request
+     *
+     * @return ReimageNodesResponse
      */
     public function reimageNodes($request)
     {
@@ -2088,75 +2538,98 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Execute a Shell script on one or more Lingjun machines
-     *  *
-     * @param RunCommandRequest $tmpReq  RunCommandRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Execute a Shell script on one or more Lingjun machines.
      *
-     * @return RunCommandResponse RunCommandResponse
+     * @param tmpReq - RunCommandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunCommandResponse
+     *
+     * @param RunCommandRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RunCommandResponse
      */
     public function runCommandWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunCommandShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->nodeIdList)) {
-            $request->nodeIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeIdList, 'NodeIdList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeIdList) {
+            $request->nodeIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeIdList, 'NodeIdList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->parameters)) {
-            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+
+        if (null !== $tmpReq->parameters) {
+            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->commandContent)) {
-            $body['CommandContent'] = $request->commandContent;
+
+        if (null !== $request->commandContent) {
+            @$body['CommandContent'] = $request->commandContent;
         }
-        if (!Utils::isUnset($request->commandId)) {
-            $body['CommandId'] = $request->commandId;
+
+        if (null !== $request->commandId) {
+            @$body['CommandId'] = $request->commandId;
         }
-        if (!Utils::isUnset($request->contentEncoding)) {
-            $body['ContentEncoding'] = $request->contentEncoding;
+
+        if (null !== $request->contentEncoding) {
+            @$body['ContentEncoding'] = $request->contentEncoding;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->enableParameter)) {
-            $body['EnableParameter'] = $request->enableParameter;
+
+        if (null !== $request->enableParameter) {
+            @$body['EnableParameter'] = $request->enableParameter;
         }
-        if (!Utils::isUnset($request->frequency)) {
-            $body['Frequency'] = $request->frequency;
+
+        if (null !== $request->frequency) {
+            @$body['Frequency'] = $request->frequency;
         }
-        if (!Utils::isUnset($request->launcher)) {
-            $body['Launcher'] = $request->launcher;
+
+        if (null !== $request->launcher) {
+            @$body['Launcher'] = $request->launcher;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->nodeIdListShrink)) {
-            $body['NodeIdList'] = $request->nodeIdListShrink;
+
+        if (null !== $request->nodeIdListShrink) {
+            @$body['NodeIdList'] = $request->nodeIdListShrink;
         }
-        if (!Utils::isUnset($request->parametersShrink)) {
-            $body['Parameters'] = $request->parametersShrink;
+
+        if (null !== $request->parametersShrink) {
+            @$body['Parameters'] = $request->parametersShrink;
         }
-        if (!Utils::isUnset($request->repeatMode)) {
-            $body['RepeatMode'] = $request->repeatMode;
+
+        if (null !== $request->repeatMode) {
+            @$body['RepeatMode'] = $request->repeatMode;
         }
-        if (!Utils::isUnset($request->terminationMode)) {
-            $body['TerminationMode'] = $request->terminationMode;
+
+        if (null !== $request->terminationMode) {
+            @$body['TerminationMode'] = $request->terminationMode;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $body['Timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$body['Timeout'] = $request->timeout;
         }
-        if (!Utils::isUnset($request->username)) {
-            $body['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$body['Username'] = $request->username;
         }
-        if (!Utils::isUnset($request->workingDir)) {
-            $body['WorkingDir'] = $request->workingDir;
+
+        if (null !== $request->workingDir) {
+            @$body['WorkingDir'] = $request->workingDir;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RunCommand',
@@ -2169,7 +2642,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunCommandResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2177,11 +2650,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Execute a Shell script on one or more Lingjun machines
-     *  *
-     * @param RunCommandRequest $request RunCommandRequest
+     * Execute a Shell script on one or more Lingjun machines.
      *
-     * @return RunCommandResponse RunCommandResponse
+     * @param request - RunCommandRequest
+     *
+     * @returns RunCommandResponse
+     *
+     * @param RunCommandRequest $request
+     *
+     * @return RunCommandResponse
      */
     public function runCommand($request)
     {
@@ -2191,57 +2668,74 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Send a remote file to one or more Lingjun machines
-     *  *
-     * @param SendFileRequest $tmpReq  SendFileRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Send a remote file to one or more Lingjun machines.
      *
-     * @return SendFileResponse SendFileResponse
+     * @param tmpReq - SendFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendFileResponse
+     *
+     * @param SendFileRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return SendFileResponse
      */
     public function sendFileWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SendFileShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->nodeIdList)) {
-            $request->nodeIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeIdList, 'NodeIdList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeIdList) {
+            $request->nodeIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeIdList, 'NodeIdList', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->contentType)) {
-            $body['ContentType'] = $request->contentType;
+
+        if (null !== $request->contentType) {
+            @$body['ContentType'] = $request->contentType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileGroup)) {
-            $body['FileGroup'] = $request->fileGroup;
+
+        if (null !== $request->fileGroup) {
+            @$body['FileGroup'] = $request->fileGroup;
         }
-        if (!Utils::isUnset($request->fileMode)) {
-            $body['FileMode'] = $request->fileMode;
+
+        if (null !== $request->fileMode) {
+            @$body['FileMode'] = $request->fileMode;
         }
-        if (!Utils::isUnset($request->fileOwner)) {
-            $body['FileOwner'] = $request->fileOwner;
+
+        if (null !== $request->fileOwner) {
+            @$body['FileOwner'] = $request->fileOwner;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->nodeIdListShrink)) {
-            $body['NodeIdList'] = $request->nodeIdListShrink;
+
+        if (null !== $request->nodeIdListShrink) {
+            @$body['NodeIdList'] = $request->nodeIdListShrink;
         }
-        if (!Utils::isUnset($request->overwrite)) {
-            $body['Overwrite'] = $request->overwrite;
+
+        if (null !== $request->overwrite) {
+            @$body['Overwrite'] = $request->overwrite;
         }
-        if (!Utils::isUnset($request->targetDir)) {
-            $body['TargetDir'] = $request->targetDir;
+
+        if (null !== $request->targetDir) {
+            @$body['TargetDir'] = $request->targetDir;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $body['Timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$body['Timeout'] = $request->timeout;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SendFile',
@@ -2254,7 +2748,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SendFileResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2262,11 +2756,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Send a remote file to one or more Lingjun machines
-     *  *
-     * @param SendFileRequest $request SendFileRequest
+     * Send a remote file to one or more Lingjun machines.
      *
-     * @return SendFileResponse SendFileResponse
+     * @param request - SendFileRequest
+     *
+     * @returns SendFileResponse
+     *
+     * @param SendFileRequest $request
+     *
+     * @return SendFileResponse
      */
     public function sendFile($request)
     {
@@ -2276,33 +2774,42 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Shrink
-     *  *
-     * @param ShrinkClusterRequest $tmpReq  ShrinkClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Shrink.
      *
-     * @return ShrinkClusterResponse ShrinkClusterResponse
+     * @param tmpReq - ShrinkClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ShrinkClusterResponse
+     *
+     * @param ShrinkClusterRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ShrinkClusterResponse
      */
     public function shrinkClusterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ShrinkClusterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->nodeGroups)) {
-            $request->nodeGroupsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeGroups, 'NodeGroups', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeGroups) {
+            $request->nodeGroupsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeGroups, 'NodeGroups', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->ignoreFailedNodeTasks)) {
-            $body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
+
+        if (null !== $request->ignoreFailedNodeTasks) {
+            @$body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
         }
-        if (!Utils::isUnset($request->nodeGroupsShrink)) {
-            $body['NodeGroups'] = $request->nodeGroupsShrink;
+
+        if (null !== $request->nodeGroupsShrink) {
+            @$body['NodeGroups'] = $request->nodeGroupsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ShrinkCluster',
@@ -2315,7 +2822,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ShrinkClusterResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2323,11 +2830,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Shrink
-     *  *
-     * @param ShrinkClusterRequest $request ShrinkClusterRequest
+     * Shrink.
      *
-     * @return ShrinkClusterResponse ShrinkClusterResponse
+     * @param request - ShrinkClusterRequest
+     *
+     * @returns ShrinkClusterResponse
+     *
+     * @param ShrinkClusterRequest $request
+     *
+     * @return ShrinkClusterResponse
      */
     public function shrinkCluster($request)
     {
@@ -2337,30 +2848,38 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Stop the operation assistant command process
-     *  *
-     * @param StopInvocationRequest $tmpReq  StopInvocationRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Stop the operation assistant command process.
      *
-     * @return StopInvocationResponse StopInvocationResponse
+     * @param tmpReq - StopInvocationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopInvocationResponse
+     *
+     * @param StopInvocationRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StopInvocationResponse
      */
     public function stopInvocationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new StopInvocationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->nodeIdList)) {
-            $request->nodeIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeIdList, 'NodeIdList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodeIdList) {
+            $request->nodeIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodeIdList, 'NodeIdList', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->invokeId)) {
-            $body['InvokeId'] = $request->invokeId;
+        if (null !== $request->invokeId) {
+            @$body['InvokeId'] = $request->invokeId;
         }
-        if (!Utils::isUnset($request->nodeIdListShrink)) {
-            $body['NodeIdList'] = $request->nodeIdListShrink;
+
+        if (null !== $request->nodeIdListShrink) {
+            @$body['NodeIdList'] = $request->nodeIdListShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'StopInvocation',
@@ -2373,7 +2892,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2381,11 +2900,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Stop the operation assistant command process
-     *  *
-     * @param StopInvocationRequest $request StopInvocationRequest
+     * Stop the operation assistant command process.
      *
-     * @return StopInvocationResponse StopInvocationResponse
+     * @param request - StopInvocationRequest
+     *
+     * @returns StopInvocationResponse
+     *
+     * @param StopInvocationRequest $request
+     *
+     * @return StopInvocationResponse
      */
     public function stopInvocation($request)
     {
@@ -2395,30 +2918,38 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Shut down the nodes
-     *  *
-     * @param StopNodesRequest $tmpReq  StopNodesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Shut down the nodes.
      *
-     * @return StopNodesResponse StopNodesResponse
+     * @param tmpReq - StopNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopNodesResponse
+     *
+     * @param StopNodesRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return StopNodesResponse
      */
     public function stopNodesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new StopNodesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->nodes)) {
-            $request->nodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'Nodes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodes) {
+            $request->nodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'Nodes', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->ignoreFailedNodeTasks)) {
-            $body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
+        if (null !== $request->ignoreFailedNodeTasks) {
+            @$body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
         }
-        if (!Utils::isUnset($request->nodesShrink)) {
-            $body['Nodes'] = $request->nodesShrink;
+
+        if (null !== $request->nodesShrink) {
+            @$body['Nodes'] = $request->nodesShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'StopNodes',
@@ -2431,7 +2962,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopNodesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2439,11 +2970,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Shut down the nodes
-     *  *
-     * @param StopNodesRequest $request StopNodesRequest
+     * Shut down the nodes.
      *
-     * @return StopNodesResponse StopNodesResponse
+     * @param request - StopNodesRequest
+     *
+     * @returns StopNodesResponse
+     *
+     * @param StopNodesRequest $request
+     *
+     * @return StopNodesResponse
      */
     public function stopNodes($request)
     {
@@ -2453,31 +2988,40 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Tag User Resources
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Tag User Resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'TagResources',
@@ -2490,7 +3034,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2498,11 +3042,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Tag User Resources
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Tag User Resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2512,34 +3060,44 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Remove user tags from resources
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Remove user tags from resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UntagResources',
@@ -2552,7 +3110,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2560,11 +3118,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary Remove user tags from resources
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Remove user tags from resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -2574,25 +3136,36 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 更新节点分组
-     *  *
-     * @param UpdateNodeGroupRequest $request UpdateNodeGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 更新节点分组.
      *
-     * @return UpdateNodeGroupResponse UpdateNodeGroupResponse
+     * @param request - UpdateNodeGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNodeGroupResponse
+     *
+     * @param UpdateNodeGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateNodeGroupResponse
      */
     public function updateNodeGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->newNodeGroupName)) {
-            $body['NewNodeGroupName'] = $request->newNodeGroupName;
+        if (null !== $request->newNodeGroupName) {
+            @$body['NewNodeGroupName'] = $request->newNodeGroupName;
         }
-        if (!Utils::isUnset($request->nodeGroupId)) {
-            $body['NodeGroupId'] = $request->nodeGroupId;
+
+        if (null !== $request->nodeGroupId) {
+            @$body['NodeGroupId'] = $request->nodeGroupId;
         }
+
+        if (null !== $request->userData) {
+            @$body['UserData'] = $request->userData;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateNodeGroup',
@@ -2605,7 +3178,7 @@ class Eflocontroller extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateNodeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2613,11 +3186,15 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 更新节点分组
-     *  *
-     * @param UpdateNodeGroupRequest $request UpdateNodeGroupRequest
+     * 更新节点分组.
      *
-     * @return UpdateNodeGroupResponse UpdateNodeGroupResponse
+     * @param request - UpdateNodeGroupRequest
+     *
+     * @returns UpdateNodeGroupResponse
+     *
+     * @param UpdateNodeGroupRequest $request
+     *
+     * @return UpdateNodeGroupResponse
      */
     public function updateNodeGroup($request)
     {

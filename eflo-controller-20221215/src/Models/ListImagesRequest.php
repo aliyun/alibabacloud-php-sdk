@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListImagesRequest extends Model
 {
     /**
-     * @description Architecture
-     *
-     * @example x86_64
-     *
      * @var string
      */
     public $architecture;
 
     /**
-     * @description Image version
-     *
-     * @example 7.9
-     *
      * @var string
      */
     public $imageVersion;
 
     /**
-     * @description Platform
-     *
-     * @example ALinux3
-     *
      * @var string
      */
     public $platform;
@@ -40,17 +28,22 @@ class ListImagesRequest extends Model
         'platform' => 'Platform',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
         }
+
         if (null !== $this->imageVersion) {
             $res['ImageVersion'] = $this->imageVersion;
         }
+
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
@@ -58,20 +51,22 @@ class ListImagesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListImagesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
         }
+
         if (isset($map['ImageVersion'])) {
             $model->imageVersion = $map['ImageVersion'];
         }
+
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }

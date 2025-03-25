@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExtendClusterResponseBody extends Model
 {
     /**
-     * @description Request ID
-     *
-     * @example 03668372-18FF-5959-98D9-6B36A4643C7A
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Task ID
-     *
-     * @example i158475611663639202234
-     *
      * @var string
      */
     public $taskId;
@@ -30,14 +22,18 @@ class ExtendClusterResponseBody extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -45,17 +41,18 @@ class ExtendClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExtendClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

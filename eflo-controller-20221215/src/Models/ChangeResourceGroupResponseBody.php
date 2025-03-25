@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChangeResourceGroupResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example 8F065DDD-6996-5973-9691-9EC57BD0072E
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class ChangeResourceGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ChangeResourceGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeResourceGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

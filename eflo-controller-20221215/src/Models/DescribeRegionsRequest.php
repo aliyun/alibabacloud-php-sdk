@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @description Filter the returned results based on Chinese, English, and Japanese. For more information, see RFC7231. Valid values:
-     *
-     * zh-CN
-     * en-US
-     * Default value: zh-CN
-     *
-     * @example zh-CN
-     *
      * @var string
      */
     public $acceptLanguage;
@@ -24,9 +16,12 @@ class DescribeRegionsRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
@@ -36,11 +31,11 @@ class DescribeRegionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRegionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

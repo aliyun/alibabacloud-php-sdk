@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeClusterRequest extends Model
 {
     /**
-     * @description Cluster ID.
-     *
-     * This parameter is required.
-     *
-     * @example i119982311660892626523
-     *
      * @var string
      */
     public $clusterId;
@@ -22,9 +16,12 @@ class DescribeClusterRequest extends Model
         'clusterId' => 'ClusterId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -34,11 +31,11 @@ class DescribeClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

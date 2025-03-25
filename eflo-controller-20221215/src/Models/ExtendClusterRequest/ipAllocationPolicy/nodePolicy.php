@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterRequest\ipAllocationPolicy;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ExtendClusterRequest\ipAllocationPolicy\nodePolicy\bonds;
-use AlibabaCloud\Tea\Model;
 
 class nodePolicy extends Model
 {
     /**
-     * @description Bond information
-     *
      * @var bonds[]
      */
     public $bonds;
 
     /**
-     * @description Node ID
-     *
-     * @example i-3fdodw2
-     *
      * @var string
      */
     public $nodeId;
@@ -29,20 +23,27 @@ class nodePolicy extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bonds)) {
+            Model::validateArray($this->bonds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bonds) {
-            $res['Bonds'] = [];
-            if (null !== $this->bonds && \is_array($this->bonds)) {
-                $n = 0;
-                foreach ($this->bonds as $item) {
-                    $res['Bonds'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bonds)) {
+                $res['Bonds'] = [];
+                $n1 = 0;
+                foreach ($this->bonds as $item1) {
+                    $res['Bonds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -50,23 +51,24 @@ class nodePolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodePolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bonds'])) {
             if (!empty($map['Bonds'])) {
                 $model->bonds = [];
-                $n = 0;
-                foreach ($map['Bonds'] as $item) {
-                    $model->bonds[$n++] = null !== $item ? bonds::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Bonds'] as $item1) {
+                    $model->bonds[$n1++] = bonds::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

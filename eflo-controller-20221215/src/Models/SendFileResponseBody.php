@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendFileResponseBody extends Model
 {
     /**
-     * @description Command execution ID.
-     *
-     * @example t-hz03la52z1zkvls
-     *
      * @var string
      */
     public $invokeId;
 
     /**
-     * @description ID of the request
-     *
-     * @example 3C683243-7915-57FB-9570-A2932C1C0F78
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class SendFileResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->invokeId) {
             $res['InvokeId'] = $this->invokeId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class SendFileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendFileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvokeId'])) {
             $model->invokeId = $map['InvokeId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

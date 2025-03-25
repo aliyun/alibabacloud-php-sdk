@@ -4,77 +4,47 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeTaskResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeTaskResponseBody\steps\subTasks;
-use AlibabaCloud\Tea\Model;
 
 class steps extends Model
 {
     /**
-     * @description Step Failure Message
-     *
-     * @example get taskinfo failed
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Stage Tag
-     *
-     * @example Node scaling
-     *
      * @var string
      */
     public $stageTag;
 
     /**
-     * @description Start Time
-     *
-     * @example 2022-11-30T2:00:00.852Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description Step Name
-     *
-     * @example create_vpd
-     *
      * @var string
      */
     public $stepName;
 
     /**
-     * @description Step Execution State
-     *
-     * @example execution_success
-     *
      * @var string
      */
     public $stepState;
 
     /**
-     * @description Step Type
-     *
-     * @example normal
-     *
      * @var string
      */
     public $stepType;
 
     /**
-     * @description Subtasks
-     *
      * @var subTasks[]
      */
     public $subTasks;
 
     /**
-     * @description Update Time
-     *
-     * @example 2022-11-30T02:20:14.852Z
-     *
      * @var string
      */
     public $updateTime;
@@ -89,38 +59,51 @@ class steps extends Model
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->subTasks)) {
+            Model::validateArray($this->subTasks);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->stageTag) {
             $res['StageTag'] = $this->stageTag;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->stepName) {
             $res['StepName'] = $this->stepName;
         }
+
         if (null !== $this->stepState) {
             $res['StepState'] = $this->stepState;
         }
+
         if (null !== $this->stepType) {
             $res['StepType'] = $this->stepType;
         }
+
         if (null !== $this->subTasks) {
-            $res['SubTasks'] = [];
-            if (null !== $this->subTasks && \is_array($this->subTasks)) {
-                $n = 0;
-                foreach ($this->subTasks as $item) {
-                    $res['SubTasks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subTasks)) {
+                $res['SubTasks'] = [];
+                $n1 = 0;
+                foreach ($this->subTasks as $item1) {
+                    $res['SubTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -128,41 +111,48 @@ class steps extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return steps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['StageTag'])) {
             $model->stageTag = $map['StageTag'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['StepName'])) {
             $model->stepName = $map['StepName'];
         }
+
         if (isset($map['StepState'])) {
             $model->stepState = $map['StepState'];
         }
+
         if (isset($map['StepType'])) {
             $model->stepType = $map['StepType'];
         }
+
         if (isset($map['SubTasks'])) {
             if (!empty($map['SubTasks'])) {
                 $model->subTasks = [];
-                $n = 0;
-                foreach ($map['SubTasks'] as $item) {
-                    $model->subTasks[$n++] = null !== $item ? subTasks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubTasks'] as $item1) {
+                    $model->subTasks[$n1++] = subTasks::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

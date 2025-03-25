@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDiagnosticTaskShrinkRequest extends Model
 {
     /**
-     * @description Log information
-     *
      * @var string
      */
     public $aiJobLogInfoShrink;
 
     /**
-     * @description Cluster ID
-     *
-     * @example i118913031696573280136
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description Diagnostic type.
-     *
-     * @example CheckByAiJobLogs
-     *
      * @var string
      */
     public $diagnosticType;
 
     /**
-     * @description List of node IDs
-     *
      * @var string
      */
     public $nodeIdsShrink;
@@ -46,20 +34,26 @@ class CreateDiagnosticTaskShrinkRequest extends Model
         'nodeIdsShrink' => 'NodeIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aiJobLogInfoShrink) {
             $res['AiJobLogInfo'] = $this->aiJobLogInfoShrink;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->diagnosticType) {
             $res['DiagnosticType'] = $this->diagnosticType;
         }
+
         if (null !== $this->nodeIdsShrink) {
             $res['NodeIds'] = $this->nodeIdsShrink;
         }
@@ -67,23 +61,26 @@ class CreateDiagnosticTaskShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDiagnosticTaskShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AiJobLogInfo'])) {
             $model->aiJobLogInfoShrink = $map['AiJobLogInfo'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['DiagnosticType'])) {
             $model->diagnosticType = $map['DiagnosticType'];
         }
+
         if (isset($map['NodeIds'])) {
             $model->nodeIdsShrink = $map['NodeIds'];
         }

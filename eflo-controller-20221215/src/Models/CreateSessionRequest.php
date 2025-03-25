@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSessionRequest extends Model
 {
     /**
-     * @description Instance ID.
-     *
-     * @example e01-cn-kvw44e6dn04
-     *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @description Session type corresponding to the session package.
-     *
-     * @example N	两种：
-     * Sol：基于串口[默认]
-     * Assistant：基于云助手
-     *
      * @var string
      */
     public $sessionType;
 
     /**
-     * @description Initiation time, 13-digit timestamp.
-     *
-     * @example 1669340937156
-     *
      * @var string
      */
     public $startTime;
@@ -42,17 +28,22 @@ class CreateSessionRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->sessionType) {
             $res['SessionType'] = $this->sessionType;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -60,20 +51,22 @@ class CreateSessionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSessionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['SessionType'])) {
             $model->sessionType = $map['SessionType'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

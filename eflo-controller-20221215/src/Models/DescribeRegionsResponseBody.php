@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeRegionsResponseBody\regions;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRegionsResponseBody extends Model
 {
     /**
-     * @description List of region information.
-     *
      * @var regions[]
      */
     public $regions;
 
     /**
-     * @description Request ID
-     *
-     * @example 1D2FBB36-C39B-5EBB-9928-FCC1A236D65D
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,27 @@ class DescribeRegionsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->regions)) {
+            Model::validateArray($this->regions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regions) {
-            $res['Regions'] = [];
-            if (null !== $this->regions && \is_array($this->regions)) {
-                $n = 0;
-                foreach ($this->regions as $item) {
-                    $res['Regions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->regions)) {
+                $res['Regions'] = [];
+                $n1 = 0;
+                foreach ($this->regions as $item1) {
+                    $res['Regions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +51,24 @@ class DescribeRegionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRegionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
                 $model->regions = [];
-                $n = 0;
-                foreach ($map['Regions'] as $item) {
-                    $model->regions[$n++] = null !== $item ? regions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Regions'] as $item1) {
+                    $model->regions[$n1++] = regions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeClusterResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networks extends Model
 {
     /**
-     * @description VPC Segment ID
-     *
-     * @example vpd-iqd7xunc
-     *
      * @var string
      */
     public $vpdId;
@@ -20,9 +16,12 @@ class networks extends Model
         'vpdId' => 'VpdId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vpdId) {
@@ -32,11 +31,11 @@ class networks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
