@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeScheduleTasksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeScheduleTasksResponseBody\data\timerInfos;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The page number of the page returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The details of the scheduled tasks.
-     *
      * @var timerInfos[]
      */
     public $timerInfos;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalRecordCount;
@@ -49,26 +35,35 @@ class data extends Model
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->timerInfos)) {
+            Model::validateArray($this->timerInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->timerInfos) {
-            $res['TimerInfos'] = [];
-            if (null !== $this->timerInfos && \is_array($this->timerInfos)) {
-                $n = 0;
-                foreach ($this->timerInfos as $item) {
-                    $res['TimerInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->timerInfos)) {
+                $res['TimerInfos'] = [];
+                $n1 = 0;
+                foreach ($this->timerInfos as $item1) {
+                    $res['TimerInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
         }
@@ -76,29 +71,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TimerInfos'])) {
             if (!empty($map['TimerInfos'])) {
                 $model->timerInfos = [];
-                $n = 0;
-                foreach ($map['TimerInfos'] as $item) {
-                    $model->timerInfos[$n++] = null !== $item ? timerInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TimerInfos'] as $item1) {
+                    $model->timerInfos[$n1++] = timerInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];
         }

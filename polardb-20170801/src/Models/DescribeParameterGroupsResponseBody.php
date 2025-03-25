@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeParameterGroupsResponseBody\parameterGroups;
-use AlibabaCloud\Tea\Model;
 
 class DescribeParameterGroupsResponseBody extends Model
 {
     /**
-     * @description The details of parameter templates.
-     *
      * @var parameterGroups[]
      */
     public $parameterGroups;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 944CED46-A6F7-40C6-B6DC-C6E5CC******
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,27 @@ class DescribeParameterGroupsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->parameterGroups)) {
+            Model::validateArray($this->parameterGroups);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameterGroups) {
-            $res['ParameterGroups'] = [];
-            if (null !== $this->parameterGroups && \is_array($this->parameterGroups)) {
-                $n = 0;
-                foreach ($this->parameterGroups as $item) {
-                    $res['ParameterGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->parameterGroups)) {
+                $res['ParameterGroups'] = [];
+                $n1 = 0;
+                foreach ($this->parameterGroups as $item1) {
+                    $res['ParameterGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +51,24 @@ class DescribeParameterGroupsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeParameterGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParameterGroups'])) {
             if (!empty($map['ParameterGroups'])) {
                 $model->parameterGroups = [];
-                $n = 0;
-                foreach ($map['ParameterGroups'] as $item) {
-                    $model->parameterGroups[$n++] = null !== $item ? parameterGroups::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ParameterGroups'] as $item1) {
+                    $model->parameterGroups[$n1++] = parameterGroups::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

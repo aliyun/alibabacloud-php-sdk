@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBDescriptionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 5F295AAB-B599-4F0E-96D0-DBFAB3******
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class ModifyDBDescriptionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ModifyDBDescriptionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBDescriptionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

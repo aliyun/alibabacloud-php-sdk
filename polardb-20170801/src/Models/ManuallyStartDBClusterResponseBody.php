@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ManuallyStartDBClusterResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 73A85BAF-1039-4CDE-A83F-1A140F******
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class ManuallyStartDBClusterResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ManuallyStartDBClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ManuallyStartDBClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

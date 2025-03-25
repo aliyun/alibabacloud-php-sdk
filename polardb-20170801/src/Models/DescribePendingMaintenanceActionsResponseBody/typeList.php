@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePendingMaintenanceActionsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class typeList extends Model
 {
     /**
-     * @description The number of pending events.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The task type of pending events. Valid values:
-     *
-     *   **DatabaseSoftwareUpgrading**: database software upgrades
-     *   **DatabaseHardwareMaintenance**: hardware maintenance and upgrades
-     *   **DatabaseStorageUpgrading**: database storage upgrades
-     *   **DatabaseProxyUpgrading**: minor version upgrades of the proxy
-     *
-     * @example DatabaseSoftwareUpgrading
-     *
      * @var string
      */
     public $taskType;
@@ -35,14 +22,18 @@ class typeList extends Model
         'taskType' => 'TaskType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -50,17 +41,18 @@ class typeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return typeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

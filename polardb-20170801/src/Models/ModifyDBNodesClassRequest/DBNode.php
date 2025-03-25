@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodesClassRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DBNode extends Model
 {
     /**
-     * @description The ID of the node.
-     *
-     * >  If you specify this parameter, DBNode.N.TargetClass is required. N is an integer that starts from 1. The maximum value of N is calculated by using the following formula:16 - The number of current nodes.
-     *
-     * @example pi-*************
-     *
      * @var string
      */
     public $DBNodeId;
 
     /**
-     * @description The specifications of the node that you want to change. For more information, see [Specifications of compute nodes](https://help.aliyun.com/document_detail/102542.html).
-     *
-     * >  If you specify this parameter, DBNode.N.DBNodeId is required. N is an integer that starts from 1. The maximum value of N is calculated by using the following formula:16 - The number of current nodes.
-     *
-     * @example polar.mysql.x4.medium
-     *
      * @var string
      */
     public $targetClass;
@@ -34,14 +22,18 @@ class DBNode extends Model
         'targetClass' => 'TargetClass',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBNodeId) {
             $res['DBNodeId'] = $this->DBNodeId;
         }
+
         if (null !== $this->targetClass) {
             $res['TargetClass'] = $this->targetClass;
         }
@@ -49,17 +41,18 @@ class DBNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DBNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBNodeId'])) {
             $model->DBNodeId = $map['DBNodeId'];
         }
+
         if (isset($map['TargetClass'])) {
             $model->targetClass = $map['TargetClass'];
         }

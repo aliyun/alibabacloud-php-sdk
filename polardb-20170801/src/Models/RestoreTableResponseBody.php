@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RestoreTableResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 0C47508C-9DC8-455B-985E-2F2FA8******
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class RestoreTableResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class RestoreTableResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RestoreTableResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

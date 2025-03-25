@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBClusterStoragePerformanceResponseBody extends Model
 {
     /**
-     * @example pc-************
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @example 2035629******
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @example E56531A4-E552-40BA-9C58-137B80******
-     *
      * @var string
      */
     public $requestId;
@@ -34,17 +28,22 @@ class ModifyDBClusterStoragePerformanceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,20 +51,22 @@ class ModifyDBClusterStoragePerformanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBClusterStoragePerformanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

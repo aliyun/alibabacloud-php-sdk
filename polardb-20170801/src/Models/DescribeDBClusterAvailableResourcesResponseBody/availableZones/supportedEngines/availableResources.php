@@ -4,33 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAvailableResourcesResponseBody\availableZones\supportedEngines;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class availableResources extends Model
 {
     /**
-     * @description The edition of the cluster. Valid values:
-     *
-     *   **Normal**: Cluster Edition.
-     *   **Basic**: Single Node Edition.
-     *   **ArchiveNormal**: X-Engine.
-     *   **NormalMultimaster**: Multi-master Cluster (Database/Table) Edition.
-     *   **SENormal**: Standard Edition.
-     *
-     * >- Only PolarDB for MySQL supports Single Node Edition.
-     * >- Only PolarDB for MySQL 8.0 supports X-Engine Edition and Multi-master Cluster (Database/Table) Edition.
-     *
-     * @example Normal
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description The specifications of the node.
-     *
-     * @example polar.mysql.x4.large
-     *
      * @var string
      */
     public $DBNodeClass;
@@ -39,14 +22,18 @@ class availableResources extends Model
         'DBNodeClass' => 'DBNodeClass',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->DBNodeClass) {
             $res['DBNodeClass'] = $this->DBNodeClass;
         }
@@ -54,17 +41,18 @@ class availableResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['DBNodeClass'])) {
             $model->DBNodeClass = $map['DBNodeClass'];
         }

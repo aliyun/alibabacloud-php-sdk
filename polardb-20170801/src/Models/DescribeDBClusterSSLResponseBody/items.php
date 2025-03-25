@@ -4,52 +4,31 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterSSLResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class items extends Model
 {
     /**
-     * @description The ID of the endpoint.
-     *
-     * @example pe-************
-     *
      * @var string
      */
     public $DBEndpointId;
 
     /**
-     * @example Enable
-     *
      * @var string
      */
     public $SSLAutoRotate;
 
     /**
-     * @description The SSL connection string.
-     *
-     * @example pc-************.mysql.polardb.rds.aliyuncs.com
-     *
      * @var string
      */
     public $SSLConnectionString;
 
     /**
-     * @description Indicates whether SSL encryption is enabled. Valid values:
-     *
-     *   **Enabled**: SSL is enabled.
-     *   **Disable**: SSL is disabled.
-     *
-     * @example Enabled
-     *
      * @var string
      */
     public $SSLEnabled;
 
     /**
-     * @description The time when the server certificate expires. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
-     *
-     * @example 2021-11-13T07:14:22Z
-     *
      * @var string
      */
     public $SSLExpireTime;
@@ -61,23 +40,30 @@ class items extends Model
         'SSLExpireTime' => 'SSLExpireTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBEndpointId) {
             $res['DBEndpointId'] = $this->DBEndpointId;
         }
+
         if (null !== $this->SSLAutoRotate) {
             $res['SSLAutoRotate'] = $this->SSLAutoRotate;
         }
+
         if (null !== $this->SSLConnectionString) {
             $res['SSLConnectionString'] = $this->SSLConnectionString;
         }
+
         if (null !== $this->SSLEnabled) {
             $res['SSLEnabled'] = $this->SSLEnabled;
         }
+
         if (null !== $this->SSLExpireTime) {
             $res['SSLExpireTime'] = $this->SSLExpireTime;
         }
@@ -85,26 +71,30 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBEndpointId'])) {
             $model->DBEndpointId = $map['DBEndpointId'];
         }
+
         if (isset($map['SSLAutoRotate'])) {
             $model->SSLAutoRotate = $map['SSLAutoRotate'];
         }
+
         if (isset($map['SSLConnectionString'])) {
             $model->SSLConnectionString = $map['SSLConnectionString'];
         }
+
         if (isset($map['SSLEnabled'])) {
             $model->SSLEnabled = $map['SSLEnabled'];
         }
+
         if (isset($map['SSLExpireTime'])) {
             $model->SSLExpireTime = $map['SSLExpireTime'];
         }

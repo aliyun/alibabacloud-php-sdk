@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRegionsResponseBody\regions\region\zones;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zone extends Model
 {
     /**
-     * @description Indicates whether virtual private clouds (VPCs) are supported.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $vpcEnabled;
 
     /**
-     * @description The ID of the zone.
-     *
-     * @example cn-hangzhou-g
-     *
      * @var string
      */
     public $zoneId;
@@ -30,14 +22,18 @@ class zone extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vpcEnabled) {
             $res['VpcEnabled'] = $this->vpcEnabled;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -45,17 +41,18 @@ class zone extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zone
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VpcEnabled'])) {
             $model->vpcEnabled = $map['VpcEnabled'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

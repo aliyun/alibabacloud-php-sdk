@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBNodesResponseBody\DBNodeIds;
-use AlibabaCloud\Tea\Model;
 
 class CreateDBNodesResponseBody extends Model
 {
     /**
-     * @description The ID of the cluster.
-     *
-     * @example pc-***************
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description Details about the nodes.
-     *
      * @var DBNodeIds
      */
     public $DBNodeIds;
 
     /**
-     * @description The ID of the order.
-     *
-     * @example 2148126708*****
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example E053E730-5755-4AA9-AA9D-A47867******
-     *
      * @var string
      */
     public $requestId;
@@ -49,20 +35,29 @@ class CreateDBNodesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->DBNodeIds) {
+            $this->DBNodeIds->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->DBNodeIds) {
-            $res['DBNodeIds'] = null !== $this->DBNodeIds ? $this->DBNodeIds->toMap() : null;
+            $res['DBNodeIds'] = null !== $this->DBNodeIds ? $this->DBNodeIds->toArray($noStream) : $this->DBNodeIds;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -70,23 +65,26 @@ class CreateDBNodesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDBNodesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['DBNodeIds'])) {
             $model->DBNodeIds = DBNodeIds::fromMap($map['DBNodeIds']);
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

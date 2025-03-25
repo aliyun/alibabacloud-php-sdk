@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckServiceLinkedRoleResponseBody extends Model
 {
     /**
-     * @description Indicates whether the SLR is created.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $hasServiceLinkedRole;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 3F9E6A3B-C13E-4064-A010-18582A******
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CheckServiceLinkedRoleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hasServiceLinkedRole) {
             $res['HasServiceLinkedRole'] = $this->hasServiceLinkedRole;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CheckServiceLinkedRoleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckServiceLinkedRoleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HasServiceLinkedRole'])) {
             $model->hasServiceLinkedRole = $map['HasServiceLinkedRole'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

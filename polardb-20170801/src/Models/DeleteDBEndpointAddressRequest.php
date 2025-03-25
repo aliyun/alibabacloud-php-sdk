@@ -4,43 +4,21 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDBEndpointAddressRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
-     *
-     * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters that belong to your account, such as the cluster ID.
-     *
-     * This parameter is required.
-     *
-     * @example pc-************
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @description The ID of the endpoint.
-     *
-     * >  You can call the [DescribeDBClusterEndpoints](https://help.aliyun.com/document_detail/98205.html) operation to query the endpoints of a specified PolarDB cluster.
-     *
-     * This parameter is required.
-     *
-     * @example pe-***************
-     *
      * @var string
      */
     public $DBEndpointId;
 
     /**
-     * @description The network type of the endpoint. Set the value to **Public** (public network).
-     *
-     * This parameter is required.
-     *
-     * @example Public
-     *
      * @var string
      */
     public $netType;
@@ -74,29 +52,38 @@ class DeleteDBEndpointAddressRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->DBEndpointId) {
             $res['DBEndpointId'] = $this->DBEndpointId;
         }
+
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -104,32 +91,38 @@ class DeleteDBEndpointAddressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDBEndpointAddressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['DBEndpointId'])) {
             $model->DBEndpointId = $map['DBEndpointId'];
         }
+
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

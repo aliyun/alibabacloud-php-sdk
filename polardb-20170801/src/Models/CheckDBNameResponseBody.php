@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckDBNameResponseBody extends Model
 {
     /**
-     * @description The name of the database.
-     *
-     * @example test_db
-     *
      * @var string
      */
     public $DBName;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example CDB3258F-B5DE-43C4-8935-CBA0CA******
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CheckDBNameResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CheckDBNameResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckDBNameResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDBClusterAuditLogCollectorResponseBody extends Model
 {
     /**
-     * @description The status of SQL collector. Valid values:
-     *
-     *   Enable
-     *   Disabled
-     *
-     * @example Disabled
-     *
      * @var string
      */
     public $collectorStatus;
 
     /**
-     * @description The request ID.
-     *
-     * @example 59011D2B-2A38-4207-A86C-72BC1F882D19
-     *
      * @var string
      */
     public $requestId;
@@ -33,14 +22,18 @@ class DescribeDBClusterAuditLogCollectorResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->collectorStatus) {
             $res['CollectorStatus'] = $this->collectorStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,17 +41,18 @@ class DescribeDBClusterAuditLogCollectorResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBClusterAuditLogCollectorResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CollectorStatus'])) {
             $model->collectorStatus = $map['CollectorStatus'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

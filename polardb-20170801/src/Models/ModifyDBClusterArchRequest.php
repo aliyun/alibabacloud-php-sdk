@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBClusterArchRequest extends Model
 {
     /**
-     * @example pc-****************
-     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @example on
-     *
      * @var string
      */
     public $hotStandbyCluster;
 
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example cn-beijing-i
-     *
      * @var string
      */
     public $standbyAZ;
@@ -42,20 +34,26 @@ class ModifyDBClusterArchRequest extends Model
         'standbyAZ' => 'StandbyAZ',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->hotStandbyCluster) {
             $res['HotStandbyCluster'] = $this->hotStandbyCluster;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->standbyAZ) {
             $res['StandbyAZ'] = $this->standbyAZ;
         }
@@ -63,23 +61,26 @@ class ModifyDBClusterArchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBClusterArchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['HotStandbyCluster'])) {
             $model->hotStandbyCluster = $map['HotStandbyCluster'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['StandbyAZ'])) {
             $model->standbyAZ = $map['StandbyAZ'];
         }

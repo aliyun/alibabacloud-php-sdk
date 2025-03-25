@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelActiveOperationTasksResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 25C70FF3-D49B-594D-BECE-0DE2BA1D8BBB
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The IDs of O\\&M events that are canceled at a time. Separate multiple IDs with commas (,).
-     *
-     * @example 2355,2352
-     *
      * @var string
      */
     public $taskIds;
@@ -30,14 +22,18 @@ class CancelActiveOperationTasksResponseBody extends Model
         'taskIds' => 'TaskIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskIds) {
             $res['TaskIds'] = $this->taskIds;
         }
@@ -45,17 +41,18 @@ class CancelActiveOperationTasksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelActiveOperationTasksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskIds'])) {
             $model->taskIds = $map['TaskIds'];
         }
