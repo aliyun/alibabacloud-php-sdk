@@ -502,6 +502,11 @@ class desktopGroups extends Model
     public $tags;
 
     /**
+     * @var string
+     */
+    public $userOuPath;
+
+    /**
      * @description The version number of the cloud computer pool.
      *
      * @example 2
@@ -573,6 +578,7 @@ class desktopGroups extends Model
         'systemDiskCategory' => 'SystemDiskCategory',
         'systemDiskSize' => 'SystemDiskSize',
         'tags' => 'Tags',
+        'userOuPath' => 'UserOuPath',
         'version' => 'Version',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
         'volumeEncryptionKey' => 'VolumeEncryptionKey',
@@ -729,6 +735,9 @@ class desktopGroups extends Model
                     $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->userOuPath) {
+            $res['UserOuPath'] = $this->userOuPath;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -897,6 +906,9 @@ class desktopGroups extends Model
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UserOuPath'])) {
+            $model->userOuPath = $map['UserOuPath'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

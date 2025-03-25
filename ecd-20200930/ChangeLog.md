@@ -1,3 +1,13 @@
+2025-03-25 Version: 4.3.5
+- Update API AddUserToDesktopGroup: add param UserOuPath.
+- Update API AddUserToDesktopGroup: update param EndUserIds.
+- Update API CreateDesktopGroup: add param UserOuPath.
+- Update API DescribeDesktopGroups: update response param.
+- Update API DescribeUsersInGroup: update response param.
+- Update API RemoveUserFromDesktopGroup: add param UserOuPath.
+- Update API RemoveUserFromDesktopGroup: update param EndUserIds.
+
+
 2025-03-19 Version: 4.3.3
 - Update API CreateDesktops: add param ExtendInfo.
 

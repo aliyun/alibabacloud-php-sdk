@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetDesktopGroupTimerStatusRequest extends Model
 {
     /**
-     * @description The ID of the cloud computer pool.
+     * @description The ID of the cloud computer share.
      *
      * This parameter is required.
      *

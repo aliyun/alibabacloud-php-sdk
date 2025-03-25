@@ -18,7 +18,7 @@ class SetDesktopGroupTimerRequest extends Model
     public $cronExpression;
 
     /**
-     * @description The ID of the cloud computer pool.
+     * @description The ID of the cloud computer share.
      *
      * This parameter is required.
      *

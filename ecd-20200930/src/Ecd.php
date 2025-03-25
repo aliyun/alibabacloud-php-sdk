@@ -743,7 +743,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Adds authorized end users of a desktop group.
+     * @summary Adds authorized users for a cloud computer share. The system automatically assigns cloud computers from a share to authorized users based on administrator-configured rules.
      *  *
      * @param AddUserToDesktopGroupRequest $request AddUserToDesktopGroupRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -769,6 +769,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->userOuPath)) {
+            $query['UserOuPath'] = $request->userOuPath;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -791,7 +794,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Adds authorized end users of a desktop group.
+     * @summary Adds authorized users for a cloud computer share. The system automatically assigns cloud computers from a share to authorized users based on administrator-configured rules.
      *  *
      * @param AddUserToDesktopGroupRequest $request AddUserToDesktopGroupRequest
      *
@@ -3029,6 +3032,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->timerGroupId)) {
             $query['TimerGroupId'] = $request->timerGroupId;
+        }
+        if (!Utils::isUnset($request->userOuPath)) {
+            $query['UserOuPath'] = $request->userOuPath;
         }
         if (!Utils::isUnset($request->volumeEncryptionEnabled)) {
             $query['VolumeEncryptionEnabled'] = $request->volumeEncryptionEnabled;
@@ -8816,7 +8822,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about authorized users in a cloud computer pool, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
+     * @summary Queries the information about authorized users of a cloud computer share, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
      *  *
      * @param DescribeUsersInGroupRequest $request DescribeUsersInGroupRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -8879,7 +8885,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about authorized users in a cloud computer pool, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
+     * @summary Queries the information about authorized users of a cloud computer share, including the usernames, email addresses, mobile numbers, and cloud computer IDs.
      *  *
      * @param DescribeUsersInGroupRequest $request DescribeUsersInGroupRequest
      *
@@ -9489,7 +9495,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Exports cloud computer pools. The list of cloud computer pools is saved as an XLSX file. Each entry of cloud computer pool data includes the ID and name of the cloud computer pool, the ID and name of the office network, the cloud computer pool template, and the name of the security policy.
+     * @summary Exports cloud computer shares and saves the list as an XLSX file. Each entry includes the ID and name of the cloud computer share, the ID and name of the office network, the cloud computer share template, and the name of the security policy.
      *  *
      * @param ExportDesktopGroupInfoRequest $request ExportDesktopGroupInfoRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -9558,7 +9564,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Exports cloud computer pools. The list of cloud computer pools is saved as an XLSX file. Each entry of cloud computer pool data includes the ID and name of the cloud computer pool, the ID and name of the office network, the cloud computer pool template, and the name of the security policy.
+     * @summary Exports cloud computer shares and saves the list as an XLSX file. Each entry includes the ID and name of the cloud computer share, the ID and name of the office network, the cloud computer share template, and the name of the security policy.
      *  *
      * @param ExportDesktopGroupInfoRequest $request ExportDesktopGroupInfoRequest
      *
@@ -13423,7 +13429,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Changes the end users of a cloud computer pool into new end users.
+     * @summary Replaces the existing authorized users of a cloud computer share with different users
      *  *
      * @param ModifyUserToDesktopGroupRequest $request ModifyUserToDesktopGroupRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -13468,7 +13474,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Changes the end users of a cloud computer pool into new end users.
+     * @summary Replaces the existing authorized users of a cloud computer share with different users
      *  *
      * @param ModifyUserToDesktopGroupRequest $request ModifyUserToDesktopGroupRequest
      *
@@ -13565,6 +13571,9 @@ class Ecd extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->desktopId)) {
             $query['DesktopId'] = $request->desktopId;
+        }
+        if (!Utils::isUnset($request->osUpdate)) {
+            $query['OsUpdate'] = $request->osUpdate;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -13753,7 +13762,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Removes authorized users of cloud computer pools. The removed users can no longer connect to cloud computers in the cloud computer pool.
+     * @summary Revokes user access permissions for a cloud computer share. Once access permissions for a cloud computer share are revoked from a user, the user can no longer access any cloud computers within that share.
      *  *
      * @param RemoveUserFromDesktopGroupRequest $request RemoveUserFromDesktopGroupRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -13775,6 +13784,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->userOuPath)) {
+            $query['UserOuPath'] = $request->userOuPath;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -13798,7 +13810,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Removes authorized users of cloud computer pools. The removed users can no longer connect to cloud computers in the cloud computer pool.
+     * @summary Revokes user access permissions for a cloud computer share. Once access permissions for a cloud computer share are revoked from a user, the user can no longer access any cloud computers within that share.
      *  *
      * @param RemoveUserFromDesktopGroupRequest $request RemoveUserFromDesktopGroupRequest
      *
@@ -13871,7 +13883,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Renew a subscription cloud computer pool.
+     * @summary Renews a shared cloud computer.
      *  *
      * @param RenewDesktopGroupRequest $request RenewDesktopGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -13922,7 +13934,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Renew a subscription cloud computer pool.
+     * @summary Renews a shared cloud computer.
      *  *
      * @param RenewDesktopGroupRequest $request RenewDesktopGroupRequest
      *
@@ -14131,9 +14143,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Resets cloud computers.
+     * @summary Resets cloud computers of a cloud computer share.
      *  *
-     * @description > You can call this operation to reset only cloud computers in a cloud computer pool.
+     * @description >  You can call this operation to reset only cloud computers from a cloud computer share.
      *  *
      * @param ResetDesktopsRequest $request ResetDesktopsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -14190,9 +14202,9 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Resets cloud computers.
+     * @summary Resets cloud computers of a cloud computer share.
      *  *
-     * @description > You can call this operation to reset only cloud computers in a cloud computer pool.
+     * @description >  You can call this operation to reset only cloud computers from a cloud computer share.
      *  *
      * @param ResetDesktopsRequest $request ResetDesktopsRequest
      *
@@ -14576,7 +14588,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Configures a scheduled task for a cloud computer pool, such as starting, stopping, restarting or resting cloud computers in the pool.
+     * @summary Configures a scheduled start, stop, restart, or reset task for a cloud computer share.
      *  *
      * @param SetDesktopGroupTimerRequest $request SetDesktopGroupTimerRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -14627,7 +14639,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Configures a scheduled task for a cloud computer pool, such as starting, stopping, restarting or resting cloud computers in the pool.
+     * @summary Configures a scheduled start, stop, restart, or reset task for a cloud computer share.
      *  *
      * @param SetDesktopGroupTimerRequest $request SetDesktopGroupTimerRequest
      *
@@ -14641,7 +14653,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Sets the status of a scheduled task for a cloud computer pool. For example, you enable or disable the scheduled task.
+     * @summary Sets the status of a scheduled task for a cloud computer share, such as enabling or disabling it.
      *  *
      * @param SetDesktopGroupTimerStatusRequest $request SetDesktopGroupTimerStatusRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -14686,7 +14698,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Sets the status of a scheduled task for a cloud computer pool. For example, you enable or disable the scheduled task.
+     * @summary Sets the status of a scheduled task for a cloud computer share, such as enabling or disabling it.
      *  *
      * @param SetDesktopGroupTimerStatusRequest $request SetDesktopGroupTimerStatusRequest
      *
@@ -15071,6 +15083,9 @@ class Ecd extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->desktopId)) {
             $query['DesktopId'] = $request->desktopId;
+        }
+        if (!Utils::isUnset($request->osUpdate)) {
+            $query['OsUpdate'] = $request->osUpdate;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;

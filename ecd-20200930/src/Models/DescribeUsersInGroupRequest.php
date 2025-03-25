@@ -23,7 +23,7 @@ class DescribeUsersInGroupRequest extends Model
     public $connectState;
 
     /**
-     * @description The ID of the cloud computer pool.
+     * @description The ID of the cloud computer share.
      *
      * This parameter is required.
      *

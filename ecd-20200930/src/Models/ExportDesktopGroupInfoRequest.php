@@ -10,12 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ExportDesktopGroupInfoRequest extends Model
 {
     /**
-     * @description The billing method of the cloud computer pool.
+     * @description The billing method of the cloud computer share.
      *
      * Valid values:
      *
      *   PostPaid: pay-as-you-go.
-     *
      *   PrePaid: subscription.
      *
      * @example PrePaid
@@ -25,14 +24,14 @@ class ExportDesktopGroupInfoRequest extends Model
     public $chargeType;
 
     /**
-     * @description The IDs of the cloud computer pools.
+     * @description The IDs of the cloud computer shares.
      *
      * @var string[]
      */
     public $desktopGroupId;
 
     /**
-     * @description The name of the cloud computer pool.
+     * @description The name of the cloud computer share.
      *
      * @example test
      *
@@ -41,14 +40,14 @@ class ExportDesktopGroupInfoRequest extends Model
     public $desktopGroupName;
 
     /**
-     * @description The authorized user IDs of cloud computer pools.
+     * @description The IDs of the users to be authorized.
      *
      * @var string[]
      */
     public $endUserId;
 
     /**
-     * @description The time when the subscription cloud computer pool expires.
+     * @description The expiration date of the subscription cloud computer share.
      *
      * @example 2022-12-31T15:59Z
      *
@@ -88,7 +87,7 @@ class ExportDesktopGroupInfoRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the office network to which the cloud computer pool belongs.
+     * @description The ID of the office network.
      *
      * @example cn-hangzhou+dir-467671****
      *
@@ -97,7 +96,7 @@ class ExportDesktopGroupInfoRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description The ID of the policy that is associated with the cloud computer pool.
+     * @description The ID of the security policy.
      *
      * @example pg-53iyi2aar0nd6****
      *
@@ -117,7 +116,7 @@ class ExportDesktopGroupInfoRequest extends Model
     public $regionId;
 
     /**
-     * @description The tags attached to the cloud computer pool. You can specify 1 to 20 tags.
+     * @description The tags. You can specify up to 20 tags.
      *
      * @var tag[]
      */

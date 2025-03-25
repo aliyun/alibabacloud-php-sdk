@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops\desktopDurationList;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops\disks;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops\fotaUpdate;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops\osUpdate;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops\resourceGroups;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops\sessions;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops\tags;
@@ -420,6 +421,11 @@ class desktops extends Model
     public $osType;
 
     /**
+     * @var osUpdate
+     */
+    public $osUpdate;
+
+    /**
      * @description The information about the OS platform.
      *
      * Valid values:
@@ -671,6 +677,7 @@ class desktops extends Model
         'officeSiteType' => 'OfficeSiteType',
         'officeSiteVpcType' => 'OfficeSiteVpcType',
         'osType' => 'OsType',
+        'osUpdate' => 'OsUpdate',
         'platform' => 'Platform',
         'policyGroupId' => 'PolicyGroupId',
         'policyGroupIdList' => 'PolicyGroupIdList',
@@ -833,6 +840,9 @@ class desktops extends Model
         }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
+        }
+        if (null !== $this->osUpdate) {
+            $res['OsUpdate'] = null !== $this->osUpdate ? $this->osUpdate->toMap() : null;
         }
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
@@ -1065,6 +1075,9 @@ class desktops extends Model
         }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
+        }
+        if (isset($map['OsUpdate'])) {
+            $model->osUpdate = osUpdate::fromMap($map['OsUpdate']);
         }
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];

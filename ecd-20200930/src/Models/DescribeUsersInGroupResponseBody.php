@@ -26,7 +26,7 @@ class DescribeUsersInGroupResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The total number of authorized users that is connected to cloud computers in the cloud computer pool.
+     * @description The total number of authorized users that are connected to cloud computers of the cloud computer share.
      *
      * @example 0
      *
@@ -44,7 +44,12 @@ class DescribeUsersInGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of authorized users of the cloud computer pool.
+     * @var string
+     */
+    public $userOuPath;
+
+    /**
+     * @description The total number of authorized users of the cloud computer share.
      *
      * @example 1
      *
@@ -56,6 +61,7 @@ class DescribeUsersInGroupResponseBody extends Model
         'nextToken' => 'NextToken',
         'onlineUsersCount' => 'OnlineUsersCount',
         'requestId' => 'RequestId',
+        'userOuPath' => 'UserOuPath',
         'usersCount' => 'UsersCount',
     ];
 
@@ -81,6 +87,9 @@ class DescribeUsersInGroupResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->userOuPath) {
+            $res['UserOuPath'] = $this->userOuPath;
         }
         if (null !== $this->usersCount) {
             $res['UsersCount'] = $this->usersCount;
@@ -114,6 +123,9 @@ class DescribeUsersInGroupResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['UserOuPath'])) {
+            $model->userOuPath = $map['UserOuPath'];
         }
         if (isset($map['UsersCount'])) {
             $model->usersCount = $map['UsersCount'];

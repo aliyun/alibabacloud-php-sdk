@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ResetDesktopsRequest extends Model
 {
     /**
-     * @description The ID of the cloud computer pool. If you specify the `DesktopId` parameter, ignore the `DesktopGroupId` parameter. If you do not specify the `DesktopId` parameter, specify the `DesktopGroupId` parameter in the call to request all IDs of the cloud computers in the specified pool.
+     * @description The ID of the cloud computer share.
+     *
+     *   If you specify `DesktopId`, ignore `DesktopGroupId`.
+     *   If you leave `DesktopId` empty, the system obtains the IDs of all cloud computers within the share specified by `DesktopGroupId`.``
      *
      * @example dg-07if7qsxoxkb6****
      *
@@ -18,7 +21,7 @@ class ResetDesktopsRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The IDs of the cloud computer pools.
+     * @description The IDs of the cloud computer shares.
      *
      * @var string[]
      */
@@ -41,9 +44,14 @@ class ResetDesktopsRequest extends Model
     public $imageId;
 
     /**
-     * @description The billing method.
+     * @description The billing method of the cloud computer share.
      *
-     * > This parameter is available only when you reset cloud computer pools. If you leave this parameter empty, all cloud computers in the specified cloud computer pool are reset, regardless of how the cloud computers are billed.
+     * >  This parameter takes effect when you reset a cloud computer share. If you leave this parameter empty, all cloud computers in that share are reset.
+     *
+     * Valid values:
+     *
+     *   PostPaid: pay-as-you-go.
+     *   PrePaid: subscription.
      *
      * @example PrePaid
      *

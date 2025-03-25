@@ -18,7 +18,7 @@ class AddUserToDesktopGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the desktop group that you want to assign to more regular users.
+     * @description The ID of the cloud computer share.
      *
      * @example dg-2i8qxpv6t1a03****
      *
@@ -27,7 +27,7 @@ class AddUserToDesktopGroupRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The IDs of the desktop groups.
+     * @description The IDs of the cloud computer shares.
      *
      * @var string[]
      */
@@ -35,8 +35,6 @@ class AddUserToDesktopGroupRequest extends Model
 
     /**
      * @description The regular users to whom you want to assign the desktop group.
-     *
-     * This parameter is required.
      *
      * @var string[]
      */
@@ -52,12 +50,18 @@ class AddUserToDesktopGroupRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $userOuPath;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupIds' => 'DesktopGroupIds',
         'endUserIds' => 'EndUserIds',
         'regionId' => 'RegionId',
+        'userOuPath' => 'UserOuPath',
     ];
 
     public function validate() {}
@@ -79,6 +83,9 @@ class AddUserToDesktopGroupRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->userOuPath) {
+            $res['UserOuPath'] = $this->userOuPath;
         }
 
         return $res;
@@ -110,6 +117,9 @@ class AddUserToDesktopGroupRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['UserOuPath'])) {
+            $model->userOuPath = $map['UserOuPath'];
         }
 
         return $model;

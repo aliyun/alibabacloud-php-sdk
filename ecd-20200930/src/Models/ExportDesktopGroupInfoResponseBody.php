@@ -18,18 +18,18 @@ class ExportDesktopGroupInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The URL from which you can download the exported cloud computer pools. The details of the cloud computer pools include:
+     * @description The download URL of the XLSX file that contains cloud computer shares. The XLSX file provides the following information:
      *
-     *   IDs and names of the cloud computer pools
-     *   IDs and names of the office networks
-     *   Cloud computer pool templates
-     *   Number of CPU cores and memory size
-     *   System disks and data disks
-     *   Names of security policies
-     *   Number of current authorized users
-     *   Billing methods
-     *   The time when the cloud computer pools were created
-     *   The time when the cloud computer pools expire
+     *   Cloud computer share ID/name
+     *   Office network ID/name
+     *   Cloud computer share template
+     *   vCPUs/Memory size
+     *   System disk/Data disk
+     *   Security policy name
+     *   Number of authorized users
+     *   Billing method
+     *   Creation time
+     *   Expiration time
      *
      * @example https://cn-hangzhou-servicemanager.oss-cn-hangzhou.aliyuncs.com/A0_DESKTOP/EDS_CloudDesktopGroups_202203********_xBjqdCT***.xlsx?*********
      *

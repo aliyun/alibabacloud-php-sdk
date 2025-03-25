@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveUserFromDesktopGroupRequest extends Model
 {
     /**
-     * @description The ID of the cloud computer pool for which you want to remove the authorized users.
+     * @description The ID of the cloud computer share.
      *
      * @example dg-2i8qxpv6t1a03****
      *
@@ -18,7 +18,7 @@ class RemoveUserFromDesktopGroupRequest extends Model
     public $desktopGroupId;
 
     /**
-     * @description The IDs of cloud computer pools.
+     * @description The IDs of the cloud computer shares.
      *
      * @var string[]
      */
@@ -26,8 +26,6 @@ class RemoveUserFromDesktopGroupRequest extends Model
 
     /**
      * @description The IDs of the authorized users that you want to remove.
-     *
-     * This parameter is required.
      *
      * @var string[]
      */
@@ -43,11 +41,17 @@ class RemoveUserFromDesktopGroupRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $userOuPath;
     protected $_name = [
         'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupIds' => 'DesktopGroupIds',
         'endUserIds' => 'EndUserIds',
         'regionId' => 'RegionId',
+        'userOuPath' => 'UserOuPath',
     ];
 
     public function validate() {}
@@ -66,6 +70,9 @@ class RemoveUserFromDesktopGroupRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->userOuPath) {
+            $res['UserOuPath'] = $this->userOuPath;
         }
 
         return $res;
@@ -94,6 +101,9 @@ class RemoveUserFromDesktopGroupRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['UserOuPath'])) {
+            $model->userOuPath = $map['UserOuPath'];
         }
 
         return $model;

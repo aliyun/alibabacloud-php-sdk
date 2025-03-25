@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class connectionRecords extends Model
 {
     /**
-     * @description The duration for which the end user is connected to the cloud computer. Unit: seconds.
+     * @description The connection duration. Unit: milliseconds.
      *
      * @example 3405035000
      *

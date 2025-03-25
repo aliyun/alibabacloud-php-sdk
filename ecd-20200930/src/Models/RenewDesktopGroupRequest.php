@@ -37,7 +37,7 @@ class RenewDesktopGroupRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The ID of the cloud computer pool.
+     * @description The ID of the shared group.
      *
      * This parameter is required.
      *

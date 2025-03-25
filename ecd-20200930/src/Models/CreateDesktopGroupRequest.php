@@ -634,6 +634,11 @@ class CreateDesktopGroupRequest extends Model
     public $timerGroupId;
 
     /**
+     * @var string
+     */
+    public $userOuPath;
+
+    /**
      * @description Specifies whether to enable disk encryption.
      *
      * @example false
@@ -715,6 +720,7 @@ class CreateDesktopGroupRequest extends Model
         'systemDiskSize' => 'SystemDiskSize',
         'tag' => 'Tag',
         'timerGroupId' => 'TimerGroupId',
+        'userOuPath' => 'UserOuPath',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
         'volumeEncryptionKey' => 'VolumeEncryptionKey',
         'vpcId' => 'VpcId',
@@ -889,6 +895,9 @@ class CreateDesktopGroupRequest extends Model
         }
         if (null !== $this->timerGroupId) {
             $res['TimerGroupId'] = $this->timerGroupId;
+        }
+        if (null !== $this->userOuPath) {
+            $res['UserOuPath'] = $this->userOuPath;
         }
         if (null !== $this->volumeEncryptionEnabled) {
             $res['VolumeEncryptionEnabled'] = $this->volumeEncryptionEnabled;
@@ -1077,6 +1086,9 @@ class CreateDesktopGroupRequest extends Model
         }
         if (isset($map['TimerGroupId'])) {
             $model->timerGroupId = $map['TimerGroupId'];
+        }
+        if (isset($map['UserOuPath'])) {
+            $model->userOuPath = $map['UserOuPath'];
         }
         if (isset($map['VolumeEncryptionEnabled'])) {
             $model->volumeEncryptionEnabled = $map['VolumeEncryptionEnabled'];

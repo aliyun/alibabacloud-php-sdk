@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyUserToDesktopGroupRequest extends Model
 {
     /**
-     * @description The ID of the cloud computer pool whose end users you want to change.
+     * @description The ID of the cloud computer share.
      *
      * This parameter is required.
      *
