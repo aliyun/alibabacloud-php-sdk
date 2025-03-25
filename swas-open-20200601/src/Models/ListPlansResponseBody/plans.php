@@ -72,11 +72,16 @@ class plans extends Model
     public $flow;
 
     /**
+     * @var string
+     */
+    public $ispType;
+
+    /**
      * @description The memory size. Unit: GB.
      *
      * @example 1
      *
-     * @var int
+     * @var float
      */
     public $memory;
 
@@ -85,7 +90,7 @@ class plans extends Model
      *
      * @example 60
      *
-     * @var float
+     * @var string
      */
     public $originPrice;
 
@@ -102,6 +107,11 @@ class plans extends Model
      * @var string
      */
     public $planType;
+
+    /**
+     * @var string
+     */
+    public $publicIpNum;
 
     /**
      * @description The operating system types supported by the plan.
@@ -123,10 +133,12 @@ class plans extends Model
         'diskSize' => 'DiskSize',
         'diskType' => 'DiskType',
         'flow' => 'Flow',
+        'ispType' => 'IspType',
         'memory' => 'Memory',
         'originPrice' => 'OriginPrice',
         'planId' => 'PlanId',
         'planType' => 'PlanType',
+        'publicIpNum' => 'PublicIpNum',
         'supportPlatform' => 'SupportPlatform',
         'tags' => 'Tags',
     ];
@@ -154,6 +166,9 @@ class plans extends Model
         if (null !== $this->flow) {
             $res['Flow'] = $this->flow;
         }
+        if (null !== $this->ispType) {
+            $res['IspType'] = $this->ispType;
+        }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
@@ -165,6 +180,9 @@ class plans extends Model
         }
         if (null !== $this->planType) {
             $res['PlanType'] = $this->planType;
+        }
+        if (null !== $this->publicIpNum) {
+            $res['PublicIpNum'] = $this->publicIpNum;
         }
         if (null !== $this->supportPlatform) {
             $res['SupportPlatform'] = $this->supportPlatform;
@@ -208,6 +226,9 @@ class plans extends Model
         if (isset($map['Flow'])) {
             $model->flow = $map['Flow'];
         }
+        if (isset($map['IspType'])) {
+            $model->ispType = $map['IspType'];
+        }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
@@ -219,6 +240,9 @@ class plans extends Model
         }
         if (isset($map['PlanType'])) {
             $model->planType = $map['PlanType'];
+        }
+        if (isset($map['PublicIpNum'])) {
+            $model->publicIpNum = $map['PublicIpNum'];
         }
         if (isset($map['SupportPlatform'])) {
             $model->supportPlatform = $map['SupportPlatform'];
