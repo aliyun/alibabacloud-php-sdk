@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunMedQAAdvanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class answerImageURLList extends Model
 {
     /**
-     * @example https://viapi-oss.oss-cn-shanghai.aliyuncs.com/doc/imageprocess/roseola.jpeg
-     *
      * @var Stream
      */
     public $answerImageURLObject;
@@ -21,9 +19,10 @@ class answerImageURLList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answerImageURLObject) {
@@ -33,11 +32,11 @@ class answerImageURLList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return answerImageURLList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

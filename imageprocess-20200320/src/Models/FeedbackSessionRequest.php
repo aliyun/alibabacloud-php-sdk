@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FeedbackSessionRequest extends Model
 {
@@ -14,26 +14,26 @@ class FeedbackSessionRequest extends Model
     public $feedback;
 
     /**
-     * @example 69675e9ddaea4b1ca8b9ddbafd02edc2
-     *
      * @var string
      */
     public $sessionId;
     protected $_name = [
-        'feedback'  => 'Feedback',
+        'feedback' => 'Feedback',
         'sessionId' => 'SessionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->feedback) {
             $res['Feedback'] = $this->feedback;
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
@@ -41,17 +41,18 @@ class FeedbackSessionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FeedbackSessionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Feedback'])) {
             $model->feedback = $map['Feedback'];
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }

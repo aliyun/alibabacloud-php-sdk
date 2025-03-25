@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\calcBMD\detections;
-use AlibabaCloud\Tea\Model;
 
 class calcBMD extends Model
 {
@@ -34,76 +34,114 @@ class calcBMD extends Model
      */
     public $spacing;
     protected $_name = [
-        'detections'        => 'Detections',
-        'origin'            => 'Origin',
-        'resultURL'         => 'ResultURL',
+        'detections' => 'Detections',
+        'origin' => 'Origin',
+        'resultURL' => 'ResultURL',
         'seriesInstanceUid' => 'SeriesInstanceUid',
-        'spacing'           => 'Spacing',
+        'spacing' => 'Spacing',
     ];
 
     public function validate()
     {
+        if (\is_array($this->detections)) {
+            Model::validateArray($this->detections);
+        }
+        if (\is_array($this->origin)) {
+            Model::validateArray($this->origin);
+        }
+        if (\is_array($this->spacing)) {
+            Model::validateArray($this->spacing);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detections) {
-            $res['Detections'] = [];
-            if (null !== $this->detections && \is_array($this->detections)) {
-                $n = 0;
-                foreach ($this->detections as $item) {
-                    $res['Detections'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->detections)) {
+                $res['Detections'] = [];
+                $n1 = 0;
+                foreach ($this->detections as $item1) {
+                    $res['Detections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->origin) {
-            $res['Origin'] = $this->origin;
+            if (\is_array($this->origin)) {
+                $res['Origin'] = [];
+                $n1 = 0;
+                foreach ($this->origin as $item1) {
+                    $res['Origin'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resultURL) {
             $res['ResultURL'] = $this->resultURL;
         }
+
         if (null !== $this->seriesInstanceUid) {
             $res['SeriesInstanceUid'] = $this->seriesInstanceUid;
         }
+
         if (null !== $this->spacing) {
-            $res['Spacing'] = $this->spacing;
+            if (\is_array($this->spacing)) {
+                $res['Spacing'] = [];
+                $n1 = 0;
+                foreach ($this->spacing as $item1) {
+                    $res['Spacing'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return calcBMD
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Detections'])) {
             if (!empty($map['Detections'])) {
                 $model->detections = [];
-                $n                 = 0;
-                foreach ($map['Detections'] as $item) {
-                    $model->detections[$n++] = null !== $item ? detections::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Detections'] as $item1) {
+                    $model->detections[$n1++] = detections::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Origin'])) {
             if (!empty($map['Origin'])) {
-                $model->origin = $map['Origin'];
+                $model->origin = [];
+                $n1 = 0;
+                foreach ($map['Origin'] as $item1) {
+                    $model->origin[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResultURL'])) {
             $model->resultURL = $map['ResultURL'];
         }
+
         if (isset($map['SeriesInstanceUid'])) {
             $model->seriesInstanceUid = $map['SeriesInstanceUid'];
         }
+
         if (isset($map['Spacing'])) {
             if (!empty($map['Spacing'])) {
-                $model->spacing = $map['Spacing'];
+                $model->spacing = [];
+                $n1 = 0;
+                foreach ($map['Spacing'] as $item1) {
+                    $model->spacing[$n1++] = $item1;
+                }
             }
         }
 

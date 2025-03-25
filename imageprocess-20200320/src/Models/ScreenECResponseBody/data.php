@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenECResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenECResponseBody\data\lesion;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,23 +19,27 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->lesion) {
+            $this->lesion->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lesion) {
-            $res['Lesion'] = null !== $this->lesion ? $this->lesion->toMap() : null;
+            $res['Lesion'] = null !== $this->lesion ? $this->lesion->toArray($noStream) : $this->lesion;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

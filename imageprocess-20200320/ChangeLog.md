@@ -1,3 +1,30 @@
+2025-03-25 Version: 2.2.1
+- Update API PredictCVD: add response parameters Body.Data.Lesion.ImagesURL.
+- Update API PredictCVD: add response parameters Body.Data.Lesion.FeatureScore.AortaMaxDiam.
+- Update API PredictCVD: add response parameters Body.Data.Lesion.FeatureScore.AortaMaxDiamStd.
+- Update API PredictCVD: add response parameters Body.Data.Lesion.FeatureScore.AorticHeightIndex.
+- Update API PredictCVD: add response parameters Body.Data.Lesion.FeatureScore.AorticTortuosityIndex.
+- Update API PredictCVD: add response parameters Body.Data.Lesion.FeatureScore.ChestWidth.
+- Update API PredictCVD: add response parameters Body.Data.Lesion.FeatureScore.HeartLongDiam.
+- Update API PredictCVD: add response parameters Body.Data.Lesion.FeatureScore.HeartShortDiam.
+- Update API PredictCVD: add response parameters Body.Data.Lesion.FeatureScore.HeartWidth.
+- Update API PredictCVD: add response parameters Body.Data.Lesion.FeatureScore.LeftLungHighattRatio.
+- Update API PredictCVD: add response parameters Body.Data.Lesion.FeatureScore.RightLungHighattRatio.
+- Update API ScreenChestCT: add response parameters Body.Data.DetectAD.
+- Update API ScreenChestCT: add response parameters Body.Data.PredictCVD.Lesion.ImagesURL.
+- Update API ScreenChestCT: add response parameters Body.Data.PredictCVD.Lesion.FeatureScore.AortaMaxDiam.
+- Update API ScreenChestCT: add response parameters Body.Data.PredictCVD.Lesion.FeatureScore.AortaMaxDiamStd.
+- Update API ScreenChestCT: add response parameters Body.Data.PredictCVD.Lesion.FeatureScore.AorticHeightIndex.
+- Update API ScreenChestCT: add response parameters Body.Data.PredictCVD.Lesion.FeatureScore.AorticTortuosityIndex.
+- Update API ScreenChestCT: add response parameters Body.Data.PredictCVD.Lesion.FeatureScore.ChestWidth.
+- Update API ScreenChestCT: add response parameters Body.Data.PredictCVD.Lesion.FeatureScore.CoronaryCalciumScore.
+- Update API ScreenChestCT: add response parameters Body.Data.PredictCVD.Lesion.FeatureScore.HeartLongDiam.
+- Update API ScreenChestCT: add response parameters Body.Data.PredictCVD.Lesion.FeatureScore.HeartShortDiam.
+- Update API ScreenChestCT: add response parameters Body.Data.PredictCVD.Lesion.FeatureScore.HeartWidth.
+- Update API ScreenChestCT: add response parameters Body.Data.PredictCVD.Lesion.FeatureScore.LeftLungHighattRatio.
+- Update API ScreenChestCT: add response parameters Body.Data.PredictCVD.Lesion.FeatureScore.RightLungHighattRatio.
+
+
 2023-12-15 Version: 2.2.0
 - Generated php 2020-03-20 for imageprocess.
 

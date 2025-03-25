@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunCTRegistrationRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class floatingList extends Model
 {
     /**
-     * @example https://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo/registration/flt/34_P18.4.1.dcm
-     *
      * @var string
      */
     public $floatingURL;
@@ -20,9 +18,10 @@ class floatingList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->floatingURL) {
@@ -32,11 +31,11 @@ class floatingList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return floatingList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

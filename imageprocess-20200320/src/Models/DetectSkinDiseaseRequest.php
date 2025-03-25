@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectSkinDiseaseRequest extends Model
 {
     /**
-     * @example 0001
-     *
      * @var string
      */
     public $orgId;
 
     /**
-     * @example demo
-     *
      * @var string
      */
     public $orgName;
 
     /**
-     * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/imageprocess/DetectSkinDisease/DetectSkinDisease1.png
-     *
      * @var string
      */
     public $url;
     protected $_name = [
-        'orgId'   => 'OrgId',
+        'orgId' => 'OrgId',
         'orgName' => 'OrgName',
-        'url'     => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
+
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -54,20 +51,22 @@ class DetectSkinDiseaseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectSkinDiseaseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }
+
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

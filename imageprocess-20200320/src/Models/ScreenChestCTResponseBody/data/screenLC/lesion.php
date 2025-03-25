@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\screenLC;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\screenLC\lesion\lesionList;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\screenLC\lesion\patientLevelResult;
-use AlibabaCloud\Tea\Model;
 
 class lesion extends Model
 {
@@ -30,64 +30,77 @@ class lesion extends Model
      */
     public $patientLevelResult;
     protected $_name = [
-        'lesionList'         => 'LesionList',
-        'liverVolume'        => 'LiverVolume',
-        'mask'               => 'Mask',
+        'lesionList' => 'LesionList',
+        'liverVolume' => 'LiverVolume',
+        'mask' => 'Mask',
         'patientLevelResult' => 'PatientLevelResult',
     ];
 
     public function validate()
     {
+        if (\is_array($this->lesionList)) {
+            Model::validateArray($this->lesionList);
+        }
+        if (null !== $this->patientLevelResult) {
+            $this->patientLevelResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lesionList) {
-            $res['LesionList'] = [];
-            if (null !== $this->lesionList && \is_array($this->lesionList)) {
-                $n = 0;
-                foreach ($this->lesionList as $item) {
-                    $res['LesionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->lesionList)) {
+                $res['LesionList'] = [];
+                $n1 = 0;
+                foreach ($this->lesionList as $item1) {
+                    $res['LesionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->liverVolume) {
             $res['LiverVolume'] = $this->liverVolume;
         }
+
         if (null !== $this->mask) {
             $res['Mask'] = $this->mask;
         }
+
         if (null !== $this->patientLevelResult) {
-            $res['PatientLevelResult'] = null !== $this->patientLevelResult ? $this->patientLevelResult->toMap() : null;
+            $res['PatientLevelResult'] = null !== $this->patientLevelResult ? $this->patientLevelResult->toArray($noStream) : $this->patientLevelResult;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return lesion
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LesionList'])) {
             if (!empty($map['LesionList'])) {
                 $model->lesionList = [];
-                $n                 = 0;
-                foreach ($map['LesionList'] as $item) {
-                    $model->lesionList[$n++] = null !== $item ? lesionList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LesionList'] as $item1) {
+                    $model->lesionList[$n1++] = lesionList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['LiverVolume'])) {
             $model->liverVolume = $map['LiverVolume'];
         }
+
         if (isset($map['Mask'])) {
             $model->mask = $map['Mask'];
         }
+
         if (isset($map['PatientLevelResult'])) {
             $model->patientLevelResult = patientLevelResult::fromMap($map['PatientLevelResult']);
         }

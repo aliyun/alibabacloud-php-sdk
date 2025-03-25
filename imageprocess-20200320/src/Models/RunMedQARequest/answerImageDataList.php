@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunMedQARequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class answerImageDataList extends Model
 {
     /**
-     * @example iVBORw0KGgoAAAANSUhEUgAAAoAAAAHJCAIAAACaEB9NAAEAAElEQVR4nNT9Wb****
-     *
      * @var string
      */
     public $answerImageData;
@@ -20,9 +18,10 @@ class answerImageDataList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answerImageData) {
@@ -32,11 +31,11 @@ class answerImageDataList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return answerImageDataList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

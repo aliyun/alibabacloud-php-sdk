@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectLymphRequest\URLList;
-use AlibabaCloud\Tea\Model;
 
 class DetectLymphRequest extends Model
 {
     /**
-     * @example HTTP_FILES
-     *
      * @var string
      */
     public $dataSourceType;
@@ -22,25 +20,30 @@ class DetectLymphRequest extends Model
     public $URLList;
     protected $_name = [
         'dataSourceType' => 'DataSourceType',
-        'URLList'        => 'URLList',
+        'URLList' => 'URLList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->URLList)) {
+            Model::validateArray($this->URLList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceType) {
             $res['DataSourceType'] = $this->dataSourceType;
         }
+
         if (null !== $this->URLList) {
-            $res['URLList'] = [];
-            if (null !== $this->URLList && \is_array($this->URLList)) {
-                $n = 0;
-                foreach ($this->URLList as $item) {
-                    $res['URLList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->URLList)) {
+                $res['URLList'] = [];
+                $n1 = 0;
+                foreach ($this->URLList as $item1) {
+                    $res['URLList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +51,24 @@ class DetectLymphRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectLymphRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceType'])) {
             $model->dataSourceType = $map['DataSourceType'];
         }
+
         if (isset($map['URLList'])) {
             if (!empty($map['URLList'])) {
                 $model->URLList = [];
-                $n              = 0;
-                foreach ($map['URLList'] as $item) {
-                    $model->URLList[$n++] = null !== $item ? URLList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['URLList'] as $item1) {
+                    $model->URLList[$n1++] = URLList::fromMap($item1);
                 }
             }
         }

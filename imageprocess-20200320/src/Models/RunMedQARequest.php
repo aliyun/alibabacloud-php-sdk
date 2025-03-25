@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunMedQARequest\answerImageDataList;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunMedQARequest\answerImageURLList;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\RunMedQARequest\answerTextList;
-use AlibabaCloud\Tea\Model;
 
 class RunMedQARequest extends Model
 {
@@ -32,89 +32,98 @@ class RunMedQARequest extends Model
     public $department;
 
     /**
-     * @example 0001
-     *
      * @var string
      */
     public $orgId;
 
     /**
-     * @example weiyi
-     *
      * @var string
      */
     public $orgName;
 
     /**
-     * @example chiefComplaint
-     *
      * @var string
      */
     public $questionType;
 
     /**
-     * @example d1f6a6c2444f4c01adfadd413938e5c7
-     *
      * @var string
      */
     public $sessionId;
     protected $_name = [
         'answerImageDataList' => 'AnswerImageDataList',
-        'answerImageURLList'  => 'AnswerImageURLList',
-        'answerTextList'      => 'AnswerTextList',
-        'department'          => 'Department',
-        'orgId'               => 'OrgId',
-        'orgName'             => 'OrgName',
-        'questionType'        => 'QuestionType',
-        'sessionId'           => 'SessionId',
+        'answerImageURLList' => 'AnswerImageURLList',
+        'answerTextList' => 'AnswerTextList',
+        'department' => 'Department',
+        'orgId' => 'OrgId',
+        'orgName' => 'OrgName',
+        'questionType' => 'QuestionType',
+        'sessionId' => 'SessionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->answerImageDataList)) {
+            Model::validateArray($this->answerImageDataList);
+        }
+        if (\is_array($this->answerImageURLList)) {
+            Model::validateArray($this->answerImageURLList);
+        }
+        if (\is_array($this->answerTextList)) {
+            Model::validateArray($this->answerTextList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answerImageDataList) {
-            $res['AnswerImageDataList'] = [];
-            if (null !== $this->answerImageDataList && \is_array($this->answerImageDataList)) {
-                $n = 0;
-                foreach ($this->answerImageDataList as $item) {
-                    $res['AnswerImageDataList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->answerImageDataList)) {
+                $res['AnswerImageDataList'] = [];
+                $n1 = 0;
+                foreach ($this->answerImageDataList as $item1) {
+                    $res['AnswerImageDataList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->answerImageURLList) {
-            $res['AnswerImageURLList'] = [];
-            if (null !== $this->answerImageURLList && \is_array($this->answerImageURLList)) {
-                $n = 0;
-                foreach ($this->answerImageURLList as $item) {
-                    $res['AnswerImageURLList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->answerImageURLList)) {
+                $res['AnswerImageURLList'] = [];
+                $n1 = 0;
+                foreach ($this->answerImageURLList as $item1) {
+                    $res['AnswerImageURLList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->answerTextList) {
-            $res['AnswerTextList'] = [];
-            if (null !== $this->answerTextList && \is_array($this->answerTextList)) {
-                $n = 0;
-                foreach ($this->answerTextList as $item) {
-                    $res['AnswerTextList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->answerTextList)) {
+                $res['AnswerTextList'] = [];
+                $n1 = 0;
+                foreach ($this->answerTextList as $item1) {
+                    $res['AnswerTextList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->department) {
             $res['Department'] = $this->department;
         }
+
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
+
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
         }
+
         if (null !== $this->questionType) {
             $res['QuestionType'] = $this->questionType;
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
@@ -122,53 +131,60 @@ class RunMedQARequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunMedQARequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnswerImageDataList'])) {
             if (!empty($map['AnswerImageDataList'])) {
                 $model->answerImageDataList = [];
-                $n                          = 0;
-                foreach ($map['AnswerImageDataList'] as $item) {
-                    $model->answerImageDataList[$n++] = null !== $item ? answerImageDataList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AnswerImageDataList'] as $item1) {
+                    $model->answerImageDataList[$n1++] = answerImageDataList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['AnswerImageURLList'])) {
             if (!empty($map['AnswerImageURLList'])) {
                 $model->answerImageURLList = [];
-                $n                         = 0;
-                foreach ($map['AnswerImageURLList'] as $item) {
-                    $model->answerImageURLList[$n++] = null !== $item ? answerImageURLList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AnswerImageURLList'] as $item1) {
+                    $model->answerImageURLList[$n1++] = answerImageURLList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['AnswerTextList'])) {
             if (!empty($map['AnswerTextList'])) {
                 $model->answerTextList = [];
-                $n                     = 0;
-                foreach ($map['AnswerTextList'] as $item) {
-                    $model->answerTextList[$n++] = null !== $item ? answerTextList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AnswerTextList'] as $item1) {
+                    $model->answerTextList[$n1++] = answerTextList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Department'])) {
             $model->department = $map['Department'];
         }
+
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }
+
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];
         }
+
         if (isset($map['QuestionType'])) {
             $model->questionType = $map['QuestionType'];
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }

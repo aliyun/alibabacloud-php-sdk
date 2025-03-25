@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\analyzeChestVessel\aortaInfo;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\analyzeChestVessel\pulmonaryInfo;
-use AlibabaCloud\Tea\Model;
 
 class analyzeChestVessel extends Model
 {
@@ -21,30 +21,37 @@ class analyzeChestVessel extends Model
     public $pulmonaryInfo;
 
     /**
-     * @example http://vibktprfx-prod-prod-aic-med-cn-shanghai.oss-cn-shanghai.aliyuncs.com/ct_artery_aa_ph/local_test/2021-07-08/6C4713DF-F548-47DF-A456-5DA1C8334444_result_compressed.tgz?Expires=1625732732&OSSAccessKeyId=LTAI4FoLmvQ9urWXgSR****&Signature=5UKVmLfM7GWllIcPr9a6dKz%2B5h****
-     *
      * @var string
      */
     public $resultURL;
     protected $_name = [
-        'aortaInfo'     => 'AortaInfo',
+        'aortaInfo' => 'AortaInfo',
         'pulmonaryInfo' => 'PulmonaryInfo',
-        'resultURL'     => 'ResultURL',
+        'resultURL' => 'ResultURL',
     ];
 
     public function validate()
     {
+        if (null !== $this->aortaInfo) {
+            $this->aortaInfo->validate();
+        }
+        if (null !== $this->pulmonaryInfo) {
+            $this->pulmonaryInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aortaInfo) {
-            $res['AortaInfo'] = null !== $this->aortaInfo ? $this->aortaInfo->toMap() : null;
+            $res['AortaInfo'] = null !== $this->aortaInfo ? $this->aortaInfo->toArray($noStream) : $this->aortaInfo;
         }
+
         if (null !== $this->pulmonaryInfo) {
-            $res['PulmonaryInfo'] = null !== $this->pulmonaryInfo ? $this->pulmonaryInfo->toMap() : null;
+            $res['PulmonaryInfo'] = null !== $this->pulmonaryInfo ? $this->pulmonaryInfo->toArray($noStream) : $this->pulmonaryInfo;
         }
+
         if (null !== $this->resultURL) {
             $res['ResultURL'] = $this->resultURL;
         }
@@ -52,20 +59,22 @@ class analyzeChestVessel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return analyzeChestVessel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AortaInfo'])) {
             $model->aortaInfo = aortaInfo::fromMap($map['AortaInfo']);
         }
+
         if (isset($map['PulmonaryInfo'])) {
             $model->pulmonaryInfo = pulmonaryInfo::fromMap($map['PulmonaryInfo']);
         }
+
         if (isset($map['ResultURL'])) {
             $model->resultURL = $map['ResultURL'];
         }

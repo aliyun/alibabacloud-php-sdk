@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenECAdvanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 use GuzzleHttp\Psr7\Stream;
 
 class URLList extends Model
@@ -19,9 +19,10 @@ class URLList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->URLObject) {
@@ -31,11 +32,11 @@ class URLList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return URLList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,27 +4,45 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\SegmentOARResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example http://vibktprfx-prod-prod-aic-med-cn-shanghai.oss-cn-shanghai.aliyuncs.com/calc-cacs/2020-09-29/2020-09-29-11%3A07%3A41-D74FE0DF-8F80-41EB-B08B-2E67053587EC.tar.gz?Expires=1601350661&OSSAccessKeyId=LTAI4FoLmvQ9urWXgSRp****&Signature=iB16ms28Y5mzB11ghYUd7upCi4****
-     *
+     * @var string[]
+     */
+    public $maskList;
+
+    /**
      * @var string
      */
     public $resultURL;
     protected $_name = [
+        'maskList' => 'MaskList',
         'resultURL' => 'ResultURL',
     ];
 
     public function validate()
     {
+        if (\is_array($this->maskList)) {
+            Model::validateArray($this->maskList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->maskList) {
+            if (\is_array($this->maskList)) {
+                $res['MaskList'] = [];
+                $n1 = 0;
+                foreach ($this->maskList as $item1) {
+                    $res['MaskList'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->resultURL) {
             $res['ResultURL'] = $this->resultURL;
         }
@@ -32,14 +50,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaskList'])) {
+            if (!empty($map['MaskList'])) {
+                $model->maskList = [];
+                $n1 = 0;
+                foreach ($map['MaskList'] as $item1) {
+                    $model->maskList[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['ResultURL'])) {
             $model->resultURL = $map['ResultURL'];
         }

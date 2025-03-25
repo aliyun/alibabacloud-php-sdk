@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\detectRibFracture;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class detections extends Model
 {
@@ -24,78 +24,94 @@ class detections extends Model
     public $fracSOPInstanceUID;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $fractureCategory;
 
     /**
-     * @example 0.7916666666666667
-     *
      * @var float
      */
     public $fractureConfidence;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $fractureId;
 
     /**
-     * @example L4
-     *
      * @var string
      */
     public $fractureLocation;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $fractureSegment;
     protected $_name = [
-        'coordinateImage'    => 'CoordinateImage',
-        'coordinates'        => 'Coordinates',
+        'coordinateImage' => 'CoordinateImage',
+        'coordinates' => 'Coordinates',
         'fracSOPInstanceUID' => 'FracSOPInstanceUID',
-        'fractureCategory'   => 'FractureCategory',
+        'fractureCategory' => 'FractureCategory',
         'fractureConfidence' => 'FractureConfidence',
-        'fractureId'         => 'FractureId',
-        'fractureLocation'   => 'FractureLocation',
-        'fractureSegment'    => 'FractureSegment',
+        'fractureId' => 'FractureId',
+        'fractureLocation' => 'FractureLocation',
+        'fractureSegment' => 'FractureSegment',
     ];
 
     public function validate()
     {
+        if (\is_array($this->coordinateImage)) {
+            Model::validateArray($this->coordinateImage);
+        }
+        if (\is_array($this->coordinates)) {
+            Model::validateArray($this->coordinates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coordinateImage) {
-            $res['CoordinateImage'] = $this->coordinateImage;
+            if (\is_array($this->coordinateImage)) {
+                $res['CoordinateImage'] = [];
+                $n1 = 0;
+                foreach ($this->coordinateImage as $item1) {
+                    $res['CoordinateImage'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->coordinates) {
-            $res['Coordinates'] = $this->coordinates;
+            if (\is_array($this->coordinates)) {
+                $res['Coordinates'] = [];
+                $n1 = 0;
+                foreach ($this->coordinates as $item1) {
+                    $res['Coordinates'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->fracSOPInstanceUID) {
             $res['FracSOPInstanceUID'] = $this->fracSOPInstanceUID;
         }
+
         if (null !== $this->fractureCategory) {
             $res['FractureCategory'] = $this->fractureCategory;
         }
+
         if (null !== $this->fractureConfidence) {
             $res['FractureConfidence'] = $this->fractureConfidence;
         }
+
         if (null !== $this->fractureId) {
             $res['FractureId'] = $this->fractureId;
         }
+
         if (null !== $this->fractureLocation) {
             $res['FractureLocation'] = $this->fractureLocation;
         }
+
         if (null !== $this->fractureSegment) {
             $res['FractureSegment'] = $this->fractureSegment;
         }
@@ -103,39 +119,54 @@ class detections extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detections
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CoordinateImage'])) {
             if (!empty($map['CoordinateImage'])) {
-                $model->coordinateImage = $map['CoordinateImage'];
+                $model->coordinateImage = [];
+                $n1 = 0;
+                foreach ($map['CoordinateImage'] as $item1) {
+                    $model->coordinateImage[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Coordinates'])) {
             if (!empty($map['Coordinates'])) {
-                $model->coordinates = $map['Coordinates'];
+                $model->coordinates = [];
+                $n1 = 0;
+                foreach ($map['Coordinates'] as $item1) {
+                    $model->coordinates[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['FracSOPInstanceUID'])) {
             $model->fracSOPInstanceUID = $map['FracSOPInstanceUID'];
         }
+
         if (isset($map['FractureCategory'])) {
             $model->fractureCategory = $map['FractureCategory'];
         }
+
         if (isset($map['FractureConfidence'])) {
             $model->fractureConfidence = $map['FractureConfidence'];
         }
+
         if (isset($map['FractureId'])) {
             $model->fractureId = $map['FractureId'];
         }
+
         if (isset($map['FractureLocation'])) {
             $model->fractureLocation = $map['FractureLocation'];
         }
+
         if (isset($map['FractureSegment'])) {
             $model->fractureSegment = $map['FractureSegment'];
         }

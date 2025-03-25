@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\DetectRibFractureAdvanceRequest\URLList;
-use AlibabaCloud\Tea\Model;
 
 class DetectRibFractureAdvanceRequest extends Model
 {
@@ -15,8 +15,6 @@ class DetectRibFractureAdvanceRequest extends Model
     public $dataFormat;
 
     /**
-     * @example 7ff51bfe-e73d-11ea-827d-506b4b3f3cf6
-     *
      * @var string
      */
     public $orgId;
@@ -37,37 +35,45 @@ class DetectRibFractureAdvanceRequest extends Model
     public $URLList;
     protected $_name = [
         'dataFormat' => 'DataFormat',
-        'orgId'      => 'OrgId',
-        'orgName'    => 'OrgName',
+        'orgId' => 'OrgId',
+        'orgName' => 'OrgName',
         'sourceType' => 'SourceType',
-        'URLList'    => 'URLList',
+        'URLList' => 'URLList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->URLList)) {
+            Model::validateArray($this->URLList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
         }
+
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
+
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
+
         if (null !== $this->URLList) {
-            $res['URLList'] = [];
-            if (null !== $this->URLList && \is_array($this->URLList)) {
-                $n = 0;
-                foreach ($this->URLList as $item) {
-                    $res['URLList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->URLList)) {
+                $res['URLList'] = [];
+                $n1 = 0;
+                foreach ($this->URLList as $item1) {
+                    $res['URLList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -75,32 +81,36 @@ class DetectRibFractureAdvanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectRibFractureAdvanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
         }
+
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }
+
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
+
         if (isset($map['URLList'])) {
             if (!empty($map['URLList'])) {
                 $model->URLList = [];
-                $n              = 0;
-                foreach ($map['URLList'] as $item) {
-                    $model->URLList[$n++] = null !== $item ? URLList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['URLList'] as $item1) {
+                    $model->URLList[$n1++] = URLList::fromMap($item1);
                 }
             }
         }

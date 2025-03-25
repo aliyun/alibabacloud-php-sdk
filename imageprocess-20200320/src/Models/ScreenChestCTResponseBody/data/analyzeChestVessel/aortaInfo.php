@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\analyzeChestVessel;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class aortaInfo extends Model
 {
     /**
-     * @description 1
-     *
      * @var float[]
      */
     public $area;
@@ -21,63 +19,85 @@ class aortaInfo extends Model
     public $coordinates;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $labelValue;
 
     /**
-     * @example 2722
-     *
      * @var float
      */
     public $maxArea;
 
     /**
-     * @example 416
-     *
      * @var int
      */
     public $maxAreaIndex;
 
     /**
-     * @example 63
-     *
      * @var float
      */
     public $maxDiameter;
     protected $_name = [
-        'area'         => 'Area',
-        'coordinates'  => 'Coordinates',
-        'labelValue'   => 'LabelValue',
-        'maxArea'      => 'MaxArea',
+        'area' => 'Area',
+        'coordinates' => 'Coordinates',
+        'labelValue' => 'LabelValue',
+        'maxArea' => 'MaxArea',
         'maxAreaIndex' => 'MaxAreaIndex',
-        'maxDiameter'  => 'MaxDiameter',
+        'maxDiameter' => 'MaxDiameter',
     ];
 
     public function validate()
     {
+        if (\is_array($this->area)) {
+            Model::validateArray($this->area);
+        }
+        if (\is_array($this->coordinates)) {
+            Model::validateArray($this->coordinates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->area) {
-            $res['Area'] = $this->area;
+            if (\is_array($this->area)) {
+                $res['Area'] = [];
+                $n1 = 0;
+                foreach ($this->area as $item1) {
+                    $res['Area'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->coordinates) {
-            $res['Coordinates'] = $this->coordinates;
+            if (\is_array($this->coordinates)) {
+                $res['Coordinates'] = [];
+                $n1 = 0;
+                foreach ($this->coordinates as $item1) {
+                    if (\is_array($item1)) {
+                        $res['Coordinates'][$n1++] = [];
+                        $n2 = 0;
+                        foreach ($item1 as $item2) {
+                            $res['Coordinates'][$n1++][$n2++] = $item2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->labelValue) {
             $res['LabelValue'] = $this->labelValue;
         }
+
         if (null !== $this->maxArea) {
             $res['MaxArea'] = $this->maxArea;
         }
+
         if (null !== $this->maxAreaIndex) {
             $res['MaxAreaIndex'] = $this->maxAreaIndex;
         }
+
         if (null !== $this->maxDiameter) {
             $res['MaxDiameter'] = $this->maxDiameter;
         }
@@ -85,33 +105,52 @@ class aortaInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aortaInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Area'])) {
             if (!empty($map['Area'])) {
-                $model->area = $map['Area'];
+                $model->area = [];
+                $n1 = 0;
+                foreach ($map['Area'] as $item1) {
+                    $model->area[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Coordinates'])) {
             if (!empty($map['Coordinates'])) {
-                $model->coordinates = $map['Coordinates'];
+                $model->coordinates = [];
+                $n1 = 0;
+                foreach ($map['Coordinates'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->coordinates[$n1++] = [];
+                        $n2 = 0;
+                        foreach ($item1 as $item2) {
+                            $model->coordinates[$n1++][$n2++] = $item2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['LabelValue'])) {
             $model->labelValue = $map['LabelValue'];
         }
+
         if (isset($map['MaxArea'])) {
             $model->maxArea = $map['MaxArea'];
         }
+
         if (isset($map['MaxAreaIndex'])) {
             $model->maxAreaIndex = $map['MaxAreaIndex'];
         }
+
         if (isset($map['MaxDiameter'])) {
             $model->maxDiameter = $map['MaxDiameter'];
         }
