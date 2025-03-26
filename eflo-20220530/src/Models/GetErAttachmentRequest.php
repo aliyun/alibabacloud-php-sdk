@@ -12,18 +12,20 @@ class GetErAttachmentRequest extends Model
      * @var string
      */
     public $erAttachmentId;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'erAttachmentId' => 'ErAttachmentId',
-        'erId'           => 'ErId',
-        'regionId'       => 'RegionId',
+        'erId' => 'ErId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

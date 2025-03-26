@@ -12,17 +12,19 @@ class GetVccRouteEntryRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vccId;
+
     /**
      * @var string
      */
     public $vccRouteEntryId;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'vccId'           => 'VccId',
+        'regionId' => 'RegionId',
+        'vccId' => 'VccId',
         'vccRouteEntryId' => 'VccRouteEntryId',
     ];
 

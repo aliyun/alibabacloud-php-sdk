@@ -14,93 +14,110 @@ class data extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var mixed[]
      */
     public $dependence;
+
     /**
      * @var erInfos[]
      */
     public $erInfos;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var int
      */
     public $ncCount;
+
     /**
      * @var int
      */
     public $networkInterfaceCount;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string[]
      */
     public $secondaryCidrBlocks;
+
     /**
      * @var string
      */
     public $serviceCidr;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $subnetCount;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var string
      */
     public $vpdId;
+
     /**
      * @var string
      */
     public $vpdName;
     protected $_name = [
-        'cidr'                  => 'Cidr',
-        'createTime'            => 'CreateTime',
-        'dependence'            => 'Dependence',
-        'erInfos'               => 'ErInfos',
-        'gmtModified'           => 'GmtModified',
-        'message'               => 'Message',
-        'ncCount'               => 'NcCount',
+        'cidr' => 'Cidr',
+        'createTime' => 'CreateTime',
+        'dependence' => 'Dependence',
+        'erInfos' => 'ErInfos',
+        'gmtModified' => 'GmtModified',
+        'message' => 'Message',
+        'ncCount' => 'NcCount',
         'networkInterfaceCount' => 'NetworkInterfaceCount',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'secondaryCidrBlocks'   => 'SecondaryCidrBlocks',
-        'serviceCidr'           => 'ServiceCidr',
-        'status'                => 'Status',
-        'subnetCount'           => 'SubnetCount',
-        'tags'                  => 'Tags',
-        'tenantId'              => 'TenantId',
-        'vpdId'                 => 'VpdId',
-        'vpdName'               => 'VpdName',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'secondaryCidrBlocks' => 'SecondaryCidrBlocks',
+        'serviceCidr' => 'ServiceCidr',
+        'status' => 'Status',
+        'subnetCount' => 'SubnetCount',
+        'tags' => 'Tags',
+        'tenantId' => 'TenantId',
+        'vpdId' => 'VpdId',
+        'vpdName' => 'VpdName',
     ];
 
     public function validate()
@@ -143,7 +160,7 @@ class data extends Model
         if (null !== $this->erInfos) {
             if (\is_array($this->erInfos)) {
                 $res['ErInfos'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->erInfos as $item1) {
                     $res['ErInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -177,7 +194,7 @@ class data extends Model
         if (null !== $this->secondaryCidrBlocks) {
             if (\is_array($this->secondaryCidrBlocks)) {
                 $res['SecondaryCidrBlocks'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->secondaryCidrBlocks as $item1) {
                     $res['SecondaryCidrBlocks'][$n1++] = $item1;
                 }
@@ -199,7 +216,7 @@ class data extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -249,7 +266,7 @@ class data extends Model
         if (isset($map['ErInfos'])) {
             if (!empty($map['ErInfos'])) {
                 $model->erInfos = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['ErInfos'] as $item1) {
                     $model->erInfos[$n1++] = erInfos::fromMap($item1);
                 }
@@ -283,7 +300,7 @@ class data extends Model
         if (isset($map['SecondaryCidrBlocks'])) {
             if (!empty($map['SecondaryCidrBlocks'])) {
                 $model->secondaryCidrBlocks = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['SecondaryCidrBlocks'] as $item1) {
                     $model->secondaryCidrBlocks[$n1++] = $item1;
                 }
@@ -305,7 +322,7 @@ class data extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

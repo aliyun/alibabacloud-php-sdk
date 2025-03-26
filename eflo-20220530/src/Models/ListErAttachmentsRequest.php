@@ -12,68 +12,80 @@ class ListErAttachmentsRequest extends Model
      * @var bool
      */
     public $autoReceiveAllRoute;
+
     /**
      * @var bool
      */
     public $enablePage;
+
     /**
      * @var string
      */
     public $erAttachmentId;
+
     /**
      * @var string
      */
     public $erAttachmentName;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceTenantId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'autoReceiveAllRoute' => 'AutoReceiveAllRoute',
-        'enablePage'          => 'EnablePage',
-        'erAttachmentId'      => 'ErAttachmentId',
-        'erAttachmentName'    => 'ErAttachmentName',
-        'erId'                => 'ErId',
-        'instanceId'          => 'InstanceId',
-        'instanceType'        => 'InstanceType',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'regionId'            => 'RegionId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'resourceTenantId'    => 'ResourceTenantId',
-        'status'              => 'Status',
+        'enablePage' => 'EnablePage',
+        'erAttachmentId' => 'ErAttachmentId',
+        'erAttachmentName' => 'ErAttachmentName',
+        'erId' => 'ErId',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceTenantId' => 'ResourceTenantId',
+        'status' => 'Status',
     ];
 
     public function validate()

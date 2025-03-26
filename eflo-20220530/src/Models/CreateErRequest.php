@@ -12,27 +12,31 @@ class CreateErRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $erName;
+
     /**
      * @var string
      */
     public $masterZoneId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'description'     => 'Description',
-        'erName'          => 'ErName',
-        'masterZoneId'    => 'MasterZoneId',
-        'regionId'        => 'RegionId',
+        'description' => 'Description',
+        'erName' => 'ErName',
+        'masterZoneId' => 'MasterZoneId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

@@ -12,63 +12,74 @@ class data extends Model
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $erRouteEntryId;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $nextHopId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceTenantId;
+
     /**
      * @var string
      */
     public $routeType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'erId'                 => 'ErId',
-        'erRouteEntryId'       => 'ErRouteEntryId',
-        'gmtModified'          => 'GmtModified',
-        'nextHopId'            => 'NextHopId',
-        'nextHopType'          => 'NextHopType',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'resourceTenantId'     => 'ResourceTenantId',
-        'routeType'            => 'RouteType',
-        'status'               => 'Status',
-        'tenantId'             => 'TenantId',
+        'erId' => 'ErId',
+        'erRouteEntryId' => 'ErRouteEntryId',
+        'gmtModified' => 'GmtModified',
+        'nextHopId' => 'NextHopId',
+        'nextHopType' => 'NextHopType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceTenantId' => 'ResourceTenantId',
+        'routeType' => 'RouteType',
+        'status' => 'Status',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

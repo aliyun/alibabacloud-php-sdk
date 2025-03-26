@@ -12,23 +12,26 @@ class vpdBaseInfo extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $vpdId;
+
     /**
      * @var string
      */
     public $vpdName;
     protected $_name = [
-        'cidr'       => 'Cidr',
+        'cidr' => 'Cidr',
         'createTime' => 'CreateTime',
-        'vpdId'      => 'VpdId',
-        'vpdName'    => 'VpdName',
+        'vpdId' => 'VpdId',
+        'vpdName' => 'VpdName',
     ];
 
     public function validate()

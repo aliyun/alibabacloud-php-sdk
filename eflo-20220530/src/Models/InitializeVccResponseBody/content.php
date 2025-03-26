@@ -12,13 +12,14 @@ class content extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $roleName;
     protected $_name = [
         'requestId' => 'RequestId',
-        'roleName'  => 'RoleName',
+        'roleName' => 'RoleName',
     ];
 
     public function validate()

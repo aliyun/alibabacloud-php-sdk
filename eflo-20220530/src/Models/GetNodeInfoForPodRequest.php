@@ -12,12 +12,13 @@ class GetNodeInfoForPodRequest extends Model
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'nodeId'   => 'NodeId',
+        'nodeId' => 'NodeId',
         'regionId' => 'RegionId',
     ];
 

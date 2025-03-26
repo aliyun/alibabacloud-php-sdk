@@ -15,73 +15,86 @@ class content extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var erAttachments[]
      */
     public $erAttachments;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $erName;
+
     /**
      * @var erRouteEntrys[]
      */
     public $erRouteEntrys;
+
     /**
      * @var erRouteMaps[]
      */
     public $erRouteMaps;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $masterZoneId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
-        'createTime'      => 'CreateTime',
-        'description'     => 'Description',
-        'erAttachments'   => 'ErAttachments',
-        'erId'            => 'ErId',
-        'erName'          => 'ErName',
-        'erRouteEntrys'   => 'ErRouteEntrys',
-        'erRouteMaps'     => 'ErRouteMaps',
-        'gmtModified'     => 'GmtModified',
-        'masterZoneId'    => 'MasterZoneId',
-        'message'         => 'Message',
-        'regionId'        => 'RegionId',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'erAttachments' => 'ErAttachments',
+        'erId' => 'ErId',
+        'erName' => 'ErName',
+        'erRouteEntrys' => 'ErRouteEntrys',
+        'erRouteMaps' => 'ErRouteMaps',
+        'gmtModified' => 'GmtModified',
+        'masterZoneId' => 'MasterZoneId',
+        'message' => 'Message',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'status'          => 'Status',
-        'tenantId'        => 'TenantId',
+        'status' => 'Status',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()
@@ -112,7 +125,7 @@ class content extends Model
         if (null !== $this->erAttachments) {
             if (\is_array($this->erAttachments)) {
                 $res['ErAttachments'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->erAttachments as $item1) {
                     $res['ErAttachments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -130,7 +143,7 @@ class content extends Model
         if (null !== $this->erRouteEntrys) {
             if (\is_array($this->erRouteEntrys)) {
                 $res['ErRouteEntrys'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->erRouteEntrys as $item1) {
                     $res['ErRouteEntrys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -140,7 +153,7 @@ class content extends Model
         if (null !== $this->erRouteMaps) {
             if (\is_array($this->erRouteMaps)) {
                 $res['ErRouteMaps'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->erRouteMaps as $item1) {
                     $res['ErRouteMaps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -197,7 +210,7 @@ class content extends Model
         if (isset($map['ErAttachments'])) {
             if (!empty($map['ErAttachments'])) {
                 $model->erAttachments = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ErAttachments'] as $item1) {
                     $model->erAttachments[$n1++] = erAttachments::fromMap($item1);
                 }
@@ -215,7 +228,7 @@ class content extends Model
         if (isset($map['ErRouteEntrys'])) {
             if (!empty($map['ErRouteEntrys'])) {
                 $model->erRouteEntrys = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ErRouteEntrys'] as $item1) {
                     $model->erRouteEntrys[$n1++] = erRouteEntrys::fromMap($item1);
                 }
@@ -225,7 +238,7 @@ class content extends Model
         if (isset($map['ErRouteMaps'])) {
             if (!empty($map['ErRouteMaps'])) {
                 $model->erRouteMaps = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ErRouteMaps'] as $item1) {
                     $model->erRouteMaps[$n1++] = erRouteMaps::fromMap($item1);
                 }

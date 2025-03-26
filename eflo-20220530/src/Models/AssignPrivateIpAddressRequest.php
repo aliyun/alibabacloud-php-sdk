@@ -12,43 +12,50 @@ class AssignPrivateIpAddressRequest extends Model
      * @var bool
      */
     public $assignMac;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $skipConfig;
+
     /**
      * @var string
      */
     public $subnetId;
     protected $_name = [
-        'assignMac'          => 'AssignMac',
-        'clientToken'        => 'ClientToken',
-        'description'        => 'Description',
+        'assignMac' => 'AssignMac',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'privateIpAddress'   => 'PrivateIpAddress',
-        'regionId'           => 'RegionId',
-        'skipConfig'         => 'SkipConfig',
-        'subnetId'           => 'SubnetId',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'regionId' => 'RegionId',
+        'skipConfig' => 'SkipConfig',
+        'subnetId' => 'SubnetId',
     ];
 
     public function validate()

@@ -13,63 +13,74 @@ class ListSubnetsRequest extends Model
      * @var bool
      */
     public $enablePage;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subnetId;
+
     /**
      * @var string
      */
     public $subnetName;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $vpdId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'enablePage'      => 'EnablePage',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'enablePage' => 'EnablePage',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'status'          => 'Status',
-        'subnetId'        => 'SubnetId',
-        'subnetName'      => 'SubnetName',
-        'tag'             => 'Tag',
-        'type'            => 'Type',
-        'vpdId'           => 'VpdId',
-        'zoneId'          => 'ZoneId',
+        'status' => 'Status',
+        'subnetId' => 'SubnetId',
+        'subnetName' => 'SubnetName',
+        'tag' => 'Tag',
+        'type' => 'Type',
+        'vpdId' => 'VpdId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -118,7 +129,7 @@ class ListSubnetsRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -183,7 +194,7 @@ class ListSubnetsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

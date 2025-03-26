@@ -12,18 +12,20 @@ class GetLniPrivateIpAddressRequest extends Model
      * @var string
      */
     public $ipName;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'ipName'             => 'IpName',
+        'ipName' => 'IpName',
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'regionId'           => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

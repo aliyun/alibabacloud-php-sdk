@@ -12,88 +12,104 @@ class data extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $elasticNetworkInterfaceId;
+
     /**
      * @var string
      */
     public $gateway;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $mac;
+
     /**
      * @var string
      */
     public $mask;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'createTime'                => 'CreateTime',
-        'description'               => 'Description',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
-        'gateway'                   => 'Gateway',
-        'gmtModified'               => 'GmtModified',
-        'ip'                        => 'Ip',
-        'mac'                       => 'Mac',
-        'mask'                      => 'Mask',
-        'message'                   => 'Message',
-        'nodeId'                    => 'NodeId',
-        'regionId'                  => 'RegionId',
-        'securityGroupId'           => 'SecurityGroupId',
-        'status'                    => 'Status',
-        'type'                      => 'Type',
-        'vSwitchId'                 => 'VSwitchId',
-        'vpcId'                     => 'VpcId',
-        'zoneId'                    => 'ZoneId',
+        'gateway' => 'Gateway',
+        'gmtModified' => 'GmtModified',
+        'ip' => 'Ip',
+        'mac' => 'Mac',
+        'mask' => 'Mask',
+        'message' => 'Message',
+        'nodeId' => 'NodeId',
+        'regionId' => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
+        'status' => 'Status',
+        'type' => 'Type',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

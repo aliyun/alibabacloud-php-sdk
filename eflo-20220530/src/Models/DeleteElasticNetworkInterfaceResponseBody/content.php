@@ -12,13 +12,14 @@ class content extends Model
      * @var string
      */
     public $elasticNetworkInterfaceId;
+
     /**
      * @var string
      */
     public $nodeId;
     protected $_name = [
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
-        'nodeId'                    => 'NodeId',
+        'nodeId' => 'NodeId',
     ];
 
     public function validate()

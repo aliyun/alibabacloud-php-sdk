@@ -12,23 +12,26 @@ class DeleteVccGrantRuleRequest extends Model
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $grantRuleId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'erId'        => 'ErId',
+        'erId' => 'ErId',
         'grantRuleId' => 'GrantRuleId',
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

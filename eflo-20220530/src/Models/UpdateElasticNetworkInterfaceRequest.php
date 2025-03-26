@@ -12,28 +12,32 @@ class UpdateElasticNetworkInterfaceRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $elasticNetworkInterfaceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
     protected $_name = [
-        'clientToken'               => 'ClientToken',
-        'description'               => 'Description',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
-        'regionId'                  => 'RegionId',
-        'securityGroupId'           => 'SecurityGroupId',
+        'regionId' => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
     ];
 
     public function validate()

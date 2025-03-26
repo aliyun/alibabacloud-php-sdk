@@ -12,14 +12,17 @@ class DeleteSubnetRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $subnetId;
+
     /**
      * @var string
      */
     public $vpdId;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class DeleteSubnetRequest extends Model
     protected $_name = [
         'regionId' => 'RegionId',
         'subnetId' => 'SubnetId',
-        'vpdId'    => 'VpdId',
-        'zoneId'   => 'ZoneId',
+        'vpdId' => 'VpdId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

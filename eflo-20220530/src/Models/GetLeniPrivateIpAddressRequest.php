@@ -12,18 +12,20 @@ class GetLeniPrivateIpAddressRequest extends Model
      * @var string
      */
     public $elasticNetworkInterfaceId;
+
     /**
      * @var string
      */
     public $ipName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
-        'ipName'                    => 'IpName',
-        'regionId'                  => 'RegionId',
+        'ipName' => 'IpName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

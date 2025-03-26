@@ -18,193 +18,230 @@ class content extends Model
      * @var string
      */
     public $accessPointId;
+
     /**
      * @var aliyunRouterInfo[]
      */
     public $aliyunRouterInfo;
+
     /**
      * @var bool
      */
     public $attachErStatus;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $bandwidthStr;
+
     /**
      * @var string
      */
     public $bgpAsn;
+
     /**
      * @var string
      */
     public $bgpCidr;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $cenOwnerId;
+
     /**
      * @var cisRouterInfo[]
      */
     public $cisRouterInfo;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $connectionType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $currentNode;
+
     /**
      * @var string
      */
     public $duration;
+
     /**
      * @var erInfos[]
      */
     public $erInfos;
+
     /**
      * @var string
      */
     public $expirationDate;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $internetChargeType;
+
     /**
      * @var string
      */
     public $lineOperator;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $portType;
+
     /**
      * @var string
      */
     public $pricingCycle;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $spec;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var vbrInfos[]
      */
     public $vbrInfos;
+
     /**
      * @var string
      */
     public $vccId;
+
     /**
      * @var string
      */
     public $vccName;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var vpdBaseInfo
      */
     public $vpdBaseInfo;
+
     /**
      * @var string
      */
     public $vpdId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'accessPointId'      => 'AccessPointId',
-        'aliyunRouterInfo'   => 'AliyunRouterInfo',
-        'attachErStatus'     => 'AttachErStatus',
-        'bandwidth'          => 'Bandwidth',
-        'bandwidthStr'       => 'BandwidthStr',
-        'bgpAsn'             => 'BgpAsn',
-        'bgpCidr'            => 'BgpCidr',
-        'cenId'              => 'CenId',
-        'cenOwnerId'         => 'CenOwnerId',
-        'cisRouterInfo'      => 'CisRouterInfo',
-        'commodityCode'      => 'CommodityCode',
-        'connectionType'     => 'ConnectionType',
-        'createTime'         => 'CreateTime',
-        'currentNode'        => 'CurrentNode',
-        'duration'           => 'Duration',
-        'erInfos'            => 'ErInfos',
-        'expirationDate'     => 'ExpirationDate',
-        'gmtModified'        => 'GmtModified',
+        'accessPointId' => 'AccessPointId',
+        'aliyunRouterInfo' => 'AliyunRouterInfo',
+        'attachErStatus' => 'AttachErStatus',
+        'bandwidth' => 'Bandwidth',
+        'bandwidthStr' => 'BandwidthStr',
+        'bgpAsn' => 'BgpAsn',
+        'bgpCidr' => 'BgpCidr',
+        'cenId' => 'CenId',
+        'cenOwnerId' => 'CenOwnerId',
+        'cisRouterInfo' => 'CisRouterInfo',
+        'commodityCode' => 'CommodityCode',
+        'connectionType' => 'ConnectionType',
+        'createTime' => 'CreateTime',
+        'currentNode' => 'CurrentNode',
+        'duration' => 'Duration',
+        'erInfos' => 'ErInfos',
+        'expirationDate' => 'ExpirationDate',
+        'gmtModified' => 'GmtModified',
         'internetChargeType' => 'InternetChargeType',
-        'lineOperator'       => 'LineOperator',
-        'message'            => 'Message',
-        'payType'            => 'PayType',
-        'portType'           => 'PortType',
-        'pricingCycle'       => 'PricingCycle',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'spec'               => 'Spec',
-        'status'             => 'Status',
-        'tags'               => 'Tags',
-        'tenantId'           => 'TenantId',
-        'vSwitchId'          => 'VSwitchId',
-        'vbrInfos'           => 'VbrInfos',
-        'vccId'              => 'VccId',
-        'vccName'            => 'VccName',
-        'vpcId'              => 'VpcId',
-        'vpdBaseInfo'        => 'VpdBaseInfo',
-        'vpdId'              => 'VpdId',
-        'zoneId'             => 'ZoneId',
+        'lineOperator' => 'LineOperator',
+        'message' => 'Message',
+        'payType' => 'PayType',
+        'portType' => 'PortType',
+        'pricingCycle' => 'PricingCycle',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'spec' => 'Spec',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'tenantId' => 'TenantId',
+        'vSwitchId' => 'VSwitchId',
+        'vbrInfos' => 'VbrInfos',
+        'vccId' => 'VccId',
+        'vccName' => 'VccName',
+        'vpcId' => 'VpcId',
+        'vpdBaseInfo' => 'VpdBaseInfo',
+        'vpdId' => 'VpdId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -240,7 +277,7 @@ class content extends Model
         if (null !== $this->aliyunRouterInfo) {
             if (\is_array($this->aliyunRouterInfo)) {
                 $res['AliyunRouterInfo'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->aliyunRouterInfo as $item1) {
                     $res['AliyunRouterInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -278,7 +315,7 @@ class content extends Model
         if (null !== $this->cisRouterInfo) {
             if (\is_array($this->cisRouterInfo)) {
                 $res['CisRouterInfo'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->cisRouterInfo as $item1) {
                     $res['CisRouterInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -308,7 +345,7 @@ class content extends Model
         if (null !== $this->erInfos) {
             if (\is_array($this->erInfos)) {
                 $res['ErInfos'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->erInfos as $item1) {
                     $res['ErInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -366,7 +403,7 @@ class content extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -384,7 +421,7 @@ class content extends Model
         if (null !== $this->vbrInfos) {
             if (\is_array($this->vbrInfos)) {
                 $res['VbrInfos'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->vbrInfos as $item1) {
                     $res['VbrInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -433,7 +470,7 @@ class content extends Model
         if (isset($map['AliyunRouterInfo'])) {
             if (!empty($map['AliyunRouterInfo'])) {
                 $model->aliyunRouterInfo = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['AliyunRouterInfo'] as $item1) {
                     $model->aliyunRouterInfo[$n1++] = aliyunRouterInfo::fromMap($item1);
                 }
@@ -471,7 +508,7 @@ class content extends Model
         if (isset($map['CisRouterInfo'])) {
             if (!empty($map['CisRouterInfo'])) {
                 $model->cisRouterInfo = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CisRouterInfo'] as $item1) {
                     $model->cisRouterInfo[$n1++] = cisRouterInfo::fromMap($item1);
                 }
@@ -501,7 +538,7 @@ class content extends Model
         if (isset($map['ErInfos'])) {
             if (!empty($map['ErInfos'])) {
                 $model->erInfos = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['ErInfos'] as $item1) {
                     $model->erInfos[$n1++] = erInfos::fromMap($item1);
                 }
@@ -559,7 +596,7 @@ class content extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }
@@ -577,7 +614,7 @@ class content extends Model
         if (isset($map['VbrInfos'])) {
             if (!empty($map['VbrInfos'])) {
                 $model->vbrInfos = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['VbrInfos'] as $item1) {
                     $model->vbrInfos[$n1++] = vbrInfos::fromMap($item1);
                 }

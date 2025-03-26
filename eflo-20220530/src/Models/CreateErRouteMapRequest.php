@@ -12,63 +12,74 @@ class CreateErRouteMapRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $receptionInstanceId;
+
     /**
      * @var string
      */
     public $receptionInstanceOwner;
+
     /**
      * @var string
      */
     public $receptionInstanceType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $routeMapAction;
+
     /**
      * @var int
      */
     public $routeMapNum;
+
     /**
      * @var string
      */
     public $transmissionInstanceId;
+
     /**
      * @var string
      */
     public $transmissionInstanceOwner;
+
     /**
      * @var string
      */
     public $transmissionInstanceType;
     protected $_name = [
-        'description'               => 'Description',
-        'destinationCidrBlock'      => 'DestinationCidrBlock',
-        'erId'                      => 'ErId',
-        'receptionInstanceId'       => 'ReceptionInstanceId',
-        'receptionInstanceOwner'    => 'ReceptionInstanceOwner',
-        'receptionInstanceType'     => 'ReceptionInstanceType',
-        'regionId'                  => 'RegionId',
-        'routeMapAction'            => 'RouteMapAction',
-        'routeMapNum'               => 'RouteMapNum',
-        'transmissionInstanceId'    => 'TransmissionInstanceId',
+        'description' => 'Description',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'erId' => 'ErId',
+        'receptionInstanceId' => 'ReceptionInstanceId',
+        'receptionInstanceOwner' => 'ReceptionInstanceOwner',
+        'receptionInstanceType' => 'ReceptionInstanceType',
+        'regionId' => 'RegionId',
+        'routeMapAction' => 'RouteMapAction',
+        'routeMapNum' => 'RouteMapNum',
+        'transmissionInstanceId' => 'TransmissionInstanceId',
         'transmissionInstanceOwner' => 'TransmissionInstanceOwner',
-        'transmissionInstanceType'  => 'TransmissionInstanceType',
+        'transmissionInstanceType' => 'TransmissionInstanceType',
     ];
 
     public function validate()

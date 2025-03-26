@@ -12,18 +12,20 @@ class DeleteElasticNetworkInterfaceRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $elasticNetworkInterfaceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'               => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
-        'regionId'                  => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

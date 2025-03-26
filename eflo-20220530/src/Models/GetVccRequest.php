@@ -12,33 +12,38 @@ class GetVccRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $enablePage;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vccId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'enablePage'  => 'EnablePage',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'vccId'       => 'VccId',
+        'enablePage' => 'EnablePage',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'vccId' => 'VccId',
     ];
 
     public function validate()

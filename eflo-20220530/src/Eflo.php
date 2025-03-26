@@ -206,6 +206,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - AssignLeniPrivateIpAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssignLeniPrivateIpAddressResponse
      *
      * @param AssignLeniPrivateIpAddressRequest $request
@@ -241,15 +242,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AssignLeniPrivateIpAddress',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssignLeniPrivateIpAddress',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssignLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -267,6 +268,7 @@ class Eflo extends OpenApiClient
      * *   You can use the GetLeniPrivateIpAddress or ListLeniPrivateIpAddresses interface to check whether the secondary private IP address is assigned.
      *
      * @param request - AssignLeniPrivateIpAddressRequest
+     *
      * @returns AssignLeniPrivateIpAddressResponse
      *
      * @param AssignLeniPrivateIpAddressRequest $request
@@ -290,6 +292,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - AssignPrivateIpAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssignPrivateIpAddressResponse
      *
      * @param AssignPrivateIpAddressRequest $request
@@ -337,15 +340,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AssignPrivateIpAddress',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssignPrivateIpAddress',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssignPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -363,6 +366,7 @@ class Eflo extends OpenApiClient
      * *   The secondary private IP address is allocated from the Lingjun subnet to which the current network interface controller belongs. The first address and the last two addresses belong to reserved addresses and do not participate in the allocation.
      *
      * @param request - AssignPrivateIpAddressRequest
+     *
      * @returns AssignPrivateIpAddressResponse
      *
      * @param AssignPrivateIpAddressRequest $request
@@ -388,6 +392,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - AssociateVpdCidrBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateVpdCidrBlockResponse
      *
      * @param AssociateVpdCidrBlockRequest $request
@@ -415,15 +420,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AssociateVpdCidrBlock',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateVpdCidrBlock',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateVpdCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -443,6 +448,7 @@ class Eflo extends OpenApiClient
      * *   By default, each tenant can create three additional CIDR blocks in each region.
      *
      * @param request - AssociateVpdCidrBlockRequest
+     *
      * @returns AssociateVpdCidrBlockResponse
      *
      * @param AssociateVpdCidrBlockRequest $request
@@ -464,6 +470,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - AttachElasticNetworkInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachElasticNetworkInterfaceResponse
      *
      * @param AttachElasticNetworkInterfaceRequest $request
@@ -491,15 +498,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AttachElasticNetworkInterface',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachElasticNetworkInterface',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AttachElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -515,6 +522,7 @@ class Eflo extends OpenApiClient
      * This interface is an asynchronous interface. You need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the available state.
      *
      * @param request - AttachElasticNetworkInterfaceRequest
+     *
      * @returns AttachElasticNetworkInterfaceResponse
      *
      * @param AttachElasticNetworkInterfaceRequest $request
@@ -533,6 +541,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - CreateElasticNetworkInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateElasticNetworkInterfaceResponse
      *
      * @param CreateElasticNetworkInterfaceRequest $request
@@ -584,15 +593,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateElasticNetworkInterface',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateElasticNetworkInterface',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -605,6 +614,7 @@ class Eflo extends OpenApiClient
      * Creates an LENI.
      *
      * @param request - CreateElasticNetworkInterfaceRequest
+     *
      * @returns CreateElasticNetworkInterfaceResponse
      *
      * @param CreateElasticNetworkInterfaceRequest $request
@@ -630,6 +640,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - CreateErRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateErResponse
      *
      * @param CreateErRequest $request
@@ -665,15 +676,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateEr',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateEr',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateErResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -693,6 +704,7 @@ class Eflo extends OpenApiClient
      *     *   If the status of the Lingjun HUB is Available, the creation is successful.
      *
      * @param request - CreateErRequest
+     *
      * @returns CreateErResponse
      *
      * @param CreateErRequest $request
@@ -719,6 +731,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - CreateErAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateErAttachmentResponse
      *
      * @param CreateErAttachmentRequest $request
@@ -762,15 +775,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateErAttachment',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateErAttachment',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -791,6 +804,7 @@ class Eflo extends OpenApiClient
      *     *   If the connection status of the network instance is Available, the network instance is created.
      *
      * @param request - CreateErAttachmentRequest
+     *
      * @returns CreateErAttachmentResponse
      *
      * @param CreateErAttachmentRequest $request
@@ -817,6 +831,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - CreateErRouteMapRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateErRouteMapResponse
      *
      * @param CreateErRouteMapRequest $request
@@ -880,15 +895,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateErRouteMap',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateErRouteMap',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -909,6 +924,7 @@ class Eflo extends OpenApiClient
      *     *   If the status of the routing policy is Available, the creation is successful.
      *
      * @param request - CreateErRouteMapRequest
+     *
      * @returns CreateErRouteMapResponse
      *
      * @param CreateErRouteMapRequest $request
@@ -937,6 +953,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - CreateSubnetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSubnetResponse
      *
      * @param CreateSubnetRequest $request
@@ -980,15 +997,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSubnet',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSubnet',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1011,6 +1028,7 @@ class Eflo extends OpenApiClient
      *     *   If the status of the Lingjun subnet is Available, the creation is successful.
      *
      * @param request - CreateSubnetRequest
+     *
      * @returns CreateSubnetResponse
      *
      * @param CreateSubnetRequest $request
@@ -1037,6 +1055,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - CreateVccRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVccResponse
      *
      * @param CreateVccRequest $request
@@ -1120,15 +1139,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVcc',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVcc',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVccResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1149,6 +1168,7 @@ class Eflo extends OpenApiClient
      *     *   If the status of the Lingjun connection is Available, the Lingjun connection is created.
      *
      * @param request - CreateVccRequest
+     *
      * @returns CreateVccResponse
      *
      * @param CreateVccRequest $request
@@ -1172,6 +1192,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - CreateVccGrantRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVccGrantRuleResponse
      *
      * @param CreateVccGrantRuleRequest $request
@@ -1203,15 +1224,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVccGrantRule',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVccGrantRule',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1229,6 +1250,7 @@ class Eflo extends OpenApiClient
      * *   If you authorize the account of the other party, the account of the other party can load your local network instance to its Lingjun HUB, and the other party\\"s network will be connected to your network. Please proceed with caution.
      *
      * @param request - CreateVccGrantRuleRequest
+     *
      * @returns CreateVccGrantRuleResponse
      *
      * @param CreateVccGrantRuleRequest $request
@@ -1254,6 +1276,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - CreateVccRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVccRouteEntryResponse
      *
      * @param CreateVccRouteEntryRequest $request
@@ -1281,15 +1304,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVccRouteEntry',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVccRouteEntry',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1309,6 +1332,7 @@ class Eflo extends OpenApiClient
      *     *   If the status of the VBR static route entry is Available, the VBR is created.
      *
      * @param request - CreateVccRouteEntryRequest
+     *
      * @returns CreateVccRouteEntryResponse
      *
      * @param CreateVccRouteEntryRequest $request
@@ -1336,6 +1360,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - CreateVpdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpdResponse
      *
      * @param CreateVpdRequest $request
@@ -1375,15 +1400,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpd',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpd',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVpdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1405,6 +1430,7 @@ class Eflo extends OpenApiClient
      *     *   If the status of the Lingjun CIDR block is Available, the creation is successful.
      *
      * @param request - CreateVpdRequest
+     *
      * @returns CreateVpdResponse
      *
      * @param CreateVpdRequest $request
@@ -1428,6 +1454,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - CreateVpdGrantRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpdGrantRuleResponse
      *
      * @param CreateVpdGrantRuleRequest $request
@@ -1459,15 +1486,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpdGrantRule',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpdGrantRule',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1485,6 +1512,7 @@ class Eflo extends OpenApiClient
      * *   If you authorize the account of the other party, the account of the other party can load your local network instance to its Lingjun HUB, and the other party\\"s network will be connected to your network. Please proceed with caution.
      *
      * @param request - CreateVpdGrantRuleRequest
+     *
      * @returns CreateVpdGrantRuleResponse
      *
      * @param CreateVpdGrantRuleRequest $request
@@ -1503,6 +1531,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - DeleteElasticNetworkInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteElasticNetworkInterfaceResponse
      *
      * @param DeleteElasticNetworkInterfaceRequest $request
@@ -1530,15 +1559,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteElasticNetworkInterface',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteElasticNetworkInterface',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1551,6 +1580,7 @@ class Eflo extends OpenApiClient
      * Delete Lingjun Elastic Network Interface. After deletion, all relevant data will be lost and cannot be recovered. Please operate with caution.
      *
      * @param request - DeleteElasticNetworkInterfaceRequest
+     *
      * @returns DeleteElasticNetworkInterfaceResponse
      *
      * @param DeleteElasticNetworkInterfaceRequest $request
@@ -1577,6 +1607,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - DeleteErRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteErResponse
      *
      * @param DeleteErRequest $request
@@ -1600,15 +1631,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteEr',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteEr',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteErResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1629,6 +1660,7 @@ class Eflo extends OpenApiClient
      *     *   If no Lingjun HUB instance is recorded, the Lingjun HUB instance has been deleted.
      *
      * @param request - DeleteErRequest
+     *
      * @returns DeleteErResponse
      *
      * @param DeleteErRequest $request
@@ -1655,6 +1687,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - DeleteErAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteErAttachmentResponse
      *
      * @param DeleteErAttachmentRequest $request
@@ -1682,15 +1715,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteErAttachment',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteErAttachment',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1711,6 +1744,7 @@ class Eflo extends OpenApiClient
      *     *   If there is no connection record for the network instance, the connection to the network instance has been deleted.
      *
      * @param request - DeleteErAttachmentRequest
+     *
      * @returns DeleteErAttachmentResponse
      *
      * @param DeleteErAttachmentRequest $request
@@ -1736,6 +1770,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - DeleteErRouteMapRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteErRouteMapResponse
      *
      * @param DeleteErRouteMapRequest $request
@@ -1763,15 +1798,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteErRouteMap',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteErRouteMap',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1791,6 +1826,7 @@ class Eflo extends OpenApiClient
      *     *   If no routing policy instance is recorded, the routing policy instance has been deleted.
      *
      * @param request - DeleteErRouteMapRequest
+     *
      * @returns DeleteErRouteMapResponse
      *
      * @param DeleteErRouteMapRequest $request
@@ -1816,6 +1852,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - DeleteSubnetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSubnetResponse
      *
      * @param DeleteSubnetRequest $request
@@ -1847,15 +1884,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSubnet',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSubnet',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1875,6 +1912,7 @@ class Eflo extends OpenApiClient
      *     *   If there is no record of the Lingjun subnet instance, the Lingjun subnet instance has been deleted.
      *
      * @param request - DeleteSubnetRequest
+     *
      * @returns DeleteSubnetResponse
      *
      * @param DeleteSubnetRequest $request
@@ -1893,6 +1931,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - DeleteVccGrantRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVccGrantRuleResponse
      *
      * @param DeleteVccGrantRuleRequest $request
@@ -1924,15 +1963,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVccGrantRule',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVccGrantRule',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1945,6 +1984,7 @@ class Eflo extends OpenApiClient
      * If you delete a Lingjun HUB cross-account authorization that is connected to Lingjun, the related data is lost and cannot be recovered.
      *
      * @param request - DeleteVccGrantRuleRequest
+     *
      * @returns DeleteVccGrantRuleResponse
      *
      * @param DeleteVccGrantRuleRequest $request
@@ -1970,6 +2010,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - DeleteVccRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVccRouteEntryResponse
      *
      * @param DeleteVccRouteEntryRequest $request
@@ -2001,15 +2042,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVccRouteEntry',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVccRouteEntry',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2029,6 +2070,7 @@ class Eflo extends OpenApiClient
      *     *   If no VBR static route entry instance is recorded, the VBR static route entry instance has been deleted.
      *
      * @param request - DeleteVccRouteEntryRequest
+     *
      * @returns DeleteVccRouteEntryResponse
      *
      * @param DeleteVccRouteEntryRequest $request
@@ -2055,6 +2097,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - DeleteVpdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVpdResponse
      *
      * @param DeleteVpdRequest $request
@@ -2078,15 +2121,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVpd',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVpd',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVpdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2107,6 +2150,7 @@ class Eflo extends OpenApiClient
      *     *   If there is no record of the Lingjun CIDR block instance, the Lingjun CIDR block instance has been deleted.
      *
      * @param request - DeleteVpdRequest
+     *
      * @returns DeleteVpdResponse
      *
      * @param DeleteVpdRequest $request
@@ -2125,6 +2169,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - DeleteVpdGrantRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVpdGrantRuleResponse
      *
      * @param DeleteVpdGrantRuleRequest $request
@@ -2160,15 +2205,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVpdGrantRule',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVpdGrantRule',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2181,6 +2226,7 @@ class Eflo extends OpenApiClient
      * Delete the Lingjun HUB cross-account authorization for a Lingjun CIDR block. After the deletion, the related data is lost and cannot be recovered.
      *
      * @param request - DeleteVpdGrantRuleRequest
+     *
      * @returns DeleteVpdGrantRuleResponse
      *
      * @param DeleteVpdGrantRuleRequest $request
@@ -2203,6 +2249,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - DescribeSlrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSlrResponse
      *
      * @param DescribeSlrRequest $request
@@ -2222,15 +2269,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlr',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlr',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2247,6 +2294,7 @@ class Eflo extends OpenApiClient
      * >  If you do not have a **AliyunServiceRoleForEfloVcc** role, you need to use the initializeVcc interface to complete authorization, otherwise users will not be able to use Lingjun to connect to the product.
      *
      * @param request - DescribeSlrRequest
+     *
      * @returns DescribeSlrResponse
      *
      * @param DescribeSlrRequest $request
@@ -2268,6 +2316,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - DetachElasticNetworkInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachElasticNetworkInterfaceResponse
      *
      * @param DetachElasticNetworkInterfaceRequest $request
@@ -2295,15 +2344,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DetachElasticNetworkInterface',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachElasticNetworkInterface',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DetachElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2319,6 +2368,7 @@ class Eflo extends OpenApiClient
      * This interface is an asynchronous interface, and you need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the unbound state.
      *
      * @param request - DetachElasticNetworkInterfaceRequest
+     *
      * @returns DetachElasticNetworkInterfaceResponse
      *
      * @param DetachElasticNetworkInterfaceRequest $request
@@ -2337,6 +2387,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetDestinationCidrBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDestinationCidrBlockResponse
      *
      * @param GetDestinationCidrBlockRequest $request
@@ -2360,15 +2411,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDestinationCidrBlock',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDestinationCidrBlock',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDestinationCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2381,6 +2432,7 @@ class Eflo extends OpenApiClient
      * Users can use this API to query the destination CIDR block of the source policy instance when creating a routing strategy.
      *
      * @param request - GetDestinationCidrBlockRequest
+     *
      * @returns GetDestinationCidrBlockResponse
      *
      * @param GetDestinationCidrBlockRequest $request
@@ -2399,6 +2451,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetElasticNetworkInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetElasticNetworkInterfaceResponse
      *
      * @param GetElasticNetworkInterfaceRequest $request
@@ -2422,15 +2475,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetElasticNetworkInterface',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetElasticNetworkInterface',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2443,6 +2496,7 @@ class Eflo extends OpenApiClient
      * Queries the details of an LENI.
      *
      * @param request - GetElasticNetworkInterfaceRequest
+     *
      * @returns GetElasticNetworkInterfaceResponse
      *
      * @param GetElasticNetworkInterfaceRequest $request
@@ -2461,6 +2515,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetErRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetErResponse
      *
      * @param GetErRequest   $request
@@ -2484,15 +2539,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetEr',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetEr',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetErResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2505,6 +2560,7 @@ class Eflo extends OpenApiClient
      * Queries the Lingjun HUB.
      *
      * @param request - GetErRequest
+     *
      * @returns GetErResponse
      *
      * @param GetErRequest $request
@@ -2523,6 +2579,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetErAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetErAttachmentResponse
      *
      * @param GetErAttachmentRequest $request
@@ -2550,15 +2607,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetErAttachment',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetErAttachment',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2571,6 +2628,7 @@ class Eflo extends OpenApiClient
      * Queries network instance connections.
      *
      * @param request - GetErAttachmentRequest
+     *
      * @returns GetErAttachmentResponse
      *
      * @param GetErAttachmentRequest $request
@@ -2589,6 +2647,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetErRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetErRouteEntryResponse
      *
      * @param GetErRouteEntryRequest $request
@@ -2616,15 +2675,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetErRouteEntry',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetErRouteEntry',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetErRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2637,6 +2696,7 @@ class Eflo extends OpenApiClient
      * Queries the details of Lingjun HUB route entries.
      *
      * @param request - GetErRouteEntryRequest
+     *
      * @returns GetErRouteEntryResponse
      *
      * @param GetErRouteEntryRequest $request
@@ -2655,6 +2715,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetErRouteMapRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetErRouteMapResponse
      *
      * @param GetErRouteMapRequest $request
@@ -2682,15 +2743,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetErRouteMap',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetErRouteMap',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2703,6 +2764,7 @@ class Eflo extends OpenApiClient
      * query lingjun hub routing policy details.
      *
      * @param request - GetErRouteMapRequest
+     *
      * @returns GetErRouteMapResponse
      *
      * @param GetErRouteMapRequest $request
@@ -2721,6 +2783,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetFabricTopologyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFabricTopologyResponse
      *
      * @param GetFabricTopologyRequest $request
@@ -2760,15 +2823,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFabricTopology',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFabricTopology',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFabricTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2781,6 +2844,7 @@ class Eflo extends OpenApiClient
      * Query the physical topology information of Lingjun network interface controller and Lingjun nodes under VPD.
      *
      * @param request - GetFabricTopologyRequest
+     *
      * @returns GetFabricTopologyResponse
      *
      * @param GetFabricTopologyRequest $request
@@ -2799,6 +2863,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetLeniPrivateIpAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetLeniPrivateIpAddressResponse
      *
      * @param GetLeniPrivateIpAddressRequest $request
@@ -2826,15 +2891,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetLeniPrivateIpAddress',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetLeniPrivateIpAddress',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2847,6 +2912,7 @@ class Eflo extends OpenApiClient
      * Obtains the details of the secondary private IP address of a specified Lingjun Elastic Network Interface.
      *
      * @param request - GetLeniPrivateIpAddressRequest
+     *
      * @returns GetLeniPrivateIpAddressResponse
      *
      * @param GetLeniPrivateIpAddressRequest $request
@@ -2865,6 +2931,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetLniPrivateIpAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetLniPrivateIpAddressResponse
      *
      * @param GetLniPrivateIpAddressRequest $request
@@ -2892,15 +2959,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetLniPrivateIpAddress',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetLniPrivateIpAddress',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetLniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2913,6 +2980,7 @@ class Eflo extends OpenApiClient
      * Obtains the details about the secondary private IP address.
      *
      * @param request - GetLniPrivateIpAddressRequest
+     *
      * @returns GetLniPrivateIpAddressResponse
      *
      * @param GetLniPrivateIpAddressRequest $request
@@ -2931,6 +2999,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetNetworkInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNetworkInterfaceResponse
      *
      * @param GetNetworkInterfaceRequest $request
@@ -2958,15 +3027,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetNetworkInterface',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNetworkInterface',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2979,6 +3048,7 @@ class Eflo extends OpenApiClient
      * Queries information about an LNI.
      *
      * @param request - GetNetworkInterfaceRequest
+     *
      * @returns GetNetworkInterfaceResponse
      *
      * @param GetNetworkInterfaceRequest $request
@@ -2997,6 +3067,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetNodeInfoForPodRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNodeInfoForPodResponse
      *
      * @param GetNodeInfoForPodRequest $request
@@ -3020,15 +3091,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetNodeInfoForPod',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNodeInfoForPod',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNodeInfoForPodResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3041,6 +3112,7 @@ class Eflo extends OpenApiClient
      * Queries the network information of a node.
      *
      * @param request - GetNodeInfoForPodRequest
+     *
      * @returns GetNodeInfoForPodResponse
      *
      * @param GetNodeInfoForPodRequest $request
@@ -3059,6 +3131,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetSubnetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSubnetResponse
      *
      * @param GetSubnetRequest $request
@@ -3086,15 +3159,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSubnet',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSubnet',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3107,6 +3180,7 @@ class Eflo extends OpenApiClient
      * Queries the details of a Lingjun subnet, including the type, CIDR block, instance ID, instance status, and number of NCs.
      *
      * @param request - GetSubnetRequest
+     *
      * @returns GetSubnetResponse
      *
      * @param GetSubnetRequest $request
@@ -3125,6 +3199,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetVccRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVccResponse
      *
      * @param GetVccRequest  $request
@@ -3164,15 +3239,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetVcc',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVcc',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVccResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3185,6 +3260,7 @@ class Eflo extends OpenApiClient
      * Queries the details of a Lingjun connection, including the specification, Express Connect circuit access port type, instance status, bandwidth, and BGP CIDR block.
      *
      * @param request - GetVccRequest
+     *
      * @returns GetVccResponse
      *
      * @param GetVccRequest $request
@@ -3203,6 +3279,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetVccGrantRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVccGrantRuleResponse
      *
      * @param GetVccGrantRuleRequest $request
@@ -3238,15 +3315,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetVccGrantRule',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVccGrantRule',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3259,6 +3336,7 @@ class Eflo extends OpenApiClient
      * Queries the details of cross-account resource authorization for a Lingjun connection, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
      *
      * @param request - GetVccGrantRuleRequest
+     *
      * @returns GetVccGrantRuleResponse
      *
      * @param GetVccGrantRuleRequest $request
@@ -3277,6 +3355,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetVccRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVccRouteEntryResponse
      *
      * @param GetVccRouteEntryRequest $request
@@ -3304,15 +3383,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetVccRouteEntry',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVccRouteEntry',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3325,6 +3404,7 @@ class Eflo extends OpenApiClient
      * Queries route entries.
      *
      * @param request - GetVccRouteEntryRequest
+     *
      * @returns GetVccRouteEntryResponse
      *
      * @param GetVccRouteEntryRequest $request
@@ -3343,6 +3423,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetVpdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVpdResponse
      *
      * @param GetVpdRequest  $request
@@ -3366,15 +3447,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetVpd',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVpd',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVpdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3387,6 +3468,7 @@ class Eflo extends OpenApiClient
      * Queries the details of a Lingjun CIDR block, including the status of the Lingjun CIDR block, the CIDR block, the number of subnets and NCs.
      *
      * @param request - GetVpdRequest
+     *
      * @returns GetVpdResponse
      *
      * @param GetVpdRequest $request
@@ -3405,6 +3487,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetVpdGrantRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVpdGrantRuleResponse
      *
      * @param GetVpdGrantRuleRequest $request
@@ -3440,15 +3523,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetVpdGrantRule',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVpdGrantRule',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3461,6 +3544,7 @@ class Eflo extends OpenApiClient
      * Queries the details of cross-account resource authorization for a Lingjun CIDR block, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
      *
      * @param request - GetVpdGrantRuleRequest
+     *
      * @returns GetVpdGrantRuleResponse
      *
      * @param GetVpdGrantRuleRequest $request
@@ -3479,6 +3563,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - GetVpdRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVpdRouteEntryResponse
      *
      * @param GetVpdRouteEntryRequest $request
@@ -3506,15 +3591,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetVpdRouteEntry',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVpdRouteEntry',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVpdRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3527,6 +3612,7 @@ class Eflo extends OpenApiClient
      * Queries route entries.
      *
      * @param request - GetVpdRouteEntryRequest
+     *
      * @returns GetVpdRouteEntryResponse
      *
      * @param GetVpdRouteEntryRequest $request
@@ -3545,6 +3631,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - InitializeVccRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InitializeVccResponse
      *
      * @param InitializeVccRequest $request
@@ -3564,15 +3651,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InitializeVcc',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InitializeVcc',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InitializeVccResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3585,6 +3672,7 @@ class Eflo extends OpenApiClient
      * Initialize the Lingjun connection and authorize Intelligent Computing Lingjun to create an SLR in your account.
      *
      * @param request - InitializeVccRequest
+     *
      * @returns InitializeVccResponse
      *
      * @param InitializeVccRequest $request
@@ -3603,6 +3691,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListElasticNetworkInterfacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListElasticNetworkInterfacesResponse
      *
      * @param ListElasticNetworkInterfacesRequest $request
@@ -3666,15 +3755,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListElasticNetworkInterfaces',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListElasticNetworkInterfaces',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListElasticNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3687,6 +3776,7 @@ class Eflo extends OpenApiClient
      * Queries the LENIs that are associated with a Lingjun node.
      *
      * @param request - ListElasticNetworkInterfacesRequest
+     *
      * @returns ListElasticNetworkInterfacesResponse
      *
      * @param ListElasticNetworkInterfacesRequest $request
@@ -3705,6 +3795,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListErAttachmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListErAttachmentsResponse
      *
      * @param ListErAttachmentsRequest $request
@@ -3772,15 +3863,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListErAttachments',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListErAttachments',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListErAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3793,6 +3884,7 @@ class Eflo extends OpenApiClient
      * Queries network instance connections.
      *
      * @param request - ListErAttachmentsRequest
+     *
      * @returns ListErAttachmentsResponse
      *
      * @param ListErAttachmentsRequest $request
@@ -3811,6 +3903,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListErRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListErRouteEntriesResponse
      *
      * @param ListErRouteEntriesRequest $request
@@ -3878,15 +3971,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListErRouteEntries',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListErRouteEntries',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListErRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3899,6 +3992,7 @@ class Eflo extends OpenApiClient
      * Queries the route entries of the Lingjun HUB.
      *
      * @param request - ListErRouteEntriesRequest
+     *
      * @returns ListErRouteEntriesResponse
      *
      * @param ListErRouteEntriesRequest $request
@@ -3917,6 +4011,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListErRouteMapsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListErRouteMapsResponse
      *
      * @param ListErRouteMapsRequest $request
@@ -3996,15 +4091,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListErRouteMaps',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListErRouteMaps',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListErRouteMapsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4017,6 +4112,7 @@ class Eflo extends OpenApiClient
      * Routing policies are queried.
      *
      * @param request - ListErRouteMapsRequest
+     *
      * @returns ListErRouteMapsResponse
      *
      * @param ListErRouteMapsRequest $request
@@ -4035,6 +4131,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListErsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListErsResponse
      *
      * @param ListErsRequest $request
@@ -4090,15 +4187,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListErs',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListErs',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListErsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4111,6 +4208,7 @@ class Eflo extends OpenApiClient
      * Queries the Lingjun HUB.
      *
      * @param request - ListErsRequest
+     *
      * @returns ListErsResponse
      *
      * @param ListErsRequest $request
@@ -4129,6 +4227,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListInstancesByNcdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstancesByNcdResponse
      *
      * @param ListInstancesByNcdRequest $request
@@ -4160,15 +4259,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListInstancesByNcd',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstancesByNcd',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInstancesByNcdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4181,6 +4280,7 @@ class Eflo extends OpenApiClient
      * Queries the GPU node list of a specified GPU node whose communication distance does not exceed the specified NCD.
      *
      * @param request - ListInstancesByNcdRequest
+     *
      * @returns ListInstancesByNcdResponse
      *
      * @param ListInstancesByNcdRequest $request
@@ -4199,6 +4299,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListLeniPrivateIpAddressesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListLeniPrivateIpAddressesResponse
      *
      * @param ListLeniPrivateIpAddressesRequest $request
@@ -4242,15 +4343,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListLeniPrivateIpAddresses',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLeniPrivateIpAddresses',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListLeniPrivateIpAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4263,6 +4364,7 @@ class Eflo extends OpenApiClient
      * Queries the list of secondary private IP addresses of Lingjun Elastic Network Interface.
      *
      * @param request - ListLeniPrivateIpAddressesRequest
+     *
      * @returns ListLeniPrivateIpAddressesResponse
      *
      * @param ListLeniPrivateIpAddressesRequest $request
@@ -4281,6 +4383,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListLniPrivateIpAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListLniPrivateIpAddressResponse
      *
      * @param ListLniPrivateIpAddressRequest $request
@@ -4328,15 +4431,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListLniPrivateIpAddress',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLniPrivateIpAddress',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListLniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4349,6 +4452,7 @@ class Eflo extends OpenApiClient
      * Queries the list of secondary private IP addresses of Lingjun network interface controller.
      *
      * @param request - ListLniPrivateIpAddressRequest
+     *
      * @returns ListLniPrivateIpAddressResponse
      *
      * @param ListLniPrivateIpAddressRequest $request
@@ -4367,6 +4471,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListNetworkInterfacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNetworkInterfacesResponse
      *
      * @param ListNetworkInterfacesRequest $request
@@ -4418,15 +4523,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListNetworkInterfaces',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNetworkInterfaces',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4439,6 +4544,7 @@ class Eflo extends OpenApiClient
      * Queries Lingjun network interfaces (LNIs).
      *
      * @param request - ListNetworkInterfacesRequest
+     *
      * @returns ListNetworkInterfacesResponse
      *
      * @param ListNetworkInterfacesRequest $request
@@ -4457,6 +4563,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListNodeInfosForPodRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNodeInfosForPodResponse
      *
      * @param ListNodeInfosForPodRequest $request
@@ -4488,15 +4595,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListNodeInfosForPod',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNodeInfosForPod',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListNodeInfosForPodResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4509,6 +4616,7 @@ class Eflo extends OpenApiClient
      * Queries node network information.
      *
      * @param request - ListNodeInfosForPodRequest
+     *
      * @returns ListNodeInfosForPodResponse
      *
      * @param ListNodeInfosForPodRequest $request
@@ -4527,6 +4635,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListSubnetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSubnetsResponse
      *
      * @param ListSubnetsRequest $request
@@ -4590,15 +4699,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListSubnets',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSubnets',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSubnetsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4611,6 +4720,7 @@ class Eflo extends OpenApiClient
      * You can call this operation to query the details of one or more Lingjun subnets, including the Lingjun subnet type, network address segment, and instance ID of the Lingjun CIDR block.
      *
      * @param request - ListSubnetsRequest
+     *
      * @returns ListSubnetsResponse
      *
      * @param ListSubnetsRequest $request
@@ -4629,6 +4739,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListVccFlowInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVccFlowInfosResponse
      *
      * @param ListVccFlowInfosRequest $request
@@ -4668,15 +4779,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListVccFlowInfos',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVccFlowInfos',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVccFlowInfosResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4689,6 +4800,7 @@ class Eflo extends OpenApiClient
      * Queries the traffic rate of a Lingjun connection.
      *
      * @param request - ListVccFlowInfosRequest
+     *
      * @returns ListVccFlowInfosResponse
      *
      * @param ListVccFlowInfosRequest $request
@@ -4707,6 +4819,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListVccGrantRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVccGrantRulesResponse
      *
      * @param ListVccGrantRulesRequest $request
@@ -4766,15 +4879,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListVccGrantRules',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVccGrantRules',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVccGrantRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4787,6 +4900,7 @@ class Eflo extends OpenApiClient
      * Queries the details of a Lingjun connection authorization, including the authorized tenant ID, region, and Lingjun HUB instance information.
      *
      * @param request - ListVccGrantRulesRequest
+     *
      * @returns ListVccGrantRulesResponse
      *
      * @param ListVccGrantRulesRequest $request
@@ -4805,6 +4919,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListVccRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVccRouteEntriesResponse
      *
      * @param ListVccRouteEntriesRequest $request
@@ -4872,15 +4987,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListVccRouteEntries',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVccRouteEntries',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVccRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4893,6 +5008,7 @@ class Eflo extends OpenApiClient
      * Queries Lingjun connection route entries.
      *
      * @param request - ListVccRouteEntriesRequest
+     *
      * @returns ListVccRouteEntriesResponse
      *
      * @param ListVccRouteEntriesRequest $request
@@ -4911,6 +5027,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListVccsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVccsResponse
      *
      * @param ListVccsRequest $request
@@ -4982,15 +5099,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListVccs',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVccs',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVccsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5003,6 +5120,7 @@ class Eflo extends OpenApiClient
      * query the details of one or more lingjun connections, including the specification, Express Connect circuit access port type, instance status, bandwidth, and bgp network segment.
      *
      * @param request - ListVccsRequest
+     *
      * @returns ListVccsResponse
      *
      * @param ListVccsRequest $request
@@ -5021,6 +5139,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListVpdGrantRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpdGrantRulesResponse
      *
      * @param ListVpdGrantRulesRequest $request
@@ -5080,15 +5199,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListVpdGrantRules',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpdGrantRules',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVpdGrantRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5101,6 +5220,7 @@ class Eflo extends OpenApiClient
      * Queries the details of one or more route entries in the CIDR block of Lingjun, including the route type, route entry status, destination CIDR block, and instance information of the next route entry.
      *
      * @param request - ListVpdGrantRulesRequest
+     *
      * @returns ListVpdGrantRulesResponse
      *
      * @param ListVpdGrantRulesRequest $request
@@ -5119,6 +5239,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListVpdRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpdRouteEntriesResponse
      *
      * @param ListVpdRouteEntriesRequest $request
@@ -5186,15 +5307,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListVpdRouteEntries',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpdRouteEntries',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVpdRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5207,6 +5328,7 @@ class Eflo extends OpenApiClient
      * Queries the route entries of the Lingjun CIDR block.
      *
      * @param request - ListVpdRouteEntriesRequest
+     *
      * @returns ListVpdRouteEntriesResponse
      *
      * @param ListVpdRouteEntriesRequest $request
@@ -5225,6 +5347,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - ListVpdsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpdsResponse
      *
      * @param ListVpdsRequest $request
@@ -5292,15 +5415,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListVpds',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpds',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVpdsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5313,6 +5436,7 @@ class Eflo extends OpenApiClient
      * Queries the details of one or more Lingjun CIDR blocks, including the status of Lingjun CIDR blocks, Cidr addresses, service CIDR blocks, and Subnet.
      *
      * @param request - ListVpdsRequest
+     *
      * @returns ListVpdsResponse
      *
      * @param ListVpdsRequest $request
@@ -5331,6 +5455,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - QueryInstanceNcdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryInstanceNcdResponse
      *
      * @param QueryInstanceNcdRequest $request
@@ -5362,15 +5487,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryInstanceNcd',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryInstanceNcd',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryInstanceNcdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5383,6 +5508,7 @@ class Eflo extends OpenApiClient
      * Query the network communication distance (Network Communication Distance,NCD) between instances (Lingjun node, Lingjun network interface controller).
      *
      * @param request - QueryInstanceNcdRequest
+     *
      * @returns QueryInstanceNcdResponse
      *
      * @param QueryInstanceNcdRequest $request
@@ -5404,6 +5530,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - RefundVccRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RefundVccResponse
      *
      * @param RefundVccRequest $request
@@ -5427,15 +5554,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RefundVcc',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RefundVcc',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RefundVccResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5451,6 +5578,7 @@ class Eflo extends OpenApiClient
      * Only unsubscribable for Lingjun connections in the prepayment status.
      *
      * @param request - RefundVccRequest
+     *
      * @returns RefundVccResponse
      *
      * @param RefundVccRequest $request
@@ -5472,6 +5600,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - RetryVccRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RetryVccResponse
      *
      * @param RetryVccRequest $request
@@ -5495,15 +5624,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RetryVcc',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RetryVcc',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RetryVccResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5519,6 +5648,7 @@ class Eflo extends OpenApiClient
      * This operation allows the user to retry the operation if the Lingjun connection creation and deletion processes fail. Only the Lingjun connection in the creation failure and deletion failure state can be retried
      *
      * @param request - RetryVccRequest
+     *
      * @returns RetryVccResponse
      *
      * @param RetryVccRequest $request
@@ -5537,6 +5667,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - UnAssignPrivateIpAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnAssignPrivateIpAddressResponse
      *
      * @param UnAssignPrivateIpAddressRequest $request
@@ -5576,15 +5707,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnAssignPrivateIpAddress',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnAssignPrivateIpAddress',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnAssignPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5597,6 +5728,7 @@ class Eflo extends OpenApiClient
      * Deletes an assigned secondary private IP address.
      *
      * @param request - UnAssignPrivateIpAddressRequest
+     *
      * @returns UnAssignPrivateIpAddressResponse
      *
      * @param UnAssignPrivateIpAddressRequest $request
@@ -5619,6 +5751,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - UnAssociateVpdCidrBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnAssociateVpdCidrBlockResponse
      *
      * @param UnAssociateVpdCidrBlockRequest $request
@@ -5646,15 +5779,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnAssociateVpdCidrBlock',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnAssociateVpdCidrBlock',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnAssociateVpdCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5671,6 +5804,7 @@ class Eflo extends OpenApiClient
      * **Warning** If the attached CIDR block has Lingjun subnet resources, you must delete the dependent resources before you can delete the attached CIDR block.
      *
      * @param request - UnAssociateVpdCidrBlockRequest
+     *
      * @returns UnAssociateVpdCidrBlockResponse
      *
      * @param UnAssociateVpdCidrBlockRequest $request
@@ -5689,6 +5823,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - UnassignLeniPrivateIpAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnassignLeniPrivateIpAddressResponse
      *
      * @param UnassignLeniPrivateIpAddressRequest $request
@@ -5720,15 +5855,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UnassignLeniPrivateIpAddress',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnassignLeniPrivateIpAddress',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnassignLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5741,6 +5876,7 @@ class Eflo extends OpenApiClient
      * Delete the assigned secondary private IP address of Lingjun Elastic Network Interface.
      *
      * @param request - UnassignLeniPrivateIpAddressRequest
+     *
      * @returns UnassignLeniPrivateIpAddressResponse
      *
      * @param UnassignLeniPrivateIpAddressRequest $request
@@ -5759,6 +5895,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - UpdateElasticNetworkInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateElasticNetworkInterfaceResponse
      *
      * @param UpdateElasticNetworkInterfaceRequest $request
@@ -5794,15 +5931,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateElasticNetworkInterface',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateElasticNetworkInterface',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5815,6 +5952,7 @@ class Eflo extends OpenApiClient
      * Update Lingjun Elastic Network Interface information.
      *
      * @param request - UpdateElasticNetworkInterfaceRequest
+     *
      * @returns UpdateElasticNetworkInterfaceResponse
      *
      * @param UpdateElasticNetworkInterfaceRequest $request
@@ -5833,6 +5971,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - UpdateErRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateErResponse
      *
      * @param UpdateErRequest $request
@@ -5864,15 +6003,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateEr',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateEr',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateErResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5885,6 +6024,7 @@ class Eflo extends OpenApiClient
      * Updated Lingjun HUB.
      *
      * @param request - UpdateErRequest
+     *
      * @returns UpdateErResponse
      *
      * @param UpdateErRequest $request
@@ -5903,6 +6043,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - UpdateErAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateErAttachmentResponse
      *
      * @param UpdateErAttachmentRequest $request
@@ -5934,15 +6075,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateErAttachment',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateErAttachment',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5955,6 +6096,7 @@ class Eflo extends OpenApiClient
      * Updates a network instance connection.
      *
      * @param request - UpdateErAttachmentRequest
+     *
      * @returns UpdateErAttachmentResponse
      *
      * @param UpdateErAttachmentRequest $request
@@ -5973,6 +6115,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - UpdateErRouteMapRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateErRouteMapResponse
      *
      * @param UpdateErRouteMapRequest $request
@@ -6004,15 +6147,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateErRouteMap',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateErRouteMap',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6025,6 +6168,7 @@ class Eflo extends OpenApiClient
      * Update some information about the routing policy, including the description and name of the routing policy.
      *
      * @param request - UpdateErRouteMapRequest
+     *
      * @returns UpdateErRouteMapResponse
      *
      * @param UpdateErRouteMapRequest $request
@@ -6043,6 +6187,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - UpdateLeniPrivateIpAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateLeniPrivateIpAddressResponse
      *
      * @param UpdateLeniPrivateIpAddressRequest $request
@@ -6074,15 +6219,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLeniPrivateIpAddress',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateLeniPrivateIpAddress',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6095,6 +6240,7 @@ class Eflo extends OpenApiClient
      * Updated the description of the secondary private network assigned by the Lingjun Elastic Network Interface.
      *
      * @param request - UpdateLeniPrivateIpAddressRequest
+     *
      * @returns UpdateLeniPrivateIpAddressResponse
      *
      * @param UpdateLeniPrivateIpAddressRequest $request
@@ -6113,6 +6259,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - UpdateSubnetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateSubnetResponse
      *
      * @param UpdateSubnetRequest $request
@@ -6148,15 +6295,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSubnet',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSubnet',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6169,6 +6316,7 @@ class Eflo extends OpenApiClient
      * Updates some information about a specified subnet instance, including the name of the subnet instance.
      *
      * @param request - UpdateSubnetRequest
+     *
      * @returns UpdateSubnetResponse
      *
      * @param UpdateSubnetRequest $request
@@ -6187,6 +6335,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - UpdateVccRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVccResponse
      *
      * @param UpdateVccRequest $request
@@ -6222,15 +6371,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVcc',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateVcc',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateVccResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6243,6 +6392,7 @@ class Eflo extends OpenApiClient
      * Updates the information about a Lingjun connection instance, including the peak bandwidth and name of the Lingjun connection instance.
      *
      * @param request - UpdateVccRequest
+     *
      * @returns UpdateVccResponse
      *
      * @param UpdateVccRequest $request
@@ -6261,6 +6411,7 @@ class Eflo extends OpenApiClient
      *
      * @param request - UpdateVpdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVpdResponse
      *
      * @param UpdateVpdRequest $request
@@ -6288,15 +6439,15 @@ class Eflo extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVpd',
-            'version'     => '2022-05-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateVpd',
+            'version' => '2022-05-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateVpdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6309,6 +6460,7 @@ class Eflo extends OpenApiClient
      * Updates the information about the Lingjun CIDR block, including the name of the Lingjun CIDR block.
      *
      * @param request - UpdateVpdRequest
+     *
      * @returns UpdateVpdResponse
      *
      * @param UpdateVpdRequest $request

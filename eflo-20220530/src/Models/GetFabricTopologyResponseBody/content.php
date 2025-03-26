@@ -13,28 +13,32 @@ class content extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var topoInfo[]
      */
     public $topoInfo;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpdId;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'regionId'  => 'RegionId',
-        'topoInfo'  => 'TopoInfo',
-        'vpcId'     => 'VpcId',
-        'vpdId'     => 'VpdId',
+        'regionId' => 'RegionId',
+        'topoInfo' => 'TopoInfo',
+        'vpcId' => 'VpcId',
+        'vpdId' => 'VpdId',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class content extends Model
         if (null !== $this->topoInfo) {
             if (\is_array($this->topoInfo)) {
                 $res['TopoInfo'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->topoInfo as $item1) {
                     $res['TopoInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class content extends Model
         if (isset($map['TopoInfo'])) {
             if (!empty($map['TopoInfo'])) {
                 $model->topoInfo = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['TopoInfo'] as $item1) {
                     $model->topoInfo[$n1++] = topoInfo::fromMap($item1);
                 }

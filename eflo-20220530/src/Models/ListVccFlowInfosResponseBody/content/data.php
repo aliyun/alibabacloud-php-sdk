@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $metricName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var float
      */
     public $value;
+
     /**
      * @var string
      */
     public $vccId;
     protected $_name = [
-        'direction'  => 'Direction',
+        'direction' => 'Direction',
         'metricName' => 'MetricName',
-        'regionId'   => 'RegionId',
-        'timestamp'  => 'Timestamp',
-        'value'      => 'Value',
-        'vccId'      => 'VccId',
+        'regionId' => 'RegionId',
+        'timestamp' => 'Timestamp',
+        'value' => 'Value',
+        'vccId' => 'VccId',
     ];
 
     public function validate()

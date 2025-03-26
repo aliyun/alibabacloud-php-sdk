@@ -12,18 +12,20 @@ class UnAssociateVpdCidrBlockRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $secondaryCidrBlock;
+
     /**
      * @var string
      */
     public $vpdId;
     protected $_name = [
-        'regionId'           => 'RegionId',
+        'regionId' => 'RegionId',
         'secondaryCidrBlock' => 'SecondaryCidrBlock',
-        'vpdId'              => 'VpdId',
+        'vpdId' => 'VpdId',
     ];
 
     public function validate()

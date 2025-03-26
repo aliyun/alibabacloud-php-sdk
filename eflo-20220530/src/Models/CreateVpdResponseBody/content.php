@@ -12,13 +12,14 @@ class content extends Model
      * @var string[]
      */
     public $subnetIds;
+
     /**
      * @var string
      */
     public $vpdId;
     protected $_name = [
         'subnetIds' => 'SubnetIds',
-        'vpdId'     => 'VpdId',
+        'vpdId' => 'VpdId',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class content extends Model
         if (null !== $this->subnetIds) {
             if (\is_array($this->subnetIds)) {
                 $res['SubnetIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->subnetIds as $item1) {
                     $res['SubnetIds'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class content extends Model
         if (isset($map['SubnetIds'])) {
             if (!empty($map['SubnetIds'])) {
                 $model->subnetIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['SubnetIds'] as $item1) {
                     $model->subnetIds[$n1++] = $item1;
                 }

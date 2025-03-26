@@ -12,33 +12,38 @@ class GetFabricTopologyRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string[]
      */
     public $lniIds;
+
     /**
      * @var string[]
      */
     public $nodeIds;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpdId;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'lniIds'    => 'LniIds',
-        'nodeIds'   => 'NodeIds',
-        'regionId'  => 'RegionId',
-        'vpcId'     => 'VpcId',
-        'vpdId'     => 'VpdId',
+        'lniIds' => 'LniIds',
+        'nodeIds' => 'NodeIds',
+        'regionId' => 'RegionId',
+        'vpcId' => 'VpcId',
+        'vpdId' => 'VpdId',
     ];
 
     public function validate()
@@ -62,7 +67,7 @@ class GetFabricTopologyRequest extends Model
         if (null !== $this->lniIds) {
             if (\is_array($this->lniIds)) {
                 $res['LniIds'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->lniIds as $item1) {
                     $res['LniIds'][$n1++] = $item1;
                 }
@@ -72,7 +77,7 @@ class GetFabricTopologyRequest extends Model
         if (null !== $this->nodeIds) {
             if (\is_array($this->nodeIds)) {
                 $res['NodeIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->nodeIds as $item1) {
                     $res['NodeIds'][$n1++] = $item1;
                 }
@@ -109,7 +114,7 @@ class GetFabricTopologyRequest extends Model
         if (isset($map['LniIds'])) {
             if (!empty($map['LniIds'])) {
                 $model->lniIds = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['LniIds'] as $item1) {
                     $model->lniIds[$n1++] = $item1;
                 }
@@ -119,7 +124,7 @@ class GetFabricTopologyRequest extends Model
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
                 $model->nodeIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['NodeIds'] as $item1) {
                     $model->nodeIds[$n1++] = $item1;
                 }

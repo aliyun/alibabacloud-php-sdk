@@ -12,23 +12,26 @@ class ListInstancesByNcdRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var int
      */
     public $maxNcd;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'maxNcd'       => 'MaxNcd',
-        'regionId'     => 'RegionId',
+        'maxNcd' => 'MaxNcd',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

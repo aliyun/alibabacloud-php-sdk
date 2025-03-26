@@ -12,63 +12,74 @@ class ListElasticNetworkInterfacesRequest extends Model
      * @var string
      */
     public $elasticNetworkInterfaceId;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
-        'ip'                        => 'Ip',
-        'networkType'               => 'NetworkType',
-        'nodeId'                    => 'NodeId',
-        'pageNumber'                => 'PageNumber',
-        'pageSize'                  => 'PageSize',
-        'regionId'                  => 'RegionId',
-        'status'                    => 'Status',
-        'type'                      => 'Type',
-        'vSwitchId'                 => 'VSwitchId',
-        'vpcId'                     => 'VpcId',
-        'zoneId'                    => 'ZoneId',
+        'ip' => 'Ip',
+        'networkType' => 'NetworkType',
+        'nodeId' => 'NodeId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'type' => 'Type',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

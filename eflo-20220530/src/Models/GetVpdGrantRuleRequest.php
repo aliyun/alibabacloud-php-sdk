@@ -12,28 +12,32 @@ class GetVpdGrantRuleRequest extends Model
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $grantRuleId;
+
     /**
      * @var string
      */
     public $grantTenantId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'erId'          => 'ErId',
-        'grantRuleId'   => 'GrantRuleId',
+        'erId' => 'ErId',
+        'grantRuleId' => 'GrantRuleId',
         'grantTenantId' => 'GrantTenantId',
-        'instanceId'    => 'InstanceId',
-        'regionId'      => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

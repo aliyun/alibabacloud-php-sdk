@@ -12,38 +12,44 @@ class CreateErAttachmentRequest extends Model
      * @var bool
      */
     public $autoReceiveAllRoute;
+
     /**
      * @var string
      */
     public $erAttachmentName;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceTenantId;
     protected $_name = [
         'autoReceiveAllRoute' => 'AutoReceiveAllRoute',
-        'erAttachmentName'    => 'ErAttachmentName',
-        'erId'                => 'ErId',
-        'instanceId'          => 'InstanceId',
-        'instanceType'        => 'InstanceType',
-        'regionId'            => 'RegionId',
-        'resourceTenantId'    => 'ResourceTenantId',
+        'erAttachmentName' => 'ErAttachmentName',
+        'erId' => 'ErId',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'regionId' => 'RegionId',
+        'resourceTenantId' => 'ResourceTenantId',
     ];
 
     public function validate()

@@ -15,88 +15,104 @@ class data extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string[]
      */
     public $ethernet;
+
     /**
      * @var string
      */
     public $gateway;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $ncType;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $networkInterfaceName;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var privateIpAddressMacGroup[]
      */
     public $privateIpAddressMacGroup;
+
     /**
      * @var int
      */
     public $quota;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serviceMac;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var subnetBaseInfo
      */
     public $subnetBaseInfo;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var vpdBaseInfo
      */
     public $vpdBaseInfo;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'createTime'               => 'CreateTime',
-        'ethernet'                 => 'Ethernet',
-        'gateway'                  => 'Gateway',
-        'ip'                       => 'Ip',
-        'ncType'                   => 'NcType',
-        'networkInterfaceId'       => 'NetworkInterfaceId',
-        'networkInterfaceName'     => 'NetworkInterfaceName',
-        'nodeId'                   => 'NodeId',
+        'createTime' => 'CreateTime',
+        'ethernet' => 'Ethernet',
+        'gateway' => 'Gateway',
+        'ip' => 'Ip',
+        'ncType' => 'NcType',
+        'networkInterfaceId' => 'NetworkInterfaceId',
+        'networkInterfaceName' => 'NetworkInterfaceName',
+        'nodeId' => 'NodeId',
         'privateIpAddressMacGroup' => 'PrivateIpAddressMacGroup',
-        'quota'                    => 'Quota',
-        'regionId'                 => 'RegionId',
-        'serviceMac'               => 'ServiceMac',
-        'status'                   => 'Status',
-        'subnetBaseInfo'           => 'SubnetBaseInfo',
-        'tenantId'                 => 'TenantId',
-        'vpdBaseInfo'              => 'VpdBaseInfo',
-        'zoneId'                   => 'ZoneId',
+        'quota' => 'Quota',
+        'regionId' => 'RegionId',
+        'serviceMac' => 'ServiceMac',
+        'status' => 'Status',
+        'subnetBaseInfo' => 'SubnetBaseInfo',
+        'tenantId' => 'TenantId',
+        'vpdBaseInfo' => 'VpdBaseInfo',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -126,7 +142,7 @@ class data extends Model
         if (null !== $this->ethernet) {
             if (\is_array($this->ethernet)) {
                 $res['Ethernet'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->ethernet as $item1) {
                     $res['Ethernet'][$n1++] = $item1;
                 }
@@ -160,7 +176,7 @@ class data extends Model
         if (null !== $this->privateIpAddressMacGroup) {
             if (\is_array($this->privateIpAddressMacGroup)) {
                 $res['PrivateIpAddressMacGroup'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->privateIpAddressMacGroup as $item1) {
                     $res['PrivateIpAddressMacGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -217,7 +233,7 @@ class data extends Model
         if (isset($map['Ethernet'])) {
             if (!empty($map['Ethernet'])) {
                 $model->ethernet = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Ethernet'] as $item1) {
                     $model->ethernet[$n1++] = $item1;
                 }
@@ -251,7 +267,7 @@ class data extends Model
         if (isset($map['PrivateIpAddressMacGroup'])) {
             if (!empty($map['PrivateIpAddressMacGroup'])) {
                 $model->privateIpAddressMacGroup = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['PrivateIpAddressMacGroup'] as $item1) {
                     $model->privateIpAddressMacGroup[$n1++] = privateIpAddressMacGroup::fromMap($item1);
                 }

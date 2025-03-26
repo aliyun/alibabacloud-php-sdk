@@ -12,33 +12,38 @@ class ccInfos extends Model
      * @var string
      */
     public $ccId;
+
     /**
      * @var string
      */
     public $localGatewayIp;
+
     /**
      * @var string
      */
     public $remoteGatewayIp;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subnetMask;
+
     /**
      * @var string
      */
     public $vlanId;
     protected $_name = [
-        'ccId'            => 'CcId',
-        'localGatewayIp'  => 'LocalGatewayIp',
+        'ccId' => 'CcId',
+        'localGatewayIp' => 'LocalGatewayIp',
         'remoteGatewayIp' => 'RemoteGatewayIp',
-        'status'          => 'Status',
-        'subnetMask'      => 'SubnetMask',
-        'vlanId'          => 'VlanId',
+        'status' => 'Status',
+        'subnetMask' => 'SubnetMask',
+        'vlanId' => 'VlanId',
     ];
 
     public function validate()

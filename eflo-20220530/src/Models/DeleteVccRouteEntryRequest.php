@@ -12,23 +12,26 @@ class DeleteVccRouteEntryRequest extends Model
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vccId;
+
     /**
      * @var string
      */
     public $vccRouteEntryId;
     protected $_name = [
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'regionId'             => 'RegionId',
-        'vccId'                => 'VccId',
-        'vccRouteEntryId'      => 'VccRouteEntryId',
+        'regionId' => 'RegionId',
+        'vccId' => 'VccId',
+        'vccRouteEntryId' => 'VccRouteEntryId',
     ];
 
     public function validate()

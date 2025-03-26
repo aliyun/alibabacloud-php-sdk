@@ -12,48 +12,56 @@ class data extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $elasticNetworkInterfaceId;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $ipName;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'description'               => 'Description',
+        'description' => 'Description',
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
-        'gmtCreate'                 => 'GmtCreate',
-        'gmtModified'               => 'GmtModified',
-        'ipName'                    => 'IpName',
-        'message'                   => 'Message',
-        'privateIpAddress'          => 'PrivateIpAddress',
-        'regionId'                  => 'RegionId',
-        'status'                    => 'Status',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'ipName' => 'IpName',
+        'message' => 'Message',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
     ];
 
     public function validate()

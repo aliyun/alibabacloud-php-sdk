@@ -12,18 +12,20 @@ class DeleteErRouteMapRequest extends Model
      * @var string
      */
     public $erId;
+
     /**
      * @var string[]
      */
     public $erRouteMapIds;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'erId'          => 'ErId',
+        'erId' => 'ErId',
         'erRouteMapIds' => 'ErRouteMapIds',
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -44,7 +46,7 @@ class DeleteErRouteMapRequest extends Model
         if (null !== $this->erRouteMapIds) {
             if (\is_array($this->erRouteMapIds)) {
                 $res['ErRouteMapIds'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->erRouteMapIds as $item1) {
                     $res['ErRouteMapIds'][$n1++] = $item1;
                 }
@@ -73,7 +75,7 @@ class DeleteErRouteMapRequest extends Model
         if (isset($map['ErRouteMapIds'])) {
             if (!empty($map['ErRouteMapIds'])) {
                 $model->erRouteMapIds = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ErRouteMapIds'] as $item1) {
                     $model->erRouteMapIds[$n1++] = $item1;
                 }

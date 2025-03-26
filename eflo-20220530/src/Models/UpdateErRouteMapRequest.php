@@ -12,23 +12,26 @@ class UpdateErRouteMapRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $erRouteMapId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'description'  => 'Description',
-        'erId'         => 'ErId',
+        'description' => 'Description',
+        'erId' => 'ErId',
         'erRouteMapId' => 'ErRouteMapId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

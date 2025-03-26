@@ -12,18 +12,20 @@ class CreateVccRouteEntryRequest extends Model
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vccId;
     protected $_name = [
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'regionId'             => 'RegionId',
-        'vccId'                => 'VccId',
+        'regionId' => 'RegionId',
+        'vccId' => 'VccId',
     ];
 
     public function validate()

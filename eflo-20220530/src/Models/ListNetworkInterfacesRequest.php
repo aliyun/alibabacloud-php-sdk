@@ -12,48 +12,56 @@ class ListNetworkInterfacesRequest extends Model
      * @var bool
      */
     public $enablePage;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $subnetId;
+
     /**
      * @var string
      */
     public $vpdId;
     protected $_name = [
-        'enablePage'         => 'EnablePage',
-        'ip'                 => 'Ip',
+        'enablePage' => 'EnablePage',
+        'ip' => 'Ip',
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'nodeId'             => 'NodeId',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'regionId'           => 'RegionId',
-        'subnetId'           => 'SubnetId',
-        'vpdId'              => 'VpdId',
+        'nodeId' => 'NodeId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'subnetId' => 'SubnetId',
+        'vpdId' => 'VpdId',
     ];
 
     public function validate()

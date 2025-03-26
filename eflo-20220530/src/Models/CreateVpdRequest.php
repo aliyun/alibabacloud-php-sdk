@@ -14,33 +14,38 @@ class CreateVpdRequest extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var subnets[]
      */
     public $subnets;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $vpdName;
     protected $_name = [
-        'cidr'            => 'Cidr',
-        'regionId'        => 'RegionId',
+        'cidr' => 'Cidr',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'subnets'         => 'Subnets',
-        'tag'             => 'Tag',
-        'vpdName'         => 'VpdName',
+        'subnets' => 'Subnets',
+        'tag' => 'Tag',
+        'vpdName' => 'VpdName',
     ];
 
     public function validate()
@@ -72,7 +77,7 @@ class CreateVpdRequest extends Model
         if (null !== $this->subnets) {
             if (\is_array($this->subnets)) {
                 $res['Subnets'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->subnets as $item1) {
                     $res['Subnets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -82,7 +87,7 @@ class CreateVpdRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -119,7 +124,7 @@ class CreateVpdRequest extends Model
         if (isset($map['Subnets'])) {
             if (!empty($map['Subnets'])) {
                 $model->subnets = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Subnets'] as $item1) {
                     $model->subnets[$n1++] = subnets::fromMap($item1);
                 }
@@ -129,7 +134,7 @@ class CreateVpdRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

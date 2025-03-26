@@ -13,33 +13,38 @@ class vbrInfos extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var vbrBgpPeers[]
      */
     public $vbrBgpPeers;
+
     /**
      * @var string
      */
     public $vbrId;
     protected $_name = [
-        'cenId'       => 'CenId',
-        'gmtCreate'   => 'GmtCreate',
+        'cenId' => 'CenId',
+        'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
-        'status'      => 'Status',
+        'status' => 'Status',
         'vbrBgpPeers' => 'VbrBgpPeers',
-        'vbrId'       => 'VbrId',
+        'vbrId' => 'VbrId',
     ];
 
     public function validate()
@@ -72,7 +77,7 @@ class vbrInfos extends Model
         if (null !== $this->vbrBgpPeers) {
             if (\is_array($this->vbrBgpPeers)) {
                 $res['VbrBgpPeers'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->vbrBgpPeers as $item1) {
                     $res['VbrBgpPeers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -113,7 +118,7 @@ class vbrInfos extends Model
         if (isset($map['VbrBgpPeers'])) {
             if (!empty($map['VbrBgpPeers'])) {
                 $model->vbrBgpPeers = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['VbrBgpPeers'] as $item1) {
                     $model->vbrBgpPeers[$n1++] = vbrBgpPeers::fromMap($item1);
                 }

@@ -12,28 +12,32 @@ class AssignLeniPrivateIpAddressRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $elasticNetworkInterfaceId;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'               => 'ClientToken',
-        'description'               => 'Description',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
-        'privateIpAddress'          => 'PrivateIpAddress',
-        'regionId'                  => 'RegionId',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

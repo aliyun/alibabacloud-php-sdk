@@ -12,68 +12,80 @@ class ListErRouteEntriesRequest extends Model
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var bool
      */
     public $enablePage;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var bool
      */
     public $ignoreDetailedRouteEntry;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nextHopId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $routeType;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'destinationCidrBlock'     => 'DestinationCidrBlock',
-        'enablePage'               => 'EnablePage',
-        'erId'                     => 'ErId',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'enablePage' => 'EnablePage',
+        'erId' => 'ErId',
         'ignoreDetailedRouteEntry' => 'IgnoreDetailedRouteEntry',
-        'instanceId'               => 'InstanceId',
-        'nextHopId'                => 'NextHopId',
-        'nextHopType'              => 'NextHopType',
-        'pageNumber'               => 'PageNumber',
-        'pageSize'                 => 'PageSize',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'routeType'                => 'RouteType',
-        'status'                   => 'Status',
+        'instanceId' => 'InstanceId',
+        'nextHopId' => 'NextHopId',
+        'nextHopType' => 'NextHopType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'routeType' => 'RouteType',
+        'status' => 'Status',
     ];
 
     public function validate()

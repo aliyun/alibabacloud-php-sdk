@@ -12,22 +12,25 @@ class subnetBaseInfo extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $subnetId;
+
     /**
      * @var string
      */
     public $subnetName;
     protected $_name = [
-        'cidr'       => 'Cidr',
+        'cidr' => 'Cidr',
         'createTime' => 'CreateTime',
-        'subnetId'   => 'SubnetId',
+        'subnetId' => 'SubnetId',
         'subnetName' => 'SubnetName',
     ];
 

@@ -13,13 +13,14 @@ class cisRouterInfo extends Model
      * @var ccInfos[]
      */
     public $ccInfos;
+
     /**
      * @var string
      */
     public $ccrId;
     protected $_name = [
         'ccInfos' => 'CcInfos',
-        'ccrId'   => 'CcrId',
+        'ccrId' => 'CcrId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class cisRouterInfo extends Model
         if (null !== $this->ccInfos) {
             if (\is_array($this->ccInfos)) {
                 $res['CcInfos'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->ccInfos as $item1) {
                     $res['CcInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class cisRouterInfo extends Model
         if (isset($map['CcInfos'])) {
             if (!empty($map['CcInfos'])) {
                 $model->ccInfos = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['CcInfos'] as $item1) {
                     $model->ccInfos[$n1++] = ccInfos::fromMap($item1);
                 }

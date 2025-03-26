@@ -12,18 +12,20 @@ class GetNetworkInterfaceRequest extends Model
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $subnetId;
     protected $_name = [
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'regionId'           => 'RegionId',
-        'subnetId'           => 'SubnetId',
+        'regionId' => 'RegionId',
+        'subnetId' => 'SubnetId',
     ];
 
     public function validate()

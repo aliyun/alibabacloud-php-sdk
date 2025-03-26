@@ -12,53 +12,62 @@ class content extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $ipAddressMac;
+
     /**
      * @var string
      */
     public $ipName;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subnetId;
     protected $_name = [
-        'description'        => 'Description',
-        'gmtCreate'          => 'GmtCreate',
-        'ipAddressMac'       => 'IpAddressMac',
-        'ipName'             => 'IpName',
-        'message'            => 'Message',
+        'description' => 'Description',
+        'gmtCreate' => 'GmtCreate',
+        'ipAddressMac' => 'IpAddressMac',
+        'ipName' => 'IpName',
+        'message' => 'Message',
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'privateIpAddress'   => 'PrivateIpAddress',
-        'regionId'           => 'RegionId',
-        'status'             => 'Status',
-        'subnetId'           => 'SubnetId',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'subnetId' => 'SubnetId',
     ];
 
     public function validate()

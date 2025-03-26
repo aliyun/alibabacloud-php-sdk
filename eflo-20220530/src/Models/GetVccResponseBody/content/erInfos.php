@@ -12,63 +12,74 @@ class erInfos extends Model
      * @var int
      */
     public $connections;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $erName;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $masterZoneId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $routeMaps;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
-        'connections'  => 'Connections',
-        'createTime'   => 'CreateTime',
-        'description'  => 'Description',
-        'erId'         => 'ErId',
-        'erName'       => 'ErName',
-        'gmtModified'  => 'GmtModified',
+        'connections' => 'Connections',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'erId' => 'ErId',
+        'erName' => 'ErName',
+        'gmtModified' => 'GmtModified',
         'masterZoneId' => 'MasterZoneId',
-        'message'      => 'Message',
-        'regionId'     => 'RegionId',
-        'routeMaps'    => 'RouteMaps',
-        'status'       => 'Status',
-        'tenantId'     => 'TenantId',
+        'message' => 'Message',
+        'regionId' => 'RegionId',
+        'routeMaps' => 'RouteMaps',
+        'status' => 'Status',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

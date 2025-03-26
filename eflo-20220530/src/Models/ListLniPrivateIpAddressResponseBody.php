@@ -13,28 +13,32 @@ class ListLniPrivateIpAddressResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var int
      */
     public $code;
+
     /**
      * @var content
      */
     public $content;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'content'            => 'Content',
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
+        'code' => 'Code',
+        'content' => 'Content',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

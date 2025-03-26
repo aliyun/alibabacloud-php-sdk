@@ -13,88 +13,104 @@ class CreateVccRequest extends Model
      * @var bool
      */
     public $accessCouldService;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var int
      */
     public $bgpAsn;
+
     /**
      * @var string
      */
     public $bgpCidr;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var string
      */
     public $cenOwnerId;
+
     /**
      * @var string
      */
     public $connectionType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vccId;
+
     /**
      * @var string
      */
     public $vccName;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpdId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'accessCouldService' => 'AccessCouldService',
-        'bandwidth'          => 'Bandwidth',
-        'bgpAsn'             => 'BgpAsn',
-        'bgpCidr'            => 'BgpCidr',
-        'cenId'              => 'CenId',
-        'cenOwnerId'         => 'CenOwnerId',
-        'connectionType'     => 'ConnectionType',
-        'description'        => 'Description',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'tag'                => 'Tag',
-        'vSwitchId'          => 'VSwitchId',
-        'vccId'              => 'VccId',
-        'vccName'            => 'VccName',
-        'vpcId'              => 'VpcId',
-        'vpdId'              => 'VpdId',
-        'zoneId'             => 'ZoneId',
+        'bandwidth' => 'Bandwidth',
+        'bgpAsn' => 'BgpAsn',
+        'bgpCidr' => 'BgpCidr',
+        'cenId' => 'CenId',
+        'cenOwnerId' => 'CenOwnerId',
+        'connectionType' => 'ConnectionType',
+        'description' => 'Description',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag' => 'Tag',
+        'vSwitchId' => 'VSwitchId',
+        'vccId' => 'VccId',
+        'vccName' => 'VccName',
+        'vpcId' => 'VpcId',
+        'vpdId' => 'VpdId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -151,7 +167,7 @@ class CreateVccRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -236,7 +252,7 @@ class CreateVccRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

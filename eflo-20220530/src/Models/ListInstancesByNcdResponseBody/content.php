@@ -13,22 +13,25 @@ class content extends Model
      * @var instanceInfos[]
      */
     public $instanceInfos;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var int
      */
     public $maxNcd;
+
     /**
      * @var string
      */
     public $sourceInstanceId;
     protected $_name = [
-        'instanceInfos'    => 'InstanceInfos',
-        'instanceType'     => 'InstanceType',
-        'maxNcd'           => 'MaxNcd',
+        'instanceInfos' => 'InstanceInfos',
+        'instanceType' => 'InstanceType',
+        'maxNcd' => 'MaxNcd',
         'sourceInstanceId' => 'SourceInstanceId',
     ];
 
@@ -46,7 +49,7 @@ class content extends Model
         if (null !== $this->instanceInfos) {
             if (\is_array($this->instanceInfos)) {
                 $res['InstanceInfos'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->instanceInfos as $item1) {
                     $res['InstanceInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class content extends Model
         if (isset($map['InstanceInfos'])) {
             if (!empty($map['InstanceInfos'])) {
                 $model->instanceInfos = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['InstanceInfos'] as $item1) {
                     $model->instanceInfos[$n1++] = instanceInfos::fromMap($item1);
                 }

@@ -12,33 +12,38 @@ class privateIpAddressMacGroup extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $ipAddressMac;
+
     /**
      * @var string
      */
     public $ipName;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'description'      => 'Description',
-        'ipAddressMac'     => 'IpAddressMac',
-        'ipName'           => 'IpName',
-        'message'          => 'Message',
+        'description' => 'Description',
+        'ipAddressMac' => 'IpAddressMac',
+        'ipName' => 'IpName',
+        'message' => 'Message',
         'privateIpAddress' => 'PrivateIpAddress',
-        'status'           => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

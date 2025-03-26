@@ -14,103 +14,122 @@ class content extends Model
      * @var int
      */
     public $availableIps;
+
     /**
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $lbCount;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var int
      */
     public $ncCount;
+
     /**
      * @var int
      */
     public $networkInterfaceCount;
+
     /**
      * @var int
      */
     public $privateIpCount;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subnetId;
+
     /**
      * @var string
      */
     public $subnetName;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var vpdBaseInfo
      */
     public $vpdBaseInfo;
+
     /**
      * @var string
      */
     public $vpdId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'availableIps'          => 'AvailableIps',
-        'cidr'                  => 'Cidr',
-        'createTime'            => 'CreateTime',
-        'gmtModified'           => 'GmtModified',
-        'lbCount'               => 'LbCount',
-        'message'               => 'Message',
-        'ncCount'               => 'NcCount',
+        'availableIps' => 'AvailableIps',
+        'cidr' => 'Cidr',
+        'createTime' => 'CreateTime',
+        'gmtModified' => 'GmtModified',
+        'lbCount' => 'LbCount',
+        'message' => 'Message',
+        'ncCount' => 'NcCount',
         'networkInterfaceCount' => 'NetworkInterfaceCount',
-        'privateIpCount'        => 'PrivateIpCount',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'status'                => 'Status',
-        'subnetId'              => 'SubnetId',
-        'subnetName'            => 'SubnetName',
-        'tags'                  => 'Tags',
-        'tenantId'              => 'TenantId',
-        'type'                  => 'Type',
-        'vpdBaseInfo'           => 'VpdBaseInfo',
-        'vpdId'                 => 'VpdId',
-        'zoneId'                => 'ZoneId',
+        'privateIpCount' => 'PrivateIpCount',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'subnetId' => 'SubnetId',
+        'subnetName' => 'SubnetName',
+        'tags' => 'Tags',
+        'tenantId' => 'TenantId',
+        'type' => 'Type',
+        'vpdBaseInfo' => 'VpdBaseInfo',
+        'vpdId' => 'VpdId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -186,7 +205,7 @@ class content extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -283,7 +302,7 @@ class content extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

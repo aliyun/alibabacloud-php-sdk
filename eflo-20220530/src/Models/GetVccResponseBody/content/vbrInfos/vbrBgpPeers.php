@@ -12,28 +12,32 @@ class vbrBgpPeers extends Model
      * @var string
      */
     public $bgpGroupId;
+
     /**
      * @var string
      */
     public $bgpPeerId;
+
     /**
      * @var string
      */
     public $peerAsn;
+
     /**
      * @var string
      */
     public $peerIpAddress;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'bgpGroupId'    => 'BgpGroupId',
-        'bgpPeerId'     => 'BgpPeerId',
-        'peerAsn'       => 'PeerAsn',
+        'bgpGroupId' => 'BgpGroupId',
+        'bgpPeerId' => 'BgpPeerId',
+        'peerAsn' => 'PeerAsn',
         'peerIpAddress' => 'PeerIpAddress',
-        'status'        => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

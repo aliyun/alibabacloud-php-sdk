@@ -12,81 +12,96 @@ class ListErRouteMapsRequest extends Model
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var bool
      */
     public $enablePage;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $erRouteMapId;
+
     /**
      * @var int
      */
     public $erRouteMapNum;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $receptionInstanceId;
+
     /**
      * @var string
      */
     public $receptionInstanceName;
+
     /**
      * @var string
      */
     public $receptionInstanceType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $routeMapAction;
+
     /**
      * @var string
      */
     public $transmissionInstanceId;
+
     /**
      * @var string
      */
     public $transmissionInstanceName;
+
     /**
      * @var string
      */
     public $transmissionInstanceType;
     protected $_name = [
-        'destinationCidrBlock'     => 'DestinationCidrBlock',
-        'enablePage'               => 'EnablePage',
-        'erId'                     => 'ErId',
-        'erRouteMapId'             => 'ErRouteMapId',
-        'erRouteMapNum'            => 'ErRouteMapNum',
-        'pageNumber'               => 'PageNumber',
-        'pageSize'                 => 'PageSize',
-        'receptionInstanceId'      => 'ReceptionInstanceId',
-        'receptionInstanceName'    => 'ReceptionInstanceName',
-        'receptionInstanceType'    => 'ReceptionInstanceType',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'routeMapAction'           => 'RouteMapAction',
-        'transmissionInstanceId'   => 'TransmissionInstanceId',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'enablePage' => 'EnablePage',
+        'erId' => 'ErId',
+        'erRouteMapId' => 'ErRouteMapId',
+        'erRouteMapNum' => 'ErRouteMapNum',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'receptionInstanceId' => 'ReceptionInstanceId',
+        'receptionInstanceName' => 'ReceptionInstanceName',
+        'receptionInstanceType' => 'ReceptionInstanceType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'routeMapAction' => 'RouteMapAction',
+        'transmissionInstanceId' => 'TransmissionInstanceId',
         'transmissionInstanceName' => 'TransmissionInstanceName',
         'transmissionInstanceType' => 'TransmissionInstanceType',
     ];

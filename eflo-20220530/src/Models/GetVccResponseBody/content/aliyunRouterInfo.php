@@ -12,33 +12,38 @@ class aliyunRouterInfo extends Model
      * @var string
      */
     public $localGatewayIp;
+
     /**
      * @var string
      */
     public $mask;
+
     /**
      * @var string
      */
     public $pcId;
+
     /**
      * @var string
      */
     public $peerGatewayIp;
+
     /**
      * @var string
      */
     public $vbrId;
+
     /**
      * @var string
      */
     public $vlanId;
     protected $_name = [
         'localGatewayIp' => 'LocalGatewayIp',
-        'mask'           => 'Mask',
-        'pcId'           => 'PcId',
-        'peerGatewayIp'  => 'PeerGatewayIp',
-        'vbrId'          => 'VbrId',
-        'vlanId'         => 'VlanId',
+        'mask' => 'Mask',
+        'pcId' => 'PcId',
+        'peerGatewayIp' => 'PeerGatewayIp',
+        'vbrId' => 'VbrId',
+        'vlanId' => 'VlanId',
     ];
 
     public function validate()

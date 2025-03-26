@@ -13,73 +13,86 @@ class ListVccsRequest extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $cenId;
+
     /**
      * @var bool
      */
     public $enablePage;
+
     /**
      * @var string
      */
     public $exStatus;
+
     /**
      * @var string
      */
     public $filterErId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $vccId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpdId;
     protected $_name = [
-        'bandwidth'       => 'Bandwidth',
-        'cenId'           => 'CenId',
-        'enablePage'      => 'EnablePage',
-        'exStatus'        => 'ExStatus',
-        'filterErId'      => 'FilterErId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'bandwidth' => 'Bandwidth',
+        'cenId' => 'CenId',
+        'enablePage' => 'EnablePage',
+        'exStatus' => 'ExStatus',
+        'filterErId' => 'FilterErId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'status'          => 'Status',
-        'tag'             => 'Tag',
-        'vccId'           => 'VccId',
-        'vpcId'           => 'VpcId',
-        'vpdId'           => 'VpdId',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'vccId' => 'VccId',
+        'vpcId' => 'VpcId',
+        'vpdId' => 'VpdId',
     ];
 
     public function validate()
@@ -136,7 +149,7 @@ class ListVccsRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -209,7 +222,7 @@ class ListVccsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

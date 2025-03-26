@@ -12,18 +12,20 @@ class GetErRouteMapRequest extends Model
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $erRouteMapId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'erId'         => 'ErId',
+        'erId' => 'ErId',
         'erRouteMapId' => 'ErRouteMapId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

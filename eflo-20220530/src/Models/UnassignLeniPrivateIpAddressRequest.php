@@ -12,23 +12,26 @@ class UnassignLeniPrivateIpAddressRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $elasticNetworkInterfaceId;
+
     /**
      * @var string
      */
     public $ipName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'               => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
-        'ipName'                    => 'IpName',
-        'regionId'                  => 'RegionId',
+        'ipName' => 'IpName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

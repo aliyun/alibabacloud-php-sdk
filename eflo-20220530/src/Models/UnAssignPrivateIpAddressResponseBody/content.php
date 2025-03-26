@@ -12,12 +12,13 @@ class content extends Model
      * @var string
      */
     public $ipName;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
     protected $_name = [
-        'ipName'             => 'IpName',
+        'ipName' => 'IpName',
         'networkInterfaceId' => 'NetworkInterfaceId',
     ];
 

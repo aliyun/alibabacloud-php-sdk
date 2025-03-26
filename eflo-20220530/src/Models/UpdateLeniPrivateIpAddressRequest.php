@@ -12,23 +12,26 @@ class UpdateLeniPrivateIpAddressRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $elasticNetworkInterfaceId;
+
     /**
      * @var string
      */
     public $ipName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'description'               => 'Description',
+        'description' => 'Description',
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
-        'ipName'                    => 'IpName',
-        'regionId'                  => 'RegionId',
+        'ipName' => 'IpName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

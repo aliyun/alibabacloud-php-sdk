@@ -12,52 +12,61 @@ class ListErsRequest extends Model
      * @var bool
      */
     public $enablePage;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $erName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $masterZoneId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'enablePage'      => 'EnablePage',
-        'erId'            => 'ErId',
-        'erName'          => 'ErName',
-        'instanceId'      => 'InstanceId',
-        'instanceType'    => 'InstanceType',
-        'masterZoneId'    => 'MasterZoneId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'enablePage' => 'EnablePage',
+        'erId' => 'ErId',
+        'erName' => 'ErName',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'masterZoneId' => 'MasterZoneId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

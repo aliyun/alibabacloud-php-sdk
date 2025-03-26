@@ -12,33 +12,38 @@ class ListVccFlowInfosRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var int
      */
     public $from;
+
     /**
      * @var string
      */
     public $metricName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $to;
+
     /**
      * @var string
      */
     public $vccId;
     protected $_name = [
-        'direction'  => 'Direction',
-        'from'       => 'From',
+        'direction' => 'Direction',
+        'from' => 'From',
         'metricName' => 'MetricName',
-        'regionId'   => 'RegionId',
-        'to'         => 'To',
-        'vccId'      => 'VccId',
+        'regionId' => 'RegionId',
+        'to' => 'To',
+        'vccId' => 'VccId',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class RetryVccRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vccId;
     protected $_name = [
         'regionId' => 'RegionId',
-        'vccId'    => 'VccId',
+        'vccId' => 'VccId',
     ];
 
     public function validate()

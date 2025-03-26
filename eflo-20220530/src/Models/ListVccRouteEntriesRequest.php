@@ -12,68 +12,80 @@ class ListVccRouteEntriesRequest extends Model
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var bool
      */
     public $enablePage;
+
     /**
      * @var bool
      */
     public $ignoreDetailedRouteEntry;
+
     /**
      * @var string
      */
     public $nextHopId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $routeType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vccId;
+
     /**
      * @var string
      */
     public $vpdRouteEntryId;
     protected $_name = [
-        'destinationCidrBlock'     => 'DestinationCidrBlock',
-        'enablePage'               => 'EnablePage',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'enablePage' => 'EnablePage',
         'ignoreDetailedRouteEntry' => 'IgnoreDetailedRouteEntry',
-        'nextHopId'                => 'NextHopId',
-        'nextHopType'              => 'NextHopType',
-        'pageNumber'               => 'PageNumber',
-        'pageSize'                 => 'PageSize',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'routeType'                => 'RouteType',
-        'status'                   => 'Status',
-        'vccId'                    => 'VccId',
-        'vpdRouteEntryId'          => 'VpdRouteEntryId',
+        'nextHopId' => 'NextHopId',
+        'nextHopType' => 'NextHopType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'routeType' => 'RouteType',
+        'status' => 'Status',
+        'vccId' => 'VccId',
+        'vpdRouteEntryId' => 'VpdRouteEntryId',
     ];
 
     public function validate()

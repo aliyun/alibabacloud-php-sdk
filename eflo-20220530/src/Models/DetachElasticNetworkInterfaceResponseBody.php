@@ -12,23 +12,26 @@ class DetachElasticNetworkInterfaceResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

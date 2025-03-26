@@ -12,10 +12,12 @@ class GetSubnetRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $subnetId;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class GetSubnetRequest extends Model
     protected $_name = [
         'regionId' => 'RegionId',
         'subnetId' => 'SubnetId',
-        'vpdId'    => 'VpdId',
+        'vpdId' => 'VpdId',
     ];
 
     public function validate()

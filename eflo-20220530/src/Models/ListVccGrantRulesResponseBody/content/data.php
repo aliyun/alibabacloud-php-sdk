@@ -12,58 +12,68 @@ class data extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $grantRuleId;
+
     /**
      * @var string
      */
     public $grantTenantId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $product;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var bool
      */
     public $used;
     protected $_name = [
-        'createTime'      => 'CreateTime',
-        'erId'            => 'ErId',
-        'grantRuleId'     => 'GrantRuleId',
-        'grantTenantId'   => 'GrantTenantId',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'product'         => 'Product',
-        'regionId'        => 'RegionId',
+        'createTime' => 'CreateTime',
+        'erId' => 'ErId',
+        'grantRuleId' => 'GrantRuleId',
+        'grantTenantId' => 'GrantTenantId',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'product' => 'Product',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'tenantId'        => 'TenantId',
-        'used'            => 'Used',
+        'tenantId' => 'TenantId',
+        'used' => 'Used',
     ];
 
     public function validate()

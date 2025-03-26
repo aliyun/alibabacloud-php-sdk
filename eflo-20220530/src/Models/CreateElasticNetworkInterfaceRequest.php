@@ -12,48 +12,56 @@ class CreateElasticNetworkInterfaceRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enableJumboFrame;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'clientToken'      => 'ClientToken',
-        'description'      => 'Description',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
         'enableJumboFrame' => 'EnableJumboFrame',
-        'nodeId'           => 'NodeId',
-        'regionId'         => 'RegionId',
-        'securityGroupId'  => 'SecurityGroupId',
-        'vSwitchId'        => 'VSwitchId',
-        'vpcId'            => 'VpcId',
-        'zoneId'           => 'ZoneId',
+        'nodeId' => 'NodeId',
+        'regionId' => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

@@ -12,83 +12,98 @@ class erAttachments extends Model
      * @var bool
      */
     public $across;
+
     /**
      * @var bool
      */
     public $autoReceiveAllRoute;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $erAttachmentId;
+
     /**
      * @var string
      */
     public $erAttachmentName;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceTenantId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
-        'across'              => 'Across',
+        'across' => 'Across',
         'autoReceiveAllRoute' => 'AutoReceiveAllRoute',
-        'createTime'          => 'CreateTime',
-        'erAttachmentId'      => 'ErAttachmentId',
-        'erAttachmentName'    => 'ErAttachmentName',
-        'erId'                => 'ErId',
-        'gmtModified'         => 'GmtModified',
-        'instanceId'          => 'InstanceId',
-        'instanceName'        => 'InstanceName',
-        'instanceType'        => 'InstanceType',
-        'message'             => 'Message',
-        'regionId'            => 'RegionId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'resourceTenantId'    => 'ResourceTenantId',
-        'status'              => 'Status',
-        'tenantId'            => 'TenantId',
+        'createTime' => 'CreateTime',
+        'erAttachmentId' => 'ErAttachmentId',
+        'erAttachmentName' => 'ErAttachmentName',
+        'erId' => 'ErId',
+        'gmtModified' => 'GmtModified',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'instanceType' => 'InstanceType',
+        'message' => 'Message',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceTenantId' => 'ResourceTenantId',
+        'status' => 'Status',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

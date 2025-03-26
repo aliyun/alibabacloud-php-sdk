@@ -12,113 +12,134 @@ class content extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $erRouteMapId;
+
     /**
      * @var string
      */
     public $erRouteMapName;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $receptionInstanceId;
+
     /**
      * @var string
      */
     public $receptionInstanceName;
+
     /**
      * @var string
      */
     public $receptionInstanceOwner;
+
     /**
      * @var string
      */
     public $receptionInstanceType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $routeMapNum;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var string
      */
     public $transmissionInstanceId;
+
     /**
      * @var string
      */
     public $transmissionInstanceName;
+
     /**
      * @var string
      */
     public $transmissionInstanceOwner;
+
     /**
      * @var string
      */
     public $transmissionInstanceType;
     protected $_name = [
-        'action'                    => 'Action',
-        'description'               => 'Description',
-        'destinationCidrBlock'      => 'DestinationCidrBlock',
-        'erId'                      => 'ErId',
-        'erRouteMapId'              => 'ErRouteMapId',
-        'erRouteMapName'            => 'ErRouteMapName',
-        'gmtCreate'                 => 'GmtCreate',
-        'gmtModified'               => 'GmtModified',
-        'message'                   => 'Message',
-        'receptionInstanceId'       => 'ReceptionInstanceId',
-        'receptionInstanceName'     => 'ReceptionInstanceName',
-        'receptionInstanceOwner'    => 'ReceptionInstanceOwner',
-        'receptionInstanceType'     => 'ReceptionInstanceType',
-        'regionId'                  => 'RegionId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'routeMapNum'               => 'RouteMapNum',
-        'status'                    => 'Status',
-        'tenantId'                  => 'TenantId',
-        'transmissionInstanceId'    => 'TransmissionInstanceId',
-        'transmissionInstanceName'  => 'TransmissionInstanceName',
+        'action' => 'Action',
+        'description' => 'Description',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'erId' => 'ErId',
+        'erRouteMapId' => 'ErRouteMapId',
+        'erRouteMapName' => 'ErRouteMapName',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'message' => 'Message',
+        'receptionInstanceId' => 'ReceptionInstanceId',
+        'receptionInstanceName' => 'ReceptionInstanceName',
+        'receptionInstanceOwner' => 'ReceptionInstanceOwner',
+        'receptionInstanceType' => 'ReceptionInstanceType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'routeMapNum' => 'RouteMapNum',
+        'status' => 'Status',
+        'tenantId' => 'TenantId',
+        'transmissionInstanceId' => 'TransmissionInstanceId',
+        'transmissionInstanceName' => 'TransmissionInstanceName',
         'transmissionInstanceOwner' => 'TransmissionInstanceOwner',
-        'transmissionInstanceType'  => 'TransmissionInstanceType',
+        'transmissionInstanceType' => 'TransmissionInstanceType',
     ];
 
     public function validate()

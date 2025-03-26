@@ -14,103 +14,122 @@ class content extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $elasticNetworkInterfaceId;
+
     /**
      * @var bool
      */
     public $enableJumboFrame;
+
     /**
      * @var string
      */
     public $gateway;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var ipv6Addresses[]
      */
     public $ipv6Addresses;
+
     /**
      * @var string
      */
     public $mac;
+
     /**
      * @var string
      */
     public $mask;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var privateIpAddresses[]
      */
     public $privateIpAddresses;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'createTime'                => 'CreateTime',
-        'description'               => 'Description',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
-        'enableJumboFrame'          => 'EnableJumboFrame',
-        'gateway'                   => 'Gateway',
-        'gmtModified'               => 'GmtModified',
-        'ip'                        => 'Ip',
-        'ipv6Addresses'             => 'Ipv6Addresses',
-        'mac'                       => 'Mac',
-        'mask'                      => 'Mask',
-        'message'                   => 'Message',
-        'nodeId'                    => 'NodeId',
-        'privateIpAddresses'        => 'PrivateIpAddresses',
-        'regionId'                  => 'RegionId',
-        'securityGroupId'           => 'SecurityGroupId',
-        'status'                    => 'Status',
-        'type'                      => 'Type',
-        'vSwitchId'                 => 'VSwitchId',
-        'vpcId'                     => 'VpcId',
-        'zoneId'                    => 'ZoneId',
+        'enableJumboFrame' => 'EnableJumboFrame',
+        'gateway' => 'Gateway',
+        'gmtModified' => 'GmtModified',
+        'ip' => 'Ip',
+        'ipv6Addresses' => 'Ipv6Addresses',
+        'mac' => 'Mac',
+        'mask' => 'Mask',
+        'message' => 'Message',
+        'nodeId' => 'NodeId',
+        'privateIpAddresses' => 'PrivateIpAddresses',
+        'regionId' => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
+        'status' => 'Status',
+        'type' => 'Type',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -158,7 +177,7 @@ class content extends Model
         if (null !== $this->ipv6Addresses) {
             if (\is_array($this->ipv6Addresses)) {
                 $res['Ipv6Addresses'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->ipv6Addresses as $item1) {
                     $res['Ipv6Addresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -184,7 +203,7 @@ class content extends Model
         if (null !== $this->privateIpAddresses) {
             if (\is_array($this->privateIpAddresses)) {
                 $res['PrivateIpAddresses'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->privateIpAddresses as $item1) {
                     $res['PrivateIpAddresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -261,7 +280,7 @@ class content extends Model
         if (isset($map['Ipv6Addresses'])) {
             if (!empty($map['Ipv6Addresses'])) {
                 $model->ipv6Addresses = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['Ipv6Addresses'] as $item1) {
                     $model->ipv6Addresses[$n1++] = ipv6Addresses::fromMap($item1);
                 }
@@ -287,7 +306,7 @@ class content extends Model
         if (isset($map['PrivateIpAddresses'])) {
             if (!empty($map['PrivateIpAddresses'])) {
                 $model->privateIpAddresses = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['PrivateIpAddresses'] as $item1) {
                     $model->privateIpAddresses[$n1++] = privateIpAddresses::fromMap($item1);
                 }

@@ -12,23 +12,26 @@ class UpdateErAttachmentRequest extends Model
      * @var string
      */
     public $erAttachmentId;
+
     /**
      * @var string
      */
     public $erAttachmentName;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'erAttachmentId'   => 'ErAttachmentId',
+        'erAttachmentId' => 'ErAttachmentId',
         'erAttachmentName' => 'ErAttachmentName',
-        'erId'             => 'ErId',
-        'regionId'         => 'RegionId',
+        'erId' => 'ErId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

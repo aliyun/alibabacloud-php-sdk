@@ -12,57 +12,67 @@ class ListVccGrantRulesRequest extends Model
      * @var bool
      */
     public $enablePage;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var bool
      */
     public $forSelect;
+
     /**
      * @var string
      */
     public $grantRuleId;
+
     /**
      * @var string
      */
     public $grantTenantId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'enablePage'      => 'EnablePage',
-        'erId'            => 'ErId',
-        'forSelect'       => 'ForSelect',
-        'grantRuleId'     => 'GrantRuleId',
-        'grantTenantId'   => 'GrantTenantId',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'enablePage' => 'EnablePage',
+        'erId' => 'ErId',
+        'forSelect' => 'ForSelect',
+        'grantRuleId' => 'GrantRuleId',
+        'grantTenantId' => 'GrantTenantId',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

@@ -12,23 +12,26 @@ class CreateVpdGrantRuleRequest extends Model
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $grantTenantId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'erId'          => 'ErId',
+        'erId' => 'ErId',
         'grantTenantId' => 'GrantTenantId',
-        'instanceId'    => 'InstanceId',
-        'regionId'      => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

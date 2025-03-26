@@ -12,13 +12,14 @@ class GetVpdRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vpdId;
     protected $_name = [
         'regionId' => 'RegionId',
-        'vpdId'    => 'VpdId',
+        'vpdId' => 'VpdId',
     ];
 
     public function validate()

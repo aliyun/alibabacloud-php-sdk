@@ -12,17 +12,19 @@ class GetVpdRouteEntryRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vpdId;
+
     /**
      * @var string
      */
     public $vpdRouteEntryId;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'vpdId'           => 'VpdId',
+        'regionId' => 'RegionId',
+        'vpdId' => 'VpdId',
         'vpdRouteEntryId' => 'VpdRouteEntryId',
     ];
 

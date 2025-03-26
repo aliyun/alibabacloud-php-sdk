@@ -12,13 +12,14 @@ class instanceInfos extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $ncd;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'ncd'        => 'Ncd',
+        'ncd' => 'Ncd',
     ];
 
     public function validate()

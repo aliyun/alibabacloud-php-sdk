@@ -12,18 +12,20 @@ class UpdateVpdRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vpdId;
+
     /**
      * @var string
      */
     public $vpdName;
     protected $_name = [
         'regionId' => 'RegionId',
-        'vpdId'    => 'VpdId',
-        'vpdName'  => 'VpdName',
+        'vpdId' => 'VpdId',
+        'vpdName' => 'VpdName',
     ];
 
     public function validate()

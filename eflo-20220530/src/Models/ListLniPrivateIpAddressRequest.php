@@ -12,43 +12,50 @@ class ListLniPrivateIpAddressRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enablePage;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $ipName;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'description'        => 'Description',
-        'enablePage'         => 'EnablePage',
-        'ip'                 => 'Ip',
-        'ipName'             => 'IpName',
+        'description' => 'Description',
+        'enablePage' => 'EnablePage',
+        'ip' => 'Ip',
+        'ipName' => 'IpName',
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'regionId'           => 'RegionId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

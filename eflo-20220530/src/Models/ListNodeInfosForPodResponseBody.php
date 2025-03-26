@@ -13,28 +13,32 @@ class ListNodeInfosForPodResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var int
      */
     public $code;
+
     /**
      * @var content[]
      */
     public $content;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'content'            => 'Content',
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
+        'code' => 'Code',
+        'content' => 'Content',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class ListNodeInfosForPodResponseBody extends Model
         if (null !== $this->content) {
             if (\is_array($this->content)) {
                 $res['Content'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->content as $item1) {
                     $res['Content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class ListNodeInfosForPodResponseBody extends Model
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
                 $model->content = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Content'] as $item1) {
                     $model->content[$n1++] = content::fromMap($item1);
                 }

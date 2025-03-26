@@ -12,28 +12,32 @@ class UpdateVccRequest extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vccId;
+
     /**
      * @var string
      */
     public $vccName;
     protected $_name = [
         'bandwidth' => 'Bandwidth',
-        'orderId'   => 'OrderId',
-        'regionId'  => 'RegionId',
-        'vccId'     => 'VccId',
-        'vccName'   => 'VccName',
+        'orderId' => 'OrderId',
+        'regionId' => 'RegionId',
+        'vccId' => 'VccId',
+        'vccName' => 'VccName',
     ];
 
     public function validate()

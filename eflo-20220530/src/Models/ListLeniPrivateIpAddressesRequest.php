@@ -12,38 +12,44 @@ class ListLeniPrivateIpAddressesRequest extends Model
      * @var string
      */
     public $elasticNetworkInterfaceId;
+
     /**
      * @var string
      */
     public $ipName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
-        'ipName'                    => 'IpName',
-        'pageNumber'                => 'PageNumber',
-        'pageSize'                  => 'PageSize',
-        'privateIpAddress'          => 'PrivateIpAddress',
-        'regionId'                  => 'RegionId',
-        'status'                    => 'Status',
+        'ipName' => 'IpName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
     ];
 
     public function validate()

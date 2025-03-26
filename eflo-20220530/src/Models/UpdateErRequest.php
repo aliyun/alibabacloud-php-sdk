@@ -12,23 +12,26 @@ class UpdateErRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $erName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'description' => 'Description',
-        'erId'        => 'ErId',
-        'erName'      => 'ErName',
-        'regionId'    => 'RegionId',
+        'erId' => 'ErId',
+        'erName' => 'ErName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

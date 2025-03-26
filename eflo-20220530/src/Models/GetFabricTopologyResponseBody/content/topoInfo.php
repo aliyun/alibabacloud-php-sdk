@@ -12,10 +12,12 @@ class topoInfo extends Model
      * @var string
      */
     public $layerName;
+
     /**
      * @var string
      */
     public $layerType;
+
     /**
      * @var mixed[]
      */
@@ -48,7 +50,7 @@ class topoInfo extends Model
         if (null !== $this->nextLayer) {
             if (\is_array($this->nextLayer)) {
                 $res['NextLayer'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->nextLayer as $item1) {
                     $res['NextLayer'][$n1++] = $item1;
                 }
@@ -77,7 +79,7 @@ class topoInfo extends Model
         if (isset($map['NextLayer'])) {
             if (!empty($map['NextLayer'])) {
                 $model->nextLayer = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['NextLayer'] as $item1) {
                     $model->nextLayer[$n1++] = $item1;
                 }

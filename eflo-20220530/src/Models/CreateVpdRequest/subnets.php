@@ -12,28 +12,32 @@ class subnets extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $subnetName;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'cidr'       => 'Cidr',
-        'regionId'   => 'RegionId',
+        'cidr' => 'Cidr',
+        'regionId' => 'RegionId',
         'subnetName' => 'SubnetName',
-        'type'       => 'Type',
-        'zoneId'     => 'ZoneId',
+        'type' => 'Type',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

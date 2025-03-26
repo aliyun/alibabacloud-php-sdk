@@ -12,12 +12,13 @@ class GetErRequest extends Model
      * @var string
      */
     public $erId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'erId'     => 'ErId',
+        'erId' => 'ErId',
         'regionId' => 'RegionId',
     ];
 

@@ -12,63 +12,74 @@ class content extends Model
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $nextHopId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $routeType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var string
      */
     public $vccId;
+
     /**
      * @var string
      */
     public $vccRouteEntryId;
     protected $_name = [
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'gmtModified'          => 'GmtModified',
-        'message'              => 'Message',
-        'nextHopId'            => 'NextHopId',
-        'nextHopType'          => 'NextHopType',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'routeType'            => 'RouteType',
-        'status'               => 'Status',
-        'tenantId'             => 'TenantId',
-        'vccId'                => 'VccId',
-        'vccRouteEntryId'      => 'VccRouteEntryId',
+        'gmtModified' => 'GmtModified',
+        'message' => 'Message',
+        'nextHopId' => 'NextHopId',
+        'nextHopType' => 'NextHopType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'routeType' => 'RouteType',
+        'status' => 'Status',
+        'tenantId' => 'TenantId',
+        'vccId' => 'VccId',
+        'vccRouteEntryId' => 'VccRouteEntryId',
     ];
 
     public function validate()

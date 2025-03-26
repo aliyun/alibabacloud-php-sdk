@@ -12,23 +12,26 @@ class QueryInstanceNcdRequest extends Model
      * @var string
      */
     public $instanceId1;
+
     /**
      * @var string
      */
     public $instanceId2;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'instanceId1'  => 'InstanceId1',
-        'instanceId2'  => 'InstanceId2',
+        'instanceId1' => 'InstanceId1',
+        'instanceId2' => 'InstanceId2',
         'instanceType' => 'InstanceType',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class AttachElasticNetworkInterfaceRequest extends Model
      * @var string
      */
     public $elasticNetworkInterfaceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'elasticNetworkInterfaceId' => 'ElasticNetworkInterfaceId',
-        'nodeId'                    => 'NodeId',
-        'regionId'                  => 'RegionId',
+        'nodeId' => 'NodeId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

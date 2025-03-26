@@ -12,23 +12,26 @@ class ListNodeInfosForPodRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'nodeId'    => 'NodeId',
-        'regionId'  => 'RegionId',
-        'zoneId'    => 'ZoneId',
+        'nodeId' => 'NodeId',
+        'regionId' => 'RegionId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

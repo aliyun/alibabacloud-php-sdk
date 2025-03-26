@@ -13,38 +13,44 @@ class CreateSubnetRequest extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $subnetName;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $vpdId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'cidr'       => 'Cidr',
-        'regionId'   => 'RegionId',
+        'cidr' => 'Cidr',
+        'regionId' => 'RegionId',
         'subnetName' => 'SubnetName',
-        'tag'        => 'Tag',
-        'type'       => 'Type',
-        'vpdId'      => 'VpdId',
-        'zoneId'     => 'ZoneId',
+        'tag' => 'Tag',
+        'type' => 'Type',
+        'vpdId' => 'VpdId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -73,7 +79,7 @@ class CreateSubnetRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -118,7 +124,7 @@ class CreateSubnetRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

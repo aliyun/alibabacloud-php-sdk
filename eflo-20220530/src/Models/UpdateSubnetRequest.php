@@ -12,28 +12,32 @@ class UpdateSubnetRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $subnetId;
+
     /**
      * @var string
      */
     public $subnetName;
+
     /**
      * @var string
      */
     public $vpdId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'subnetId'   => 'SubnetId',
+        'regionId' => 'RegionId',
+        'subnetId' => 'SubnetId',
         'subnetName' => 'SubnetName',
-        'vpdId'      => 'VpdId',
-        'zoneId'     => 'ZoneId',
+        'vpdId' => 'VpdId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

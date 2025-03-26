@@ -12,33 +12,38 @@ class UnAssignPrivateIpAddressRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ipName;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $subnetId;
     protected $_name = [
-        'clientToken'        => 'ClientToken',
-        'ipName'             => 'IpName',
+        'clientToken' => 'ClientToken',
+        'ipName' => 'IpName',
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'privateIpAddress'   => 'PrivateIpAddress',
-        'regionId'           => 'RegionId',
-        'subnetId'           => 'SubnetId',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'regionId' => 'RegionId',
+        'subnetId' => 'SubnetId',
     ];
 
     public function validate()
