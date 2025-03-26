@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivitiesResponseBody\scalingActivities;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class errorMessages extends Model
 {
     /**
-     * @description The error code that is returned when the scaling activity failed.
-     *
-     * @example OperationDenied.NoStock
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The description of the scaling activity exception.
-     *
-     * @example Fail to create instances into scaling group.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The IDs of the instances included in the failed scaling activities.
-     *
      * @var string[]
      */
     public $failedInstanceIds;
 
     /**
-     * @description The error message that is returned when the scaling activity failed or is partially successful.
-     *
-     * @example The resource is out of stock in the specified zone. Please try other types, or choose other regions and zones.
-     *
      * @var string
      */
     public $message;
@@ -48,20 +34,35 @@ class errorMessages extends Model
         'message' => 'Message',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->failedInstanceIds)) {
+            Model::validateArray($this->failedInstanceIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->failedInstanceIds) {
-            $res['FailedInstanceIds'] = $this->failedInstanceIds;
+            if (\is_array($this->failedInstanceIds)) {
+                $res['FailedInstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->failedInstanceIds as $item1) {
+                    $res['FailedInstanceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -69,25 +70,32 @@ class errorMessages extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return errorMessages
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FailedInstanceIds'])) {
             if (!empty($map['FailedInstanceIds'])) {
-                $model->failedInstanceIds = $map['FailedInstanceIds'];
+                $model->failedInstanceIds = [];
+                $n1 = 0;
+                foreach ($map['FailedInstanceIds'] as $item1) {
+                    $model->failedInstanceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

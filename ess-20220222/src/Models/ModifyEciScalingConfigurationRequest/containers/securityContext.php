@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\containers;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\containers\securityContext\capability;
-use AlibabaCloud\Tea\Model;
 
 class securityContext extends Model
 {
@@ -29,17 +29,25 @@ class securityContext extends Model
         'runAsUser' => 'RunAsUser',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->capability) {
+            $this->capability->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->capability) {
-            $res['Capability'] = null !== $this->capability ? $this->capability->toMap() : null;
+            $res['Capability'] = null !== $this->capability ? $this->capability->toArray($noStream) : $this->capability;
         }
+
         if (null !== $this->readOnlyRootFilesystem) {
             $res['ReadOnlyRootFilesystem'] = $this->readOnlyRootFilesystem;
         }
+
         if (null !== $this->runAsUser) {
             $res['RunAsUser'] = $this->runAsUser;
         }
@@ -47,20 +55,22 @@ class securityContext extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityContext
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Capability'])) {
             $model->capability = capability::fromMap($map['Capability']);
         }
+
         if (isset($map['ReadOnlyRootFilesystem'])) {
             $model->readOnlyRootFilesystem = $map['ReadOnlyRootFilesystem'];
         }
+
         if (isset($map['RunAsUser'])) {
             $model->runAsUser = $map['RunAsUser'];
         }

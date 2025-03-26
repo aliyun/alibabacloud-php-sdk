@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\initContainers\securityContext;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class capability extends Model
 {
@@ -16,29 +16,45 @@ class capability extends Model
         'adds' => 'Adds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->adds)) {
+            Model::validateArray($this->adds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adds) {
-            $res['Adds'] = $this->adds;
+            if (\is_array($this->adds)) {
+                $res['Adds'] = [];
+                $n1 = 0;
+                foreach ($this->adds as $item1) {
+                    $res['Adds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return capability
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Adds'])) {
             if (!empty($map['Adds'])) {
-                $model->adds = $map['Adds'];
+                $model->adds = [];
+                $n1 = 0;
+                foreach ($map['Adds'] as $item1) {
+                    $model->adds[$n1++] = $item1;
+                }
             }
         }
 

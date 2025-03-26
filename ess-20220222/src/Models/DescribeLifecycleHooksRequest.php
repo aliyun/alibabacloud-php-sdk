@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLifecycleHooksRequest extends Model
 {
     /**
-     * @description The IDs of the lifecycle hooks that you want to query.
-     *
      * @var string[]
      */
     public $lifecycleHookIds;
 
     /**
-     * @description The name of the lifecycle hook.
-     *
-     * @example lifecyclehook****
-     *
      * @var string
      */
     public $lifecycleHookName;
@@ -35,32 +29,16 @@ class DescribeLifecycleHooksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
-     *
-     * Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 50.
-     *
-     * Default value: 50.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The region ID of the scaling group.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
@@ -71,10 +49,6 @@ class DescribeLifecycleHooksRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The ID of the scaling group.
-     *
-     * @example asg-bp1igpak5ft1flyp****
-     *
      * @var string
      */
     public $scalingGroupId;
@@ -90,35 +64,55 @@ class DescribeLifecycleHooksRequest extends Model
         'scalingGroupId' => 'ScalingGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->lifecycleHookIds)) {
+            Model::validateArray($this->lifecycleHookIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lifecycleHookIds) {
-            $res['LifecycleHookIds'] = $this->lifecycleHookIds;
+            if (\is_array($this->lifecycleHookIds)) {
+                $res['LifecycleHookIds'] = [];
+                $n1 = 0;
+                foreach ($this->lifecycleHookIds as $item1) {
+                    $res['LifecycleHookIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->lifecycleHookName) {
             $res['LifecycleHookName'] = $this->lifecycleHookName;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
         }
@@ -126,40 +120,52 @@ class DescribeLifecycleHooksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLifecycleHooksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LifecycleHookIds'])) {
             if (!empty($map['LifecycleHookIds'])) {
-                $model->lifecycleHookIds = $map['LifecycleHookIds'];
+                $model->lifecycleHookIds = [];
+                $n1 = 0;
+                foreach ($map['LifecycleHookIds'] as $item1) {
+                    $model->lifecycleHookIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['LifecycleHookName'])) {
             $model->lifecycleHookName = $map['LifecycleHookName'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
         }

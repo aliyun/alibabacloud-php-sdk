@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailResponseBody\scalingConfiguration\initContainers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class initContainerPorts extends Model
 {
     /**
-     * @description The port number. Valid values: 1 to 65535.
-     *
-     * @example 1024
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @description The protocol type. Valid values:
-     *
-     *   TCP
-     *   UDP
-     *
-     * @example UDP
-     *
      * @var string
      */
     public $protocol;
@@ -33,14 +22,18 @@ class initContainerPorts extends Model
         'protocol' => 'Protocol',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -48,17 +41,18 @@ class initContainerPorts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return initContainerPorts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

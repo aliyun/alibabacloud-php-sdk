@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartInstanceRefreshResponseBody extends Model
 {
     /**
-     * @description The ID of the instance refresh task.
-     *
-     * @example ir-a12ds234fasd*****
-     *
      * @var string
      */
     public $instanceRefreshTaskId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class StartInstanceRefreshResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceRefreshTaskId) {
             $res['InstanceRefreshTaskId'] = $this->instanceRefreshTaskId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class StartInstanceRefreshResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartInstanceRefreshResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceRefreshTaskId'])) {
             $model->instanceRefreshTaskId = $map['InstanceRefreshTaskId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

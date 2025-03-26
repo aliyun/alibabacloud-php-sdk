@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\CreateEciScalingConfigurationRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class imageRegistryCredentials extends Model
 {
     /**
-     * @description The password of the image repository.
-     *
-     * @example yourpaasword
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description The endpoint of the image repository.
-     *
-     * @example registry-vpc.cn-shanghai.aliyuncs.com
-     *
      * @var string
      */
     public $server;
 
     /**
-     * @description The username of the image repository.
-     *
-     * @example yourusername
-     *
      * @var string
      */
     public $userName;
@@ -40,17 +28,22 @@ class imageRegistryCredentials extends Model
         'userName' => 'UserName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->server) {
             $res['Server'] = $this->server;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -58,20 +51,22 @@ class imageRegistryCredentials extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageRegistryCredentials
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['Server'])) {
             $model->server = $map['Server'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

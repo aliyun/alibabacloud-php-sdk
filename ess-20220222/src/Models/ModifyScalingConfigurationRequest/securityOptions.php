@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class securityOptions extends Model
 {
     /**
-     * @description The confidential computing mode. Valid values:
-     *
-     *   Enclave: An enclave-based confidential computing environment is built on the instance. For more information, see [Build a confidential computing environment by using Enclave](https://help.aliyun.com/document_detail/203433.html).
-     *   TDX: A Trust Domain Extensions (TDX) confidential computing environment is built on the instance. For more information, see [Build a TDX confidential computing environment](https://help.aliyun.com/document_detail/479090.html).
-     *
-     * @example TDX
-     *
      * @var string
      */
     public $confidentialComputingMode;
@@ -23,9 +16,12 @@ class securityOptions extends Model
         'confidentialComputingMode' => 'ConfidentialComputingMode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->confidentialComputingMode) {
@@ -35,11 +31,11 @@ class securityOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,25 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DetachVServerGroupsRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DetachVServerGroupsRequest\VServerGroups\VServerGroupAttributes;
-use AlibabaCloud\Tea\Model;
 
 class VServerGroups extends Model
 {
     /**
-     * @description The ID of the load balancer to which the vServer group belongs.
-     *
-     * >  You can detach vServer groups of up to five load balancers from a scaling group in one call.
-     *
-     * @example lb-bp1p90y3ya9h8s62d****
-     *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description The attributes of the backend vServer group.
-     *
      * @var VServerGroupAttributes[]
      */
     public $VServerGroupAttributes;
@@ -31,20 +23,27 @@ class VServerGroups extends Model
         'VServerGroupAttributes' => 'VServerGroupAttributes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->VServerGroupAttributes)) {
+            Model::validateArray($this->VServerGroupAttributes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
         }
+
         if (null !== $this->VServerGroupAttributes) {
-            $res['VServerGroupAttributes'] = [];
-            if (null !== $this->VServerGroupAttributes && \is_array($this->VServerGroupAttributes)) {
-                $n = 0;
-                foreach ($this->VServerGroupAttributes as $item) {
-                    $res['VServerGroupAttributes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->VServerGroupAttributes)) {
+                $res['VServerGroupAttributes'] = [];
+                $n1 = 0;
+                foreach ($this->VServerGroupAttributes as $item1) {
+                    $res['VServerGroupAttributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +51,24 @@ class VServerGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VServerGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
         }
+
         if (isset($map['VServerGroupAttributes'])) {
             if (!empty($map['VServerGroupAttributes'])) {
                 $model->VServerGroupAttributes = [];
-                $n = 0;
-                foreach ($map['VServerGroupAttributes'] as $item) {
-                    $model->VServerGroupAttributes[$n++] = null !== $item ? VServerGroupAttributes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VServerGroupAttributes'] as $item1) {
+                    $model->VServerGroupAttributes[$n1++] = VServerGroupAttributes::fromMap($item1);
                 }
             }
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingRuleRequest\hybridMetrics;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dimensions extends Model
 {
     /**
-     * @description The key of the metric dimension.
-     *
-     * @example queue
-     *
      * @var string
      */
     public $dimensionKey;
 
     /**
-     * @description The value of the metric dimension.
-     *
-     * @example testQueue
-     *
      * @var string
      */
     public $dimensionValue;
@@ -30,14 +22,18 @@ class dimensions extends Model
         'dimensionValue' => 'DimensionValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dimensionKey) {
             $res['DimensionKey'] = $this->dimensionKey;
         }
+
         if (null !== $this->dimensionValue) {
             $res['DimensionValue'] = $this->dimensionValue;
         }
@@ -45,17 +41,18 @@ class dimensions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dimensions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DimensionKey'])) {
             $model->dimensionKey = $map['DimensionKey'];
         }
+
         if (isset($map['DimensionValue'])) {
             $model->dimensionValue = $map['DimensionValue'];
         }
