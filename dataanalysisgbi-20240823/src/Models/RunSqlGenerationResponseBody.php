@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\RunSqlGenerationResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class RunSqlGenerationResponseBody extends Model
 {
@@ -17,23 +17,29 @@ class RunSqlGenerationResponseBody extends Model
         'data' => 'data',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunSqlGenerationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

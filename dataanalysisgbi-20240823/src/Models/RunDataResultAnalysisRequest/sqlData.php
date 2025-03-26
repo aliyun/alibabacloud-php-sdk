@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\RunDataResultAnalysisRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sqlData extends Model
 {
@@ -22,37 +22,78 @@ class sqlData extends Model
         'data' => 'data',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->column)) {
+            Model::validateArray($this->column);
+        }
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->column) {
-            $res['column'] = $this->column;
+            if (\is_array($this->column)) {
+                $res['column'] = [];
+                $n1 = 0;
+                foreach ($this->column as $item1) {
+                    $res['column'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->data) {
-            $res['data'] = $this->data;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    if (\is_array($item1)) {
+                        $res['data'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['data'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sqlData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['column'])) {
             if (!empty($map['column'])) {
-                $model->column = $map['column'];
+                $model->column = [];
+                $n1 = 0;
+                foreach ($map['column'] as $item1) {
+                    $model->column[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
-                $model->data = $map['data'];
+                $model->data = [];
+                $n1 = 0;
+                foreach ($map['data'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->data[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->data[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
 

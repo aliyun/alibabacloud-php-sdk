@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateColumnRequest extends Model
 {
@@ -14,10 +14,6 @@ class UpdateColumnRequest extends Model
     public $chineseName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example column-AAAAAAAAh6cWOUPagYstkg
-     *
      * @var string
      */
     public $columnIdKey;
@@ -28,10 +24,6 @@ class UpdateColumnRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $enumType;
@@ -42,15 +34,11 @@ class UpdateColumnRequest extends Model
     public $enumValues;
 
     /**
-     * @example 2000
-     *
      * @var int
      */
     public $rangeMax;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $rangeMin;
@@ -61,19 +49,11 @@ class UpdateColumnRequest extends Model
     public $samples;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example table-AAAAAAAAFQBwSLJkUj4CYg
-     *
      * @var string
      */
     public $tableIdKey;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-2v3934xtp49esw64
-     *
      * @var string
      */
     public $workspaceId;
@@ -90,38 +70,68 @@ class UpdateColumnRequest extends Model
         'workspaceId' => 'workspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->enumValues)) {
+            Model::validateArray($this->enumValues);
+        }
+        if (\is_array($this->samples)) {
+            Model::validateArray($this->samples);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chineseName) {
             $res['chineseName'] = $this->chineseName;
         }
+
         if (null !== $this->columnIdKey) {
             $res['columnIdKey'] = $this->columnIdKey;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->enumType) {
             $res['enumType'] = $this->enumType;
         }
+
         if (null !== $this->enumValues) {
-            $res['enumValues'] = $this->enumValues;
+            if (\is_array($this->enumValues)) {
+                $res['enumValues'] = [];
+                $n1 = 0;
+                foreach ($this->enumValues as $item1) {
+                    $res['enumValues'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->rangeMax) {
             $res['rangeMax'] = $this->rangeMax;
         }
+
         if (null !== $this->rangeMin) {
             $res['rangeMin'] = $this->rangeMin;
         }
+
         if (null !== $this->samples) {
-            $res['samples'] = $this->samples;
+            if (\is_array($this->samples)) {
+                $res['samples'] = [];
+                $n1 = 0;
+                foreach ($this->samples as $item1) {
+                    $res['samples'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->tableIdKey) {
             $res['tableIdKey'] = $this->tableIdKey;
         }
+
         if (null !== $this->workspaceId) {
             $res['workspaceId'] = $this->workspaceId;
         }
@@ -129,45 +139,62 @@ class UpdateColumnRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateColumnRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['chineseName'])) {
             $model->chineseName = $map['chineseName'];
         }
+
         if (isset($map['columnIdKey'])) {
             $model->columnIdKey = $map['columnIdKey'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['enumType'])) {
             $model->enumType = $map['enumType'];
         }
+
         if (isset($map['enumValues'])) {
             if (!empty($map['enumValues'])) {
-                $model->enumValues = $map['enumValues'];
+                $model->enumValues = [];
+                $n1 = 0;
+                foreach ($map['enumValues'] as $item1) {
+                    $model->enumValues[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['rangeMax'])) {
             $model->rangeMax = $map['rangeMax'];
         }
+
         if (isset($map['rangeMin'])) {
             $model->rangeMin = $map['rangeMin'];
         }
+
         if (isset($map['samples'])) {
             if (!empty($map['samples'])) {
-                $model->samples = $map['samples'];
+                $model->samples = [];
+                $n1 = 0;
+                foreach ($map['samples'] as $item1) {
+                    $model->samples[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['tableIdKey'])) {
             $model->tableIdKey = $map['tableIdKey'];
         }
+
         if (isset($map['workspaceId'])) {
             $model->workspaceId = $map['workspaceId'];
         }

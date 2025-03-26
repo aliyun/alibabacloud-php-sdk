@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateBusinessLogicRequest extends Model
 {
@@ -14,17 +14,11 @@ class CreateBusinessLogicRequest extends Model
     public $description;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $type;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-2v3934xtp49esw64
-     *
      * @var string
      */
     public $workspaceId;
@@ -34,17 +28,22 @@ class CreateBusinessLogicRequest extends Model
         'workspaceId' => 'workspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->workspaceId) {
             $res['workspaceId'] = $this->workspaceId;
         }
@@ -52,20 +51,22 @@ class CreateBusinessLogicRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateBusinessLogicRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['workspaceId'])) {
             $model->workspaceId = $map['workspaceId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSynonymsRequest extends Model
 {
@@ -14,33 +14,21 @@ class UpdateSynonymsRequest extends Model
     public $columns;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example synonyms-AAAAAAAAAUpwTTVrwTFJwQ
-     *
      * @var string
      */
     public $synonymIdKey;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $word;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $wordSynonyms;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example llm-2v3934xtp49esw64
-     *
      * @var string
      */
     public $workspaceId;
@@ -52,23 +40,48 @@ class UpdateSynonymsRequest extends Model
         'workspaceId' => 'workspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->columns)) {
+            Model::validateArray($this->columns);
+        }
+        if (\is_array($this->wordSynonyms)) {
+            Model::validateArray($this->wordSynonyms);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columns) {
-            $res['columns'] = $this->columns;
+            if (\is_array($this->columns)) {
+                $res['columns'] = [];
+                $n1 = 0;
+                foreach ($this->columns as $item1) {
+                    $res['columns'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->synonymIdKey) {
             $res['synonymIdKey'] = $this->synonymIdKey;
         }
+
         if (null !== $this->word) {
             $res['word'] = $this->word;
         }
+
         if (null !== $this->wordSynonyms) {
-            $res['wordSynonyms'] = $this->wordSynonyms;
+            if (\is_array($this->wordSynonyms)) {
+                $res['wordSynonyms'] = [];
+                $n1 = 0;
+                foreach ($this->wordSynonyms as $item1) {
+                    $res['wordSynonyms'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->workspaceId) {
             $res['workspaceId'] = $this->workspaceId;
         }
@@ -76,30 +89,42 @@ class UpdateSynonymsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSynonymsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['columns'])) {
             if (!empty($map['columns'])) {
-                $model->columns = $map['columns'];
+                $model->columns = [];
+                $n1 = 0;
+                foreach ($map['columns'] as $item1) {
+                    $model->columns[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['synonymIdKey'])) {
             $model->synonymIdKey = $map['synonymIdKey'];
         }
+
         if (isset($map['word'])) {
             $model->word = $map['word'];
         }
+
         if (isset($map['wordSynonyms'])) {
             if (!empty($map['wordSynonyms'])) {
-                $model->wordSynonyms = $map['wordSynonyms'];
+                $model->wordSynonyms = [];
+                $n1 = 0;
+                foreach ($map['wordSynonyms'] as $item1) {
+                    $model->wordSynonyms[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['workspaceId'])) {
             $model->workspaceId = $map['workspaceId'];
         }

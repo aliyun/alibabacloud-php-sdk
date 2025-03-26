@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunDataAnalysisRequest extends Model
 {
@@ -19,29 +19,21 @@ class RunDataAnalysisRequest extends Model
     public $dataRole;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $generateSqlOnly;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $query;
 
     /**
-     * @example sessionID
-     *
      * @var string
      */
     public $sessionId;
 
     /**
-     * @example STANDARD_MIX
-     *
      * @var string
      */
     public $specificationType;
@@ -60,29 +52,47 @@ class RunDataAnalysisRequest extends Model
         'userParams' => 'userParams',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataRole)) {
+            Model::validateArray($this->dataRole);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentCtrlParams) {
             $res['agentCtrlParams'] = $this->agentCtrlParams;
         }
+
         if (null !== $this->dataRole) {
-            $res['dataRole'] = $this->dataRole;
+            if (\is_array($this->dataRole)) {
+                $res['dataRole'] = [];
+                $n1 = 0;
+                foreach ($this->dataRole as $item1) {
+                    $res['dataRole'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->generateSqlOnly) {
             $res['generateSqlOnly'] = $this->generateSqlOnly;
         }
+
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
+
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
+
         if (null !== $this->specificationType) {
             $res['specificationType'] = $this->specificationType;
         }
+
         if (null !== $this->userParams) {
             $res['userParams'] = $this->userParams;
         }
@@ -90,34 +100,44 @@ class RunDataAnalysisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunDataAnalysisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['agentCtrlParams'])) {
             $model->agentCtrlParams = $map['agentCtrlParams'];
         }
+
         if (isset($map['dataRole'])) {
             if (!empty($map['dataRole'])) {
-                $model->dataRole = $map['dataRole'];
+                $model->dataRole = [];
+                $n1 = 0;
+                foreach ($map['dataRole'] as $item1) {
+                    $model->dataRole[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['generateSqlOnly'])) {
             $model->generateSqlOnly = $map['generateSqlOnly'];
         }
+
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
+
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }
+
         if (isset($map['specificationType'])) {
             $model->specificationType = $map['specificationType'];
         }
+
         if (isset($map['userParams'])) {
             $model->userParams = $map['userParams'];
         }
